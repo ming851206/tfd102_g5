@@ -1,10 +1,10 @@
 //待修正==========
-@mixin if_bgc {
-    @if( background-color = $main_br ){
+@mixin if_bgc{
+    @if background-color = $main_br {
         color:$main_ivory;
-    }@else if(background-color = $main_ivory){
+    }@else if $background-color = 'white'{
         color:$main_br;
-    }
+    };
 }
 //================
 
@@ -28,7 +28,7 @@
     @include btn;
     @include word_center(212px, 42px);
     background-color: $main_br;
-    color: $main_ivory;
+    @include if_bgc;
     &:hover{
         background-color: darken($color: $main_br, $amount: 10%);
     }
@@ -38,7 +38,7 @@
     @include btn;
     @include word_center(212px, 42px);
     background-color: $main_ivory;
-    color: $main_br;
+    color:$main_br;
     filter: drop-shadow(0 0 8px rgb(175, 175, 175));
     &:hover{
         background-color: darken($color: $main_ivory, $amount: 1%);
@@ -54,8 +54,8 @@
     @include word_center(212px, 42px);
     background-color: white;
     border: 1px solid $main_br;
+    color:$main_br;
     border-radius:$borderRadius_m_btn;
-    color: $main_br;
     &:active{
         background-color: darken($color: white, $amount: 5%);
     }
@@ -110,5 +110,11 @@
     border:1px solid $main_br;
     &:hover{
         background-color: darken($color: white, $amount: 10%);
+    }
+}
+
+@include mobile{
+    .btnL, .btnL_light, .btnM, .btnM_light,.btnM_line ,.btnS{
+        border-radius:$borderRadius_m_btn; 
     }
 }

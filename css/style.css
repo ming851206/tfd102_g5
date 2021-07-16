@@ -129,6 +129,21 @@ p {
   }
 }
 
+h1 {
+  margin: 25px;
+  display: none;
+}
+
+h1 img {
+  height: 37px;
+}
+
+@media all and (max-width: 576px) {
+  h1 {
+    display: block;
+  }
+}
+
 a, img, input {
   display: inline-block;
 }
@@ -187,8 +202,8 @@ a, img, input {
   line-height: 42px;
   background-color: white;
   border: 1px solid #996A4D;
-  border-radius: 5px;
   color: #996A4D;
+  border-radius: 5px;
 }
 
 .btnL_line:active {
@@ -280,5 +295,11 @@ a, img, input {
 
 .btnS_line:hover {
   background-color: #e6e6e6;
+}
+
+@media all and (max-width: 576px) {
+  .btnL, .btnL_light, .btnM, .btnM_light, .btnM_line, .btnS {
+    border-radius: 5px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

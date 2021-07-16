@@ -1,6 +1,6 @@
 
 //=====RWD系列=====
-@mixin moblie { //手機:575以下
+@mixin mobile { //手機:575以下
     @media all and (max-width : $mobile ) {
        @content 
     }

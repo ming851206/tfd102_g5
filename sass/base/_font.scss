@@ -47,3 +47,16 @@ p{
     @include font-size($font_m_map);
  }
 
+//logo
+h1{
+    margin: 25px;
+    display: none;
+    img{
+        height: 37px;
+    }
+}
+@include mobile{
+    h1{
+        display: block;
+    }
+} 
