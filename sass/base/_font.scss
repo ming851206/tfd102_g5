@@ -1,11 +1,11 @@
-$font_d_map:(
+$font_d_map:( //桌機版字體大小
     'h2':32px,
     'h3':26px,
     'h4':16px,
     'p':14px
 );
 
-$font_m_map:(
+$font_m_map:( //手機版字體大小 
     'h2':26px,
     'h3':22px,
     'h4':16px,
@@ -45,6 +45,9 @@ p{
 
 @media all and (max-width : $mobile ) {
     @include font-size($font_m_map);
+    p{
+        line-height: 18px;
+    }
  }
 
 //logo
