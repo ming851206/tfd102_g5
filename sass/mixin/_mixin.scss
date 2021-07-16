@@ -1,7 +1,3 @@
-//星號設定
-@mixin box-sizing{
-  
-}
 
 //一般寬高設定
 @mixin box($w, $h) {
@@ -83,7 +79,7 @@
   @content;
 }
 
-//select(待修改)
+//select(還會修改)
 @mixin select {
   @include form;
   @include box(212px, 42px);

@@ -132,6 +132,9 @@ p {
     font-size: 10px;
     font-family: 'regular';
   }
+  p {
+    line-height: 18px;
+  }
 }
 
 h1 {
