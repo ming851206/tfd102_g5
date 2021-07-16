@@ -1,0 +1,30 @@
+
+//=====RWD系列=====
+@mixin moblie { //手機:575以下
+    @media all and (max-width : $mobile ) {
+       @content 
+    }
+  };
+  
+  @mixin ipad {   //ipad:576~767
+    @media all and (min-width : $mobile + 1px ) and (max-width: $ipad) {
+       @content 
+    }
+  };
+  
+  @mixin tablet { //768~996
+    @media all and (min-width : $ipad + 1px ) and (max-width:$tablet) {
+       @content 
+    }
+  };
+  @mixin laptop { //997~1200
+    @media all and (min-width : $tablet + 1px ) and (max-width:$tablet) {
+       @content 
+    }
+  };
+  @mixin desktop{ //1200以上
+    @media all and (min-width : $desktop + 1px ) {
+      @content
+    }
+  };
+  

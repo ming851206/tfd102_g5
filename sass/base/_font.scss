@@ -1,0 +1,49 @@
+$font_d_map:(
+    'h2':32px,
+    'h3':26px,
+    'h4':16px,
+    'p':14px
+);
+
+$font_m_map:(
+    'h2':26px,
+    'h3':22px,
+    'h4':16px,
+    'p':12px,
+    '.p_tiny':10px
+);
+
+@font-face{
+    font-family:'en';
+    src: url(../../font/DejaVuSansCondensed.ttf);
+}
+
+@font-face{
+    font-family:'regular';
+    src: url(../../font/NotoSansTC-Light.otf);
+}
+
+//桌機h2~p大小
+@mixin font_size($font-map) {
+    @each $key,$val in $font-map {
+        #{$key} {
+            font-size: $val;
+            font-family: 'regular';
+            @content;
+        }
+    }
+}
+@include font-size($font_d_map);
+
+//行高
+h4{
+    line-height: 26px;
+}
+p{
+    line-height: 20px;
+}
+
+@media all and (max-width : $mobile ) {
+    @include font-size($font_m_map);
+ }
+

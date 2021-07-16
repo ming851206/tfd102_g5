@@ -1,0 +1,288 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+a, img, input {
+  display: inline-block;
+}
+
+body {
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*input number消除旁邊箭頭*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none !important;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  /* Firefox */
+}
+
+@font-face {
+  font-family: 'en';
+  src: url(../../font/DejaVuSansCondensed.ttf);
+}
+
+@font-face {
+  font-family: 'regular';
+  src: url(../../font/NotoSansTC-Light.otf);
+}
+
+h2 {
+  font-size: 32px;
+  font-family: 'regular';
+}
+
+h3 {
+  font-size: 26px;
+  font-family: 'regular';
+}
+
+h4 {
+  font-size: 16px;
+  font-family: 'regular';
+}
+
+p {
+  font-size: 14px;
+  font-family: 'regular';
+}
+
+h4 {
+  line-height: 26px;
+}
+
+p {
+  line-height: 20px;
+}
+
+@media all and (max-width: 576px) {
+  h2 {
+    font-size: 26px;
+    font-family: 'regular';
+  }
+  h3 {
+    font-size: 22px;
+    font-family: 'regular';
+  }
+  h4 {
+    font-size: 16px;
+    font-family: 'regular';
+  }
+  p {
+    font-size: 12px;
+    font-family: 'regular';
+  }
+  .p_tiny {
+    font-size: 10px;
+    font-family: 'regular';
+  }
+}
+
+a, img, input {
+  display: inline-block;
+}
+
+.btnL {
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 212px;
+  height: 42px;
+  line-height: 42px;
+  background-color: #996A4D;
+  color: #F7F9F2;
+}
+
+.btnL:hover {
+  background-color: #77523c;
+}
+
+.btnL_light {
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 212px;
+  height: 42px;
+  line-height: 42px;
+  background-color: #F7F9F2;
+  color: #996A4D;
+  -webkit-filter: drop-shadow(0 0 8px #afafaf);
+          filter: drop-shadow(0 0 8px #afafaf);
+}
+
+.btnL_light:hover {
+  background-color: #f5f7ef;
+}
+
+.btnL_light:active {
+  -webkit-box-shadow: inset 0 0 8px #afafaf;
+          box-shadow: inset 0 0 8px #afafaf;
+  -webkit-filter: drop-shadow(0 0 0 #afafaf);
+          filter: drop-shadow(0 0 0 #afafaf);
+}
+
+.btnL_line {
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 212px;
+  height: 42px;
+  line-height: 42px;
+  background-color: white;
+  border: 1px solid #996A4D;
+  border-radius: 5px;
+  color: #996A4D;
+}
+
+.btnL_line:active {
+  background-color: #f2f2f2;
+}
+
+.btnM {
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100px;
+  height: 42px;
+  line-height: 42px;
+  background-color: #996A4D;
+  color: #F7F9F2;
+}
+
+.btnM:hover {
+  background-color: #77523c;
+}
+
+.btnM_light {
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100px;
+  height: 42px;
+  line-height: 42px;
+  background-color: #F7F9F2;
+  color: #996A4D;
+}
+
+.btnM_light:hover {
+  background-color: #e2e9cf;
+}
+
+.btnM_line {
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100px;
+  height: 42px;
+  line-height: 42px;
+  background-color: white;
+  border: 1px solid #996A4D;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.btnM_line:active {
+  background-color: #f2f2f2;
+}
+
+.btnS {
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 20px;
+  background-color: #996A4D;
+  color: #F7F9F2;
+}
+
+.btnS:hover {
+  background-color: #77523c;
+}
+
+.btnS_line {
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 20px;
+  font-weight: 400;
+  background-color: white;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 5px 10px;
+  border: 1px solid #996A4D;
+}
+
+.btnS_line:hover {
+  background-color: #e6e6e6;
+}
+/*# sourceMappingURL=style.css.map */
