@@ -1,3 +1,8 @@
+//星號設定
+@mixin box-sizing{
+  
+}
+
 //一般寬高設定
 @mixin box($w, $h) {
   width:$w;
