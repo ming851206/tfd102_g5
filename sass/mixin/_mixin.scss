@@ -66,10 +66,10 @@
 //=====表單系列=====
 //input
 @mixin form{
+  @include border($main_br);
   outline: none;
   appearance: none;
   border-radius: $borderRadius_cd;
-  border: 1px solid $main_br;
   font-size: map-get($map: $font_d_map, $key: p);
   padding: 10px 20px;
   &:focus{

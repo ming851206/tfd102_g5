@@ -30,10 +30,6 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-a, img, input {
-  display: inline-block;
-}
-
 body {
   line-height: 1;
   color: rgba(0, 0, 0, 0.8);
