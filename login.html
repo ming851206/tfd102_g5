@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>會員登入/註冊</title>
+</head>
+<body class="loginMemberPage_Body">
+    <h2>Hello</h2>
+    <!--  include header   -->
+    <div class="loginMemberPage_main">
+        <div id="app">
+
+            <!-- 桌機版 -->
+            <div class="loginInner">
+                <h2>登入</h2>
+                <!-- 內容區域 -->
+                <div>
+                    <!-- 放登入的東西 -->
+                    <div class="inner_block_area" id="login_block">
+                        <form>
+                            <!-- 輸入框欄位 -->
+                            <input v-model="account" type="text" placeholder="帳號">
+                            <input v-model="password" type="text" placeholder="密碼">
+                        </form>
+                    </div>
+                </div>
+
+                <!-- 登入註冊切換按鈕區 -->
+                <div class="loginSitch">
+                    <button type="button" class="btnS areaShow" id="btn_login">登入</button>
+                    <button type="button" class="toggleBtn" id="btn_up">註冊</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="./js/vue/vue.js"></script>
+</body>
+</html>

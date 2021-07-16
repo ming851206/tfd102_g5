@@ -10,7 +10,8 @@
         "../sass/base/_font.scss",
         "../sass/base/_common.scss",
         "../sass/mixin/_mixin.scss",
-        "../sass/components/_btn.scss"
+        "../sass/components/_btn.scss",
+        "../sass/layout/_login.scss"
     ],
     "names": [],
     "file": "style.css"
