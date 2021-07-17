@@ -1,0 +1,29 @@
+#member {
+    display: flex;
+
+
+}
+
+.memberborder {
+    padding: 10px;
+
+    a {
+        text-decoration: none;
+        color: $main_word;
+    }
+}
+
+.memberborder.active {
+    a {
+        color: $main_br;
+        border-bottom: 1px solid $main_br;
+    }
+}
+
+#memberInfoTitle {
+    display: flex;
+}
+
+#nameborder {
+    display: flex;
+}

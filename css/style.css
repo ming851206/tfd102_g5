@@ -3,6 +3,10 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+* {
+  box-sizing: border-box;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -179,8 +183,7 @@ a, img, input {
   line-height: 42px;
   background-color: #F7F9F2;
   color: #996A4D;
-  -webkit-filter: drop-shadow(0 0 8px #afafaf);
-          filter: drop-shadow(0 0 8px #afafaf);
+  filter: drop-shadow(0 0 8px #afafaf);
 }
 
 .btnL_light:hover {
@@ -188,10 +191,8 @@ a, img, input {
 }
 
 .btnL_light:active {
-  -webkit-box-shadow: inset 0 0 8px #afafaf;
-          box-shadow: inset 0 0 8px #afafaf;
-  -webkit-filter: drop-shadow(0 0 0 #afafaf);
-          filter: drop-shadow(0 0 0 #afafaf);
+  box-shadow: inset 0 0 8px #afafaf;
+  filter: drop-shadow(0 0 0 #afafaf);
 }
 
 .btnL_line {
@@ -304,5 +305,31 @@ a, img, input {
   .btnL, .btnL_light, .btnM, .btnM_light, .btnM_line, .btnS {
     border-radius: 5px;
   }
+}
+
+#member {
+  display: flex;
+}
+
+.memberborder {
+  padding: 10px;
+}
+
+.memberborder a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.memberborder.active a {
+  color: #996A4D;
+  border-bottom: 1px solid #996A4D;
+}
+
+#memberInfoTitle {
+  display: flex;
+}
+
+#nameborder {
+  display: flex;
 }
 /*# sourceMappingURL=style.css.map */

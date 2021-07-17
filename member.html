@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="./js/vue/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>JUMP--會員中心</title>
+</head>
+
+<body>
+    <div id="member">
+        <div id="left">
+            <div class="memberborder active">
+                <router-link to="/memberinfo">會員資料</router-link>
+            </div>
+            <div class="memberborder">
+                <router-link to="/love">我的最愛</router-link>
+            </div>
+            <div class="memberborder">
+                <router-link to="/join">即將餐與旅遊</router-link>
+            </div>
+            <div class="memberborder">
+                <router-link to="/history">旅遊紀錄</router-link>
+            </div>
+            <div class="memberborder">
+                <router-link to="/manager">管理旅遊</router-link>
+            </div>
+        </div>
+
+
+        <router-view></router-view>
+
+    </div>
+
+    <script>
+        const MemberEdit = {
+            template: `
+
+
+            `
+        };
+        const MemberInfo = {
+            template: `
+                <div id="right">
+                    <div id="memberInfoTitle">
+                            <h2>會員資料</h2>
+                            <button>編輯</button>
+                        </div>
+                        <div>
+                            <div id="img">
+                                <img src="" alt="">
+                            </div>
+                            <div id="name">
+                                <name-border></name-border>
+
+                            </div>
+                        </div>
+                </div>
+            `
+        };
+
+        Vue.component('name-border', {
+            // 為什麼組件的 data 必須是 function？
+            // 因為組件可以重複使用，如果 counter 組件有好幾個，他們應該各自運作，
+            // 所以每次呼叫 data 的時候，會臨時建立物件並 return 回去
+            data() {
+                return {  //組件的變數寫在這裡！
+                    values: [
+                        { name: "姓名", val: "王某某" },
+                        { name: "性別", val: "男" },
+                        { name: "出生日期", val: "2020/01/01" },
+                        { name: "手機號碼", val: "0988888888" },
+                        { name: "E-mail", val: "jumper@gmail.com" },
+                        { name: "會員密碼", val: "1234567890" },
+
+                    ],
+                };
+            },
+            template: `
+               <div id="nameborder" v-for = "(value,index) in values">
+                        <div>{{value[index].name}}</div>
+                        <div>{{value[index].val}}</div>
+                </div>
+            `,
+        });
+
+        new Vue({
+            el: '#member',
+            data: {
+
+            },
+            router: new VueRouter({
+                mode: 'history',
+                routes: [
+                    {
+                        path: '/memberinfo',
+                        component: MemberInfo,
+                        children: [
+                            { path: "", component: MemberInfo },
+                            { path: "edit", component: MemberEdit }
+                        ],
+
+                    },
+
+                ],
+            }),
+        });
+    </script>
+</body>
+
+</html>
