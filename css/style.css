@@ -307,17 +307,24 @@ a, img, input {
   }
 }
 
+#right {
+  margin-left: 100px;
+}
+
 #member {
   display: flex;
 }
 
 .memberborder {
-  padding: 10px;
+  width: 120px;
 }
 
 .memberborder a {
+  width: 100%;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  cursor: pointer;
 }
 
 .memberborder.active a {
@@ -329,7 +336,80 @@ a, img, input {
   display: flex;
 }
 
-#nameborder {
+#memberInfoImg {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 100%;
+  margin-right: 100px;
+}
+
+#memberInfoMain {
   display: flex;
+  margin-top: 50px;
+}
+
+.nameBorder {
+  display: flex;
+  border: 1px solid #996A4D;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.nameBorder:last-child {
+  margin-bottom: 0;
+}
+
+.memberInfoName {
+  padding: 10px;
+  background-color: #F7F6F2;
+  width: 100px;
+  font-size: 14px;
+}
+
+.memberInfoVal {
+  padding: 10px;
+  font-size: 14px;
+}
+
+#loveContentBorder {
+  width: 600px;
+  height: 200px;
+  border: 1px solid red;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  margin-top: 50px;
+}
+
+.loveImg {
+  height: 100%;
+}
+
+.headImg {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.cardBorder {
+  display: flex;
+}
+
+.loveContents {
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.StarAndFrom {
+  display: flex;
+}
+
+.TopRithtLove {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 /*# sourceMappingURL=style.css.map */

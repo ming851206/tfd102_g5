@@ -30,6 +30,9 @@
             <div class="memberborder">
                 <router-link to="/manager">管理旅遊</router-link>
             </div>
+            <div class="memberborder">
+                <router-link to="/logout">登出</router-link>
+            </div>
         </div>
 
 
@@ -38,11 +41,44 @@
     </div>
 
     <script>
+        const Love = {
+            template: `
+                <div id="right">
+                    <div id="memberLove">
+                            <h2>我的最愛</h2>
+                        </div>
+                        <div id="loveContentBorder">
+                                <div class = "cardBorder">
+                                        <div class ="loveImg">
+                                                <img src="https://picsum.photos/200/200">
+                                        </div>
+                                        <div class="loveContents">
+                                            <div class="headImg">
+                                                <img src="https://picsum.photos/200/200">
+                                            </div>
+                                            <div class="StarAndFrom">
+                                                <div class = "star">
+                                                    5
+                                                </div>
+                                                <div class="from">
+                                                    英國
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Big Ben 大笨鐘倫敦，最具指標性的景觀。
+                                            </p>
+                                        </div>
+                                </div>
+                                <div class = "TopRithtLove">
+                                    <img src="./images/icon/like.svg">
+                                </div>
+                        </div>
+                </div>
+            `
+        };
         const MemberEdit = {
             template: `
-
-
-            `
+               `,
         };
         const MemberInfo = {
             template: `
@@ -51,23 +87,19 @@
                             <h2>會員資料</h2>
                             <button>編輯</button>
                         </div>
-                        <div>
-                            <div id="img">
-                                <img src="" alt="">
+                        <div id="memberInfoMain">
+                            <div id="memberInfoImg">
+                                <img src="https://picsum.photos/200/200" alt="">
                             </div>
-                            <div id="name">
-                                <name-border></name-border>
-
+                            <div>
+                                <div class="nameBorder" v-for = "value in values">
+                                        <div class="memberInfoName">{{value.name}}</div>
+                                        <div class="memberInfoVal">{{value.val}}</div>
+                                </div>
                             </div>
                         </div>
                 </div>
-            `
-        };
-
-        Vue.component('name-border', {
-            // 為什麼組件的 data 必須是 function？
-            // 因為組件可以重複使用，如果 counter 組件有好幾個，他們應該各自運作，
-            // 所以每次呼叫 data 的時候，會臨時建立物件並 return 回去
+            `,
             data() {
                 return {  //組件的變數寫在這裡！
                     values: [
@@ -80,14 +112,8 @@
 
                     ],
                 };
-            },
-            template: `
-               <div id="nameborder" v-for = "(value,index) in values">
-                        <div>{{value[index].name}}</div>
-                        <div>{{value[index].val}}</div>
-                </div>
-            `,
-        });
+            }
+        };
 
         new Vue({
             el: '#member',
@@ -104,11 +130,21 @@
                             { path: "", component: MemberInfo },
                             { path: "edit", component: MemberEdit }
                         ],
+                    },
 
+                    {
+                        path: '/love',
+                        component: Love,
                     },
 
                 ],
             }),
+        });
+
+        $(".memberborder").click(function () {
+            $(".memberborder").removeClass("active");
+            $(this).addClass("active");
+
         });
     </script>
 </body>
