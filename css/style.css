@@ -373,6 +373,16 @@ a, img, input {
   font-size: 14px;
 }
 
+#memberEditBtn {
+  width: 50px;
+  height: 30px;
+  border: 1px solid gray;
+  background-color: #F7F6F2;
+  cursor: pointer;
+  text-align: center;
+  line-height: initial;
+}
+
 #loveContentBorder {
   width: 600px;
   height: 200px;
