@@ -45,6 +45,22 @@ const header = Vue.component("the-header", {
     </header>
 `,
 })
+const menu_item = Vue.component("menu-item",{
+    template: `
+    <div id="nav_rwd">
+        <div class="menu">
+            <img id="close_menu" src="../images/icon/header/close.svg" alt="close">
+            <div class="menu_item">
+                <button class="btnL_light"><router-link to="/about.html">關於我們</router-link></button>
+                <button class="btnL_light"><router-link to="/travel_list.html">旅遊總覽</router-link></button>
+                <button class="btnL_light"><router-link to="/postcard.html">客製明信片</router-link></button>
+                <button class="btnL_light"><router-link to="/QA.html">常見問題</router-link></button>
+                <router-view></router-view>
+            </div>
+        </div>    
+    </div>    
+    `,
+})
 const footer = Vue.component("the-footer", {
     template: `
     <footer>
@@ -77,7 +93,31 @@ const vue_header = new Vue({
     el: "#header",
     router,
 })
+const vue_menu = new Vue({
+    el: "#menu",
+    router,
+})
 const vue_footer = new Vue({
     el: "#footer",
     router,
+})
+
+$(function(){
+    $(".menu").on("click", function(){
+        $('#nav_rwd').fadeIn();
+        $(".nav_logo").fadeIn();
+        $("html").css({
+            position: "fixed",
+            width: "100%",
+        })
+    });
+    $("#close_menu").on("click", function(e){
+        e.stopPropagation();
+        $("#nav_rwd").fadeOut();
+        $(".nav_logo").fadeOut();
+        $("html").css({
+            position: "static",
+            width: "100%",
+        })
+    });
 })
