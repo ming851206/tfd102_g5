@@ -1,0 +1,24 @@
+footer{
+    background-color: #202B36;
+    color: #FAF9F2;
+    height: 180px;
+    /* 頁面長度不夠捲動時，再開啟 */
+    /* position: absolute;
+    bottom: 0;
+    left:0;
+    right: 0; */
+    
+    .icon_link{
+        float: right;
+        padding-top: 75px;
+        padding-right: 120px;
+    }
+    .statement{
+        display: inline-block;
+        padding-top: 60px;
+        padding-left: 100px;
+        line-height: 20px;
+    }
+
+}
+

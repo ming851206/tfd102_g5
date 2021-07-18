@@ -18,7 +18,7 @@
     }
   };
   @mixin laptop { //997~1200
-    @media all and (min-width : $tablet + 1px ) and (max-width:$tablet) {
+    @media all and (min-width : $tablet + 1px ) and (max-width:$desktop) {
        @content 
     }
   };

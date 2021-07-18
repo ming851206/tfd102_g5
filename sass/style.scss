@@ -9,5 +9,12 @@
 //mixin
 @import 'mixin/mixin';
 
+// components
 @import 'components/btn';
 
+// layout
+@import "layout/header";
+@import "layout/footer";
+
+// page
+@import "page/index";

@@ -1,0 +1,40 @@
+section.earth{
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 85px);
+    border: 1px solid #9EA2A4;
+    background: linear-gradient(to bottom, #192B39 25%, #3F5361 50%, #8798A5 75%, #D0DCE1);
+    
+    div.slogan{
+        display: inline-block;
+        margin-top: 190px;
+        margin-left: 130px;
+        
+        h1{
+            color: $sec_ivory;
+            font-size: 48px;
+            font-family:'en';
+            margin-bottom: 50px;
+        }
+        h5{
+            color: $sec_ivory;
+            font-size: 21px;
+            line-height: 1.5;
+            font-family:'regular';
+        }
+        img.scroll_down{
+            margin-top: 80px;
+            margin-left: 15px;
+        }
+    }
+    img.earth_img{
+        width: 700px;
+        display: inline-block;
+        overflow: hidden;
+        position: absolute;
+        left: 50%;
+    }
+}
+
+
+
