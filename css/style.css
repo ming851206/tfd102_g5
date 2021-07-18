@@ -3,6 +3,10 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+* {
+  box-sizing: border-box;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -28,10 +32,6 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
-}
-
-a, img, input {
-  display: inline-block;
 }
 
 body {
@@ -131,6 +131,24 @@ p {
     font-size: 10px;
     font-family: 'regular';
   }
+  p {
+    line-height: 18px;
+  }
+}
+
+h1 {
+  margin: 25px;
+  display: none;
+}
+
+h1 img {
+  height: 37px;
+}
+
+@media all and (max-width: 576px) {
+  h1 {
+    display: block;
+  }
 }
 
 a, img, input {
@@ -188,8 +206,8 @@ a, img, input {
   line-height: 42px;
   background-color: white;
   border: 1px solid #996A4D;
-  border-radius: 5px;
   color: #996A4D;
+  border-radius: 5px;
 }
 
 .btnL_line:active {
@@ -283,8 +301,10 @@ a, img, input {
   background-color: #e6e6e6;
 }
 
-* {
-  box-sizing: border-box;
+@media all and (max-width: 576px) {
+  .btnL, .btnL_light, .btnM, .btnM_light, .btnM_line, .btnS {
+    border-radius: 5px;
+  }
 }
 
 body {
@@ -383,6 +403,180 @@ footer .statement {
   padding-top: 60px;
   padding-left: 100px;
   line-height: 20px;
+}
+
+.loginMemberPage_Body {
+  padding-top: 85px;
+  border: 1px solid black;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.loginMemberPage_main {
+  max-width: 540px;
+  border: 1px solid blue;
+  margin: 0 auto;
+}
+
+.loginInner {
+  display: flex;
+  position: relative;
+}
+
+.loginInner img {
+  max-width: 100%;
+}
+
+.loginInner_block {
+  position: absolute;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 105px;
+  border: 1px solid lightpink;
+}
+
+h2 {
+  padding-bottom: 40px;
+}
+
+input {
+  border: 1px solid #996A4D;
+  outline: none;
+  appearance: none;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 10px;
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+}
+
+input:focus {
+  border: 2px solid #996A4D;
+}
+
+.loginSitch {
+  width: 30%;
+  border: 1px solid lightpink;
+}
+
+#right {
+  margin-left: 100px;
+}
+
+#member {
+  display: flex;
+}
+
+.memberborder {
+  width: 120px;
+}
+
+.memberborder a {
+  width: 100%;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.memberborder.active a {
+  color: #996A4D;
+  border-bottom: 1px solid #996A4D;
+}
+
+#memberInfoTitle {
+  display: flex;
+}
+
+#memberInfoImg {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 100%;
+  margin-right: 100px;
+}
+
+#memberInfoMain {
+  display: flex;
+  margin-top: 50px;
+}
+
+.nameBorder {
+  display: flex;
+  border: 1px solid #996A4D;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.nameBorder:last-child {
+  margin-bottom: 0;
+}
+
+.memberInfoName {
+  padding: 10px;
+  background-color: #F7F6F2;
+  width: 100px;
+  font-size: 14px;
+}
+
+.memberInfoVal {
+  padding: 10px;
+  font-size: 14px;
+}
+
+#memberEditBtn {
+  width: 50px;
+  height: 30px;
+  border: 1px solid gray;
+  background-color: #F7F6F2;
+  cursor: pointer;
+  text-align: center;
+  line-height: initial;
+}
+
+#loveContentBorder {
+  width: 600px;
+  height: 200px;
+  border: 1px solid red;
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+  margin-top: 50px;
+}
+
+.loveImg {
+  height: 100%;
+}
+
+.headImg {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.cardBorder {
+  display: flex;
+}
+
+.loveContents {
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.StarAndFrom {
+  display: flex;
+}
+
+.TopRithtLove {
+  position: absolute;
+  right: 10px;
+  top: 10px;
 }
 
 section.earth {

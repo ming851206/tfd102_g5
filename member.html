@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="./js/vue/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>JUMP--會員中心</title>
+</head>
+
+<body>
+    <div id="member">
+        <div id="left">
+            <div class="memberborder active">
+                <router-link to="/memberinfo">會員資料</router-link>
+            </div>
+            <div class="memberborder">
+                <router-link to="/love">我的最愛</router-link>
+            </div>
+            <div class="memberborder">
+                <router-link to="/join">即將餐與旅遊</router-link>
+            </div>
+            <div class="memberborder">
+                <router-link to="/history">旅遊紀錄</router-link>
+            </div>
+            <div class="memberborder">
+                <router-link to="/manager">管理旅遊</router-link>
+            </div>
+            <div class="memberborder">
+                <router-link to="/logout">登出</router-link>
+            </div>
+        </div>
+
+
+        <router-view></router-view>
+
+    </div>
+
+    <script>
+        const Love = {
+            template: `
+                <div id="right">
+                    <div id="memberLove">
+                            <h2>我的最愛</h2>
+                        </div>
+                        <div id="loveContentBorder">
+                                <div class = "cardBorder">
+                                        <div class ="loveImg">
+                                                <img src="https://picsum.photos/200/200">
+                                        </div>
+                                        <div class="loveContents">
+                                            <div class="headImg">
+                                                <img src="https://picsum.photos/200/200">
+                                            </div>
+                                            <div class="StarAndFrom">
+                                                <div class = "star">
+                                                    5
+                                                </div>
+                                                <div class="from">
+                                                    英國
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Big Ben 大笨鐘倫敦，最具指標性的景觀。
+                                            </p>
+                                        </div>
+                                </div>
+                                <div class = "TopRithtLove">
+                                    <img src="./images/icon/like.svg">
+                                </div>
+                        </div>
+                </div>
+            `
+        };
+        const MemberEdit = {
+            template: `
+            <!--
+            <div id="right">
+                    <div id="memberInfoTitle">
+                            <h2>會員資料</h2>
+                            <button id="memberEditBtn">編輯</button>
+                        </div>
+                        <div id="memberInfoMain">
+                            <div id="memberInfoImg">
+                                <img src="https://picsum.photos/200/200" alt="">
+                            </div>
+                            <div>
+                                <div class="nameBorder" v-for = "(value,index) in values">
+                                        <div class="memberInfoName">{{value.name}}</div>
+                                        <input class="memberInfoVal" >
+                                        <br>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                -->
+                <div>
+                    abcd
+                </div>
+            `,
+            // placeholder="{{value.val}}"
+            data() {
+                return {  //組件的變數寫在這裡！
+                    values: [
+                        { name: "姓名", val: "王某某" },
+                        { name: "性別", val: "男" },
+                        { name: "出生日期", val: "2020/01/01" },
+                        { name: "手機號碼", val: "0988888888" },
+                        { name: "E-mail", val: "jumper@gmail.com" },
+                        { name: "會員密碼", val: "1234567890" },
+
+                    ],
+                };
+            },
+        };
+
+        const MemberInfo = {
+            template: `
+                <div id="right">
+                    <div id="memberInfoTitle">
+                            <h2>會員資料</h2>
+                             <router-link to="/memberinfo/edit"> 編輯</router-link>
+                           <!-- <div @click="Edit" id="memberEditBtn">編輯</div> -->
+                        </div>
+                        <div id="memberInfoMain">
+                            <div id="memberInfoImg">
+                                <img src="https://picsum.photos/200/200" alt="">
+                            </div>
+                            <div>
+                                <div class="nameBorder" v-for = "value in values">
+                                        <div class="memberInfoName">{{value.name}}</div>
+                                        <div class="memberInfoVal">{{value.val}}</div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            `,
+            data() {
+                return {  //組件的變數寫在這裡！
+                    values: [
+                        { name: "姓名", val: "王某某" },
+                        { name: "性別", val: "男" },
+                        { name: "出生日期", val: "2020/01/01" },
+                        { name: "手機號碼", val: "0988888888" },
+                        { name: "E-mail", val: "jumper@gmail.com" },
+                        { name: "會員密碼", val: "1234567890" },
+
+                    ],
+                };
+            },
+            // methods: {
+            //     Edit() {
+            //         this.$router.push({ path: 'memberinfo/edit' })
+            //     },
+
+            // }
+            // mounted() {
+            //     $("#memberEditBtn").click(function () {
+            //         console.log(this);
+            //     });
+
+            // },
+
+        };
+
+        new Vue({
+            el: '#member',
+            data: {
+
+            },
+            router: new VueRouter({
+                mode: 'history',
+                routes: [
+                    {
+                        path: '/memberinfo',
+                        component: MemberInfo,
+                        children: [
+                            { path: "", component: MemberInfo },
+                            { path: "edit", component: MemberEdit },
+                        ],
+                    },
+
+                    {
+                        path: '/love',
+                        component: Love,
+                    },
+
+                ],
+            }),
+        });
+
+
+        $(".memberborder").click(function () {
+            $(".memberborder").removeClass("active");
+            $(this).addClass("active");
+
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -2,9 +2,9 @@
 @import 'base/var';
 @import 'base/color';
 @import 'base/reset';
+@import 'base/rwd';
 @import 'base/font';
 @import 'base/common';
-@import 'base/rwd';
 
 //mixin
 @import 'mixin/mixin';
@@ -17,4 +17,6 @@
 @import "layout/footer";
 
 // page
-@import "page/index";
+@import 'layout/login';
+@import 'layout/member';
+@import 'page/index';

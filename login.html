@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>會員登入/註冊</title>
+</head>
+<body class="loginMemberPage_Body">
+    <div id="app">
+    <!-- <h2>Hello</h2> -->
+    <!--  include header   -->
+        <div class="loginMemberPage_main">
+
+            <!-- 桌機版 -->
+            <div class="loginInner">
+
+                    <img src="./images/memberCenter/left_earth.png" alt="">
+
+                <!-- 內容區域 -->
+                <div class="loginInner_block">
+                    <h2>登入</h2>
+                    <!-- 放登入的東西 -->
+                    <!-- 輸入框欄位 -->
+                    <input v-model="account" type="text" placeholder="帳號">
+                    <input v-model="password" type="text" placeholder="密碼">
+                    <!-- 無法登入 -->
+                    <div class="forgetPassword" @click="open_forgetPassword_verification">
+                        <span>忘記密碼?</span>
+                    </div>
+                    <!-- 登入切換按鈕 -->
+                    <button type="button" class="btnM" id="btn_login">登入</button>
+                </div>
+
+                <!-- 登入註冊切換按鈕區 -->
+                <div class="loginSitch">
+                    <button type="button" class="btnM_light" id="btn_up">註冊</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="./js/vue/vue.js"></script>
+</body>
+</html>
