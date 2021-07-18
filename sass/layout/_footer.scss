@@ -1,24 +1,84 @@
+@mixin icon_rwd($top, $bottom){
+    float: none;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: $top 0 $bottom;
+    @content;
+}
+@mixin statement_rwd($down){
+    display: block;
+    padding: 0 0 $down 0;
+    margin: 0 auto;
+    @content;
+}
+
 footer{
     background-color: #202B36;
     color: #FAF9F2;
-    height: 180px;
-    /* 頁面長度不夠捲動時，再開啟 */
-    /* position: absolute;
-    bottom: 0;
-    left:0;
-    right: 0; */
-    
+    height: 200px;
+    @include mobile{
+        position: relative;
+        bottom: 76px;
+    }
+
     .icon_link{
         float: right;
         padding-top: 75px;
         padding-right: 120px;
+        @include laptop{
+            padding-right: 70px;
+        }
+        @include tablet{
+            @include icon_rwd(30px,20px)
+        }
+        @include ipad{
+            @include icon_rwd(30px,10px)
+        }
+        @include mobile{
+            @include icon_rwd(22px,10px)      
+        }
+        a{
+            @include mobile{
+                margin: 0 5px;
+            }
+        }
+        img{
+            @include tablet{
+                width: 90%;
+            }
+            @include ipad{
+                width: 85%;
+            }
+            @include mobile{
+                width: 85%;
+            }
+        }
     }
+    
     .statement{
         display: inline-block;
-        padding-top: 60px;
+        padding-top: 75px;
         padding-left: 100px;
         line-height: 20px;
+        @include laptop{
+            padding-left: 70px;
+        };
+        @include tablet{
+            @include statement_rwd(26px){
+                text-align: center;
+            }
+        }
+        @include ipad{
+            @include statement_rwd(0px){
+                width: 450px;
+            }
+        }
+        @include mobile{
+            @include statement_rwd(0px){
+                width: 330px;
+            }
+        }
     }
 
 }
-

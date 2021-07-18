@@ -312,13 +312,29 @@ body {
   padding-top: 85px;
 }
 
+@media all and (max-width: 576px) {
+  body {
+    padding-top: 0;
+  }
+}
+
 .nav_logo {
   margin-bottom: 85px;
-  z-index: 100;
   position: fixed;
   top: 0;
+  z-index: 100;
   display: inline-block;
   background-color: #F7F6F2;
+}
+
+@media all and (max-width: 576px) {
+  .nav_logo {
+    background-color: transparent;
+    margin-bottom: 0;
+    position: absolute;
+    z-index: 1;
+    display: none;
+  }
 }
 
 .nav_logo a {
@@ -327,18 +343,46 @@ body {
   padding-left: 45px;
 }
 
+@media all and (min-width: 577px) and (max-width: 767px) {
+  .nav_logo a {
+    padding-left: 0;
+  }
+}
+
+@media all and (max-width: 576px) {
+  .nav_logo a {
+    padding-left: 0;
+  }
+}
+
 .nav_logo a .logo {
   height: 100%;
 }
 
 header {
-  z-index: 99;
   position: fixed;
   top: 0;
-  right: 0;
   width: calc(100vw - 180px - 45px);
+  right: 0;
+  z-index: 99;
   height: 85px;
   background-color: #F7F6F2;
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  header {
+    width: calc(100vw - 180px);
+  }
+}
+
+@media all and (max-width: 576px) {
+  header {
+    position: fixed;
+    top: initial;
+    bottom: 0;
+    width: 100%;
+    height: 78px;
+  }
 }
 
 header .nav {
@@ -348,11 +392,29 @@ header .nav {
   line-height: 85px;
 }
 
+@media all and (min-width: 577px) and (max-width: 767px) {
+  header .nav {
+    margin-right: 15px;
+  }
+}
+
+@media all and (max-width: 576px) {
+  header .nav {
+    float: none;
+    margin-right: 0;
+    height: 78px;
+    line-height: 78px;
+  }
+}
+
 header .nav_list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
+}
+
+@media all and (max-width: 576px) {
+  header .nav_list {
+    display: initial;
+  }
 }
 
 header .web_bar {
@@ -367,13 +429,43 @@ header .web_bar > li a {
   font-size: 14px;
 }
 
+@media all and (min-width: 577px) and (max-width: 767px) {
+  header .web_bar > li a {
+    margin-right: 20px;
+  }
+}
+
+@media all and (max-width: 576px) {
+  header .web_bar > li a {
+    display: none;
+  }
+}
+
+@media all and (max-width: 576px) {
+  header .mobile_bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 header .mobile_bar li {
   display: none;
 }
 
+@media all and (max-width: 576px) {
+  header .mobile_bar li {
+    display: inline-block;
+    margin: 0 25px;
+  }
+}
+
+header .mobile_bar li img {
+  vertical-align: middle;
+}
+
 header .mobile_bar li.member {
   display: inline-block;
-  margin-left: 5px;
 }
 
 header .mobile_bar li.member img {
@@ -381,15 +473,23 @@ header .mobile_bar li.member img {
   vertical-align: middle;
 }
 
+@media all and (max-width: 576px) {
+  header .mobile_bar li.member img {
+    width: 100%;
+  }
+}
+
 footer {
   background-color: #202B36;
   color: #FAF9F2;
-  height: 180px;
-  /* 頁面長度不夠捲動時，再開啟 */
-  /* position: absolute;
-    bottom: 0;
-    left:0;
-    right: 0; */
+  height: 200px;
+}
+
+@media all and (max-width: 576px) {
+  footer {
+    position: relative;
+    bottom: 76px;
+  }
 }
 
 footer .icon_link {
@@ -398,11 +498,104 @@ footer .icon_link {
   padding-right: 120px;
 }
 
+@media all and (min-width: 997px) and (max-width: 1200px) {
+  footer .icon_link {
+    padding-right: 70px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 996px) {
+  footer .icon_link {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px 0 20px;
+  }
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  footer .icon_link {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px 0 10px;
+  }
+}
+
+@media all and (max-width: 576px) {
+  footer .icon_link {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 22px 0 10px;
+  }
+}
+
+@media all and (max-width: 576px) {
+  footer .icon_link a {
+    margin: 0 5px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 996px) {
+  footer .icon_link img {
+    width: 90%;
+  }
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  footer .icon_link img {
+    width: 85%;
+  }
+}
+
+@media all and (max-width: 576px) {
+  footer .icon_link img {
+    width: 85%;
+  }
+}
+
 footer .statement {
   display: inline-block;
-  padding-top: 60px;
+  padding-top: 75px;
   padding-left: 100px;
   line-height: 20px;
+}
+
+@media all and (min-width: 997px) and (max-width: 1200px) {
+  footer .statement {
+    padding-left: 70px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 996px) {
+  footer .statement {
+    display: block;
+    padding: 0 0 26px 0;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+@media all and (min-width: 577px) and (max-width: 767px) {
+  footer .statement {
+    display: block;
+    padding: 0 0 0px 0;
+    margin: 0 auto;
+    width: 450px;
+  }
+}
+
+@media all and (max-width: 576px) {
+  footer .statement {
+    display: block;
+    padding: 0 0 0px 0;
+    margin: 0 auto;
+    width: 330px;
+  }
 }
 
 .loginMemberPage_Body {

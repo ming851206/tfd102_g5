@@ -1,7 +1,7 @@
 const logo = Vue.component("the-logo", {
     template: `
     <div class="nav_logo">
-        <router-link to="/index">
+        <router-link to="/index.html">
             <img class="logo" src="../images/logo/logo.svg" alt="logo">
         </router-link>
         <router-view></router-view>
@@ -14,24 +14,24 @@ const header = Vue.component("the-header", {
         <nav class="nav">
             <ul class="nav_list">
                 <div class="web_bar">
-                    <li><router-link to="/about">關於我們</router-link></li>
-                    <li><router-link to="/travel_list">旅遊總覽</router-link></li>
-                    <li><router-link to="/postcard">客製明信片</router-link></li>
-                    <li><router-link to="/QA">常見問題</router-link></li>
+                    <li><router-link to="/about.html">關於我們</router-link></li>
+                    <li><router-link to="/travel_list.html">旅遊總覽</router-link></li>
+                    <li><router-link to="/postcard.html">客製明信片</router-link></li>
+                    <li><router-link to="/QA.html">常見問題</router-link></li>
                 </div>
                 <div class="mobile_bar">
                     <li class="home">
-                        <router-link to="/index">
+                        <router-link to="/index.html">
                             <img src="../images/icon/header/home_icon.svg" alt="home">
                         </router-link>
                     </li>
                     <li class="favorite">
-                        <router-link to="/memberCenter">
+                        <router-link to="/member.html">
                             <img src="../images/icon/header/favorite_icon.svg" alt="favorite">
                         </router-link>
                     </li>
                     <li class="member">
-                        <router-link to="/login">
+                        <router-link to="login.html">
                             <img src="../images/icon/header/member_icon.svg" alt="member">
                         </router-link>
                     </li>

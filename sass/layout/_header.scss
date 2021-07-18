@@ -1,42 +1,85 @@
-body{
-    margin: 0 auto;
-    padding-top: 85px;
-}
-.nav_logo{
-    margin-bottom: 85px;
-    z-index: 100;
+$header_H: 85px;
+$mobile_H: 78px;
+
+@mixin onTop {
     position: fixed;
     top: 0;
+}
+
+
+body{
+    margin: 0 auto;
+    padding-top: $header_H;
+    @include mobile{
+        padding-top: 0;
+    }
+}
+.nav_logo{
+    margin-bottom: $header_H;
+    @include onTop;
+    z-index: 100;
     display: inline-block;
     background-color: $sec_ivory;
+    @include mobile{
+        background-color: transparent;
+        margin-bottom: 0;
+        position: absolute;
+        z-index: 1;
+        // 可能會更改
+        display: none;
+    }
     a{
         float: left;
-        height: 85px;
+        height: $header_H;
         padding-left: 45px;
+        @include ipad{
+            padding-left: 0;
+        }
+        @include mobile{
+            padding-left: 0;
+        }
         .logo{
             height: 100%;
         }
     }
 }
 header{
-    z-index: 99;
-    position: fixed;
-    top: 0;
-    right: 0;
+    @include onTop;
     width: calc(100vw - 180px - 45px);
-    height: 85px;
+    right: 0;
+    z-index: 99;
+    height: $header_H;
     background-color: $sec_ivory;
+    @include ipad{
+        width: calc(100vw - 180px);
+    }
+    @include mobile{
+        position: fixed;
+        top: initial;
+        bottom: 0;
+        width: 100%;
+        height: $mobile_H;
+    }
     .nav{
         float: right;
         margin-right: 50px;
-        height: 85px;
-        line-height: 85px;
+        height: $header_H;
+        line-height: $header_H;
+        @include ipad{
+            margin-right: 15px;
+        }
+        @include mobile{
+            float: none;
+            margin-right: 0;
+            height: $mobile_H;
+            line-height: $mobile_H;
+        }
     }
         .nav_list{
-            list-style: none;
-            margin: 0;
-            padding: 0;
             display: flex;
+            @include mobile{
+                display: initial;
+            }
         }
             .web_bar{
                 display: flex;
@@ -47,19 +90,43 @@ header{
                     margin-right: 30px;
                     font-family:'regular';
                     font-size: 14px;
+                    @include ipad{
+                        margin-right: 20px;
+                    }
+                    @include mobile{
+                        display: none;
+                    }
                 }
-            .mobile_bar li{
-                display: none;
-            }
-            .mobile_bar li.member{
-                display: inline-block;
-                margin-left: 5px;
-                img{
-                    width: 80%;
-                    vertical-align: middle;
+            .mobile_bar{
+                @include mobile{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                 
                 }
-            }    
+                li{
+                    display: none;
+                    @include mobile{
+                        display: inline-block;
+                        margin: 0 25px;                    }
+                    img{
+                        vertical-align: middle;
+                    }
+                }
+                li.member{
+                    display: inline-block;
+                    img{
+                        width: 80%;
+                        vertical-align: middle;
+
+                        @include mobile{
+                            width: 100%;
+                        }
+                    }
+                }    
+            }       
 }
+
 
 
 
