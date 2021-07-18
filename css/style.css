@@ -307,7 +307,6 @@ a, img, input {
   }
 }
 
-<<<<<<< Updated upstream
 #right {
   margin-left: 100px;
 }
@@ -422,7 +421,7 @@ a, img, input {
   position: absolute;
   right: 10px;
   top: 10px;
-=======
+}
 .loginMemberPage_Body {
   padding-top: 85px;
   border: 1px solid black;
@@ -490,6 +489,5 @@ input:focus {
 .loginSitch {
   width: 30%;
   border: 1px solid lightpink;
->>>>>>> Stashed changes
 }
 /*# sourceMappingURL=style.css.map */
