@@ -307,6 +307,64 @@ a, img, input {
   }
 }
 
+.loginMemberPage_Body {
+  padding-top: 85px;
+  border: 1px solid black;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.loginMemberPage_main {
+  max-width: 540px;
+  border: 1px solid blue;
+  margin: 0 auto;
+}
+
+.loginInner {
+  display: flex;
+  position: relative;
+}
+
+.loginInner img {
+  max-width: 100%;
+}
+
+.loginInner_block {
+  position: absolute;
+  width: 75%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 105px;
+  border: 1px solid lightpink;
+}
+
+h2 {
+  padding-bottom: 40px;
+}
+
+input {
+  border: 1px solid #996A4D;
+  outline: none;
+  appearance: none;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 10px;
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+}
+
+input:focus {
+  border: 2px solid #996A4D;
+}
+
+.loginSitch {
+  width: 30%;
+  border: 1px solid lightpink;
+}
+
 #right {
   margin-left: 100px;
 }
@@ -383,14 +441,33 @@ a, img, input {
   line-height: initial;
 }
 
-#loveContentBorder {
+#loveContent {
+  display: flex;
+  margin-top: 50px;
+  width: 1230px;
+  flex-wrap: wrap;
+}
+
+#loveContent .loveContentBorder {
   width: 600px;
   height: 200px;
-  border: 1px solid red;
   overflow: hidden;
   border-radius: 20px;
   position: relative;
-  margin-top: 50px;
+  background-color: #F7F6F2;
+}
+
+#loveContent .loveContentBorder p {
+  margin-top: 30px;
+}
+
+#loveContent .loveContentBorder:nth-child(2n) {
+  margin-left: 30px;
+}
+
+#loveContent .loveContentBorder:nth-child(3n),
+#loveContent .loveContentBorder:nth-child(4n) {
+  margin-top: 30px;
 }
 
 .loveImg {
@@ -413,81 +490,94 @@ a, img, input {
   margin-top: 30px;
 }
 
+.loveContentsTop {
+  display: flex;
+  align-items: flex-end;
+}
+
 .StarAndFrom {
   display: flex;
+  margin-left: 20px;
 }
 
 .TopRithtLove {
   position: absolute;
-  right: 10px;
+  right: 20px;
   top: 10px;
-}
-.loginMemberPage_Body {
-  padding-top: 85px;
-  border: 1px solid black;
-  margin: 0 auto;
-  max-width: 1280px;
+  cursor: pointer;
 }
 
-.loginMemberPage_main {
-  max-width: 540px;
-  border: 1px solid blue;
-  margin: 0 auto;
+.TopRithtLove svg {
+  width: 20px;
+  height: 20px;
 }
 
-.loginInner {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.loveNumberNav {
   display: flex;
-  position: relative;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-.loginInner img {
-  max-width: 100%;
-}
-
-.loginInner_block {
-  position: absolute;
-  width: 75%;
-  display: -webkit-box;
-  display: -ms-flexbox;
+.loveNumberNav .loveNavs {
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding-top: 105px;
-  border: 1px solid lightpink;
 }
 
-h2 {
-  padding-bottom: 40px;
+.loveNumberNav .loveNavs div {
+  margin: 0 10PX;
 }
 
-input {
+.loveNumberNav .loveNavs .loveLeft,
+.loveNumberNav .loveNavs .loveRight {
   border: 1px solid #996A4D;
-  outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border-radius: 10px;
-  font-size: 14px;
-  padding: 10px 20px;
-  margin: 10px;
-  width: 200px;
-  height: 60px;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.loveNumberNav .loveNavs .mid {
+  line-height: 1.5;
+}
+
+.historyContents {
+  margin-top: 5px;
+  margin-left: 50px;
+  width: 330px;
+}
+
+.timeAndcomment {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.joinContents {
+  margin-left: 50px;
+  margin-top: 5px;
+}
+
+.gotravel {
+  flex-direction: column;
+}
+
+#joinStarAndFrom {
+  display: flex;
+}
+
+.joinComment {
+  margin-bottom: 30px;
+}
+
+.joinTime {
+  margin-top: 10px;
   font-size: 20px;
 }
 
-input:focus {
-  border: 2px solid #996A4D;
-}
-
-.loginSitch {
-  width: 30%;
-  border: 1px solid lightpink;
+.joinP {
+  margin-top: 6px !important;
 }
 /*# sourceMappingURL=style.css.map */
