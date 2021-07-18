@@ -84,16 +84,36 @@
 
 
 // love
-
-#loveContentBorder {
-    width: 600px;
-    height: 200px;
-    border: 1px solid red;
-    overflow: hidden;
-    border-radius: 20px;
-    position: relative;
+#loveContent {
+    display: flex;
     margin-top: 50px;
+    width: 1230px;
+    flex-wrap: wrap;
+
+    .loveContentBorder {
+        width: 600px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 20px;
+        position: relative;
+        background-color: $sec_ivory;
+
+        p {
+            margin-top: 30px;
+        }
+    }
+
+    .loveContentBorder:nth-child(2n) {
+        margin-left: 30px;
+    }
+
+    .loveContentBorder:nth-child(3n),
+    .loveContentBorder:nth-child(4n) {
+        margin-top: 30px;
+    }
 }
+
+
 
 .loveImg {
     height: 100%;
@@ -115,18 +135,106 @@
     margin-top: 30px;
 }
 
+.loveContentsTop {
+    display: flex;
+    align-items: flex-end;
+}
+
 .StarAndFrom {
     display: flex;
+    margin-left: 20px;
 
 }
 
 .TopRithtLove {
     position: absolute;
-    right: 10px;
+    right: 20px;
     top: 10px;
+    cursor: pointer;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.loveNumberNav {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+
+    .loveNavs {
+        display: flex;
+
+        div {
+            margin: 0 10PX;
+        }
+
+        .loveLeft,
+        .loveRight {
+            border: 1px solid $main_br;
+            border-radius: 100%;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .mid {
+            line-height: 1.5;
+        }
+    }
+}
+
+
+// history
+
+.historyContents {
+    margin-top: 5px;
+    margin-left: 50px;
+    width: 330px;
+}
+
+.timeAndcomment {
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+
+// join
+
+.joinContents {
+    margin-left: 50px;
+    margin-top: 5px;
 
 }
 
+.gotravel {
+    flex-direction: column;
+
+}
+
+#joinStarAndFrom {
+    display: flex;
+}
+
+.joinComment {
+    margin-bottom: 30px;
+}
+
+.joinTime {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.joinP {
+    margin-top: 6px !important;
+}
 
 //abc
 

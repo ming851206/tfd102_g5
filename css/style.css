@@ -778,14 +778,33 @@ input:focus {
   line-height: initial;
 }
 
-#loveContentBorder {
+#loveContent {
+  display: flex;
+  margin-top: 50px;
+  width: 1230px;
+  flex-wrap: wrap;
+}
+
+#loveContent .loveContentBorder {
   width: 600px;
   height: 200px;
-  border: 1px solid red;
   overflow: hidden;
   border-radius: 20px;
   position: relative;
-  margin-top: 50px;
+  background-color: #F7F6F2;
+}
+
+#loveContent .loveContentBorder p {
+  margin-top: 30px;
+}
+
+#loveContent .loveContentBorder:nth-child(2n) {
+  margin-left: 30px;
+}
+
+#loveContent .loveContentBorder:nth-child(3n),
+#loveContent .loveContentBorder:nth-child(4n) {
+  margin-top: 30px;
 }
 
 .loveImg {
@@ -808,14 +827,21 @@ input:focus {
   margin-top: 30px;
 }
 
+.loveContentsTop {
+  display: flex;
+  align-items: flex-end;
+}
+
 .StarAndFrom {
   display: flex;
+  margin-left: 20px;
 }
 
 .TopRithtLove {
   position: absolute;
-  right: 10px;
+  right: 20px;
   top: 10px;
+  cursor: pointer;
 }
 
 section.earth {
@@ -857,5 +883,79 @@ section.earth img.earth_img {
   overflow: hidden;
   position: absolute;
   left: 50%;
+}
+
+.TopRithtLove svg {
+  width: 20px;
+  height: 20px;
+}
+
+.loveNumberNav {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.loveNumberNav .loveNavs {
+  display: flex;
+}
+
+.loveNumberNav .loveNavs div {
+  margin: 0 10PX;
+}
+
+.loveNumberNav .loveNavs .loveLeft,
+.loveNumberNav .loveNavs .loveRight {
+  border: 1px solid #996A4D;
+  border-radius: 100%;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.loveNumberNav .loveNavs .mid {
+  line-height: 1.5;
+}
+
+.historyContents {
+  margin-top: 5px;
+  margin-left: 50px;
+  width: 330px;
+}
+
+.timeAndcomment {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.joinContents {
+  margin-left: 50px;
+  margin-top: 5px;
+}
+
+.gotravel {
+  flex-direction: column;
+}
+
+#joinStarAndFrom {
+  display: flex;
+}
+
+.joinComment {
+  margin-bottom: 30px;
+}
+
+.joinTime {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.joinP {
+  margin-top: 6px !important;
 }
 /*# sourceMappingURL=style.css.map */
