@@ -307,6 +307,7 @@ a, img, input {
   }
 }
 
+<<<<<<< Updated upstream
 #right {
   margin-left: 100px;
 }
@@ -421,5 +422,74 @@ a, img, input {
   position: absolute;
   right: 10px;
   top: 10px;
+=======
+.loginMemberPage_Body {
+  padding-top: 85px;
+  border: 1px solid black;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.loginMemberPage_main {
+  max-width: 540px;
+  border: 1px solid blue;
+  margin: 0 auto;
+}
+
+.loginInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.loginInner img {
+  max-width: 100%;
+}
+
+.loginInner_block {
+  position: absolute;
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-top: 105px;
+  border: 1px solid lightpink;
+}
+
+h2 {
+  padding-bottom: 40px;
+}
+
+input {
+  border: 1px solid #996A4D;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 10px 20px;
+  margin: 10px;
+  width: 200px;
+  height: 60px;
+  font-size: 20px;
+}
+
+input:focus {
+  border: 2px solid #996A4D;
+}
+
+.loginSitch {
+  width: 30%;
+  border: 1px solid lightpink;
+>>>>>>> Stashed changes
 }
 /*# sourceMappingURL=style.css.map */

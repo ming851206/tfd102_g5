@@ -1,21 +1,62 @@
 
 // 抓回上面的85px
-// .loginMemberPage_Body{
-//     padding-top: 85px;
-//     // background-color: $main_br;
-//     border: 1px solid red;
-// }
-// .loginMemberPage_main{
-    
-// }
+.loginMemberPage_Body{
+    padding-top: 85px;
+    // background-color: $main_br;
+    border: 1px solid black;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+.loginMemberPage_main{
+    max-width: 540px;
+    // background-image: url(../../images/memberCenter/left_earth.png);
+    border: 1px solid blue;
+    margin: 0 auto;
+
+}
+.loginInner{
+    // width: 100%;
+    display: flex;
+    // flex-direction: column;
+    position: relative;
+}
+.loginInner img{
+    max-width: 100%;
+    // background-image: url(../../images/memberCenter/left_earth.png);
+}
+.loginInner_block{
+    position: absolute;
+    width: 75%;
+    // padding: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 105px;
+
+    border: 1px solid lightpink;
+    // @include form();
+}
+h2{
+    padding-bottom: 40px
+}
 
 // input 框框
-// input{
-//     @include form();
-// }
+input{
+    @include form();
+    margin: 10px;
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+}
+.loginSitch{
+    width: 30%;
 
+    // position: absolute;
+    border: 1px solid lightpink;
+
+}
 // 登入註冊按鈕
-// .toggleBtn{
+.toggleBtn{
         
-// }
+}
 
