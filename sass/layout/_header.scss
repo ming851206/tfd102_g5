@@ -24,8 +24,7 @@ body{
         background-color: transparent;
         margin-bottom: 0;
         position: absolute;
-        z-index: 1;
-        // 可能會更改
+        z-index: 101;
         display: none;
     }
     a{
@@ -83,7 +82,11 @@ header{
         }
             .web_bar{
                 display: flex;
+                @include mobile{
+                    display: none;
+                }
             }
+
                 .web_bar > li a{
                     text-decoration: none;
                     color: rgba(0,0,0,.8);
@@ -93,9 +96,7 @@ header{
                     @include ipad{
                         margin-right: 20px;
                     }
-                    @include mobile{
-                        display: none;
-                    }
+
                 }
             .mobile_bar{
                 @include mobile{
@@ -108,10 +109,14 @@ header{
                     display: none;
                     @include mobile{
                         display: inline-block;
-                        margin: 0 25px;                    }
+                        margin: 0 25px;                    
+                    }
                     img{
                         vertical-align: middle;
                     }
+                }
+                li.menu{
+                    cursor: pointer;
                 }
                 li.member{
                     display: inline-block;
@@ -126,6 +131,39 @@ header{
                 }    
             }       
 }
+#nav_rwd{
+    display: none;
+    height: calc(100vh - 78px);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $sec_ivory;
+    z-index: 100;  
+    .menu{
+        @include total_center;
+        width: 300px;
+        #close_menu{
+            padding: 5px;
+            float: right;
+            width: 9%;
+            cursor: pointer;
+        }
+        .menu_item{
+            margin-top: 65px;
+            display: flex;
+            flex-direction: column;
+            .btnL_light{
+                margin: 20px auto;
+                a{
+                    color: $main_br;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+} 
 
 
 
