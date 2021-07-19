@@ -2,7 +2,7 @@ const logo = Vue.component("the-logo", {
     template: `
     <div class="nav_logo">
         <router-link to="/index.html">
-            <img class="logo" src="../images/logo/logo.svg" alt="logo">
+            <img class="logo" src="./images/logo/logo.svg" alt="logo">
         </router-link>
         <router-view></router-view>
     </div>   
@@ -22,21 +22,21 @@ const header = Vue.component("the-header", {
                 <div class="mobile_bar">
                     <li class="home">
                         <router-link to="/index.html">
-                            <img src="../images/icon/header/home_icon.svg" alt="home">
+                            <img src="./images/icon/header/home_icon.svg" alt="home">
                         </router-link>
                     </li>
                     <li class="favorite">
                         <router-link to="/member.html">
-                            <img src="../images/icon/header/favorite_icon.svg" alt="favorite">
+                            <img src="./images/icon/header/favorite_icon.svg" alt="favorite">
                         </router-link>
                     </li>
                     <li class="member">
                         <router-link to="login.html">
-                            <img src="../images/icon/header/member_icon.svg" alt="member">
+                            <img src="./images/icon/header/member_icon.svg" alt="member">
                         </router-link>
                     </li>
                     <li class="menu">
-                        <img src="../images/icon/header/menu_icon.svg" alt="menu">
+                        <img src="./images/icon/header/menu_icon.svg" alt="menu">
                     </li>
                 </div>
             </ul>
@@ -49,7 +49,7 @@ const menu_item = Vue.component("menu-item",{
     template: `
     <div id="nav_rwd">
         <div class="menu">
-            <img id="close_menu" src="../images/icon/header/close.svg" alt="close">
+            <img id="close_menu" src="./images/icon/header/close.svg" alt="close">
             <div class="menu_item">
                 <button class="btnL_light"><router-link to="/about.html">關於我們</router-link></button>
                 <button class="btnL_light"><router-link to="/travel_list.html">旅遊總覽</router-link></button>
@@ -66,13 +66,13 @@ const footer = Vue.component("the-footer", {
     <footer>
         <div class="icon_link">
             <router-link to="/">
-                <img src="../images/icon/footer//twitter_icon.svg" alt="twitter">
+                <img src="./images/icon/footer//twitter_icon.svg" alt="twitter">
             </router-link>
             <router-link to="/">
-                <img src="../images/icon/footer/fb_icon.svg" alt="facebook">
+                <img src="./images/icon/footer/fb_icon.svg" alt="facebook">
             </router-link>    
             <router-link to="/">
-                <img src="../images/icon/footer/ig_icon.svg" alt="instagram">
+                <img src="./images/icon/footer/ig_icon.svg" alt="instagram">
             </router-link>
             <router-view></router-view>
         </div>
