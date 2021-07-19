@@ -1,13 +1,15 @@
 #right {
     margin-left: 100px;
+    width: 1230px;
 }
 
 //member
 
 #member {
     display: flex;
-
-
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .memberborder {
@@ -87,7 +89,6 @@
 #loveContent {
     display: flex;
     margin-top: 50px;
-    width: 1230px;
     flex-wrap: wrap;
 
     .loveContentBorder {
