@@ -48,6 +48,7 @@ const header = Vue.component("the-header", {
 const menu_item = Vue.component("menu-item",{
     template: `
     <div id="nav_rwd">
+        <img class="logo_rwd" src="./images/logo/logo.svg" alt="logo">
         <div class="menu">
             <img id="close_menu" src="./images/icon/header/close.svg" alt="close">
             <div class="menu_item">
@@ -105,7 +106,6 @@ const vue_footer = new Vue({
 $(function(){
     $(".menu").on("click", function(){
         $('#nav_rwd').fadeIn();
-        $(".nav_logo").fadeIn();
         $("html").css({
             position: "fixed",
             width: "100%",
@@ -114,7 +114,6 @@ $(function(){
     $("#close_menu").on("click", function(e){
         e.stopPropagation();
         $("#nav_rwd").fadeOut();
-        $(".nav_logo").fadeOut();
         $("html").css({
             position: "static",
             width: "100%",

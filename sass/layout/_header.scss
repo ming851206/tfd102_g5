@@ -140,7 +140,11 @@ header{
     left: 0;
     right: 0;
     background-color: $sec_ivory;
-    z-index: 100;  
+    z-index: 100;
+    .logo_rwd{
+        float: left;
+        height: $header_H;
+    }
     .menu{
         @include total_center;
         width: 300px;
