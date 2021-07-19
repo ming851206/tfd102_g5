@@ -844,47 +844,6 @@ input:focus {
   cursor: pointer;
 }
 
-section.earth {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 85px);
-  border: 1px solid #9EA2A4;
-  background: linear-gradient(to bottom, #192B39 25%, #3F5361 50%, #8798A5 75%, #D0DCE1);
-}
-
-section.earth div.slogan {
-  display: inline-block;
-  margin-top: 190px;
-  margin-left: 130px;
-}
-
-section.earth div.slogan h1 {
-  color: #F7F6F2;
-  font-size: 48px;
-  font-family: 'en';
-  margin-bottom: 50px;
-}
-
-section.earth div.slogan h5 {
-  color: #F7F6F2;
-  font-size: 21px;
-  line-height: 1.5;
-  font-family: 'regular';
-}
-
-section.earth div.slogan img.scroll_down {
-  margin-top: 80px;
-  margin-left: 15px;
-}
-
-section.earth img.earth_img {
-  width: 700px;
-  display: inline-block;
-  overflow: hidden;
-  position: absolute;
-  left: 50%;
-}
-
 .TopRithtLove svg {
   width: 20px;
   height: 20px;
@@ -957,5 +916,46 @@ section.earth img.earth_img {
 
 .joinP {
   margin-top: 6px !important;
+}
+
+section.earth {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 85px);
+  border: 1px solid #9EA2A4;
+  background: linear-gradient(to bottom, #192B39 25%, #3F5361 50%, #8798A5 75%, #D0DCE1);
+}
+
+section.earth div.slogan {
+  display: inline-block;
+  margin-top: 190px;
+  margin-left: 130px;
+}
+
+section.earth div.slogan h1 {
+  color: #F7F6F2;
+  font-size: 48px;
+  font-family: 'en';
+  margin-bottom: 50px;
+}
+
+section.earth div.slogan h5 {
+  color: #F7F6F2;
+  font-size: 21px;
+  line-height: 1.5;
+  font-family: 'regular';
+}
+
+section.earth div.slogan img.scroll_down {
+  margin-top: 80px;
+  margin-left: 15px;
+}
+
+section.earth img.earth_img {
+  width: 700px;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
 }
 /*# sourceMappingURL=style.css.map */

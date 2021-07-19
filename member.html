@@ -13,6 +13,14 @@
 </head>
 
 <body>
+    <div id="header">
+        <the-logo></the-logo>
+        <the-header></the-header>       
+    </div>
+    <div id="menu">
+        <menu-item></menu-item> 
+    </div>
+
     <div id="member">
         <div id="left">
             <div class="memberborder active">
@@ -38,6 +46,9 @@
 
         <router-view></router-view>
 
+    </div>
+    <div id="footer">
+        <the-footer></the-footer>
     </div>
     <script src="./js/member/memberinfo.js"></script>
     <script src="./js/member/memberedit.js"></script>
@@ -96,6 +107,7 @@
 
 
     </script>
+    <script src="./js/header_footer.js"></script>
 </body>
 
 </html>
