@@ -4,7 +4,8 @@
    License: none (public domain)
 */
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -158,7 +159,7 @@ a, img, input {
 .btnL {
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 13px;
   cursor: pointer;
   font-weight: 600;
   width: 212px;
@@ -175,7 +176,7 @@ a, img, input {
 .btnL_light {
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 13px;
   cursor: pointer;
   font-weight: 600;
   width: 212px;
@@ -183,7 +184,8 @@ a, img, input {
   line-height: 42px;
   background-color: #F7F9F2;
   color: #996A4D;
-  filter: drop-shadow(0 0 8px #afafaf);
+  -webkit-filter: drop-shadow(0 0 8px #afafaf);
+          filter: drop-shadow(0 0 8px #afafaf);
 }
 
 .btnL_light:hover {
@@ -191,14 +193,16 @@ a, img, input {
 }
 
 .btnL_light:active {
-  box-shadow: inset 0 0 8px #afafaf;
-  filter: drop-shadow(0 0 0 #afafaf);
+  -webkit-box-shadow: inset 0 0 8px #afafaf;
+          box-shadow: inset 0 0 8px #afafaf;
+  -webkit-filter: drop-shadow(0 0 0 #afafaf);
+          filter: drop-shadow(0 0 0 #afafaf);
 }
 
 .btnL_line {
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 13px;
   cursor: pointer;
   font-weight: 600;
   width: 212px;
@@ -217,7 +221,7 @@ a, img, input {
 .btnM {
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 13px;
   cursor: pointer;
   font-weight: 600;
   width: 100px;
@@ -234,7 +238,7 @@ a, img, input {
 .btnM_light {
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 13px;
   cursor: pointer;
   font-weight: 600;
   width: 100px;
@@ -251,7 +255,7 @@ a, img, input {
 .btnM_line {
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 13px;
   cursor: pointer;
   font-weight: 600;
   width: 100px;
@@ -269,7 +273,7 @@ a, img, input {
 .btnS {
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 13px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
@@ -285,7 +289,7 @@ a, img, input {
 .btnS_line {
   font-size: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 13px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
@@ -408,6 +412,8 @@ header .nav {
 }
 
 header .nav_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -418,6 +424,8 @@ header .nav_list {
 }
 
 header .web_bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -443,9 +451,15 @@ header .web_bar > li a {
 
 @media all and (max-width: 576px) {
   header .mobile_bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -504,7 +518,8 @@ header .mobile_bar li.member img {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 300px;
 }
 
@@ -517,8 +532,13 @@ header .mobile_bar li.member img {
 
 #nav_rwd .menu .menu_item {
   margin-top: 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #nav_rwd .menu .menu_item .btnL_light {
@@ -657,6 +677,8 @@ footer .statement {
 }
 
 .loginMemberPage_main, .areaShow {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   max-width: 540px;
   border: 1px solid blue;
@@ -664,6 +686,8 @@ footer .statement {
 }
 
 .loginInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
 }
@@ -675,9 +699,16 @@ footer .statement {
 .loginInner_block {
   position: absolute;
   width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding-top: 105px;
   border: 1px solid lightpink;
 }
@@ -699,8 +730,10 @@ h2 {
 input {
   border: 1px solid #996A4D;
   outline: none;
-  appearance: none;
-  border-radius: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 13px;
   font-size: 14px;
   padding: 10px 20px;
   margin-top: 10px;
@@ -715,7 +748,8 @@ input:focus {
 
 .forgetPassword {
   margin: 10px 0px;
-  transform: translateX(100%);
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
   font-size: 14px;
 }
 
@@ -734,6 +768,8 @@ input:focus {
 }
 
 .SiginInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
 }
@@ -750,9 +786,16 @@ input:focus {
   position: absolute;
   width: 75%;
   padding-top: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   right: 0;
   border: 1px solid lightpink;
 }
@@ -763,8 +806,12 @@ input:focus {
 }
 
 #member {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 100px;
   margin-bottom: 100px;
 }
@@ -787,6 +834,8 @@ input:focus {
 }
 
 #memberInfoTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -799,11 +848,15 @@ input:focus {
 }
 
 #memberInfoMain {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 50px;
 }
 
 .nameBorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border: 1px solid #996A4D;
   margin-bottom: 10px;
@@ -838,9 +891,12 @@ input:focus {
 }
 
 #loveContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 50px;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 #loveContent .loveContentBorder {
@@ -877,6 +933,8 @@ input:focus {
 }
 
 .cardBorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -886,11 +944,17 @@ input:focus {
 }
 
 .loveContentsTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .StarAndFrom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-left: 20px;
 }
@@ -908,12 +972,18 @@ input:focus {
 }
 
 .loveNumberNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 30px;
 }
 
 .loveNumberNav .loveNavs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -928,8 +998,12 @@ input:focus {
   width: 25px;
   height: 25px;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   line-height: 1.5;
   cursor: pointer;
 }
@@ -945,8 +1019,12 @@ input:focus {
 }
 
 .timeAndcomment {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 10px;
 }
 
@@ -956,10 +1034,15 @@ input:focus {
 }
 
 .gotravel {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #joinStarAndFrom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -982,8 +1065,12 @@ input:focus {
 }
 
 #member {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 100px;
   margin-bottom: 100px;
 }
@@ -1006,6 +1093,8 @@ input:focus {
 }
 
 #memberInfoTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -1018,11 +1107,15 @@ input:focus {
 }
 
 #memberInfoMain {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 50px;
 }
 
 .nameBorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border: 1px solid #996A4D;
   margin-bottom: 10px;
@@ -1057,9 +1150,12 @@ input:focus {
 }
 
 #loveContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 50px;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 #loveContent .loveContentBorder {
@@ -1096,6 +1192,8 @@ input:focus {
 }
 
 .cardBorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -1105,11 +1203,17 @@ input:focus {
 }
 
 .loveContentsTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .StarAndFrom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-left: 20px;
 }
@@ -1127,12 +1231,18 @@ input:focus {
 }
 
 .loveNumberNav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 30px;
 }
 
 .loveNumberNav .loveNavs {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -1147,8 +1257,12 @@ input:focus {
   width: 25px;
   height: 25px;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   line-height: 1.5;
   cursor: pointer;
 }
@@ -1164,8 +1278,12 @@ input:focus {
 }
 
 .timeAndcomment {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 10px;
 }
 
@@ -1175,10 +1293,15 @@ input:focus {
 }
 
 .gotravel {
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #joinStarAndFrom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -1203,9 +1326,15 @@ input:focus {
 }
 
 .index_postcard_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
 }
 
@@ -1214,6 +1343,8 @@ input:focus {
 }
 
 .index_postcard_pointer {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   position: absolute;
   border: 1px solid lightpink;
@@ -1232,6 +1363,8 @@ input:focus {
 }
 
 .index_postcard_pointer_hover:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -1240,6 +1373,7 @@ section.earth {
   width: 100%;
   height: calc(100vh - 85px);
   border: 1px solid #9EA2A4;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(25%, #192B39), color-stop(50%, #3F5361), color-stop(75%, #8798A5), to(#D0DCE1));
   background: linear-gradient(to bottom, #192B39 25%, #3F5361 50%, #8798A5 75%, #D0DCE1);
 }
 
@@ -1274,5 +1408,45 @@ section.earth img.earth_img {
   overflow: hidden;
   position: absolute;
   left: 50%;
+}
+
+.faq_sec1 h2 {
+  margin: 50px;
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+.faq_sec1 input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 48%;
+  background-image: url(../../images/icon/search.svg);
+  background-repeat: no-repeat;
+  background-position: 15px 50%;
+  background-size: 20px;
+  padding-left: 3rem;
+}
+
+.faq_sec1 .deco {
+  height: 100px;
+  background-image: url(../../images/index/content/fence_ver.jpg);
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-size: 28px;
+}
+
+@media all and (max-width: 576px) {
+  .faq_sec1 {
+    background-color: #F7F9F2;
+  }
+  .faq_sec1 .deco {
+    background-image: none;
+  }
+  .faq_sec1 input {
+    width: 80%;
+    padding-left: 3rem;
+    height: 50px;
+  }
 }
 /*# sourceMappingURL=style.css.map */
