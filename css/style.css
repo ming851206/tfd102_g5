@@ -4,7 +4,8 @@
    License: none (public domain)
 */
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -183,7 +184,8 @@ a, img, input {
   line-height: 42px;
   background-color: #F7F9F2;
   color: #996A4D;
-  filter: drop-shadow(0 0 8px #afafaf);
+  -webkit-filter: drop-shadow(0 0 8px #afafaf);
+          filter: drop-shadow(0 0 8px #afafaf);
 }
 
 .btnL_light:hover {
@@ -191,8 +193,10 @@ a, img, input {
 }
 
 .btnL_light:active {
-  box-shadow: inset 0 0 8px #afafaf;
-  filter: drop-shadow(0 0 0 #afafaf);
+  -webkit-box-shadow: inset 0 0 8px #afafaf;
+          box-shadow: inset 0 0 8px #afafaf;
+  -webkit-filter: drop-shadow(0 0 0 #afafaf);
+          filter: drop-shadow(0 0 0 #afafaf);
 }
 
 .btnL_line {
@@ -651,19 +655,30 @@ footer .statement {
   max-width: 1280px;
 }
 
-.loginMemberPage_main {
+/* .loginMemberPage_main {
+  
+}   */
+.loginMemberPage_main, .areaShow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   max-width: 540px;
   border: 1px solid blue;
   margin: 0 auto;
 }
 
 .loginInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: relative;
 }
 
 .loginInner img {
   max-width: 100%;
+}
+.loginInner_Img img {
+  width: 100%;
 }
 
 .loginInner_block {
@@ -672,8 +687,24 @@ footer .statement {
   display: flex;
   align-items: center;
   flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding-top: 105px;
   border: 1px solid lightpink;
+}
+
+p.sigin_tiny {
+  padding: 0;
+  font-size: 10px;
+  color: red;
 }
 
 h2 {
@@ -688,6 +719,21 @@ input {
   font-size: 14px;
   padding: 10px 20px;
   margin: 10px;
+}
+#btn_login {
+  margin: 15px 0px;
+}
+
+input {
+  border: 1px solid #996A4D;
+  outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 10px 20px;
+  margin-top: 10px;
   width: 200px;
   height: 60px;
   font-size: 20px;
@@ -699,6 +745,59 @@ input:focus {
 
 .loginSitch {
   width: 30%;
+}
+
+.forgetPassword {
+  margin: 10px 0px;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  font-size: 14px;
+}
+
+.loginSitch {
+  width: 25%;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  border: 1px solid lightpink;
+}
+
+.SiginMemberPage_main {
+  max-width: 540px;
+  border: 1px solid green;
+  margin: 0 auto;
+}
+
+.SiginInner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.SiginSitch, .on {
+  width: 25%;
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  border: 1px solid lightpink;
+}
+
+.SigiInner_block {
+  position: absolute;
+  width: 75%;
+  padding-top: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  right: 0;
   border: 1px solid lightpink;
 }
 
@@ -707,6 +806,8 @@ input:focus {
 }
 
 #member {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -728,6 +829,8 @@ input:focus {
 }
 
 #memberInfoTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -740,11 +843,15 @@ input:focus {
 }
 
 #memberInfoMain {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-top: 50px;
 }
 
 .nameBorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   border: 1px solid #996A4D;
   margin-bottom: 10px;
@@ -819,6 +926,8 @@ input:focus {
 }
 
 .cardBorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -833,6 +942,8 @@ input:focus {
 }
 
 .StarAndFrom {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-left: 20px;
 }
@@ -916,6 +1027,56 @@ input:focus {
 
 .joinP {
   margin-top: 6px !important;
+}
+
+.postcard_Body {
+  padding-top: 85px;
+  border: 1px solid black;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.index_postcard_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+}
+
+.index_postcard_BG {
+  max-width: 100%;
+}
+
+.index_postcard_pointer {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: absolute;
+  border: 1px solid lightpink;
+  cursor: pointer;
+}
+
+.index_postcard_pointer:hover {
+  display: none;
+}
+
+.index_postcard_pointer_hover {
+  position: absolute;
+  border: 1px solid lightpink;
+  cursor: pointer;
+  display: none;
+}
+
+.index_postcard_pointer_hover:hover {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 section.earth {

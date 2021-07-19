@@ -7,27 +7,30 @@
     margin: 0 auto;
     max-width: 1280px;
 }
-.loginMemberPage_main{
+
+// 登入
+.loginMemberPage_main ,.areaShow{
+    display: flex;
     max-width: 540px;
     // background-image: url(../../images/memberCenter/left_earth.png);
     border: 1px solid blue;
     margin: 0 auto;
-
+    
 }
+
 .loginInner{
     // width: 100%;
     display: flex;
     // flex-direction: column;
     position: relative;
 }
-.loginInner img{
-    max-width: 100%;
+.loginInner_Img img{
+    width: 100%;
     // background-image: url(../../images/memberCenter/left_earth.png);
 }
 .loginInner_block{
     position: absolute;
     width: 75%;
-    // padding: 50px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -36,27 +39,82 @@
     border: 1px solid lightpink;
     // @include form();
 }
+p.sigin_tiny{
+    padding: 0;
+    font-size: 10px;
+    color: red;
+}
 h2{
     padding-bottom: 40px
+}
+#btn_login{
+    margin: 15px 0px;
 }
 
 // input 框框
 input{
     @include form();
-    margin: 10px;
+    margin-top: 10px;
     width: 200px;
     height: 60px;
     font-size: 20px;
 }
+.forgetPassword{
+    margin: 10px 0px;
+    transform: translateX(100%);
+    font-size: map-get($map: $font_d_map, $key: p);
+}
 .loginSitch{
-    width: 30%;
-
-    // position: absolute;
+    width: 25%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    // transform: translateY(30%);
     border: 1px solid lightpink;
+}
 
+// 註冊
+
+.SiginMemberPage_main{
+    max-width: 540px;
+    // background-image: url(../../images/memberCenter/left_earth.png);
+    border: 1px solid green;
+    margin: 0 auto;
+    // display: none;
 }
-// 登入註冊按鈕
-.toggleBtn{
-        
+.SiginInner{
+    // width: 100%;
+    display: flex;
+    // flex-direction: column;
+    position: relative;
 }
+
+.SiginSitch ,.on{
+    width: 25%;
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    border: 1px solid lightpink;
+}
+
+.SigiInner_block{
+    position: absolute;
+    width: 75%;
+    padding-top: 70px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    right: 0;
+    border: 1px solid lightpink;
+}
+
+// 手機版
+// .icon_left img{
+//     @include rwd(mobile) { //手機:575以下
+//         width: 30px;
+//         // background-color: rosybrown;
+//         // padding-: ;
+//     }
+// }
+
 
