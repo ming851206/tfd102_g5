@@ -237,6 +237,70 @@
     margin-top: 6px !important;
 }
 
+
+// traveledit
+#travelAdd {
+
+
+    svg {
+        width: 50px;
+        height: 50px;
+        fill: white;
+    }
+}
+
+#travelNavBar {
+
+    display: flex;
+    border: 1px solid $main_br;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 50px;
+    align-items: center;
+    justify-content: space-around;
+    width: 1230px;
+    margin-top: 20px;
+
+    .travelNavBarP {
+        width: 153.75px;
+    }
+
+    .travelNavBarP:first-child {
+        margin-left: 30px;
+    }
+
+    .travelNavBarP:last-child {
+        margin-right: 30px;
+    }
+}
+
+.travelValue {
+    display: flex;
+    border: 1px solid $main_br;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 50px;
+    align-items: center;
+    justify-content: space-around;
+    width: 1230px;
+    margin-top: 20px;
+
+    .travelP {
+        width: 153.75px;
+        overflow: hidden;
+        margin-left: 20px;
+    }
+
+    .travelP:first-child {
+        margin-left: 30px;
+    }
+
+    .travelP:last-child {
+        margin-right: 30px;
+    }
+}
+
+
 //abc
 
 
