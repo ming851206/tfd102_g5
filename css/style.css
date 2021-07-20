@@ -653,14 +653,31 @@ footer .statement {
   padding-top: 85px;
   border: 1px solid black;
   margin: 0 auto;
-  max-width: 1280px;
 }
 
+<<<<<<< HEAD
 .loginMemberPage_main, .areaShow {
+=======
+@media all and (max-width: 576px) {
+  .loginMemberPage_Body {
+    padding-top: 0px;
+  }
+}
+
+.loginMemberPage_main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+>>>>>>> 611cc4a5f1ce35d61537952f9947e889346aff2b
   display: flex;
   max-width: 540px;
   border: 1px solid blue;
   margin: 0 auto;
+}
+
+@media all and (max-width: 576px) {
+  .loginMemberPage_main {
+    display: none;
+  }
 }
 
 .loginInner {
@@ -733,6 +750,12 @@ input:focus {
   margin: 0 auto;
 }
 
+@media all and (max-width: 576px) {
+  .SiginMemberPage_main {
+    display: none;
+  }
+}
+
 .SiginInner {
   display: flex;
   position: relative;
@@ -757,6 +780,7 @@ input:focus {
   border: 1px solid lightpink;
 }
 
+<<<<<<< HEAD
 #right {
   margin-left: 100px;
   width: 900px;
@@ -1071,6 +1095,92 @@ input:focus {
 
 #travelNavBar .travelNavBarP:nth-child(2) {
   width: 50px;
+=======
+.phone_loginMemberPage {
+  width: 100%;
+  display: none;
+}
+
+@media all and (max-width: 576px) {
+  .phone_loginMemberPage {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+  }
+  .phone_loginMemberPage .phone_loginInner {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+    padding: 0px 35px;
+    border: 1px solid red;
+  }
+  .phone_loginMemberPage .phone_loginInner > .phone_back_icon {
+    width: 100%;
+    padding: 15px 0px;
+    border: 1px solid blue;
+  }
+  .phone_loginMemberPage .phone_loginInner > .phone_loginInner_Img {
+    border: 1px solid red;
+  }
+  .phone_loginMemberPage .phone_loginInner > .phone_loginInner_block {
+    border: 1px solid red;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 50px 0px;
+  }
+  .phone_loginMemberPage .phone_loginInner > .phone_loginInner_block > .input {
+    margin-top: 25px;
+  }
+  .phone_loginMemberPage .phone_loginInner > .phone_loginInner_block > .phone_forgetPassword {
+    width: 100%;
+    border: 1px solid green;
+    text-align: right;
+  }
+  .phone_loginMemberPage .phone_loginInner > .phone_loginInner_block > .phone_loginSitch {
+    border: 1px solid salmon;
+    margin: 15px 0px;
+  }
+  .phone_loginMemberPage .phone_loginInner > .phone_loginInner_block > .phone_loginSitch button {
+    border: 1px solid salmon;
+    margin-left: 20px;
+  }
+}
+
+#right {
+  margin-left: 100px;
+  width: 1230px;
+}
+
+#member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+>>>>>>> 611cc4a5f1ce35d61537952f9947e889346aff2b
 }
 
 #travelNavBar .travelNavBarP:nth-child(3) {
@@ -1214,6 +1324,7 @@ input:focus {
   resize: none;
 }
 
+<<<<<<< HEAD
 #travelEditPop {
   position: fixed;
   width: 100%;
@@ -1236,6 +1347,58 @@ input:focus {
   align-items: center;
   flex-direction: column;
   position: relative;
+=======
+#travelNavBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #996A4D;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 1230px;
+  margin-top: 20px;
+}
+
+#travelNavBar .travelNavBarP {
+  width: 153.75px;
+}
+
+#travelNavBar .travelNavBarP:first-child {
+  margin-left: 30px;
+}
+
+#travelNavBar .travelNavBarP:last-child {
+  margin-right: 30px;
+}
+
+.travelValue {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #996A4D;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 1230px;
+  margin-top: 20px;
+}
+
+.travelValue .travelP {
+  width: 153.75px;
+  overflow: hidden;
+  margin-left: 20px;
+>>>>>>> 611cc4a5f1ce35d61537952f9947e889346aff2b
 }
 
 #travelEditPop div button {
@@ -1249,6 +1412,7 @@ input:focus {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 .postcard_Body {
   padding-top: 85px;
   border: 1px solid black;
@@ -1289,6 +1453,8 @@ input:focus {
   display: flex;
 }
 
+=======
+>>>>>>> 611cc4a5f1ce35d61537952f9947e889346aff2b
 section.earth {
   position: relative;
   width: 100%;
@@ -1368,5 +1534,150 @@ section.earth img.earth_img {
     padding-left: 3rem;
     height: 50px;
   }
+}
+
+.postcard_Body {
+  padding-top: 85px;
+  padding-bottom: 0px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+@media all and (max-width: 576px) {
+  .postcard_Body {
+    padding-top: 0;
+  }
+}
+
+.index_postcard_block {
+  border: 1px solid red;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.index_postcard_block .index_postcard_BG {
+  width: 100%;
+}
+
+.index_postcard_block .index_postcard_BG img {
+  width: 100%;
+}
+
+.index_postcard_block .main_postcard_block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid red;
+}
+
+.index_postcard_block .main_postcard_block .textblock > h2 {
+  font-family: 'blod';
+  text-shadow: 0px 0px 3px #F7F6F2;
+}
+
+@media all and (max-width: 576px) {
+  .index_postcard_block .main_postcard_block .textblock > h2 {
+    display: none;
+  }
+}
+
+.index_postcard_block .main_postcard_block .index_postcard_pointer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid red;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: flex;
+  z-index: 11;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.index_postcard_block .main_postcard_block .index_postcard_pointer:hover {
+  -webkit-box-shadow: 0px 0px 4px 1px #9B9B9B;
+          box-shadow: 0px 0px 4px 1px #9B9B9B;
+}
+
+.index_postcard_block .main_postcard_block .index_postcard_pointer:hover circle {
+  fill: #EAEAEA;
+}
+
+.index_postcard_block .main_postcard_block .index_postcard_pointer:hover path {
+  fill: #996A4D;
+}
+
+.index_postcard_block .main_postcard_block .text_show {
+  border: 1px solid red;
+  margin-top: 20px;
+}
+
+@media all and (max-width: 576px) {
+  .index_postcard_block .main_postcard_block .text_show {
+    display: none;
+  }
+}
+
+.phone_text_block {
+  display: none;
+}
+
+@media all and (max-width: 576px) {
+  .phone_text_block {
+    background-color: #F7F6F2;
+    padding: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .phone_text_block h3 {
+    font-family: 'blod';
+    margin-bottom: 20px;
+  }
+}
+
+.choose_img_block {
+  width: 100%;
+  border: 1px solid red;
 }
 /*# sourceMappingURL=style.css.map */
