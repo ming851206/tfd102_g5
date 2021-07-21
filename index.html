@@ -15,15 +15,22 @@
 
 <body>
     <section class="earth">
-        <div class="slogan">
-            <h2>Welcome to jumper</h2>
-            <h5>隨時隨地、隨心所欲，和我們一起暢跳世界！<br>  
-                立即開始您的線上旅遊！
-            </h5>
-            <img class="scroll_down" src="./images/index/content/scroll_down.png">
+        <div class="earth_container">
+            <div class="slogan">
+                <h2>Welcome to jumper</h2>
+                <h5>隨時隨地、隨心所欲，和我們一起暢跳世界！<br>  
+                    立即開始您的線上旅遊！
+                </h5>
+                <img class="scroll_down" src="./images/index/content/scroll_down.png">
+            </div>
+            <div class="earthGame">
+                <img class="earth_img" src="./images/index/content/earth.png">
+                <button class="game">點我玩玩看</button>
+            </div>
         </div>
-        <img class="earth_img" src="./images/index/content/earth.png">
+
     </section>
+
     <div id="header">
         <the-logo></the-logo>
         <the-header></the-header>       
@@ -32,11 +39,104 @@
         <menu-item></menu-item> 
     </div>
 
+    <main>
+        <div class="about">
+            <div class="about_container">
+                <h2>我們的服務</h2>
+                <div class="all_about">
+                    <div class="about_1">
+                        <img src="./images/index/content/about_1.jpg" alt="專業的線上導遊">
+                        <div class="des_1"> 
+                            <h3>專業的線上導遊</h3>
+                            <h4>我們提供具有專業知識背景的線上導遊，零時差導覽您的線上旅程，透過直播即時互動，他們將帶領您身歷其境，讓您隨時隨地，開機就能遊覽世界。</h5>
+                        </div>
+                    </div>
+                    <div class="about_2">
+                        <div class="des_2">
+                            <h3>提供包場</h3>
+                            <h4>在任何您舒適的環境享受這場線上社交活動，沒有陌生人，只有您和您的親朋好友，由專業的當地導遊帶領遊樂世界各處，創造獨一無二的旅遊體驗。</h5>
+                        </div>    
+                        <img src="./images/index/content/about_2.jpg" alt="提供包場">
+                    </div>
+                </div>
+            </div>
+        <div class="light_bg"></div>
+        <div class="fence"></div>    
+        </div>
+
+        <!-- <div class="carosul">
+            <h2>精選主題</h2>
+            <div class="theme">
+                <h4>亞洲是五大洲中面積最大，人口最多的一個洲，地跨寒、溫、熱三帶，地形又複雜多樣，世界上的各種氣候在亞洲都有分布。從北部精緻典雅的日本京都，到工藝成就舉世無雙的印度泰姬瑪哈陵，再到世界文化遺產的柬埔寨吳哥窟，Jumper將帶領你揭開東方的神祕面紗，讓您盡情體驗當地豐富的歷史文化。</h5>    
+                <h1>Asia</h1>
+            </div>
+            <div id="carousel_bg" class="carousel_bg">
+                <div class="carousel_item" data-num="1" data-mentorid="123" data-background="#">
+                    <div style="background-image: url('./images/index/content/asia_map.png')">
+                    </div>
+                </div>
+                其他四張
+                <div class="carousel_item" data-num="6" data-mentorid="123" data-background="#">
+                    <div style="background-image: url('./images/index/content/asia.jpg')">
+                    </div>
+                </div>
+                其他四張
+        </div> -->
+
+        <div class="travel">
+            <h2>熱門旅遊</h2>
+            <div id="the-travel">
+                <travel_item></travel_item>
+            </div>
+        </div>
+
+        <div id="choose_us">
+            <div class="the_reason">
+                <div class="text">
+                    <h2>為何選擇我們？</h2>
+                    <ul class="reasons">
+                        <li v-for="reason in reasons">{{reason}}</li>
+                    </ul>
+                </div>
+                <video id="index_video">
+                    <source src="./video/choose_us.mp4">
+                </video>
+            </div>
+        </div>
+
+    </main>
+    <section class="more_opinion">
+        <aside class="fence_col"></aside>
+        <div class="opinion_container">
+            <h2>看看大家怎麼說 . . .</h2>
+            <div id="opinion">
+                <the-opinion></the-opinion>
+            </div>
+            <button id="index_more" class="btnL_line">觀看更多</button>
+        </div>
+        <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+    </section>
+
 
 
     <div id="footer">
         <the-footer></the-footer>
     </div>
+    <script>
+    // 選擇我們
+    const vue_video = new Vue({
+        el:"#choose_us",
+        data: {
+            reasons: [
+                "超過80位專業的線上導遊",
+                "超過70個位於全球各地的知名觀光景點",
+                "1200個曾舉辦過的線上旅遊",
+                "最獨一無二的線上導覽互動",
+            ]
+        },
+    })
+    </script>
     <script src="./js/header_footer.js"></script>
+    <script src="./js/index/index.js"></script>
 </body>
 </html>
