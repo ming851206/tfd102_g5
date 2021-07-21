@@ -8,12 +8,12 @@ const Historys = {
                             <div class="loveContentBorder" v-for="value in values">
                                 <div class="cardBorder">
                                     <div class="loveImg">
-                                        <img src="https://picsum.photos/200/200">
+                                        <img src="https://picsum.photos/150/200">
                                     </div>
                                     <div class="historyContents">
                                         <div class="loveContentsTop">
                                             <div class="headImg">
-                                                <img src="https://picsum.photos/200/200">
+                                                <img src="https://picsum.photos/100/100">
                                             </div>
                                             <div class="StarAndFrom">
                                                 <div class="star">
@@ -31,15 +31,20 @@ const Historys = {
                                                 </div>
                                             </div>
                                         </div>
-                                        <p>
-                                            {{value.content}}
-                                        </p>
+                                        <div class="historyP">
+                                            <p>
+                                                {{value.content}}
+                                            </p>
+                                        </div>
                                         <div class="timeAndcomment">
                                             <div class = "time">
                                                 {{value.time}}
                                             </div>
-                                            <div class = "comment">
+                                            <div class = "comment" v-if="value.comment=='已評論'">
                                                 {{value.comment}}
+                                            </div>
+                                            <div class = "comment" v-else>
+                                                  {{value.comment}}
                                             </div>
                                         </div>
                                     </div>

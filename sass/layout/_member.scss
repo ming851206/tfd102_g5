@@ -1,13 +1,15 @@
 #right {
     margin-left: 100px;
+    width: 900px;
 }
 
-//member
+//member---------------------------
 
 #member {
     display: flex;
-
-
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 .memberborder {
@@ -31,6 +33,7 @@
 
 #memberInfoTitle {
     display: flex;
+    justify-content: space-between;
 }
 
 #memberInfoImg {
@@ -44,6 +47,46 @@
 #memberInfoMain {
     display: flex;
     margin-top: 50px;
+
+    .memberInput {
+        width: 600px;
+
+        input {
+            border: 0;
+            width: 500px;
+            height: 34px;
+            margin: 0;
+            padding: 0;
+            margin-left: 10px;
+            font-size: 14px;
+        }
+
+        .gender {
+            align-items: center;
+
+            input {
+                width: unset;
+                margin: 6px;
+                padding: 0;
+                width: 20px;
+                height: 20px;
+            }
+
+            #membergirl::before {
+                background-image: url("../../images/icon/radio-empty.svg");
+                background-repeat: no-repeat;
+
+            }
+
+            #memberman::before {
+                background-image: url("../../images/icon/radio-empty.svg");
+                background-repeat: no-repeat;
+
+            }
+        }
+    }
+
+
 }
 
 .nameBorder {
@@ -81,17 +124,25 @@
     line-height: initial;
 }
 
+.memberEditCancel {
+    margin-top: 50px;
+
+    .btnL {
+        margin-left: 30px;
+    }
+}
 
 
-// love
+// love------------------------------------
+
 #loveContent {
     display: flex;
     margin-top: 50px;
-    width: 1230px;
     flex-wrap: wrap;
+    justify-content: space-between;
 
     .loveContentBorder {
-        width: 600px;
+        width: 435px;
         height: 200px;
         overflow: hidden;
         border-radius: 20px;
@@ -99,7 +150,7 @@
         background-color: $sec_ivory;
 
         p {
-            margin-top: 30px;
+            margin-top: 15px;
         }
     }
 
@@ -116,7 +167,8 @@
 
 
 .loveImg {
-    height: 100%;
+    height: 200px;
+    width: 150px;
 }
 
 .headImg {
@@ -131,8 +183,8 @@
 }
 
 .loveContents {
-    margin-left: 50px;
-    margin-top: 30px;
+    margin-left: 20px;
+    margin-top: 8px;
 }
 
 .loveContentsTop {
@@ -190,12 +242,13 @@
 }
 
 
-// history
+// history--------------------------------------
 
 .historyContents {
-    margin-top: 5px;
-    margin-left: 50px;
+    margin-top: 8px;
+    margin-left: 20px;
     width: 330px;
+    margin-right: 6px;
 }
 
 .timeAndcomment {
@@ -203,14 +256,31 @@
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
+
+    .comment {
+        margin-right: 14px;
+        cursor: pointer;
+        color: blue;
+        border-bottom: 1px solid blue;
+    }
+
 }
 
+.historyP {
+    height: 40px;
+    overflow: hidden;
+    margin-top: 15px;
 
-// join
+    p {
+        margin-top: 0 !important;
+    }
+}
+
+// join------------------------------------------
 
 .joinContents {
-    margin-left: 50px;
-    margin-top: 5px;
+    margin-left: 20px;
+    margin-top: 8px;
 
 }
 
@@ -235,6 +305,234 @@
 .joinP {
     margin-top: 6px !important;
 }
+
+
+// traveledit------------------------------------
+
+#travelAdd {
+
+
+    svg {
+        width: 50px;
+        height: 50px;
+        fill: white;
+        cursor: pointer;
+    }
+}
+
+#travelNavBar {
+
+    display: flex;
+    border: 1px solid $main_br;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 50px;
+    align-items: center;
+    // justify-content: space-around;
+    width: 900px;
+    margin-top: 20px;
+    text-align: center;
+
+    .travelNavBarP {
+        margin-left: 20px;
+
+        &:first-child {
+            margin-left: 30px;
+            width: 200px;
+        }
+
+        &:nth-child(2) {
+            width: 50px;
+        }
+
+        &:nth-child(3) {
+            width: 120px;
+        }
+
+        &:nth-child(4) {
+            width: 170px;
+        }
+
+        &:nth-child(5) {
+            width: 50px;
+        }
+
+        &:nth-child(6) {
+            width: 80px;
+        }
+
+        &:nth-child(7) {
+            width: 50px;
+        }
+
+        &:last-child {
+            margin-right: 30px;
+            width: 50px;
+        }
+    }
+
+
+}
+
+.travelValue {
+    display: flex;
+    border: 1px solid $main_br;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 50px;
+    align-items: center;
+    // justify-content: space-around;
+    width: 900px;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+
+    .travelP {
+        margin-left: 20px;
+        overflow: hidden;
+        text-align: center;
+
+        p {
+            white-space: nowrap;
+        }
+
+        &:first-child {
+            margin-left: 30px;
+            width: 200px;
+        }
+
+        &:nth-child(2) {
+            width: 50px;
+        }
+
+        &:nth-child(3) {
+            width: 120px;
+        }
+
+        &:nth-child(4) {
+            width: 170px;
+        }
+
+        &:nth-child(5) {
+            width: 50px;
+        }
+
+        &:nth-child(6) {
+            width: 80px;
+        }
+
+        &:nth-child(7) {
+            width: 50px;
+        }
+
+        &:last-child {
+            margin-right: 30px;
+            width: 50px;
+        }
+    }
+
+
+}
+
+#addFrom {
+    margin-top: 20px;
+
+    .travelInputBorder {
+        display: flex;
+        border: 1px solid $main_br;
+        height: 50px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 20px;
+
+        select {
+            border: 0;
+            height: 45px;
+            padding: 0;
+            margin: 0;
+            width: 740px;
+            margin-left: 10px;
+            outline: none;
+
+        }
+
+        input {
+            border: 0;
+            height: 45px;
+            padding: 0;
+            margin: 0;
+            width: 740px;
+            margin-left: 10px;
+        }
+
+        div {
+            height: 100%;
+            padding: 20px;
+            padding-right: 0;
+            width: 130px;
+            background-color: $sec_ivory;
+        }
+    }
+
+    .Content {
+        flex-direction: column;
+        width: 100%;
+        height: 550px;
+
+        div {
+            width: 100%;
+            height: unset;
+        }
+
+        textarea {
+            height: 500px;
+            border: 0;
+            padding: 20px;
+            outline: none;
+            border-radius: 20px;
+            resize: none;
+        }
+
+    }
+}
+
+
+//traveledit pop -------------------------------
+
+#travelEditPop {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(128, 128, 128, 0.15);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+        width: 500px;
+        height: 300px;
+        background-color: $sec_ivory;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+
+        button {
+            margin-top: 50px;
+        }
+
+        svg {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            cursor: pointer;
+        }
+    }
+}
+
 
 //abc
 

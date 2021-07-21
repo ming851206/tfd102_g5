@@ -5,17 +5,21 @@
     // background-color: $main_br;
     border: 1px solid black;
     margin: 0 auto;
-    max-width: 1280px;
+    // max-width: 1280px;
+    @include mobile{
+        padding-top: 0px;
+    }
 }
 
 // 登入
-.loginMemberPage_main ,.areaShow{
+.loginMemberPage_main{
     display: flex;
     max-width: 540px;
-    // background-image: url(../../images/memberCenter/left_earth.png);
     border: 1px solid blue;
     margin: 0 auto;
-    
+    @include mobile{
+        display: none;
+    }
 }
 
 .loginInner{
@@ -81,6 +85,9 @@ input{
     border: 1px solid green;
     margin: 0 auto;
     // display: none;
+    @include mobile{
+        display: none;
+    }
 }
 .SiginInner{
     // width: 100%;
@@ -108,13 +115,58 @@ input{
     border: 1px solid lightpink;
 }
 
-// 手機版
-// .icon_left img{
-//     @include rwd(mobile) { //手機:575以下
-//         width: 30px;
-//         // background-color: rosybrown;
-//         // padding-: ;
-//     }
-// }
 
+// 手機版
+.phone_loginMemberPage{
+    width: 100%;
+    display: none;
+    
+    @include mobile{
+        display: flex;
+        margin: 0 auto;
+
+        .phone_loginInner{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0px 35px;
+            border: 1px solid red;
+
+            >.phone_back_icon{
+                width: 100%;
+                padding: 15px 0px;
+                border: 1px solid blue;
+            }
+            >.phone_loginInner_Img{
+                border: 1px solid red;
+            }
+            >.phone_loginInner_block{
+                border: 1px solid red;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 50px 0px;
+                >.input{
+                    margin-top: 25px;
+                }
+                >.phone_forgetPassword{
+                    width: 100%;
+                    border: 1px solid green;
+                    text-align: right;
+                    // transform: translateX(50%);
+                }
+                >.phone_loginSitch{
+                    border: 1px solid salmon;
+                    margin: 15px 0px;
+                    button{
+                        border: 1px solid salmon;
+                        margin-left: 20px;
+                    }
+                }
+            }   
+        }
+    }
+}
 

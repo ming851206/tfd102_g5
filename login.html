@@ -5,17 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/vue/vue.js"></script>
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <title>會員登入/註冊</title>
 </head>
 <body class="loginMemberPage_Body">
     
     <div id="app">
+
     <!-- <h2>Hello</h2> -->
     <!--  include header   -->
+        <div id="header">
+            <the-logo></the-logo>
+            <the-header></the-header>       
+        </div>
+        <div id="menu">
+            <menu-item></menu-item> 
+        </div>
 
     <!-- 桌機版 -->
     <!-- 登入 -->
-        <div class="loginMemberPage_main areaShow">
+        <div class="loginMemberPage_main">
 
             <div class="loginInner">
 
@@ -59,7 +70,7 @@
                     <button type="button" class="btnM_light" id="btn_up">登入</button>
                 </div>
 
-                <!-- 內容區域 -->
+                <!-- 內容區域 -->
                 <div class="SigiInner_block">
                     <h2>註冊</h2>
                     <!-- 放登出的東西 -->
@@ -70,7 +81,7 @@
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <input v-model="password" type="text" placeholder="確認密碼 :">
                     <!-- 登入切換按鈕 -->
-                    <button type="button" class="btnM" id="btn_login">註冊</button>
+                    <button type="button" class="btnM" id="btn_login" @click:>註冊</button>
                 </div>
 
                 
@@ -83,24 +94,95 @@
 
         </div> -->
 
+
     <!-- 手機版 -->
         <!-- 登入 註冊 -->
         <div class="phone_loginMemberPage">
 
-            <div class="icon_left">
-                <img src="./images/icon/arrowLeft.svg" alt="">
+        <!-- 登入 -->
+            
+            <div class="phone_loginInner">
+
+                <div class="phone_back_icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17.492" viewBox="0 0 10 17.492">
+                        <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M14.265,14.937l6.618-6.613a1.25,1.25,0,0,0-1.77-1.765l-7.5,7.493a1.248,1.248,0,0,0-.036,1.724l7.53,7.545a1.25,1.25,0,0,0,1.77-1.765Z" transform="translate(-11.251 -6.194)" fill="#996a4d"/>
+                    </svg>
+                </div>
+
+                <div class="phone_loginInner_Img">
+                    <img src="./images/logo/logo_phone_login.svg" alt="">
+                </div>
+                <!-- 內容區域 -->
+                <div class="phone_loginInner_block ">
+                    <h2>登入</h2>
+
+                    <!-- 輸入框欄位 -->
+                    <input v-model="account" type="text" placeholder="帳號 :">
+                    <input v-model="password" type="text" placeholder="密碼 :">
+                    <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <!-- 無法登入 -->
+                    <div class="phone_forgetPassword" @click="open_forgetPassword_verification">
+                        <p>忘記密碼?</p>
+                    </div>
+                    <!-- 登入切換按鈕 -->
+                    <!-- 登入註冊切換按鈕區 -->
+                    <div class="phone_loginSitch">
+                        <button type="button" class="btnM " id="btn_login">登入</button>
+                        <button type="button" class="btnM_light" id="btn_up">註冊</button>
+                    </div>
+                </div>
+
+
             </div>
+            
         </div>
-<<<<<<< Updated upstream
-    </div>
-=======
 
+        <!-- 註冊 -->
+        <div class="phone_loginMemberPage">
 
-    </div>  
+                
+                <div class="phone_loginInner">
     
->>>>>>> Stashed changes
+                    <div class="phone_back_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17.492" viewBox="0 0 10 17.492">
+                            <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M14.265,14.937l6.618-6.613a1.25,1.25,0,0,0-1.77-1.765l-7.5,7.493a1.248,1.248,0,0,0-.036,1.724l7.53,7.545a1.25,1.25,0,0,0,1.77-1.765Z" transform="translate(-11.251 -6.194)" fill="#996a4d"/>
+                          </svg>
+                    </div>
+    
+                        <div class="phone_loginInner_Img">
+                            <img src="./images/logo/logo_phone_login.svg" alt="">
+                        </div>
+                        <!-- 內容區域 -->
+                        <div class="phone_loginInner_block ">
+                            <h2>登入</h2>
+        
+                            <!-- 輸入框欄位 -->
+                            <input v-model="account" type="text" placeholder="帳號 :">
+                            <input v-model="email" type="text" placeholder="Email :">
+                            <input v-model="password" type="text" placeholder="密碼 :">
+                            <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                            <input v-model="password" type="text" placeholder="確認密碼 :">
+                            <!-- 登入切換按鈕 -->
+                            <!-- 登入註冊切換按鈕區 -->
+                            <div class="phone_loginSitch">
+                                <button type="button" class="btnM " id="btn_login">登入</button>
+                                <button type="button" class="btnM_light" id="btn_up">註冊</button>
+                            </div>
+    
+                    </div>
+    
+    
+                </div>
+                
+            </div>
+
+    </div>
 
 
+    <div id="footer">
+        <the-footer></the-footer>
+    </div>
+    <script src="./js/header_footer.js"></script>
     <script>
         
     </script>

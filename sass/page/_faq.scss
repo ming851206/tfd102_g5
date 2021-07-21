@@ -1,0 +1,39 @@
+.faq_sec1{
+    h2{
+        margin: 50px;
+        text-align: center;
+        padding-bottom: 0px;
+    }
+    input{
+        display: block;
+        @include block_center;
+        width: 48%;
+        background-image: url(../../images/icon/search.svg);
+        background-repeat: no-repeat;
+        background-position: 15px 50%;
+        background-size: 20px;
+        padding-left: 3rem;
+    }
+    .deco{
+        height: 100px;
+        background-image: url(../../images/index/content/fence_ver.jpg);
+        background-position: bottom;
+        background-repeat: repeat-x;
+        background-size: 28px;
+    }
+}
+
+@include mobile{
+    .faq_sec1{
+        background-color: $main_ivory;
+        .deco{
+            background-image: none;
+        }
+        input{
+            width: 80%;
+            padding-left: 3rem;
+            height: 50px;
+        }
+    }
+    
+}

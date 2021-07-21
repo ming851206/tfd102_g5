@@ -15,10 +15,10 @@
 <body>
     <div id="header">
         <the-logo></the-logo>
-        <the-header></the-header>       
+        <the-header></the-header>
     </div>
     <div id="menu">
-        <menu-item></menu-item> 
+        <menu-item></menu-item>
     </div>
 
     <div id="member">
@@ -51,7 +51,6 @@
         <the-footer></the-footer>
     </div>
     <script src="./js/member/memberinfo.js"></script>
-    <script src="./js/member/memberedit.js"></script>
     <script src="./js/member/love.js"></script>
     <script src="./js/member/history.js"></script>
     <script src="./js/member/join.js"></script>
@@ -69,10 +68,7 @@
                     {
                         path: '/memberinfo',
                         component: MemberInfo,
-                        children: [
-                            { path: "", component: MemberInfo },
-                            { path: "edit", component: MemberEdit },
-                        ],
+
                     },
 
                     {
@@ -90,7 +86,6 @@
                     {
                         path: '/traveledit',
                         component: TravelEdit,
-
                     }
                 ],
             }),
@@ -102,6 +97,7 @@
             $(this).addClass("active");
 
         });
+
 
 
 

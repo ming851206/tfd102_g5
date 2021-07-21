@@ -1,56 +1,122 @@
 const TravelEdit = {
     template: `
-                    <div id="right">
+                    <div id="right" v-if="add ==true">
                         <div id="memberLove">
-                            <h2>即將參與旅遊</h2>
+                            <h2>管理旅遊</h2>
                         </div>
-                        <div id="loveContent">
-                            <div class="loveContentBorder" v-for="value in values">
-                                <div class="cardBorder">
-                                    <div class="loveImg">
-                                        <img src="https://picsum.photos/200/200">
-                                    </div>
-                                    <div class="joinContents">
-                                        <div class="loveContentsTop">
-                                            <div class="headImg">
-                                                <img src="https://picsum.photos/200/200">
-                                            </div>
-                                            <div class="StarAndFrom gotravel">
-                                                <div class = "joinComment">
-                                                    {{value.comment}}
-                                                </div>
-                                                <div id="joinStarAndFrom">
-                                                    <div class="star">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222"
-                                                            viewBox="0 0 13.814 13.222">
-                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star"
-                                                                d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z"
-                                                                transform="translate(-1.441 0.001)" fill="#996a4d" />
-                                                        </svg>
-
-                                                        {{value.star}}
-                                                    </div>
-                                                    <div class="from">
-                                                        {{value.from}}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="timeAndcomment">
-                                            <div class = "joinTime">
-                                                {{value.time}}
-                                            </div>
-                                        </div>
-                                        <p class="joinP">
-                                            {{value.content}}
-                                        </p>
-
-                                    </div>
+                        <div id="travelAdd">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                                    <g id="Group_291" data-name="Group 291" transform="translate(-13431 -1300)">
+                                        <g id="Group_290" data-name="Group 290">
+                                        <g id="Ellipse_81" data-name="Ellipse 81" transform="translate(13431 1300)" fill="#fff" stroke="#707070" stroke-width="1">
+                                            <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
+                                            <circle cx="12.5" cy="12.5" r="12" fill="#996A4D"/>
+                                        </g>
+                                        </g>
+                                        <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M14.434,8.357h-5v-5a1.11,1.11,0,0,0-1.11-1.11H7.217a1.11,1.11,0,0,0-1.11,1.11v5h-5A1.11,1.11,0,0,0,0,9.467v1.11a1.11,1.11,0,0,0,1.11,1.11h5v5a1.11,1.11,0,0,0,1.11,1.11h1.11a1.11,1.11,0,0,0,1.11-1.11v-5h5a1.11,1.11,0,0,0,1.11-1.11V9.467A1.11,1.11,0,0,0,14.434,8.357Z" transform="translate(13435.721 1302.485)"/>
+                                    </g>
+                                </svg>
+                                <div id="clickAdd">
                                 </div>
-
-
+                        </div>
+                        <div id="addFrom">
+                            <div class="travelInputBorder">
+                                    <div>主題名稱：</div>
+                                    <input>
                             </div>
+                            <div class="travelInputBorder">
+                                    <div>類別：</div>
+                                    <select>
+                                        <option value="1" selected>美洲</option>
+                                        <option value="2">亞洲</option>
+                                        <option value="3">非洲</option>
+                                        <option value="4">歐洲</option>
+                                        <option value="5">大洋洲</option>
+                                    </select>
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>時間：</div>
+                                    <input >
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>人數：</div>
+                                    <input >
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>影片連結：</div>
+                                    <input >
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>圖片上傳：</div>
+                                    <input >
+                            </div>
+                            <div class="travelInputBorder Content">
+                                    <div>活動內容：</div>
+                                    <textarea placeholder="活動內容" > </textarea>
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>自備物品：</div>
+                                    <input >
+                            </div>
+                        </div>
+                        <div class="memberEditCancel">
+                            <button class="btnL_light" @click="cancel">取消</button>
+                            <button class="btnL" @click="confirms">確認</button>
+                        </div>
 
+                     </div>
+
+                    <div id="right" v-else>
+                        <div id="memberLove">
+                            <h2>管理旅遊</h2>
+                        </div>
+                        <div id="travelAdd" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" @click ="AddTravel">
+                                    <g id="Group_291" data-name="Group 291" transform="translate(-13431 -1300)">
+                                        <g id="Group_290" data-name="Group 290">
+                                        <g id="Ellipse_81" data-name="Ellipse 81" transform="translate(13431 1300)" fill="#fff" stroke="#707070" stroke-width="1">
+                                            <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
+                                            <circle cx="12.5" cy="12.5" r="12" fill="#996A4D"/>
+                                        </g>
+                                        </g>
+                                        <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M14.434,8.357h-5v-5a1.11,1.11,0,0,0-1.11-1.11H7.217a1.11,1.11,0,0,0-1.11,1.11v5h-5A1.11,1.11,0,0,0,0,9.467v1.11a1.11,1.11,0,0,0,1.11,1.11h5v5a1.11,1.11,0,0,0,1.11,1.11h1.11a1.11,1.11,0,0,0,1.11-1.11v-5h5a1.11,1.11,0,0,0,1.11-1.11V9.467A1.11,1.11,0,0,0,14.434,8.357Z" transform="translate(13435.721 1302.485)"/>
+                                    </g>
+                                </svg>
+                                <div id="clickAdd">
+                                </div>
+                        </div>
+                        <div>
+                            <div id="travelNavBar">
+                                <div class = "travelNavBarP" v-for="title in titles">
+                                    <p >{{title}}</p>
+                                </div>
+                            </div>
+                            <div class="travelValue" v-for="value in values">
+                                <div class="travelP">
+                                    <p>{{value.title}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>{{value.category}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>{{value.date}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>{{value.time}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>{{value.people}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>{{value.status}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>{{value.edit}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>{{value.cancel}}</p>
+                                </div>
+                            </div>
                         </div>
                         <div class="loveNumberNav">
                             <div class="loveNavs">
@@ -65,17 +131,56 @@ const TravelEdit = {
                                         </div>
                                 </div>
                             </div>
+                        <div id="travelEditPop" v-show="pops">
+                            <div>
+                                <p>已傳送至管理員後台，請等待審核。</p>
+                                <button class="btnL" @click="popconfirms">確認</button>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994" @click="popconfirms">
+                                    <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z" transform="translate(-11.285 -11.289)" fill="#996a4d"/>
+                                </svg>
 
+                            </div>
                         </div>
+                     </div>
+
             `,
     data() {
         return {  //組件的變數寫在這裡！
             values: [
-                { star: "5", content: "Big Ben 大笨鐘倫敦，最具指標性的景觀。", from: "英國", time: "2021.07.13 1400~1500", comment: "前往旅遊" },
-                { star: "4.8", content: "馬辰水上市場藝術節，體驗水上文化之旅。", from: "印尼", time: "2021.07.20 1400~1500", comment: "取消" },
-                { star: "3", content: "漫步古羅馬遺址，燦爛一個時代的歷史文化古城。", from: "非洲", time: "2021.07.22 1400~1500", comment: "取消" },
-                { star: "4.2", content: "泰國黃金海岸，欣賞Pattaya的海岸風光。", from: "泰國", time: "2021.07.23 1400~1500", comment: "取消" },
+                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", date: "06月23日 周三", time: "上午5:00 - 上午 6:00", people: "13人", status: "審核通過", edit: "編輯", cancel: "取消" },
+                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", date: "06月23日 周三", time: "上午5:00 - 上午 6:00", people: "0 人", status: "審核通過", edit: "編輯", cancel: "取消" },
+                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", date: "", time: "", people: "", status: "審核中", edit: "編輯", cancel: "取消" },
+                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", date: "", time: "", people: "", status: "審核失敗", edit: "修改", cancel: "取消" },
+
             ],
+            titles: [
+                "主題名稱",
+                "類別",
+                "日期",
+                "時間",
+                "人數",
+                "審核狀態",
+                "　　",
+                "　　"
+            ],
+            add: false,
+            pops: false,
+
         };
+    },
+    methods: {
+        AddTravel() {
+            this.add = true;
+        },
+        cancel() {
+            this.add = false;
+        },
+        confirms() {
+            this.add = false;
+            this.pops = true;
+        },
+        popconfirms() {
+            this.pops = false;
+        },
     },
 };

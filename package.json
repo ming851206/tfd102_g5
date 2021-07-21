@@ -1,0 +1,19 @@
+{
+  "name": "tfd102_g5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ming851206/tfd102_g5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ming851206/tfd102_g5/issues"
+  },
+  "homepage": "https://github.com/ming851206/tfd102_g5#readme"
+}

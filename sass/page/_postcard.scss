@@ -1,0 +1,113 @@
+// pointer btn
+@mixin pointer {
+    display: flex;
+    // position: absolute;
+    z-index: 11;
+    border-radius: 50%;
+    // border: 1px solid lightpink;
+    cursor: pointer;
+    &:hover{
+        box-shadow: 0px 0px 4px 1px $main_grey;
+        circle{
+            fill: $sec_grey;
+            @include mobile{
+                
+            }
+        }
+        path{
+            fill: $main_br;
+        }
+        .text_show{
+            
+        }
+    }
+    
+}
+
+
+
+// 抓回上面的85px
+.postcard_Body{
+    padding-top: 85px;
+    padding-bottom: 0px;
+    border: 1px solid black;
+    margin: 0 auto;
+    @include mobile{
+        padding-top: 0;
+    }
+}
+
+.index_postcard_block{
+    border: 1px solid red;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+    .index_postcard_BG{
+        width: 100%;
+        img{
+            width: 100%;
+        }
+    }
+    .main_postcard_block{
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // width: 100%;
+        border: 1px solid red;
+        .textblock{
+            > h2{
+                font-family: 'blod';
+                text-shadow: 0px 0px 3px $sec_ivory;
+                @include mobile{
+                    display: none;
+                }
+            }
+        }
+        .index_postcard_pointer{
+            display: flex;
+            flex-direction: column;
+                border: 1px solid red;
+                align-items: center;
+            @include pointer;
+        }
+        .text_show{
+            // position: absolute;
+            border: 1px solid red;
+            margin-top: 20px;
+            // padding-top: 50px;
+            @include mobile{
+                display: none;
+            }
+        }
+    }
+}
+.phone_text_block{
+    display: none;
+    @include mobile{
+        background-color: $sec_ivory;
+        padding: 40px;
+        // border: 1px solid green;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h3{
+            // font-size: 26px;
+            font-family: 'blod';
+            margin-bottom: 20px;
+
+            // border: 1px solid green;
+        }
+    }
+}
+
+.choose_img_block{
+    width: 100%;
+    border: 1px solid red;
+}
