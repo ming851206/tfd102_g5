@@ -25,6 +25,23 @@
         <input type="text">
         <div class="deco"></div>
     </section>
+    <section class="faq_sec2">
+        <h3>常見問題</h3>
+        <div id="faq_app" class="container">
+            <div class="row">
+                <div class="app_l col-lg-3 col-sm-12">
+                    <router-link to="/q_acc">個人帳戶</router-link>
+                    <router-link to="/q_trip">參與旅程</router-link>
+                    <router-link to="/q_pay">購買與付款</router-link>
+                    <router-link to="/q_cancel">取消與退款</router-link>
+                    <router-link to="/q_coupon">使用優惠碼</router-link>
+                </div>
+                <div class="app_r col-lg-9 col-sm-12">
+                    <router-view></router-view>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <div id="footer">
         <the-footer></the-footer>
@@ -34,6 +51,58 @@
     <script src="./js/jq/jquery-3.6.0.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src="./js/header_footer.js"></script>
+    <script>
+
+        Vue.use(VueRouter);
+
+        const Acc = {
+            template: `
+                <div class="qcard">
+                    如何獲得優惠碼
+                </div>
+            ` };
+
+        const Trip = {
+            template: `
+                <div class="qcard">
+                    參與旅程
+                </div>
+            ` };
+
+        const Pay = {
+            template: `
+                <div class="qcard">
+                    購買與付款
+                </div>
+            ` };
+        const Cancel = {
+            template: `
+                <div class="qcard">
+                    取消與付款
+                </div>
+            ` };
+        const Coupon = {
+            template: `
+                <div class="qcard">
+                    使用優惠碼
+                </div>
+            ` };
+
+
+        new Vue({
+            el: '#faq_app',
+            router: new VueRouter({
+                mode: 'history',
+                routes: [
+                    { path: '/q_acc', component: Acc },
+                    { path: '/q_trip', component: Trip },
+                    { path: '/q_pay', component: Pay },
+                    { path: '/q_cancel', component: Cancel },
+                    { path: '/q_coupon', component: Coupon },
+                ],
+            }),
+        });
+    </script>
 </body>
 
 </html>
