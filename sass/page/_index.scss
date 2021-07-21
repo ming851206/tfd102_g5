@@ -1,40 +1,412 @@
+@mixin margin($left, $right) {
+    margin-left: $left;
+    margin-right: $right;
+}
+@mixin h2_margin($t,$b, $l) {
+    padding: 0;
+    margin-top: $t;
+    margin-bottom: $b;
+    margin-left: $l;
+}
+@mixin margin0 {
+    margin: 0 auto;
+    @content;
+}
+$w1200: 1180px;
+
+
+// 首頻地球
 section.earth{
+    display: flex;
     position: relative;
     width: 100%;
     height: calc(100vh - 85px);
-    border: 1px solid #9EA2A4;
+    // border: 1px solid #9EA2A4;
     background: linear-gradient(to bottom, #192B39 25%, #3F5361 50%, #8798A5 75%, #D0DCE1);
+    // background-image: url("../../images/index/content/bg_1.jpg");
+    .earth_container{
+        // width: $w1200;
+        @include margin0;
+        // border: 1px solid red;
+        div.slogan{
+            // border: 1px solid white;
+            display: inline-block;
+            margin-top: 280px;
+            @include margin(25px, 155px);
+            h2{
+                color: $sec_ivory;
+                font-size: 48px;
+                font-family:'en';
+                margin-bottom: 20px;
+            }
+            h5{
+                color: $sec_ivory;
+                font-size: 21px;
+                line-height: 1.5;
+                font-family:'regular';
+            }
+            img.scroll_down{
+                margin-top: 80px;
+                margin-left: 15px;
+            }
+        }
+        div.earthGame{
+            float: right;
+            width: 700px;
+            margin-top: 30px;
+            position: relative;
+            // border: 1px solid red;
     
-    div.slogan{
-        display: inline-block;
-        margin-top: 190px;
-        margin-left: 130px;
-        
-        h2{
-            color: $sec_ivory;
-            font-size: 48px;
-            font-family:'en';
-            margin-bottom: 50px;
+            img.earth_img{
+                width: 100%;
+                overflow: hidden;
+                float: right;
+                // border: 1px solid red;
+            }
+            .game{
+                width: 170px;
+                height: 58px;
+                font-size: 17px;
+                background-color: transparent;
+                color: whitesmoke;
+                border: 1px solid whitesmoke;
+                border-radius: 15px;
+                box-shadow: 0px 0px 5px 2px whitesmoke;
+                position: absolute;
+                bottom: 9.5%;
+                left: -18%;
+                cursor: pointer;
+                &::before{
+                    content: "";
+                    width: 35px;
+                    height: 28px;
+                    display: inline-block;
+                    background-image: url("../../images/index/content/dice.svg");
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-right: 5px;
+                    vertical-align: sub;
+                }
+            }
         }
-        h5{
-            color: $sec_ivory;
-            font-size: 21px;
-            line-height: 1.5;
-            font-family:'regular';
+    }   
+}
+
+// 我們的服務
+.about{
+    position: relative;
+    // border: 1px solid red;
+    h2{
+        @include h2_margin(100px, 60px, 10px);
+    }
+    .about_container{
+        width: $w1200;
+        @include margin0();
+        // border: 1px solid red;
+    }
+    .all_about{
+        position: relative;
+        .about_1{
+            @include margin0{
+                // border: 1px solid green;
+                display: flex;
+                width: 990px;
+                margin-bottom: 60px;
+            };
+            img{
+                border: 1px solid white;
+            }
+            .des_1{
+                // border: 1px solid green;
+                margin-left: 80px;
+                align-self: center;
+            }
+            h3{
+                line-height: 4;
+            }
+            h4{
+                font-size: 16px;
+            }
         }
-        img.scroll_down{
-            margin-top: 80px;
-            margin-left: 15px;
+        .about_2{
+            @include margin0{
+                // border: 1px solid green;
+                display: flex;
+                width: 990px;
+            };
+            img{
+                width: 100%;
+            }
+            .des_2{
+                // border: 1px solid green;
+                align-self: flex-start;
+                margin-top: 30px;
+                width: 900px;
+                @include margin(0px, 80px);
+            }
+            h3{
+                line-height: 4;
+            }
+            h4{
+                font-size: 16px;
+            }
         }
     }
-    img.earth_img{
-        width: 700px;
+    .light_bg{
+        // width: 990px;
+        // height: 585px;
+        width: 90%;
+        height: 700px;
         display: inline-block;
-        overflow: hidden;
+        // background-image: url("../../images/index/content/bg_color.jpg");
+        background-image: url("../../images/index/content/color_bg1.png");
         position: absolute;
-        left: 50%;
+        bottom: 0;
+        z-index: -1;
+    }
+    .fence{
+        width: 100%;
+        height: 45px;
+        background-image: url("../../images/index/content/fence.png");
+        z-index: 1;
+    }
+}
+// 熱門旅遊
+.travel{
+    // border: 1px solid red;
+    width: $w1200;
+    @include margin0();
+    margin-top: 200px;
+    h2{
+        padding: 0;
+        margin-bottom: 60px;
+    }
+    ul#travel_container{
+        // border: 1px solid black;
+        li{
+            border-radius: 25px;
+            overflow: hidden;
+            display: inline-block;
+            margin-right: 20px;
+            width: 280px;
+            &:nth-child(4){
+                margin-right: 0;
+            }
+            img.place{
+                width: 100%;
+            }
+            .main_content{
+                background-color: $main_ivory;
+                padding: 12px 0 20px 20px;
+                .first{
+                    margin-bottom: 20px;
+                    display: flex;
+                    // border: 1px solid blue;
+                    .star_num{
+                        display: inline-block;
+                        @include margin(3px, 8px);
+                        img{
+                            width: 18px;
+                            vertical-align: bottom;
+                        }
+                        p{
+                            margin-left:4px
+                        }
+                    }
+                    p{
+                        display: inline-block;
+                        margin-left:8px;
+                        font-size: 16px;
+                        margin-top: 10px;
+                    }
+                }
+                p.third{
+                    font-size: 16px;
+                    margin-top: 10px;
+                    padding-bottom: 5px;
+                }
+
+            }
+        }
+
     }
 }
 
+// <div class="travel">
+// <h2>熱門旅遊</h2>
+// <div id="the-travel">
+//     <travel_item></travel_item>
+// </div>
+// </div>
+
+// <ul id="travel_container">
+// <li id="travel_li" v-for="trip in trips">
+//     <img src="./images/index/content/travel_1.jpg" alt="看吳哥窟全景">
+//     <div class="main_content">
+//         <div class="first">
+//             <div class="star_num">
+//                 <img src="./images/index/content//star.svg">
+//                 <p>{{trip.star}}</p>
+//             </div> 
+//             <p class="middle">({{trip.num}}).</p>
+//             <p>{{trip.place}}</p>    
+//         </div>
+//         <h3>{{trip.title}}</h3>
+//         <p>每人 $ {{trip.price}} TWD 起</p>
+//     </div>
+// </li>    
+// </ul>
 
 
+// 選擇我們
+#choose_us{
+    padding: 200px 0 250px;
+    background-image: url("../../images/index/content/color_bg1.png");
+    background-size: contain;
+    .the_reason{
+        width: $w1200;
+        margin-top: 50px;
+        // border: 1px solid red;
+        @include margin0();
+        .text{     
+                @include h2_margin(0px, 85px, 10px);
+                vertical-align: top;
+                display: inline-block;
+                // border: 1px solid black;
+            h2{
+                padding: 0;
+                margin-top: 10px;
+                margin-bottom: 50px;
+            }
+            ul.reasons{
+                list-style: initial;
+                // border: 1px solid green;
+                li{
+                    font-size: 17px;
+                    line-height: 2;
+                    margin-left: 20px;
+                    font-family: "regular";
+                }
+            }
+        }
+    }
+    #index_video{
+        float: right;
+        margin-right: 80px;
+        width: 55%;
+        border-radius: 25px;
+    }
+}
+
+// 更多評價
+.more_opinion{
+    width: 100%;
+    position: relative;
+    display: flex;
+    // border: 1px solid red;
+    aside.fence_col{
+        border: 1px soild red;
+        display: inline-block;
+        width: 45px;
+        // height: 100vh;
+        background-image: url("../../images/index/content/fence_col.png");
+        margin-right: 10px;
+    }
+    .opinion_container{
+        width: 1160px;
+        @include margin0();
+        // border: 1px solid red;
+        vertical-align: top;
+        padding-bottom: 110px;
+        h2{
+            @include h2_margin(100px, 60px, 0px);
+        }
+        #all_opinion{
+            // border: 1px solid green;
+            column-count: 3;
+            column-gap: 50px;
+            margin-bottom: 100px;
+            li{
+                border: 1px solid $main_br;
+                border-radius: 0 25px 0 25px;
+                margin-bottom: 50px;
+                padding: 36px 40px;
+                .top{
+                    // border: 1px solid black;
+                    margin-bottom: 25px;
+                    font-size: 16px;
+                    img{
+                        display: inline-block;
+                    }
+                    .right{
+                        display: inline-block;
+                        margin-left: 20px;
+                        vertical-align: top;
+                        // border: 1px solid red;
+                        .star_num{
+                            // border: 1px solid blue;
+                            margin-top: 8px;
+                            display: flex;
+                            justify-content: flex-start;
+                            margin-bottom: 8px;
+                            img{
+                                margin-right: 8px;
+                                width: 18px;
+                            }
+                            p{
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                }
+                p.content{
+                    font-size: 16px;
+                    line-height: 2;
+                }
+            }
+        }
+        .btnL_line{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }   
+    }
+    #go_top{
+        cursor: pointer;
+        align-self: flex-end;
+        margin-right: 35px;
+        margin-bottom: 30px;
+    }
+
+}
+// <ul id="all_opinion">
+// <li class="person" v-for="person in people">
+//     <div class="top">
+//         <!--<img src="./images/index/content/{{person.avatar}}.jpg">-->
+//         <!--<img :src= {{person.avatar}}>-->
+//         <img src="./images/index/content/people_1.jpg">
+//         <div class="right">
+//             <div class="star_num">
+//                 <img src="./images/index/content//star.svg">
+//                 <p>{{person.star}}</p>
+//             </div>
+//             <p>{{person.name}}</p>
+//         </div>    
+//     </div>
+//     <p>{{person.content}}</p>
+// </li>
+// </ul>
+
+// <section class="more_opinion">
+// <aside class="fence_col"></aside>
+// <div class="opinion_container">
+//     <h2>看看大家怎麼說 . . .</h2>
+
+//     <div id="opinion">
+//         <the-opinion></the-opinion>
+//     </div>
+
+//     <button id="index_more" class="btnL_line">觀看更多</button>
+// </div>
+// <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+// </section>

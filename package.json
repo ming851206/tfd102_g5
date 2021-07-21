@@ -10,10 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/ming851206/tfd102_g5.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ming851206/tfd102_g5/issues"
   },
-  "homepage": "https://github.com/ming851206/tfd102_g5#readme"
+  "homepage": "https://github.com/ming851206/tfd102_g5#readme",
+  "dependencies": {
+    "bootstrap-sass": "^3.4.1"
+  }
 }

@@ -9,6 +9,9 @@
 //mixin
 @import 'mixin/mixin';
 
+//bootstrap
+@import '../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
 // components
 @import 'components/btn';
 
@@ -19,7 +22,9 @@
 // page
 @import 'layout/login';
 @import 'layout/member';
-@import 'page/index';
+
+@import 'layout/postcard';
 @import 'page/faq';
 @import 'page/postcard';
+@import 'page/index';
 @import 'page/travellist';
