@@ -3786,17 +3786,14 @@ input:focus {
   border-radius: 20px;
   overflow: hidden;
   height: 50px;
-<<<<<<< HEAD
   align-items: center;
   width: 900px;
-=======
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   width: 1230px;
->>>>>>> JOi
   margin-top: 20px;
   text-align: center;
 }
@@ -3810,14 +3807,14 @@ input:focus {
   width: 200px;
 }
 
-<<<<<<< HEAD
 #travelNavBar .travelNavBarP:nth-child(2) {
   width: 50px;
 }  
 .phone_loginMemberPage {
   width: 100%;
   display: none;
-=======
+}
+
 #travelNavBar .travelNavBarP:last-child {
   margin-right: 30px;
 }
@@ -3847,7 +3844,6 @@ input:focus {
 
 .travelValue .travelP:first-child {
   margin-left: 30px;
->>>>>>> JOi
 }
 
 @media all and (max-width: 576px) {
@@ -4099,8 +4095,6 @@ input:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-<<<<<<< HEAD
-=======
 }
 
 .joinComment {
@@ -4126,7 +4120,6 @@ input:focus {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
->>>>>>> JOi
   border: 1px solid #996A4D;
   border-radius: 20px;
   overflow: hidden;
@@ -4631,7 +4624,6 @@ section.earth .earth_container div.earthGame .game::before {
   }
 }
 
-<<<<<<< HEAD
 .postcard_Body {
   padding-top: 85px;
   padding-bottom: 0px;
@@ -4774,14 +4766,12 @@ section.earth .earth_container div.earthGame .game::before {
 
 .choose_img_block {
   width: 100%;
-  border: 1px solid red;
-=======
+  border: 1px solid red;}
 .faq_sec2 {
   padding: 80px 80px;
 }
 
 .faq_sec2 a {
   padding: 10px 20px;
->>>>>>> JOi
 }
 /*# sourceMappingURL=style.css.map */

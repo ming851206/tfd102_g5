@@ -41,7 +41,10 @@
 //==================================================
 .faq_sec2{
     padding: 80px 80px;
-    a{
-        padding: 10px 20px;
+    .flexbox{
+        display: flex;
+        a{
+            padding: 20px 20px;
+        }
     }
 }
