@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/vue/vue.js"></script>
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <title>travel_info</title>
+</head>
+<body class="travel_info_Body">
+    <!-- <h2>Hello</h2> -->
+    <div id="main">
+        <!--  include header   -->
+        <div id="header">
+            <the-logo></the-logo>
+            <the-header></the-header>       
+        </div>
+        <div id="menu">
+            <menu-item></menu-item> 
+        </div>
+
+    <!-- travel_info  -->
+        <div class="traveler_info">
+                <div id="traveler_pic">
+                    <img id="" src="">
+                </div>
+                <div id="traveler_introduce">
+                    <p>2021年加入Jumper的旅遊達人</p>
+                    <p>112 則評價</p>
+                    <p>身分已驗證</p>
+                    <p>I am originally from the North of South America, a country called Venezuela, after a big migration movement I have ended up in Barcelona, where I am dedicated on learning more and more about the city and sharing this knowledge to anyone visiting the city. Hours will pass by and you won't even notice it!</p>
+                    <p>聯絡體驗達人</p>
+                </div>
+<!-- ------ -->
+        <div id="travel_title">
+            <p>Zachary DeBottis 舉辦的線上體驗
+                6 小時 · 使用的語言：英語</p>
+        </div>
+<!-- ----- -->
+        <div id="travel_rules">
+            <p>線上加入
+                透過 Zoom 與體驗達人在線上交流。</p>
+            <p>免費退訂
+                在體驗開始前至少 1 天或預訂後 24 小時內取消，
+                即可拿回全額退款。</p>
+            <p>最多 10 位參加者</p>
+        </div>
+<!-- ------ -->
+        <div id="travel_text">
+            <h2>活動內容</h2>
+            <p>見過紐約氣派的高樓大廈和繁華的城市魅力後，啟程往北，一睹大自然最美產物之一的尼亞加拉大瀑布。尼亞加拉大瀑布以每秒150,000加侖的流水量傾瀉而下，氣勢滂礡的絕世景觀被譽為世界上最美的天然奇景之一。行程沿路帶你欣賞阿帕拉契山脈和上紐約州的美麗風景、遠觀北美廣闊無邊的平地和東岸沿海平原之間天然的群山屏障。緊接著抵達本行程的目的地──尼亞加拉大瀑布，重頭戲帶你搭乘直升機，從空中俯瞰瀑布，水流奔騰而下的臨場震撼感一生一定要體會一次。之後到山羊島，換個角度欣賞瀑布宏偉壯觀的全貌。</p>
+        </div>
+<!-- ------ -->
+        <div id="travel_way">
+            <h2>參加方式</h2>
+            <p>加入視訊通話</p>
+            <p>包場預定</p>
+            <p>Zachary 可為團體舉辦包場體驗，最多可供 10 人參加。包場價 $3,000 起。</p>
+        </div>
+<!-- ------ -->
+        <div id="travel_choose_date">
+            <h2>從可訂日期中選擇</h2>
+            <div id="travel_choose_date_1">
+                <p>6月23日 週三</p>
+                <p>上午5:00 - 上午6:45 (TST)</p>
+                <p>$3000</p>
+                <p>額滿</p>
+            </div>
+        </div>
+        <!-- ------ -->
+        <div id="travel_experience">
+            <h2>他人評價</h2>
+            <div id="travel_experience_1">
+                <img id="" src="">
+                <p>5</p>
+                <p>那裡的景色很不錯，但是在交通上要花很長時間，因為它離紐約很遠，如果自行搭乘公共汽車前往要花8個小時，透過參加線上旅由，不只節省時間，還能欣賞美景，我認為值得這樣做。</p>
+            </div>
+            <div id="travel_experience_2">
+                <img id="" src="">
+                <p>5</p>
+                <p>導遊很可愛，解說很好，有趣的人。讓旅途不枯燥，瀑布很美，第一次參加線上旅行很神奇，搭乘直升機俯瞰瀑布美景，令人回味無窮。各種觀點都很漂亮，印象深刻，很開心。如果有機會我會親自再次訪問這裡，我想晚上再次回來。</p>
+            </div>
+            <div id="travel_experience_3">
+                <img id="" src="">
+                <p>5</p>
+                <p>那裡的景色很不錯，但是在交通上要花很長時間，因為它離紐約很遠，如果自行搭乘公共汽車前往要花8個小時，透過參加線上旅由，不只節省時間，還能欣賞美景，我認為值得這樣做。</p>
+            </div>
+            <p>看更多</p>
+        </div>
+<!-- ------ -->
+        <div id="travel_recommend">
+            <h2>相信你會喜歡</h2>
+            <div id="travel_recommend_1">
+                <p>4.99(52) ．印尼</p>
+                <p>馬辰水上市場藝術節
+                    體驗水上文化之旅
+                </p>
+                <p>每人 $691TWD起</p>
+            </div>
+            <div id="travel_recommend_2">
+                <p>4.99(52) ．泰國</p>
+                <p>泰國黃金海岸
+                    欣賞Pattaya的海岸風光
+                </p>
+                <p>每人 $691TWD起</p>
+            </div>
+            <div id="travel_recommend_3">
+                <p>4.99(52) ．澳洲</p>
+                <p>勒格蘭德角國家公園
+                    探索野生動物
+                </p>
+                <p>每人 $691TWD起</p>
+            </div>
+            <div id="travel_recommend_4">
+                <p>4.99(52) ．英國</p>
+                <p>Big Ben 大笨鐘
+                    倫敦最具指標性的景觀
+                </p>
+                <p>每人 $691TWD起</p>
+            </div>
+
+        </div>
+        
+        
+
+
+
+
+    <div id="footer">
+        <!-- <the-footer></the-footer> -->
+    </div>
+    <script src="./js/header_footer.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

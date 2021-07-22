@@ -1,11 +1,77 @@
 const TravelEdit = {
     template: `
-                    <div id="right">
+                    <div id="right" v-if="add ==true">
                         <div id="memberLove">
                             <h2>管理旅遊</h2>
                         </div>
                         <div id="travelAdd">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                                    <g id="Group_291" data-name="Group 291" transform="translate(-13431 -1300)">
+                                        <g id="Group_290" data-name="Group 290">
+                                        <g id="Ellipse_81" data-name="Ellipse 81" transform="translate(13431 1300)" fill="#fff" stroke="#707070" stroke-width="1">
+                                            <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
+                                            <circle cx="12.5" cy="12.5" r="12" fill="#996A4D"/>
+                                        </g>
+                                        </g>
+                                        <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M14.434,8.357h-5v-5a1.11,1.11,0,0,0-1.11-1.11H7.217a1.11,1.11,0,0,0-1.11,1.11v5h-5A1.11,1.11,0,0,0,0,9.467v1.11a1.11,1.11,0,0,0,1.11,1.11h5v5a1.11,1.11,0,0,0,1.11,1.11h1.11a1.11,1.11,0,0,0,1.11-1.11v-5h5a1.11,1.11,0,0,0,1.11-1.11V9.467A1.11,1.11,0,0,0,14.434,8.357Z" transform="translate(13435.721 1302.485)"/>
+                                    </g>
+                                </svg>
+                                <div id="clickAdd">
+                                </div>
+                        </div>
+                        <div id="addFrom">
+                            <div class="travelInputBorder">
+                                    <div>主題名稱：</div>
+                                    <input>
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>類別：</div>
+                                    <select>
+                                        <option value="1" selected>美洲</option>
+                                        <option value="2">亞洲</option>
+                                        <option value="3">非洲</option>
+                                        <option value="4">歐洲</option>
+                                        <option value="5">大洋洲</option>
+                                    </select>
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>時間：</div>
+                                    <input >
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>人數：</div>
+                                    <input >
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>影片連結：</div>
+                                    <input >
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>圖片上傳：</div>
+                                    <input >
+                            </div>
+                            <div class="travelInputBorder Content">
+                                    <div>活動內容：</div>
+                                    <textarea placeholder="活動內容" > </textarea>
+                            </div>
+                            <div class="travelInputBorder">
+                                    <div>自備物品：</div>
+                                    <input >
+                            </div>
+                        </div>
+                        <div class="memberEditCancel">
+                            <button class="btnL_light" @click="cancel">取消</button>
+                            <button class="btnL" @click="confirms">確認</button>
+                        </div>
+
+                     </div>
+
+                    <div id="right" v-else>
+                        <div id="memberLove">
+                            <h2>管理旅遊</h2>
+                        </div>
+                        <div id="travelAdd" >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" @click ="AddTravel">
                                     <g id="Group_291" data-name="Group 291" transform="translate(-13431 -1300)">
                                         <g id="Group_290" data-name="Group 290">
                                         <g id="Ellipse_81" data-name="Ellipse 81" transform="translate(13431 1300)" fill="#fff" stroke="#707070" stroke-width="1">
@@ -65,7 +131,18 @@ const TravelEdit = {
                                         </div>
                                 </div>
                             </div>
+                        <div id="travelEditPop" v-show="pops">
+                            <div>
+                                <p>已傳送至管理員後台，請等待審核。</p>
+                                <button class="btnL" @click="popconfirms">確認</button>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994" @click="popconfirms">
+                                    <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z" transform="translate(-11.285 -11.289)" fill="#996a4d"/>
+                                </svg>
+
+                            </div>
+                        </div>
                      </div>
+
             `,
     data() {
         return {  //組件的變數寫在這裡！
@@ -86,6 +163,24 @@ const TravelEdit = {
                 "　　",
                 "　　"
             ],
+            add: false,
+            pops: false,
+
         };
+    },
+    methods: {
+        AddTravel() {
+            this.add = true;
+        },
+        cancel() {
+            this.add = false;
+        },
+        confirms() {
+            this.add = false;
+            this.pops = true;
+        },
+        popconfirms() {
+            this.pops = false;
+        },
     },
 };

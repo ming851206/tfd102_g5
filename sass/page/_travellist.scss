@@ -1,0 +1,62 @@
+.banner{
+    width: 100%;
+    height: 700px;
+    position: relative;
+    .intro{
+        // display: inline;
+        // border: 2px solid red;
+        width: 40%;
+        position: absolute;
+        left: 10%;
+        bottom: 40%;
+        h2{
+            // border: 2px solid red;
+            font-weight: bold;
+            text-align: left;
+            margin-left: 0;
+        }   
+        h5{
+            line-height: 1.5;
+        } 
+    }
+    .bg_img{
+        // border: 2px solid blue;
+        width: 100%;
+        height: 100%;
+        background-image: url(../../images/travel_list/banner_bg.jpg);
+        background-size: cover;
+
+
+    }
+}
+
+
+    ul.filter{
+        background-color: #FAF9F2;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 0 40px;
+        li{
+            // border: 2px solid red;
+            margin: 10px 0 10px 20px;
+        }
+        li:nth-child(3){
+            border-right: 2px solid grey;
+            padding-right: 30px;
+        }
+        input.search {
+            @include form;    
+            padding-left: 40px;
+            margin-top: 0;
+            width: 200px;
+            height: 30px;
+            right: 5px;
+            justify-content: flex-end;
+            background-image: url(/images/icon/search.svg);
+            background-repeat: no-repeat;
+            background-position: 10px center;
+        }
+    }

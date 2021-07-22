@@ -8,12 +8,12 @@ const Join = {
                             <div class="loveContentBorder" v-for="value in values">
                                 <div class="cardBorder">
                                     <div class="loveImg">
-                                        <img src="https://picsum.photos/200/200">
+                                        <img src="https://picsum.photos/150/200">
                                     </div>
                                     <div class="joinContents">
                                         <div class="loveContentsTop">
                                             <div class="headImg">
-                                                <img src="https://picsum.photos/200/200">
+                                                <img src="https://picsum.photos/100/100">
                                             </div>
                                             <div class="StarAndFrom gotravel">
                                                 <div class = "joinComment">
