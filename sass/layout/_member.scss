@@ -572,7 +572,47 @@
             padding: 20px;
             padding-right: 0;
             width: 130px;
+        }
+    }
+
+    .Imginput {
+        width: 100%;
+        height: unset;
+
+        .showImg {
+            width: 590px;
+            padding: 0;
             background-color: $sec_ivory;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                margin-top: 20px;
+
+                &:first-child {
+                    margin-top: 0px;
+                }
+            }
+
+        }
+
+        input {
+            position: absolute;
+            top: -100%;
+            left: -100%;
+        }
+
+        .clickInput {
+            width: 100px;
+            height: 50px;
+            border: 1px solid $main_br;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 20px;
+            line-height: 0.8;
+            margin-top: 40px;
+
         }
     }
 

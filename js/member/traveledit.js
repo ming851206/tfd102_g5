@@ -46,9 +46,16 @@ const TravelEdit = {
                                     <div>影片連結：</div>
                                     <input >
                             </div>
-                            <div class="travelInputBorder">
+                            <div class="travelInputBorder Imginput" @dragover.prevent @drop="drop">
                                     <div>圖片上傳：</div>
-                                    <input >
+                                    <div>
+                                        <div class="showImg">
+                                        </div>
+                                        <input type="file" multiple @change="fileChange" id="ImginputFiles">
+                                        <div class="clickInput" @click="InputImg">
+                                            上傳照片
+                                        </div>
+                                    </div>
                             </div>
                             <div class="travelInputBorder Content">
                                     <div>活動內容：</div>
@@ -182,5 +189,40 @@ const TravelEdit = {
         popconfirms() {
             this.pops = false;
         },
+        InputImg: function (event) {
+            let inputBtn = event.target.parentNode.children[1];
+            inputBtn.click();
+            // console.log(inputBtn);
+        },
+        drop: function (e) {
+            e.preventDefault();
+            let files = e.dataTransfer.files;
+
+            for (let i = 0; i < files.length; i++) {
+                let readFile = new FileReader();
+                readFile.readAsDataURL(files[i]);
+                readFile.addEventListener('load', function () {
+                    let image = document.createElement('img');
+                    image.src = readFile.result;
+                    let dropzone = document.getElementsByClassName('showImg')[0];
+                    dropzone.insertBefore(image, dropzone.firstChild);
+                });
+            }
+        },
+        fileChange: function (e) {
+            let files = document.getElementById('ImginputFiles').files;
+
+            for (let i = 0; i < files.length; i++) {
+                let readFile = new FileReader();
+                readFile.readAsDataURL(files[i]);
+
+                readFile.addEventListener('load', function () {
+                    let image = document.createElement('img');
+                    image.src = readFile.result;
+                    let dropzone = document.getElementsByClassName('showImg')[0];
+                    dropzone.insertBefore(image, dropzone.firstChild);
+                });
+            }
+        }
     },
 };

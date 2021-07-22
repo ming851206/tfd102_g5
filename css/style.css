@@ -1494,7 +1494,48 @@ input:focus {
   padding: 20px;
   padding-right: 0;
   width: 130px;
+}
+
+#addFrom .Imginput {
+  width: 100%;
+  height: unset;
+}
+
+#addFrom .Imginput .showImg {
+  width: 590px;
+  padding: 0;
   background-color: #F7F6F2;
+}
+
+#addFrom .Imginput .showImg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-top: 20px;
+}
+
+#addFrom .Imginput .showImg img:first-child {
+  margin-top: 0px;
+}
+
+#addFrom .Imginput input {
+  position: absolute;
+  top: -100%;
+  left: -100%;
+}
+
+#addFrom .Imginput .clickInput {
+  width: 100px;
+  height: 50px;
+  border: 1px solid #996A4D;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  border-radius: 20px;
+  line-height: 0.8;
+  margin-top: 40px;
 }
 
 #addFrom .Content {
@@ -1614,8 +1655,14 @@ input:focus {
   padding: 80px 80px;
 }
 
-.faq_sec2 a {
-  padding: 10px 20px;
+.faq_sec2 .flexbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.faq_sec2 .flexbox a {
+  padding: 20px 20px;
 }
 
 .postcard_Body {
@@ -2379,7 +2426,7 @@ section.earth .earth_container div.earthGame .game::before {
   background-size: cover;
 }
 
-ul.filter {
+.filters {
   background-color: #FAF9F2;
   width: 100%;
   height: 60px;
@@ -2389,20 +2436,29 @@ ul.filter {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   position: relative;
   padding: 0 40px;
 }
 
-ul.filter li {
-  margin: 10px 0 10px 20px;
+.filters ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-ul.filter li:nth-child(3) {
+.filters ul li {
+  margin: 10px 0 0 30px;
+}
+
+.filters ul li:nth-child(3) {
   border-right: 2px solid grey;
-  padding-right: 30px;
+  padding-right: 35px;
 }
 
-ul.filter input.search {
+.filters input.search {
   border: 1px solid #996A4D;
   outline: none;
   -webkit-appearance: none;
@@ -2416,15 +2472,207 @@ ul.filter input.search {
   width: 200px;
   height: 30px;
   right: 5px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
   background-image: url(/images/icon/search.svg);
   background-repeat: no-repeat;
   background-position: 10px center;
 }
 
-ul.filter input.search:focus {
+.filters input.search:focus {
   border: 2px solid #996A4D;
+}
+
+.new_trip {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 40px 120px;
+}
+
+.new_trip h3 {
+  padding: 20px 0;
+}
+
+.new_trip .container {
+  width: 100%;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.new_trip .container .left_block {
+  overflow: hidden;
+  border-radius: 15px;
+  width: 50%;
+  margin-right: 40px;
+}
+
+.new_trip .container .right_block {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.new_trip .container .right_block .upper {
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 48px;
+}
+
+.new_trip .container .right_block .down {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.left_block .trip_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 70vh;
+}
+
+.left_block .trip_item .pic {
+  height: 50%;
+}
+
+.left_block .trip_item .pic img {
+  width: 100%;
+}
+
+.left_block .trip_item .content {
+  height: 50%;
+  padding: 60px 20px 30px 20px;
+  background-color: #FAF9F2;
+  position: relative;
+}
+
+.left_block .trip_item .content .avatar img {
+  border: 6px solid white;
+  width: 25%;
+  border-radius: 50%;
+  position: absolute;
+  top: -35%;
+  left: calc((100%-25%) / 2 - 15%);
+}
+
+.left_block .trip_item .content .star_num {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 10px 0;
+}
+
+.left_block .trip_item .content .star_num p {
+  margin: 0 0 0 10px;
+}
+
+.left_block .trip_item .content h4.intro {
+  min-height: 40px;
+  margin-bottom: 20px;
+  font-family: 'regular';
+  overflow: hidden;
+}
+
+.right_block .trip_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 70vh;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 31vh;
+}
+
+.right_block .trip_item .pic {
+  height: 50%;
+}
+
+.right_block .trip_item .pic img {
+  width: 100%;
+}
+
+.right_block .trip_item .content {
+  height: 50%;
+  padding: 60px 20px 30px 20px;
+  background-color: #FAF9F2;
+  position: relative;
+}
+
+.right_block .trip_item .content .avatar img {
+  border: 6px solid white;
+  width: 25%;
+  border-radius: 50%;
+  position: absolute;
+  top: -35%;
+  left: calc((100%-25%) / 2 - 15%);
+}
+
+.right_block .trip_item .content .star_num {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 10px 0;
+}
+
+.right_block .trip_item .content .star_num p {
+  margin: 0 0 0 10px;
+}
+
+.right_block .trip_item .content h4.intro {
+  min-height: 40px;
+  margin-bottom: 20px;
+  font-family: 'regular';
+  overflow: hidden;
+}
+
+.right_block .trip_item .pic {
+  width: 50%;
+}
+
+.right_block .trip_item .content {
+  width: 50%;
+  height: 100%;
+  padding: 0 20px 30px 20px;
+}
+
+.right_block .trip_item .content .avatar img {
+  border: 6px solid white;
+  width: 25%;
+  position: static;
+  border-radius: 50%;
+  /* background-size: cover; */
+}
+
+.right_block .trip_item .content p.intro {
+  min-height: 20px;
+  overflow: hidden;
 }
 /*# sourceMappingURL=style.css.map */

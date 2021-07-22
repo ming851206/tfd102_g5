@@ -20,80 +20,127 @@
     <div id="menu">
         <menu-item></menu-item>
     </div>
+    <main>
 
-    <section class="banner">
-        <div class="intro">
-            <h2>線上旅遊</h2>
-            <h5>無須踏出家門即可參加由獨具魅力的<br>
-                旅遊達人所舉辦的互動旅遊。
-            </h5>
+        <section class="banner">
+            <div class="intro">
+                <h2>線上旅遊</h2>
+                <h5>無須踏出家門即可參加由獨具魅力的<br>
+                    旅遊達人所舉辦的互動旅遊。
+                </h5>
+            </div>
+            <div class="bg_img"></div>
+            <!-- <img class="bg" src="./images/travel_list/banner_bg.jpg"> -->
+        </section>
+        <section class="main"></section>
+
+
+        <div class="filters">
+            <ul class="filter1">
+                <li class="customer"><button class="btnS_line">篩選條件</button></li>
+                <li class="customer"><button class="btnS_line">日期</button></li>
+                <li class="customer"><button class="btnS_line">團體人數</button></li>
+                <li class="category"><button class="btnS_line">美洲</button></li>
+                <li class="category"><button class="btnS_line">歐洲</button></li>
+                <li class="category"><button class="btnS_line">亞洲</button></li>
+                <li class="category"><button class="btnS_line">非洲</button></li>
+                <li class="category"><button class="btnS_line">大洋洲</button></li>
+            </ul>
+            <ul class="filter2">
+            </ul>
+            <input class="search" placeholder="搜尋"></li>
         </div>
-        <div class="bg_img"></div>
-        <!-- <img class="bg" src="./images/travel_list/banner_bg.jpg"> -->
-    </section>
-    <section class="main"></section>
 
-
-    <ul class="filter">
-        <li><button class="btnS_line">篩選條件</button></li>
-        <li><button class="btnS_line">日期</button></li>
-        <li><button class="btnS_line">團體人數</button></li>
-        <li><button class="btnS_line">美洲</button></li>
-        <li><button class="btnS_line">歐洲</button></li>
-        <li><button class="btnS_line">亞洲</button></li>
-        <li><button class="btnS_line">非洲</button></li>
-        <li><button class="btnS_line">大洋洲</button></li>
-        <li><input class="search" placeholder="搜尋"></li> 
-    </ul>
-
-    <div class="lastest_travle">
-        <div>
+        <div class="new_trip">
             <h3>最新旅遊</h3>
-        </div>
-        <!-- <div id="loveContent"></div>
-            <div class="loveContentBorder">
-                <div class="cardBorder">
-                    <div class="loveImg">
-                        <img src="https://picsum.photos/200/200">
-                    </div>
-                    <div class="historyContents">
-                        <div class="loveContentsTop">
-                            <div class="headImg">
-                                <img src="https://picsum.photos/200/200">
-                            </div>
-                            <div class="StarAndFrom">
-                                <div class="star">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222"
-                                        viewBox="0 0 13.814 13.222">
-                                        <path id="Icon_awesome-star" data-name="Icon awesome-star"
-                                            d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z"
-                                            transform="translate(-1.441 0.001)" fill="#996a4d" />
-                                    </svg>
+            <div class="container">
+                <div class="left_block">
+                    <div class="trip_item">
+                        <div class="pic">
+                          
+                                <img src="./images/travel_list/800/wugerku.jpg">
+                            
+                            <div class="share"></div>
+                            <div class="fav"></div>
+                        </div>
+                        <div class="content">
 
-                                    5
+                            <div class="avatar">
+                                <img src="https://picsum.photos/80/80">
+                            </div>
+                            <div class="star_num">
+                                <div>
+                                    <img src="./images/index/content/star.svg">
                                 </div>
-                                <div class="from">
-                                    (102)
+                                <p>5(102) · </p>
+                                <p class="middle">吳哥窟</p>
+                            </div>
+                            <h4 class="intro">
+                                穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。
+                            <h4>
+                            <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="right_block">
+                    <div class="upper">
+                        <div class="trip_item">
+                            <div class="pic">
+                                <img src="https://picsum.photos/200/300">
+                                <div class="share"></div>
+                                <div class="fav"></div>
+                            </div>
+                            <div class="content">
+    
+                                <div class="avatar">
+                                    <img src="https://picsum.photos/80/80">
                                 </div>
-                                <div class="from">
-                                    柬埔寨
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">吳哥窟</p>
                                 </div>
+                                <h4 class="intro">
+                                    遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                <h4>
+                                <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
                             </div>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero obcaecati ea sit, a tempore
-                            iure. Rem rerum magni, facilis accusantium veniam, deserunt dolore aperiam neque deleniti
-                            reprehenderit consequatur, doloribus eaque.
-                        </p>
-                        <div class="timeAndcomment">
-                            <p> 每人$ <span>999</span> 起</p>
 
+                    </div>
+                    <div class="down">
+                        <div class="trip_item">
+                            <div class="pic">
+                                <img src="https://picsum.photos/200/300">
+                                <div class="share"></div>
+                                <div class="fav"></div>
+                            </div>
+                            <div class="content">
+    
+                                <div class="avatar">
+                                    <img src="https://picsum.photos/80/80">
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">吳哥窟</p>
+                                </div>
+                                <h4 class="intro">
+                                    羅浮宮象徵藝術，撼動人心之情久久保留
+                                <h4>
+                                <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> -->
-    </div>
+        </div>
+    </main>
+
+
+
+
+
 
     <div id="footer">
         <the-footer></the-footer>
