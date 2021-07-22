@@ -107,7 +107,45 @@
     }
 }
 
+// 進度區
+.progress_block{
+    width: 100%;
+    background-color: $main_ivory;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >.frist_block{
+        width: 160px;
+        margin: 40px 30px;
+        border: 1px solid red;
+        text-align: center;
+        padding: 30px;
+        background-color:  $main_ivory;
+        border-radius: 15px;
+        >h4{
+            padding-bottom: 30px;
+        }
+        >span{
+            border: 1px solid blue;
+            margin-top: 30px;
+            font-size: 26px;
+        }
+
+    }
+    .textblock_Show{
+        background-color: #FFFFFF;
+        color: $main_br;
+        >h4, span{
+            font-family: 'bold';
+
+        }
+    }
+}
+// choose block
+
 .choose_img_block{
     width: 100%;
     border: 1px solid red;
+
 }
