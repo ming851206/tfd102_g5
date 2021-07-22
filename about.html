@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="./js/vue/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>JUMPER--關於我們</title>
+</head>
+
+<body>
+    <div id="header">
+        <the-logo></the-logo>
+        <the-header></the-header>
+    </div>
+    <div id="menu">
+        <menu-item></menu-item>
+    </div>
+
+
+    <div id="about">
+        <div class="aboutTop">
+            <h2>關於我們</h2>
+            <div>
+                <p>
+                    想要不受時間與空間的約束，隨時隨地旅遊全球各地嗎?
+                    那麼，歡迎來到 jumper，和我們一起透過線上方式，隨心所欲、暢跳世界！
+                </p>
+                <p>
+                    Jumper團隊希望為所有渴望旅行的人們，打造出一個「不用出門，也能參與彷彿身歷其境的線上旅遊」。
+                </p>
+                <p>
+                    我們從世界精挑細選，各個國家一流的專業導遊，為您規劃在家最適合享受的旅遊體驗。無論您身在何處，皆能挑選您想前往探索的國家、選擇您想跟隨的線上導遊，在您選定好參與旅程的日期後，待活動當日，就能用最放鬆愉快的心情，享受旅遊帶來的無窮樂趣。
+                </p>
+                <p>
+                    相較於實體旅遊，jumper 所推出的線上旅遊跨越了時空的限制，也為所有旅遊愛好者省下了更多的交通與住宿開銷。無論何時，您都能用較少的花費，開啟一趟精彩豐富的旅程。
+                </p>
+                <p>
+                    我們依據地理位置，劃分亞洲、歐洲、非洲、北美洲及中南美洲，共五大洲不同國家的線上深度旅遊，由各地擁有多年帶團經驗的導遊
+                </p>
+            </div>
+        </div>
+        <div class="imgs">
+        </div>
+        <div class="aboutDown">
+            <h2>參與旅遊流程</h2>
+            <div class="aboutNumber">
+                <div class="aboutNumbers" v-for="sop in sops">
+                    <div class="abourNumberBorder"><span>{{sop.num}}</span></div>
+                    <div class="abourNumberContent">{{sop.content}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="phone">
+            <div class="aboutPhoneBorder">
+                <div class="aboutPhoneText">
+                    <div class="aboutPhoneContent">和我們一起享受線上旅遊的樂趣</div>
+                    <div class="aboutPhoneBtn" @click="jump"><span>Jump至體驗</span></div>
+                </div>
+                <div class="aboutPhoneImg">
+                    <img src="./images/about/phone.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="footer">
+        <the-footer></the-footer>
+    </div>
+    <script src="./js/header_footer.js"></script>
+    <script>
+
+        new Vue({
+            el: '#about',
+            data: {
+                sops: [
+                    { num: '1', content: '選擇一個您喜歡的旅程' },
+                    { num: '2', content: '選定您可以參與的日期、時段及參加人數' },
+                    { num: '3', content: '完成付款' },
+                    { num: '4', content: '待旅遊活動當日，前往會員中心，點選「即將參與旅程」。在您要參加的旅遊項目上，點擊「前往旅遊」，我們將為您帶到「直播線上旅遊」的畫面。' },
+
+                    { num: '5', content: '待活動時間一到，您的線上導遊將會在活動當地，透過螢幕帶您一同深度體驗旅程的美好！' },
+
+                ],
+            },
+            methods: {
+                jump: function (e) {
+                    location.href = './travel_list.html';
+                }
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
