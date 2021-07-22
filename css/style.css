@@ -1434,6 +1434,50 @@ section.earth img.earth_img {
   }
 }
 
+.progress_block {
+  width: 100%;
+  background-color: #F7F9F2;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.progress_block > .frist_block {
+  width: 160px;
+  margin: 40px 30px;
+  border: 1px solid red;
+  text-align: center;
+  padding: 30px;
+  background-color: #F7F9F2;
+  border-radius: 15px;
+}
+
+.progress_block > .frist_block > h4 {
+  padding-bottom: 30px;
+}
+
+.progress_block > .frist_block > span {
+  border: 1px solid blue;
+  margin-top: 30px;
+  font-size: 26px;
+}
+
+.progress_block .textblock_Show {
+  background-color: #FFFFFF;
+  color: #996A4D;
+}
+
+.progress_block .textblock_Show > h4, .progress_block .textblock_Show span {
+  font-family: 'bold';
+}
+
 .choose_img_block {
   width: 100%;
   border: 1px solid red;
