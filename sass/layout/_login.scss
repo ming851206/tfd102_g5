@@ -16,7 +16,7 @@
     display: flex;
     max-width: 540px;
     border: 1px solid blue;
-    margin: 0 auto;
+    margin: 30px auto;
     @include mobile{
         display: none;
     }
@@ -83,7 +83,7 @@ input{
     max-width: 540px;
     // background-image: url(../../images/memberCenter/left_earth.png);
     border: 1px solid green;
-    margin: 0 auto;
+    margin: 30px auto;
     // display: none;
     @include mobile{
         display: none;

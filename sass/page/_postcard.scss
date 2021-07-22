@@ -110,32 +110,46 @@
 // 進度區
 .progress_block{
     width: 100%;
-    background-color: $main_ivory;
+    background-color: $sec_ivory;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    @include tablet{
+
+    }
     >.frist_block{
-        width: 160px;
-        margin: 40px 30px;
-        border: 1px solid red;
+        width: 10%;
+        margin: 30px;
+        // border: 1px solid red;
         text-align: center;
-        padding: 30px;
-        background-color:  $main_ivory;
+        padding: 20px;
+        background-color:  $sec_ivory;
         border-radius: 15px;
+        @include tablet{
+            width: 100%;
+            margin: 30px;
+        }
         >h4{
             padding-bottom: 30px;
+            @include tablet{
+                padding-bottom: 10px;
+            }
         }
+        
         >span{
-            border: 1px solid blue;
+            // border: 1px solid blue;
             margin-top: 30px;
             font-size: 26px;
+            @include tablet{
+                margin-top: 10px;
+            }
         }
 
     }
     .textblock_Show{
-        background-color: #FFFFFF;
-        color: $main_br;
+        background-color: $main_br;
+        color: $sec_ivory;
         >h4, span{
             font-family: 'bold';
 
@@ -147,5 +161,88 @@
 .choose_img_block{
     width: 100%;
     border: 1px solid red;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    >.choose_img_title{
+        width: 100%;
+        text-align: center;
+        margin: 45px;
+    }
+    >.choose_card_block{
+        width: 80%;
+        display: flex;
+        margin: 20px;
+        // align-items: center;
+        border: 1px solid blue;
+        justify-content: space-between;
 
+        @include tablet{
+            width: 75%;
+            flex-wrap: wrap;
+        }
+        @include ipad{
+            width: 90%;
+            flex-wrap: wrap;
+            // flex-direction: column;
+            align-items: center;
+        }
+        @include mobile{
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+        >.card_block{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            max-width: 270px;
+            border: 1px solid green;
+            border-radius: 15px;
+            background-color: $main_ivory;
+            padding: 40px 20px;
+            @include tablet{
+                margin: 20px 0;
+            }
+            @include ipad{
+                margin: 20px 0;
+            }
+            @include mobile{
+                margin: 20px 0;
+            }
+            >img{
+                width: 100%;
+            }
+            >p{
+                margin: 20px 0 40px 0;
+            }
+        }
+    }
+    .next_btn{
+        width: 80%;
+        margin: 20px;
+        display: flex;
+        justify-content: flex-end;
+        border: 1px solid red;
+    }
+}
+
+
+.choose_stamp_block{
+    width: 100%;
+    border: 1px solid green;
+    margin: 0 auto;
+    .choose_stamp_bg{
+        height: 100vh;
+        background-image: url(../../images/postcard/1280/africa01_1280-715.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        opacity: .3;
+    }
+    // .main_postcard_block{
+
+    // }
 }
