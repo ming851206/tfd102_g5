@@ -1,25 +1,29 @@
-.banner{
+.banner {
     width: 100%;
     height: 700px;
     position: relative;
-    .intro{
+
+    .intro {
         // display: inline;
         // border: 2px solid red;
         width: 40%;
         position: absolute;
         left: 10%;
         bottom: 40%;
-        h2{
+
+        h2 {
             // border: 2px solid red;
             font-weight: bold;
             text-align: left;
             margin-left: 0;
-        }   
-        h5{
+        }
+
+        h5 {
             line-height: 1.5;
-        } 
+        }
     }
-    .bg_img{
+
+    .bg_img {
         // border: 2px solid blue;
         width: 100%;
         height: 100%;
@@ -31,32 +35,169 @@
 }
 
 
-    ul.filter{
-        background-color: #FAF9F2;
-        width: 100%;
-        height: 60px;
+.filters {
+    background-color: #FAF9F2;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 40px;
+
+    ul {
         display: flex;
-        align-items: center;
-        position: relative;
-        padding: 0 40px;
-        li{
-            // border: 2px solid red;
-            margin: 10px 0 10px 20px;
+
+        li {
+            margin: 10px 0 0 30px;
         }
-        li:nth-child(3){
+
+
+        li:nth-child(3) {
             border-right: 2px solid grey;
-            padding-right: 30px;
-        }
-        input.search {
-            @include form;    
-            padding-left: 40px;
-            margin-top: 0;
-            width: 200px;
-            height: 30px;
-            right: 5px;
-            justify-content: flex-end;
-            background-image: url(/images/icon/search.svg);
-            background-repeat: no-repeat;
-            background-position: 10px center;
+            padding-right: 35px;
         }
     }
+
+    input.search {
+        @include form;
+        padding-left: 40px;
+        margin-top: 0;
+        width: 200px;
+        height: 30px;
+        right: 5px;
+        background-image: url(/images/icon/search.svg);
+        background-repeat: no-repeat;
+        background-position: 10px center;
+    }
+}
+
+// 最新旅遊
+.new_trip {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 40px 120px;
+
+    h3 {
+        padding: 20px 0;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+        display: flex;
+
+        .left_block {
+            overflow: hidden;
+            border-radius: 15px;
+            width: 50%;
+            margin-right: 40px;
+        }
+
+        .right_block {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            .upper {
+                border-radius: 15px;
+                overflow: hidden;
+                margin-bottom: 48px;
+            }
+
+            .down {
+                border-radius: 15px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+
+
+@mixin tripcard() {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    .pic {
+        height: 50%;
+    
+            img {
+                width: 100%;
+            }
+            // .share{
+            //     border: 2px solid red;
+            //     width: 30px;
+            //     height: 30px;
+            //     background-image: url(/images/icon/search.svg);
+            //     background-repeat: no-repeat;
+            //     background-position: 10px center;
+            // }
+    
+    }
+
+    .content {
+        height: 50%;
+        padding: 60px 20px 30px 20px;
+        background-color: #FAF9F2;
+        position: relative;
+        
+        .avatar img {
+            border: 6px solid white;
+            width: 25%;
+            border-radius: 50%;
+            position: absolute;
+            top: -35%;
+            left: calc((100%-25%) / 2 - 15%);
+        }
+        .star_num {
+            display: flex;
+            flex-direction: row;
+            padding: 10px 0;
+
+            p {
+                margin: 0 0 0 10px;
+            }
+        }
+        h4.intro {
+            min-height: 40px;
+            margin-bottom: 20px;
+            font-family: 'regular';
+            overflow: hidden;
+        }
+    }
+}
+
+
+.left_block .trip_item {
+    @include tripcard();
+}
+
+.right_block .trip_item {
+    @include tripcard();
+    flex-direction: row;
+    justify-content: space-between;
+    height: 31vh;
+    .pic {
+        width: 50%;
+        // height: 100%;
+    }
+    .content {
+        width: 50%;
+        height: 100%;
+        padding: 0 20px 30px 20px;
+        .avatar img {
+            border: 6px solid white;
+            width: 25%;
+            position: static;
+            border-radius: 50%;
+            /* background-size: cover; */
+        }
+        p.intro {
+            min-height: 20px;
+            overflow: hidden;
+        }
+    }
+}
