@@ -13,7 +13,7 @@
     @content;
 }
 
-footer{
+footer#the_footer{
     background-color: #202B36;
     color: #FAF9F2;
     height: 200px;
@@ -22,7 +22,7 @@ footer{
         bottom: 76px;
     }
 
-    .icon_link{
+    .socialLink_icon{
         float: right;
         padding-top: 75px;
         padding-right: 120px;
