@@ -72,13 +72,14 @@
     }
 }
 
-// 最新旅遊
+// 最新旅遊區塊
 .new_trip {
     width: 100%;
+    max-width: 1200px;
     box-sizing: border-box;
     margin: 0 auto;
     justify-content: center;
-    padding: 40px 120px;
+    padding: 40px 40px;
 
     h3 {
         padding: 20px 0;
@@ -121,6 +122,7 @@
     display: flex;
     flex-direction: column;
     height: 70vh;
+    max-height: 500px;
     .pic {
         height: 50%;
     
@@ -149,8 +151,9 @@
             width: 25%;
             border-radius: 50%;
             position: absolute;
-            top: -35%;
-            left: calc((100%-25%) / 2 - 15%);
+            top: -25%;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .star_num {
             display: flex;
@@ -162,7 +165,8 @@
             }
         }
         h4.intro {
-            min-height: 40px;
+            max-height: 55px;
+            font-size: 14px;
             margin-bottom: 20px;
             font-family: 'regular';
             overflow: hidden;
@@ -180,24 +184,37 @@
     flex-direction: row;
     justify-content: space-between;
     height: 31vh;
+    max-height: 250px;
     .pic {
         width: 50%;
         // height: 100%;
     }
     .content {
+        // border: 2px solid red;
         width: 50%;
         height: 100%;
-        padding: 0 20px 30px 20px;
+        padding: 2px 20px 30px 20px;
         .avatar img {
-            border: 6px solid white;
+            border: 2px solid white;
             width: 25%;
             position: static;
             border-radius: 50%;
-            /* background-size: cover; */
+            margin-top: 10px;
+            margin-left: 30px;
         }
-        p.intro {
-            min-height: 20px;
+
+        .star_num {
+            display: flex;
+            flex-direction: row;
+            
+            // padding: 60px 0 0 0;
+        }
+
+        h4.intro {
+
+            max-height: 20px;
             overflow: hidden;
+            margin-bottom: 20px;
         }
     }
 }

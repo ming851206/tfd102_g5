@@ -2483,13 +2483,14 @@ section.earth .earth_container div.earthGame .game::before {
 
 .new_trip {
   width: 100%;
+  max-width: 1200px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   margin: 0 auto;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 40px 120px;
+  padding: 40px 40px;
 }
 
 .new_trip h3 {
@@ -2542,6 +2543,7 @@ section.earth .earth_container div.earthGame .game::before {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 70vh;
+  max-height: 500px;
 }
 
 .left_block .trip_item .pic {
@@ -2564,8 +2566,10 @@ section.earth .earth_container div.earthGame .game::before {
   width: 25%;
   border-radius: 50%;
   position: absolute;
-  top: -35%;
-  left: calc((100%-25%) / 2 - 15%);
+  top: -25%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .left_block .trip_item .content .star_num {
@@ -2584,7 +2588,8 @@ section.earth .earth_container div.earthGame .game::before {
 }
 
 .left_block .trip_item .content h4.intro {
-  min-height: 40px;
+  max-height: 55px;
+  font-size: 14px;
   margin-bottom: 20px;
   font-family: 'regular';
   overflow: hidden;
@@ -2599,12 +2604,14 @@ section.earth .earth_container div.earthGame .game::before {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 70vh;
+  max-height: 500px;
   -ms-flex-direction: row;
       flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 31vh;
+  max-height: 250px;
 }
 
 .right_block .trip_item .pic {
@@ -2627,8 +2634,10 @@ section.earth .earth_container div.earthGame .game::before {
   width: 25%;
   border-radius: 50%;
   position: absolute;
-  top: -35%;
-  left: calc((100%-25%) / 2 - 15%);
+  top: -25%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .right_block .trip_item .content .star_num {
@@ -2647,7 +2656,8 @@ section.earth .earth_container div.earthGame .game::before {
 }
 
 .right_block .trip_item .content h4.intro {
-  min-height: 40px;
+  max-height: 55px;
+  font-size: 14px;
   margin-bottom: 20px;
   font-family: 'regular';
   overflow: hidden;
@@ -2660,19 +2670,31 @@ section.earth .earth_container div.earthGame .game::before {
 .right_block .trip_item .content {
   width: 50%;
   height: 100%;
-  padding: 0 20px 30px 20px;
+  padding: 2px 20px 30px 20px;
 }
 
 .right_block .trip_item .content .avatar img {
-  border: 6px solid white;
+  border: 2px solid white;
   width: 25%;
   position: static;
   border-radius: 50%;
-  /* background-size: cover; */
+  margin-top: 10px;
+  margin-left: 30px;
 }
 
-.right_block .trip_item .content p.intro {
-  min-height: 20px;
+.right_block .trip_item .content .star_num {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.right_block .trip_item .content h4.intro {
+  max-height: 20px;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=style.css.map */
