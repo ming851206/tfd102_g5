@@ -1,38 +1,41 @@
-
 // 抓回上面的85px
-.loginMemberPage_Body{
+.loginMemberPage_Body {
     padding-top: 85px;
     // background-color: $main_br;
     border: 1px solid black;
     margin: 0 auto;
+
     // max-width: 1280px;
-    @include mobile{
+    @include mobile {
         padding-top: 0px;
     }
 }
 
 // 登入
-.loginMemberPage_main{
+.loginMemberPage_main {
     display: flex;
     max-width: 540px;
     border: 1px solid blue;
     margin: 30px auto;
-    @include mobile{
+
+    @include mobile {
         display: none;
     }
 }
 
-.loginInner{
+.loginInner {
     // width: 100%;
     display: flex;
     // flex-direction: column;
     position: relative;
 }
-.loginInner_Img img{
+
+.loginInner_Img img {
     width: 100%;
     // background-image: url(../../images/memberCenter/left_earth.png);
 }
-.loginInner_block{
+
+.loginInner_block {
     position: absolute;
     width: 75%;
     display: flex;
@@ -43,32 +46,37 @@
     border: 1px solid lightpink;
     // @include form();
 }
-p.sigin_tiny{
+
+p.sigin_tiny {
     padding: 0;
     font-size: 10px;
     color: red;
 }
-h2{
+
+h2 {
     padding-bottom: 40px
 }
-#btn_login{
+
+#btn_login {
     margin: 15px 0px;
 }
 
 // input 框框
-input{
+input {
     @include form();
     margin-top: 10px;
     width: 200px;
     height: 60px;
     font-size: 20px;
 }
-.forgetPassword{
+
+.forgetPassword {
     margin: 10px 0px;
     transform: translateX(100%);
     font-size: map-get($map: $font_d_map, $key: p);
 }
-.loginSitch{
+
+.loginSitch {
     width: 25%;
     position: absolute;
     top: 50%;
@@ -79,24 +87,27 @@ input{
 
 // 註冊
 
-.SiginMemberPage_main{
+.SiginMemberPage_main {
     max-width: 540px;
     // background-image: url(../../images/memberCenter/left_earth.png);
     border: 1px solid green;
     margin: 30px auto;
+
     // display: none;
-    @include mobile{
+    @include mobile {
         display: none;
     }
 }
-.SiginInner{
+
+.SiginInner {
     // width: 100%;
     display: flex;
     // flex-direction: column;
     position: relative;
 }
 
-.SiginSitch ,.on{
+.SiginSitch,
+.on {
     width: 25%;
     position: absolute;
     top: 50%;
@@ -104,7 +115,7 @@ input{
     border: 1px solid lightpink;
 }
 
-.SigiInner_block{
+.SigiInner_block {
     position: absolute;
     width: 75%;
     padding-top: 70px;
@@ -117,15 +128,15 @@ input{
 
 
 // 手機版
-.phone_loginMemberPage{
+.phone_loginMemberPage {
     width: 100%;
     display: none;
-    
-    @include mobile{
+
+    @include mobile {
         display: flex;
         margin: 0 auto;
 
-        .phone_loginInner{
+        .phone_loginInner {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -134,39 +145,44 @@ input{
             padding: 0px 35px;
             border: 1px solid red;
 
-            >.phone_back_icon{
+            >.phone_back_icon {
                 width: 100%;
                 padding: 15px 0px;
                 border: 1px solid blue;
             }
-            >.phone_loginInner_Img{
+
+            >.phone_loginInner_Img {
                 border: 1px solid red;
             }
-            >.phone_loginInner_block{
+
+            >.phone_loginInner_block {
                 border: 1px solid red;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 margin: 50px 0px;
-                >.input{
+
+                >.input {
                     margin-top: 25px;
                 }
-                >.phone_forgetPassword{
+
+                >.phone_forgetPassword {
                     width: 100%;
                     border: 1px solid green;
                     text-align: right;
                     // transform: translateX(50%);
                 }
-                >.phone_loginSitch{
+
+                >.phone_loginSitch {
                     border: 1px solid salmon;
                     margin: 15px 0px;
-                    button{
+
+                    button {
                         border: 1px solid salmon;
                         margin-left: 20px;
                     }
                 }
-            }   
+            }
         }
     }
 }
-
