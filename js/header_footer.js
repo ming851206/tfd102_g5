@@ -5,7 +5,7 @@
 //             <img class="logo" src="./images/logo/logo.svg" alt="logo">
 //         </router-link>
 //         <router-view></router-view>
-//     </div>   
+//     </div>
 //     `,
 // })
 const header = Vue.component("the-header", {
@@ -16,7 +16,7 @@ const header = Vue.component("the-header", {
                 <img class="logo" src="./images/logo/logo.svg" alt="logo">
             </router-link>
             <router-view></router-view>
-        </div>   
+        </div>
         <nav class="nav">
             <ul class="nav_list">
                 <div class="web_bar">
@@ -49,9 +49,29 @@ const header = Vue.component("the-header", {
         </nav>
     <router-view></router-view>
     </div>
-`,
+`, mounted() {
+        document.addEventListener('click', function (e) {
+            // console.log(e.target.nodeName);
+            if (e.target.nodeName == "IMG") {
+                let click = e.target.parentNode.getAttribute("href");
+                if (click != null) {
+                    if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
+                        location.href = click;
+                    }
+                }
+            } else {
+                let click = e.target.getAttribute("href");
+                if (click != null) {
+                    if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
+                        location.href = click;
+                    }
+                }
+            }
+
+        });
+    }
 })
-const menu_item = Vue.component("menu-item",{
+const menu_item = Vue.component("menu-item", {
     template: `
     <div id="nav_rwd">
         <img class="logo_rwd" src="./images/logo/logo.svg" alt="logo">
@@ -64,8 +84,8 @@ const menu_item = Vue.component("menu-item",{
                 <button class="btnL_light"><router-link to="/QA.html">常見問題</router-link></button>
                 <router-view></router-view>
             </div>
-        </div>    
-    </div>    
+        </div>
+    </div>
     `,
 })
 const footer = Vue.component("the-footer", {
@@ -77,7 +97,7 @@ const footer = Vue.component("the-footer", {
             </router-link>
             <router-link to="/">
                 <img src="./images/icon/footer/fb_icon.svg" alt="facebook">
-            </router-link>    
+            </router-link>
             <router-link to="/">
                 <img src="./images/icon/footer/ig_icon.svg" alt="instagram">
             </router-link>
@@ -109,15 +129,15 @@ const vue_footer = new Vue({
     router,
 })
 
-$(function(){
-    $(".menu").on("click", function(){
+$(function () {
+    $(".menu").on("click", function () {
         $('#nav_rwd').fadeIn();
         $("html").css({
             position: "fixed",
             width: "100%",
         })
     });
-    $("#close_menu").on("click", function(e){
+    $("#close_menu").on("click", function (e) {
         e.stopPropagation();
         $("#nav_rwd").fadeOut();
         $("html").css({
