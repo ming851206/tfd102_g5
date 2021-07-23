@@ -47,7 +47,7 @@ section.earth{
     height: calc(100vh - 85px);
     border: 1px solid #9EA2A4;
     background: linear-gradient(to bottom, #192B39 40%, #3F5361 55%, #8798A5 85%, #D0DCE1);
-    background-image: url("../../images/index/content/bg_1.jpg");
+    background-image: url("../images/index/content/bg_1.jpg");
     background-size: cover;
     .earth_container{
         @include margin0;
@@ -501,14 +501,22 @@ section.earth{
             margin-right: 20px;
             width: 280px;
             font-size: 0;
+            cursor: pointer;
             &:nth-child(4){
                 margin-right: 0;
             }
+            &:hover{
+                transform: scale(1.03);
+                box-shadow: 0px 0px 10px rgba(0,0, 0, 0.3);
+            }
+            // transition: all 0.5s;
             @include xl {
                 width: 255px;
+                margin-right: 16px;
             }
             @include lg {
                 width: 225px;
+
             }
             @include md {
                 width: 275px;
