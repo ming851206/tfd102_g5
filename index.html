@@ -31,11 +31,10 @@
 
     </section>
 
-    <div id="header">
-        <the-logo></the-logo>
+    <header id="the_header">
         <the-header></the-header>       
-    </div>
-    <div id="menu">
+    </header>
+    <div id="mobile_menu">
         <menu-item></menu-item> 
     </div>
 
@@ -88,6 +87,7 @@
             <div id="the-travel">
                 <travel_item></travel_item>
             </div>
+            <button id="index_travel_more" class="btnL_line">更多旅遊</button>
         </div>
 
         <div id="choose_us">
@@ -98,8 +98,9 @@
                         <li v-for="reason in reasons">{{reason}}</li>
                     </ul>
                 </div>
-                <video id="index_video">
+                <video id="index_video" poster="./video/video_img.jpg" controlsList="nodownload" controls>
                     <source src="./video/choose_us.mp4">
+                    <p>Sorry, your browser doesn't support embedded videos.</p>
                 </video>
             </div>
         </div>
@@ -112,16 +113,15 @@
             <div id="opinion">
                 <the-opinion></the-opinion>
             </div>
-            <button id="index_more" class="btnL_line">觀看更多</button>
+            <button id="opinion_more" class="btnL_line">觀看更多</button>
         </div>
         <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
     </section>
 
-
-
-    <div id="footer">
+    <footer id="the_footer">
         <the-footer></the-footer>
-    </div>
+    </footer>
+    
     <script>
     // 選擇我們
     const vue_video = new Vue({

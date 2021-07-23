@@ -1,16 +1,22 @@
-const logo = Vue.component("the-logo", {
-    template: `
-    <div class="nav_logo">
-        <router-link to="/index.html">
-            <img class="logo" src="./images/logo/logo.svg" alt="logo">
-        </router-link>
-        <router-view></router-view>
-    </div>   
-    `,
-})
+// const logo = Vue.component("the-logo", {
+//     template: `
+//     <div class="nav_logo">
+//         <router-link to="/index.html">
+//             <img class="logo" src="./images/logo/logo.svg" alt="logo">
+//         </router-link>
+//         <router-view></router-view>
+//     </div>   
+//     `,
+// })
 const header = Vue.component("the-header", {
     template: `
-    <header>
+    <div class="navigation">
+        <div class="nav_logo">
+            <router-link to="/index.html">
+                <img class="logo" src="./images/logo/logo.svg" alt="logo">
+            </router-link>
+            <router-view></router-view>
+        </div>   
         <nav class="nav">
             <ul class="nav_list">
                 <div class="web_bar">
@@ -42,7 +48,7 @@ const header = Vue.component("the-header", {
             </ul>
         </nav>
     <router-view></router-view>
-    </header>
+    </div>
 `,
 })
 const menu_item = Vue.component("menu-item",{
@@ -64,8 +70,8 @@ const menu_item = Vue.component("menu-item",{
 })
 const footer = Vue.component("the-footer", {
     template: `
-    <footer>
-        <div class="icon_link">
+    <div>
+        <div class="socialLink_icon">
             <router-link to="/">
                 <img src="./images/icon/footer//twitter_icon.svg" alt="twitter">
             </router-link>
@@ -84,22 +90,22 @@ const footer = Vue.component("the-footer", {
             <br>
             若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]，後續會由專人協助處理。
         </div>
-    </footer>
+    </div>
     `,
 })
 const router = new VueRouter({
     mode: "history",
 })
 const vue_header = new Vue({
-    el: "#header",
+    el: "#the_header",
     router,
 })
 const vue_menu = new Vue({
-    el: "#menu",
+    el: "#mobile_menu",
     router,
 })
 const vue_footer = new Vue({
-    el: "#footer",
+    el: "#the_footer",
     router,
 })
 

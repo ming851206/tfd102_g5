@@ -12,56 +12,158 @@
     margin: 0 auto;
     @content;
 }
+
 $w1200: 1180px;
 
-
+@keyframes scroll{
+    50%{
+        top: 145%;
+    }
+    100%{
+        top: 170%;
+    }
+}
+@keyframes scroll_1{
+    50%{
+        top: 115%;
+    }
+    100%{
+        top: 130%;
+    }
+}
+@keyframes scroll_2{
+    50%{
+        top: 125%;
+    }
+    100%{
+        top: 145%;
+    }
+}
 // 首頻地球
 section.earth{
     display: flex;
     position: relative;
     width: 100%;
     height: calc(100vh - 85px);
-    // border: 1px solid #9EA2A4;
-    background: linear-gradient(to bottom, #192B39 25%, #3F5361 50%, #8798A5 75%, #D0DCE1);
-    // background-image: url("../../images/index/content/bg_1.jpg");
+    border: 1px solid #9EA2A4;
+    background: linear-gradient(to bottom, #192B39 40%, #3F5361 55%, #8798A5 85%, #D0DCE1);
+    background-image: url("../../images/index/content/bg_1.jpg");
+    background-size: cover;
     .earth_container{
-        // width: $w1200;
         @include margin0;
         // border: 1px solid red;
         div.slogan{
             // border: 1px solid white;
             display: inline-block;
-            margin-top: 280px;
+            margin-top: 255px;
+            position: relative;
             @include margin(25px, 155px);
+            @include xl {
+                @include margin(25px, 50px);
+            }
+            @include lg {
+                position: absolute;
+                left: 25px;
+                z-index: 1;
+            }
+            @include sm {
+                bottom: 13%;
+                left: 25px;
+                right: 0;
+                text-align: center;
+            }
+            @include xs {
+                width: 350px;
+                @include margin0();
+                left: 0;
+                bottom: 20%;
+            }
             h2{
                 color: $sec_ivory;
                 font-size: 48px;
                 font-family:'en';
                 margin-bottom: 20px;
+                text-shadow: 1px 1px 1px black;
+                @include md{
+                    text-shadow: 2px 2px 1px black;
+                }
+                @include sm{
+                    font-size: 36px;
+                    text-shadow: 1px 1px 1px black;
+                    margin-bottom: 14px;
+                    padding: 0;
+                    text-shadow: none;
+                }
+                @include xs {
+                    font-size: 28px;
+                }    
             }
             h5{
                 color: $sec_ivory;
                 font-size: 21px;
                 line-height: 1.5;
                 font-family:'regular';
+                text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+                @include md{
+                    text-shadow: 2px 2px 1px rgba(0,0,0,.6);
+                }
+                @include sm {
+                    font-size: 18px;
+                    text-shadow: 1px 1px 1px rgba(0,0,0,.8);
+                }
+                @include xs {
+                    font-size: 14px;
+                    white-space: nowrap;
+                }   
             }
             img.scroll_down{
-                margin-top: 80px;
-                margin-left: 15px;
+                position: absolute;
+                top: 170%;
+                left: 40%;
+                animation: scroll 2.5s linear infinite;
+                @include sm {
+                    top: 130%;
+                    left: 48%;
+                    animation: none;
+                    animation: scroll_1 1s linear infinite;
+                }
+                @include xs {
+                    top: 145%;
+                    animation: scroll_2 1.5s linear infinite;
+                }
             }
         }
         div.earthGame{
             float: right;
-            width: 700px;
-            margin-top: 30px;
+            width: 650px;
             position: relative;
-            // border: 1px solid red;
-    
+            // border: 1px solid white;
+            @include xl {
+                width: 640px;
+            }
+            @include lg {
+                position: absolute;
+                right: 10px;
+                top: 25px;
+            }
+            @include sm {
+                width: 460px;
+                position: relative;
+                right: 15px;
+                top: 5px;
+            }
+            @include xs {
+                width: 280px;
+                top: 30px;
+                right: 8px;
+            }
             img.earth_img{
                 width: 100%;
                 overflow: hidden;
                 float: right;
-                // border: 1px solid red;
+                @include lg{
+                    width: 95%;
+                }
             }
             .game{
                 width: 170px;
@@ -76,141 +178,391 @@ section.earth{
                 bottom: 9.5%;
                 left: -18%;
                 cursor: pointer;
+                @include lg {
+                    left: -10%;
+                    bottom: 9%;
+                }
+                @include lg_md {
+                    left: 50%;
+                    bottom: 11.5%;
+                    transform: translateX(-30%);      
+                    background-color: rgba(0,0,0,.35);
+                    box-shadow: 0px 0px 5px 3px whitesmoke;                                 
+                }
+                @include sm {
+                    bottom: 40%;
+                    transform: translateX(-40%); 
+                    width: 150px;
+                    height: 50px;
+                    font-size: 16px;
+                }
+                @include xs {
+                    width: 142px;
+                    height: 42px;
+                    bottom: -22%;
+                    transform: translateX(-42%); 
+                    background-color: transparent;
+                    font-size: 14px;
+                }
+                  
                 &::before{
                     content: "";
                     width: 35px;
                     height: 28px;
                     display: inline-block;
-                    background-image: url("../../images/index/content/dice.svg");
+                    background-image: url("../images/index/content/dice.svg");
                     background-size: contain;
                     background-repeat: no-repeat;
                     margin-right: 5px;
                     vertical-align: sub;
+                    @include xs {
+                        width: 30px;
+                        height: 20px;
+                    }
                 }
             }
         }
     }   
 }
-
 // 我們的服務
 .about{
     position: relative;
-    // border: 1px solid red;
     h2{
         @include h2_margin(100px, 60px, 10px);
+        @include sm {
+            width: 500px;
+            margin: 100px auto 60px;
+        }
+        @include xs{
+            width: 320px;
+            margin: 100px auto 60px;
+        }
     }
     .about_container{
         width: $w1200;
         @include margin0();
-        // border: 1px solid red;
+        @include xl {
+            width: 1080px;
+        }
+        @include lg {
+            width: 900px;
+        }
+        @include md {
+            width: 722px;
+        }
+        @include sm {
+            width: 100%;
+        }
+        @include xs{
+            width: 100%;
+        }
     }
     .all_about{
         position: relative;
         .about_1{
             @include margin0{
-                // border: 1px solid green;
+
                 display: flex;
                 width: 990px;
                 margin-bottom: 60px;
             };
+            @include lg {
+                width: 900px;
+            }
+            @include md {
+                width: 700px;
+            }
+            @include sm {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 500px;
+                @include margin0();
+            }
+            @include xs{
+                width: 320px;
+                justify-content: initial;
+                align-items: initial;
+            }
             img{
-                border: 1px solid white;
+                width: 100%;
+                @include md {
+                    width: 50%;
+                }
+                @include sm {
+                    width: 90%;
+                }
+                @include xs{
+                    width: 100%;
+                }
+
             }
             .des_1{
-                // border: 1px solid green;
                 margin-left: 80px;
                 align-self: center;
+                @include md{
+                    margin-left: 60px;
+                }
+                @include sm {
+                    margin-top: 20px;
+                    @include margin(26px, 15px);
+                }
+                @include xs{
+                    margin: 15px 10px 0;
+                }
             }
             h3{
                 line-height: 4;
+                @include md{
+                    line-height: 1;
+                    margin-bottom: 25px;
+                }
+                @include sm {
+                    margin-bottom: 20px;
+                }
+                @include xs{
+                    margin-bottom: 10px;
+                }
             }
             h4{
                 font-size: 16px;
+                @include xs{
+                    font-size: 14px;
+                }
             }
         }
         .about_2{
             @include margin0{
-                // border: 1px solid green;
                 display: flex;
                 width: 990px;
             };
+            @include lg {
+                width: 900px;
+            }
+            @include md {
+                width: 700px;
+            }
+            @include sm {
+                display: flex;
+                flex-direction: column-reverse;
+                justify-content: center;
+                align-items: center;
+                width: 500px;
+                margin: 90px auto 80px;
+            }
+            @include xs{
+                justify-content: initial;
+                align-items: initial;
+                width: 320px;
+                margin: 50px auto 30px;
+            }
             img{
                 width: 100%;
+                @include md {
+                    width: 50%;
+                }
+                @include sm {
+                    width: 90%;
+                }
+                @include xs{
+                    width: 100%;
+                }
             }
             .des_2{
-                // border: 1px solid green;
                 align-self: flex-start;
                 margin-top: 30px;
                 width: 900px;
                 @include margin(0px, 80px);
+                @include md {
+                    @include margin(0px, 42px);
+                }
+                @include sm {
+                    margin: 20px 0;
+                    width: 450px;
+                    align-self: initial;
+                }
+                @include xs{
+                    margin: 15px 10px 20px;
+                    width: 300px;
+                }
             }
+            
             h3{
                 line-height: 4;
+                @include lg {
+                    line-height: 3;
+                }
+                @include md{
+                    line-height: 1;
+                    margin-bottom: 25px;
+                }
+                @include sm {
+                    margin-bottom: 20px;
+                }
+                @include xs{
+                    margin-bottom: 10px;
+                }
             }
             h4{
                 font-size: 16px;
+                @include xs{
+                    font-size: 14px;
+                }
             }
         }
     }
     .light_bg{
-        // width: 990px;
-        // height: 585px;
         width: 90%;
         height: 700px;
         display: inline-block;
-        // background-image: url("../../images/index/content/bg_color.jpg");
-        background-image: url("../../images/index/content/color_bg1.png");
+        background-image: url("../images/index/content/color_bg1.png");
         position: absolute;
         bottom: 0;
         z-index: -1;
+        @include lg {
+            width: 85%;
+        }
+        @include md{
+            width: 100%;
+        }
+        @include sm{
+            display: none;
+        }
     }
     .fence{
         width: 100%;
         height: 45px;
-        background-image: url("../../images/index/content/fence.png");
+        background-image: url("../images/index/content/fence.png");
         z-index: 1;
     }
 }
 // 熱門旅遊
 .travel{
-    // border: 1px solid red;
     width: $w1200;
     @include margin0();
     margin-top: 200px;
+    @include xl {
+        width: 1080px;
+    }
+    @include lg {
+        width: 960px;
+        margin-top: 140px;
+    }
+    @include md {
+        width: 748px;
+    }
+    @include sm {
+        width: 550px;
+    }
+    @include xs{
+        width: 350px;
+        margin-top: 100px;
+    }
     h2{
         padding: 0;
         margin-bottom: 60px;
+        @include lg {
+            width: 880px;
+            @include margin(40px, 40px)
+        }
+        @include md {
+            width: 700px;
+            @include margin(30px, 0px)
+        }
+        @include sm {
+            width: 550px;
+            @include margin(25px, 40px)
+        }
+        @include sm {
+            width: 350px;
+            @include margin(25px, 40px)
+        }
     }
     ul#travel_container{
-        // border: 1px solid black;
+        @include md {
+            width: 580px;
+            @include margin0();
+            display: column;
+            column-count: 2;
+            column-gap: 30px;
+        }
+        @include sm {
+            width: 540px;
+            column-gap: 10px;
+        }
+        @include xs{
+            width: 320px;
+        }
         li{
             border-radius: 25px;
             overflow: hidden;
             display: inline-block;
             margin-right: 20px;
             width: 280px;
+            font-size: 0;
             &:nth-child(4){
                 margin-right: 0;
             }
+            @include xl {
+                width: 255px;
+            }
+            @include lg {
+                width: 225px;
+            }
+            @include md {
+                width: 275px;
+                margin-bottom: 40px;
+            }
+            @include sm {
+                width: 260px;
+            }
+            @include xs{
+                max-width: 100%;
+            }
+            
             img.place{
                 width: 100%;
             }
             .main_content{
                 background-color: $main_ivory;
                 padding: 12px 0 20px 20px;
+                @include xl {
+                    padding-left: 10px
+                }
+                @include md {
+                    padding-left: 30px
+                }
+                @include xs {
+                    padding: 6px 0 10px 8px;
+                    height: 140px;
+                }
                 .first{
-                    margin-bottom: 20px;
+                    margin-bottom: 16px;
                     display: flex;
-                    // border: 1px solid blue;
+                    @include xs{
+                        margin-bottom: 8px;
+                    }
                     .star_num{
                         display: inline-block;
                         @include margin(3px, 8px);
+                        @include xs {
+                            @include margin(3px, 4px);
+                        }
                         img{
                             width: 18px;
                             vertical-align: bottom;
+                            @include xs {
+                                width: 12px;
+                                vertical-align: baseline;
+                            }
                         }
                         p{
-                            margin-left:4px
+                            margin-left: 4px;
+                            @include xs {
+                                margin-left: 5px;
+                                font-size: 14px;
+                            }
                         }
                     }
                     p{
@@ -218,69 +570,114 @@ section.earth{
                         margin-left:8px;
                         font-size: 16px;
                         margin-top: 10px;
+                        @include xs {
+                            margin-left:3px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+                h3{
+                    font-size: 22px;
+                    @include xs {
+                        font-size: 20px;
+                        line-height: 1.2;
+                        height: 48px;
                     }
                 }
                 p.third{
                     font-size: 16px;
                     margin-top: 10px;
                     padding-bottom: 5px;
+                    @include xs{
+                        font-size: 14px;
+                    }
                 }
 
             }
         }
 
     }
+    #index_travel_more{
+        display: block;
+        @include margin0();
+        margin-top: 50px;
+        @include md{
+            margin-top: 10px;
+        }
+
+    }
 }
-
-// <div class="travel">
-// <h2>熱門旅遊</h2>
-// <div id="the-travel">
-//     <travel_item></travel_item>
-// </div>
-// </div>
-
-// <ul id="travel_container">
-// <li id="travel_li" v-for="trip in trips">
-//     <img src="./images/index/content/travel_1.jpg" alt="看吳哥窟全景">
-//     <div class="main_content">
-//         <div class="first">
-//             <div class="star_num">
-//                 <img src="./images/index/content//star.svg">
-//                 <p>{{trip.star}}</p>
-//             </div> 
-//             <p class="middle">({{trip.num}}).</p>
-//             <p>{{trip.place}}</p>    
-//         </div>
-//         <h3>{{trip.title}}</h3>
-//         <p>每人 $ {{trip.price}} TWD 起</p>
-//     </div>
-// </li>    
-// </ul>
-
 
 // 選擇我們
 #choose_us{
     padding: 200px 0 250px;
-    background-image: url("../../images/index/content/color_bg1.png");
+    background-image: url("../images/index/content/color_bg1.png");
     background-size: contain;
+    @include lg{
+        margin-top: 30px;
+        padding: 200px 0 120px;
+    }
+    @include md {
+        margin-top: 60px;
+        padding: 150px 0 80px;
+    }
+    @include sm{
+        margin-top: 40px;
+        background-size: cover;
+    }
+    @include xs{
+        margin-top: 20px;
+        padding: 80px 0 60px;
+    }
     .the_reason{
         width: $w1200;
         margin-top: 50px;
-        // border: 1px solid red;
         @include margin0();
+        @include xl {
+            width: 1080px;
+        }
+        @include lg {
+            width: 900px;
+        }
+        @include md {
+            width: 722px;
+            display: flex;
+            align-items: center;
+        }
+        @include sm {
+            width: 500px;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        @include xs{
+            width: 320px;
+        }
         .text{     
-                @include h2_margin(0px, 85px, 10px);
+                @include h2_margin(48px, 85px, 10px);
                 vertical-align: top;
                 display: inline-block;
-                // border: 1px solid black;
+                @include lg {
+                    @include h2_margin(28px, 85px, 10px);
+                }
+                @include md{
+                    flex-grow: 1;
+                }
+                @include sm{
+                    @include h2_margin(28px, 45px, 10px);
+                }
             h2{
                 padding: 0;
                 margin-top: 10px;
                 margin-bottom: 50px;
+                @include md{
+                    margin-bottom: 30px;
+                }
+                @include sm{
+                    margin-bottom: 30px;
+                }
             }
             ul.reasons{
                 list-style: initial;
-                // border: 1px solid green;
                 li{
                     font-size: 17px;
                     line-height: 2;
@@ -292,49 +689,124 @@ section.earth{
     }
     #index_video{
         float: right;
-        margin-right: 80px;
-        width: 55%;
+        width: 672px;
         border-radius: 25px;
+        cursor: pointer;
+        @include lg {
+            width: 550px;
+        }
+        @include md {
+            width: 385px;
+            margin-bottom: 45px;
+        }
+        @include sm {
+            width: 500px;
+        }
+        @include xs{
+            width: 320px;
+        }   
     }
 }
-
 // 更多評價
 .more_opinion{
     width: 100%;
     position: relative;
     display: flex;
-    // border: 1px solid red;
     aside.fence_col{
-        border: 1px soild red;
         display: inline-block;
         width: 45px;
         // height: 100vh;
-        background-image: url("../../images/index/content/fence_col.png");
+        background-image: url("../images/index/content/fence_col.png");
         margin-right: 10px;
+        @include lg {  
+            width: 28px;
+        }
+        @include lg_md { 
+            display: none;
+        }
+
     }
     .opinion_container{
-        width: 1160px;
         @include margin0();
-        // border: 1px solid red;
         vertical-align: top;
         padding-bottom: 110px;
+        width: 1060px;
+        @include xl {   
+            width: 1000px;
+        }
+        @include lg {  
+            margin: 0 auto;
+        }
+        @include lg_md {  
+            margin-left: 50px;
+        }
+        @include md_sm {
+            width: 740px;
+        }
+        @include xs { 
+            padding-bottom: 200px;
+        }
         h2{
             @include h2_margin(100px, 60px, 0px);
+            @include sm {  
+                margin: 60px auto;   
+            }
         }
         #all_opinion{
-            // border: 1px solid green;
             column-count: 3;
             column-gap: 50px;
-            margin-bottom: 100px;
+            margin-bottom: 90px;
+            @include xl {   
+                column-gap: 40px;
+            }
+            @include lg {  
+                column-gap: 20px;
+            }
+            @include md_sm {  
+                column-count: 2;
+                column-gap: 30px;
+            }
+            @include sm { 
+                column-count: 1;
+                column-gap: 0;
+                margin-bottom: 40px;
+            }
+            @include xs {
+            
+            }
+    
             li{
                 border: 1px solid $main_br;
                 border-radius: 0 25px 0 25px;
                 margin-bottom: 50px;
                 padding: 36px 40px;
+                @include xl {   
+                    margin-bottom: 50px;
+                    padding: 32px 34px;
+                }
+                @include lg {  
+                    margin-bottom: 32px;
+                    padding: 26px;
+                }
+                @include md_sm {  
+                    padding: 20px;
+                    margin-bottom: 30px;
+                }
+                @include sm {
+                
+                }
+                @include xs {
+                
+                }
                 .top{
-                    // border: 1px solid black;
                     margin-bottom: 25px;
                     font-size: 16px;
+                    @include lg {  
+                        margin-bottom: 12px;
+                    }
+                    @include md_sm {  
+                        margin-bottom: 8px;
+                    }
                     img{
                         display: inline-block;
                     }
@@ -342,9 +814,10 @@ section.earth{
                         display: inline-block;
                         margin-left: 20px;
                         vertical-align: top;
-                        // border: 1px solid red;
+                        @include xs{
+                            vertical-align: super;
+                        }
                         .star_num{
-                            // border: 1px solid blue;
                             margin-top: 8px;
                             display: flex;
                             justify-content: flex-start;
@@ -362,10 +835,17 @@ section.earth{
                 p.content{
                     font-size: 16px;
                     line-height: 2;
+                    @include md_sm{
+                        line-height: 1.7;
+                    }
+                    @include sm { 
+                        line-height: 1.4;
+                        font-size: 14px;
+                    }
                 }
             }
         }
-        .btnL_line{
+        #opinion_more{
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -376,37 +856,17 @@ section.earth{
         align-self: flex-end;
         margin-right: 35px;
         margin-bottom: 30px;
+        @include lg {  
+            margin-right: 22px;
+        }
+        @include md_sm {
+            margin-right: 16px;
+        }
+        @include sm { 
+        
+        }
+        @include xs { 
+            margin-bottom: 90px;
+        }
     }
-
 }
-// <ul id="all_opinion">
-// <li class="person" v-for="person in people">
-//     <div class="top">
-//         <!--<img src="./images/index/content/{{person.avatar}}.jpg">-->
-//         <!--<img :src= {{person.avatar}}>-->
-//         <img src="./images/index/content/people_1.jpg">
-//         <div class="right">
-//             <div class="star_num">
-//                 <img src="./images/index/content//star.svg">
-//                 <p>{{person.star}}</p>
-//             </div>
-//             <p>{{person.name}}</p>
-//         </div>    
-//     </div>
-//     <p>{{person.content}}</p>
-// </li>
-// </ul>
-
-// <section class="more_opinion">
-// <aside class="fence_col"></aside>
-// <div class="opinion_container">
-//     <h2>看看大家怎麼說 . . .</h2>
-
-//     <div id="opinion">
-//         <the-opinion></the-opinion>
-//     </div>
-
-//     <button id="index_more" class="btnL_line">觀看更多</button>
-// </div>
-// <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
-// </section>
