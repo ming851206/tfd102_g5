@@ -3,8 +3,8 @@ $color-map:(
     'main_bl':#202B36,
     'main_word': rgba(0, 0, 0, 0.8),
     'warning':#DD0303,
-    'main_ivory' : #F7F9F2,  //主要米色
-    'sec_ivory' : #F7F6F2,   //比較灰的米色
+    'sec_ivory' : #F7F9F2,  //主要米色
+    'main_ivory' : #F7F6F2,   //比較灰的米色
     'sec_br':#AD8F70,
     'main_grey':#9B9B9B,
     'sec_grey':#EAEAEA,
@@ -14,7 +14,7 @@ $color-map:(
 $main_br:#996A4D;
 $main_bl:#202B36;
 $main_word:rgba(0, 0, 0, 0.8);
-$main_ivory:#F7F9F2;
+$main_ivory:#F7F6F2;
 $warning:#DD0303;
 
 //輔色
@@ -22,6 +22,7 @@ $sec_br:#AD8F70;
 $sec_ivory:#F7F6F2;
 $main_grey:#9B9B9B;
 $sec_grey:#EAEAEA;
+$the_ivory:#F7F9F2;
 
 
 $overlay_bk: rgba(0, 0, 0, 0.4); //(彈窗)背景半透黑
