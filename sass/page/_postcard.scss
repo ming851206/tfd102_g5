@@ -72,8 +72,8 @@
         .index_postcard_pointer{
             display: flex;
             flex-direction: column;
-                // border: 1px solid red;
-                align-items: center;
+            // border: 1px solid red;
+            align-items: center;
             @include pointer;
         }
         .text_show{
@@ -446,19 +446,20 @@
 }
 
 // 翻到圖片
-.main_changeImg_block{
-    width: 50%;
+.main_changeBtn_block{
+    // width: 30%;
     border: 1px solid blue;
     display: flex;
     // height: 100vh;
-    background-color: white;
+    // background-color: white;
     // height: 500px;
     padding: 30px;
     @include mobile{
         width: 100%;
     }
 
-    .changeImg_block{
-
+    .changeBtn{
+        border: 1px solid red;
+        @include pointer;
     }
 }
