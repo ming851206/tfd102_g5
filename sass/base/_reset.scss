@@ -33,7 +33,7 @@ footer, header, hgroup, menu, nav, section,a {
 }
   
 body {
-	line-height: 1;
+	line-height: 24px;
 	color:$main_word;
 }
 ol, ul {
@@ -44,6 +44,13 @@ blockquote, q {
 }
 a{
 	text-decoration: none;
+	color: rgba(0, 0, 0, 0.8);
+}
+a:hover{
+	color: #996A4D;
+}
+a:visited{
+	color: #996A4D;
 }
 a:visited{
 	color: black;
