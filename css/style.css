@@ -57,6 +57,10 @@ a:hover {
   color: #996A4D;
 }
 
+a:visited {
+  color: #996A4D;
+}
+
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -2463,7 +2467,8 @@ input:focus {
 }
 
 .new_trip h3 {
-  padding: 20px 0;
+  font-weight: bold;
+  padding: 20px 0 40px 0;
 }
 
 .new_trip .container {
@@ -2492,13 +2497,13 @@ input:focus {
           flex-direction: column;
 }
 
-.new_trip .container .right_block .upper {
+.new_trip .container .right_block .upper_area {
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
-.new_trip .container .right_block .down {
+.new_trip .container .right_block .down_area {
   border-radius: 15px;
   overflow: hidden;
 }
@@ -2512,11 +2517,15 @@ input:focus {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 70vh;
-  max-height: 500px;
+  max-height: 530px;
 }
 
 .left_block .trip_item .pic {
   height: 50%;
+  width: 100%;
+  background-image: url(/images/travel_list/800/wugerku.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .left_block .trip_item .pic img {
@@ -2532,7 +2541,8 @@ input:focus {
 
 .left_block .trip_item .content .avatar img {
   border: 6px solid white;
-  width: 25%;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   position: absolute;
   top: -25%;
@@ -2562,6 +2572,11 @@ input:focus {
   margin-bottom: 20px;
   font-family: 'regular';
   overflow: hidden;
+  font-weight: bold;
+}
+
+.left_block .trip_item .content p {
+  font-size: 12px;
 }
 
 .right_block .trip_item {
@@ -2573,18 +2588,30 @@ input:focus {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 70vh;
+<<<<<<< HEAD
   max-height: 500px;
+=======
+  max-height: 530px;
+>>>>>>> 02ace9167da23fe13ecc413c8b7bb97602af7c1f
   -ms-flex-direction: row;
       flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+<<<<<<< HEAD
   height: 31vh;
+=======
+  height: 33vh;
+>>>>>>> 02ace9167da23fe13ecc413c8b7bb97602af7c1f
   max-height: 250px;
 }
 
 .right_block .trip_item .pic {
   height: 50%;
+  width: 100%;
+  background-image: url(/images/travel_list/800/wugerku.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .right_block .trip_item .pic img {
@@ -2600,7 +2627,8 @@ input:focus {
 
 .right_block .trip_item .content .avatar img {
   border: 6px solid white;
-  width: 25%;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   position: absolute;
   top: -25%;
@@ -2630,10 +2658,25 @@ input:focus {
   margin-bottom: 20px;
   font-family: 'regular';
   overflow: hidden;
+  font-weight: bold;
+}
+
+.right_block .trip_item .content p {
+  font-size: 12px;
 }
 
 .right_block .trip_item .pic {
   width: 50%;
+  height: 100%;
+}
+
+.right_block .trip_item .pic.upper {
+  background-image: url(/images/travel_list/500/africa_elephant.jpg);
+  background-position: center;
+}
+
+.right_block .trip_item .pic.down {
+  background-image: url(/images/travel_list/500/louvre.jpg);
 }
 
 .right_block .trip_item .content {
@@ -2644,7 +2687,8 @@ input:focus {
 
 .right_block .trip_item .content .avatar img {
   border: 2px solid white;
-  width: 25%;
+  width: 70px;
+  height: 70px;
   position: static;
   border-radius: 50%;
   margin-top: 10px;
@@ -2662,9 +2706,131 @@ input:focus {
 }
 
 .right_block .trip_item .content h4.intro {
-  max-height: 20px;
+  max-height: 50px;
   overflow: hidden;
   margin-bottom: 20px;
+}
+
+.best_trip {
+  width: 100%;
+  max-width: 1200px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 40px 40px;
+}
+
+.best_trip h3 {
+  font-weight: bold;
+  padding: 20px 0 40px 0;
+}
+
+.best_trip .container {
+  width: 100%;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.best_trip .container a {
+  width: 23%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.best_trip .container a .trip_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 70vh;
+  max-height: 530px;
+  max-height: 350px;
+}
+
+.best_trip .container a .trip_item .pic {
+  height: 50%;
+  width: 100%;
+  background-image: url(/images/travel_list/800/wugerku.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.best_trip .container a .trip_item .pic img {
+  width: 100%;
+}
+
+.best_trip .container a .trip_item .content {
+  height: 50%;
+  padding: 60px 20px 30px 20px;
+  background-color: #FAF9F2;
+  position: relative;
+}
+
+.best_trip .container a .trip_item .content .avatar img {
+  border: 6px solid white;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.best_trip .container a .trip_item .content .star_num {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 10px 0;
+}
+
+.best_trip .container a .trip_item .content .star_num p {
+  margin: 0 0 0 10px;
+}
+
+.best_trip .container a .trip_item .content h4.intro {
+  max-height: 55px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-family: 'regular';
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.best_trip .container a .trip_item .content p {
+  font-size: 12px;
+}
+
+.best_trip .container a .trip_item .content {
+  padding: 40px 20px 80px 20px;
+}
+
+.best_trip .container a .trip_item .content .avatar img {
+  width: 100px;
+  height: 100px;
+  top: -30%;
+}
+
+.best_trip .container a .trip_item .content h4.intro {
+  max-height: 50px;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .game_bg {
