@@ -1,115 +1,87 @@
 $header_H: 85px;
 $mobile_H: 78px;
 
-@mixin onTop {
-    position: fixed;
+@mixin all_zero($z) {
     top: 0;
-}
-
-
-body{
-    margin: 0 auto;
-    padding-top: $header_H;
-    @include mobile{
-        padding-top: 0;
-    }
-}
-.nav_logo{
-    margin-bottom: $header_H;
-    @include onTop;
-    z-index: 100;
-    display: inline-block;
-    background-color: $sec_ivory;
-    @include mobile{
-        background-color: transparent;
-        margin-bottom: 0;
-        position: absolute;
-        z-index: 101;
-        display: none;
-    }
-    a{
-        float: left;
-        height: $header_H;
-        padding-left: 45px;
-        @include ipad{
-            padding-left: 0;
-        }
-        @include mobile{
-            padding-left: 0;
-            margin: 0;;
-        }
-        .logo{
-            height: 100%;
-        }
-    }
-}
-header{
-    @include onTop;
-    width: calc(100vw - 180px - 45px);
+    left: 0;
     right: 0;
-    z-index: 99;
+    z-index: $z;
+    width: 100%;
+}
+header#the_header{
+    position: sticky;
     height: $header_H;
     background-color: $sec_ivory;
-    @include ipad{
-        width: calc(100vw - 180px);
-    }
-    @include mobile{
+    @include all_zero(99);
+    @include xs {
         position: fixed;
         top: initial;
         bottom: 0;
-        width: 100%;
-        height: $mobile_H;
+        height: $mobile_H;            
+    }
+    .nav_logo{
+        display: inline-block;
+        background-color: $sec_ivory;
+        height: $header_H;
+        width: 180px;
+        margin-left: 45px;
+        @include sm {
+            margin-left: 0;
+        }
+        @include xs {
+            display: none;
+        }
+        .logo{
+            width: 100%;
+        }
     }
     .nav{
         float: right;
         margin-right: 50px;
         height: $header_H;
         line-height: $header_H;
-        @include ipad{
+        @include sm {
             margin-right: 15px;
         }
-        @include mobile{
+        @include xs {
             float: none;
             margin-right: 0;
             height: $mobile_H;
             line-height: $mobile_H;
         }
-    }
         .nav_list{
             display: flex;
-            @include mobile{
+            @include xs{
                 display: initial;
             }
-        }
+        
             .web_bar{
                 display: flex;
-                @include mobile{
+                @include xs{
                     display: none;
                 }
             }
-
                 .web_bar > li a{
                     text-decoration: none;
                     color: rgba(0,0,0,.8);
                     margin-right: 30px;
                     font-family:'regular';
                     font-size: 14px;
-                    @include ipad{
+                    @include sm {
                         margin-right: 20px;
                     }
                 }
             .mobile_bar{
-                @include mobile{
+                @include xs{
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                 
                 }
                 li{
                     display: none;
-                    @include mobile{
+                    @include xs{
                         display: inline-block;
-                        margin: 0 25px;                    
+                        margin: 0 25px;  
                     }
                     img{
                         vertical-align: middle;
@@ -123,24 +95,21 @@ header{
                     img{
                         width: 80%;
                         vertical-align: middle;
-
-                        @include mobile{
-                            width: 100%;
+                        @include xs{
+                            width: 100% ;
                         }
                     }
                 }    
-            }       
+            }
+        }      
+    }             
 }
 #nav_rwd{
     display: none;
     height: calc(100vh - 78px);
-    width: 100%;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    @include all_zero(100);
     background-color: $sec_ivory;
-    z-index: 100;
     .logo_rwd{
         float: left;
         height: $header_H;
