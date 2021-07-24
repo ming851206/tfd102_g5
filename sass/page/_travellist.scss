@@ -1,18 +1,74 @@
+// ***** 旅遊卡片 *****
+@mixin tripcard {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    max-height: 530px;
+
+    .pic {
+        height: 50%;
+        width: 100%;
+        background-image: url(/images/travel_list/800/wugerku.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content {
+        height: 50%;
+        padding: 60px 20px 30px 20px;
+        background-color: #FAF9F2;
+        position: relative;
+
+        .avatar img {
+            border: 6px solid white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            position: absolute;
+            top: -25%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .star_num {
+            display: flex;
+            flex-direction: row;
+            padding: 10px 0;
+            p {
+
+                margin: 0 0 0 10px;
+            }
+        }
+
+        h4.intro {
+            max-height: 55px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-family: 'regular';
+            overflow: hidden;
+            font-weight: bold;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+}
+
 .banner {
     width: 100%;
     height: 700px;
     position: relative;
 
     .intro {
-        // display: inline;
-        // border: 2px solid red;
-        width: 40%;
         position: absolute;
         left: 10%;
         bottom: 40%;
 
         h2 {
-            // border: 2px solid red;
             font-weight: bold;
             text-align: left;
             margin-left: 0;
@@ -24,13 +80,10 @@
     }
 
     .bg_img {
-        // border: 2px solid blue;
         width: 100%;
         height: 100%;
         background-image: url(../../images/travel_list/banner_bg.jpg);
         background-size: cover;
-
-
     }
 }
 
@@ -72,8 +125,9 @@
     }
 }
 
-// 最新旅遊區塊
+// ========= 最新旅遊區塊 =========
 .new_trip {
+    // border: 2px solid red;
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
@@ -81,8 +135,10 @@
     justify-content: center;
     padding: 40px 40px;
 
+
     h3 {
-        padding: 20px 0;
+        font-weight: bold;
+        padding: 20px 0 40px 0;
     }
 
     .container {
@@ -92,7 +148,7 @@
 
         .left_block {
             overflow: hidden;
-            border-radius: 15px;
+            border-radius: $borderRadius_cd;
             width: 50%;
             margin-right: 40px;
         }
@@ -102,14 +158,14 @@
             display: flex;
             flex-direction: column;
 
-            .upper {
-                border-radius: 15px;
+            .upper_area {
+                border-radius: $borderRadius_cd;
                 overflow: hidden;
-                margin-bottom: 48px;
+                margin-bottom: 28px;
             }
 
-            .down {
-                border-radius: 15px;
+            .down_area {
+                border-radius: $borderRadius_cd;
                 overflow: hidden;
             }
         }
@@ -117,27 +173,23 @@
 }
 
 
-
+// 旅遊卡片
 @mixin tripcard() {
     display: flex;
     flex-direction: column;
     height: 70vh;
-    max-height: 500px;
+    max-height: 530px;
+
     .pic {
         height: 50%;
-    
-            img {
-                width: 100%;
-            }
-            // .share{
-            //     border: 2px solid red;
-            //     width: 30px;
-            //     height: 30px;
-            //     background-image: url(/images/icon/search.svg);
-            //     background-repeat: no-repeat;
-            //     background-position: 10px center;
-            // }
-    
+        width: 100%;
+        background-image: url(/images/travel_list/800/wugerku.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        img {
+            width: 100%;
+        }
     }
 
     .content {
@@ -145,16 +197,18 @@
         padding: 60px 20px 30px 20px;
         background-color: #FAF9F2;
         position: relative;
-        
+
         .avatar img {
             border: 6px solid white;
-            width: 25%;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             position: absolute;
             top: -25%;
             left: 50%;
             transform: translateX(-50%);
         }
+
         .star_num {
             display: flex;
             flex-direction: row;
@@ -164,16 +218,20 @@
                 margin: 0 0 0 10px;
             }
         }
+
         h4.intro {
             max-height: 55px;
             font-size: 14px;
             margin-bottom: 20px;
             font-family: 'regular';
             overflow: hidden;
+            font-weight: bold;
+        }
+        p{
+            font-size: 12px;
         }
     }
 }
-
 
 .left_block .trip_item {
     @include tripcard();
@@ -183,20 +241,33 @@
     @include tripcard();
     flex-direction: row;
     justify-content: space-between;
-    height: 31vh;
+    height: 33vh;
     max-height: 250px;
+
     .pic {
         width: 50%;
-        // height: 100%;
+        height: 100%;
     }
+
+    .pic.upper {
+        background-image: url(/images/travel_list/500/africa_elephant.jpg);
+        background-position: center;
+    }
+
+    .pic.down {
+        background-image: url(/images/travel_list/500/louvre.jpg);
+    }
+
     .content {
         // border: 2px solid red;
         width: 50%;
         height: 100%;
         padding: 2px 20px 30px 20px;
+
         .avatar img {
             border: 2px solid white;
-            width: 25%;
+            width: 70px;
+            height: 70px;
             position: static;
             border-radius: 50%;
             margin-top: 10px;
@@ -206,15 +277,169 @@
         .star_num {
             display: flex;
             flex-direction: row;
-            
-            // padding: 60px 0 0 0;
         }
 
         h4.intro {
-
-            max-height: 20px;
+            max-height: 50px;
             overflow: hidden;
             margin-bottom: 20px;
         }
+    }
+}
+
+// ========= 最獲好評的旅遊 =========
+.best_trip {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 40px 40px;
+
+    h3 {
+        font-weight: bold;
+        padding: 20px 0 40px 0;
+    }
+    
+    .arrow{
+        // border: 2px solid red;
+        margin-bottom: 20px;
+        width: 180px;
+        float: right;
+        display: flex;
+        align-items: center;
+        div{
+            margin-left: 20px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        
+        li{
+            width: 23%;
+            a {
+                width: 100%;
+                // border: 2px solid red;
+                border-radius: $borderRadius_cd;
+                overflow: hidden;
+    
+                .trip_item {
+                    @include tripcard();
+                    max-height: 350px;
+    
+                    .content{
+                        padding: 40px 20px 80px 20px;
+                        .avatar img{
+                            width: 100px;
+                            height: 100px;
+                            top: -30%;
+                        }
+                        h4.intro {
+                            max-height: 50px;
+                            overflow: hidden;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ========= 本月主打的旅遊 =========
+.main_trip {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 40px 40px;
+
+    h3 {
+        font-weight: bold;
+        padding: 20px 0 40px 0;
+    }
+    
+    .arrow{
+        // border: 2px solid red;
+        margin-bottom: 20px;
+        width: 180px;
+        float: right;
+        display: flex;
+        align-items: center;
+        div{
+            margin-left: 20px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+        display: flex;
+flex-direction: column;
+        
+        ul{
+            display: flex;
+            overflow: hidden;
+
+            a {
+                width: 400px;
+                height: 250px;
+                border-radius: $borderRadius_cd;
+                overflow: hidden;
+                margin-right: 20px;
+                
+                // border: 2px solid red;
+                .trip_item {
+                    // border: 2px solid blue;
+                    width: 100%;
+                    height: 100%;
+                    max-height: 600px;
+                    position: relative;
+    
+                    img{
+                        // border: 3px solid brown;
+                        width: 400px;
+                        position: absolute;
+                        z-index: 1;
+                        object-fit: cover;
+                    }
+                    .content{
+                        // border: 2px solid green;
+                        position: absolute;
+                        width: 100%;
+                        max-height: 250px;
+                        z-index: 2;
+                        padding: 40px 20px 80px 20px;
+                        p.subject{
+                            // border: 2px solid red;
+                            margin-bottom: 20px;
+                            font-weight: bold;
+                        }
+                        p.txt{
+                            // border: 2px solid red;
+                            width: 60%;
+                            max-height: 60px;
+                            margin-bottom: 50px;
+                            font-size: 22px;
+                            line-height: 30px;
+                        }
+                        button{
+                            @include btn_s;
+                        }
+    
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh_Hant">
 
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .turnBg {
+            background-image: url(./images/icon/minus2.svg) !important;
+            background-position: top 42px right 30px !important;
+            background-size: 20px !important;
+            border-radius: 13px 10px 0 0 !important;
+        }
+
+        @media all and (max-width: 576px) {
+            .turnBg {
+                background-position: top 30px right 20px !important;
+            }
+        }
+
+        .showWord {
+            background-color: aqua;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,10 +32,10 @@
         <img src="./images/logo/logo.png" alt="">
     </h1> -->
     <header id="the_header">
-        <the-header></the-header>       
+        <the-header></the-header>
     </header>
     <div id="mobile_menu">
-        <menu-item></menu-item> 
+        <menu-item></menu-item>
     </div>
     <section class="faq_sec1">
         <h2>您好，需要什麼協助嗎?</h2>
@@ -40,8 +58,23 @@
                 </div>
             </div>
         </div>
-    </section>
 
+    </section>
+    <section class="faq_sec3">
+        <h3>更多幫助</h3>
+        <p>Jumper客服團隊很樂意為您服務</p>
+        <form action="">
+            <label for="">
+                <span>您的稱呼：</span><input type="text" placeholder="陳先生／小姐">
+            </label>
+            <label for="">
+                <span>您的信箱：</span><input type="text" placeholder="jumper@gmail.com">
+            </label>
+            <textarea name="" id="" cols="30" rows="10">想問的問題：</textarea>
+            <button class="btnM">送出</button>
+        </form>
+        <img src="./images/icon/toTop_dark.svg" alt="">
+    </section>
     <footer id="the_footer">
         <the-footer></the-footer>
     </footer>
@@ -56,17 +89,88 @@
 
         const Acc = {
             template: `
+            <div>
                 <div class="qcard">
-                    如何獲得優惠碼
+                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何獲得優惠碼</p>
+                    <div class="word">
+                        您可以透過以下兩種方式獲得優惠碼：</br>
+                        <span>‧</span><p>完成jumper旅遊護照，集滿五個的jumper印章，即可獲得一組優惠碼。</p>
+                        <span>‧</span><p>每次參與完您的旅程後，給予該旅程評價與意見，即可獲得一組優惠碼。</p>
+                    </div>
                 </div>
-            ` };
+                <div class="qcard">
+                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何查詢我的優惠碼?</p>
+                    <div class="word">
+                        當您在購買任一旅程時，點選結帳頁面最下方「輸入優惠券」，將會列出您所有仍在效期內，且尚未使用過的優惠碼。
+                    </div>
+                </div>
+
+                <div class="qcard">
+                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何使用優惠嗎?</p>
+                    <div class="word">
+                        <p>當您獲得優惠碼後，在下一次購買任何旅遊行程時，於付款頁面「輸入優惠券」的項目中，輸入您的優惠碼，系統會自動依據您的優惠碼內容，自結帳總金額中扣除。</p>
+                        <p>請注意，一筆旅程訂單只適用一組優惠碼。一組優惠碼不能用於多次消費，一旦使用過後，便無法再於其他旅程訂單中使用。</p>
+                    </div>
+                </div>
+
+            </div>
+            `,
+            data() {
+                return {
+                    isActive: false,
+                };
+            },
+            methods: {
+                // show(e){
+
+                //     e.currentTarget.nextElementSibling.classList.toggle(showWord);
+                // },
+
+            },
+            computed: {
+
+            },
+        };
 
         const Trip = {
             template: `
+            <div>
                 <div class="qcard">
-                    參與旅程
+                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何查詢我的優惠碼?</p>
+                    <div class="word">
+                        當您在購買任一旅程時，點選結帳頁面最下方「輸入優惠券」，將會列出您所有仍在效期內，且尚未使用過的優惠碼。
+                    </div>
                 </div>
-            ` };
+
+                <div class="qcard">
+                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何使用優惠嗎?</p>
+                    <div class="word">
+                        <p>當您獲得優惠碼後，在下一次購買任何旅遊行程時，於付款頁面「輸入優惠券」的項目中，輸入您的優惠碼，系統會自動依據您的優惠碼內容，自結帳總金額中扣除。</p>
+                        <p>請注意，一筆旅程訂單只適用一組優惠碼。一組優惠碼不能用於多次消費，一旦使用過後，便無法再於其他旅程訂單中使用。</p>
+                    </div>
+                </div>
+              
+            </div>
+            ` ,
+            data() {
+                return {
+                    isActive: false,
+                };
+            },
+            methods: {
+                // show(e){
+
+                //     e.currentTarget.nextElementSibling.classList.toggle(showWord);
+                // },
+
+            },
+            computed: {
+
+            },
+
+        };
+
+
 
         const Pay = {
             template: `
@@ -100,6 +204,15 @@
                     { path: '/q_coupon', component: Coupon },
                 ],
             }),
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#goTop').click(function () {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 750);
+            });
         });
     </script>
 </body>

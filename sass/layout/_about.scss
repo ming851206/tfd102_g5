@@ -1,16 +1,24 @@
 #about {
     background-image: url('../../images/about/background.jpg');
-    width: 100%;
-    height: 100%;
+
     background-repeat: no-repeat;
-    padding-top: 210px;
+    padding-top: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 
+    @include mobile {
+        padding-top: 35px;
+    }
+
+
     h2 {
         padding-bottom: 0;
+
+        @include mobile {
+            font-size: 32px;
+        }
     }
 
     .aboutTop {
@@ -22,11 +30,33 @@
         div {
             margin-left: 110px;
             width: 960px;
+
+            @include laptop {
+                width: 724px;
+            }
+
+            @include tablet {
+                width: 530px;
+            }
+
+            @include ipad {
+                margin-left: 0;
+                width: 500px;
+            }
+
+            @include mobile {
+                width: 320px;
+                margin-left: 0;
+            }
         }
 
         p {
             margin-top: 40px;
             font-size: 20px;
+
+            @include mobile {
+                font-size: 14px;
+            }
         }
     }
 
@@ -48,6 +78,25 @@
             margin-left: 320px;
             width: 760px;
 
+            @include laptop {
+                margin-left: 124px;
+                width: 740px;
+            }
+
+            @include tablet {
+                margin-left: 98px;
+                width: 532px;
+            }
+
+            @include ipad {
+                width: 500px;
+                margin-left: 0;
+            }
+
+            @include mobile {
+                width: 320px;
+                margin-left: 0;
+            }
         }
 
         .aboutNumbers {
@@ -55,11 +104,20 @@
             align-items: center;
             margin-top: 55px;
 
+            @include ipad {
+                align-items: start;
+            }
+
+            @include mobile {
+                margin-top: 38px;
+                align-items: start;
+            }
+
             .abourNumberBorder {
                 border: 1px solid $main_br;
                 border-radius: 100%;
-                width: 50px;
-                height: 50px;
+                min-width: 50px;
+                min-height: 50px;
                 color: white;
                 background-color: $main_br;
                 text-align: center;
@@ -67,12 +125,25 @@
                 display: flex;
                 justify-content: center;
                 font-size: 30px;
+
+                @include mobile {
+                    span {
+                        font-size: 14px;
+                    }
+
+                    min-width: 35px;
+                    min-height: 35px;
+                }
             }
 
             .abourNumberContent {
                 margin-left: 30px;
                 font-size: 20px;
                 width: 670px;
+
+                @include mobile {
+                    font-size: 14px;
+                }
 
             }
         }
@@ -89,18 +160,75 @@
         justify-content: center;
         align-items: center;
 
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
         .aboutPhoneText {
             margin-right: 15px;
+
+            @include ipad {
+                width: 500px;
+                margin-right: 0;
+
+            }
+
+            @include mobile {
+                width: 320px;
+                margin-right: 0;
+            }
         }
 
         .aboutPhoneBorder {
             display: flex;
             margin-top: 200px;
+
+            @include laptop {
+                width: 900px;
+            }
+
+            @include tablet {
+                width: 580px;
+                margin-top: 130px;
+            }
+
+            @include ipad {
+                flex-direction: column;
+                margin-top: 80px;
+            }
+
+            @include mobile {
+                flex-direction: column;
+                margin-top: 20px;
+                align-items: center;
+                justify-content: center;
+
+                .aboutPhoneImg {
+                    width: 320px;
+                }
+            }
         }
 
         .aboutPhoneContent {
             font-size: 48px;
 
+            @include laptop {
+                font-size: 34px;
+            }
+
+            @include tablet {
+                font-size: 21px;
+            }
+
+            @include ipad {
+                font-size: 35px;
+            }
+
+            @include mobile {
+                font-size: 22px;
+
+            }
         }
 
         .aboutPhoneBtn {
@@ -116,6 +244,24 @@
             color: white;
             background-color: $main_br;
             border-radius: 20px;
+
+            @include tablet {
+                margin-top: 50px;
+            }
+
+            @include ipad {
+                margin-left: 0;
+                width: 100%;
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
+
+            @include mobile {
+                margin-left: 0;
+                width: 100%;
+                margin-top: 40px;
+                margin-bottom: 40px;
+            }
         }
     }
 }
