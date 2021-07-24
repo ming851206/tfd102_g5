@@ -7,13 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    </link>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    </link>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <style>
         .owl-theme .item {
             height: 10rem;
@@ -70,7 +63,6 @@
             </ul>
             <input class="search" placeholder="搜尋"></li>
         </div>
-
         <div class="new_trip">
             <h3>最新旅遊</h3>
             <div class="container">
@@ -155,8 +147,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="best_trip">
             <h3>最獲好評的旅遊</h3>
             <div class="arrow">
@@ -272,7 +262,6 @@
                 </li>
             </ul>
         </div>
-
         <div class="main_trip">
             <h3>本月主打的旅遊</h3>
             <div class="arrow">
@@ -331,13 +320,125 @@
                 </ul>
             </div>
         </div>
+        <div class="best_trip">
+            <h3>近期瀏覽的旅遊</h3>
+            <div class="arrow">
+                <p>顯示 12 個</p>
+                <div class="prev">
+                    <img src="./images/icon/page-prev.svg" alt="">
+                </div>
+                <div class="next">
+                    <img src="./images/icon/page-next.svg" alt="">
+                </div>
+            </div>
+            <ul class="container">
+                <li>
+                    <a href="">
+                        <div class="trip_item">
+                            <div class="pic">
+                                <div class="share"></div>
+                                <div class="fav"></div>
+                            </div>
+                            <div class="content">
 
+                                <div class="avatar">
+                                    <img src="https://picsum.photos/80/80">
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">非洲</p>
+                                </div>
+                                <h4 class="intro">
+                                    遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                    <h4>
+                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="trip_item">
+                            <div class="pic">
+                                <div class="share"></div>
+                                <div class="fav"></div>
+                            </div>
+                            <div class="content">
 
+                                <div class="avatar">
+                                    <img src="https://picsum.photos/80/80">
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">非洲</p>
+                                </div>
+                                <h4 class="intro">
+                                    遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                    <h4>
+                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="trip_item">
+                            <div class="pic">
+                                <div class="share"></div>
+                                <div class="fav"></div>
+                            </div>
+                            <div class="content">
 
+                                <div class="avatar">
+                                    <img src="https://picsum.photos/80/80">
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">非洲</p>
+                                </div>
+                                <h4 class="intro">
+                                    遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                    <h4>
+                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="trip_item">
+                            <div class="pic">
+                                <div class="share"></div>
+                                <div class="fav"></div>
+                            </div>
+                            <div class="content">
+
+                                <div class="avatar">
+                                    <img src="https://picsum.photos/80/80">
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">非洲</p>
+                                </div>
+                                <h4 class="intro">
+                                    遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                    <h4>
+                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </main>
+
     <div class="owl-carousel owl-theme">
         <div class="item">
-            <h4>1</h4>
+            <h4>1<4>
         </div>
         <div class="item">
             <h4>2</h4>
@@ -350,10 +451,6 @@
         </div>
     </div>
 
-
-
-
-
     <footer id="the_footer">
         <the-footer></the-footer>
     </footer>
@@ -362,6 +459,10 @@
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="./js/header_footer.js"></script>
+    <!-- owl.carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <script>
         // $(選取).處理();
         $(document).ready(function () {
