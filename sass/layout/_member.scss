@@ -105,6 +105,15 @@
     margin-bottom: 10px;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+
+    svg {
+        position: absolute;
+        right: 16px;
+        top: 12px;
+        cursor: pointer;
+        z-index: 200;
+    }
 
     &:last-child {
         margin-bottom: 0;
