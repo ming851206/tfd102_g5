@@ -25,6 +25,14 @@
     }
 }
 
+@include ipad {
+    .faq_sec1 {
+        input {
+            height: 50px;
+        }
+    }
+}
+
 @include mobile {
     .faq_sec1 {
         background-color: $main_ivory;
@@ -123,6 +131,38 @@
     }
 }
 
+@include tablet {
+    .faq_sec2 {
+        padding: 80px 45px;
+
+        .flexbox {
+            .app_l {
+                width: 25%;
+            }
+
+            .app_r {
+                margin-left: 30px;
+            }
+        }
+    }
+}
+
+@include ipad {
+    .faq_sec2 {
+        padding: 80px 25px;
+
+        .flexbox {
+            .app_l {
+                width: 25%;
+            }
+
+            .app_r {
+                margin-left: 10px
+            }
+        }
+    }
+}
+
 @include mobile {
     .faq_sec2 {
         padding: 0px;
@@ -164,7 +204,8 @@
             .app_r {
                 width: 78%;
                 margin: 20px auto 0px auto;
-                .word{
+
+                .word {
                     @include border($sec_br);
                 }
             }
@@ -177,35 +218,43 @@
 
     position: relative;
     padding-bottom: 100px;
-    %marginLeft{
-      margin-left:400px;   
+
+    %marginLeft {
+        margin-left: 400px;
     }
+
     h3 {
         margin: 100px 0px 60px 100px;
     }
-    p{
+
+    p {
         @extend %marginLeft;
     }
-    form{
+
+    form {
         @extend %marginLeft;
         font-size: 16px;
-        label{
+
+        label {
             position: relative;
             display: block;
-            span{
+
+            span {
                 position: absolute;
                 display: block;
-                top:40%;
+                top: 40%;
                 margin-left: 2rem;
             }
-            input{
+
+            input {
                 width: 50%;
                 padding-left: 7.5rem;
                 font-size: 16px;
                 border-color: $sec_br
             }
         }
-        textarea{
+
+        textarea {
             @include border($sec_br);
             width: 50%;
             resize: none;
@@ -215,51 +264,154 @@
             padding-left: 2rem;
             padding-top: 1rem;
             font-size: 16px;
-            &:focus{
+
+            &:focus {
                 border: 2px solid $sec_br;
-            }  
+            }
         }
-        button{
+
+        button {
             display: block;
             margin-top: 15px;
         }
     }
-    img{
+
+    img {
         position: absolute;
         right: 30px;
         bottom: 30px;
+        cursor: pointer;
+
     }
 }
-@include mobile{
-    .faq_sec3{
-        background-color: $the_ivory;
-        padding-top: 80px;
-        h3,form,p{
-            margin: 0px;
+
+@include laptop {
+    .faq_sec3 {
+        %marginLeft {
+            margin-left: 350px;
         }
-        h3{
-            margin-left: 2.2rem;
-            font-weight: bold;
-        }
-        p{
-            margin-top: 15px;
-            margin-left: 2.2rem;
-        }
-        form{
-            @include block_center;
-            width: 80%;
-            label,textarea{
-                width: 100%;
-                input{
-                    width: 100%;
+
+        form {
+            label {
+                input {
+                    width: 60%;
                 }
             }
-            button{
+
+            textarea {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@include tablet {
+    .faq_sec3 {
+        %marginLeft {
+            margin-left: 250px;
+            padding: 0;
+        }
+
+        h3 {
+            margin: 80px 0px 60px 45px;
+            padding-left: 1.3rem;
+        }
+
+        form {
+            label {
+                input {
+                    width: 75%;
+                }
+            }
+
+            textarea {
+                width: 75%;
+            }
+        }
+    }
+}
+
+@include ipad {
+    .faq_sec3 {
+        %marginLeft {
+            margin-left: 130px;
+        }
+
+        h3 {
+            margin: 80px 0px 60px 25px;
+            padding-left: 1.3rem;
+        }
+
+        form {
+            label {
+                input {
+                    width: 80%;
+                }
+            }
+
+            textarea {
+                width: 80%;
+            }
+        }
+    }
+}
+
+$fontSize_m:12px;
+
+@include mobile {
+    .faq_sec3 {
+        background-color: $the_ivory;
+        padding-top: 80px;
+
+        h3,
+        form,
+        p {
+            margin: 0px;
+        }
+
+        h3 {
+            margin-left: 2.5rem;
+            font-weight: bold;
+        }
+
+        p {
+            margin-top: 15px;
+            margin-left: 2.5rem;
+        }
+
+        form {
+            @include block_center;
+            width: 80%;
+
+            label,
+            textarea {
+                width: 100%;
+                font-size: $fontSize_m;
+
+                span {
+                    margin-left: 1rem;
+                    top: 38%;
+                }
+
+                input {
+                    width: 100%;
+                    font-size: $fontSize_m;
+                    height: 45px;
+                    padding-left: 5rem;
+                }
+            }
+
+            textarea {
+                padding-left: 1rem;
+            }
+
+            button {
                 margin-bottom: 150px;
             }
         }
-        img{
-            bottom:100px;
+
+        img {
+            bottom: 100px;
         }
     }
 }
