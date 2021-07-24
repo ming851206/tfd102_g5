@@ -58,14 +58,16 @@ const header = Vue.component("the-header", {
                 if (click != null) {
                     if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
                         if (location.href.indexOf("ming851206") > 0) {
-                            console.log(location.href);
-                            let newClick = "/tfd102_g5" + click;
-                            location.href = newClick;
-                            console.log('1');
-                        } else {
-                            console.log(location.href);
+                            // console.log(location.href);
+                            // let newClick = "/tfd102_g5" + click;
+                            // location.href = newClick;
+                            // console.log('1');
                             location.href = click;
-                            console.log('2');
+
+                        } else {
+                            // console.log(location.href);
+                            location.href = click;
+                            // console.log('2');
                         }
                     }
                 }
@@ -74,14 +76,16 @@ const header = Vue.component("the-header", {
                 if (click != null) {
                     if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
                         if (location.href.indexOf("ming851206") > 0) {
-                            console.log(location.href);
-                            let newClick = "/tfd102_g5" + click;
-                            location.href = newClick;
-                            console.log('3');
-                        } else {
-                            console.log(location.href);
+                            // console.log(location.href);
+                            // let newClick = "/tfd102_g5" + click;
+                            // // location.href = newClick;
+                            // console.log('3');
                             location.href = click;
-                            console.log('4');
+
+                        } else {
+                            // console.log(location.href);
+                            location.href = click;
+                            // console.log('4');
                         }
                     }
                 }
