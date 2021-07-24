@@ -99,8 +99,11 @@
             },
             updated() {
                 let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
-                $("#memberSpace").css("height", height);
-
+                if (height > 0) {
+                    $("#memberSpace").css("height", height);
+                } else {
+                    $("#memberSpace").css("height", 0);
+                }
             }
         });
 
@@ -114,7 +117,11 @@
             console.log(parseInt($("#the_header").css('height')));
             console.log(parseInt($("#member").css('height')));
             console.log(height);
-            $("#memberSpace").css("height", height);
+            if (height > 0) {
+                $("#memberSpace").css("height", height);
+            } else {
+                $("#memberSpace").css("height", 0);
+            }
         });
 
 

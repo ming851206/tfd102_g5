@@ -7,6 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    </link>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    </link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <style>
+        .owl-theme .item {
+            height: 10rem;
+            background: #4dc7a0;
+            padding: 1rem;
+        }
+
+        .owl-carousel .item h4 {
+            color: #fff;
+            font-weight: 400;
+            font-size: 1.4375rem;
+            margin-top: 0rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -54,11 +75,94 @@
             <h3>最新旅遊</h3>
             <div class="container">
                 <div class="left_block">
+                    <a href="">
+                        <div class="trip_item">
+                            <div class="pic">
+                                <div class="share"></div>
+                                <div class="fav"></div>
+                            </div>
+                            <div class="content">
+                                <div class="avatar">
+                                    <img src="/images/avatar/avatar.jpg">
+                                </div>
+                                <div class="star_num">
+                                    <div>
+                                        <img src="./images/index/content/star.svg">
+                                    </div>
+                                    <p>5(102) · </p>
+                                    <p class="middle">吳哥窟</p>
+                                </div>
+                                <h4 class="intro">
+                                    穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。
+                                <h4>
+                                <p>每人 $ {{trip.price}} TWD 起</p>
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+                <div class="right_block">
+                    <a href="">
+                        <div class="upper_area">
+                            <div class="trip_item">
+                                <div class="pic upper">
+                                    <div class="share"></div>
+                                    <div class="fav"></div>
+                                </div>
+                                <div class="content">
+
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar1.jpg">
+                                    </div>
+                                    <div class="star_num">
+                                        <img src="./images/index/content//star.svg">
+                                        <p>5(102) · </p>
+                                        <p class="middle">非洲</p>
+                                    </div>
+                                    <h4 class="intro">
+                                        遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                        <h4>
+                                            <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="">
+                        <div class="down_area">
+                            <div class="trip_item">
+                                <div class="pic down">
+                                    <div class="share"></div>
+                                    <div class="fav"></div>
+                                </div>
+                                <div class="content">
+
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar2.jpg">
+                                    </div>
+                                    <div class="star_num">
+                                        <img src="./images/index/content//star.svg">
+                                        <p>5(102) · </p>
+                                        <p class="middle">羅浮宮</p>
+                                    </div>
+                                    <h4 class="intro">
+                                        羅浮宮象徵藝術，撼動人心之情久久保留
+                                        <h4>
+                                            <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="best_trip">
+            <h3>最獲好評的旅遊</h3>
+            <div class="container">
+                <a href="">
                     <div class="trip_item">
                         <div class="pic">
-                          
-                                <img src="./images/travel_list/800/wugerku.jpg">
-                            
                             <div class="share"></div>
                             <div class="fav"></div>
                         </div>
@@ -68,74 +172,107 @@
                                 <img src="https://picsum.photos/80/80">
                             </div>
                             <div class="star_num">
-                                <div>
-                                    <img src="./images/index/content/star.svg">
-                                </div>
+                                <img src="./images/index/content//star.svg">
                                 <p>5(102) · </p>
-                                <p class="middle">吳哥窟</p>
+                                <p class="middle">非洲</p>
                             </div>
                             <h4 class="intro">
-                                穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。
-                            <h4>
-                            <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
+                                遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                <h4>
+                                    <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
                         </div>
                     </div>
-                </div>
-                <div class="right_block">
-                    <div class="upper">
-                        <div class="trip_item">
-                            <div class="pic">
-                                <img src="https://picsum.photos/200/300">
-                                <div class="share"></div>
-                                <div class="fav"></div>
-                            </div>
-                            <div class="content">
-    
-                                <div class="avatar">
-                                    <img src="https://picsum.photos/80/80">
-                                </div>
-                                <div class="star_num">
-                                    <img src="./images/index/content//star.svg">
-                                    <p>5(102) · </p>
-                                    <p class="middle">吳哥窟</p>
-                                </div>
-                                <h4 class="intro">
-                                    遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
-                                <h4>
-                                <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
-                            </div>
+                </a>
+                <a href="">
+                    <div class="trip_item">
+                        <div class="pic">
+                            <div class="share"></div>
+                            <div class="fav"></div>
                         </div>
+                        <div class="content">
 
-                    </div>
-                    <div class="down">
-                        <div class="trip_item">
-                            <div class="pic">
-                                <img src="https://picsum.photos/200/300">
-                                <div class="share"></div>
-                                <div class="fav"></div>
+                            <div class="avatar">
+                                <img src="https://picsum.photos/80/80">
                             </div>
-                            <div class="content">
-    
-                                <div class="avatar">
-                                    <img src="https://picsum.photos/80/80">
-                                </div>
-                                <div class="star_num">
-                                    <img src="./images/index/content//star.svg">
-                                    <p>5(102) · </p>
-                                    <p class="middle">吳哥窟</p>
-                                </div>
-                                <h4 class="intro">
-                                    羅浮宮象徵藝術，撼動人心之情久久保留
+                            <div class="star_num">
+                                <img src="./images/index/content//star.svg">
+                                <p>5(102) · </p>
+                                <p class="middle">非洲</p>
+                            </div>
+                            <h4 class="intro">
+                                遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
                                 <h4>
-                                <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
-                            </div>
+                                    <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
                         </div>
                     </div>
-                </div>
+                </a>
+                <a href="">
+                    <div class="trip_item">
+                        <div class="pic">
+                            <div class="share"></div>
+                            <div class="fav"></div>
+                        </div>
+                        <div class="content">
+
+                            <div class="avatar">
+                                <img src="https://picsum.photos/80/80">
+                            </div>
+                            <div class="star_num">
+                                <img src="./images/index/content//star.svg">
+                                <p>5(102) · </p>
+                                <p class="middle">非洲</p>
+                            </div>
+                            <h4 class="intro">
+                                遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                <h4>
+                                    <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="trip_item">
+                        <div class="pic">
+                            <div class="share"></div>
+                            <div class="fav"></div>
+                        </div>
+                        <div class="content">
+
+                            <div class="avatar">
+                                <img src="https://picsum.photos/80/80">
+                            </div>
+                            <div class="star_num">
+                                <img src="./images/index/content//star.svg">
+                                <p>5(102) · </p>
+                                <p class="middle">非洲</p>
+                            </div>
+                            <h4 class="intro">
+                                遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                <h4>
+                                    <p class="startprice">每人 $ {{trip.price}} TWD 起</p>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
-    </main>
 
+
+
+
+    </main>
+    <div class="owl-carousel owl-theme">
+        <div class="item">
+            <h4>1</h4>
+        </div>
+        <div class="item">
+            <h4>2</h4>
+        </div>
+        <div class="item">
+            <h4>3</h4>
+        </div>
+        <div class="item">
+            <h4>4</h4>
+        </div>
+    </div>
 
 
 
@@ -146,9 +283,32 @@
     </footer>
 
     <script src="./js/vue/vue.js"></script>
-    <script src="./js/jq/jquery-3.6.0.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="./js/header_footer.js"></script>
+    <script>
+        // $(選取).處理();
+        $(document).ready(function () {
+    
+            $(".owl-carousel").owlCarousel({
+                loop: true, // 循環播放
+                margin: 10, // 外距 10px
+                nav: true, // 顯示點點
+                responsive: {
+                    0: {
+                        items: 1 // 螢幕大小為 0~600 顯示 1 個項目
+                    },
+                    600: {
+                        items: 3 // 螢幕大小為 600~1000 顯示 3 個項目
+                    },
+                    1000: {
+                        items: 5 // 螢幕大小為 1000 以上 顯示 5 個項目
+                    }
+                }
+            });
+        });
+    
+    </script>
     <script>
         new Vue({
             el: '',
