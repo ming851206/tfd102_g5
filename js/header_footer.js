@@ -51,19 +51,34 @@ const header = Vue.component("the-header", {
     </div>
 `, mounted() {
         document.addEventListener('click', function (e) {
-            // console.log(e.target.nodeName);
+            // console.log(location.href);
             if (e.target.nodeName == "IMG") {
                 let click = e.target.parentNode.getAttribute("href");
+                // console.log(click);
                 if (click != null) {
                     if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
-                        location.href = click;
+                        if (location.href.indexOf("tfd102_g5") > 0) {
+                            let newClick = "/tfd102_g5" + click;
+                            location.href = newClick;
+                            console.log('1');
+                        } else {
+                            location.href = click;
+                            console.log('2');
+                        }
                     }
                 }
             } else {
                 let click = e.target.getAttribute("href");
                 if (click != null) {
                     if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
-                        location.href = click;
+                        if (location.href.indexOf("tfd102_g5") > 0) {
+                            let newClick = "/tfd102_g5" + click;
+                            location.href = newClick;
+                            console.log('3');
+                        } else {
+                            location.href = click;
+                            console.log('4');
+                        }
                     }
                 }
             }
