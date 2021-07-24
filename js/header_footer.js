@@ -57,11 +57,13 @@ const header = Vue.component("the-header", {
                 // console.log(click);
                 if (click != null) {
                     if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
-                        if (location.href.indexOf("tfd102_g5") > 0) {
+                        if (location.href.indexOf("ming851206") > 0) {
+                            console.log(location.href);
                             let newClick = "/tfd102_g5" + click;
                             location.href = newClick;
                             console.log('1');
                         } else {
+                            console.log(location.href);
                             location.href = click;
                             console.log('2');
                         }
@@ -71,11 +73,13 @@ const header = Vue.component("the-header", {
                 let click = e.target.getAttribute("href");
                 if (click != null) {
                     if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
-                        if (location.href.indexOf("tfd102_g5") > 0) {
+                        if (location.href.indexOf("ming851206") > 0) {
+                            console.log(location.href);
                             let newClick = "/tfd102_g5" + click;
                             location.href = newClick;
                             console.log('3');
                         } else {
+                            console.log(location.href);
                             location.href = click;
                             console.log('4');
                         }
