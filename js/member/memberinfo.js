@@ -26,39 +26,41 @@ const MemberInfo = {
 
                                 </div>
                                 -->
+                                <div class="memberinforEditBorder">
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">姓名</div>
+                                            <input :value="values[0].val" @focus="inputFocus(0,$event)" @blur="inputBlur(0,$event)">
+                                    </div>
+                                    <div class="nameBorder gender">
+                                            <div class="memberInfoName">性別</div>
 
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">姓名</div>
-                                        <input :value="values[0].val" @focus="inputFocus(0,$event)" @blur="inputBlur(0,$event)">
-                                </div>
-                                <div class="nameBorder gender">
-                                        <div class="memberInfoName">性別</div>
+                                                <input type="radio"" value="男" v-model="gender"  id="memberman">
+                                                <label for="memberman">男</label>
+                                                <input type="radio"  value="女" v-model="gender" id="membergirl">
+                                                <label for="membergirl">女</label>
 
-                                            <input type="radio"" value="男" v-model="gender"  id="memberman">
-                                            <label for="memberman">男</label>
-                                            <input type="radio"  value="女" v-model="gender" id="membergirl">
-                                            <label for="membergirl">女</label>
+                                    </div>
 
-                                </div>
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">出生日期</div>
-                                        <input :value="values[2].val" @focus="inputFocus(2,$event)" @blur="inputBlur(2,$event)">
-                                </div>
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">手機號碼</div>
-                                        <input :value="values[3].val" @focus="inputFocus(3,$event)" @blur="inputBlur(3,$event)">
-                                </div>
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">E-mail</div>
-                                        <input :value="values[4].val" @focus="inputFocus(4,$event)" @blur="inputBlur(4,$event)">
-                                </div>
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">會員密碼</div>
-                                        <input :value="values[5].val" type="password" @focus="inputFocus(5,$event)" @blur="inputBlur(5,$event)">
-                                </div>
-                                <div class="nameBorder" v-show="clickpasswd">
-                                        <div class="memberInfoName" >確認密碼</div>
-                                        <input type="password">
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">出生日期</div>
+                                            <input :value="values[2].val" @focus="inputFocus(2,$event)" @blur="inputBlur(2,$event)">
+                                    </div>
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">手機號碼</div>
+                                            <input :value="values[3].val" @focus="inputFocus(3,$event)" @blur="inputBlur(3,$event)">
+                                    </div>
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">E-mail</div>
+                                            <input :value="values[4].val" @focus="inputFocus(4,$event)" @blur="inputBlur(4,$event)">
+                                    </div>
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">會員密碼</div>
+                                            <input :value="values[5].val" type="password" @focus="inputFocus(5,$event)" @blur="inputBlur(5,$event)">
+                                    </div>
+                                    <div class="nameBorder" v-if="clickpasswd==true">
+                                            <div class="memberInfoName" >確認密碼</div>
+                                            <input type="password">
+                                    </div>
                                 </div>
                                 <div class="memberEditCancel">
                                     <button class="btnL_light" @click="cancel">取消</button>
