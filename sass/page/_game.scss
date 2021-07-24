@@ -1,7 +1,136 @@
-.game_bg{
-    width: 100%;
-    height: calc(100vh - 85px);
-    background-image: url("../images/index/game/world_map.png"),url("../images/index/game/game_bg.jpg");
+@mixin img_setting($size) {
     background-repeat: no-repeat;
-    background-size: contain, cover;
+    background-position: center center;
+    background-size: $size;
+    @content;
+}
+.game_bg{
+    background-image: url("../images/index/game/game_bg.jpg");
+    @include img_setting(cover){
+        width: 100%;
+        height: calc(100vh - 85px);
+        @include xs{
+            height: calc(100vh - 75px);
+            background-position: left 22% center;
+        }
+    };
+    
+    .game_world_map{
+        background-image: url("../images/index/game/world_map.svg");
+        width: 1180px;
+        height: 657px;
+        // border: 1px solid red;
+        position: relative;
+        @include img_setting(contain);
+        margin: 0 auto;
+        top: 50%;
+        transform: translateY(-50%);
+        @include lg{
+            width: 975px;
+            height: 543px;
+        }
+        @include md{
+            width: 747px;
+            height: 543px;
+        }
+        @include sm{
+            width: 554px;
+            height: 309px;
+        }
+        @include xs{
+            // width: 350px;
+            // height: 195px;
+            max-width: 100%;
+            top: 10%;
+            transform: translateY(-10%);
+        }
+    
+        .landmark_container{
+            background-image: url('../images/index/game/landmark_white.png');
+            width: 50px;
+            height: 90px;
+            @include img_setting(contain);
+            cursor: pointer;
+            position: absolute;
+            @include md{
+                width: 40px;
+                height: 72px;
+            }
+        }
+        #am{
+            left: 12.5%;
+            top: 35%;
+            @include sm{
+                top: 25%;
+            }
+        }
+        #eu{
+            left: 62%;
+            top: 32%;
+            @include sm{
+                top: 20%;
+            }
+        }
+        #af{
+            left: 56%;
+            top: 47%;
+            @include sm{
+                left: 54%;
+                top: 38%;
+            }
+        }
+        #as{
+            left: 78%;
+            top: 39%;
+            @include sm{
+                top: 27%;
+            }
+        }
+        #oc{
+            left: 85%;
+            top: 64.5%;
+            @include md{
+                top: 59%;
+            }
+            @include sm{
+                left: 83%;
+                top: 52%;
+            }
+            @include xs{
+                top: 48%;
+            }
+        }
+    }
+    #game_word{
+        display: none;
+        @include xs{
+
+            display: block;
+            position: relative;
+            bottom: -5vh;
+            // border: 1px solid yellow;
+            h3{
+                color: #202B36;
+                background-color: rgba(225, 225, 225, .95);
+                // display: inline-block;
+                width: 300px;
+                margin: 0 auto;
+                padding: 6px;
+                line-height: 1.6;
+                text-align: center;
+                margin-bottom: 55px;
+            }
+            img{
+                width: 60px;
+                height: 53px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+    }
+}
+.game_wrapper{
+    #the_footer{
+        display: none;
+    }
 }

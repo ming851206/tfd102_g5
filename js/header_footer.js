@@ -1,13 +1,3 @@
-// const logo = Vue.component("the-logo", {
-//     template: `
-//     <div class="nav_logo">
-//         <router-link to="/index.html">
-//             <img class="logo" src="./images/logo/logo.svg" alt="logo">
-//         </router-link>
-//         <router-view></router-view>
-//     </div>
-//     `,
-// })
 const header = Vue.component("the-header", {
     template: `
     <div class="navigation">

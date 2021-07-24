@@ -739,7 +739,8 @@ input:focus {
   position: relative;
 }
 
-.SiginSitch, .on {
+.SiginSitch,
+.on {
   width: 25%;
   position: absolute;
   top: 50%;
@@ -811,15 +812,19 @@ input:focus {
 }
 
 #right {
-  margin-left: 100px;
+  margin-left: 25px;
   width: 900px;
 }
 
 #member {
   display: flex;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 100px;
   margin-bottom: 100px;
+}
+
+#memberSpace {
+  height: 100px;
 }
 
 .memberborder {
@@ -854,7 +859,7 @@ input:focus {
 
 #memberInfoMain {
   display: flex;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 #memberInfoMain .memberInput {
@@ -928,7 +933,7 @@ input:focus {
 
 #loveContent {
   display: flex;
-  margin-top: 50px;
+  margin-top: 20px;
   flex-wrap: wrap;
   justify-content: space-between;
 }
@@ -1427,7 +1432,7 @@ input:focus {
 }
 
 #about {
-  background-image: url("../../images/about/background.png");
+  background-image: url("../../images/about/background.jpg");
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
@@ -1448,8 +1453,8 @@ input:focus {
 }
 
 #about .aboutTop div {
-  margin-left: 100px;
-  width: 700px;
+  margin-left: 110px;
+  width: 960px;
 }
 
 #about .aboutTop p {
@@ -1472,13 +1477,11 @@ input:focus {
 }
 
 #about .aboutDown .aboutNumber {
-  margin-left: 100px;
-  margin-left: 45px;
+  margin-left: 320px;
   width: 760px;
 }
 
 #about .aboutDown .aboutNumbers {
-  margin-left: 224px;
   display: flex;
   align-items: center;
   margin-top: 55px;
@@ -1501,7 +1504,7 @@ input:focus {
 #about .aboutDown .aboutNumbers .abourNumberContent {
   margin-left: 30px;
   font-size: 20px;
-  width: 480px;
+  width: 670px;
 }
 
 #about .aboutDown .aboutNumbers:first-child {
@@ -1517,7 +1520,7 @@ input:focus {
 }
 
 #about .phone .aboutPhoneText {
-  margin-right: 100px;
+  margin-right: 15px;
 }
 
 #about .phone .aboutPhoneBorder {
@@ -2116,11 +2119,180 @@ input:focus {
 }
 
 .game_bg {
+  background-image: url("../images/index/game/game_bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
   width: 100%;
   height: calc(100vh - 85px);
-  background-image: url("../images/index/game/world_map.png"), url("../images/index/game/game_bg.jpg");
+}
+
+@media (max-width: 575.9px) {
+  .game_bg {
+    height: calc(100vh - 75px);
+    background-position: left 22% center;
+  }
+}
+
+.game_bg .game_world_map {
+  background-image: url("../images/index/game/world_map.svg");
+  width: 1180px;
+  height: 657px;
+  position: relative;
   background-repeat: no-repeat;
-  background-size: contain, cover;
+  background-position: center center;
+  background-size: contain;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 1199.9px) {
+  .game_bg .game_world_map {
+    width: 975px;
+    height: 543px;
+  }
+}
+
+@media (max-width: 996.9px) {
+  .game_bg .game_world_map {
+    width: 747px;
+    height: 543px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .game_bg .game_world_map {
+    width: 554px;
+    height: 309px;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .game_bg .game_world_map {
+    max-width: 100%;
+    top: 10%;
+    transform: translateY(-10%);
+  }
+}
+
+.game_bg .game_world_map .landmark_container {
+  background-image: url("../images/index/game/landmark_white.png");
+  width: 50px;
+  height: 90px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  cursor: pointer;
+  position: absolute;
+}
+
+@media (max-width: 996.9px) {
+  .game_bg .game_world_map .landmark_container {
+    width: 40px;
+    height: 72px;
+  }
+}
+
+.game_bg .game_world_map #am {
+  left: 12.5%;
+  top: 35%;
+}
+
+@media (max-width: 767.9px) {
+  .game_bg .game_world_map #am {
+    top: 25%;
+  }
+}
+
+.game_bg .game_world_map #eu {
+  left: 62%;
+  top: 32%;
+}
+
+@media (max-width: 767.9px) {
+  .game_bg .game_world_map #eu {
+    top: 20%;
+  }
+}
+
+.game_bg .game_world_map #af {
+  left: 56%;
+  top: 47%;
+}
+
+@media (max-width: 767.9px) {
+  .game_bg .game_world_map #af {
+    left: 54%;
+    top: 38%;
+  }
+}
+
+.game_bg .game_world_map #as {
+  left: 78%;
+  top: 39%;
+}
+
+@media (max-width: 767.9px) {
+  .game_bg .game_world_map #as {
+    top: 27%;
+  }
+}
+
+.game_bg .game_world_map #oc {
+  left: 85%;
+  top: 64.5%;
+}
+
+@media (max-width: 996.9px) {
+  .game_bg .game_world_map #oc {
+    top: 59%;
+  }
+}
+
+@media (max-width: 767.9px) {
+  .game_bg .game_world_map #oc {
+    left: 83%;
+    top: 52%;
+  }
+}
+
+@media (max-width: 575.9px) {
+  .game_bg .game_world_map #oc {
+    top: 48%;
+  }
+}
+
+.game_bg #game_word {
+  display: none;
+}
+
+@media (max-width: 575.9px) {
+  .game_bg #game_word {
+    display: block;
+    position: relative;
+    bottom: -5vh;
+  }
+  .game_bg #game_word h3 {
+    color: #202B36;
+    background-color: rgba(225, 225, 225, 0.95);
+    width: 300px;
+    margin: 0 auto;
+    padding: 6px;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 55px;
+  }
+  .game_bg #game_word img {
+    width: 60px;
+    height: 53px;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.game_wrapper #the_footer {
+  display: none;
 }
 
 @keyframes scroll {
@@ -2155,7 +2327,6 @@ section.earth {
   position: relative;
   width: 100%;
   height: calc(100vh - 85px);
-  border: 1px solid #9EA2A4;
   background: linear-gradient(to bottom, #192B39 40%, #3F5361 55%, #8798A5 85%, #D0DCE1);
   background-image: url("../images/index/content/bg_1.jpg");
   background-size: cover;
@@ -2754,6 +2925,227 @@ section.earth .earth_container div.earthGame .game::before {
   z-index: 1;
 }
 
+#blade {
+  margin-top: 100px;
+  position: relative;
+  background-color: white;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 750px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767.9px) {
+  #blade {
+    display: none;
+  }
+}
+
+#blade h2 {
+  position: absolute;
+  top: 20vh;
+  left: 10.8vw;
+  color: white;
+  text-shadow: 1px 1px 1px black, -1px -1px 1px black;
+}
+
+@media (max-width: 1279.9px) {
+  #blade h2 {
+    left: 8.8vw;
+  }
+}
+
+@media (max-width: 1199.9px) {
+  #blade h2 {
+    left: 11.6vw;
+  }
+}
+
+@media (max-width: 996.9px) {
+  #blade h2 {
+    top: 23vh;
+  }
+}
+
+#blade .mentor {
+  position: absolute;
+  max-width: 600px;
+  top: 30vh;
+  left: 10vw;
+  color: black;
+  line-height: 1.6;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#blade .mentor--show {
+  opacity: 1;
+}
+
+@media (max-width: 1279.9px) {
+  #blade .mentor {
+    left: 8vw;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 1199.9px) {
+  #blade .mentor {
+    left: 10.5vw;
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 996.9px) {
+  #blade .mentor {
+    top: 33vh;
+    max-width: 300px;
+  }
+}
+
+#blade .mentor h3 {
+  margin-bottom: 3px;
+  font-weight: 600;
+}
+
+#blade .mentor p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.circle-carousel {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  right: -300px;
+  margin-top: -50px;
+  transition: transform .5s;
+  z-index: 90;
+  cursor: pointer;
+}
+
+@media (max-width: 996.9px) {
+  .circle-carousel {
+    right: -350px;
+  }
+}
+
+.circle-carousel__item {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  color: rgba(247, 246, 242, 0.5);
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  filter: opacity(70%);
+  cursor: pointer;
+}
+
+@media (max-width: 1199.9px) {
+  .circle-carousel__item {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+@media (max-width: 996.9px) {
+  .circle-carousel__item {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+.circle-carousel__item.active {
+  background: rgba(247, 246, 242, 0.5) !important;
+  transform: scale(2.6);
+  filter: opacity(90%);
+  cursor: pointer;
+}
+
+.circle-carousel__item.next-to-active {
+  transform: scale(1.4);
+  cursor: pointer;
+}
+
+.circle-carousel__item div {
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 100%;
+  transition: transform .5s;
+}
+
+@media (max-width: 767.9px) {
+  #circle-carousel {
+    display: none;
+  }
+}
+
+#mobile_theme {
+  display: none;
+}
+
+@media (max-width: 767.9px) {
+  #mobile_theme {
+    display: block;
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 767.9px) and (max-width: 767.9px) {
+  #mobile_theme h2 {
+    width: 500px;
+    margin: 0px auto 20px;
+  }
+}
+
+@media (max-width: 767.9px) and (max-width: 575.9px) {
+  #mobile_theme h2 {
+    width: 320px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  #mobile_theme li {
+    height: 250px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    min-width: 320px;
+  }
+  #mobile_theme li h3 {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #mobile_theme li:nth-child(1) h3 {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 0px whitesmoke;
+  }
+  #mobile_theme li:nth-child(5) h3 {
+    color: rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 0px whitesmoke;
+  }
+}
+
 .travel {
   width: 1180px;
   margin: 0 auto;
@@ -2821,11 +3213,11 @@ section.earth .earth_container div.earthGame .game::before {
   }
 }
 
-@media (max-width: 767.9px) {
+@media (max-width: 575.9px) {
   .travel h2 {
-    width: 350px;
+    width: 295px;
     margin-left: 25px;
-    margin-right: 40px;
+    margin-right: 0px;
   }
 }
 

@@ -13,23 +13,56 @@
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 </head>
 <body>
-    <header id="the_header">
-        <the-header></the-header>       
-    </header>
-    <div id="mobile_menu">
-        <menu-item></menu-item> 
-    </div>
-
-    <div id="game">
-        <div class="game_bg">
-            
+    <div class="game_wrapper">
+        <div id="the_game">
+            <the-game></the-game>
+    
         </div>
+    
+        <header id="the_header">
+            <the-header></the-header>       
+        </header>
+        <div id="mobile_menu">
+            <menu-item></menu-item> 
+        </div>
+    
+    
+        <footer id="the_footer">
+            <the-footer></the-footer>
+        </footer>
     </div>
 
-    <footer id="the_footer">
-        <the-footer></the-footer>
-    </footer>
-    <script></script>
+    <script>
+        const the_game = Vue.component("the-game",{
+            template: `
+            <div class="game_bg">
+                <div class="game_world_map">
+                    <div class="landmark_container" v-for="theme in themes" :id="theme.name">
+                    </div>
+                </div>
+                <div id="game_word">
+                    <h3>點選地標圖示參加問答遊戲<br>集滿各大洲印章領取優惠券!</h3>
+                    <img src="./images/index/game/gift_white.svg">
+                </div>
+            </div>
+            `,
+            data(){
+                return{
+                    themes:[
+                        {name: "am", },
+                        {name: "eu", },
+                        {name: "af", },
+                        {name: "as", },
+                        {name: "oc", },
+                    ]
+                }
+            }
+        })        
+        const vue_game = new Vue({
+            el: "#the_game",            
+        });
+
+    </script>
     <script src="./js/header_footer.js"></script>
 </body>
 </html>
