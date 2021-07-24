@@ -127,6 +127,9 @@ const MemberInfo = {
         }
         this.gender = this.values[1].val;
     },
-
+    updated() {
+        let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
+        $("#memberSpace").css("height", height);
+    }
 
 };

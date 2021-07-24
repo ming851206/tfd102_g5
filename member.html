@@ -13,11 +13,10 @@
 </head>
 
 <body>
-    <div id="header">
-        <the-logo></the-logo>
+    <header id="the_header">
         <the-header></the-header>
-    </div>
-    <div id="menu">
+    </header>
+    <div id="mobile_menu">
         <menu-item></menu-item>
     </div>
 
@@ -47,9 +46,11 @@
         <router-view></router-view>
 
     </div>
-    <div id="footer">
+    <div id="memberSpace"></div>
+
+    <footer id="the_footer">
         <the-footer></the-footer>
-    </div>
+    </footer>
     <script src="./js/member/memberinfo.js"></script>
     <script src="./js/member/love.js"></script>
     <script src="./js/member/history.js"></script>
@@ -92,14 +93,30 @@
                     }
                 ],
             }),
+            mounted() {
+                let clickActive = document.getElementsByClassName("active")[0].childNodes[0];
+                clickActive.click();
+            },
+            updated() {
+                let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
+                $("#memberSpace").css("height", height);
+
+            }
         });
 
 
         $(".memberborder").click(function () {
             $(".memberborder").removeClass("active");
             $(this).addClass("active");
-
+            let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
+            console.log("\r\n");
+            console.log($(window).innerHeight());
+            console.log(parseInt($("#the_header").css('height')));
+            console.log(parseInt($("#member").css('height')));
+            console.log(height);
+            $("#memberSpace").css("height", height);
         });
+
 
 
 

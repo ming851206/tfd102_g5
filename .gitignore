@@ -1,5 +1,6 @@
-/node_modules
-/style.css
-/style.css.map
+node_modules
+*.css
+*.map
+style.css
+style.css.map
 
-css
