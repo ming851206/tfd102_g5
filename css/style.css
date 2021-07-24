@@ -1615,6 +1615,167 @@ input:focus {
   cursor: pointer;
 }
 
+#about {
+  background-image: url("../../images/about/background.png");
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  padding-top: 210px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#about h2 {
+  padding-bottom: 0;
+}
+
+#about .aboutTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#about .aboutTop div {
+  margin-left: 100px;
+  width: 700px;
+}
+
+#about .aboutTop p {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+#about .imgs {
+  width: 100%;
+  height: 35px;
+  background-image: url("../../images/about/mid.png");
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#about .aboutDown {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 100px;
+}
+
+#about .aboutDown .aboutNumber {
+  margin-left: 100px;
+  margin-left: 45px;
+  width: 760px;
+}
+
+#about .aboutDown .aboutNumbers {
+  margin-left: 224px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 55px;
+}
+
+#about .aboutDown .aboutNumbers .abourNumberBorder {
+  border: 1px solid #996A4D;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  color: white;
+  background-color: #996A4D;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 30px;
+}
+
+#about .aboutDown .aboutNumbers .abourNumberContent {
+  margin-left: 30px;
+  font-size: 20px;
+  width: 480px;
+}
+
+#about .aboutDown .aboutNumbers:first-child {
+  margin-top: 40px;
+}
+
+#about .phone {
+  background-image: url("../../images/about/background_jumper.png");
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#about .phone .aboutPhoneText {
+  margin-right: 100px;
+}
+
+#about .phone .aboutPhoneBorder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 200px;
+}
+
+#about .phone .aboutPhoneContent {
+  font-size: 48px;
+}
+
+#about .phone .aboutPhoneBtn {
+  font-size: 20px;
+  cursor: pointer;
+  border: 1px solid #996A4D;
+  margin-top: 100px;
+  width: 300px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  background-color: #996A4D;
+  border-radius: 20px;
+}
+
 .faq_sec1 h2 {
   margin: 50px;
   text-align: center;
@@ -2498,7 +2659,8 @@ section.earth .earth_container div.earthGame .game::before {
 }
 
 .new_trip h3 {
-  padding: 20px 0;
+  font-weight: bold;
+  padding: 20px 0 40px 0;
 }
 
 .new_trip .container {
@@ -2527,13 +2689,13 @@ section.earth .earth_container div.earthGame .game::before {
           flex-direction: column;
 }
 
-.new_trip .container .right_block .upper {
+.new_trip .container .right_block .upper_area {
   border-radius: 15px;
   overflow: hidden;
-  margin-bottom: 48px;
+  margin-bottom: 28px;
 }
 
-.new_trip .container .right_block .down {
+.new_trip .container .right_block .down_area {
   border-radius: 15px;
   overflow: hidden;
 }
@@ -2547,11 +2709,15 @@ section.earth .earth_container div.earthGame .game::before {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 70vh;
-  max-height: 500px;
+  max-height: 530px;
 }
 
 .left_block .trip_item .pic {
   height: 50%;
+  width: 100%;
+  background-image: url(/images/travel_list/800/wugerku.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .left_block .trip_item .pic img {
@@ -2567,7 +2733,8 @@ section.earth .earth_container div.earthGame .game::before {
 
 .left_block .trip_item .content .avatar img {
   border: 6px solid white;
-  width: 25%;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   position: absolute;
   top: -25%;
@@ -2597,6 +2764,11 @@ section.earth .earth_container div.earthGame .game::before {
   margin-bottom: 20px;
   font-family: 'regular';
   overflow: hidden;
+  font-weight: bold;
+}
+
+.left_block .trip_item .content p {
+  font-size: 12px;
 }
 
 .right_block .trip_item {
@@ -2608,18 +2780,22 @@ section.earth .earth_container div.earthGame .game::before {
       -ms-flex-direction: column;
           flex-direction: column;
   height: 70vh;
-  max-height: 500px;
+  max-height: 530px;
   -ms-flex-direction: row;
       flex-direction: row;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 31vh;
+  height: 33vh;
   max-height: 250px;
 }
 
 .right_block .trip_item .pic {
   height: 50%;
+  width: 100%;
+  background-image: url(/images/travel_list/800/wugerku.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .right_block .trip_item .pic img {
@@ -2635,7 +2811,8 @@ section.earth .earth_container div.earthGame .game::before {
 
 .right_block .trip_item .content .avatar img {
   border: 6px solid white;
-  width: 25%;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   position: absolute;
   top: -25%;
@@ -2665,10 +2842,25 @@ section.earth .earth_container div.earthGame .game::before {
   margin-bottom: 20px;
   font-family: 'regular';
   overflow: hidden;
+  font-weight: bold;
+}
+
+.right_block .trip_item .content p {
+  font-size: 12px;
 }
 
 .right_block .trip_item .pic {
   width: 50%;
+  height: 100%;
+}
+
+.right_block .trip_item .pic.upper {
+  background-image: url(/images/travel_list/500/africa_elephant.jpg);
+  background-position: center;
+}
+
+.right_block .trip_item .pic.down {
+  background-image: url(/images/travel_list/500/louvre.jpg);
 }
 
 .right_block .trip_item .content {
@@ -2679,7 +2871,8 @@ section.earth .earth_container div.earthGame .game::before {
 
 .right_block .trip_item .content .avatar img {
   border: 2px solid white;
-  width: 25%;
+  width: 70px;
+  height: 70px;
   position: static;
   border-radius: 50%;
   margin-top: 10px;
@@ -2697,8 +2890,130 @@ section.earth .earth_container div.earthGame .game::before {
 }
 
 .right_block .trip_item .content h4.intro {
-  max-height: 20px;
+  max-height: 50px;
   overflow: hidden;
   margin-bottom: 20px;
+}
+
+.best_trip {
+  width: 100%;
+  max-width: 1200px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 40px 40px;
+}
+
+.best_trip h3 {
+  font-weight: bold;
+  padding: 20px 0 40px 0;
+}
+
+.best_trip .container {
+  width: 100%;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.best_trip .container a {
+  width: 23%;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.best_trip .container a .trip_item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 70vh;
+  max-height: 530px;
+  max-height: 350px;
+}
+
+.best_trip .container a .trip_item .pic {
+  height: 50%;
+  width: 100%;
+  background-image: url(/images/travel_list/800/wugerku.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.best_trip .container a .trip_item .pic img {
+  width: 100%;
+}
+
+.best_trip .container a .trip_item .content {
+  height: 50%;
+  padding: 60px 20px 30px 20px;
+  background-color: #FAF9F2;
+  position: relative;
+}
+
+.best_trip .container a .trip_item .content .avatar img {
+  border: 6px solid white;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  top: -25%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.best_trip .container a .trip_item .content .star_num {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 10px 0;
+}
+
+.best_trip .container a .trip_item .content .star_num p {
+  margin: 0 0 0 10px;
+}
+
+.best_trip .container a .trip_item .content h4.intro {
+  max-height: 55px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-family: 'regular';
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.best_trip .container a .trip_item .content p {
+  font-size: 12px;
+}
+
+.best_trip .container a .trip_item .content {
+  padding: 40px 20px 80px 20px;
+}
+
+.best_trip .container a .trip_item .content .avatar img {
+  width: 100px;
+  height: 100px;
+  top: -30%;
+}
+
+.best_trip .container a .trip_item .content h4.intro {
+  max-height: 50px;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 /*# sourceMappingURL=style.css.map */
