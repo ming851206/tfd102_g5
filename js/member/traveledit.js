@@ -21,11 +21,11 @@ const TravelEdit = {
                         </div>
                         <div id="addFrom">
                             <div class="travelInputBorder">
-                                    <div>主題名稱：</div>
+                                    <div class="travelInputEditTitle"><span>主題名稱：</span></div>
                                     <input>
                             </div>
                             <div class="travelInputBorder">
-                                    <div>類別：</div>
+                                    <div class="travelInputEditTitle"><span>類別：</span></div>
                                     <select>
                                         <option value="1" selected>美洲</option>
                                         <option value="2">亞洲</option>
@@ -35,19 +35,19 @@ const TravelEdit = {
                                     </select>
                             </div>
                             <div class="travelInputBorder">
-                                    <div>時間：</div>
+                                    <div class="travelInputEditTitle"><span>時間：</span></div>
                                     <input >
                             </div>
                             <div class="travelInputBorder">
-                                    <div>人數：</div>
+                                    <div class="travelInputEditTitle"><span>人數：</span></div>
                                     <input >
                             </div>
                             <div class="travelInputBorder">
-                                    <div>影片連結：</div>
+                                    <div class="travelInputEditTitle"><span>影片連結：</span></div>
                                     <input >
                             </div>
                             <div class="travelInputBorder Imginput" @dragover.prevent @drop="drop">
-                                    <div>圖片上傳：</div>
+                                    <div class="travelInputEditTitle"><span>圖片上傳：</span></div>
                                     <div>
                                         <div class="showImg">
                                         </div>
@@ -58,11 +58,11 @@ const TravelEdit = {
                                     </div>
                             </div>
                             <div class="travelInputBorder Content">
-                                    <div>活動內容：</div>
+                                    <div class="travelInputEditTitle"><span>活動內容：</span></div>
                                     <textarea placeholder="活動內容" > </textarea>
                             </div>
                             <div class="travelInputBorder">
-                                    <div>自備物品：</div>
+                                    <div class="travelInputEditTitle"><span>自備物品：</span></div>
                                     <input >
                             </div>
                         </div>
