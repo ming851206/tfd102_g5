@@ -53,7 +53,7 @@ a {
 }
 
 a:visited {
-  color: #996A4D;
+  color: black;
 }
 
 blockquote:before, blockquote:after,
@@ -2165,7 +2165,6 @@ input:focus {
 }
 
 .banner .intro {
-  width: 40%;
   position: absolute;
   left: 10%;
   bottom: 40%;
@@ -2270,7 +2269,7 @@ input:focus {
 
 .new_trip .container .left_block {
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 13px;
   width: 50%;
   margin-right: 40px;
 }
@@ -2287,13 +2286,13 @@ input:focus {
 }
 
 .new_trip .container .right_block .upper_area {
-  border-radius: 15px;
+  border-radius: 13px;
   overflow: hidden;
   margin-bottom: 28px;
 }
 
 .new_trip .container .right_block .down_area {
-  border-radius: 15px;
+  border-radius: 13px;
   overflow: hidden;
 }
 
@@ -2509,6 +2508,24 @@ input:focus {
   padding: 20px 0 40px 0;
 }
 
+.best_trip .arrow {
+  margin-bottom: 20px;
+  width: 180px;
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.best_trip .arrow div {
+  margin-left: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
 .best_trip .container {
   width: 100%;
   padding: 0;
@@ -2520,13 +2537,17 @@ input:focus {
           justify-content: space-between;
 }
 
-.best_trip .container a {
+.best_trip .container li {
   width: 23%;
-  border-radius: 15px;
+}
+
+.best_trip .container li a {
+  width: 100%;
+  border-radius: 13px;
   overflow: hidden;
 }
 
-.best_trip .container a .trip_item {
+.best_trip .container li a .trip_item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2539,7 +2560,7 @@ input:focus {
   max-height: 350px;
 }
 
-.best_trip .container a .trip_item .pic {
+.best_trip .container li a .trip_item .pic {
   height: 50%;
   width: 100%;
   background-image: url(/images/travel_list/800/wugerku.jpg);
@@ -2547,18 +2568,18 @@ input:focus {
   background-size: cover;
 }
 
-.best_trip .container a .trip_item .pic img {
+.best_trip .container li a .trip_item .pic img {
   width: 100%;
 }
 
-.best_trip .container a .trip_item .content {
+.best_trip .container li a .trip_item .content {
   height: 50%;
   padding: 60px 20px 30px 20px;
   background-color: #FAF9F2;
   position: relative;
 }
 
-.best_trip .container a .trip_item .content .avatar img {
+.best_trip .container li a .trip_item .content .avatar img {
   border: 6px solid white;
   width: 120px;
   height: 120px;
@@ -2570,7 +2591,7 @@ input:focus {
           transform: translateX(-50%);
 }
 
-.best_trip .container a .trip_item .content .star_num {
+.best_trip .container li a .trip_item .content .star_num {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2581,11 +2602,11 @@ input:focus {
   padding: 10px 0;
 }
 
-.best_trip .container a .trip_item .content .star_num p {
+.best_trip .container li a .trip_item .content .star_num p {
   margin: 0 0 0 10px;
 }
 
-.best_trip .container a .trip_item .content h4.intro {
+.best_trip .container li a .trip_item .content h4.intro {
   max-height: 55px;
   font-size: 14px;
   margin-bottom: 20px;
@@ -2594,24 +2615,132 @@ input:focus {
   font-weight: bold;
 }
 
-.best_trip .container a .trip_item .content p {
+.best_trip .container li a .trip_item .content p {
   font-size: 12px;
 }
 
-.best_trip .container a .trip_item .content {
+.best_trip .container li a .trip_item .content {
   padding: 40px 20px 80px 20px;
 }
 
-.best_trip .container a .trip_item .content .avatar img {
+.best_trip .container li a .trip_item .content .avatar img {
   width: 100px;
   height: 100px;
   top: -30%;
 }
 
-.best_trip .container a .trip_item .content h4.intro {
+.best_trip .container li a .trip_item .content h4.intro {
   max-height: 50px;
   overflow: hidden;
   margin-bottom: 10px;
+}
+
+.main_trip {
+  width: 100%;
+  max-width: 1200px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 40px 40px;
+}
+
+.main_trip h3 {
+  font-weight: bold;
+  padding: 20px 0 40px 0;
+}
+
+.main_trip .arrow {
+  margin-bottom: 20px;
+  width: 180px;
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main_trip .arrow div {
+  margin-left: 20px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.main_trip .container {
+  width: 100%;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main_trip .container ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.main_trip .container ul a {
+  width: 400px;
+  height: 250px;
+  border-radius: 13px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+
+.main_trip .container ul a .trip_item {
+  width: 100%;
+  height: 100%;
+  max-height: 600px;
+  position: relative;
+}
+
+.main_trip .container ul a .trip_item img {
+  width: 400px;
+  position: absolute;
+  z-index: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.main_trip .container ul a .trip_item .content {
+  position: absolute;
+  width: 100%;
+  max-height: 250px;
+  z-index: 2;
+  padding: 40px 20px 80px 20px;
+}
+
+.main_trip .container ul a .trip_item .content p.subject {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.main_trip .container ul a .trip_item .content p.txt {
+  width: 60%;
+  max-height: 60px;
+  margin-bottom: 50px;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.main_trip .container ul a .trip_item .content button {
+  font-size: 16px;
+  border: none;
+  border-radius: 13px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 8px 20px;
 }
 
 .game_bg {
