@@ -52,6 +52,10 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  color: #996A4D;
+}
+
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
