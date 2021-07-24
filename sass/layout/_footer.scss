@@ -13,7 +13,7 @@
     @content;
 }
 
-footer{
+footer#the_footer{
     background-color: #202B36;
     color: #FAF9F2;
     height: 200px;
@@ -22,9 +22,11 @@ footer{
         bottom: 76px;
     }
 
-    .icon_link{
+    .socialLink_icon{
+        // border: 1px solid white;
         float: right;
-        padding-top: 75px;
+        display: flex;
+        padding-top: 80px;
         padding-right: 120px;
         @include laptop{
             padding-right: 70px;
@@ -39,7 +41,14 @@ footer{
             @include icon_rwd(22px,10px)      
         }
         a{
+            @include tablet{
+                display: inline-block;
+            }
+            @include ipad{
+                display: inline-block;
+            }
             @include mobile{
+                display: inline-block;
                 margin: 0 5px;
             }
         }

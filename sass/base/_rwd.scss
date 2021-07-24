@@ -28,3 +28,41 @@
     }
   };
   
+
+// ===============================================
+// 無區間(xl、lg_md是首頁需要)
+@mixin xl {
+  @media (max-width: 1279.9px){
+      @content;
+  }
+}
+@mixin lg {
+  @media (max-width: 1199.9px){
+      @content;
+  }
+}
+@mixin lg_md {
+  @media (max-width: 1159.9px){
+      @content;
+  }
+}
+@mixin md {
+  @media (max-width: 996.9px){
+      @content;
+  }
+}
+@mixin md_sm {
+  @media (max-width: 895.9px){
+      @content;
+  }
+}
+@mixin sm {
+  @media (max-width: 767.9px){
+      @content;
+  }
+}
+@mixin xs {
+  @media (max-width: 575.9px){
+      @content;
+  }
+}

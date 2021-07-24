@@ -1,5 +1,5 @@
 #right {
-    margin-left: 100px;
+    margin-left: 25px;
     width: 900px;
 }
 
@@ -8,8 +8,13 @@
 #member {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 100px;
     margin-bottom: 100px;
+
+}
+
+#memberSpace {
+    height: 100px;
 }
 
 .memberborder {
@@ -46,10 +51,14 @@
 
 #memberInfoMain {
     display: flex;
-    margin-top: 50px;
+    margin-top: 20px;
 
     .memberInput {
         width: 600px;
+
+        .memberinforEditBorder {
+            height: 312px;
+        }
 
         input {
             border: 0;
@@ -96,6 +105,15 @@
     margin-bottom: 10px;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+
+    svg {
+        position: absolute;
+        right: 16px;
+        top: 12px;
+        cursor: pointer;
+        z-index: 200;
+    }
 
     &:last-child {
         margin-bottom: 0;
@@ -138,7 +156,7 @@
 
 #loveContent {
     display: flex;
-    margin-top: 50px;
+    margin-top: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
 
@@ -572,7 +590,47 @@
             padding: 20px;
             padding-right: 0;
             width: 130px;
+        }
+    }
+
+    .Imginput {
+        width: 100%;
+        height: unset;
+
+        .showImg {
+            width: 590px;
+            padding: 0;
             background-color: $sec_ivory;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                margin-top: 20px;
+
+                &:first-child {
+                    margin-top: 0px;
+                }
+            }
+
+        }
+
+        input {
+            position: absolute;
+            top: -100%;
+            left: -100%;
+        }
+
+        .clickInput {
+            width: 100px;
+            height: 50px;
+            border: 1px solid $main_br;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 20px;
+            line-height: 0.8;
+            margin-top: 40px;
+
         }
     }
 

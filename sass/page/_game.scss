@@ -1,0 +1,7 @@
+.game_bg{
+    width: 100%;
+    height: calc(100vh - 85px);
+    background-image: url("../images/index/game/world_map.png"),url("../images/index/game/game_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: contain, cover;
+}

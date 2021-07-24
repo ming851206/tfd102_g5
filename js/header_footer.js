@@ -1,16 +1,22 @@
-const logo = Vue.component("the-logo", {
-    template: `
-    <div class="nav_logo">
-        <router-link to="/index.html">
-            <img class="logo" src="./images/logo/logo.svg" alt="logo">
-        </router-link>
-        <router-view></router-view>
-    </div>   
-    `,
-})
+// const logo = Vue.component("the-logo", {
+//     template: `
+//     <div class="nav_logo">
+//         <router-link to="/index.html">
+//             <img class="logo" src="./images/logo/logo.svg" alt="logo">
+//         </router-link>
+//         <router-view></router-view>
+//     </div>
+//     `,
+// })
 const header = Vue.component("the-header", {
     template: `
-    <header>
+    <div class="navigation">
+        <div class="nav_logo">
+            <router-link to="/index.html">
+                <img class="logo" src="./images/logo/logo.svg" alt="logo">
+            </router-link>
+            <router-view></router-view>
+        </div>
         <nav class="nav">
             <ul class="nav_list">
                 <div class="web_bar">
@@ -42,10 +48,53 @@ const header = Vue.component("the-header", {
             </ul>
         </nav>
     <router-view></router-view>
-    </header>
-`,
+    </div>
+`, mounted() {
+        document.addEventListener('click', function (e) {
+            // console.log(location.href);
+            if (e.target.nodeName == "IMG") {
+                let click = e.target.parentNode.getAttribute("href");
+                // console.log(click);
+                if (click != null) {
+                    if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
+                        if (location.href.indexOf("ming851206") > 0) {
+                            // console.log(location.href);
+                            // let newClick = "/tfd102_g5" + click;
+                            // location.href = newClick;
+                            // console.log('1');
+                            location.href = click;
+
+                        } else {
+                            // console.log(location.href);
+                            location.href = click;
+                            // console.log('2');
+                        }
+                    }
+                }
+            } else {
+                let click = e.target.getAttribute("href");
+                if (click != null) {
+                    if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
+                        if (location.href.indexOf("ming851206") > 0) {
+                            // console.log(location.href);
+                            // let newClick = "/tfd102_g5" + click;
+                            // // location.href = newClick;
+                            // console.log('3');
+                            location.href = click;
+
+                        } else {
+                            // console.log(location.href);
+                            location.href = click;
+                            // console.log('4');
+                        }
+                    }
+                }
+            }
+
+        });
+    }
 })
-const menu_item = Vue.component("menu-item",{
+const menu_item = Vue.component("menu-item", {
     template: `
     <div id="nav_rwd">
         <img class="logo_rwd" src="./images/logo/logo.svg" alt="logo">
@@ -58,20 +107,20 @@ const menu_item = Vue.component("menu-item",{
                 <button class="btnL_light"><router-link to="/QA.html">常見問題</router-link></button>
                 <router-view></router-view>
             </div>
-        </div>    
-    </div>    
+        </div>
+    </div>
     `,
 })
 const footer = Vue.component("the-footer", {
     template: `
-    <footer>
-        <div class="icon_link">
+    <div>
+        <div class="socialLink_icon">
             <router-link to="/">
                 <img src="./images/icon/footer//twitter_icon.svg" alt="twitter">
             </router-link>
             <router-link to="/">
                 <img src="./images/icon/footer/fb_icon.svg" alt="facebook">
-            </router-link>    
+            </router-link>
             <router-link to="/">
                 <img src="./images/icon/footer/ig_icon.svg" alt="instagram">
             </router-link>
@@ -84,34 +133,34 @@ const footer = Vue.component("the-footer", {
             <br>
             若有侵權疑慮，您可以私訊[TibaMe-前端設計工程師養成班]，後續會由專人協助處理。
         </div>
-    </footer>
+    </div>
     `,
 })
 const router = new VueRouter({
     mode: "history",
 })
 const vue_header = new Vue({
-    el: "#header",
+    el: "#the_header",
     router,
 })
 const vue_menu = new Vue({
-    el: "#menu",
+    el: "#mobile_menu",
     router,
 })
 const vue_footer = new Vue({
-    el: "#footer",
+    el: "#the_footer",
     router,
 })
 
-$(function(){
-    $(".menu").on("click", function(){
+$(function () {
+    $(".menu").on("click", function () {
         $('#nav_rwd').fadeIn();
         $("html").css({
             position: "fixed",
             width: "100%",
         })
     });
-    $("#close_menu").on("click", function(e){
+    $("#close_menu").on("click", function (e) {
         e.stopPropagation();
         $("#nav_rwd").fadeOut();
         $("html").css({

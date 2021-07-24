@@ -27,39 +27,56 @@ const MemberInfo = {
                                 </div>
                                 -->
 
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">姓名</div>
-                                        <input :value="values[0].val" @focus="inputFocus(0,$event)" @blur="inputBlur(0,$event)">
-                                </div>
-                                <div class="nameBorder gender">
-                                        <div class="memberInfoName">性別</div>
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">姓名</div>
+                                            <input :value="values[0].val" @focus="inputFocus(0,$event)" @blur="inputBlur(0,$event)">
+                                    </div>
+                                    <div class="nameBorder gender">
+                                            <div class="memberInfoName">性別</div>
 
-                                            <input type="radio"" value="男" v-model="gender"  id="memberman">
-                                            <label for="memberman">男</label>
-                                            <input type="radio"  value="女" v-model="gender" id="membergirl">
-                                            <label for="membergirl">女</label>
+                                                <input type="radio"" value="男" v-model="gender"  id="memberman">
+                                                <label for="memberman">男</label>
+                                                <input type="radio"  value="女" v-model="gender" id="membergirl">
+                                                <label for="membergirl">女</label>
 
-                                </div>
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">出生日期</div>
-                                        <input :value="values[2].val" @focus="inputFocus(2,$event)" @blur="inputBlur(2,$event)">
-                                </div>
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">手機號碼</div>
-                                        <input :value="values[3].val" @focus="inputFocus(3,$event)" @blur="inputBlur(3,$event)">
-                                </div>
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">E-mail</div>
-                                        <input :value="values[4].val" @focus="inputFocus(4,$event)" @blur="inputBlur(4,$event)">
-                                </div>
-                                <div class="nameBorder">
-                                        <div class="memberInfoName">會員密碼</div>
-                                        <input :value="values[5].val" type="password" @focus="inputFocus(5,$event)" @blur="inputBlur(5,$event)">
-                                </div>
-                                <div class="nameBorder" v-show="clickpasswd">
-                                        <div class="memberInfoName" >確認密碼</div>
-                                        <input type="password">
-                                </div>
+                                    </div>
+
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">出生日期</div>
+                                            <input :value="values[2].val" @focus="inputFocus(2,$event)" @blur="inputBlur(2,$event)">
+                                    </div>
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">手機號碼</div>
+                                            <input :value="values[3].val" @focus="inputFocus(3,$event)" @blur="inputBlur(3,$event)">
+                                    </div>
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">E-mail</div>
+                                            <input :value="values[4].val" @focus="inputFocus(4,$event)" @blur="inputBlur(4,$event)">
+                                    </div>
+                                    <div class="nameBorder">
+                                            <div class="memberInfoName">會員密碼</div>
+                                            <input :value="CachePasswd" type="password" @focus="inputFocus(5,$event)" @blur="inputBlur(5,$event)" v-if="firstshowspasswd==false" @keyup="cachepasswd">
+                                            <input :value="CachePasswd" type="text" @focus="inputFocus(5,$event)" @blur="inputBlur(5,$event)" v-else @keyup="cachepasswd">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="20.455" viewBox="0 0 27 20.455" @click="changefirstshowspasswd">
+                                                <g id="Icon_feather-eye" data-name="Icon feather-eye" transform="translate(1.5 1.5)">
+                                                    <path id="Path_157" data-name="Path 157" d="M1.5,14.727S5.864,6,13.5,6s12,8.727,12,8.727-4.364,8.727-12,8.727S1.5,14.727,1.5,14.727Z" transform="translate(-1.5 -6)" fill="none" stroke="#996a4d" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                                    <path id="Path_158" data-name="Path 158" d="M20.136,16.818A3.318,3.318,0,1,1,16.818,13.5,3.318,3.318,0,0,1,20.136,16.818Z" transform="translate(-4.818 -8.091)" fill="none" stroke="#996a4d" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                                </g>
+                                            </svg>
+
+                                    </div>
+                                    <div class="nameBorder" >
+                                            <div class="memberInfoName" >確認密碼</div>
+                                            <input type="password" :value="CacheCheckPasswd" @focus="inputFocus(5,$event)" @blur="inputBlur(5,$event)" v-show="!secshowspasswd" @keyup="cachecheckpasswd" >
+                                            <input type="text" :value="CacheCheckPasswd" @focus="inputFocus(5,$event)" @blur="inputBlur(5,$event)" v-show="secshowspasswd" @keyup="cachecheckpasswd">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="20.455" viewBox="0 0 27 20.455" @click="changesecshowspasswd">
+                                                <g id="Icon_feather-eye" data-name="Icon feather-eye" transform="translate(1.5 1.5)">
+                                                    <path id="Path_157" data-name="Path 157" d="M1.5,14.727S5.864,6,13.5,6s12,8.727,12,8.727-4.364,8.727-12,8.727S1.5,14.727,1.5,14.727Z" transform="translate(-1.5 -6)" fill="none" stroke="#996a4d" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                                    <path id="Path_158" data-name="Path 158" d="M20.136,16.818A3.318,3.318,0,1,1,16.818,13.5,3.318,3.318,0,0,1,20.136,16.818Z" transform="translate(-4.818 -8.091)" fill="none" stroke="#996a4d" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                                </g>
+                                            </svg>
+
+                                    </div>
                                 <div class="memberEditCancel">
                                     <button class="btnL_light" @click="cancel">取消</button>
                                     <button class="btnL" @click="confirms">確認</button>
@@ -83,12 +100,42 @@ const MemberInfo = {
             passwdwd: '',
             editType: false,
             editValue: [],
-            clickpasswd: false,
             gender: '',
+            firstshowspasswd: false,
+            secshowspasswd: false,
+            CachePasswd: '',
+            CacheCheckPasswd: '',
+
         };
 
     },
     methods: {
+        changefirstshowspasswd() {
+            if (!this.firstshowspasswd) {
+                this.firstshowspasswd = true;
+            } else {
+                this.firstshowspasswd = false;
+            }
+        },
+        changesecshowspasswd() {
+            if (!this.secshowspasswd) {
+                this.secshowspasswd = true;
+            } else {
+                this.secshowspasswd = false;
+            }
+        },
+        cachepasswd(event) {
+            if (event.target.value == this.values[5].val) {
+                this.CachePasswd = '';
+            }
+            this.CachePasswd += event.target.value;
+        },
+        cachecheckpasswd(event) {
+            if (event.target.value == this.values[5].val) {
+                this.CacheCheckPasswd = '';
+            }
+            this.CacheCheckPasswd += event.target.value;
+        },
         edit() {
             this.editType = true;
         },
@@ -103,20 +150,12 @@ const MemberInfo = {
             if (event.target.value == this.values[index].val) {
                 event.target.value = '';
             }
-            if (index == 5) {
-                this.clickpasswd = true;
-            } else if (event.target.parentNode.parentNode.children[5].children[1].value == this.values[5].val) {
-                this.clickpasswd = false;
-                event.target.parentNode.parentNode.children[6].children[1].value = '';
-            }
+
         },
         inputBlur(index, event) {
             if (event.target.value == '') {
                 event.target.value = this.values[index].val;
-                if (index == 5) {
-                    this.clickpasswd = false;
-                    event.target.parentNode.parentNode.children[6].children[1].value = '';
-                }
+
             }
         }
     },
@@ -126,7 +165,12 @@ const MemberInfo = {
             this.passwdwd += '*';
         }
         this.gender = this.values[1].val;
+        this.CachePasswd = this.values[5].val;
+        this.CacheCheckPasswd = this.values[5].val;
     },
-
+    updated() {
+        let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
+        $("#memberSpace").css("height", height);
+    }
 
 };

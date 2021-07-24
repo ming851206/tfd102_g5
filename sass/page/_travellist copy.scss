@@ -1,0 +1,359 @@
+// ***** 旅遊卡片 *****
+
+@mixin tripcard {
+    
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    max-height: 530px;
+
+    .pic {
+        height: 50%;
+        width: 100%;
+        background-image: url(/images/travel_list/800/wugerku.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content {
+        height: 50%;
+        padding: 60px 20px 30px 20px;
+        background-color: #FAF9F2;
+        position: relative;
+
+        .avatar img {
+            border: 6px solid white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            position: absolute;
+            top: -25%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .star_num {
+            display: flex;
+            flex-direction: row;
+            padding: 10px 0;
+            p {
+
+                margin: 0 0 0 10px;
+            }
+        }
+
+        h4.intro {
+            max-height: 55px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-family: 'regular';
+            overflow: hidden;
+            font-weight: bold;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+}
+
+.banner {
+    width: 100%;
+    height: 700px;
+    position: relative;
+
+    .intro {
+        position: absolute;
+        left: 10%;
+        bottom: 40%;
+
+        h2 {
+            font-weight: bold;
+            text-align: left;
+            margin-left: 0;
+        }
+
+        h5 {
+            line-height: 1.5;
+        }
+    }
+
+    .bg_img {
+        width: 100%;
+        height: 100%;
+        background-image: url(../../images/travel_list/banner_bg.jpg);
+        background-size: cover;
+    }
+}
+
+
+.filters {
+    background-color: #FAF9F2;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 40px;
+
+    ul {
+        display: flex;
+
+        li {
+            margin: 10px 0 0 30px;
+        }
+
+
+        li:nth-child(3) {
+            border-right: 2px solid grey;
+            padding-right: 35px;
+        }
+    }
+
+    input.search {
+        @include form;
+        padding-left: 40px;
+        margin-top: 0;
+        width: 200px;
+        height: 30px;
+        right: 5px;
+        background-image: url(/images/icon/search.svg);
+        background-repeat: no-repeat;
+        background-position: 10px center;
+    }
+}
+
+// ========= 最新旅遊區塊 =========
+.new_trip {
+    // border: 2px solid red;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 40px 40px;
+
+
+    h3 {
+        font-weight: bold;
+        padding: 20px 0 40px 0;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+        display: flex;
+
+        .left_block {
+            overflow: hidden;
+            border-radius: 15px;
+            width: 50%;
+            margin-right: 40px;
+        }
+
+        .right_block {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            .upper_area {
+                border-radius: 15px;
+                overflow: hidden;
+                margin-bottom: 28px;
+            }
+
+            .down_area {
+                border-radius: 15px;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+
+
+
+.left_block .trip_item {
+    @include tripcard();
+}
+
+.right_block .trip_item {
+    @include tripcard();
+    flex-direction: row;
+    justify-content: space-between;
+    height: 33vh;
+    max-height: 250px;
+
+    .pic {
+        width: 50%;
+        height: 100%;
+    }
+
+    .pic.upper {
+        background-image: url(/images/travel_list/500/africa_elephant.jpg);
+        background-position: center;
+    }
+
+    .pic.down {
+        background-image: url(/images/travel_list/500/louvre.jpg);
+    }
+
+    .content {
+        // border: 2px solid red;
+        width: 50%;
+        height: 100%;
+        padding: 2px 20px 30px 20px;
+
+        .avatar img {
+            border: 2px solid white;
+            width: 70px;
+            height: 70px;
+            position: static;
+            border-radius: 50%;
+            margin-top: 10px;
+            margin-left: 30px;
+        }
+
+        .star_num {
+            display: flex;
+            flex-direction: row;
+        }
+
+        h4.intro {
+            max-height: 50px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+// ========= 最獲好評的旅遊 =========
+.best_trip {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 40px 40px;
+
+    h3 {
+        font-weight: bold;
+        padding: 20px 0 40px 0;
+    }
+    
+    .arrow{
+        // border: 2px solid red;
+        margin-bottom: 20px;
+        width: 180px;
+        float: right;
+        display: flex;
+        align-items: center;
+        div{
+            margin-left: 20px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        
+        li{
+            width: 23%;
+            a {
+                width: 100%;
+                // border: 2px solid red;
+                border-radius: 15px;
+                overflow: hidden;
+    
+                .trip_item {
+                    @include tripcard();
+                    max-height: 350px;
+    
+                    .content{
+                        padding: 40px 20px 80px 20px;
+                        .avatar img{
+                            width: 100px;
+                            height: 100px;
+                            top: -30%;
+                        }
+                        h4.intro {
+                            max-height: 50px;
+                            overflow: hidden;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ========= 本月主打的旅遊 =========
+.main_trip {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 40px 40px;
+
+    h3 {
+        font-weight: bold;
+        padding: 20px 0 40px 0;
+    }
+    
+    .arrow{
+        // border: 2px solid red;
+        margin-bottom: 20px;
+        width: 180px;
+        float: right;
+        display: flex;
+        align-items: center;
+        div{
+            margin-left: 20px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+
+        a {
+            width: 23%;
+            // border: 2px solid red;
+            border-radius: 15px;
+            overflow: hidden;
+
+            .trip_item {
+                @include tripcard();
+                max-height: 350px;
+
+                .content{
+                    padding: 40px 20px 80px 20px;
+                    .avatar img{
+                        width: 100px;
+                        height: 100px;
+                        top: -30%;
+                    }
+                    h4.intro {
+                        max-height: 50px;
+                        overflow: hidden;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
