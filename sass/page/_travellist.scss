@@ -292,74 +292,74 @@
 }
 
 // ========= 最獲好評的旅遊 =========
-.best_trip {
-    width: 100%;
-    max-width: 1200px;
-    box-sizing: border-box;
-    margin: 0 auto;
-    justify-content: center;
-    padding: 40px 40px;
+// .best_trip {
+//     width: 100%;
+//     max-width: 1200px;
+//     box-sizing: border-box;
+//     margin: 0 auto;
+//     justify-content: center;
+//     padding: 40px 40px;
     
-    h3 {
-        font-weight: bold;
-        padding: 20px 0 40px 0;
-    }
+//     h3 {
+//         font-weight: bold;
+//         padding: 20px 0 40px 0;
+//     }
     
-    .arrow {
-        // border: 2px solid red;
-        margin-bottom: 20px;
-        width: 180px;
-        float: right;
-        display: flex;
-        align-items: center;
+//     .arrow {
+//         // border: 2px solid red;
+//         margin-bottom: 20px;
+//         width: 180px;
+//         float: right;
+//         display: flex;
+//         align-items: center;
         
-        div {
-            margin-left: 20px;
-            cursor: pointer;
-            display: inline-block;
-        }
-    }
+//         div {
+//             margin-left: 20px;
+//             cursor: pointer;
+//             display: inline-block;
+//         }
+//     }
     
-    .container {
-        border: 2px solid red;
-        width: 100%;
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
+//     .container {
+//         border: 2px solid red;
+//         width: 100%;
+//         padding: 0;
+//         display: flex;
+//         justify-content: space-between;
 
-        li {
-            width: 23%;
+//         li {
+//             width: 23%;
 
-            a {
-                width: 100%;
-                // border: 2px solid red;
-                border-radius: $borderRadius_cd;
-                overflow: hidden;
+//             a {
+//                 width: 100%;
+//                 // border: 2px solid red;
+//                 border-radius: $borderRadius_cd;
+//                 overflow: hidden;
 
-                .trip_item {
-                    @include tripcard();
-                    max-height: 350px;
+//                 .trip_item {
+//                     @include tripcard();
+//                     max-height: 350px;
 
-                    .content {
-                        padding: 40px 20px 80px 20px;
+//                     .content {
+//                         padding: 40px 20px 80px 20px;
 
-                        .avatar img {
-                            width: 100px;
-                            height: 100px;
-                            top: -30%;
-                        }
+//                         .avatar img {
+//                             width: 100px;
+//                             height: 100px;
+//                             top: -30%;
+//                         }
 
-                        h4.intro {
-                            max-height: 50px;
-                            overflow: hidden;
-                            margin-bottom: 10px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+//                         h4.intro {
+//                             max-height: 50px;
+//                             overflow: hidden;
+//                             margin-bottom: 10px;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
 // ========= 本月主打的旅遊 =========
 .main_trip {
@@ -458,9 +458,9 @@
     }
 }
 
-// ========= 輪播旅遊 =========
-.best_trip {
-  
+// ========= 近期瀏覽旅遊 =========
+.best_trip , .viewed_trip {
+    // border: 3px solid red;
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
@@ -478,8 +478,11 @@
         margin-bottom: 20px;
         width: 100%;
         height: 30px;
+        display: flex;
         justify-content: flex-end;
         p {
+        // border: 2px solid red;
+
             margin-right: 100px;
         }
     }
@@ -586,6 +589,7 @@
     top: -435px;
 }
 
+
 .best_trip .owl-carousel .owl-nav .owl-prev {
     //   border:1px solid red;
     background-image: url(./../../images/icon/page-prev.svg);
@@ -598,6 +602,26 @@
 }
 
 .best_trip .owl-carousel .owl-nav .owl-next {
+    background-image: url(./../../images/icon/page-next.svg);
+    background-size: cover;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 1%;
+    top: 85%;
+}
+
+.viewed_trip .owl-carousel .owl-nav .owl-prev {
+    //   border:1px solid red;
+    background-image: url(./../../images/icon/page-prev.svg);
+    background-size: cover;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 5%;
+    top: 85%;
+}
+.viewed_trip .owl-carousel .owl-nav .owl-next {
     background-image: url(./../../images/icon/page-next.svg);
     background-size: cover;
     position: absolute;
