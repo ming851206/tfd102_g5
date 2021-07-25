@@ -1,33 +1,15 @@
 #right {
     margin-left: 25px;
-<<<<<<< HEAD
-    // width: 900px;
-=======
     width: 900px;
->>>>>>> neil
 
     img {
         height: 100%;
         width: 100%;
     }
 
-<<<<<<< HEAD
-    // @include laptop {
-    //     width: 680px;
-    // }
-
-    // @include tablet {
-    //     width: 510px;
-    // }
-
-    // @include ipad {
-    //     width: 665px;
-    // }
-=======
     @include laptop {
         width: 680px;
     }
->>>>>>> neil
 }
 
 //member---------------------------
@@ -66,14 +48,6 @@
 #memberInfoTitle {
     display: flex;
     justify-content: space-between;
-
-    @include ipad {
-        .btnL_light {
-            width: 160px;
-        }
-
-        width: 407px;
-    }
 }
 
 #memberInfoImg {
@@ -81,31 +55,10 @@
     height: 200px;
     overflow: hidden;
     border-radius: 100%;
-<<<<<<< HEAD
-    margin-right: 38px;
-
-    @include laptop {
-        width: 145px;
-        height: 145px;
-        margin-right: 22px;
-    }
-
-    @include tablet {
-        width: 123px;
-        height: 123px;
-        margin-right: 15px;
-    }
-
-    @include ipad {
-        width: 120px;
-        height: 120px;
-        margin-right: 12px;
-=======
     margin-right: 100px;
 
     @include laptop {
         height: 145px;
->>>>>>> neil
     }
 }
 
@@ -115,18 +68,6 @@
 
     .memberInput {
         width: 600px;
-
-        @include laptop {
-            width: 510px;
-        }
-
-        @include tablet {
-            width: 370px;
-        }
-
-        @include ipad {
-            width: 275px;
-        }
 
         .memberinforEditBorder {
             height: 312px;
@@ -144,17 +85,6 @@
             @include laptop {
                 width: 310px;
             }
-<<<<<<< HEAD
-
-            @include tablet {
-                width: 200px;
-            }
-
-            @include ipad {
-                width: 120px;
-            }
-=======
->>>>>>> neil
         }
 
         .gender {
@@ -233,18 +163,6 @@
 .memberEditCancel {
     margin-top: 50px;
 
-    @include tablet {
-        .btnL_light {
-            width: 165px;
-        }
-    }
-
-    @include ipad {
-        .btnL_light {
-            width: 125px;
-        }
-    }
-
     .btnL {
         margin-left: 30px;
 
@@ -252,18 +170,6 @@
             margin-left: 6px;
 
         }
-<<<<<<< HEAD
-
-        @include tablet {
-            width: 165px;
-        }
-
-        @include ipad {
-            width: 125px;
-            margin-left: 15px;
-        }
-=======
->>>>>>> neil
     }
 }
 
@@ -275,24 +181,6 @@
     margin-top: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 900px;
-
-    @include laptop {
-        width: 680px;
-    }
-
-    @include tablet {
-        width: 510px;
-        margin-top: 0;
-
-    }
-
-    @include ipad {
-        width: 370px;
-        margin-top: 0;
-
-    }
-
 
     .loveContentBorder {
         width: 435px;
@@ -309,49 +197,15 @@
         p {
             margin-top: 15px;
         }
-
-        @include tablet {
-            margin-top: 20px !important;
-            width: 504px;
-        }
-
-        @include ipad {
-            margin-top: 20px !important;
-            width: 504px;
-        }
     }
 
     .loveContentBorder:nth-child(2n) {
         margin-left: 30px;
-
-        @include tablet {
-            margin-left: 0;
-        }
-
-        @include ipad {
-            margin-left: 0;
-        }
-
-        @include mobile {
-            margin-left: 0;
-        }
     }
 
     .loveContentBorder:nth-child(3n),
     .loveContentBorder:nth-child(4n) {
         margin-top: 30px;
-
-        @include tablet {
-            margin-top: 0;
-        }
-
-        @include ipad {
-            margin-left: 0;
-        }
-
-        @include mobile {
-            margin-left: 0;
-        }
     }
 }
 
@@ -364,13 +218,6 @@
     @include laptop {
         min-width: 135px;
     }
-<<<<<<< HEAD
-
-    @include tablet {
-        min-width: 180px;
-    }
-=======
->>>>>>> neil
 }
 
 .headImg {
