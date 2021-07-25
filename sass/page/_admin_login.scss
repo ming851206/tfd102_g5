@@ -1,5 +1,5 @@
 .adm_sec{
-    height: 100vh;
+    min-height: 100vh;
     background-color: $main_bl;
     .loginBox{
         @include total_center;

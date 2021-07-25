@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin_index</title>
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -27,6 +27,7 @@
                         <button class="btnM">登出</button>
                     </div>
                     <router-view></router-view>
+                    
                 </div>
             </div>
            
@@ -79,7 +80,7 @@
             <div class="temp">
                  <h3>會員管理</h3>
                     <label>
-                        <input type="text" name="adm_query" palceholder="輸入會員帳號">
+                        <input type="text" name="adm_query" placeholder="輸入會員帳號">
                         <img src="../images/icon/search.svg" alt="">
                     </label> 
                     <table border="1">
@@ -117,6 +118,17 @@
                             <td></td>
                         </tr>
                      </table>
+                     <div class="pager">
+                        <ul>
+                            <li><a href="">&lt;</a></li>
+                            <li><a href="" class="-on">1</a></li>
+                            <li><a href="">2</a></li>
+                            <li><a href="">3</a></li>
+                            <li><a href="">4</a></li>
+                            <li><a href="">5</a></li>
+                            <li><a href="">&gt;</a></li>
+                        </ul>
+                    </div>
                 </div>
         ` };
 

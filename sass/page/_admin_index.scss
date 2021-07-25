@@ -1,6 +1,7 @@
 .adm_sec{
  .adm_flexbox{
      display: flex;
+     min-height: 100vh;
      .adm_appl{
         left: 0px;
         top: 0px;
@@ -12,6 +13,7 @@
         background-size: 120px;
         background-repeat: no-repeat;
         background-position: top 20px left 40px;
+        
         a:nth-child(1){
             margin-top: 100px;
         }
@@ -23,6 +25,7 @@
         position: relative;
         flex-grow: 1;
         align-items: stretch;
+        padding-bottom: 40px;
         .adm_above{
             position: relative;
             padding: 20px 40px;
@@ -35,6 +38,7 @@
                 position: absolute;
                 right: 40px;
                 top: 20px;
+                pointer-events: none; //沒用嗎??
             }
         }
         h3{
@@ -46,7 +50,7 @@
             //position: relative;
             background-color: white;
             margin: 100px 20px;
-            padding: 10px 10px;
+            padding: 10px 10px 70px 0px;
             //height: 1000px;
             //transform: translateX(22%);
             label{
@@ -62,6 +66,7 @@
                     width: 200px;
                     height: 40px;
                     border-radius: $borderRadius_m_btn;
+                    font-size: 14px;
                 }
                 img{
                     position: absolute;
@@ -73,6 +78,7 @@
             table{
                 @include block_center;
                 border: 1px solid black;
+                margin-bottom: 100px;
                 tr{
                     border: 1px solid black;
                 }
@@ -82,6 +88,34 @@
                 th{
                     font-weight: bold;
                 }
+            }
+            .pager>ul{
+                @include block_center;
+                display: flex;
+                justify-content: center;
+                
+                li{
+                    @include circle(30px,$bgcolor:null);
+                    border: 1px solid $sec_br;
+                    color: $sec_br;
+                    text-align: center;
+                    font-weight: bold;
+                    margin: 0 5px;
+                    font-size: 0;
+                    a{
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        border-radius: 100%;
+                        font-size: 16px;
+                        transform: translate(-1px, -1px);
+                        &:hover,.-on{
+                            background-color: $sec_br;
+                            color: $sec_ivory;
+                        }  
+                    }
+                }
+               
             }
         }
      }
