@@ -1,3 +1,20 @@
+#memberMobile {
+    display: flex;
+
+    h1 {
+        font-size: 20px;
+    }
+
+    span {
+        position: absolute;
+        left: 90px;
+        top: 45px;
+        font-size: 20px;
+        cursor: pointer;
+        font-weight: 900;
+    }
+}
+
 #right {
     margin-left: 25px;
     width: 900px;
@@ -20,6 +37,11 @@
     margin-top: 100px;
     margin-bottom: 100px;
 
+    @include mobile {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 #memberSpace {
@@ -68,6 +90,7 @@
 
     .memberInput {
         width: 600px;
+        margin-top: 10px;
 
         .memberinforEditBorder {
             height: 312px;
@@ -821,6 +844,102 @@
     }
 }
 
+
+@include mobile {
+    .mobileMemberSvg {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+
+
+    #left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 320px;
+        flex-wrap: wrap;
+    }
+
+    .memberborder.active {
+        a {
+            border-bottom: 0;
+        }
+    }
+
+    .memberborder {
+        width: 155px;
+        height: 100px;
+        border: 1px solid $main_br;
+        border-radius: 20px;
+        background-color: $sec_ivory;
+        margin-top: 10px;
+        position: relative;
+
+        a {
+            color: $main_br;
+            width: 155px;
+            height: 100px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        &:nth-child(2n) {
+            margin-left: 10px;
+        }
+    }
+
+    .mobileMemberEditTrival {
+        display: none;
+    }
+
+    #memberInfoTitle {
+        h2 {
+            display: none;
+        }
+    }
+
+    #memberInfoMain {
+        flex-direction: column;
+        width: 320px;
+
+        .memberInfoImg {
+            margin-right: 0;
+        }
+
+        .memberInput {
+            width: 100%;
+
+            input {
+                width: 198px;
+            }
+        }
+
+
+    }
+
+    .memberEditCancel {
+        .btnL_light {
+            width: 140px;
+        }
+
+        .btnL {
+            width: 145px;
+        }
+    }
+}
 
 //abc
 
