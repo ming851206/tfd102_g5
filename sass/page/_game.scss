@@ -4,8 +4,22 @@
     background-size: $size;
     @content;
 }
+@mixin all_zero($position){
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: $position;
+}
+@mixin margin0 {
+    display: block;
+    margin: 0 auto;
+}
+$passportW: 402;
+
 .game_bg{
     background-image: url("../images/index/game/game_bg.jpg");
+    position: relative;
     @include img_setting(cover){
         width: 100%;
         height: calc(100vh - 85px);
@@ -22,7 +36,7 @@
         // border: 1px solid red;
         position: relative;
         @include img_setting(contain);
-        margin: 0 auto;
+        @include margin0;
         top: 50%;
         transform: translateY(-50%);
         @include lg{
@@ -45,7 +59,7 @@
             transform: translateY(-10%);
         }
     
-        .landmark_container{
+        .landmark{
             background-image: url('../images/index/game/landmark_white.png');
             width: 50px;
             height: 90px;
@@ -97,14 +111,13 @@
                 top: 52%;
             }
             @include xs{
-                top: 48%;
+                top: 51.5%;
             }
         }
     }
     #game_word{
         display: none;
         @include xs{
-
             display: block;
             position: relative;
             bottom: -5vh;
@@ -112,9 +125,8 @@
             h3{
                 color: #202B36;
                 background-color: rgba(225, 225, 225, .95);
-                // display: inline-block;
                 width: 300px;
-                margin: 0 auto;
+                @include margin0;
                 padding: 6px;
                 line-height: 1.6;
                 text-align: center;
@@ -128,9 +140,303 @@
             }
         }
     }
+    .passport_page{
+        @include all_zero(absolute);
+        .game_overlay{
+            @include all_zero(fixed);
+            z-index: 10;
+        }
+        .passport{
+            z-index: 11;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: $passportW;
+            @include xs{
+                top: 59%;
+            }
+            img{
+                // border: 1px solid blue;
+                position: relative;
+                @include margin0();
+                @include md{
+                    width: $passportW * 0.9 +px;
+                }         
+                @include md_sm{
+                    width: $passportW * 0.8 +px;
+                }
+                @include sm{
+                    width: $passportW * 0.72 +px;
+                }
+            }
+            .click_word{
+                // border: 1px solid blue;
+                position: absolute;
+                bottom: 12.5%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                display: block;
+                // @include lg{
+                //     width: 100%;
+                //     display: block;
+                //     @include margin0();
+                // }
+                @include md{
+                    // width: 90%;
+                    bottom: 11.5%;
+                }   
+                @include md_sm{
+                }
+                @include sm{
+                    bottom: 9.5%;
+                }
+                .btn_start{
+                    color: #996A4D;
+                    font-size: 26px;
+                    font-weight: normal;
+                    width: 142px;
+                    vertical-align: middle;
+                    height: 49px;
+                    @include margin0;
+                    margin-bottom: 30px;
+                    border-radius: 15px;
+                    @include md{
+                        width: 142px * 0.9;
+                        margin-bottom: 25px;
+                    } 
+                    @include md_sm{
+                        width: 142px * 0.75;
+                        height: 49px * 0.85;
+                        font-size: 24px;
+                        margin-bottom: 20px;
+                    }
+                    @include sm{
+                        width: 142px * 0.72;
+                        height: 49px * 0.8;
+                        font-size: 22px;
+                        margin-bottom: 20px;
+                    }
+                }
+                .passport_item{
+                    @include margin0;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    // width: 100%;
+                    @include md{
+                        width: 90%;
+                    } 
+                    h4, a{
+                        color: $main_ivory;
+                        font-size: 16px;
+                        cursor: pointer;
+                        vertical-align: middle;
+                        font-family: "regular";
+                        margin-left: 10px;
+                        @include md_sm{
+                            font-size: 15px;                        
+                        }
+                        @include sm{
+                            font-size: 14px;
+                        }
+                    }
+                    a{
+                        margin-right: 25px;
+                    }
+                }
+            }
+
+        }
+    }
+    .game_question{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 12;
+        background-color: whitesmoke;
+        width: 550px;
+        height: 468px;
+        box-shadow: 0, 0, 5px, rgba(0,0,0,0.8);
+        @include lg{
+            width: 550px * 0.92;
+            height: 468px * 0.96;
+        }
+        @include md{
+            width: 550px * 0.85;
+            height: 468px * 0.93;
+        }
+        @include sm{
+            width: 550px * 0.66;
+            height: 468px * 0.85;
+        }
+        @include xs{
+            width: 550px * 0.58;
+            height: 468px * 0.8;
+        }
+        form{
+            // border: 1px solid red;
+            padding: 50px 26px;
+            @include md{
+                padding: 40px 18px;
+            }
+            @include xs{
+                padding: 26px 12px;
+            }
+            .q_container{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                h2{
+                    font-size: 50px;
+                    margin: 0;
+                    display: inline-block;
+                    font-family: "en";
+                    @include md{
+                        font-size: 40px;
+                    }
+                    @include sm{
+                        font-size: 32px;
+                    }
+                }
+                h3{
+                    display: inline-block; 
+                    width: 350px;
+                    line-height: 1.5; 
+                    @include md{
+                        font-size: 22px;
+                    }
+                    @include sm{
+                        font-size: 18px;
+                        width: 350px * 0.75;
+                    }
+                    @include xs{
+                        font-size: 17px;
+                        width: 350px * 0.65;
+                    }        
+                }
+            }
+            .btn_group{
+                // border: 1px solid red;
+                .input_group{
+                    // border: 1px solid blue;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    width: 385px;
+                    margin: 30px 0 8px;
+                    margin-left: auto;
+                    @include lg{
+                        width: 385px * 0.965;
+                        margin-bottom: 3px;
+                    }
+                    @include sm{
+                        width: 385px * 0.72;
+                        margin-top: 24px;
+                    }
+                    @include xs{
+                        width: 385px * 0.64;
+                    }    
+                    .opt{
+                        margin-bottom: 36px;
+                        font-size: 20px;
+                        font-family: "regular";
+                        cursor: pointer;
+                        // &::before{
+                        //     // border: 1px solid red;
+                        //     content: "";
+                        //     display: inline-block;
+                        //     width: 16px;
+                        //     height: 16px;
+                        //     background-image: url("../images/index/game/checkbox_1.png");
+                        //     background-repeat: no-repeat;
+                        //     background-size: contain;
+                        //     position: relative;
+                        //     top: 2px;
+                        //     margin: 0 8px;
+                        // }
+                        @include md{
+                            font-size: 18px;
+                        }
+                        @include sm{
+                            margin-bottom: 34px;
+                            font-size: 16px;
+                        }
+                        // input[type="radio"]{
+                        //     // display: none;
+                        // }
+                        
+                    }
+                }
+                .ans_confirm{
+                    width: 120px;
+                    display: block;
+                    margin: 0 auto;
+                }
+    
+            }
+
+        }
+    }
 }
+
+// input[type="radio"]:checked + label.opt{
+//     &::before{
+//         background-image: url("../images/index/game/checkbox_2.png");
+//     }    
+// }
+// <div class="game_question">
+// <form method="POST">
+//     <div v-for="task in tasks" :class="task.num">
+//        <h2>Q:</h2>
+//        <h3>{{task.question}}</h3>    
+//        <input class="opt opt1" type="radio" name="question1" :value="task.option_1">不用擔心
+//        <input class="opt opt2" type="radio" name="question1" :value="task.option_2">明天會更好
+//        <input class="opt opt3" type="radio" name="question1" :value="task.option_3">活在當下 
+//     </div>
+//     <input class="btnM ans_confirm" type="button" value="確定">
+//  </form>   
+// </div> 
+
 .game_wrapper{
     #the_footer{
         display: none;
     }
 }
+@mixin xl {
+    @media (max-width: 1279.9px){
+        @content;
+    }
+  }
+  @mixin lg {
+    @media (max-width: 1199.9px){
+        @content;
+    }
+  }
+  @mixin lg_md {
+    @media (max-width: 1159.9px){
+        @content;
+    }
+  }
+  @mixin md {
+    @media (max-width: 996.9px){
+        @content;
+    }
+  }
+  @mixin md_sm {
+    @media (max-width: 895.9px){
+        @content;
+    }
+  }
+  @mixin sm {
+    @media (max-width: 767.9px){
+        @content;
+    }
+  }
+  @mixin xs {
+    @media (max-width: 575.9px){
+        @content;
+    }
+  }

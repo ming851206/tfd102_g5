@@ -62,13 +62,13 @@ h2 {
 }
 
 // input 框框
-input {
-    @include form();
-    margin-top: 10px;
-    width: 200px;
-    height: 60px;
-    font-size: 20px;
-}
+// input {
+//     @include form();
+//     margin-top: 10px;
+//     width: 200px;
+//     height: 60px;
+//     font-size: 20px;
+// }
 
 .forgetPassword {
     margin: 10px 0px;

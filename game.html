@@ -26,7 +26,7 @@
             <menu-item></menu-item> 
         </div>
     
-    
+        <!-- @click="showQuestion" -->
         <footer id="the_footer">
             <the-footer></the-footer>
         </footer>
@@ -37,26 +37,119 @@
             template: `
             <div class="game_bg">
                 <div class="game_world_map">
-                    <div class="landmark_container" v-for="theme in themes" :id="theme.name">
-                    </div>
+                    <div class="landmark" id="am"></div>
+                    <div class="landmark" id="eu"></div>
+                    <div class="landmark" id="af"></div>
+                    <div class="landmark" id="as"></div>
+                    <div class="landmark" id="oc"></div>
                 </div>
+
                 <div id="game_word">
                     <h3>點選地標圖示參加問答遊戲<br>集滿各大洲印章領取優惠券!</h3>
                     <img src="./images/index/game/gift_white.svg">
                 </div>
+
+                <div class="passport_page">
+                    <div class="game_overlay"></div>
+                    <div class="passport">
+                        <img src="./images/index/game/passport.png">
+                        <div class="click_word">
+                            <button class="btnL_line btn_start">START</button>
+                            <div class="passport_item">
+                                <h4 id="task_process">查看任務進度</h4>
+                                <a href="index.html">回首頁</a>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+                
+                <div class="game_question">
+                    <form method="POST">
+                        <div v-for="task in tasks" :class="task.num">
+                            <div class='q_container'>
+                                <h2>Q:</h2>
+                                <h3>{{task.question}}</h3>    
+                            </div>
+                            <div class="btn_group">
+                                <div class="input_group">
+                                    <label class="opt opt1">
+                                        <input type="radio" name="question1" :value="task.option_1">
+                                        {{task.option_1}}                                  
+                                    </label> 
+                                    <label class="opt opt2" >
+                                        <input type="radio" name="question1" :value="task.option_2">
+                                        {{task.option_2}}                                  
+                                    </label>
+                                    <label class="opt opt3" >
+                                        <input type="radio" name="question1" :value="task.option_3">
+                                        {{task.option_3}}                                  
+                                    </label>   
+                                </div>
+                                <input class="btnM ans_confirm" type="button" value="確定">
+                            </div>
+                        </div>
+                     </form>   
+                </div>    
             </div>
             `,
             data(){
                 return{
-                    themes:[
-                        {name: "am", },
-                        {name: "eu", },
-                        {name: "af", },
-                        {name: "as", },
-                        {name: "oc", },
+                    tasks: [
+                        {num: "1", question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，他是非洲語的什麼意思呢？", option_1: "不用擔心", option_2: "明天會更好", option_3: "活在當下"},
+                        // {num: "2", question: "下列何者不是在非洲內?", option_1: "埃及", option_2: "日本", option_3: "衣索比亞"},
+                        // {num: "3", question: "世界上雙胞胎最多的地方在哪裡？", option_1: "印度", option_2: "奈及利亞", option_3: "美國"},
                     ]
+                    // show: true,
                 }
-            }
+                
+            },
+            methods: {
+                // disapper(){
+                //     this.show =  false;
+                // }
+            },
+            computed: {
+                
+            },
+            mounted() {
+                $(function(){
+
+                    // winW = $(window).innerWidth();
+                    
+                    // $(window).resize(function(){
+                    //     console.log(winW)
+                    //     if(winW > 575.9){
+                    //         $("#game_word").css({
+                    //             display: "none",
+                    //         });
+                    //     }    
+                    // });
+                    
+
+                    $(".btn_start").click(function(){
+                        $(".passport_page").fadeOut(400);
+                            // if(winW > 575.9){
+                            //     $("#game_word").css({
+                            //     display: "none",
+                            // });
+                            // }else{
+                            //     $("#game_word").css({
+                            //         display: "block",
+                            //     });
+                            // }
+                        $(".landmark").animate({
+                        
+                        })
+                    })
+                    $(".landmark").click(function(){
+                        $(".game_world_map div").not(this).slideUp();
+                        $("#game_word").fadeOut();
+                        $(this).css({
+                            backgroundImage: "url('../images/index/game/landmark_gold.png')",
+                        })
+                    });
+                })
+            },
         })        
         const vue_game = new Vue({
             el: "#the_game",            
