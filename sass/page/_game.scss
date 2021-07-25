@@ -17,9 +17,34 @@
 }
 $passportW: 402;
 
+
+@keyframes fade-in_1{
+    0%{
+      opacity: 0;
+      filter: blur(100px);
+    }
+    100%{
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+@keyframes slide-down {
+  0%{
+    transform: translate(-50%, -150%);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+  
 .game_bg{
     background-image: url("../images/index/game/game_bg.jpg");
     position: relative;
+    opacity: 0;
+    animation: fade-in_1 1s ease-out both;
     @include img_setting(cover){
         width: 100%;
         height: calc(100vh - 85px);
@@ -153,6 +178,8 @@ $passportW: 402;
             left: 50%;
             transform: translate(-50%, -50%);
             width: $passportW;
+            opacity: 0;
+            animation: slide-down 1s ease 1.2s both;
             @include xs{
                 top: 59%;
             }
@@ -251,6 +278,7 @@ $passportW: 402;
         }
     }
     .game_question{
+        display: none;
         position: absolute;
         top: 50%;
         left: 50%;
