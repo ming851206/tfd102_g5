@@ -1,12 +1,17 @@
 #right {
     margin-left: 25px;
+<<<<<<< HEAD
     // width: 900px;
+=======
+    width: 900px;
+>>>>>>> neil
 
     img {
         height: 100%;
         width: 100%;
     }
 
+<<<<<<< HEAD
     // @include laptop {
     //     width: 680px;
     // }
@@ -18,6 +23,11 @@
     // @include ipad {
     //     width: 665px;
     // }
+=======
+    @include laptop {
+        width: 680px;
+    }
+>>>>>>> neil
 }
 
 //member---------------------------
@@ -71,6 +81,7 @@
     height: 200px;
     overflow: hidden;
     border-radius: 100%;
+<<<<<<< HEAD
     margin-right: 38px;
 
     @include laptop {
@@ -89,6 +100,12 @@
         width: 120px;
         height: 120px;
         margin-right: 12px;
+=======
+    margin-right: 100px;
+
+    @include laptop {
+        height: 145px;
+>>>>>>> neil
     }
 }
 
@@ -127,6 +144,7 @@
             @include laptop {
                 width: 310px;
             }
+<<<<<<< HEAD
 
             @include tablet {
                 width: 200px;
@@ -135,6 +153,8 @@
             @include ipad {
                 width: 120px;
             }
+=======
+>>>>>>> neil
         }
 
         .gender {
@@ -232,6 +252,7 @@
             margin-left: 6px;
 
         }
+<<<<<<< HEAD
 
         @include tablet {
             width: 165px;
@@ -241,6 +262,8 @@
             width: 125px;
             margin-left: 15px;
         }
+=======
+>>>>>>> neil
     }
 }
 
@@ -341,10 +364,13 @@
     @include laptop {
         min-width: 135px;
     }
+<<<<<<< HEAD
 
     @include tablet {
         min-width: 180px;
     }
+=======
+>>>>>>> neil
 }
 
 .headImg {
