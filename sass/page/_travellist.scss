@@ -299,12 +299,12 @@
     margin: 0 auto;
     justify-content: center;
     padding: 40px 40px;
-
+    
     h3 {
         font-weight: bold;
         padding: 20px 0 40px 0;
     }
-
+    
     .arrow {
         // border: 2px solid red;
         margin-bottom: 20px;
@@ -312,15 +312,16 @@
         float: right;
         display: flex;
         align-items: center;
-
+        
         div {
             margin-left: 20px;
             cursor: pointer;
             display: inline-block;
         }
     }
-
+    
     .container {
+        border: 2px solid red;
         width: 100%;
         padding: 0;
         display: flex;
@@ -458,7 +459,8 @@
 }
 
 // ========= 輪播旅遊 =========
-.test_trip {
+.best_trip {
+  
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
@@ -476,9 +478,9 @@
         margin-bottom: 20px;
         width: 100%;
         height: 30px;
-
+        justify-content: flex-end;
         p {
-            transform: translate(80%);
+            margin-right: 100px;
         }
     }
     .item {
@@ -498,6 +500,8 @@
                     position: relative;
                     .avatar img {
                         border: 6px solid white;
+                        // border: 2px solid red;
+                        object-fit: cover;
                         width: 100px;
                         height: 100px;
                         border-radius: 50%;
@@ -582,7 +586,7 @@
     top: -435px;
 }
 
-.test_trip .owl-carousel .owl-nav .owl-prev {
+.best_trip .owl-carousel .owl-nav .owl-prev {
     //   border:1px solid red;
     background-image: url(./../../images/icon/page-prev.svg);
     background-size: cover;
@@ -593,7 +597,7 @@
     top: 85%;
 }
 
-.test_trip .owl-carousel .owl-nav .owl-next {
+.best_trip .owl-carousel .owl-nav .owl-next {
     background-image: url(./../../images/icon/page-next.svg);
     background-size: cover;
     position: absolute;
