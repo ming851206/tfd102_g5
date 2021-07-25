@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <section class="adm_sec">
+        <div id="app">
+            <div class="adm_flexbox">
+                <div class="adm_appl">
+                    <router-link to="/trip">旅程管理</router-link>
+                    <router-link to="/order">旅程訂單管理</router-link>
+                    <router-link to="/coupon">優惠券管理</router-link>
+                    <router-link to="/faq">問題意見管理</router-link>
+                    <router-link to="/member">會員管理</router-link>
+                    <router-link to="/products/10">Products</router-link>
+                </div>
+                <div class="adm_appr">
+                    <div class="adm_above">
+                        <h4>Hi!Jumper</h4>
+                        <button class="btnM">登出</button>
+                    </div>
+                    <router-view></router-view>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+    <script src="../js/vue/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <script>
+        Vue.use(VueRouter);
+
+        const Trip = {
+            template: `
+                <div>
+                    <router-link to="/trip/tripList">旅程列表</router-link> 
+                    <router-link to="/trip/tripCheck">旅程申請審核</router-link>
+
+                    <router-view></router-view>
+                </div>
+        ` };
+
+        const Order = {
+            template: `
+                <div>
+                    <router-link to="/order/orderList">訂單管理</router-link> 
+                    <router-link to="/order/commentCheck">旅程評論審查</router-link>
+
+                    <router-view></router-view>
+                </div>
+        ` };
+
+        const Coupon = {
+            template: `
+                <div>
+                    <h3>優惠券管理</h3>
+                    <router-link to="/coupon/newCoupon">新增優惠券</router-link>
+
+                    <router-view></router-view>
+                </div>
+        ` };
+
+        const Faq = {
+            template: `
+                <div>
+                    <h3>問題意見管理</h3>
+                </div>
+        ` };
+
+        const Member = {
+            template: `
+            <div class="temp">
+                 <h3>會員管理</h3>
+                    <label>
+                        <input type="text" name="adm_query" palceholder="輸入會員帳號">
+                        <img src="../images/icon/search.svg" alt="">
+                    </label> 
+                    <table border="1">
+                        <tr>
+                            <th>編號</th>
+                            <th>名稱</th>
+                            <th>帳號</th>
+                            <th>會員等級</th>
+                            <th>聯絡信箱</th>
+                            <th>連絡電話</th>
+                            <th>生日</th>
+                            <th>建立時間</th>
+                            <th>帳號狀態</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>芝加哥哥</td>
+                            <td>chicagogo</td>
+                            <td>1</td>
+                            <td>jumpjump@gmail.com</td>
+                            <td>0987654321</td>
+                            <td>2021/01/01</td>
+                            <td>2021 Jun 25 15:00</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>芝加哥哥</td>
+                            <td>chicagogo</td>
+                            <td>1</td>
+                            <td>jumpjump@gmail.com</td>
+                            <td>0987654321</td>
+                            <td>2021/01/01</td>
+                            <td>2021 Jun 25 15:00</td>
+                            <td></td>
+                        </tr>
+                     </table>
+                </div>
+        ` };
+
+        //=====================================================
+        //子元件
+        const TripList = { template: ` <h3>旅程列表</h3>` }
+        const TripCheck = { template: ` <h3>旅程申請審核</h3>` }
+
+        const OrderList = { template: ` <h3>訂單管理</h3>` }
+        const CommentCheck = { template: ` <h3>旅程評論審查</h3>` }
+
+        const NewCoupon = { template: ` <h3>新增優惠券</h3>` }
+        //const OrderList = { template: ` <h3>訂單管理</h3>` } //待修改
+        //const CommentCheck = { template: ` <h3>旅程評論審查</h3>` }//待修改
+        //=====================================================
+
+        const router = new VueRouter({
+            mode: 'history',
+            routes: [
+                {
+                    path: '/trip',
+                    component: Trip,
+                    children: [ //設定子路徑
+                        { path: '', component: TripList }, //子路徑前面不要再寫/
+                        { path: 'tripCheck', component: TripCheck },
+                    ],
+                },
+                {
+                    path: '/order',
+                    component: Order,
+                    children: [ //設定子路徑
+                        { path: '', component: OrderList }, //子路徑前面不要再寫/
+                        { path: 'commentCheck', component: CommentCheck },
+                    ],
+                },
+                {
+                    path: '/coupon',
+                    component: Coupon,
+                    children:[
+                    { path: '', component: NewCoupon },
+                    ]
+                },
+                {
+                    path: '/faq',
+                    component: Faq,
+                },
+                {
+                    path: '/member',
+                    component: Member,
+                },
+
+            ],
+        })
+
+        new Vue({
+            el: '#app',
+            router,
+        });
+    </script>
+</body>
+
+</html>

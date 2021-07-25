@@ -1,0 +1,89 @@
+.adm_sec{
+ .adm_flexbox{
+     display: flex;
+     .adm_appl{
+        left: 0px;
+        top: 0px;
+        width: 15%;
+        align-items: stretch;
+        background-color: $sec_ivory;
+        text-align: center;
+        background-image: url(../../images/logo/logo.svg);
+        background-size: 120px;
+        background-repeat: no-repeat;
+        background-position: top 20px left 40px;
+        a:nth-child(1){
+            margin-top: 100px;
+        }
+        a{
+            padding: 10px 20px;
+        }
+     }
+     .adm_appr{
+        position: relative;
+        flex-grow: 1;
+        align-items: stretch;
+        .adm_above{
+            position: relative;
+            padding: 20px 40px;
+            h4{
+                color: $sec_ivory;
+                text-align: right;
+                transform: translate(-120px, 5px);
+            }
+            button{
+                position: absolute;
+                right: 40px;
+                top: 20px;
+            }
+        }
+        h3{
+            color: $sec_ivory;
+            padding: 40px;
+            transform: translateY(-170%);
+        }
+        .temp{
+            //position: relative;
+            background-color: white;
+            margin: 100px 20px;
+            padding: 10px 10px;
+            //height: 1000px;
+            //transform: translateX(22%);
+            label{
+                position: relative;
+                display: block;
+                right:-4px;
+                top:-96px;
+                input{
+                    position: absolute;
+                    right: 27px;
+                    top:30px;
+                    padding: 5px 15px;
+                    width: 200px;
+                    height: 40px;
+                    border-radius: $borderRadius_m_btn;
+                }
+                img{
+                    position: absolute;
+                    right:37px;
+                    top:53px;
+                    cursor: pointer;
+                }
+            }
+            table{
+                @include block_center;
+                border: 1px solid black;
+                tr{
+                    border: 1px solid black;
+                }
+                td,th{
+                    padding: 10px 15px;
+                }
+                th{
+                    font-weight: bold;
+                }
+            }
+        }
+     }
+ }
+}
