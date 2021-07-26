@@ -1,18 +1,32 @@
+#memberMobile {
+    display: flex;
+
+    h1 {
+        font-size: 20px;
+    }
+
+    span {
+        position: absolute;
+        left: 90px;
+        top: 45px;
+        font-size: 20px;
+        cursor: pointer;
+        font-weight: 900;
+    }
+}
+
 #right {
     margin-left: 25px;
-    width: 900px;
+    // width: 900px;
 
     img {
         height: 100%;
         width: 100%;
     }
-
-    @include laptop {
-        width: 680px;
-    }
 }
 
 //member---------------------------
+
 
 #member {
     display: flex;
@@ -20,6 +34,11 @@
     margin-top: 100px;
     margin-bottom: 100px;
 
+    @include mobile {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 #memberSpace {
@@ -48,6 +67,14 @@
 #memberInfoTitle {
     display: flex;
     justify-content: space-between;
+
+    @include ipad {
+        .btnL_light {
+            width: 160px;
+        }
+
+        width: 407px;
+    }
 }
 
 #memberInfoImg {
@@ -55,10 +82,24 @@
     height: 200px;
     overflow: hidden;
     border-radius: 100%;
-    margin-right: 100px;
+    margin-right: 38px;
 
     @include laptop {
+        width: 145px;
         height: 145px;
+        margin-right: 22px;
+    }
+
+    @include tablet {
+        width: 123px;
+        height: 123px;
+        margin-right: 15px;
+    }
+
+    @include ipad {
+        width: 120px;
+        height: 120px;
+        margin-right: 12px;
     }
 }
 
@@ -68,6 +109,18 @@
 
     .memberInput {
         width: 600px;
+
+        @include laptop {
+            width: 510px;
+        }
+
+        @include tablet {
+            width: 370px;
+        }
+
+        @include ipad {
+            width: 275px;
+        }
 
         .memberinforEditBorder {
             height: 312px;
@@ -84,6 +137,14 @@
 
             @include laptop {
                 width: 310px;
+            }
+
+            @include tablet {
+                width: 200px;
+            }
+
+            @include ipad {
+                width: 120px;
             }
         }
 
@@ -163,12 +224,33 @@
 .memberEditCancel {
     margin-top: 50px;
 
+    @include tablet {
+        .btnL_light {
+            width: 165px;
+        }
+    }
+
+    @include ipad {
+        .btnL_light {
+            width: 125px;
+        }
+    }
+
     .btnL {
         margin-left: 30px;
 
         @include laptop {
             margin-left: 6px;
 
+        }
+
+        @include tablet {
+            width: 165px;
+        }
+
+        @include ipad {
+            width: 125px;
+            margin-left: 15px;
         }
     }
 }
@@ -181,6 +263,24 @@
     margin-top: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 900px;
+
+    @include laptop {
+        width: 680px;
+    }
+
+    @include tablet {
+        width: 510px;
+        margin-top: 0;
+
+    }
+
+    @include ipad {
+        width: 370px;
+        margin-top: 0;
+
+    }
+
 
     .loveContentBorder {
         width: 435px;
@@ -197,15 +297,49 @@
         p {
             margin-top: 15px;
         }
+
+        @include tablet {
+            margin-top: 20px !important;
+            width: 504px;
+        }
+
+        @include ipad {
+            margin-top: 20px !important;
+            width: 504px;
+        }
     }
 
     .loveContentBorder:nth-child(2n) {
         margin-left: 30px;
+
+        @include tablet {
+            margin-left: 0;
+        }
+
+        @include ipad {
+            margin-left: 0;
+        }
+
+        @include mobile {
+            margin-left: 0;
+        }
     }
 
     .loveContentBorder:nth-child(3n),
     .loveContentBorder:nth-child(4n) {
         margin-top: 30px;
+
+        @include tablet {
+            margin-top: 0;
+        }
+
+        @include ipad {
+            margin-left: 0;
+        }
+
+        @include mobile {
+            margin-left: 0;
+        }
     }
 }
 
@@ -217,6 +351,10 @@
 
     @include laptop {
         min-width: 135px;
+    }
+
+    @include tablet {
+        min-width: 180px;
     }
 }
 
@@ -821,6 +959,102 @@
     }
 }
 
+@include mobile {
+    .mobileMemberSvg {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+
+
+    #left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 320px;
+        flex-wrap: wrap;
+    }
+
+    .memberborder.active {
+        a {
+            border-bottom: 0;
+        }
+    }
+
+    .memberborder {
+        width: 155px;
+        height: 100px;
+        border: 1px solid $main_br;
+        border-radius: 20px;
+        background-color: $sec_ivory;
+        margin-top: 10px;
+        position: relative;
+
+        a {
+            color: $main_br;
+            width: 155px;
+            height: 100px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        &:nth-child(2n) {
+            margin-left: 10px;
+        }
+    }
+
+    .mobileMemberEditTrival {
+        display: none;
+    }
+
+    #memberInfoTitle {
+        h2 {
+            display: none;
+        }
+    }
+
+    #memberInfoMain {
+        flex-direction: column;
+        width: 320px;
+
+        .memberInfoImg {
+            margin-right: 0;
+        }
+
+        .memberInput {
+            width: 100%;
+            margin-top: 10px;
+
+            input {
+                width: 198px;
+            }
+        }
+
+
+    }
+
+    .memberEditCancel {
+        .btnL_light {
+            width: 140px;
+        }
+
+        .btnL {
+            width: 145px;
+        }
+    }
+}
 
 //abc
 
