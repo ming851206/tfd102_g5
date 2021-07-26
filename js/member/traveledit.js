@@ -138,6 +138,9 @@ const TravelEdit = {
                                         </div>
                                 </div>
                             </div>
+                            <div class="mobileLoveBtn">
+                                    <button class="btnL_light">顯示更多</button>
+                            </div>
                         <div id="travelEditPop" v-show="pops">
                             <div>
                                 <p>已傳送至管理員後台，請等待審核。</p>

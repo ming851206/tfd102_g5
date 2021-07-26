@@ -7,7 +7,7 @@
 
     span {
         position: absolute;
-        left: 90px;
+        left: 10%;
         top: 45px;
         font-size: 20px;
         cursor: pointer;
@@ -106,6 +106,10 @@
 #memberInfoMain {
     display: flex;
     margin-top: 20px;
+
+    .mobileMemberEditBtn {
+        display: none;
+    }
 
     .memberInput {
         width: 600px;
@@ -223,6 +227,9 @@
 
 .memberEditCancel {
     margin-top: 50px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
 
     @include tablet {
         .btnL_light {
@@ -263,10 +270,10 @@
     margin-top: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 900px;
+    width: 820px;
 
     @include laptop {
-        width: 680px;
+        width: 660px;
     }
 
     @include tablet {
@@ -276,14 +283,14 @@
     }
 
     @include ipad {
-        width: 370px;
+        width: 407px;
         margin-top: 0;
 
     }
 
 
     .loveContentBorder {
-        width: 435px;
+        width: 394px;
         height: 200px;
         overflow: hidden;
         border-radius: 20px;
@@ -291,7 +298,7 @@
         background-color: $sec_ivory;
 
         @include laptop {
-            width: 325px;
+            width: 315px;
         }
 
         p {
@@ -413,6 +420,8 @@
     justify-content: center;
     margin-top: 30px;
 
+
+
     .loveNavs {
         display: flex;
 
@@ -439,6 +448,9 @@
     }
 }
 
+.mobileLoveBtn {
+    display: none;
+}
 
 // history--------------------------------------
 
@@ -467,6 +479,18 @@
     }
 
 
+}
+
+.historyPopBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        margin-top: 30px;
+        margin-bottom: 40px;
+        width: 165px !important;
+    }
 }
 
 //   未評價頁面
@@ -639,13 +663,13 @@
     height: 50px;
     align-items: center;
     // justify-content: space-around;
-    width: 900px;
+    width: 836px;
     margin-top: 20px;
     text-align: center;
     flex-wrap: nowrap;
 
     @include laptop {
-        width: 676px;
+        width: 678px;
     }
 
     .travelNavBarP {
@@ -721,13 +745,12 @@
     height: 50px;
     align-items: center;
     // justify-content: space-around;
-    width: 900px;
+    width: 836px;
     margin-top: 20px;
     flex-wrap: nowrap;
 
     @include laptop {
-        width: 676px;
-
+        width: 678px;
     }
 
     .travelP {
@@ -807,6 +830,11 @@
         border-radius: 20px;
         overflow: hidden;
         margin-top: 20px;
+        width: 820px;
+
+        @include laptop {
+            width: 664px;
+        }
 
         select {
             border: 0;
@@ -824,7 +852,7 @@
             height: 45px;
             padding: 0;
             margin: 0;
-            width: 740px;
+            width: 704px;
             margin-left: 10px;
         }
 
@@ -960,6 +988,10 @@
 }
 
 @include mobile {
+    #right {
+        margin-left: 0;
+    }
+
     .mobileMemberSvg {
         position: absolute;
         top: 30%;
@@ -998,6 +1030,36 @@
         margin-top: 10px;
         position: relative;
 
+        &:nth-child(2n) {
+            margin-left: 10px;
+        }
+
+        &:nth-child(1) {
+            order: 1;
+        }
+
+        &:nth-child(2) {
+            order: 2;
+        }
+
+        &:nth-child(3) {
+            order: 3;
+        }
+
+        &:nth-child(4) {
+            order: 4;
+        }
+
+        &:nth-child(5) {
+            order: 6;
+            margin-left: 10px;
+        }
+
+        &:nth-child(6) {
+            order: 5;
+            margin-left: 0;
+        }
+
         a {
             color: $main_br;
             width: 155px;
@@ -1010,24 +1072,37 @@
             flex-direction: column;
         }
 
-        &:nth-child(2n) {
-            margin-left: 10px;
-        }
+
     }
 
-    .mobileMemberEditTrival {
-        display: none;
-    }
+
 
     #memberInfoTitle {
-        h2 {
-            display: none;
-        }
+        display: none;
     }
 
     #memberInfoMain {
         flex-direction: column;
         width: 320px;
+        align-items: center;
+
+        .mobileMemberEditBtn {
+            display: flex;
+            order: 2;
+            margin: 30px 0;
+            width: 100%;
+            justify-content: flex-end;
+            height: 30px;
+
+            button {
+                width: 114px;
+            }
+
+        }
+
+        #memberInfoImg {
+            order: 1;
+        }
 
         .memberInfoImg {
             margin-right: 0;
@@ -1036,6 +1111,7 @@
         .memberInput {
             width: 100%;
             margin-top: 10px;
+            order: 3;
 
             input {
                 width: 198px;
@@ -1054,10 +1130,107 @@
             width: 145px;
         }
     }
+
+    #memberLove {
+        display: none;
+
+    }
+
+    #loveContent {
+        flex-direction: column;
+        width: 320px;
+        margin: 0;
+
+        .loveContentBorder {
+            width: unset;
+            height: 150px;
+            margin: 0;
+            margin-top: 30px !important;
+
+            .loveImg {
+                height: 150px;
+                min-width: 120px;
+            }
+
+            .headImg {
+                height: 50px;
+                width: 50px;
+            }
+        }
+
+
+
+    }
+
+    .loveNumberNav {
+        display: none;
+    }
+
+    .mobileLoveBtn {
+        display: block;
+        width: 100%;
+        margin-top: 60px;
+        margin-bottom: 80px;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    #joinStarAndFrom {
+        margin-top: 5px;
+    }
+
+    .joinComment {
+        margin-bottom: 0;
+    }
+
+    .joinTime {
+        margin-top: 0;
+        font-size: 100%;
+    }
+
+    .historyContents {
+        width: unset;
+    }
+
+    .memberEditCancel {
+        display: flex;
+        justify-content: center;
+    }
+
+    #addDiv {
+        #addDivOutterBord {
+            width: 320px;
+
+            #addDivInnerBord {
+                width: 279px;
+            }
+
+            .addDivDown textarea {
+                width: 242px;
+            }
+        }
+    }
+
+    .Star {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+    }
+
+    .historyPopBtn {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+
+    }
+
+    .mobileMemberEditTrival {
+        visibility: hidden;
+    }
 }
 
 //abc
-
 
 
 

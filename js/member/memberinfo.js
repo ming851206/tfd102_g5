@@ -7,6 +7,9 @@ const MemberInfo = {
 
                         </div>
                         <div id="memberInfoMain">
+                                <div class="mobileMemberEditBtn">
+                                    <button class="btnL_light" @click="edit" v-if="editType==false">編輯</button>
+                                </div>
                             <div id="memberInfoImg">
                                 <img src="https://picsum.photos/200/200" alt="">
                             </div>

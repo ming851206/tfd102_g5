@@ -62,7 +62,9 @@ const Love = {
                                         </div>
                                 </div>
                             </div>
-
+                            <div class="mobileLoveBtn">
+                                    <button class="btnL_light">顯示更多</button>
+                            </div>
                         </div>
             `,
     data() {

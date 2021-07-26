@@ -163,7 +163,8 @@
                 // console.log(clickActive);
                 let mobile = document.getElementById("memberMobile");
                 let mobileSVG = document.getElementsByClassName("mobileMemberSvg");
-                if (!(document.body.clientWidth < 576)) {
+                console.log(document.body.clientWidth);
+                if (!(document.body.clientWidth < 560)) {
                     clickActive.click();
                     mobile.style.display = "none";
                     for (let i = 0; i < mobileSVG.length; i++) {
@@ -182,14 +183,15 @@
                 } else {
                     $("#memberSpace").css("height", 0);
                 }
-                if (document.body.clientWidth < 576) {
+                console.log(document.body.clientWidth);
+
+                if (document.body.clientWidth < 560) {
                     if (event.target.getAttribute("href") == "/memberinfo" || event.target.getAttribute("href") == "/love" || event.target.getAttribute("href") == "/history" || event.target.getAttribute("href") == "/join") {
                         this.showLeft = false;
                         let title = document.getElementById("mobileMemberTitle");
                         title.innerText = event.target.innerText;
                     } else {
                         this.showLeft = true;
-
                     }
                 }
             },
@@ -225,23 +227,12 @@
             $(".memberborder").removeClass("active");
             $(this).addClass("active");
             let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
-            console.log("\r\n");
-            console.log($(window).innerHeight());
-            console.log(parseInt($("#the_header").css('height')));
-            console.log(parseInt($("#member").css('height')));
-            console.log(height);
             if (height > 0) {
                 $("#memberSpace").css("height", height);
             } else {
                 $("#memberSpace").css("height", 0);
             }
         });
-
-
-
-
-
-
     </script>
 </body>
 
