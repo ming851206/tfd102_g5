@@ -43,8 +43,9 @@ $passportW: 402;
 .game_bg{
     background-image: url("../images/index/game/game_bg.jpg");
     position: relative;
-    opacity: 0;
-    animation: fade-in_1 1s ease-out both;
+    // opacity: 0;
+    opacity: 1;
+    // animation: fade-in_1 1s ease-out both;
     @include img_setting(cover){
         width: 100%;
         height: calc(100vh - 85px);
@@ -173,10 +174,7 @@ $passportW: 402;
         }
         .passport{
             z-index: 11;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            @include total_center;
             width: $passportW;
             opacity: 0;
             animation: slide-down 1s ease 1.2s both;
@@ -279,15 +277,11 @@ $passportW: 402;
     }
     .game_question{
         display: none;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include total_center;
         z-index: 12;
         background-color: whitesmoke;
         width: 550px;
         height: 468px;
-        box-shadow: 0, 0, 5px, rgba(0,0,0,0.8);
         @include lg{
             width: 550px * 0.92;
             height: 468px * 0.96;
@@ -408,26 +402,154 @@ $passportW: 402;
 
         }
     }
+    .game_result{
+        // display: none;
+        @include total_center;
+        z-index: 13;
+        background-color: whitesmoke;
+        width: 650px;
+        height: 450px;
+        border-radius: 25px;
+        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
+        
+        .top_word{
+            // border: 1px solid red;
+            .visa_word{
+                display: flex;
+                justify-content: space-around;
+                margin-top: 15px;
+                color: rgba(0,0,0,0.22);
+                letter-spacing: 1px;
+                font-size: 15px;
+            }
+            .num_word{
+                display: flex;
+                justify-content: space-between;
+                margin: auto 35px;
+                color: rgba(0,0,0,0.22);
+                h2{
+                    padding: 0;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .game_win{
+            // border: 1px solid red;
+            text-align: center;
+            h2{
+                // border: 1px solid red;
+                letter-spacing: 3px;
+                text-indent: 25px;
+                padding-bottom: 28px;
+            }
+            .game_stamp{
+                .top_stamp{
+                    display: flex;
+                    justify-content: center;
+                    .unget_stamp{
+                        // background-image: url("../images/index/game/america.svg");
+                        background-image: url("../images/index/game/unget.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 130px;
+                        height: 100px;
+                        &:nth-child(2){
+                            margin: auto 40px;
+                            // background-image: url("../images/index/game/europe.svg");
+                        }
+                        // &:nth-child(3){
+                            // background-image: url("../images/index/game/oceania.svg");
+                        // }
+                    }
+                }
+                .bottom_stamp{
+                    display: flex;
+                    justify-content: center;
+                    .unget_stamp{
+                        background-image: url("../images/index/game/unget.png");
+                        // background-image: url("../images/index/game/asia.svg");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 130px;
+                        height: 100px;
+                        margin: 0 20px;
+                        &:nth-child(1){
+                            background-image: url("../images/index/game/unget.png");
+                            // background-image: url("../images/index/game/africa.svg");
+                            width: 130px;
+                            height: 100px;
+                        }
+                    }
+                }
+                img{
+                    width: 32px;
+                    margin-top: 0;
+                }
+            }
+        }
+        .gamebtn{
+            display: flex;
+            justify-content: center;
+            .btnM_line{
+                margin: 15px 20px;
+                width: 110px;
+            }
+            .game_share{
+                &::before{
+                    content: "";
+                    display: inline-block;
+                    width: 10px;
+                    height: 14px;
+                    background-size: contain;
+                    background-image: url("../images/index/game/share_fb.svg");
+                    background-repeat: no-repeat;
+                    margin-right: 4px;
+                    
+                }
+            }
+        }
+    }
 }
+// <div class="game_result">
+    // <div class="top_word">
+    //     <div class="visa_word">
+    //         <h5>簽證 / VISAS</h5>
+    //         <h5>簽證 / VISAS</h5>
+    //     </div> 
+    //     <div class="num_word">
+    //         <h3>10</h3>
+    //         <h3>11</h3>
+    //     </div>    
+    // </div>
+
+    // <div class="game_win">
+    //     <h2>恭喜！挑戰成功！</h2>
+    //     <div class="game_stamp">
+    //         <div class="top_stamp">
+    //             <div class="am unget_stamp">1</div>
+    //             <div class="eu unget_stamp">2</div>
+    //             <div class="as unget_stamp">3</div>
+    //         </div>
+    //         <div class="bottom_stamp">
+    //             <div class="af unget_stamp">4</div>
+    //             <div class="oc unget_stamp">5</div>
+    //         </div>
+    //         <img src='./images/index/game/gift_gold.svg'>
+    //     </div> 
+    // </div>
+
+    // <div class="gamebtn">
+    //     <button class="btnM_line game_share">分享</button>
+    //     <button class="btnM_line game_share">回首頁</button>
+    // </div>       
+// </div>    
+
 
 // input[type="radio"]:checked + label.opt{
 //     &::before{
 //         background-image: url("../images/index/game/checkbox_2.png");
 //     }    
 // }
-// <div class="game_question">
-// <form method="POST">
-//     <div v-for="task in tasks" :class="task.num">
-//        <h2>Q:</h2>
-//        <h3>{{task.question}}</h3>    
-//        <input class="opt opt1" type="radio" name="question1" :value="task.option_1">不用擔心
-//        <input class="opt opt2" type="radio" name="question1" :value="task.option_2">明天會更好
-//        <input class="opt opt3" type="radio" name="question1" :value="task.option_3">活在當下 
-//     </div>
-//     <input class="btnM ans_confirm" type="button" value="確定">
-//  </form>   
-// </div> 
-
 .game_wrapper{
     #the_footer{
         display: none;
