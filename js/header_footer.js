@@ -1,34 +1,45 @@
+// const logo = Vue.component("the-logo", {
+//     template: `
+//     <div class="nav_logo">
+//         <router-link to="/index.html">
+//             <img class="logo" src="./images/logo/logo.svg" alt="logo">
+//         </router-link>
+//         <router-view></router-view>
+//     </div>
+//     `,
+// })
 const header = Vue.component("the-header", {
     template: `
     <div class="navigation">
         <div class="nav_logo">
-            <a href="index.html">
+            <router-link to="/index.html">
                 <img class="logo" src="./images/logo/logo.svg" alt="logo">
-            </a>
+            </router-link>
+            <router-view></router-view>
         </div>
         <nav class="nav">
             <ul class="nav_list">
                 <div class="web_bar">
-                    <li><a href="about.html">關於我們</a></li>
-                    <li><a href="travel_list.html">旅遊總覽</a></li>
-                    <li><a href="postcard.html">客製明信片</a></li>
-                    <li><a href="QA.html">常見問題</a></li>
+                    <li><router-link to="/about.html">關於我們</router-link></li>
+                    <li><router-link to="/travel_list.html">旅遊總覽</router-link></li>
+                    <li><router-link to="/postcard.html">客製明信片</router-link></li>
+                    <li><router-link to="/QA.html">常見問題</router-link></li>
                 </div>
                 <div class="mobile_bar">
                     <li class="home">
-                        <a href="index.html">
+                        <router-link to="/index.html">
                             <img src="./images/icon/header/home_icon.svg" alt="home">
-                        </a>
+                        </router-link>
                     </li>
                     <li class="favorite">
-                        <a href="member.html">
+                        <router-link to="/member.html">
                             <img src="./images/icon/header/favorite_icon.svg" alt="favorite">
-                        </a>
+                        </router-link>
                     </li>
                     <li class="member">
-                        <a href="login.html">
+                        <router-link to="login.html">
                             <img src="./images/icon/header/member_icon.svg" alt="member">
-                        </a>
+                        </router-link>
                     </li>
                     <li class="menu">
                         <img src="./images/icon/header/menu_icon.svg" alt="menu">
@@ -36,50 +47,51 @@ const header = Vue.component("the-header", {
                 </div>
             </ul>
         </nav>
+    <router-view></router-view>
     </div>
 `, mounted() {
-        // document.addEventListener('click', function (e) {
-        //     // console.log(location.href);
-        //     if (e.target.nodeName == "IMG") {
-        //         let click = e.target.parentNode.getAttribute("href");
-        //         // console.log(click);
-        //         if (click != null) {
-        //             if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
-        //                 if (location.href.indexOf("ming851206") > 0) {
-        //                     // console.log(location.href);
-        //                     // let newClick = "/tfd102_g5" + click;
-        //                     // location.href = newClick;
-        //                     // console.log('1');
-        //                     location.href = click;
+        document.addEventListener('click', function (e) {
+            // console.log(location.href);
+            if (e.target.nodeName == "IMG") {
+                let click = e.target.parentNode.getAttribute("href");
+                // console.log(click);
+                if (click != null) {
+                    if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
+                        if (location.href.indexOf("ming851206") > 0) {
+                            // console.log(location.href);
+                            // let newClick = "/tfd102_g5" + click;
+                            // location.href = newClick;
+                            // console.log('1');
+                            location.href = click;
 
-        //                 } else {
-        //                     // console.log(location.href);
-        //                     location.href = click;
-        //                     // console.log('2');
-        //                 }
-        //             }
-        //         }
-        //     } else {
-        //         let click = e.target.getAttribute("href");
-        //         if (click != null) {
-        //             if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
-        //                 if (location.href.indexOf("ming851206") > 0) {
-        //                     // console.log(location.href);
-        //                     // let newClick = "/tfd102_g5" + click;
-        //                     // // location.href = newClick;
-        //                     // console.log('3');
-        //                     location.href = click;
+                        } else {
+                            // console.log(location.href);
+                            location.href = click;
+                            // console.log('2');
+                        }
+                    }
+                }
+            } else {
+                let click = e.target.getAttribute("href");
+                if (click != null) {
+                    if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
+                        if (location.href.indexOf("ming851206") > 0) {
+                            // console.log(location.href);
+                            // let newClick = "/tfd102_g5" + click;
+                            // // location.href = newClick;
+                            // console.log('3');
+                            location.href = click;
 
-        //                 } else {
-        //                     // console.log(location.href);
-        //                     location.href = click;
-        //                     // console.log('4');
-        //                 }
-        //             }
-        //         }
-        //     }
+                        } else {
+                            // console.log(location.href);
+                            location.href = click;
+                            // console.log('4');
+                        }
+                    }
+                }
+            }
 
-        // });
+        });
     }
 })
 const menu_item = Vue.component("menu-item", {
@@ -89,10 +101,11 @@ const menu_item = Vue.component("menu-item", {
         <div class="menu">
             <img id="close_menu" src="./images/icon/header/close.svg" alt="close">
             <div class="menu_item">
-                <button class="btnL_light"><a href="about.html">關於我們</a></button>
-                <button class="btnL_light"><a href="travel_list.html">旅遊總覽</a></button>
-                <button class="btnL_light"><a href="postcard.html">客製明信片</a></button>
-                <button class="btnL_light"><a href="QA.html">常見問題</a></button>
+                <button class="btnL_light"><router-link to="/about.html">關於我們</router-link></button>
+                <button class="btnL_light"><router-link to="/travel_list.html">旅遊總覽</router-link></button>
+                <button class="btnL_light"><router-link to="/postcard.html">客製明信片</router-link></button>
+                <button class="btnL_light"><router-link to="/QA.html">常見問題</router-link></button>
+                <router-view></router-view>
             </div>
         </div>
     </div>
@@ -102,15 +115,16 @@ const footer = Vue.component("the-footer", {
     template: `
     <div>
         <div class="socialLink_icon">
-            <a href="/">
+            <router-link to="/">
                 <img src="./images/icon/footer//twitter_icon.svg" alt="twitter">
-            </a>
-            <a href="/">
+            </router-link>
+            <router-link to="/">
                 <img src="./images/icon/footer/fb_icon.svg" alt="facebook">
-            </a>
-            <a href="/">
+            </router-link>
+            <router-link to="/">
                 <img src="./images/icon/footer/ig_icon.svg" alt="instagram">
-            </a>
+            </router-link>
+            <router-view></router-view>
         </div>
         <div class="statement">
             &copy; 2021 BY JUMPER
@@ -122,20 +136,20 @@ const footer = Vue.component("the-footer", {
     </div>
     `,
 })
-// const router = new VueRouter({
-//     mode: "history",
-// })
+const router = new VueRouter({
+    mode: "history",
+})
 const vue_header = new Vue({
     el: "#the_header",
-    // router,
+    router,
 })
 const vue_menu = new Vue({
     el: "#mobile_menu",
-    // router,
+    router,
 })
 const vue_footer = new Vue({
     el: "#the_footer",
-    // router,
+    router,
 })
 
 $(function () {
