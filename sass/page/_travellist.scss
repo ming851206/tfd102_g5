@@ -114,31 +114,92 @@
 .filters {
     background-color: #FAF9F2;
     width: 100%;
-    height: 60px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding: 0 40px;
+    padding: 10px 40px;
+
+
+    @include tablet {
+        padding: 10px 20px
+    }
+
+    // @include tablet {
+    //     border: 2px solid red;
+    //     height: 100px;
+    // }
+    @include ipad {
+        // border: 2px solid orange;
+        height: 120px;
+    }
+
+    @include mobile {
+        flex-direction: column-reverse;
+        height: 180px;
+    }
 
     .content {
         // border: 2px solid red;
         width: 100%;
-        margin-left: 7%;
         display: flex;
+        flex-wrap: wrap;
 
         ul {
             // border: 2px solid black;
-            display: block;
-            flex-direction: column;
+            width: 280px;
+            display: flex;
 
-            @include desktop {
-                display: flex;
-                flex-direction: row;
+            // @include laptop{
+            // border: 2px solid black;
+            //     width: 280px;
+            // }
+            @include tablet {
+                // border: 2px solid pink;
+                width: 265px;
+            }
+
+            @include ipad {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            @include mobile {
+                width: 100%;
+                padding: 10px 0;
             }
 
             li {
                 margin: 0px 0 0 10px;
+
+                @include mobile {
+                    margin: 5px 2px;
+                }
+            }
+        }
+
+        ul:last-child {
+            width: 60%;
+
+            @include laptop {
+                width: 400px;
+            }
+
+            @include tablet {
+                width: 320px;
+            }
+
+            @include ipad {
+                border-top: 2px solid lightgrey;
+                width: 320px;
+                padding: 10px 0;
+
+            }
+
+            @include mobile {
+                border-top: 2px solid lightgrey;
+                width: 100%;
             }
         }
 
@@ -146,6 +207,23 @@
             li:nth-child(3) {
                 border-right: 2px solid grey;
                 padding-right: 20px;
+            }
+
+            // @include tablet {
+            //     li:nth-child(3) {
+            //         border: 0;
+            //     }
+            // }
+            @include ipad {
+                li:nth-child(3) {
+                    border: 0;
+                }
+            }
+
+            @include mobile {
+                li:nth-child(3) {
+                    border: 0;
+                }
             }
         }
     }
@@ -160,7 +238,20 @@
         background-image: url(/images/icon/search.svg);
         background-repeat: no-repeat;
         background-position: 10px center;
+
+        @include tablet {
+            width: 20%;
+        }
+
+        @include ipad {
+            width: 30%;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
     }
+
 }
 
 
@@ -552,6 +643,7 @@
 }
 
 #go_top {
+    display: none;
     cursor: pointer;
     position: fixed;
     right: 50px;
@@ -634,6 +726,7 @@
                     right: 10%;
                 }
             }
+
             .owl-prev:hover {
                 width: 33px;
                 height: 33px;
@@ -657,6 +750,7 @@
                 right: 1%;
                 top: 85%;
             }
+
             .owl-next:hover {
                 width: 33px;
                 height: 33px;
