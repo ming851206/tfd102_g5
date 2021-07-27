@@ -63,13 +63,18 @@
 
 .banner {
     width: 100%;
-    height: 700px;
+    height: calc(100vh - 85px - 50px);
     position: relative;
+    overflow: hidden;
 
     .intro {
+        // border: 2px solid blue;
+        padding: 20px;
+        background: rgba(254, 254, 254, 0.574);
         position: absolute;
         left: 10%;
         bottom: 40%;
+        z-index: 1;
 
         h2 {
             font-weight: bold;
@@ -84,12 +89,27 @@
 
     .bg_img {
         width: 100%;
-        height: 100%;
+        height: 300%;
         background-image: url(../../images/travel_list/banner_bg.jpg);
         background-size: cover;
+        background-repeat: repeat-y;
+        animation: bgscrolldown 20s linear infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
     }
 }
 
+@keyframes bgscrolldown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
 
 .filters {
     background-color: #FAF9F2;
