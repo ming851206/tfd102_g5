@@ -77,12 +77,40 @@
     }
 }
 
+.editImgCursor {
+    cursor: pointer;
+
+    svg {
+        path {
+            fill: $main_br;
+        }
+    }
+}
+
 #memberInfoImg {
     width: 200px;
     height: 200px;
     overflow: hidden;
     border-radius: 100%;
     margin-right: 38px;
+    position: relative;
+
+    img {
+        object-fit: cover;
+    }
+
+    input {
+        position: absolute;
+        left: -100%;
+        top: -100%;
+    }
+
+    div {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 3%;
+    }
 
     @include laptop {
         width: 145px;
@@ -140,20 +168,31 @@
             font-size: 14px;
 
             @include laptop {
-                width: 310px;
+                width: 380px;
             }
 
             @include tablet {
-                width: 200px;
+                width: 250px;
             }
 
             @include ipad {
-                width: 120px;
+                width: 150px;
             }
         }
 
         .gender {
             align-items: center;
+
+            // input[type="radio"]:checked+label::before {
+            //     background-image: url("../../images/icon/radio-empty.svg");
+            // }
+            #membermanlabel {
+                margin-left: 10px;
+            }
+
+            #membergirllabel {
+                margin-left: 10px;
+            }
 
             input {
                 width: unset;
@@ -161,20 +200,37 @@
                 padding: 0;
                 width: 20px;
                 height: 20px;
-                appearance: auto;
+                cursor: pointer;
+
+                &[type="radio"] {
+                    display: none;
+                }
+
+                &[type="radio"]+label::before {
+                    content: "";
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    /*   border: 1px solid blue; */
+
+                    background-image: url("../../images/icon/radio-empty.svg");
+                    background-size: contain;
+
+                    margin-right: 5px;
+                    position: relative;
+                    top: 2px;
+                }
+
+                &[type="radio"]:checked+label::before {
+                    background-image: url("../../images/icon/radio-chk.svg");
+
+                }
             }
 
-            // #membergirl::before {
-            //     background-image: url("../../images/icon/radio-empty.svg");
-            //     background-repeat: no-repeat;
+            label {
+                cursor: pointer;
+            }
 
-            // }
-
-            // #memberman::before {
-            //     background-image: url("../../images/icon/radio-empty.svg");
-            //     background-repeat: no-repeat;
-
-            // }
         }
     }
 
@@ -288,6 +344,17 @@
 
     }
 
+    .memberLoveConcent {
+        margin-top: 10px;
+
+        @include tablet {
+            margin-top: 20px;
+        }
+
+        @include ipad {
+            margin-top: 20px;
+        }
+    }
 
     .loveContentBorder {
         width: 394px;
@@ -301,9 +368,7 @@
             width: 315px;
         }
 
-        p {
-            margin-top: 15px;
-        }
+
 
         @include tablet {
             margin-top: 20px !important;
@@ -465,10 +530,9 @@
 
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
 
     @include laptop {
-        margin-top: 0;
+        margin-top: 10px;
     }
 
     .comment {
@@ -478,7 +542,11 @@
         border-bottom: 1px solid blue;
     }
 
-
+    .commented {
+        color: black;
+        border-bottom: 0;
+        cursor: unset;
+    }
 }
 
 .historyPopBtn {
@@ -541,7 +609,12 @@
                 width: 300px;
 
                 p:last-child {
+                    margin-top: 10px;
                     font-size: 20px;
+
+                    @include mobile {
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -557,6 +630,11 @@
             svg {
                 width: 30px;
                 height: 30px;
+
+                @include mobile {
+                    width: 15px;
+                    height: 15px;
+                }
             }
 
         }
@@ -634,10 +712,14 @@
 .joinTime {
     margin-top: 10px;
     font-size: 20px;
+
+    @include laptop {
+        font-size: 16px;
+    }
 }
 
 .joinP {
-    margin-top: 6px !important;
+    // margin-top: 6px !important;
 }
 
 
@@ -841,10 +923,14 @@
             height: 45px;
             padding: 0;
             margin: 0;
-            width: 740px;
+            width: 654px;
             margin-left: 10px;
             outline: none;
 
+            @include laptop {
+                margin-right: 26px;
+                width: 660px;
+            }
         }
 
         input {
@@ -883,6 +969,30 @@
             background-color: $sec_ivory;
             margin-left: 45px;
             margin-top: 12px;
+
+            .addimgborders {
+                position: relative;
+            }
+
+            .addimgdelete {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    background-image: url("../../images/icon/close.svg");
+                    background-position: center center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
 
             @include laptop {
                 width: 476px;
@@ -1123,11 +1233,11 @@
 
     .memberEditCancel {
         .btnL_light {
-            width: 140px;
+            width: 110px !important;
         }
 
         .btnL {
-            width: 145px;
+            width: 110px !important;
         }
     }
 

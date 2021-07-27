@@ -40,7 +40,7 @@ const Historys = {
                                             <div class = "time">
                                                 {{value.time}}
                                             </div>
-                                            <div class = "comment" v-if="value.comment=='已評論'" >
+                                            <div class = "comment commented" v-if="value.comment=='已評論'" >
                                                 {{value.comment}}
                                             </div>
                                             <div class = "comment" v-else @click="addComment">

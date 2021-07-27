@@ -23,8 +23,13 @@
     <div id="member">
         <div id="memberMobile">
             <span @click="memberReturn">
-                < </span>
-                    <h1 id="mobileMemberTitle">會員中心</h1>
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17.492" viewBox="0 0 10 17.492">
+                    <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back"
+                        d="M14.265,14.937l6.618-6.613a1.25,1.25,0,0,0-1.77-1.765l-7.5,7.493a1.248,1.248,0,0,0-.036,1.724l7.53,7.545a1.25,1.25,0,0,0,1.77-1.765Z"
+                        transform="translate(-11.251 -6.194)" fill="#996a4d" />
+                </svg>
+            </span>
+            <h1 id="mobileMemberTitle">會員中心</h1>
         </div>
         <div id="left" v-show="showLeft">
             <div class="memberborder active">
@@ -90,7 +95,7 @@
 
             </div>
             <div class="memberborder mobileMemberLoginout">
-                <router-link to="/logout">登出</router-link>
+                <a href="./index.html">登出</a>
 
                 <div class="mobileMemberSvg" @click="changes">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">

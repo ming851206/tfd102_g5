@@ -8,10 +8,10 @@ const TravelEdit = {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
                                     <g id="Group_291" data-name="Group 291" transform="translate(-13431 -1300)">
                                         <g id="Group_290" data-name="Group 290">
-                                        <g id="Ellipse_81" data-name="Ellipse 81" transform="translate(13431 1300)" fill="#fff" stroke="#707070" stroke-width="1">
-                                            <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
-                                            <circle cx="12.5" cy="12.5" r="12" fill="#996A4D"/>
-                                        </g>
+                                            <g id="Ellipse_81" data-name="Ellipse 81" transform="translate(13431 1300)" fill="#fff" stroke="#707070" stroke-width="1">
+                                                <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
+                                                <circle cx="12.5" cy="12.5" r="12" fill="#996A4D"/>
+                                            </g>
                                         </g>
                                         <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M14.434,8.357h-5v-5a1.11,1.11,0,0,0-1.11-1.11H7.217a1.11,1.11,0,0,0-1.11,1.11v5h-5A1.11,1.11,0,0,0,0,9.467v1.11a1.11,1.11,0,0,0,1.11,1.11h5v5a1.11,1.11,0,0,0,1.11,1.11h1.11a1.11,1.11,0,0,0,1.11-1.11v-5h5a1.11,1.11,0,0,0,1.11-1.11V9.467A1.11,1.11,0,0,0,14.434,8.357Z" transform="translate(13435.721 1302.485)"/>
                                     </g>
@@ -179,6 +179,12 @@ const TravelEdit = {
         };
     },
     methods: {
+        checkDeleteAddImg: function name(event) {
+            let yes = confirm("確定要移除這張此照片嗎?");
+            if (yes) {
+                alert("yes");
+            }
+        },
         AddTravel() {
             this.add = true;
         },
@@ -220,10 +226,26 @@ const TravelEdit = {
                 readFile.readAsDataURL(files[i]);
 
                 readFile.addEventListener('load', function () {
-                    let image = document.createElement('img');
-                    image.src = readFile.result;
                     let dropzone = document.getElementsByClassName('showImg')[0];
-                    dropzone.insertBefore(image, dropzone.firstChild);
+                    let div = document.createElement('div');
+                    let text = `
+                                            <div class="addimgborders">
+                                                <img>
+                                                <div class="addimgdelete" @click="checkDeleteAddImg">
+                                                </div>
+                                            </div>
+                    `;
+                    div.innerHTML = text;
+                    dropzone.insertBefore(div, dropzone.firstChild);
+                    let image = document.getElementsByClassName('addimgborders')[0].querySelector("img");
+                    image.src = readFile.result;
+                    let deletes = document.getElementsByClassName("addimgdelete")[0];
+                    deletes.addEventListener('click', function (event) {
+                        let yes = confirm("確定要移除這張此照片嗎?");
+                        if (yes) {
+                            event.target.parentNode.parentNode.remove();
+                        }
+                    })
                 });
             }
         }
