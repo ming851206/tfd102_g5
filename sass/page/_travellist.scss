@@ -331,68 +331,6 @@
     }
 }
 
-
-// 旅遊卡片
-@mixin tripcard() {
-    display: flex;
-    flex-direction: column;
-    height: 70vh;
-    max-height: 530px;
-
-    .pic {
-        height: 50%;
-        width: 100%;
-        background-image: url(/images/travel_list/800/wugerku.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        img {
-            width: 100%;
-        }
-    }
-
-    .content {
-        height: 50%;
-        padding: 60px 20px 30px 20px;
-        background-color: #FAF9F2;
-        position: relative;
-
-        .avatar img {
-            border: 6px solid white;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            position: absolute;
-            top: -25%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .star_num {
-            display: flex;
-            flex-direction: row;
-            padding: 10px 0;
-
-            p {
-                margin: 0 0 0 10px;
-            }
-        }
-
-        h4.intro {
-            max-height: 55px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            font-family: 'regular';
-            overflow: hidden;
-            font-weight: bold;
-        }
-
-        p {
-            font-size: 12px;
-        }
-    }
-}
-
 .left_block .trip_item {
     @include tripcard();
 }
