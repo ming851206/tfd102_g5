@@ -1,123 +1,283 @@
-.adm_sec{
- .adm_flexbox{
-     display: flex;
-     min-height: 100vh;
-     .adm_appl{
-        left: 0px;
-        top: 0px;
-        width: 15%;
-        align-items: stretch;
-        background-color: $sec_ivory;
-        text-align: center;
-        background-image: url(../../images/logo/logo.svg);
-        background-size: 120px;
-        background-repeat: no-repeat;
-        background-position: top 20px left 40px;
-        
-        a:nth-child(1){
-            margin-top: 100px;
-        }
-        a{
-            padding: 10px 20px;
-        }
-     }
-     .adm_appr{
-        position: relative;
-        flex-grow: 1;
-        align-items: stretch;
-        padding-bottom: 40px;
-        .adm_above{
-            position: relative;
-            padding: 20px 40px;
-            h4{
-                color: $sec_ivory;
-                text-align: right;
-                transform: translate(-120px, 5px);
-            }
-            button{
-                position: absolute;
-                right: 40px;
-                top: 20px;
-                pointer-events: none; //沒用嗎??
-            }
-        }
-        h3{
-            color: $sec_ivory;
-            padding: 40px;
-            transform: translateY(-170%);
-        }
-        .temp{
-            //position: relative;
-            background-color: white;
-            margin: 100px 20px;
-            padding: 10px 10px 70px 0px;
-            //height: 1000px;
-            //transform: translateX(22%);
-            label{
-                position: relative;
-                display: block;
-                right:-4px;
-                top:-96px;
-                input{
-                    position: absolute;
-                    right: 27px;
-                    top:30px;
-                    padding: 5px 15px;
-                    width: 200px;
-                    height: 40px;
-                    border-radius: $borderRadius_m_btn;
-                    font-size: 14px;
-                }
-                img{
-                    position: absolute;
-                    right:37px;
-                    top:53px;
-                    cursor: pointer;
+
+.adm_sec {
+    *{outline: red}
+    @mixin pagerSet {
+        @include block_center;
+        display: flex;
+        justify-content: center;
+
+        li {
+            @include circle(30px, $bgcolor:null);
+            border: 1px solid $sec_br;
+            color: $sec_br;
+            text-align: center;
+            font-weight: bold;
+            margin: 0 5px;
+            font-size: 0;
+
+            a {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                border-radius: 100%;
+                font-size: 16px;
+                transform: translate(-1px, -1px);
+
+                &:hover,
+                .-on {
+                    background-color: $sec_br;
+                    color: $sec_ivory;
                 }
             }
-            table{
-                @include block_center;
-                border: 1px solid black;
-                margin-bottom: 100px;
-                tr{
+        }
+
+    }
+    @mixin tableSet {
+        @include block_center;
                     border: 1px solid black;
+                    margin-bottom: 100px;
+
+                    tr {
+                        border: 1px solid black;
+                    }
+
+                    td,
+                    th {
+                        padding: 10px 15px;
+                    }
+
+                    th {
+                        font-weight: bold;
+                    }
+    }
+    @mixin inputSet{
+        position: relative;
+        display: block;
+        right: -4px;
+        top: -96px;
+
+        input {
+            @include border($sec_br);
+            position: absolute;
+            right: 27px;
+            top: 30px;
+            padding: 5px 15px;
+            width: 200px;
+            height: 40px;
+            border-radius: $borderRadius_m_btn;
+            font-size: 14px;
+
+            &:focus {
+                border: 2px solid $sec_br;
+                outline: none;
+            }
+        }
+
+        img {
+            position: absolute;
+            right: 37px;
+            top: 44px;
+            cursor: pointer;
+        }
+    }
+    $btnPaddin: 3px 15px;
+    $btnBorder:1px solid #333;
+    .adm_flexbox {
+        display: flex;
+        min-height: 100vh;
+
+        .adm_appl {
+            left: 0px;
+            top: 0px;
+            width: 15%;
+            align-items: stretch;
+            background-color: $sec_ivory;
+            text-align: center;
+            background-image: url(../../images/logo/logo.svg);
+            background-size: 120px;
+            background-repeat: no-repeat;
+            background-position: top 20px left 40px;
+
+            a:nth-child(1) {
+                margin-top: 100px;
+            }
+
+            a {
+                padding: 10px 20px;
+            }
+        }
+
+        .adm_appr {
+            position: relative;
+            flex-grow: 1;
+            align-items: stretch;
+            padding-bottom: 40px;
+
+            .adm_above {
+                position: relative;
+                padding: 20px 40px;
+
+                h4 {
+                    color: $sec_ivory;
+                    text-align: right;
+                    transform: translate(-120px, 5px);
                 }
-                td,th{
-                    padding: 10px 15px;
-                }
-                th{
-                    font-weight: bold;
+
+                button {
+                    position: absolute;
+                    right: 40px;
+                    top: 20px;
+                    pointer-events: none; //沒用嗎??
                 }
             }
-            .pager>ul{
-                @include block_center;
+            .linkGroup{
                 display: flex;
-                justify-content: center;
-                
-                li{
-                    @include circle(30px,$bgcolor:null);
-                    border: 1px solid $sec_br;
-                    color: $sec_br;
+                align-items: center;
+
+                a{
+                    width: 150px;
+                    background-color: $sec_ivory;
+                    width: 150px;
                     text-align: center;
-                    font-weight: bold;
-                    margin: 0 5px;
-                    font-size: 0;
-                    a{
-                        width: 30px;
-                        height: 30px;
-                        line-height: 30px;
-                        border-radius: 100%;
-                        font-size: 16px;
-                        transform: translate(-1px, -1px);
-                        &:hover,.-on{
-                            background-color: $sec_br;
-                            color: $sec_ivory;
-                        }  
+                    padding: 10px 0;
+                    z-index: 1;
+                }
+            }
+            .adm_above + div{
+                // a.topA{
+                //     position: absolute;
+                //     top: -75px;
+                //     left: 20px;
+                //     display: inline-block;
+                //     background-color: $sec_ivory;
+                //     width: 150px;
+                //     text-align: center;
+                //     padding: 10px 0;
+                //     z-index: 1;
+                // }
+                // %activsSet{
+                //     padding-bottom: 20px;
+                //     background-color: white;
+                // }
+                // a.topA:nth-of-type(1){
+                //      &:active,&:focus{
+                //         @extend  %activsSet;
+                //     }
+                // }
+                // a.topA:nth-of-type(2){
+                //     transform: translateX(100%); 
+                //     border-left:$btnBorder;
+                //     border-bottom: $btnBorder;
+                //     &:active,&:focus{
+                //         @extend  %activsSet;
+                //         border-bottom: none;
+                //     }
+                //  }   
+            }
+            h3 {
+                color: $sec_ivory;
+                padding: 40px;
+                transform: translateY(-170%);
+            }
+
+            %tempSet {
+                position: relative;
+                background-color: white;
+                margin: 100px 20px;
+                padding: 10px 10px 70px 0px;
+            }
+
+            .temp {
+                @extend %tempSet;
+
+                label {
+                   @include inputSet;
+                }
+
+                a {
+                    display: block;
+
+                    button.add {
+                        background-color: rgb(190, 255, 255);
+                        padding: $btnPaddin;
+                        border: $btnBorder;
+                        margin: 0 0 15px 20px;
+                        cursor: pointer;
                     }
                 }
-               
+
+                table {
+                    @include tableSet;
+                    .textContent {
+                        width: 270px;
+                    }
+
+                    button {
+                        background-color: rgb(189, 255, 214);
+                        padding: $btnPaddin;
+                        border: $btnBorder;
+                        cursor: pointer;
+                    }
+
+                    button:nth-of-type(2) {
+                        background-color: rgb(255, 204, 204);
+                    }
+                }
+
+                .pager>ul {
+                    @include pagerSet;
+                }
+            }
+
+            div {
+                position: relative;
+                .temp2 {
+                    @extend %tempSet;
+                    transform: translateY(-5%);
+                }
+                label{
+                    @include inputSet;
+                }
+                table{
+                    @include tableSet;
+                    th{
+                        padding: 5px 15px;
+                    }
+                    .textContent2{
+                        width: 150px;
+                        padding: 10px 0px;
+                    }
+                    .textContent3{
+                        width: 230px;
+                    }
+                    button.revoke{
+                        background-color: rgb(255, 204, 204);
+                        padding:$btnPaddin;
+                        border: $btnBorder;
+                    }
+                    button.sendLink{
+                        background-color: rgb(190, 255, 255);
+                        padding: $btnPaddin;
+                        border: $btnBorder;
+                    }
+                }
+                label.allChk{
+                    position: absolute ;
+                    right: 29px ;
+                    bottom: 100px ;
+                }
+                button.reject{
+                    background-color: rgb(255, 204, 204);
+                    padding: 5px 30px;
+                    border: $btnBorder;
+                    position: absolute;
+                    right: 29px;
+                    bottom: 150px;
+                }
+                .pager2>ul {
+                    @include pagerSet;
+                }
             }
         }
-     }
- }
+    }
 }

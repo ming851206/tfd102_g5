@@ -19,7 +19,6 @@
                     <router-link to="/coupon">優惠券管理</router-link>
                     <router-link to="/faq">問題意見管理</router-link>
                     <router-link to="/member">會員管理</router-link>
-                    <router-link to="/products/10">Products</router-link>
                 </div>
                 <div class="adm_appr">
                     <div class="adm_above">
@@ -27,10 +26,9 @@
                         <button class="btnM">登出</button>
                     </div>
                     <router-view></router-view>
-                    
                 </div>
             </div>
-           
+
         </div>
     </section>
     <script src="../js/vue/vue.js"></script>
@@ -41,9 +39,10 @@
         const Trip = {
             template: `
                 <div>
-                    <router-link to="/trip/tripList">旅程列表</router-link> 
-                    <router-link to="/trip/tripCheck">旅程申請審核</router-link>
-
+                <div class="linkGroup">
+                    <router-link to="/trip" class="topA">旅程列表</router-link> 
+                    <router-link to="/trip/tripCheck" class="topA">旅程申請審核</router-link>
+                </div>
                     <router-view></router-view>
                 </div>
         ` };
@@ -51,8 +50,8 @@
         const Order = {
             template: `
                 <div>
-                    <router-link to="/order/orderList">訂單管理</router-link> 
-                    <router-link to="/order/commentCheck">旅程評論審查</router-link>
+                    <router-link to="/order" class="topA">訂單管理</router-link> 
+                    <router-link to="/order/commentCheck" class="topA">旅程評論審查</router-link>
 
                     <router-view></router-view>
                 </div>
@@ -60,18 +59,180 @@
 
         const Coupon = {
             template: `
-                <div>
+                <div class="temp"> 
                     <h3>優惠券管理</h3>
-                    <router-link to="/coupon/newCoupon">新增優惠券</router-link>
-
-                    <router-view></router-view>
+                        <router-link to="/coupon/newCoupon">
+                            <button class="add">新增優惠券</button>
+                        </router-link>
+                        
+                        <label>
+                            <input type="text" name="adm_query" placeholder="輸入會員帳號">
+                            <img src="../images/icon/search.svg" alt="">
+                        </label> 
+                        <router-view></router-view>
+                            <table>
+                                <tr>
+                                    <th>編號</th>
+                                    <th>優惠券名稱</th>
+                                    <th>優惠券內容</th>
+                                    <th>優惠碼</th>
+                                    <th>折扣比例</th>
+                                    <th>使用期限</th>
+                                    <th>優惠券來源</th>
+                                    <th>建立時間</th>
+                                    <th>功能</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>這夏有福了</td>
+                                    <td>我是優惠券</td>
+                                    <td>jumpjump</td>
+                                    <td>9</td>
+                                    <td>2023/12/31</td>
+                                    <td>1</td>
+                                    <td>2022 Jun25 15:00</td>
+                                    <td>
+                                        <button>編輯</button>
+                                        <button>刪除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>這夏有福了</td>
+                                    <td>我是優惠券</td>
+                                    <td>jumpjump</td>
+                                    <td>75</td>
+                                    <td>2023/12/31</td>
+                                    <td>1</td>
+                                    <td>2022 Jun25 15:00</td>
+                                    <td>
+                                        <button>編輯</button>
+                                        <button>刪除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>這夏有福了</td>
+                                    <td>我是優惠券</td>
+                                    <td>jumpjump</td>
+                                    <td>9</td>
+                                    <td>2023/12/31</td>
+                                    <td>1</td>
+                                    <td>2022 Jun25 15:00</td>
+                                    <td>
+                                        <button>編輯</button>
+                                        <button>刪除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>這夏有福了</td>
+                                    <td>我是優惠券</td>
+                                    <td>jumpjump</td>
+                                    <td>9</td>
+                                    <td>2023/12/31</td>
+                                    <td>1</td>
+                                    <td>2022 Jun25 15:00</td>
+                                    <td>
+                                        <button>編輯</button>
+                                        <button>刪除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>這夏有福了</td>
+                                    <td>我是優惠券</td>
+                                    <td>jumpjump</td>
+                                    <td>9</td>
+                                    <td>2023/12/31</td>
+                                    <td>1</td>
+                                    <td>2022 Jun25 15:00</td>
+                                    <td>
+                                        <button>編輯</button>
+                                        <button>刪除</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>這夏有福了</td>
+                                    <td>我是優惠券</td>
+                                    <td>jumpjump</td>
+                                    <td>9</td>
+                                    <td>2023/12/31</td>
+                                    <td>1</td>
+                                    <td>2022 Jun25 15:00</td>
+                                        <button>編輯</button>
+                                        <button>刪除</button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="pager2">
+                                <ul>
+                                    <li><a href="">&lt;</a></li>
+                                    <li><a href="" class="-on">1</a></li>
+                                    <li><a href="">2</a></li>
+                                    <li><a href="">3</a></li>
+                                    <li><a href="">4</a></li>
+                                    <li><a href="">5</a></li>
+                                    <li><a href="">&gt;</a></li>
+                                </ul>
+                            </div>
                 </div>
         ` };
 
         const Faq = {
             template: `
-                <div>
-                    <h3>問題意見管理</h3>
+                <div class="temp">
+                        <h3>問題意見管理</h3>
+                        <table>
+                            <tr>
+                                <th>編號</th>
+                                <th>發問人</th>
+                                <th>信箱</th>
+                                <th>問題內容</th>
+                                <th>發問時間</th>
+                                <th>狀態</th>
+                                <th>功能</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>楊先生</td>
+                                <td>a1234@gmail.com</td>
+                                <td class="textContent">我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題</td>
+                                <td>2022 Jun25 15:00</td>
+                                <td>未回覆</td>
+                                <td><button>回覆</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>陳先生</td>
+                                <td>b1234@gmail.com</td>
+                                <td class="textContent">我是問題我是問題我是問題我是問題我是問題我是問題</td>
+                                <td>2022 Jun25 15:00</td>
+                                <td>未回覆</td>
+                                <td><button>回覆</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>王先生</td>
+                                <td>c1234@gmail.com</td>
+                                <td class="textContent">我是問題我是問題我是問題我是問題我是問題我是問題</td>
+                                <td>2022 Jun25 15:00</td>
+                                <td>未回覆</td>
+                                <td><button>回覆</button></td>
+                            </tr>
+                        </table>
+                        <div class="pager2">
+                            <ul>
+                                <li><a href="">&lt;</a></li>
+                                <li><a href="" class="-on">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                                <li><a href="">4</a></li>
+                                <li><a href="">5</a></li>
+                                <li><a href="">&gt;</a></li>
+                            </ul>
+                        </div>
                 </div>
         ` };
 
@@ -118,7 +279,7 @@
                             <td></td>
                         </tr>
                      </table>
-                     <div class="pager">
+                     <div class="pager2">
                         <ul>
                             <li><a href="">&lt;</a></li>
                             <li><a href="" class="-on">1</a></li>
@@ -134,15 +295,353 @@
 
         //=====================================================
         //子元件
-        const TripList = { template: ` <h3>旅程列表</h3>` }
-        const TripCheck = { template: ` <h3>旅程申請審核</h3>` }
+        const TripList = {
+            template: ` 
+                <div class="temp2">
+                    <h3>旅程列表</h3>
+                    <label>
+                        <input type="text" name="adm_query" placeholder="輸入旅程名稱">
+                        <img src="../images/icon/search.svg" alt="">
+                    </label> 
+                    <table>
+                        <tr>
+                            <th>編號</th>
+                            <th>旅遊名稱</th>
+                            <th>舉辦人</th>
+                            <th>人數限制</th>
+                            <th>是否額滿</th>
+                            <th>舉辦時間</th>
+                            <th>價格</th>
+                            <th>功能</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td class="textContent2">遊覽巴黎全景一次兩次三次四次五次六次七次八次九次十次</td>
+                            <td>Carols</td>
+                            <td>20</td>
+                            <td>否</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>$495</td>
+                            <td><button class="revoke">下架</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="textContent2">遊覽巴黎全景</td>
+                            <td>Carols</td>
+                            <td>20</td>
+                            <td>否</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>$495</td>
+                            <td><button class="revoke">下架</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="textContent2">遊覽巴黎全景</td>
+                            <td>Carols</td>
+                            <td>20</td>
+                            <td>否</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>$495</td>
+                            <td><button class="revoke">下架</button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="textContent2">遊覽巴黎全景</td>
+                            <td>Carols</td>
+                            <td>20</td>
+                            <td>否</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>$495</td>
+                            <td><button class="revoke">下架</button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="textContent2">遊覽巴黎全景</td>
+                            <td>Carols</td>
+                            <td>20</td>
+                            <td>否</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>$495</td>
+                            <td><button class="revoke">下架</button></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="textContent2">遊覽巴黎全景</td>
+                            <td>Carols</td>
+                            <td>20</td>
+                            <td>否</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>$495</td>
+                            <td><button class="revoke">下架</button></td>
+                        </tr>
+                    </table>
+                    
+                    <div class="pager2">
+                            <ul>
+                                <li><a href="">&lt;</a></li>
+                                <li><a href="" class="-on">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                                <li><a href="">4</a></li>
+                                <li><a href="">5</a></li>
+                                <li><a href="">&gt;</a></li>
+                            </ul>
+                        </div>
+                </div>
+        ` }
+        const TripCheck = { 
+            template: `
+            <div class="temp2">
+                <h3>旅程申請審核</h3>
+                <label>
+                   <input type="text" name="adm_query" placeholder="輸入旅程名稱">
+                   <img src="../images/icon/search.svg" alt="">
+                </label> 
+                <table>
+                    <tr>
+                        <th>編號</th>
+                        <th>舉辦人</th>
+                        <th>旅程名稱</th>
+                        <th>旅程內容</th>
+                        <th>舉辦時間</th>
+                        <th>人數限制</th>
+                        <th>是否包場</th>
+                        <th>價格</th>
+                        <th>勾選</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Carlos</td>
+                        <td class="textContent2">環遊世界180天遊覽巴黎全景一次兩次三次四次五次六次七次八次九次十次</td>
+                        <td class="textContent3">我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容</td>
+                        <td>2022 Jun25 15:00</td>
+                        <td>10</td>
+                        <td>否</td>
+                        <td>$1000</td>
+                        <td><input type="checkbox" name="" id=""></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Carlos</td>
+                        <td>環遊世界180天</td>
+                        <td>我是旅程內容</td>
+                        <td>2022 Jun25 15:00</td>
+                        <td>10</td>
+                        <td>否</td>
+                        <td>$1000</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Carlos</td>
+                        <td>環遊世界180天</td>
+                        <td>我是旅程內容</td>
+                        <td>2022 Jun25 15:00</td>
+                        <td>10</td>
+                        <td>否</td>
+                        <td>$1000</td>
+                        <td><input type="checkbox"></td>
+                    </tr>
+ 
+                </table>
+                <button class="reject">退件</button>
+                <div class="pager2">
+                            <ul>
+                                <li><a href="">&lt;</a></li>
+                                <li><a href="" class="-on">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                                <li><a href="">4</a></li>
+                                <li><a href="">5</a></li>
+                                <li><a href="">&gt;</a></li>
+                            </ul>
+                        </div>
+            </div>
+             ` }
 
-        const OrderList = { template: ` <h3>訂單管理</h3>` }
-        const CommentCheck = { template: ` <h3>旅程評論審查</h3>` }
+        const OrderList = { 
+            template: ` 
+            <div class="temp2">
+                <h3>訂單管理</h3>
+                <label>
+                   <input type="text" name="adm_query" placeholder="輸入訂單編號">
+                   <img src="../images/icon/search.svg" alt="">
+                </label> 
+                <table>
+                    <tr>
+                        <th>訂單編號</th>
+                        <th>購買會員</th>
+                        <th>訂單金額</th>
+                        <th>連結發送狀態</th>
+                        <th>訂單時間</th>
+                        <th>功能</th>
+                    </tr>
+                    <tr>
+                        <td>order0001</td>
+                        <td>第五組</td>
+                        <td>$999</td>
+                        <td>已發送</td>
+                        <td>2022 Jun25 15:00</td>
+                        <td><button class="sendLink">發送連結</button></td>
+                    </tr>
+                    <tr>
+                        <td>order0002</td>
+                        <td>第五組</td>
+                        <td>$999</td>
+                        <td>已發送</td>
+                        <td>2022 Jun25 15:00</td>
+                        <td><button class="sendLink">發送連結</button></td>
+                    </tr>
+                    <tr>
+                        <td>order0003</td>
+                        <td>第五組</td>
+                        <td>$999</td>
+                        <td>已發送</td>
+                        <td>2022 Jun25 15:00</td>
+                        <td><button class="sendLink">發送連結</button></td>
+                    </tr>
+                    <tr>
+                        <td>order0004</td>
+                        <td>第五組</td>
+                        <td>$999</td>
+                        <td>已發送</td>
+                        <td>2022 Jun25 15:00</td>
+                        <td><button class="sendLink">發送連結</button></td>
+                    </tr>
+                </table>
+                <div class="pager2">
+                    <ul>
+                        <li><a href="">&lt;</a></li>
+                        <li><a href="" class="-on">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li><a href="">&gt;</a></li>
+                     </ul>
+                </div>
+            </div>
+                
+            ` }
+        const CommentCheck = { 
+            template: ` 
+            <div class="temp2">
+                <h3>旅程評論審查</h3>
+                    <table>
+                        <tr>
+                            <th>編號</th>
+                            <th>會員</th>
+                            <th>旅程編號</th>
+                            <th>評論</th>
+                            <th>評論時間</th>
+                            <th>審核狀態</th>
+                            <th>勾選</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>第五組</td>
+                            <td>0001</td>
+                            <td>真是太棒了了了了了了</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>通過</td>
+                            <td><input type="checkbox" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>第五組</td>
+                            <td>0001</td>
+                            <td>真是太棒了了了了了了</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>通過</td>
+                            <td><input type="checkbox" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>第五組</td>
+                            <td>0001</td>
+                            <td>真是太棒了了了了了了</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>通過</td>
+                            <td><input type="checkbox" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>第五組</td>
+                            <td>0001</td>
+                            <td>真是太棒了了了了了了</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>通過</td>
+                            <td><input type="checkbox" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>第五組</td>
+                            <td>0001</td>
+                            <td>真是太棒了了了了了了</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>通過</td>
+                            <td><input type="checkbox" name="" id=""></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>第五組</td>
+                            <td>0001</td>
+                            <td>真是太棒了了了了了了</td>
+                            <td>2022 Jun25 15:00</td>
+                            <td>通過</td>
+                            <td><input type="checkbox" name="" id=""></td>
+                        </tr>
+                    </table>
+                    <label for="" class="allChk">
+                        全選<input type="checkbox" id="allChk">
+                    </label>
+                    <button>刪除</button>
+                    <div class="pager2">
+                            <ul>
+                                <li><a href="">&lt;</a></li>
+                                <li><a href="" class="-on">1</a></li>
+                                <li><a href="">2</a></li>
+                                <li><a href="">3</a></li>
+                                <li><a href="">4</a></li>
+                                <li><a href="">5</a></li>
+                                <li><a href="">&gt;</a></li>
+                            </ul>
+                    </div>
+                </div>
+                
+            ` }
 
-        const NewCoupon = { template: ` <h3>新增優惠券</h3>` }
-        //const OrderList = { template: ` <h3>訂單管理</h3>` } //待修改
-        //const CommentCheck = { template: ` <h3>旅程評論審查</h3>` }//待修改
+        const NewCoupon = {
+            template: ` 
+                <div class="temp">
+                     <h4 class="title">新增優惠券</h4> 
+                     <hr>
+                     <div class="addCoupon">
+                        <label>
+                            優惠券名稱<input type="text" >
+                        </label>
+                        <label>
+                            優惠券內容<input type="text" >
+                        </label>
+                        <label>
+                            優惠碼<input type="text" >
+                        </label>
+                        <label>
+                            折扣比例<input type="text" >
+                        </label>
+                        <label>
+                            使用到期日 <input type="date" >
+                        </label>
+                        <label>
+                            優惠券來源<input type="text" >
+                        </label>
+                        <p>(註:1為評論，2為任務)</p>
+                        <button>取消</button>
+                        <button>新增</button>
+                     </div> 
+                </div>
+                ` }
+
         //=====================================================
 
         const router = new VueRouter({
@@ -167,10 +666,18 @@
                 {
                     path: '/coupon',
                     component: Coupon,
-                    children:[
-                    { path: '', component: NewCoupon },
-                    ]
+                    // children: [
+                    //     { path: 'newCoupon', component: NewCoupon },
+                    // ]
                 },
+                {
+                    path: '/coupon/newCoupon',
+                    component: NewCoupon,
+                    // children: [
+                    //     { path: 'newCoupon', component: NewCoupon },
+                    // ]
+                },
+                
                 {
                     path: '/faq',
                     component: Faq,
