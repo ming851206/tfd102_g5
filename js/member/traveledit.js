@@ -49,7 +49,15 @@ const TravelEdit = {
                             <div class="travelInputBorder Imginput" @dragover.prevent @drop="drop">
                                     <div class="travelInputEditTitle"><span>圖片上傳：</span></div>
                                     <div>
-                                        <div class="showImg">
+                                        <div class="showImg" v-if="files==0">
+
+                                        </div>
+                                        <div class="showImg" v-else>
+                                            <div class="addimgborders" v-for="(file,index) in files">
+                                                <img :src="file">
+                                                <div class="addimgdelete" @click="checkDeleteAddImg(index,$event)">
+                                                </div>
+                                            </div>
                                         </div>
                                         <input type="file" multiple @change="fileChange" id="ImginputFiles">
                                         <div class="clickInput" @click="InputImg">
@@ -175,14 +183,14 @@ const TravelEdit = {
             ],
             add: false,
             pops: false,
-
+            files: [],
         };
     },
     methods: {
-        checkDeleteAddImg: function name(event) {
+        checkDeleteAddImg: function name(index, event) {
             let yes = confirm("確定要移除這張此照片嗎?");
             if (yes) {
-                alert("yes");
+                this.files.splice(index, 1);
             }
         },
         AddTravel() {
@@ -219,35 +227,51 @@ const TravelEdit = {
             }
         },
         fileChange: function (e) {
-            let files = document.getElementById('ImginputFiles').files;
+            // let files = document.getElementById('ImginputFiles').files;
 
+            // for (let i = 0; i < files.length; i++) {
+            //     let readFile = new FileReader();
+            //     readFile.readAsDataURL(files[i]);
+
+            //     readFile.addEventListener('load', function () {
+            //         let dropzone = document.getElementsByClassName('showImg')[0];
+            //         let div = document.createElement('div');
+            //         let text = `
+            //                                 <div class="addimgborders">
+            //                                     <img>
+            //                                     <div class="addimgdelete" @click="checkDeleteAddImg">
+            //                                     </div>
+            //                                 </div>
+            //         `;
+            //         div.innerHTML = text;
+            //         dropzone.insertBefore(div, dropzone.firstChild);
+            //         let image = document.getElementsByClassName('addimgborders')[0].querySelector("img");
+            //         image.src = readFile.result;
+            //         let deletes = document.getElementsByClassName("addimgdelete")[0];
+            //         deletes.addEventListener('click', function (event) {
+            //             let yes = confirm("確定要移除這張此照片嗎?");
+            //             if (yes) {
+            //                 event.target.parentNode.parentNode.remove();
+            //             }
+            //         })
+            //     });
+            // }
+
+            let files = document.getElementById('ImginputFiles').files;
             for (let i = 0; i < files.length; i++) {
                 let readFile = new FileReader();
                 readFile.readAsDataURL(files[i]);
 
-                readFile.addEventListener('load', function () {
-                    let dropzone = document.getElementsByClassName('showImg')[0];
-                    let div = document.createElement('div');
-                    let text = `
-                                            <div class="addimgborders">
-                                                <img>
-                                                <div class="addimgdelete" @click="checkDeleteAddImg">
-                                                </div>
-                                            </div>
-                    `;
-                    div.innerHTML = text;
-                    dropzone.insertBefore(div, dropzone.firstChild);
-                    let image = document.getElementsByClassName('addimgborders')[0].querySelector("img");
-                    image.src = readFile.result;
-                    let deletes = document.getElementsByClassName("addimgdelete")[0];
-                    deletes.addEventListener('click', function (event) {
-                        let yes = confirm("確定要移除這張此照片嗎?");
-                        if (yes) {
-                            event.target.parentNode.parentNode.remove();
-                        }
-                    })
-                });
+                // readFile.addEventListener('load', function () {
+                //     this.files.push(readFile.result);
+                // })
+
+                readFile.addEventListener('load', (event) => {
+                    this.files.unshift(readFile.result);
+                })
             }
+            console.log(this.files);
         }
+    }, mounted() {
     },
 };
