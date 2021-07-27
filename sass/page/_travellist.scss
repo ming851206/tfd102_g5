@@ -542,6 +542,12 @@
     }
 }
 
+#go_top{
+    cursor: pointer;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+}
 
 // ========= 輪播 ========= 
 .owl-carousel {
