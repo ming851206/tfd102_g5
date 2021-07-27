@@ -21,24 +21,91 @@
     </div>
 
     <div id="member">
-        <div id="left">
+        <div id="memberMobile">
+            <span @click="memberReturn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17.492" viewBox="0 0 10 17.492">
+                    <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back"
+                        d="M14.265,14.937l6.618-6.613a1.25,1.25,0,0,0-1.77-1.765l-7.5,7.493a1.248,1.248,0,0,0-.036,1.724l7.53,7.545a1.25,1.25,0,0,0,1.77-1.765Z"
+                        transform="translate(-11.251 -6.194)" fill="#996a4d" />
+                </svg>
+            </span>
+            <h1 id="mobileMemberTitle">會員中心</h1>
+        </div>
+        <div id="left" v-show="showLeft">
             <div class="memberborder active">
+
+
+
                 <router-link to="/memberinfo">會員資料</router-link>
+
+                <div class="mobileMemberSvg" @click="changes">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="33.6" viewBox="0 0 36 33.6">
+                        <g id="Group_286" data-name="Group 286" transform="translate(-1114.286 -1097.2)">
+                            <path id="Icon_ionic-md-person" data-name="Icon ionic-md-person"
+                                d="M16.5,16.5a6,6,0,1,0-6-6A6.017,6.017,0,0,0,16.5,16.5Zm0,3c-3.975,0-12,2.025-12,6v3h24v-3C28.5,21.525,20.475,19.5,16.5,19.5Z"
+                                transform="translate(1115.786 1097.5)" fill="#996a4d" />
+                            <rect id="Rectangle_303" data-name="Rectangle 303" width="36" height="33.6"
+                                transform="translate(1114.286 1097.2)" fill="none" />
+                        </g>
+                    </svg>
+
+                </div>
+
             </div>
             <div class="memberborder">
+
                 <router-link to="/love">我的最愛</router-link>
+
+                <div class="mobileMemberSvg" @click="changes">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.044" height="12.542" viewBox="0 0 13.044 12.542">
+                        <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart"
+                            d="M12.907,3.937h-.031A3.568,3.568,0,0,0,9.9,5.568,3.568,3.568,0,0,0,6.918,3.937H6.887A3.545,3.545,0,0,0,3.375,7.481a7.633,7.633,0,0,0,1.5,4.161A26.266,26.266,0,0,0,9.9,16.48a26.266,26.266,0,0,0,5.023-4.838,7.633,7.633,0,0,0,1.5-4.161A3.545,3.545,0,0,0,12.907,3.937Z"
+                            transform="translate(-3.375 -3.938)" fill="#996a4d" />
+                    </svg>
+                </div>
+
             </div>
             <div class="memberborder">
-                <router-link to="/join">即將餐與旅遊</router-link>
+                <router-link to="/join">即將參與旅遊</router-link>
+
+                <div class="mobileMemberSvg" @click="changes">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222">
+                        <path id="Icon_awesome-star" data-name="Icon awesome-star"
+                            d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z"
+                            transform="translate(-1.441 0.001)" fill="#996a4d" />
+                    </svg>
+                </div>
+
             </div>
             <div class="memberborder">
                 <router-link to="/history">旅遊紀錄</router-link>
+
+                <div class="mobileMemberSvg" @click="changes">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="29.818" height="13.667" viewBox="0 0 29.818 13.667">
+                        <path id="Icon_ionic-ios-recording" data-name="Icon ionic-ios-recording"
+                            d="M24.122,10.266h-.006A6.839,6.839,0,0,0,19.3,21.944H12.773A6.839,6.839,0,0,0,7.958,10.266H7.946a6.833,6.833,0,0,0,0,13.667H24.122a6.833,6.833,0,0,0,0-13.667ZM28.955,17.1a4.839,4.839,0,1,1-4.839-4.858A4.853,4.853,0,0,1,28.955,17.1Zm-21,4.858A4.858,4.858,0,1,1,12.791,17.1,4.857,4.857,0,0,1,7.952,21.957Z"
+                            transform="translate(-1.125 -10.266)" fill="#996a4d" />
+                    </svg>
+                </div>
+
             </div>
-            <div class="memberborder">
+            <div class="memberborder mobileMemberEditTrival">
                 <router-link to="/traveledit">管理旅遊</router-link>
+
+
             </div>
-            <div class="memberborder">
-                <router-link to="/logout">登出</router-link>
+            <div class="memberborder mobileMemberLoginout">
+                <a href="./index.html">登出</a>
+
+                <div class="mobileMemberSvg" @click="changes">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
+                        <path id="Icon_awesome-door-open" data-name="Icon awesome-door-open"
+                            d="M29.25,21H25.5V5.318A2.287,2.287,0,0,0,23.25,3H18V6h4.5V24h6.75a.75.75,0,0,0,.75-.75v-1.5A.75.75,0,0,0,29.25,21ZM14.636.047l-9,2.332A1.545,1.545,0,0,0,4.5,3.887V21H.75a.75.75,0,0,0-.75.75v1.5A.75.75,0,0,0,.75,24H16.5V1.555A1.513,1.513,0,0,0,14.636.047ZM12.375,13.5c-.621,0-1.125-.672-1.125-1.5s.5-1.5,1.125-1.5S13.5,11.172,13.5,12,13,13.5,12.375,13.5Z"
+                            transform="translate(0 0)" fill="#996a4d" />
+                    </svg>
+
+                </div>
+
             </div>
         </div>
 
@@ -64,7 +131,7 @@
         new Vue({
             el: '#member',
             data: {
-
+                showLeft: true,
             },
             router: new VueRouter({
                 mode: 'history',
@@ -94,8 +161,25 @@
                 ],
             }),
             mounted() {
+
+                // 寬度大小決定進入頁面要不要點及
+
                 let clickActive = document.getElementsByClassName("active")[0].childNodes[0];
-                clickActive.click();
+                // console.log(clickActive);
+                let mobile = document.getElementById("memberMobile");
+                let mobileSVG = document.getElementsByClassName("mobileMemberSvg");
+                console.log(document.body.clientWidth);
+                if (!(document.body.clientWidth < 560)) {
+                    clickActive.click();
+                    mobile.style.display = "none";
+                    for (let i = 0; i < mobileSVG.length; i++) {
+                        mobileSVG[i].style.display = "none";
+                    }
+                }
+
+
+                // let list = document.getElementById("left");
+                // list.style.display = "none";
             },
             updated() {
                 let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
@@ -104,7 +188,43 @@
                 } else {
                     $("#memberSpace").css("height", 0);
                 }
-            }
+                console.log(document.body.clientWidth);
+
+                if (document.body.clientWidth < 560) {
+                    if (event.target.getAttribute("href") == "/memberinfo" || event.target.getAttribute("href") == "/love" || event.target.getAttribute("href") == "/history" || event.target.getAttribute("href") == "/join") {
+                        this.showLeft = false;
+                        let title = document.getElementById("mobileMemberTitle");
+                        title.innerText = event.target.innerText;
+                    } else {
+                        this.showLeft = true;
+                    }
+                }
+            },
+            methods: {
+                changes(event) {
+                    let go;
+                    if (event.target.getAttribute("id") == "Icon_ionic-ios-heart") {
+                        let this_a = event.target.parentNode.parentNode.parentNode.childNodes[0];
+                        go = this_a;
+                    } else if (event.target.getAttribute("xmlns") == "http://www.w3.org/2000/svg") {
+                        let this_a = event.target.parentNode.parentNode.childNodes[0];
+                        go = this_a;
+
+                    } else if (event.target.getAttribute("class") == "mobileMemberSvg") {
+                        let this_a = event.target.parentNode.childNodes[0];
+                        go = this_a;
+
+                    } else if (event.target.getAttribute("id") == "Icon_awesome-star") {
+                        let this_a = event.target.parentNode.parentNode.parentNode.childNodes[0];
+                        go = this_a;
+                    }
+                    go.click();
+                },
+                memberReturn() {
+                    location.href = "/member.html";
+                }
+            },
+
         });
 
 
@@ -112,23 +232,12 @@
             $(".memberborder").removeClass("active");
             $(this).addClass("active");
             let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
-            console.log("\r\n");
-            console.log($(window).innerHeight());
-            console.log(parseInt($("#the_header").css('height')));
-            console.log(parseInt($("#member").css('height')));
-            console.log(height);
             if (height > 0) {
                 $("#memberSpace").css("height", height);
             } else {
                 $("#memberSpace").css("height", 0);
             }
         });
-
-
-
-
-
-
     </script>
 </body>
 

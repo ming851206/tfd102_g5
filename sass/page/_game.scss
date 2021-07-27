@@ -1,7 +1,592 @@
-.game_bg{
-    width: 100%;
-    height: calc(100vh - 85px);
-    background-image: url("../images/index/game/world_map.png"),url("../images/index/game/game_bg.jpg");
+@mixin img_setting($size) {
     background-repeat: no-repeat;
-    background-size: contain, cover;
+    background-position: center center;
+    background-size: $size;
+    @content;
 }
+@mixin all_zero($position){
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: $position;
+}
+@mixin margin0 {
+    display: block;
+    margin: 0 auto;
+}
+$passportW: 402;
+
+
+@keyframes fade-in_1{
+    0%{
+      opacity: 0;
+      filter: blur(100px);
+    }
+    100%{
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+@keyframes slide-down {
+  0%{
+    transform: translate(-50%, -150%);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+  
+.game_bg{
+    background-image: url("../images/index/game/game_bg.jpg");
+    position: relative;
+    // opacity: 0;
+    opacity: 1;
+    // animation: fade-in_1 1s ease-out both;
+    @include img_setting(cover){
+        width: 100%;
+        height: calc(100vh - 85px);
+        @include xs{
+            height: calc(100vh - 75px);
+            background-position: left 22% center;
+        }
+    };
+    
+    .game_world_map{
+        background-image: url("../images/index/game/world_map.svg");
+        width: 1180px;
+        height: 657px;
+        // border: 1px solid red;
+        position: relative;
+        @include img_setting(contain);
+        @include margin0;
+        top: 50%;
+        transform: translateY(-50%);
+        @include lg{
+            width: 975px;
+            height: 543px;
+        }
+        @include md{
+            width: 747px;
+            height: 543px;
+        }
+        @include sm{
+            width: 554px;
+            height: 309px;
+        }
+        @include xs{
+            // width: 350px;
+            // height: 195px;
+            max-width: 100%;
+            top: 10%;
+            transform: translateY(-10%);
+        }
+    
+        .landmark{
+            background-image: url('../images/index/game/landmark_white.png');
+            width: 50px;
+            height: 90px;
+            @include img_setting(contain);
+            cursor: pointer;
+            position: absolute;
+            @include md{
+                width: 40px;
+                height: 72px;
+            }
+        }
+        #am{
+            left: 12.5%;
+            top: 35%;
+            @include sm{
+                top: 25%;
+            }
+        }
+        #eu{
+            left: 62%;
+            top: 32%;
+            @include sm{
+                top: 20%;
+            }
+        }
+        #af{
+            left: 56%;
+            top: 47%;
+            @include sm{
+                left: 54%;
+                top: 38%;
+            }
+        }
+        #as{
+            left: 78%;
+            top: 39%;
+            @include sm{
+                top: 27%;
+            }
+        }
+        #oc{
+            left: 85%;
+            top: 64.5%;
+            @include md{
+                top: 59%;
+            }
+            @include sm{
+                left: 83%;
+                top: 52%;
+            }
+            @include xs{
+                top: 51.5%;
+            }
+        }
+    }
+    #game_word{
+        display: none;
+        @include xs{
+            display: block;
+            position: relative;
+            bottom: -5vh;
+            // border: 1px solid yellow;
+            h3{
+                color: #202B36;
+                background-color: rgba(225, 225, 225, .95);
+                width: 300px;
+                @include margin0;
+                padding: 6px;
+                line-height: 1.6;
+                text-align: center;
+                margin-bottom: 55px;
+            }
+            img{
+                width: 60px;
+                height: 53px;
+                margin: 0 auto;
+                display: block;
+            }
+        }
+    }
+    .passport_page{
+        @include all_zero(absolute);
+        .game_overlay{
+            @include all_zero(fixed);
+            z-index: 10;
+        }
+        .passport{
+            z-index: 11;
+            @include total_center;
+            width: $passportW;
+            opacity: 0;
+            animation: slide-down 1s ease 1.2s both;
+            @include xs{
+                top: 59%;
+            }
+            img{
+                // border: 1px solid blue;
+                position: relative;
+                @include margin0();
+                @include md{
+                    width: $passportW * 0.9 +px;
+                }         
+                @include md_sm{
+                    width: $passportW * 0.8 +px;
+                }
+                @include sm{
+                    width: $passportW * 0.72 +px;
+                }
+            }
+            .click_word{
+                // border: 1px solid blue;
+                position: absolute;
+                bottom: 12.5%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                display: block;
+                // @include lg{
+                //     width: 100%;
+                //     display: block;
+                //     @include margin0();
+                // }
+                @include md{
+                    // width: 90%;
+                    bottom: 11.5%;
+                }   
+                @include md_sm{
+                }
+                @include sm{
+                    bottom: 9.5%;
+                }
+                .btn_start{
+                    color: #996A4D;
+                    font-size: 26px;
+                    font-weight: normal;
+                    width: 142px;
+                    vertical-align: middle;
+                    height: 49px;
+                    @include margin0;
+                    margin-bottom: 30px;
+                    border-radius: 15px;
+                    @include md{
+                        width: 142px * 0.9;
+                        margin-bottom: 25px;
+                    } 
+                    @include md_sm{
+                        width: 142px * 0.75;
+                        height: 49px * 0.85;
+                        font-size: 24px;
+                        margin-bottom: 20px;
+                    }
+                    @include sm{
+                        width: 142px * 0.72;
+                        height: 49px * 0.8;
+                        font-size: 22px;
+                        margin-bottom: 20px;
+                    }
+                }
+                .passport_item{
+                    @include margin0;
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    // width: 100%;
+                    @include md{
+                        width: 90%;
+                    } 
+                    h4, a{
+                        color: $main_ivory;
+                        font-size: 16px;
+                        cursor: pointer;
+                        vertical-align: middle;
+                        font-family: "regular";
+                        margin-left: 10px;
+                        @include md_sm{
+                            font-size: 15px;                        
+                        }
+                        @include sm{
+                            font-size: 14px;
+                        }
+                    }
+                    a{
+                        margin-right: 25px;
+                    }
+                }
+            }
+
+        }
+    }
+    .game_question{
+        display: none;
+        @include total_center;
+        z-index: 12;
+        background-color: whitesmoke;
+        width: 550px;
+        height: 468px;
+        @include lg{
+            width: 550px * 0.92;
+            height: 468px * 0.96;
+        }
+        @include md{
+            width: 550px * 0.85;
+            height: 468px * 0.93;
+        }
+        @include sm{
+            width: 550px * 0.66;
+            height: 468px * 0.85;
+        }
+        @include xs{
+            width: 550px * 0.58;
+            height: 468px * 0.8;
+        }
+        form{
+            // border: 1px solid red;
+            padding: 50px 26px;
+            @include md{
+                padding: 40px 18px;
+            }
+            @include xs{
+                padding: 26px 12px;
+            }
+            .q_container{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                h2{
+                    font-size: 50px;
+                    margin: 0;
+                    display: inline-block;
+                    font-family: "en";
+                    @include md{
+                        font-size: 40px;
+                    }
+                    @include sm{
+                        font-size: 32px;
+                    }
+                }
+                h3{
+                    display: inline-block; 
+                    width: 350px;
+                    line-height: 1.5; 
+                    @include md{
+                        font-size: 22px;
+                    }
+                    @include sm{
+                        font-size: 18px;
+                        width: 350px * 0.75;
+                    }
+                    @include xs{
+                        font-size: 17px;
+                        width: 350px * 0.65;
+                    }        
+                }
+            }
+            .btn_group{
+                // border: 1px solid red;
+                .input_group{
+                    // border: 1px solid blue;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    width: 385px;
+                    margin: 30px 0 8px;
+                    margin-left: auto;
+                    @include lg{
+                        width: 385px * 0.965;
+                        margin-bottom: 3px;
+                    }
+                    @include sm{
+                        width: 385px * 0.72;
+                        margin-top: 24px;
+                    }
+                    @include xs{
+                        width: 385px * 0.64;
+                    }    
+                    .opt{
+                        margin-bottom: 36px;
+                        font-size: 20px;
+                        font-family: "regular";
+                        cursor: pointer;
+                        // &::before{
+                        //     // border: 1px solid red;
+                        //     content: "";
+                        //     display: inline-block;
+                        //     width: 16px;
+                        //     height: 16px;
+                        //     background-image: url("../images/index/game/checkbox_1.png");
+                        //     background-repeat: no-repeat;
+                        //     background-size: contain;
+                        //     position: relative;
+                        //     top: 2px;
+                        //     margin: 0 8px;
+                        // }
+                        @include md{
+                            font-size: 18px;
+                        }
+                        @include sm{
+                            margin-bottom: 34px;
+                            font-size: 16px;
+                        }
+                        // input[type="radio"]{
+                        //     // display: none;
+                        // }
+                        
+                    }
+                }
+                .ans_confirm{
+                    width: 120px;
+                    display: block;
+                    margin: 0 auto;
+                }
+    
+            }
+
+        }
+    }
+    .game_result{
+        // display: none;
+        @include total_center;
+        z-index: 13;
+        background-color: whitesmoke;
+        width: 650px;
+        height: 450px;
+        border-radius: 25px;
+        box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
+        
+        .top_word{
+            // border: 1px solid red;
+            .visa_word{
+                display: flex;
+                justify-content: space-around;
+                margin-top: 15px;
+                color: rgba(0,0,0,0.22);
+                letter-spacing: 1px;
+                font-size: 15px;
+            }
+            .num_word{
+                display: flex;
+                justify-content: space-between;
+                margin: auto 35px;
+                color: rgba(0,0,0,0.22);
+                h2{
+                    padding: 0;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .game_win{
+            // border: 1px solid red;
+            text-align: center;
+            h2{
+                // border: 1px solid red;
+                letter-spacing: 3px;
+                text-indent: 25px;
+                padding-bottom: 28px;
+            }
+            .game_stamp{
+                .top_stamp{
+                    display: flex;
+                    justify-content: center;
+                    .unget_stamp{
+                        // background-image: url("../images/index/game/america.svg");
+                        background-image: url("../images/index/game/unget.png");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 130px;
+                        height: 100px;
+                        &:nth-child(2){
+                            margin: auto 40px;
+                            // background-image: url("../images/index/game/europe.svg");
+                        }
+                        // &:nth-child(3){
+                            // background-image: url("../images/index/game/oceania.svg");
+                        // }
+                    }
+                }
+                .bottom_stamp{
+                    display: flex;
+                    justify-content: center;
+                    .unget_stamp{
+                        background-image: url("../images/index/game/unget.png");
+                        // background-image: url("../images/index/game/asia.svg");
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        width: 130px;
+                        height: 100px;
+                        margin: 0 20px;
+                        &:nth-child(1){
+                            background-image: url("../images/index/game/unget.png");
+                            // background-image: url("../images/index/game/africa.svg");
+                            width: 130px;
+                            height: 100px;
+                        }
+                    }
+                }
+                img{
+                    width: 32px;
+                    margin-top: 0;
+                }
+            }
+        }
+        .gamebtn{
+            display: flex;
+            justify-content: center;
+            .btnM_line{
+                margin: 15px 20px;
+                width: 110px;
+            }
+            .game_share{
+                &::before{
+                    content: "";
+                    display: inline-block;
+                    width: 10px;
+                    height: 14px;
+                    background-size: contain;
+                    background-image: url("../images/index/game/share_fb.svg");
+                    background-repeat: no-repeat;
+                    margin-right: 4px;
+                    
+                }
+            }
+        }
+    }
+}
+// <div class="game_result">
+    // <div class="top_word">
+    //     <div class="visa_word">
+    //         <h5>簽證 / VISAS</h5>
+    //         <h5>簽證 / VISAS</h5>
+    //     </div> 
+    //     <div class="num_word">
+    //         <h3>10</h3>
+    //         <h3>11</h3>
+    //     </div>    
+    // </div>
+
+    // <div class="game_win">
+    //     <h2>恭喜！挑戰成功！</h2>
+    //     <div class="game_stamp">
+    //         <div class="top_stamp">
+    //             <div class="am unget_stamp">1</div>
+    //             <div class="eu unget_stamp">2</div>
+    //             <div class="as unget_stamp">3</div>
+    //         </div>
+    //         <div class="bottom_stamp">
+    //             <div class="af unget_stamp">4</div>
+    //             <div class="oc unget_stamp">5</div>
+    //         </div>
+    //         <img src='./images/index/game/gift_gold.svg'>
+    //     </div> 
+    // </div>
+
+    // <div class="gamebtn">
+    //     <button class="btnM_line game_share">分享</button>
+    //     <button class="btnM_line game_share">回首頁</button>
+    // </div>       
+// </div>    
+
+
+// input[type="radio"]:checked + label.opt{
+//     &::before{
+//         background-image: url("../images/index/game/checkbox_2.png");
+//     }    
+// }
+.game_wrapper{
+    #the_footer{
+        display: none;
+    }
+}
+@mixin xl {
+    @media (max-width: 1279.9px){
+        @content;
+    }
+  }
+  @mixin lg {
+    @media (max-width: 1199.9px){
+        @content;
+    }
+  }
+  @mixin lg_md {
+    @media (max-width: 1159.9px){
+        @content;
+    }
+  }
+  @mixin md {
+    @media (max-width: 996.9px){
+        @content;
+    }
+  }
+  @mixin md_sm {
+    @media (max-width: 895.9px){
+        @content;
+    }
+  }
+  @mixin sm {
+    @media (max-width: 767.9px){
+        @content;
+    }
+  }
+  @mixin xs {
+    @media (max-width: 575.9px){
+        @content;
+    }
+  }

@@ -8,10 +8,10 @@ const TravelEdit = {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
                                     <g id="Group_291" data-name="Group 291" transform="translate(-13431 -1300)">
                                         <g id="Group_290" data-name="Group 290">
-                                        <g id="Ellipse_81" data-name="Ellipse 81" transform="translate(13431 1300)" fill="#fff" stroke="#707070" stroke-width="1">
-                                            <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
-                                            <circle cx="12.5" cy="12.5" r="12" fill="#996A4D"/>
-                                        </g>
+                                            <g id="Ellipse_81" data-name="Ellipse 81" transform="translate(13431 1300)" fill="#fff" stroke="#707070" stroke-width="1">
+                                                <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
+                                                <circle cx="12.5" cy="12.5" r="12" fill="#996A4D"/>
+                                            </g>
                                         </g>
                                         <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M14.434,8.357h-5v-5a1.11,1.11,0,0,0-1.11-1.11H7.217a1.11,1.11,0,0,0-1.11,1.11v5h-5A1.11,1.11,0,0,0,0,9.467v1.11a1.11,1.11,0,0,0,1.11,1.11h5v5a1.11,1.11,0,0,0,1.11,1.11h1.11a1.11,1.11,0,0,0,1.11-1.11v-5h5a1.11,1.11,0,0,0,1.11-1.11V9.467A1.11,1.11,0,0,0,14.434,8.357Z" transform="translate(13435.721 1302.485)"/>
                                     </g>
@@ -21,11 +21,11 @@ const TravelEdit = {
                         </div>
                         <div id="addFrom">
                             <div class="travelInputBorder">
-                                    <div>主題名稱：</div>
+                                    <div class="travelInputEditTitle"><span>主題名稱：</span></div>
                                     <input>
                             </div>
                             <div class="travelInputBorder">
-                                    <div>類別：</div>
+                                    <div class="travelInputEditTitle"><span>類別：</span></div>
                                     <select>
                                         <option value="1" selected>美洲</option>
                                         <option value="2">亞洲</option>
@@ -35,21 +35,29 @@ const TravelEdit = {
                                     </select>
                             </div>
                             <div class="travelInputBorder">
-                                    <div>時間：</div>
+                                    <div class="travelInputEditTitle"><span>時間：</span></div>
                                     <input >
                             </div>
                             <div class="travelInputBorder">
-                                    <div>人數：</div>
+                                    <div class="travelInputEditTitle"><span>人數：</span></div>
                                     <input >
                             </div>
                             <div class="travelInputBorder">
-                                    <div>影片連結：</div>
+                                    <div class="travelInputEditTitle"><span>影片連結：</span></div>
                                     <input >
                             </div>
                             <div class="travelInputBorder Imginput" @dragover.prevent @drop="drop">
-                                    <div>圖片上傳：</div>
+                                    <div class="travelInputEditTitle"><span>圖片上傳：</span></div>
                                     <div>
-                                        <div class="showImg">
+                                        <div class="showImg" v-if="files==0">
+
+                                        </div>
+                                        <div class="showImg" v-else>
+                                            <div class="addimgborders" v-for="(file,index) in files">
+                                                <img :src="file">
+                                                <div class="addimgdelete" @click="checkDeleteAddImg(index,$event)">
+                                                </div>
+                                            </div>
                                         </div>
                                         <input type="file" multiple @change="fileChange" id="ImginputFiles">
                                         <div class="clickInput" @click="InputImg">
@@ -58,11 +66,11 @@ const TravelEdit = {
                                     </div>
                             </div>
                             <div class="travelInputBorder Content">
-                                    <div>活動內容：</div>
+                                    <div class="travelInputEditTitle"><span>活動內容：</span></div>
                                     <textarea placeholder="活動內容" > </textarea>
                             </div>
                             <div class="travelInputBorder">
-                                    <div>自備物品：</div>
+                                    <div class="travelInputEditTitle"><span>自備物品：</span></div>
                                     <input >
                             </div>
                         </div>
@@ -138,6 +146,9 @@ const TravelEdit = {
                                         </div>
                                 </div>
                             </div>
+                            <div class="mobileLoveBtn">
+                                    <button class="btnL_light">顯示更多</button>
+                            </div>
                         <div id="travelEditPop" v-show="pops">
                             <div>
                                 <p>已傳送至管理員後台，請等待審核。</p>
@@ -172,10 +183,16 @@ const TravelEdit = {
             ],
             add: false,
             pops: false,
-
+            files: [],
         };
     },
     methods: {
+        checkDeleteAddImg: function name(index, event) {
+            let yes = confirm("確定要移除這張此照片嗎?");
+            if (yes) {
+                this.files.splice(index, 1);
+            }
+        },
         AddTravel() {
             this.add = true;
         },
@@ -210,19 +227,51 @@ const TravelEdit = {
             }
         },
         fileChange: function (e) {
-            let files = document.getElementById('ImginputFiles').files;
+            // let files = document.getElementById('ImginputFiles').files;
 
+            // for (let i = 0; i < files.length; i++) {
+            //     let readFile = new FileReader();
+            //     readFile.readAsDataURL(files[i]);
+
+            //     readFile.addEventListener('load', function () {
+            //         let dropzone = document.getElementsByClassName('showImg')[0];
+            //         let div = document.createElement('div');
+            //         let text = `
+            //                                 <div class="addimgborders">
+            //                                     <img>
+            //                                     <div class="addimgdelete" @click="checkDeleteAddImg">
+            //                                     </div>
+            //                                 </div>
+            //         `;
+            //         div.innerHTML = text;
+            //         dropzone.insertBefore(div, dropzone.firstChild);
+            //         let image = document.getElementsByClassName('addimgborders')[0].querySelector("img");
+            //         image.src = readFile.result;
+            //         let deletes = document.getElementsByClassName("addimgdelete")[0];
+            //         deletes.addEventListener('click', function (event) {
+            //             let yes = confirm("確定要移除這張此照片嗎?");
+            //             if (yes) {
+            //                 event.target.parentNode.parentNode.remove();
+            //             }
+            //         })
+            //     });
+            // }
+
+            let files = document.getElementById('ImginputFiles').files;
             for (let i = 0; i < files.length; i++) {
                 let readFile = new FileReader();
                 readFile.readAsDataURL(files[i]);
 
-                readFile.addEventListener('load', function () {
-                    let image = document.createElement('img');
-                    image.src = readFile.result;
-                    let dropzone = document.getElementsByClassName('showImg')[0];
-                    dropzone.insertBefore(image, dropzone.firstChild);
-                });
+                // readFile.addEventListener('load', function () {
+                //     this.files.push(readFile.result);
+                // })
+
+                readFile.addEventListener('load', (event) => {
+                    this.files.unshift(readFile.result);
+                })
             }
+            console.log(this.files);
         }
+    }, mounted() {
     },
 };

@@ -1,3 +1,140 @@
+// 精選主題
+const mobileTheme = Vue.component("mobile-theme", {
+    template: `
+    <div id="mobile_theme">
+        <h2>精選主題</h2>
+        <ul class="continents">
+            <li v-for="continent in continents" :style="continent.image">
+                <h3>{{continent.name}}</h3>
+            </li>
+        </ul>
+    </div>
+    `,
+    data(){
+        return {
+            continents:[
+                {image: "background-image: url('./images/index/content/asia.jpg')", name: "亞洲"},
+                {image: "background-image: url('./images/index/content/europe1.jpg')", name: "歐洲"},
+                {image: "background-image: url('./images/index/content/america4.jpg')", name: "美洲"},
+                {image: "background-image: url('./images/index/content/africa.jpg')", name: "非洲"},
+                {image: "background-image: url('./images/index/content/oceanina1.jpg')", name: "大洋洲"},
+
+            ]
+        }
+    }
+})
+const blade = Vue.component("the-carosul", {
+    template:`
+    <div id="blade">
+        <div class="description">
+            <h2>精選主題</h2>
+            <div v-for="mentor in mentors" :class ="mentor.num">
+                <h3>{{mentor.title}}</h3>
+                <p>{{mentor.content}}</p>
+            </div> 
+        </div>
+        
+        <div id="circle-carousel" class="circle-carousel">
+            <div v-for="item in items" :class="item.name" :data-num="item.num" :data-mentorid="item.mentorid" :data-background="item.background">
+                <div :style="item.circle"></div>
+            </div>
+        </div>
+    </div>
+
+    `,
+    data(){
+        return{
+            mentors:[
+                {num: "mentor 123", title: "非洲", content: "世界上第二大洲，橫跨赤道南北，亦是世界古文明的發源地之一。綿延無亙的金黃沙漠，以及數不盡的多樣野生動物，始終帶給世人無限的好奇前往探索。Jumper將為你開啟一趟前所未有的非洲之旅，無論是充滿神秘且未知的埃及金字塔及人面獅身像，又或是一年一度、壯闊非凡，位於東非草原的動物大遷徙，絕對重新打造您對於非洲國度的全新認知！"},
+                {num: "mentor 456", title: "歐洲", content: "來到建築浪漫與景色宜人的歐洲城市，可玩性和故事性通通精彩到無以複加。歐洲那種惬意悠閑的生活，一向是人們熱衷旅行的目的地之一。Jumper專業線上導遊將零時差帶領你，一同穿梭在巴黎市區飽覽街景，再到繁華的倫敦體驗英倫風情。如果您想觀賞自然奇景，我們會帶您前往芬蘭的玻璃屋欣賞迷幻極光。"},
+                {num: "mentor 789", title: "亞洲", content: "亞洲是五大洲中面積最大，人口最多的一個洲，地跨寒、溫、熱三帶，地形複雜多樣，世界上的各種氣候在亞洲都有分布。從北部精緻典雅的日本京都，到工藝成就舉世無雙的印度泰姬瑪哈陵，再到世界文化遺產的柬埔寨吳哥窟，Jumper將帶領你揭開東方的神祕面紗，讓您盡情體驗當地豐富的歷史文化。"},
+                {num: "mentor 101112", title: "美洲", content: "美洲幅員遼闊，地大物博，橫跨溫帶、亞熱帶，地形生態多樣豐富，各地移民文化交融，就像一本厚厚的百科全書，東西南北各有風情。東岸古老西岸前衛，南方嬌懶中部原始，到底要從何玩起？就讓Jumper帶你參觀位於北美，世界上最大國之一的美國。往下至南美，到位於秘魯的「天空之城」馬丘比丘，登上被群山包圍的世界遺跡！"},
+                {num: "mentor 131415", title: "大洋洲", content: "位於南太平洋上的無數國度，四周被美麗的蔚藍海洋包圍，大洋洲上的海島國家一直是許多人心中的首選度假勝地。跟著jumper的腳步，將帶您一覽澳大利亞所擁有的國寶動物—袋鼠及無尾熊，並帶您前往擁有壯麗景致、冰河與火山奇景共存的紐西蘭國度，又或是那些最令人嚮往旅遊的大溪地、斐濟等，我們將與您一同感受，那專屬於南半球的島嶼風情。"}
+            ],
+            items:[
+                {name: "circle-carousel__item", num: "1", mentorid: "123", background: "./images/index/content/africa.jpg", circle: "background-image: url('./images/index/content/africa_circle.png')"},
+                {name: "circle-carousel__item", num: "2", mentorid: "456", background: "./images/index/content/europe1.jpg", circle: "background-image: url('./images/index/content/europe_circle.png')"},
+                {name: "circle-carousel__item active", num: "3", mentorid: "789", background: "./images/index/content/asia.jpg", circle: "background-image: url('./images/index/content/asia_circle.png')"},
+                {name: "circle-carousel__item", num: "4", mentorid: "101112", background: "./images/index/content/america4.jpg", circle: "background-image: url('./images/index/content/america_circle.png')"},
+                {name: "circle-carousel__item", num: "5", mentorid: "131415", background: "./images/index/content/oceanina1.jpg", circle: "background-image: url('./images/index/content/oceanina_circle.png')"},
+                {name: "circle-carousel__item", num: "6", mentorid: "123", background: "./images/index/content/africa.jpg", circle: "background-image: url('./images/index/content/africa_circle.png')"},
+                {name: "circle-carousel__item", num: "7", mentorid: "456", background: "./images/index/content/europe1.jpg", circle: "background-image: url('./images/index/content/europe_circle.png')"},
+                {name: "circle-carousel__item active", num: "8", mentorid: "789", background: "./images/index/content/asia.jpg", circle: "background-image: url('./images/index/content/asia_circle.png')"},
+                {name: "circle-carousel__item", num: "9", mentorid: "101112", background: "./images/index/content/america4.jpg", circle: "background-image: url('./images/index/content/america_circle.png')"},
+                {name: "circle-carousel__item", num: "10", mentorid: "131415", background: "./images/index/content/oceanina1.jpg", circle: "background-image: url('./images/index/content/oceanina_circle.png')"},
+
+            ]
+        }
+    },    mounted() {
+        // 圓形輪播
+        var container = $('#circle-carousel'),
+        centerX = container.width()/2,
+        centerY = container.height()/2,
+        angle = 0,
+        radius = 300;
+
+        var carouselItems = $('.circle-carousel__item'), 
+        totalItems = carouselItems.length;
+
+        carouselItems.each(function(i, e) {
+        var w2 = $(e).outerWidth(true)/2,
+            h2 = $(e).outerHeight(true)/2,
+            angle = 360/totalItems*i,
+            x = Math.round(centerX+radius *  Math.sin(angle*Math.PI/180)),
+            y = Math.round(centerY+radius * -Math.cos(angle*Math.PI/180));
+        $(e).css({right:x-w2, top:y-h2});
+        });
+
+        var rotate = 360/totalItems
+        var rotated = -rotate /2
+
+        // 初始設定
+        $('#circle-carousel').css('transform', 'rotate('+ -rotate/2 +'deg)')
+        $('.circle-carousel__item div').css('transform', 'rotate('+ rotate/2 +'deg)')
+        $('.active').prev().addClass('next-to-active')
+        $('.active').next().addClass('next-to-active') 
+        $('#blade').css('background-image', 'url("' + $('.active').data('background') + '")')
+        $('.mentor.' + $('.active').data('mentorid')).addClass('mentor--show')
+
+        $('.circle-carousel__item').click(function() {
+        // console.log('current rotated: ', rotated)
+        thisNum = $(this).data('num');
+        currentNum = $('.active').data('num')
+            
+        numOfRotations = (thisNum - currentNum) 
+        if (numOfRotations < -totalItems/2) {
+            numOfRotations += totalItems
+        }
+        if (numOfRotations > totalItems/2) {
+            numOfRotations -= totalItems
+        }
+            
+        rotated += (rotate * numOfRotations)
+            
+        //   console.log('after rotated: ', rotated)
+        $('#circle-carousel').css('transform', 'rotate('+ rotated +'deg)')
+        $('.circle-carousel__item div').css('transform', 'rotate('+ -rotated +'deg)')
+        $('.circle-carousel__item').removeClass('active').removeClass('next-to-active');
+        $('.mentor').removeClass('mentor--show')
+            
+        $(this).addClass('active')
+        $('.active').prev().addClass('next-to-active')
+        $('.active').next().addClass('next-to-active')
+            
+        var thisCarouselItem = $(this)
+        $('#blade').css('background-image', 'url("' + thisCarouselItem.data('background') + '")')
+        setTimeout(function() {
+            $('.mentor.' + thisCarouselItem.data('mentorid')).addClass('mentor--show')
+        }, 200)
+        })
+    },
+
+})
+const vue_theme = new Vue({
+    el: "#best_theme",
+})
+        
+
 // 旅遊項目
 const travel = Vue.component("travel_item", {
     template: `

@@ -31,7 +31,7 @@ const Love = {
                                                 </div>
                                             </div>
                                         </div>
-                                        <p>
+                                        <p class="memberLoveConcent">
                                             {{value.content}}
                                         </p>
                                     </div>
@@ -62,7 +62,9 @@ const Love = {
                                         </div>
                                 </div>
                             </div>
-
+                            <div class="mobileLoveBtn">
+                                    <button class="btnL_light">顯示更多</button>
+                            </div>
                         </div>
             `,
     data() {

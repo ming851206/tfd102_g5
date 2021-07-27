@@ -40,7 +40,7 @@ const Historys = {
                                             <div class = "time">
                                                 {{value.time}}
                                             </div>
-                                            <div class = "comment" v-if="value.comment=='已評論'" >
+                                            <div class = "comment commented" v-if="value.comment=='已評論'" >
                                                 {{value.comment}}
                                             </div>
                                             <div class = "comment" v-else @click="addComment">
@@ -81,7 +81,7 @@ const Historys = {
 
                                                                 </textarea>
                                                             </div>
-                                                            <div class="memberEditCancel">
+                                                            <div class="memberEditCancel historyPopBtn">
                                                                 <button class="btnL_light" @click="cancel">取消</button>
                                                                 <button class="btnL" @click="confirms">確認</button>
                                                             </div>
@@ -112,7 +112,9 @@ const Historys = {
                                         </div>
                                 </div>
                             </div>
-
+                            <div class="mobileLoveBtn ">
+                                    <button class="btnL_light">顯示更多</button>
+                            </div>
                         </div>
             `,
     data() {

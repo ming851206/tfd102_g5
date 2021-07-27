@@ -1,9 +1,32 @@
+#memberMobile {
+    display: flex;
+
+    h1 {
+        font-size: 20px;
+    }
+
+    span {
+        position: absolute;
+        left: 10%;
+        top: 45px;
+        font-size: 20px;
+        cursor: pointer;
+        font-weight: 900;
+    }
+}
+
 #right {
     margin-left: 25px;
-    width: 900px;
+    // width: 900px;
+
+    img {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 //member---------------------------
+
 
 #member {
     display: flex;
@@ -11,6 +34,11 @@
     margin-top: 100px;
     margin-bottom: 100px;
 
+    @include mobile {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 #memberSpace {
@@ -39,6 +67,24 @@
 #memberInfoTitle {
     display: flex;
     justify-content: space-between;
+
+    @include ipad {
+        .btnL_light {
+            width: 160px;
+        }
+
+        width: 407px;
+    }
+}
+
+.editImgCursor {
+    cursor: pointer;
+
+    svg {
+        path {
+            fill: $main_br;
+        }
+    }
 }
 
 #memberInfoImg {
@@ -46,15 +92,67 @@
     height: 200px;
     overflow: hidden;
     border-radius: 100%;
-    margin-right: 100px;
+    margin-right: 38px;
+    position: relative;
+
+    img {
+        object-fit: cover;
+    }
+
+    input {
+        position: absolute;
+        left: -100%;
+        top: -100%;
+    }
+
+    div {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 3%;
+    }
+
+    @include laptop {
+        width: 145px;
+        height: 145px;
+        margin-right: 22px;
+    }
+
+    @include tablet {
+        width: 123px;
+        height: 123px;
+        margin-right: 15px;
+    }
+
+    @include ipad {
+        width: 120px;
+        height: 120px;
+        margin-right: 12px;
+    }
 }
 
 #memberInfoMain {
     display: flex;
     margin-top: 20px;
 
+    .mobileMemberEditBtn {
+        display: none;
+    }
+
     .memberInput {
         width: 600px;
+
+        @include laptop {
+            width: 510px;
+        }
+
+        @include tablet {
+            width: 370px;
+        }
+
+        @include ipad {
+            width: 275px;
+        }
 
         .memberinforEditBorder {
             height: 312px;
@@ -68,10 +166,33 @@
             padding: 0;
             margin-left: 10px;
             font-size: 14px;
+
+            @include laptop {
+                width: 380px;
+            }
+
+            @include tablet {
+                width: 250px;
+            }
+
+            @include ipad {
+                width: 150px;
+            }
         }
 
         .gender {
             align-items: center;
+
+            // input[type="radio"]:checked+label::before {
+            //     background-image: url("../../images/icon/radio-empty.svg");
+            // }
+            #membermanlabel {
+                margin-left: 10px;
+            }
+
+            #membergirllabel {
+                margin-left: 10px;
+            }
 
             input {
                 width: unset;
@@ -79,20 +200,37 @@
                 padding: 0;
                 width: 20px;
                 height: 20px;
-                appearance: auto;
+                cursor: pointer;
+
+                &[type="radio"] {
+                    display: none;
+                }
+
+                &[type="radio"]+label::before {
+                    content: "";
+                    display: inline-block;
+                    width: 14px;
+                    height: 14px;
+                    /*   border: 1px solid blue; */
+
+                    background-image: url("../../images/icon/radio-empty.svg");
+                    background-size: contain;
+
+                    margin-right: 5px;
+                    position: relative;
+                    top: 2px;
+                }
+
+                &[type="radio"]:checked+label::before {
+                    background-image: url("../../images/icon/radio-chk.svg");
+
+                }
             }
 
-            // #membergirl::before {
-            //     background-image: url("../../images/icon/radio-empty.svg");
-            //     background-repeat: no-repeat;
+            label {
+                cursor: pointer;
+            }
 
-            // }
-
-            // #memberman::before {
-            //     background-image: url("../../images/icon/radio-empty.svg");
-            //     background-repeat: no-repeat;
-
-            // }
         }
     }
 
@@ -145,9 +283,38 @@
 
 .memberEditCancel {
     margin-top: 50px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+
+    @include tablet {
+        .btnL_light {
+            width: 165px;
+        }
+    }
+
+    @include ipad {
+        .btnL_light {
+            width: 125px;
+        }
+    }
 
     .btnL {
         margin-left: 30px;
+
+        @include laptop {
+            margin-left: 6px;
+
+        }
+
+        @include tablet {
+            width: 165px;
+        }
+
+        @include ipad {
+            width: 125px;
+            margin-left: 15px;
+        }
     }
 }
 
@@ -159,27 +326,92 @@
     margin-top: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
+    width: 820px;
+
+    @include laptop {
+        width: 660px;
+    }
+
+    @include tablet {
+        width: 510px;
+        margin-top: 0;
+
+    }
+
+    @include ipad {
+        width: 407px;
+        margin-top: 0;
+
+    }
+
+    .memberLoveConcent {
+        margin-top: 10px;
+
+        @include tablet {
+            margin-top: 20px;
+        }
+
+        @include ipad {
+            margin-top: 20px;
+        }
+    }
 
     .loveContentBorder {
-        width: 435px;
+        width: 394px;
         height: 200px;
         overflow: hidden;
         border-radius: 20px;
         position: relative;
         background-color: $sec_ivory;
 
-        p {
-            margin-top: 15px;
+        @include laptop {
+            width: 315px;
+        }
+
+
+
+        @include tablet {
+            margin-top: 20px !important;
+            width: 504px;
+        }
+
+        @include ipad {
+            margin-top: 20px !important;
+            width: 504px;
         }
     }
 
     .loveContentBorder:nth-child(2n) {
         margin-left: 30px;
+
+        @include tablet {
+            margin-left: 0;
+        }
+
+        @include ipad {
+            margin-left: 0;
+        }
+
+        @include mobile {
+            margin-left: 0;
+        }
     }
 
     .loveContentBorder:nth-child(3n),
     .loveContentBorder:nth-child(4n) {
         margin-top: 30px;
+
+        @include tablet {
+            margin-top: 0;
+        }
+
+        @include ipad {
+            margin-left: 0;
+        }
+
+        @include mobile {
+            margin-left: 0;
+        }
     }
 }
 
@@ -187,7 +419,15 @@
 
 .loveImg {
     height: 200px;
-    width: 150px;
+    min-width: 150px;
+
+    @include laptop {
+        min-width: 135px;
+    }
+
+    @include tablet {
+        min-width: 180px;
+    }
 }
 
 .headImg {
@@ -195,6 +435,11 @@
     width: 100px;
     overflow: hidden;
     border-radius: 100%;
+
+    @include laptop {
+        height: 80px;
+        width: 80px;
+    }
 }
 
 .cardBorder {
@@ -202,8 +447,10 @@
 }
 
 .loveContents {
+    // margin-left: 20px;
+    // margin-top: 8px;
+    margin: 8px;
     margin-left: 20px;
-    margin-top: 8px;
 }
 
 .loveContentsTop {
@@ -215,6 +462,10 @@
     display: flex;
     margin-left: 20px;
 
+    @include laptop {
+        margin-left: 0;
+
+    }
 }
 
 .TopRithtLove {
@@ -233,6 +484,8 @@
     display: flex;
     justify-content: center;
     margin-top: 30px;
+
+
 
     .loveNavs {
         display: flex;
@@ -260,6 +513,9 @@
     }
 }
 
+.mobileLoveBtn {
+    display: none;
+}
 
 // history--------------------------------------
 
@@ -274,7 +530,10 @@
 
     display: flex;
     justify-content: space-between;
-    margin-top: 10px;
+
+    @include laptop {
+        margin-top: 10px;
+    }
 
     .comment {
         margin-right: 14px;
@@ -283,7 +542,23 @@
         border-bottom: 1px solid blue;
     }
 
+    .commented {
+        color: black;
+        border-bottom: 0;
+        cursor: unset;
+    }
+}
 
+.historyPopBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        margin-top: 30px;
+        margin-bottom: 40px;
+        width: 165px !important;
+    }
 }
 
 //   未評價頁面
@@ -334,7 +609,12 @@
                 width: 300px;
 
                 p:last-child {
+                    margin-top: 10px;
                     font-size: 20px;
+
+                    @include mobile {
+                        font-size: 12px;
+                    }
                 }
             }
 
@@ -350,6 +630,11 @@
             svg {
                 width: 30px;
                 height: 30px;
+
+                @include mobile {
+                    width: 15px;
+                    height: 15px;
+                }
             }
 
         }
@@ -400,9 +685,10 @@
 // join------------------------------------------
 
 .joinContents {
+    // margin-left: 20px;
+    // margin-top: 8px;
+    margin: 8px;
     margin-left: 20px;
-    margin-top: 8px;
-
 }
 
 .gotravel {
@@ -416,15 +702,24 @@
 
 .joinComment {
     margin-bottom: 30px;
+
+    @include laptop {
+        margin-bottom: 10px;
+        margin-left: 5px;
+    }
 }
 
 .joinTime {
     margin-top: 10px;
     font-size: 20px;
+
+    @include laptop {
+        font-size: 16px;
+    }
 }
 
 .joinP {
-    margin-top: 6px !important;
+    // margin-top: 6px !important;
 }
 
 
@@ -450,28 +745,53 @@
     height: 50px;
     align-items: center;
     // justify-content: space-around;
-    width: 900px;
+    width: 836px;
     margin-top: 20px;
     text-align: center;
+    flex-wrap: nowrap;
+
+    @include laptop {
+        width: 678px;
+    }
 
     .travelNavBarP {
         margin-left: 20px;
 
+        p {
+            white-space: nowrap;
+        }
+
         &:first-child {
             margin-left: 30px;
             width: 200px;
+
+            @include laptop {
+                width: 223px;
+            }
         }
 
         &:nth-child(2) {
             width: 50px;
+
+            @include laptop {
+                width: 65px;
+            }
         }
 
         &:nth-child(3) {
             width: 120px;
+
+            @include laptop {
+                width: 143px;
+            }
         }
 
         &:nth-child(4) {
             width: 170px;
+
+            @include laptop {
+                width: 220px;
+            }
         }
 
         &:nth-child(5) {
@@ -480,6 +800,10 @@
 
         &:nth-child(6) {
             width: 80px;
+
+            @include laptop {
+                width: 44px;
+            }
         }
 
         &:nth-child(7) {
@@ -503,14 +827,22 @@
     height: 50px;
     align-items: center;
     // justify-content: space-around;
-    width: 900px;
+    width: 836px;
     margin-top: 20px;
     flex-wrap: nowrap;
+
+    @include laptop {
+        width: 678px;
+    }
 
     .travelP {
         margin-left: 20px;
         overflow: hidden;
         text-align: center;
+
+        @include laptop {
+            margin-left: 4px;
+        }
 
         p {
             white-space: nowrap;
@@ -523,14 +855,26 @@
 
         &:nth-child(2) {
             width: 50px;
+
+            @include laptop {
+                width: 65px;
+            }
         }
 
         &:nth-child(3) {
             width: 120px;
+
+            @include laptop {
+                width: 143px;
+            }
         }
 
         &:nth-child(4) {
             width: 170px;
+
+            @include laptop {
+                width: 220px;
+            }
         }
 
         &:nth-child(5) {
@@ -539,6 +883,10 @@
 
         &:nth-child(6) {
             width: 80px;
+
+            @include laptop {
+                width: 120px;
+            }
         }
 
         &:nth-child(7) {
@@ -564,16 +912,25 @@
         border-radius: 20px;
         overflow: hidden;
         margin-top: 20px;
+        width: 820px;
+
+        @include laptop {
+            width: 664px;
+        }
 
         select {
             border: 0;
             height: 45px;
             padding: 0;
             margin: 0;
-            width: 740px;
+            width: 654px;
             margin-left: 10px;
             outline: none;
 
+            @include laptop {
+                margin-right: 26px;
+                width: 660px;
+            }
         }
 
         input {
@@ -581,15 +938,20 @@
             height: 45px;
             padding: 0;
             margin: 0;
-            width: 740px;
+            width: 704px;
             margin-left: 10px;
         }
 
-        div {
+        .travelInputEditTitle {
             height: 100%;
-            padding: 20px;
-            padding-right: 0;
-            width: 130px;
+            width: 80px;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+
+            @include laptop {
+                width: 112px;
+            }
         }
     }
 
@@ -597,10 +959,45 @@
         width: 100%;
         height: unset;
 
+        span {
+            margin-top: 12px;
+        }
+
         .showImg {
             width: 590px;
             padding: 0;
             background-color: $sec_ivory;
+            margin-left: 45px;
+            margin-top: 12px;
+
+            .addimgborders {
+                position: relative;
+            }
+
+            .addimgdelete {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+
+                &::before {
+                    position: absolute;
+                    content: '';
+                    background-image: url("../../images/icon/close.svg");
+                    background-position: center center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            @include laptop {
+                width: 476px;
+                margin-left: 0;
+            }
 
             img {
                 width: 100%;
@@ -625,12 +1022,12 @@
             width: 100px;
             height: 50px;
             border: 1px solid $main_br;
-            align-items: center;
             cursor: pointer;
             border-radius: 20px;
-            line-height: 0.8;
             margin-top: 40px;
-
+            margin-bottom: 20px;
+            line-height: 3;
+            text-align: center;
         }
     }
 
@@ -638,6 +1035,12 @@
         flex-direction: column;
         width: 100%;
         height: 550px;
+
+        .travelInputEditTitle {
+            align-items: flex-start;
+            height: unset;
+            margin-top: 12px;
+        }
 
         div {
             width: 100%;
@@ -694,9 +1097,250 @@
     }
 }
 
+@include mobile {
+    #right {
+        margin-left: 0;
+    }
+
+    .mobileMemberSvg {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+
+
+    #left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 320px;
+        flex-wrap: wrap;
+    }
+
+    .memberborder.active {
+        a {
+            border-bottom: 0;
+        }
+    }
+
+    .memberborder {
+        width: 155px;
+        height: 100px;
+        border: 1px solid $main_br;
+        border-radius: 20px;
+        background-color: $sec_ivory;
+        margin-top: 10px;
+        position: relative;
+
+        &:nth-child(2n) {
+            margin-left: 10px;
+        }
+
+        &:nth-child(1) {
+            order: 1;
+        }
+
+        &:nth-child(2) {
+            order: 2;
+        }
+
+        &:nth-child(3) {
+            order: 3;
+        }
+
+        &:nth-child(4) {
+            order: 4;
+        }
+
+        &:nth-child(5) {
+            order: 6;
+            margin-left: 10px;
+        }
+
+        &:nth-child(6) {
+            order: 5;
+            margin-left: 0;
+        }
+
+        a {
+            color: $main_br;
+            width: 155px;
+            height: 100px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+
+    }
+
+
+
+    #memberInfoTitle {
+        display: none;
+    }
+
+    #memberInfoMain {
+        flex-direction: column;
+        width: 320px;
+        align-items: center;
+
+        .mobileMemberEditBtn {
+            display: flex;
+            order: 2;
+            margin: 30px 0;
+            width: 100%;
+            justify-content: flex-end;
+            height: 30px;
+
+            button {
+                width: 114px;
+            }
+
+        }
+
+        #memberInfoImg {
+            order: 1;
+        }
+
+        .memberInfoImg {
+            margin-right: 0;
+        }
+
+        .memberInput {
+            width: 100%;
+            margin-top: 10px;
+            order: 3;
+
+            input {
+                width: 198px;
+            }
+        }
+
+
+    }
+
+    .memberEditCancel {
+        .btnL_light {
+            width: 110px !important;
+        }
+
+        .btnL {
+            width: 110px !important;
+        }
+    }
+
+    #memberLove {
+        display: none;
+
+    }
+
+    #loveContent {
+        flex-direction: column;
+        width: 320px;
+        margin: 0;
+
+        .loveContentBorder {
+            width: unset;
+            height: 150px;
+            margin: 0;
+            margin-top: 30px !important;
+
+            .loveImg {
+                height: 150px;
+                min-width: 120px;
+            }
+
+            .headImg {
+                height: 50px;
+                width: 50px;
+            }
+        }
+
+
+
+    }
+
+    .loveNumberNav {
+        display: none;
+    }
+
+    .mobileLoveBtn {
+        display: block;
+        width: 100%;
+        margin-top: 60px;
+        margin-bottom: 80px;
+
+        button {
+            width: 100%;
+        }
+    }
+
+    #joinStarAndFrom {
+        margin-top: 5px;
+    }
+
+    .joinComment {
+        margin-bottom: 0;
+    }
+
+    .joinTime {
+        margin-top: 0;
+        font-size: 100%;
+    }
+
+    .historyContents {
+        width: unset;
+    }
+
+    .memberEditCancel {
+        display: flex;
+        justify-content: center;
+    }
+
+    #addDiv {
+        #addDivOutterBord {
+            width: 320px;
+
+            #addDivInnerBord {
+                width: 279px;
+            }
+
+            .addDivDown textarea {
+                width: 242px;
+            }
+        }
+    }
+
+    .Star {
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+    }
+
+    .historyPopBtn {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+
+    }
+
+    .mobileMemberEditTrival {
+        visibility: hidden;
+    }
+}
 
 //abc
-
 
 
 

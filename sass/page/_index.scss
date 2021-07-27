@@ -45,7 +45,6 @@ section.earth{
     position: relative;
     width: 100%;
     height: calc(100vh - 85px);
-    border: 1px solid #9EA2A4;
     background: linear-gradient(to bottom, #192B39 40%, #3F5361 55%, #8798A5 85%, #D0DCE1);
     background-image: url("../images/index/content/bg_1.jpg");
     background-size: cover;
@@ -433,10 +432,209 @@ section.earth{
     .fence{
         width: 100%;
         height: 45px;
-        background-image: url("../images/index/content/fence.png");
+        background-image: url("../images/index/content/fence_hor.png");
         z-index: 1;
     }
 }
+
+// 精選主題
+#blade {
+    margin-top: 100px;
+    position: relative;
+    background-color: white;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 750px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    // padding-top: 5vw;
+    @include sm{
+        display: none;
+    }
+    h2{
+      position: absolute;
+      top: 20vh;
+      left: 10.8vw;
+      color: white;
+      text-shadow: 1px 1px 1px black, -1px -1px 1px black;
+      @include xl{
+        left: 8.8vw;
+      }
+      @include lg{
+        left: 11.6vw;
+      }
+      @include md{
+        top: 23vh;
+      }
+    }
+    .mentor {
+      position: absolute;
+      max-width: 600px;
+      top: 30vh;
+      left: 10vw;
+      color: black;
+      line-height: 1.6;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.5s;
+      &--show {
+        opacity: 1;
+      }
+      @include xl{
+        left: 8vw;
+        padding: 16px;
+      }
+      @include lg{
+        left: 10.5vw;
+        max-width: 450px
+      }
+      @include md{
+        top: 33vh;
+        max-width: 300px;
+      }
+      h3{
+          margin-bottom: 3px;
+          font-weight: 600;
+      }
+      p{
+          font-size: 16px;
+          line-height: 1.8;
+      }
+    }
+}
+  
+.circle-carousel { 
+    width: 600px; 
+    height: 600px; 
+    position: absolute; 
+    right: -300px;
+    margin-top: -50px;
+    transition: transform .5s;
+    z-index: 90;
+    cursor: pointer;
+    @include md{
+        right: -350px;
+    }
+    &__item { 
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 20px;
+      color: rgba(247, 246, 242, 0.5);
+      transition: all 0.5s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      -webkit-filter: opacity(70%);
+      filter: opacity(70%);
+      cursor: pointer;
+      @include lg{
+        width: 65px;
+        height: 65px;
+      }
+      @include md{
+        width: 58px;
+        height: 58px;
+      }
+      
+      &.active{
+        background: rgba(247, 246, 242, 0.5) !important;
+        transform: scale(2.6);
+        -webkit-filter: opacity(90%);
+        filter: opacity(90%);
+        cursor: pointer;
+      }
+      &.next-to-active {
+        transform: scale(1.4);
+        cursor: pointer;
+      }
+      div {
+        background-size: cover;
+        background-position: center center;
+        width: 100%;
+        height: 100%;
+        transition: transform .5s;
+      }
+    }
+}
+#circle-carousel{
+    @include sm{
+        display: none;
+    }
+}
+#mobile_theme{
+    display: none;
+    @include sm{
+        display: block;
+        // border: 1px solid red;
+        margin-top: 100px;
+        h2{
+            @include sm {
+                width: 500px;
+                margin: 0px auto 20px;
+            }
+            @include xs{
+                width: 320px;
+            }
+        }
+        li{
+            height: 250px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+            min-width: 320px;
+            h3{
+                color: white;
+                font-size: 30px;
+                font-weight: bold;
+                text-shadow: 1px 1px 0px rgba(0,0,0,.8);
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform:translate(-50%, -50%);
+            }
+            &:nth-child(1){
+                h3{
+                    color: rgba(0,0,0,.8);
+                    text-shadow: 1px 1px 0px whitesmoke;
+
+                }
+            }
+            &:nth-child(5){
+                h3{
+                    color: rgba(0,0,0,.8);
+                    text-shadow: 1px 1px 0px whitesmoke;
+
+                }
+            }
+        }
+    }
+}
+    //   @include sm{
+    //     color: rgba(0, 0, 0, 0.8);
+    //     text-shadow: none;
+    //   }
+// <div id="best_theme">
+// <div id="mobile_theme">
+//     <<div>
+// <h2>精選主題</h2>
+// <ul class="continents">
+//     <li v-for="continent in continents" :style="continent.image">
+//         <h3>{{continent.name}}</h3>
+//     </li>
+// </ul>
+// </div>
+// </div>
+
+
 // 熱門旅遊
 .travel{
     width: $w1200;
@@ -474,9 +672,9 @@ section.earth{
             width: 550px;
             @include margin(25px, 40px)
         }
-        @include sm {
-            width: 350px;
-            @include margin(25px, 40px)
+        @include xs {
+            width: 295px;
+            @include margin(25px, 0px)
         }
     }
     ul#travel_container{
