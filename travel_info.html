@@ -9,7 +9,7 @@
     <script src="./js/vue/vue.js"></script>
     <script src="./js/jq/jquery-3.6.0.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-    <title>travel_info</title>
+    <title>尼加拉大瀑布</title>
 </head>
 <body class="travel_info_Body">
     <!-- <h2>Hello</h2> -->
@@ -395,7 +395,7 @@
 
         <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
 
-        </main>
+
 
 
 
@@ -415,26 +415,34 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
         <script>
             // $(選取).處理();
-            $(document).ready(function () {
+    $(document).ready(function () {
     
-                $(".owl-carousel").owlCarousel({
-                    loop: false, // 循環播放
-                    margin: 10, // 外距 10px
-                    nav: false, // 顯示按鍵
-                    dots: false, //顯示點點
-                    responsive: {
-                        0: {
-                            items: 1 // 螢幕大小為 0~600 顯示 1 個項目
-                        },
-                        600: {
-                            items: 3 // 螢幕大小為 600~1000 顯示 3 個項目
-                        },
-                        1000: {
-                            items: 5 // 螢幕大小為 1000 以上 顯示 5 個項目
-                        }
-                    }
-                });
-            });
+        $(".owl-carousel").owlCarousel({
+            loop: false, // 循環播放
+            margin: 10, // 外距 10px
+            nav: false, // 顯示按鍵
+            dots: false, //顯示點點
+            responsive: {
+                0: {
+                    items: 1 // 螢幕大小為 0~600 顯示 1 個項目
+                },
+                600: {
+                    items: 3 // 螢幕大小為 600~1000 顯示 3 個項目
+                },
+                1000: {
+                    items: 5 // 螢幕大小為 1000 以上 顯示 5 個項目
+                }
+            }
+        });
+    });
+
+    $("#go_top").click(function () {
+        $("html, body").animate({
+            scrollTop: 0,
+        }, 1000)
+    })
+
+
     
         </script>
         <script>
