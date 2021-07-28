@@ -7,13 +7,12 @@
 
     .pic {
         height: 50%;
-        width: 100%;
-        background-image: url(/images/travel_list/800/wugerku.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        object-fit: contain;
         display: flex;
         justify-content: flex-end;
+        img{
+            width: 100%;
+            object-fit: cover;
+        }
     }
 
     .content {
