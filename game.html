@@ -73,7 +73,7 @@
                             </div>
                             <div class="btn_group">
                                 <div class="input_group">
-                                    <label class="opt opt1" @click="win">
+                                    <label class="opt opt1">
                                         <input type="radio" name="question1" :value="task.option_1">
                                         {{task.option_1}}                                  
                                     </label> 
@@ -93,7 +93,7 @@
                 </div>
 
                 <!-- 挑戰成功 -->
-                <div class="challenge" id="winning" v-if="ans==true">
+                <div class="challenge winning">
                     <div class="result_mask"></div>
                     <div class="game_detail">
                         <div class="game_close_btn"></div>
@@ -109,8 +109,8 @@
                     </div>
                 </div>
                     
-                <!-- 挑戰失敗 -->
-                <div class="challenge" id="losing" v-else>
+                 挑戰失敗 -->
+                 <!--<div class="challenge losing">
                     <div class="result_mask"></div>
                     <div class="game_detail">
                         <div class="game_close_btn"></div>
@@ -122,7 +122,7 @@
                             </div>   
                         </div>
                     </div>
-                </div>
+                </div> -->
                  
                 <!-- 任務進度 -->
                 <div class="game_result_overlay">
@@ -193,14 +193,11 @@
                         // {num: "2", question: "下列何者不是在非洲內?", option_1: "埃及", option_2: "日本", option_3: "衣索比亞"},
                         // {num: "3", question: "世界上雙胞胎最多的地方在哪裡？", option_1: "印度", option_2: "奈及利亞", option_3: "美國"},
                     ],
-                    ans: true,
                 }
                 
             },
             methods: {
-                win: function(){
-                    this.ans = true;
-                }
+
             },
 
             mounted() {
