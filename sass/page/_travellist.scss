@@ -743,6 +743,7 @@
                 height: 30px;
                 right: 5%;
                 top: 85%;
+                color: transparent;
 
                 @include tablet {
                     right: 6%;
@@ -780,6 +781,8 @@
                 height: 30px;
                 right: 1%;
                 top: 85%;
+                color: transparent;
+
             }
 
             .owl-next:hover {
