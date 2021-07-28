@@ -385,9 +385,78 @@
     }
 }
 
-// ========== 本月主打的旅遊 ==========
-.main_trip {
-    // border: 2px solid red;
+// ========= 最獲好評的旅遊 =========
+// .thebest_trip {
+//     width: 100%;
+//     max-width: 1200px;
+//     box-sizing: border-box;
+//     margin: 0 auto;
+//     justify-content: center;
+//     padding: 40px 40px;
+    
+//     h3 {
+//         font-weight: bold;
+//         padding: 20px 0 40px 0;
+//     }
+    
+//     .arrow {
+//         // border: 2px solid red;
+//         margin-bottom: 20px;
+//         width: 180px;
+//         float: right;
+//         display: flex;
+//         align-items: center;
+        
+//         div {
+//             margin-left: 20px;
+//             cursor: pointer;
+//             display: inline-block;
+//         }
+//     }
+    
+//     .container {
+//         border: 2px solid red;
+//         width: 100%;
+//         padding: 0;
+//         display: flex;
+//         justify-content: space-between;
+
+//         li {
+//             width: 23%;
+
+//             a {
+//                 width: 100%;
+//                 // border: 2px solid red;
+//                 border-radius: $borderRadius_cd;
+//                 overflow: hidden;
+
+//                 .trip_item {
+//                     @include tripcard();
+//                     max-height: 350px;
+
+//                     .content {
+//                         padding: 40px 20px 80px 20px;
+
+//                         .avatar img {
+//                             width: 100px;
+//                             height: 100px;
+//                             top: -30%;
+//                         }
+
+//                         h4.intro {
+//                             max-height: 50px;
+//                             overflow: hidden;
+//                             margin-bottom: 10px;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// ========= 本月主打的旅遊 =========
+.main_trip{
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
@@ -484,8 +553,8 @@
     }
 }
 
-// ========= 近期瀏覽旅遊 =========
-.best_trip,
+// ========= 最獲好評的旅遊 & 近期瀏覽旅遊 =========
+.thebest_trip,
 .viewed_trip {
     // border: 3px solid red;
     width: 100%;
@@ -635,7 +704,7 @@
 }
 
 
-.best_trip,
+.thebest_trip,
 .viewed_trip,
 .main_trip {
     .owl-carousel {
@@ -673,7 +742,7 @@
     }
 }
 
-.best_trip,
+.thebest_trip,
 .viewed_trip,
 .main_trip {
     .owl-carousel {
