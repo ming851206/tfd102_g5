@@ -272,7 +272,7 @@ const opinion = Vue.component("the-opinion",{
             </div>
             <button id="opinion_more" class="btnL_line">觀看更多</button>
         </div>
-        <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+        <img id="going_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
     </div>
     `,
     data(){
@@ -292,7 +292,7 @@ const opinion = Vue.component("the-opinion",{
             $(".person").show();
         });
 
-        $("#go_top").click(function(){
+        $("#going_top").click(function(){
             $("html, body").animate({
                 scrollTop: 0
             }, 1000)

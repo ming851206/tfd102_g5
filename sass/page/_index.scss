@@ -1040,7 +1040,7 @@ section.earth{
             transform: translateX(-50%);
         }   
     }
-    #go_top{
+    #going_top{
         cursor: pointer;
         align-self: flex-end;
         margin-right: 35px;
@@ -1050,9 +1050,6 @@ section.earth{
         }
         @include md_sm {
             margin-right: 16px;
-        }
-        @include sm { 
-        
         }
         @include xs { 
             margin-bottom: 90px;
