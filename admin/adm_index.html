@@ -31,8 +31,10 @@
 
         </div>
     </section>
+    <script src="../js/jq/jquery-3.6.0.js"></script>
     <script src="../js/vue/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+  
     <script>
         Vue.use(VueRouter);
 
@@ -162,6 +164,7 @@
                                     <td>2023/12/31</td>
                                     <td>1</td>
                                     <td>2022 Jun25 15:00</td>
+                                    <td>
                                         <button>編輯</button>
                                         <button>刪除</button>
                                     </td>
@@ -419,7 +422,7 @@
                         <td>10</td>
                         <td>否</td>
                         <td>$1000</td>
-                        <td><input type="checkbox" name="" id=""></td>
+                        <td><input type="checkbox" name=""></td>
                     </tr>
                     <tr>
                         <td>2</td>
@@ -441,7 +444,7 @@
                         <td>10</td>
                         <td>否</td>
                         <td>$1000</td>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" ></td>
                     </tr>
  
                 </table>
@@ -545,7 +548,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" id=""></td>
+                            <td><input type="checkbox" name="" class="chkbox"></td>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -554,7 +557,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" id=""></td>
+                            <td><input type="checkbox" name="" class="chkbox"></td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -563,7 +566,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" id=""></td>
+                            <td><input type="checkbox" name="" class="chkbox"></td>
                         </tr>
                         <tr>
                             <td>4</td>
@@ -572,7 +575,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" id=""></td>
+                            <td><input type="checkbox" name="" class="chkbox"></td>
                         </tr>
                         <tr>
                             <td>5</td>
@@ -581,7 +584,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" id=""></td>
+                            <td><input type="checkbox" name="" class="chkbox"></td>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -590,11 +593,11 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" id=""></td>
+                            <td><input type="checkbox" name="" class="chkbox"></td>
                         </tr>
                     </table>
                     <label for="" class="allChk">
-                        全選<input type="checkbox" id="allChk">
+                        全選<input type="checkbox" id="allChk" @click="allchk">
                     </label>
                     <button id="delete">刪除</button>
                     <div class="pager2">
@@ -610,7 +613,16 @@
                     </div>
                 </div>
                 
-            ` }
+            `,
+        methods: {
+            allchk(e){
+                let items = document.querySelectorAll('input.chkbox'); //全選勾選大家跟著勾
+                items.forEach(function(item, i){
+                    item.checked = e.target.checked;
+                });
+            },
+        },        
+        }
 
         const NewCoupon = {
             template: ` 
@@ -693,8 +705,12 @@
         new Vue({
             el: '#app',
             router,
+            mounted(){
+
+            },
         });
     </script>
+
 </body>
 
 </html>

@@ -9,7 +9,7 @@
     <style>
         .turnBg {
             background-image: url(./images/icon/minus2.svg) !important;
-            background-position: top 32px right 30px !important;
+            background-position: top 31px right 30px !important;
             background-size: 20px !important;
             border-radius: 13px 13px 0 0 !important;
         }
@@ -300,6 +300,10 @@
                     { path: '/q_coupon', component: Coupon },
                 ],
             }),
+            mounted(){
+                let preSet = document.getElementsByClassName('preChk')[0];
+                preSet.click();
+            },
         });
     </script>
     <script>
