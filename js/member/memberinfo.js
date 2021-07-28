@@ -122,7 +122,7 @@ const MemberInfo = {
     methods: {
         fileChange: function (e) {
             let files = document.getElementById('editImgInput').files[0];
-            console.log(files);
+            // console.log(files);
             let readFile = new FileReader();
             readFile.readAsDataURL(files);
 

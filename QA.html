@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="zh_Hant">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,27 +10,21 @@
     <style>
         .turnBg {
             background-image: url(./images/icon/minus2.svg) !important;
-            background-position: top 42px right 30px !important;
+            background-position: top 32px right 30px !important;
             background-size: 20px !important;
-            border-radius: 13px 10px 0 0 !important;
+            border-radius: 13px 13px 0 0 !important;
         }
 
         @media all and (max-width: 576px) {
             .turnBg {
-                background-position: top 30px right 20px !important;
+                background-position: top 30px right 30px !important;
             }
-        }
-
-        .showWord {
-            background-color: aqua;
         }
     </style>
 </head>
 
 <body>
-    <!-- <h1>
-        <img src="./images/logo/logo.png" alt="">
-    </h1> -->
+  
     <header id="the_header">
         <the-header></the-header>
     </header>
@@ -39,6 +32,9 @@
         <menu-item></menu-item>
     </div>
     <section class="faq_sec1">
+        <h1>
+            <img src="./images/logo/logo.png" alt="">
+        </h1>
         <h2>您好，需要什麼協助嗎?</h2>
         <input type="text">
         <div class="deco"></div>
@@ -48,7 +44,7 @@
         <div id="faq_app">
             <div class="flexbox">
                 <div class="app_l">
-                    <router-link to="/q_acc">個人帳戶</router-link>
+                    <router-link to="/q_acc" class="preChk">個人帳戶</router-link>
                     <router-link to="/q_trip">參與旅程</router-link>
                     <router-link to="/q_pay">購買與付款</router-link>
                     <router-link to="/q_cancel">取消與退款</router-link>
@@ -59,7 +55,7 @@
                 </div>
             </div>
         </div>
-
+<p><span></span></p>
     </section>
     <section class="faq_sec3">
         <h3>更多幫助</h3>
@@ -74,7 +70,7 @@
             <textarea name="" id="" cols="30" rows="10">想問的問題：</textarea>
             <button class="btnM">送出</button>
         </form>
-        <img src="./images/icon/toTop_dark.svg" alt="">
+        <img src="./images/icon/toTop_dark.svg" alt="" id="goTop">
     </section>
     <footer id="the_footer">
         <the-footer></the-footer>
@@ -88,109 +84,209 @@
 
         Vue.use(VueRouter);
 
+
+
         const Acc = {
             template: `
             <div>
-                <div class="qcard">
-                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何獲得優惠碼</p>
-                    <div class="word">
-                        您可以透過以下兩種方式獲得優惠碼：</br>
-                        <span>‧</span><p>完成jumper旅遊護照，集滿五個的jumper印章，即可獲得一組優惠碼。</p>
-                        <span>‧</span><p>每次參與完您的旅程後，給予該旅程評價與意見，即可獲得一組優惠碼。</p>
-                    </div>
+                <div class="qcard" v-for="card in data">
+                    <template v-if="card.path === $route.path">
+                        <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}" v-text="card.title"></p>
+                        <div v-if="card.isActive" class="word" v-html="card.content">
+                        </div>
+                    </template>
                 </div>
-                <div class="qcard">
-                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何查詢我的優惠碼?</p>
-                    <div class="word">
-                        當您在購買任一旅程時，點選結帳頁面最下方「輸入優惠券」，將會列出您所有仍在效期內，且尚未使用過的優惠碼。
-                    </div>
-                </div>
-
-                <div class="qcard">
-                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何使用優惠嗎?</p>
-                    <div class="word">
-                        <p>當您獲得優惠碼後，在下一次購買任何旅遊行程時，於付款頁面「輸入優惠券」的項目中，輸入您的優惠碼，系統會自動依據您的優惠碼內容，自結帳總金額中扣除。</p>
-                        <p>請注意，一筆旅程訂單只適用一組優惠碼。一組優惠碼不能用於多次消費，一旦使用過後，便無法再於其他旅程訂單中使用。</p>
-                    </div>
-                </div>
-
             </div>
             `,
             data() {
-                return {
-                    isActive: false,
+                return { 
+                    data:[
+                        {
+                            title:'忘記密碼該怎麼辦?',
+                            content:'<p>您可以在註冊/登入頁面，點選「忘記密碼」按鈕，並輸入您當初註冊時，所填寫的電子信箱。我們將發送一組新的密碼至您的信箱，之後您可以再重新設定密碼。</p>',
+                            isActive:false,
+                            path:'/q_acc'
+                        },
+                        {
+                            title:'如何修改個人資訊?',
+                            content:'<p>在您完成登入會員後，可至會員中心，點選「會員資料」項目，修改您的基本資料，並按下確認送出。</p>',
+                            isActive:false,
+                            path:'/q_acc'
+                        },
+                        {
+                            title:'如何建立個人帳戶?',
+                            content:'<p>點選註冊按鈕，進入註冊頁面。輸入您的使用者名稱、電子信箱以及密碼，輸入完成後將可免費註冊成為jumper會員!</p>',
+                            isActive:false,
+                            path:'/q_acc'
+                        },
+                       
+                    ]
                 };
-            },
-            methods: {
-                // show(e){
-
-                //     e.currentTarget.nextElementSibling.classList.toggle(showWord);
-                // },
-
-            },
-            computed: {
-
             },
         };
 
         const Trip = {
             template: `
             <div>
-                <div class="qcard">
-                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何查詢我的優惠碼?</p>
-                    <div class="word">
-                        當您在購買任一旅程時，點選結帳頁面最下方「輸入優惠券」，將會列出您所有仍在效期內，且尚未使用過的優惠碼。
+                <div class="qcard" v-for="card in data">
+                    <template v-if="card.path === $route.path">
+                    <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}" v-text="card.title"></p>
+                    <div v-if="card.isActive" class="word" v-html="card.content">
+                        
                     </div>
+                    </template>
                 </div>
-
-                <div class="qcard">
-                    <p @click="isActive = !isActive;" :class="{turnBg: isActive}">如何使用優惠嗎?</p>
-                    <div class="word">
-                        <p>當您獲得優惠碼後，在下一次購買任何旅遊行程時，於付款頁面「輸入優惠券」的項目中，輸入您的優惠碼，系統會自動依據您的優惠碼內容，自結帳總金額中扣除。</p>
-                        <p>請注意，一筆旅程訂單只適用一組優惠碼。一組優惠碼不能用於多次消費，一旦使用過後，便無法再於其他旅程訂單中使用。</p>
-                    </div>
-                </div>
-              
             </div>
             ` ,
             data() {
                 return {
-                    isActive: false,
+                    data:[
+                        {
+                            title:'如何參加我有興趣旅程?',
+                            content:'<p>您可以點選進該旅程頁面，選擇您希望參與的日期、時段及參與人數，若該日期與時段的參與人數尚未額滿，您即可購買此旅程。</p><p>等待旅遊活動當日，至會員中心「即將參與旅程」的清單中，在該旅程項目點擊「前往旅程」。旅遊活動開始時，線上導遊便會帶著您參與行程。</p>',
+                            isActive:false,
+                            path:'/q_trip'
+                        },
+                        {
+                            title:'參與旅程當天，是否需要準備什麼?',
+                            content:'<p>建議您在事先備好電腦或平板，並於活動當天在網路順暢的環境下參與您的旅程。</p>',
+                            isActive:false,
+                            path:'/q_trip'
+                        },
+                    ]
                 };
             },
-            methods: {
-                // show(e){
-
-                //     e.currentTarget.nextElementSibling.classList.toggle(showWord);
-                // },
-
-            },
-            computed: {
-
-            },
-
         };
 
 
 
         const Pay = {
             template: `
-                <div class="qcard">
-                    購買與付款
+                <div>
+                    <div class="qcard" v-for="card in data">
+                        <template v-if="card.path === $route.path">
+                        <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}" v-text="card.title"></p>
+                        <div v-if="card.isActive" class="word" v-html="card.content">
+                            
+                        </div>
+                        </template>
+                    </div>
                 </div>
-            ` };
+            ` ,
+            data(){
+                return{
+                    data:[
+                        {
+                            title:'如何購買我有興趣的行程?',
+                            content:'<p>您可以點選進該旅程頁面，選擇您希望參與的日期、時段及參與人數，若該日期與時段的參與人數尚未額滿，您即可購買此旅程。</p>',
+                            isActive:false,
+                            path:'/q_pay'
+                        },
+                        {
+                            title:'目前網站有提供那些付款方式?',
+                            content:'<p>目前僅提供「信用卡付款」方式，來完成您的每一筆訂單。而我們接受 Master Card、Maestro、Visa、American Express 所發行的信用卡。</p>',
+                            isActive:false,
+                            path:'/q_pay'
+                        },
+                        {
+                            title:'哪裡可以看見我所購買的旅程?',
+                            content:'<p>您可以至會員中心，點選「即將參與旅程」的項目，瀏覽您目前已付款但活動尚未開始的旅程。</p></br><p>亦可在「旅程紀錄」中，瀏覽您過往已參與過的行程。</p>',
+                            isActive:false,
+                            path:'/q_pay'
+                        }
+                    ]
+                };
+            },
+        };
         const Cancel = {
             template: `
-                <div class="qcard">
-                    取消與付款
+                <div>
+                    <div class="qcard" v-for="card in data">
+                        <template v-if="card.path === $route.path">
+                        <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}" v-text="card.title"></p>
+                        <div v-if="card.isActive" class="word" v-html="card.content">
+                            
+                        </div>
+                        </template>
+                    </div>
                 </div>
-            ` };
+            `,
+            data(){
+                return{
+                    data:[
+                        {
+                            title:'如何取消已付款的旅程?',
+                            content:'<p>在您已付款的旅程「活動開始前24小時」，可至會員中心「即將參與旅程」的項目中，針對該旅程點選「取消旅程」。系統查核無誤後，會進行全額退款。</p></br><p>若您已付款的旅程「活動將於24小時內開始」，則無法取消該旅程。</p>',
+                            isActive:false,
+                            path:'/q_cancel'
+                        },
+                        {
+                            title:'如何更改已付款的旅程之日期、時段、人數?',
+                            content:'<p>由於每場旅程都有人數限制，為顧及所有參與者的體驗品質，旅程一經付款，便無法再修改日期、時段或人數。</p></br><p>建議您可以先取消原本的行程，再重新購買同一行程，並重新選擇所希望的日期、時間及人數。</p>',
+                            isActive:false,
+                            path:'/q_cancel'
+                        },
+                        {
+                            title:'能否轉讓已付款的旅程給其他人?',
+                            content:'<p>很抱歉，目前無提供轉讓旅程的服務，建議您可以在時限內取消已付款的旅程。</p>',
+                            isActive:false,
+                            path:'/q_cancel'
+                        },
+                        {
+                            title:'取消旅程後，何時能收到退款?',
+                            content:'<p>取消旅程後，系統查核無誤便全額退款至您的銀行帳戶。信用卡公司約在7-14個工作天內會進行刷退處理。</p>',
+                            isActive:false,
+                            path:'/q_cancel'
+                        }
+                    ]
+                };
+            },
+         };
         const Coupon = {
             template: `
-                <div class="qcard">
-                    使用優惠碼
+                <div>
+                    <div class="qcard" v-for="card in data">
+                        <template v-if="card.path === $route.path">
+                        <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}" v-text="card.title"></p>
+                        <div v-if="card.isActive" class="word" v-html="card.content">
+                            
+                        </div>
+                        </template>
+                    </div>
                 </div>
-            ` };
+            ` ,
+            data() {
+                return {
+                         
+                        data:[
+                        {
+                            title:'如何獲得優惠碼',
+                            content:'您可以透過以下兩種方式獲得優惠碼：</br><p><span>‧</span>完成jumper旅遊護照，集滿五個的jumper印章，即可獲得一組優惠碼。</p><p><span>‧</span>每次參與完您的旅程後，給予該旅程評價與意見，即可獲得一組優惠碼。</p>',
+                            isActive:false,
+                            path:'/q_coupon'
+                        },
+                        {
+                            title:'如何查詢我的優惠碼?',
+                            content:'當您在購買任一旅程時，點選結帳頁面最下方「輸入優惠券」，將會列出您所有仍在效期內，且尚未使用過的優惠碼。',
+                            isActive:false,
+                            path:'/q_coupon'
+                        },
+                        {
+                            title:'如何使用優惠碼?',
+                            content:'<p><span>‧</span>當您獲得優惠碼後，在下一次購買任何旅遊行程時，於付款頁面「輸入優惠券」的項目中，輸入您的優惠碼，系統會自動依據您的優惠碼內容，自結帳總金額中扣除。</p><p><span>‧</span>請注意，一筆旅程訂單只適用一組優惠碼。一組優惠碼不能用於多次消費，一旦使用過後，便無法再於其他旅程訂單中使用。</p>',
+                            isActive:false,
+                            path:'/q_coupon'
+                        },
+                        {
+                            title:'優惠碼有效期嗎?',
+                            content:'<p>jumper所提供的所有優惠碼，使用期限皆至當年年底(12月31日)。超過使用期限則無法使用，請您務必於時效內使用完畢</p>',
+                            isActive:false,
+                            path:'/q_coupon'
+                        }
+                    ]
+                };
+            },
+        };
 
 
         new Vue({

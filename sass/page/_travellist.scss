@@ -63,13 +63,18 @@
 
 .banner {
     width: 100%;
-    height: 700px;
+    height: calc(100vh - 85px - 50px);
     position: relative;
+    overflow: hidden;
 
     .intro {
+        // border: 2px solid blue;
+        padding: 20px;
+        background: rgba(254, 254, 254, 0.574);
         position: absolute;
         left: 10%;
         bottom: 40%;
+        z-index: 1;
 
         h2 {
             font-weight: bold;
@@ -84,34 +89,161 @@
 
     .bg_img {
         width: 100%;
-        height: 100%;
+        height: 800%;
+        /* 寬度可以拉大測試，看要多大 */
         background-image: url(../../images/travel_list/banner_bg.jpg);
-        background-size: cover;
+        background-size: auto 90%;
+        background-repeat: repeat-y;
+        animation: bgscrolldown 50s linear infinite;
+        transform: translateY(0%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+
+        @include laptop {
+            background-size: auto 70%;
+        }
+
+        @include tablet {
+            background-size: contain;
+        }
+
+        @include ipad {
+            background-size: contain;
+        }
+
+        @include mobile {
+            background-size: contain;
+            // transform: translateX(-400%);
+        }
     }
 }
 
+@keyframes bgscrolldown {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
 
 .filters {
     background-color: #FAF9F2;
     width: 100%;
-    height: 60px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
-    padding: 0 40px;
+    padding: 10px 40px;
 
-    ul {
+
+    @include tablet {
+        padding: 10px 20px
+    }
+
+    // @include tablet {
+    //     border: 2px solid red;
+    //     height: 100px;
+    // }
+    @include ipad {
+        // border: 2px solid orange;
+        height: 120px;
+    }
+
+    @include mobile {
+        flex-direction: column-reverse;
+        height: 180px;
+    }
+
+    .content {
+        // border: 2px solid red;
+        width: 100%;
         display: flex;
+        flex-wrap: wrap;
 
-        li {
-            margin: 10px 0 0 30px;
+        ul {
+            // border: 2px solid black;
+            width: 280px;
+            display: flex;
+
+            // @include laptop{
+            // border: 2px solid black;
+            //     width: 280px;
+            // }
+            @include tablet {
+                // border: 2px solid pink;
+                width: 265px;
+            }
+
+            @include ipad {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            @include mobile {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            li {
+                margin: 0px 0 0 10px;
+
+                @include mobile {
+                    margin: 5px 2px;
+                }
+            }
         }
 
+        ul:last-child {
+            width: 60%;
 
-        li:nth-child(3) {
-            border-right: 2px solid grey;
-            padding-right: 35px;
+            @include laptop {
+                width: 400px;
+            }
+
+            @include tablet {
+                width: 320px;
+            }
+
+            @include ipad {
+                border-top: 2px solid lightgrey;
+                width: 320px;
+                padding: 10px 0;
+
+            }
+
+            @include mobile {
+                border-top: 2px solid lightgrey;
+                width: 100%;
+            }
+        }
+
+        ul.filter1 {
+            li:nth-child(3) {
+                border-right: 2px solid grey;
+                padding-right: 20px;
+            }
+
+            // @include tablet {
+            //     li:nth-child(3) {
+            //         border: 0;
+            //     }
+            // }
+            @include ipad {
+                li:nth-child(3) {
+                    border: 0;
+                }
+            }
+
+            @include mobile {
+                li:nth-child(3) {
+                    border: 0;
+                }
+            }
         }
     }
 
@@ -125,8 +257,22 @@
         background-image: url(/images/icon/search.svg);
         background-repeat: no-repeat;
         background-position: 10px center;
+
+        @include tablet {
+            width: 20%;
+        }
+
+        @include ipad {
+            width: 30%;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
     }
+
 }
+
 
 // ========= 最新旅遊區塊 =========
 .new_trip {
@@ -153,7 +299,7 @@
             overflow: hidden;
             border-radius: $borderRadius_cd;
             width: 50%;
-            margin-right: 40px;
+            margin-right: 10px;
         }
 
         .right_block {
@@ -172,67 +318,34 @@
                 overflow: hidden;
             }
         }
-    }
-}
 
+        @include mobile {
+            flex-direction: column;
 
-// 旅遊卡片
-@mixin tripcard() {
-    display: flex;
-    flex-direction: column;
-    height: 70vh;
-    max-height: 530px;
-
-    .pic {
-        height: 50%;
-        width: 100%;
-        background-image: url(/images/travel_list/800/wugerku.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        img {
-            width: 100%;
-        }
-    }
-
-    .content {
-        height: 50%;
-        padding: 60px 20px 30px 20px;
-        background-color: #FAF9F2;
-        position: relative;
-
-        .avatar img {
-            border: 6px solid white;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            position: absolute;
-            top: -25%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .star_num {
-            display: flex;
-            flex-direction: row;
-            padding: 10px 0;
-
-            p {
-                margin: 0 0 0 10px;
+            .left_block {
+                overflow: hidden;
+                border-radius: $borderRadius_cd;
+                width: 100%;
+                margin-right: 40px;
             }
-        }
 
-        h4.intro {
-            max-height: 55px;
-            font-size: 14px;
-            margin-bottom: 20px;
-            font-family: 'regular';
-            overflow: hidden;
-            font-weight: bold;
-        }
+            .right_block {
+                width: 100%;
+                display: flex;
 
-        p {
-            font-size: 12px;
+
+                .upper_area {
+                    width: 100%;
+                    margin-top: 20px;
+
+                }
+
+                .down_area {
+                    width: 100%;
+                    border-radius: $borderRadius_cd;
+                    overflow: hidden;
+                }
+            }
         }
     }
 }
@@ -292,19 +405,19 @@
 }
 
 // ========= 最獲好評的旅遊 =========
-// .best_trip {
+// .thebest_trip {
 //     width: 100%;
 //     max-width: 1200px;
 //     box-sizing: border-box;
 //     margin: 0 auto;
 //     justify-content: center;
 //     padding: 40px 40px;
-    
+
 //     h3 {
 //         font-weight: bold;
 //         padding: 20px 0 40px 0;
 //     }
-    
+
 //     .arrow {
 //         // border: 2px solid red;
 //         margin-bottom: 20px;
@@ -312,14 +425,14 @@
 //         float: right;
 //         display: flex;
 //         align-items: center;
-        
+
 //         div {
 //             margin-left: 20px;
 //             cursor: pointer;
 //             display: inline-block;
 //         }
 //     }
-    
+
 //     .container {
 //         border: 2px solid red;
 //         width: 100%;
@@ -376,81 +489,82 @@
     }
 
     .arrow {
-        // border: 2px solid red;
         margin-bottom: 20px;
-        width: 180px;
-        float: right;
+        width: 100%;
+        height: 30px;
         display: flex;
-        align-items: center;
+        justify-content: flex-end;
 
-        div {
-            margin-left: 20px;
-            cursor: pointer;
-            display: inline-block;
+        p {
+
+            margin-right: 100px;
         }
     }
 
-    .container {
+    .item {
+        // border: 2px solid blue;
         width: 100%;
         padding: 0;
         display: flex;
         flex-direction: column;
 
-        ul {
-            display: flex;
+
+        a {
+            // border: 2px solid brown;
+            width: 100%;
+            height: 250px;
             overflow: hidden;
+            margin-right: 20px;
 
-            a {
-                width: 400px;
-                height: 250px;
+            // border: 2px solid red;
+            .trip_item {
+                // border: 2px solid blue;
                 border-radius: $borderRadius_cd;
+                width: 100%;
+                height: 100%;
+                max-height: 600px;
+                display: flex;
                 overflow: hidden;
-                margin-right: 20px;
+                position: relative;
 
-                // border: 2px solid red;
-                .trip_item {
-                    // border: 2px solid blue;
+
+                img {
+                    // border: 3px solid brown;
                     width: 100%;
-                    height: 100%;
-                    max-height: 600px;
-                    position: relative;
+                    position: absolute;
+                    z-index: 1;
+                    object-fit: cover;
 
-                    img {
-                        // border: 3px solid brown;
-                        width: 400px;
-                        position: absolute;
-                        z-index: 1;
-                        object-fit: cover;
+                }
+
+                .content {
+                    // border: 2px solid green;
+                    position: absolute;
+                    max-height: 250px;
+                    z-index: 2;
+                    padding: 40px 20px 80px 20px;
+
+                    p.subject {
+                        // border: 2px solid red;
+                        margin-bottom: 20px;
+                        font-weight: bold;
                     }
 
-                    .content {
-                        // border: 2px solid green;
-                        position: absolute;
-                        width: 100%;
-                        max-height: 250px;
-                        z-index: 2;
-                        padding: 40px 20px 80px 20px;
-
-                        p.subject {
-                            // border: 2px solid red;
-                            margin-bottom: 20px;
-                            font-weight: bold;
-                        }
-
-                        p.txt {
-                            // border: 2px solid red;
-                            width: 60%;
-                            max-height: 60px;
-                            margin-bottom: 50px;
-                            font-size: 22px;
-                            line-height: 30px;
-                        }
-
-                        button {
-                            @include btn_s;
-                        }
-
+                    p.txt {
+                        // border: 2px solid red;
+                        width: 80%;
+                        max-height: 60px;
+                        padding: 10px;
+                        margin-bottom: 50px;
+                        font-size: 24px;
+                        line-height: 30px;
+                        background-color: #ffffff9d;
                     }
+
+                    button {
+                        @include btn_s;
+                    }
+
                 }
             }
         }
@@ -458,8 +572,9 @@
     }
 }
 
-// ========= 近期瀏覽旅遊 =========
-.best_trip , .viewed_trip {
+// ========= 最獲好評的旅遊 & 近期瀏覽旅遊 =========
+.thebest_trip,
+.viewed_trip {
     // border: 3px solid red;
     width: 100%;
     max-width: 1200px;
@@ -473,6 +588,7 @@
         font-weight: bold;
         padding: 20px 0 40px 0;
     }
+
     .arrow {
         // border: 2px solid red;
         margin-bottom: 20px;
@@ -480,27 +596,33 @@
         height: 30px;
         display: flex;
         justify-content: flex-end;
+
         p {
-        // border: 2px solid red;
+            // border: 2px solid red;
 
             margin-right: 100px;
         }
     }
+
     .item {
         width: 100%;
+
         a {
             width: 100%;
             // border: 2px solid red;
             border-radius: $borderRadius_cd;
             overflow: hidden;
+
             .trip_item {
                 @include tripcard();
                 max-height: 350px;
+
                 .content {
                     height: 50%;
                     padding: 50px 20px 30px 20px;
                     background-color: #FAF9F2;
                     position: relative;
+
                     .avatar img {
                         border: 6px solid white;
                         // border: 2px solid red;
@@ -513,15 +635,24 @@
                         left: 50%;
                         transform: translateX(-50%);
                     }
+
                     .star_num {
                         // border: 20px solid red;
                         display: flex;
                         flex-direction: row;
                         padding: 0;
+
                         img {
                             width: 15px;
                         }
+
+                        @include mobile{
+                            img {
+                                width: 8px;
+                            }
+                        }
                     }
+
                     h4.intro {
                         max-height: 55px;
                         font-size: 14px;
@@ -532,6 +663,7 @@
                         overflow: hidden;
                         font-weight: bold;
                     }
+
                     p {
                         font-size: 12px;
                         color: rgba(0, 0, 0, 0.8);
@@ -542,6 +674,13 @@
     }
 }
 
+#go_top {
+    cursor: pointer;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 10;
+}
 
 // ========= 輪播 ========= 
 .owl-carousel {
@@ -583,50 +722,71 @@
 }
 
 .owl-carousel .owl-nav {
-    //  border: 2px solid red;
+    // border: 2px solid red;
     height: 30px;
     position: relative;
     top: -435px;
 }
 
 
-.best_trip .owl-carousel .owl-nav .owl-prev {
-    //   border:1px solid red;
-    background-image: url(./../../images/icon/page-prev.svg);
-    background-size: cover;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 5%;
-    top: 85%;
+.thebest_trip,
+.viewed_trip,
+.main_trip {
+    .owl-carousel {
+        .owl-nav {
+            .owl-prev {
+                //   border:1px solid red;
+                background-image: url(./../../images/icon/page-prev.svg);
+                background-size: cover;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                right: 5%;
+                top: 85%;
+
+                @include tablet {
+                    right: 6%;
+
+                }
+
+                @include ipad {
+                    right: 10%;
+                }
+
+                @include mobile {
+                    right: 14%;
+                }
+            }
+
+            .owl-prev:hover {
+                width: 33px;
+                height: 33px;
+                border-radius: 50%;
+            }
+        }
+    }
 }
 
-.best_trip .owl-carousel .owl-nav .owl-next {
-    background-image: url(./../../images/icon/page-next.svg);
-    background-size: cover;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 1%;
-    top: 85%;
-}
+.thebest_trip,
+.viewed_trip,
+.main_trip {
+    .owl-carousel {
+        .owl-nav {
+            .owl-next {
+                background-image: url(./../../images/icon/page-next.svg);
+                background-size: cover;
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                right: 1%;
+                top: 85%;
+            }
 
-.viewed_trip .owl-carousel .owl-nav .owl-prev {
-    //   border:1px solid red;
-    background-image: url(./../../images/icon/page-prev.svg);
-    background-size: cover;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 5%;
-    top: 85%;
-}
-.viewed_trip .owl-carousel .owl-nav .owl-next {
-    background-image: url(./../../images/icon/page-next.svg);
-    background-size: cover;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 1%;
-    top: 85%;
+            .owl-next:hover {
+                width: 33px;
+                height: 33px;
+                border-radius: 50%;
+            }
+        }
+    }
 }

@@ -1,0 +1,283 @@
+// ***** 旅遊卡片 *****
+@mixin tripcard {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    max-height: 530px;
+
+    .pic {
+        height: 50%;
+        width: 100%;
+        background-image: url(/images/travel_list/800/wugerku.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        object-fit: contain;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content {
+        height: 50%;
+        padding: 60px 20px 30px 20px;
+        background-color: #FAF9F2;
+        position: relative;
+
+        .avatar img {
+            border: 6px solid white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            position: absolute;
+            top: -25%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .star_num {
+            display: flex;
+            flex-direction: row;
+            padding: 10px 0;
+
+            p {
+
+                margin: 0 0 0 10px;
+            }
+        }
+
+        h4.intro {
+            max-height: 55px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-family: 'regular';
+            overflow: hidden;
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 12px;
+        }
+    }
+}
+
+
+.filters {
+    background-color: #FAF9F2;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px 40px;
+
+
+    @include tablet {
+        padding: 10px 20px
+    }
+
+    // @include tablet {
+    //     border: 2px solid red;
+    //     height: 100px;
+    // }
+    @include ipad {
+        // border: 2px solid orange;
+        height: 120px;
+    }
+
+    @include mobile {
+        flex-direction: column-reverse;
+        height: 180px;
+    }
+
+    .content {
+        // border: 2px solid red;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        ul {
+            // border: 2px solid black;
+            width: 280px;
+            display: flex;
+
+            // @include laptop{
+            // border: 2px solid black;
+            //     width: 280px;
+            // }
+            @include tablet {
+                // border: 2px solid pink;
+                width: 265px;
+            }
+
+            @include ipad {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            @include mobile {
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            li {
+                margin: 0px 0 0 10px;
+
+                @include mobile {
+                    margin: 5px 2px;
+                }
+            }
+        }
+
+        ul:last-child {
+            width: 60%;
+
+            @include laptop {
+                width: 400px;
+            }
+
+            @include tablet {
+                width: 320px;
+            }
+
+            @include ipad {
+                border-top: 2px solid lightgrey;
+                width: 320px;
+                padding: 10px 0;
+
+            }
+
+            @include mobile {
+                border-top: 2px solid lightgrey;
+                width: 100%;
+            }
+        }
+
+        ul.filter1 {
+            li:nth-child(3) {
+                border-right: 2px solid grey;
+                padding-right: 20px;
+            }
+
+            @include ipad {
+                li:nth-child(3) {
+                    border: 0;
+                }
+            }
+
+            @include mobile {
+                li:nth-child(3) {
+                    border: 0;
+                }
+            }
+        }
+    }
+
+    input.search {
+        @include form;
+        padding-left: 40px;
+        margin-top: 0;
+        width: 200px;
+        height: 30px;
+        right: 5px;
+        background-image: url(/images/icon/search.svg);
+        background-repeat: no-repeat;
+        background-position: 10px center;
+
+        @include tablet {
+            width: 20%;
+        }
+
+        @include ipad {
+            width: 30%;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+    }
+
+}
+
+
+// ========= 分類旅遊 =========
+
+.thecat_trip {
+    border: 2px solid red;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 40px 40px;
+    
+    h3 {
+        font-weight: bold;
+        padding: 20px 0 40px 0;
+    }
+    
+    .arrow {
+        // border: 2px solid red;
+        margin-bottom: 20px;
+        width: 180px;
+        float: right;
+        display: flex;
+        align-items: center;
+        
+        div {
+            margin-left: 20px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    }
+    
+    .container {
+        border: 2px solid red;
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+
+        li {
+            width: 23%;
+
+            a {
+                width: 100%;
+                // border: 2px solid red;
+                border-radius: $borderRadius_cd;
+                overflow: hidden;
+
+                .trip_item {
+                    @include tripcard();
+                    max-height: 350px;
+
+                    .content {
+                        padding: 40px 20px 80px 20px;
+
+                        .avatar img {
+                            width: 100px;
+                            height: 100px;
+                            top: -30%;
+                        }
+
+                        h4.intro {
+                            max-height: 50px;
+                            overflow: hidden;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#go_top {
+    // display: none;
+    cursor: pointer;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 10;
+}
