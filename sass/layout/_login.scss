@@ -145,6 +145,7 @@ h2 {
             // border: 1px solid red;
 
             >.phone_back_icon {
+                display: none;
                 width: 100%;
                 // padding: 15px 0px;
                 // border: 1px solid blue;
@@ -153,9 +154,10 @@ h2 {
                 }
             }
 
-            // >.phone_loginInner_Img {
+            >.phone_loginInner_Img {
                 // border: 1px solid red;
-            // }
+                margin-top: 40px;
+            }
 
             >.phone_loginInner_block {
                 // border: 1px solid red;
