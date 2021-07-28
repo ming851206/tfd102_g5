@@ -40,28 +40,8 @@
     </div>
 
     <main>
-        <div class="about">
-            <div class="about_container">
-                <h2>我們的服務</h2>
-                <div class="all_about">
-                    <div class="about_1">
-                        <img src="./images/index/content/about_1.jpg" alt="專業的線上導遊">
-                        <div class="des_1"> 
-                            <h3>專業的線上導遊</h3>
-                            <h4>我們提供具有專業知識背景的線上導遊，零時差導覽您的線上旅程，透過直播即時互動，他們將帶領您身歷其境，讓您隨時隨地，開機就能遊覽世界。</h5>
-                        </div>
-                    </div>
-                    <div class="about_2">
-                        <div class="des_2">
-                            <h3>提供包場</h3>
-                            <h4>在任何您舒適的環境享受這場線上社交活動，沒有陌生人，只有您和您的親朋好友，由專業的當地導遊帶領遊樂世界各處，創造獨一無二的旅遊體驗。</h5>
-                        </div>    
-                        <img src="./images/index/content/about_2.jpg" alt="提供包場">
-                    </div>
-                </div>
-            </div>
-        <div class="light_bg"></div>
-        <div class="fence"></div>    
+        <div id="our-service">
+            <the-service></the-service>
         </div>
 
         <div id="best_theme">
@@ -69,42 +49,18 @@
             <the-carosul></the-carosul>
         </div>
         
-        <div class="travel">
-            <h2>熱門旅遊</h2>
-            <div id="the-travel">
-                <travel_item></travel_item>
-            </div>
-            <a href="travel_list.html">
-                <button id="index_travel_more" class="btnL_line">更多旅遊</button>
-            </a>
+        <div id="popular_travel">
+            <travel-item></travel-item>
         </div>
 
         <div id="choose_us">
-            <div class="the_reason">
-                <div class="text">
-                    <h2>為何選擇我們？</h2>
-                    <ul class="reasons">
-                        <li v-for="reason in reasons">{{reason}}</li>
-                    </ul>
-                </div>
-                <video id="index_video" poster="./video/video_img.jpg" controlsList="nodownload" controls>
-                    <source src="./video/choose_us.mp4">
-                    <p>Sorry, your browser doesn't support embedded videos.</p>
-                </video>
-            </div>
+            <the-reason></the-reason>
         </div>
 
     </main>
-    <section class="more_opinion">
-        <aside class="fence_col"></aside>
-        <div class="opinion_container">
-            <h2>看看大家怎麼說 . . .</h2>
-            <div id="opinion">
-                <the-opinion></the-opinion>
-            </div>
-            <button id="opinion_more" class="btnL_line">觀看更多</button>
-        </div>
-        <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+
+    <section id="more_opinion">
+        <the-opinion></the-opinion>
     </section>
 
     <footer id="the_footer">
@@ -112,18 +68,7 @@
     </footer>
     
     <script>
-    // 選擇我們
-    const vue_video = new Vue({
-        el:"#choose_us",
-        data: {
-            reasons: [
-                "超過80位專業的線上導遊",
-                "超過70個位於全球各地的知名觀光景點",
-                "1200個曾舉辦過的線上旅遊",
-                "最獨一無二的線上導覽互動",
-            ]
-        },
-    })
+
     </script>
     <script src="./js/header_footer.js"></script>
     <script src="./js/index/index.js"></script>

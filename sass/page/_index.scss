@@ -48,6 +48,9 @@ section.earth{
     background: linear-gradient(to bottom, #192B39 40%, #3F5361 55%, #8798A5 85%, #D0DCE1);
     background-image: url("../images/index/content/bg_1.jpg");
     background-size: cover;
+    @include xs{
+        height: calc(100vh - 53px);        
+    }
     .earth_container{
         @include margin0;
         // border: 1px solid red;
@@ -618,22 +621,6 @@ section.earth{
         }
     }
 }
-    //   @include sm{
-    //     color: rgba(0, 0, 0, 0.8);
-    //     text-shadow: none;
-    //   }
-// <div id="best_theme">
-// <div id="mobile_theme">
-//     <<div>
-// <h2>精選主題</h2>
-// <ul class="continents">
-//     <li v-for="continent in continents" :style="continent.image">
-//         <h3>{{continent.name}}</h3>
-//     </li>
-// </ul>
-// </div>
-// </div>
-
 
 // 熱門旅遊
 .travel{
@@ -698,7 +685,6 @@ section.earth{
             display: inline-block;
             margin-right: 20px;
             width: 280px;
-            font-size: 0;
             cursor: pointer;
             &:nth-child(4){
                 margin-right: 0;
@@ -714,7 +700,6 @@ section.earth{
             }
             @include lg {
                 width: 225px;
-
             }
             @include md {
                 width: 275px;
@@ -729,8 +714,10 @@ section.earth{
             
             img.place{
                 width: 100%;
+                display: block;
             }
             .main_content{
+                display: block;
                 background-color: $main_ivory;
                 padding: 12px 0 20px 20px;
                 @include xl {
@@ -751,33 +738,31 @@ section.earth{
                     }
                     .star_num{
                         display: inline-block;
-                        @include margin(3px, 8px);
-                        @include xs {
-                            @include margin(3px, 4px);
-                        }
+                        @include margin(3px, 4px);
                         img{
                             width: 18px;
-                            vertical-align: bottom;
+                            vertical-align: text-top;
+                            @include lg {
+                                width: 16px;
+                            }
                             @include xs {
                                 width: 12px;
                                 vertical-align: baseline;
                             }
                         }
                         p{
-                            margin-left: 4px;
+                            margin-left: 1px;
                             @include xs {
-                                margin-left: 5px;
                                 font-size: 14px;
                             }
                         }
                     }
                     p{
                         display: inline-block;
-                        margin-left:8px;
+                        margin-left: 6px;
                         font-size: 16px;
                         margin-top: 10px;
                         @include xs {
-                            margin-left:3px;
                             font-size: 14px;
                         }
                     }
@@ -977,10 +962,6 @@ section.earth{
                 column-gap: 0;
                 margin-bottom: 40px;
             }
-            @include xs {
-            
-            }
-    
             li{
                 border: 1px solid $main_br;
                 border-radius: 0 25px 0 25px;
@@ -998,12 +979,14 @@ section.earth{
                     padding: 20px;
                     margin-bottom: 30px;
                 }
-                @include sm {
-                
+                &:nth-child(4), 
+                &:nth-child(5),
+                &:nth-child(6){
+                    @include sm {
+                        display: none;
+                    }
                 }
-                @include xs {
-                
-                }
+
                 .top{
                     margin-bottom: 25px;
                     font-size: 16px;

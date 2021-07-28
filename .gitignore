@@ -1,6 +1,4 @@
 node_modules
-*.css
-*.map
 style.css
 style.css.map
-
+*.mp4
