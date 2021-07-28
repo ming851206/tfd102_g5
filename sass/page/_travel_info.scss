@@ -1,0 +1,451 @@
+@mixin info_pic_set {
+    margin:10px 20px;
+    height: 13rem;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+p , h1, h2, h3, h4, h5{
+    font-family:'en';
+} 
+
+
+// 旅遊瀏覽--------
+@mixin travel_card {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    max-height: 530px;
+
+    .pic0 {
+        height: 70%;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content {
+        height: 50%;
+        padding: 60px 20px 30px 20px;
+        background-color: #FAF9F2;
+        position: relative;
+
+        .avatar img {
+            border: 6px solid white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            position: absolute;
+            top: -25%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .star_num {
+            display: flex;
+            flex-direction: row;
+            padding: 10px 0;
+            p {
+
+                margin: 0 0 0 10px;
+            }
+        }
+
+        h4.intro {
+            max-height: 55px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-family: 'regular';
+            overflow: hidden;
+            font-weight: bold;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+}
+
+
+// 旅遊照片瀏覽--------
+#travel_title{
+    background-image: url("../../images/travel_info/photo-1489447068241-b3490214e8791.jpg");
+    background-size: cover;
+    h2{
+        font-family:'en';
+        padding: 30px 20px;  
+        @include sm{
+            font-size: 36px;
+        }
+        @include xs {
+            font-size: 28px;
+        }   
+    }
+    #display_block{
+        border: 2px solid white;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:30px auto;
+        width: 730px;
+        @include lg {
+            width: 610px;
+        }
+        @include md {
+            width: 445px;
+        }
+        @include sm {
+            width: 560px;
+        }
+        @include xs{
+            width: 380px;
+        }   
+        #info_video {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:20px 30px;
+            width: 672px;
+            border-radius: 25px;
+            cursor: pointer;
+            @include lg {
+                width: 550px;
+            }
+            @include md {
+                width: 385px;
+            }
+            @include sm {
+                width: 500px;
+            }
+            @include xs{
+                width: 320px;
+            }   
+        }
+    }
+    
+    
+    .owl-theme{
+        #pic_1 {
+            background-image: url("../../images/travel_info/pexels-zachary-debottis-3063055.jpg");
+            background-size: cover;
+            @include info_pic_set;
+        }
+        #pic_2 {
+            background-image: url("../../images/travel_info/pexels-zachary-debottis-3003038.jpg");
+            background-size: cover;
+            @include info_pic_set;
+        }
+        #pic_3 {
+            background-image: url("../../images/travel_info/pexels-zachary-debottis-3003077.jpg");
+            background-size: cover;
+            @include info_pic_set;
+        }
+        #pic_4 {
+            background-image: url("../../images/travel_info/pexels-zachary-debottis-30030331.jpg");
+            background-size: cover;
+            @include info_pic_set;
+        }
+        #pic_5 {
+            background-image: url("../../images/travel_info/pexels-zachary-debottis-1816237.jpg");
+            background-size: cover;
+            @include info_pic_set;
+        }
+    }
+}
+
+.main_container{
+    width: 100%;
+    // 導遊介紹--------左區塊
+    .left_side{
+        display: inline-block;
+        width: 60%;
+        margin:0 5%;
+        padding: 10PX;
+        #traveler{
+            margin-top: 50px;
+            .traveler_pic{
+                display: inline-block;
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                transform: translate(10px, 30px);
+            }
+            #traveler_name{
+                display: inline-block;
+                margin-left: 30%;
+                .icon{
+                    transform: translate(90%, 0);
+                }
+            }
+        }
+        #traveler_introduce{
+            padding: 10px 0;
+            .icon_s{
+                img{
+                    width: 20px;
+                    height: 20px;
+                    margin: 5px 10px;
+                }
+                p{
+                    display: inline-block;
+                    margin-bottom: 20px;
+                    }
+            }
+            .btnS_line{
+                margin-top: 30px;
+                margin-left: 80%;
+            }
+
+        }
+        #travel_rules{
+            margin: 50px auto;
+            div{
+                display: block;
+                margin: 10px auto;
+                img{
+                    width: 60px;
+                    height: 50px;
+                    margin-right: 20px;
+                }
+                h5{
+                    display: inline-block;
+                }
+                p{
+                    display: inline-block;
+                }
+            }
+        }
+        #travel_text{
+            margin: 50px auto;
+        }
+        #travel_way{
+            margin: 50px auto;
+            .join_way, .chartered{
+                display: inline-block;
+                width: 180px;
+                height: 180px;
+                border: 2px solid #996A4D;
+                border-radius: 50%;
+                margin: 20px 50px;
+                img, p{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 auto;
+                }
+                img{
+                    width: 50px;
+                    height: 40px;
+                }
+            }
+        }
+    }
+
+    // 預約-------- 右區塊
+    .right_side{
+        display: inline-block;
+        width: 25%;
+        height: 450px;
+        margin: 10px auto;
+        padding: 5px 20px;
+        border: 2px solid #996A4D;
+        border-radius: 25px;
+        position: -webkit-sticky;
+        position: sticky;
+        bottom: 10px;
+        .text{
+            margin:30px auto; 
+            .date, .time, .people{
+                border: 1px solid #996A4D;
+                border-radius: 10px; 
+                padding: 10px;
+                margin: 10px auto;
+                img{
+                    width: 25px;
+                    height: 25px;
+                    margin-left: 20px;
+                }
+                p{
+                    display: inline-block;
+                }
+                .down{
+                    margin-left: 100px;
+                }
+            }
+            .btnL{
+                width: 100%;
+                color: white;
+            }           
+        }   
+    }
+}
+
+// 從可訂日期中選擇--------
+#travel_choose_date{
+    width: 88%;
+    margin: 50px auto;
+    .arrow{
+        margin-bottom: 20px;
+        width: 180px;
+        float: right;
+        display: flex;
+        align-items: center;
+        div{
+            margin-left: 20px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    }
+    .owl-theme{
+        width: 80%;
+        .item {
+            height: 10rem;
+            background: #F7F9F2;
+            padding: 1rem;
+          }
+          
+          .owl-carousel .item h4 {
+            font-weight: 400;
+            font-size: 1.4375rem;
+            margin-top: 0rem;
+          }
+    } 
+}
+
+// 他人評價--------
+#travel_experience{
+    width: 88%;
+    margin: 50px auto;
+    #travel_experience_1, #travel_experience_2, #travel_experience_3{
+        border: 2px solid #996A4D;
+        border-radius: 25px;
+        padding: 20px 100px;
+        margin: 30px auto;
+        img{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .star_num {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+        }
+        p {
+            // border: 1px solid blue;
+            display: inline-block;
+        }
+    }
+    .btnS_line{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin:30px auto;
+    }
+    
+}
+
+
+
+// 相信你會喜歡-------- 
+.travel_recommend {
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    justify-content: center;
+    padding: 40px 40px;
+
+    h3 {
+        font-weight: bold;
+        padding: 20px 0 40px 0;
+    }
+    
+    .arrow{
+        margin-bottom: 20px;
+        width: 180px;
+        float: right;
+        display: flex;
+        align-items: center;
+        div{
+            margin-left: 20px;
+            cursor: pointer;
+            display: inline-block;
+        }
+    }
+
+    .container {
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        
+        li{
+            width: 23%;
+            a {
+                width: 100%;
+                // border: 2px solid red;
+                border-radius: $borderRadius_cd;
+                overflow: hidden;
+    
+                .travel_item {
+                    @include travel_card;
+                    max-height: 350px;
+                    .pic_01{
+                        background-image: url(/images/travel_info/pexels-ahmad-syahrir-758742.jpg);
+                    }
+                    .pic_02{
+                        background-image: url(/images/travel_info/pexels-humphrey-muleba-1647064.jpg);
+                    }
+                    .pic_03{
+                        background-image: url(/images/travel_info/pexels-dominika-gregušová-672532.jpg);
+                    }
+                    .pic_04{
+                        background-image: url(/images/travel_info/pexels-ethan-brooke-2122423.jpg);
+                    }
+    
+                    .content{
+                        padding: 40px 20px 80px 20px;
+                        .avatar img{
+                            width: 100px;
+                            height: 100px;
+                            top: -30%;
+                        }
+                        h4.intro {
+                            max-height: 50px;
+                            overflow: hidden;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#go_top{
+    position: fixed;
+    right: 0;
+    bottom: 50px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin-right: 35px;
+    margin-bottom: 30px;
+    @include lg {  
+        margin-right: 22px;
+    }
+    @include md_sm {
+        margin-right: 16px;
+    }
+    @include sm { 
+    
+    }
+    @include xs { 
+        margin-bottom: 90px;
+    }
+}

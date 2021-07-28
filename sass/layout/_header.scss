@@ -1,5 +1,5 @@
 $header_H: 85px;
-$mobile_H: 78px;
+$mobile_H: 53px;
 
 @mixin all_zero($z) {
     top: 0;
@@ -106,7 +106,7 @@ header#the_header{
 }
 #nav_rwd{
     display: none;
-    height: calc(100vh - 78px);
+    height: calc(100vh - 53px);
     position: fixed;
     @include all_zero(100);
     background-color: $sec_ivory;

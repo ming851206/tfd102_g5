@@ -19,7 +19,7 @@ footer#the_footer{
     height: 200px;
     @include mobile{
         position: relative;
-        bottom: 76px;
+        bottom: 53px;
     }
 
     .socialLink_icon{
@@ -86,6 +86,7 @@ footer#the_footer{
         @include mobile{
             @include statement_rwd(0px){
                 width: 330px;
+                font-size: 12px;
             }
         }
     }
