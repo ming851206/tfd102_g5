@@ -412,12 +412,12 @@
 //     margin: 0 auto;
 //     justify-content: center;
 //     padding: 40px 40px;
-    
+
 //     h3 {
 //         font-weight: bold;
 //         padding: 20px 0 40px 0;
 //     }
-    
+
 //     .arrow {
 //         // border: 2px solid red;
 //         margin-bottom: 20px;
@@ -425,14 +425,14 @@
 //         float: right;
 //         display: flex;
 //         align-items: center;
-        
+
 //         div {
 //             margin-left: 20px;
 //             cursor: pointer;
 //             display: inline-block;
 //         }
 //     }
-    
+
 //     .container {
 //         border: 2px solid red;
 //         width: 100%;
@@ -475,7 +475,7 @@
 // }
 
 // ========= 本月主打的旅遊 =========
-.main_trip{
+.main_trip {
     width: 100%;
     max-width: 1200px;
     box-sizing: border-box;
@@ -645,6 +645,12 @@
                         img {
                             width: 15px;
                         }
+
+                        @include mobile{
+                            img {
+                                width: 8px;
+                            }
+                        }
                     }
 
                     h4.intro {
@@ -744,11 +750,11 @@
                 }
 
                 @include ipad {
-                    right: 8%;
+                    right: 10%;
                 }
 
                 @include mobile {
-                    right: 10%;
+                    right: 14%;
                 }
             }
 
