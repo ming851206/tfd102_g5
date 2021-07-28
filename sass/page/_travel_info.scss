@@ -5,9 +5,11 @@
     border-radius: 5px;
 }
 
+// 文字設定
 p , h1, h2, h3, h4, h5{
     font-family:'en';
-} 
+}
+
 
 
 // 旅遊瀏覽--------
@@ -74,7 +76,10 @@ p , h1, h2, h3, h4, h5{
 #travel_title{
     background-image: url("../../images/travel_info/photo-1489447068241-b3490214e8791.jpg");
     background-size: cover;
+    height: 140vh;
     h2{
+        width: 90%;
+        margin:0 auto;
         font-family:'en';
         padding: 30px 20px;  
         @include sm{
@@ -164,26 +169,44 @@ p , h1, h2, h3, h4, h5{
         display: inline-block;
         width: 60%;
         margin:0 5%;
-        padding: 10PX;
+        padding: 10px;
         #traveler{
+            display: flex;
+            align-items: center;
             margin-top: 50px;
+            margin-bottom: 30px;
             .traveler_pic{
-                display: inline-block;
+                display: flex;
+                flex: 1 0 auto;
                 width: 180px;
                 height: 180px;
                 border-radius: 50%;
-                transform: translate(10px, 30px);
+                margin-right: 10px;
             }
             #traveler_name{
-                display: inline-block;
-                margin-left: 30%;
-                .icon{
-                    transform: translate(90%, 0);
+                display: flex;
+                flex-direction: column;
+                .tra_icon{
+                    display: flex;
+                    justify-content: flex-end;
+                    margin-bottom: 20px;
+                    img{
+                        margin-left: 10px;
+                    }
+                }
+                .tra_info{
+                    display: flex;
+                    flex-direction: column;
+                    h2{
+                        padding-bottom: 0;
+                        margin-bottom: 10px;
+                    }
                 }
             }
         }
         #traveler_introduce{
             padding: 10px 0;
+            flex-direction: row;
             .icon_s{
                 img{
                     width: 20px;
@@ -191,55 +214,75 @@ p , h1, h2, h3, h4, h5{
                     margin: 5px 10px;
                 }
                 p{
-                    display: inline-block;
+                    vertical-align: middle;
+                    display:inline-block;
                     margin-bottom: 20px;
-                    }
+                }
             }
-            .btnS_line{
-                margin-top: 30px;
-                margin-left: 80%;
+            .tra_btn{
+                text-align:end;
+                .btnS_line{
+                    margin-top: 30px;
+                    white-space: nowrap;
+                }
             }
+
 
         }
         #travel_rules{
             margin: 50px auto;
-            div{
-                display: block;
-                margin: 10px auto;
-                img{
-                    width: 60px;
-                    height: 50px;
-                    margin-right: 20px;
-                }
-                h5{
-                    display: inline-block;
-                }
-                p{
-                    display: inline-block;
-                }
+            .join_web, .free_return, .max_num{
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 20px;
+            }
+            img{
+                width: 50px;
+                height: 50px;
+                margin-right: 20px;
             }
         }
+        
         #travel_text{
             margin: 50px auto;
         }
         #travel_way{
             margin: 50px auto;
-            .join_way, .chartered{
-                display: inline-block;
-                width: 180px;
-                height: 180px;
-                border: 2px solid #996A4D;
-                border-radius: 50%;
-                margin: 20px 50px;
-                img, p{
+            .way{
+                display: flex;
+                flex-direction: row;
+                .join_way, .chartered{
                     display: flex;
-                    justify-content: center;
+                    flex-direction: column;
                     align-items: center;
-                    margin: 0 auto;
+                    justify-content: center;
+                    width: 180px;
+                    height: 180px;
+                    border: 2px solid #996A4D;
+                    border-radius: 50%;
+                    margin: 10px 30px;
+                    img{
+                        width: 50px;
+                        height: 40px;
+                        margin-bottom: 10px;
+                    }
+                    .text_hover{
+                        display: none;
+                    }
                 }
-                img{
-                    width: 50px;
-                    height: 40px;
+                .chartered:hover{
+                    background-color: #996A4D;
+                    color: white;
+                    .text_normal, img{
+                        display: none;
+                    }
+                    .text_hover{
+                        display: flex;
+                        text-align: center;
+                        background-image: url(../../images/icon/group.svg);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }                    
                 }
             }
         }
@@ -251,34 +294,52 @@ p , h1, h2, h3, h4, h5{
         width: 25%;
         height: 450px;
         margin: 10px auto;
-        padding: 5px 20px;
+        padding: 5px 10px;
         border: 2px solid #996A4D;
         border-radius: 25px;
         position: -webkit-sticky;
         position: sticky;
         bottom: 10px;
         .text{
-            margin:30px auto; 
-            .date, .time, .people{
+            margin:30px auto;
+            height: 200px;
+            // 來不及
+            // .btnS_line{
+            //     margin-bottom: 20px;
+            //     cursor: not-allowed;
+            // }
+            
+            // 來得及
+            .selection{
+                display: flex;
                 border: 1px solid #996A4D;
                 border-radius: 10px; 
                 padding: 10px;
                 margin: 10px auto;
-                img{
-                    width: 25px;
-                    height: 25px;
-                    margin-left: 20px;
-                }
-                p{
-                    display: inline-block;
+                .mix{
+                    display: flex;
+                    flex-direction: row;
+                    width: 80px;   
+                    img{
+                        width: 25px;
+                        height: 25px;
+                    }
+                    p{
+                        margin-left: 10px;
+                        vertical-align: middle;
+                    }
                 }
                 .down{
-                    margin-left: 100px;
+                    flex: 1;
+                    text-align: right;
                 }
             }
             .btnL{
                 width: 100%;
                 color: white;
+            }
+            .text{
+                text-align: center;
             }           
         }   
     }
@@ -286,14 +347,13 @@ p , h1, h2, h3, h4, h5{
 
 // 從可訂日期中選擇--------
 #travel_choose_date{
-    width: 88%;
+    width: 90%;
     margin: 50px auto;
     .arrow{
         margin-bottom: 20px;
-        width: 180px;
-        float: right;
         display: flex;
-        align-items: center;
+        width: 90%;
+        justify-content: flex-end;
         div{
             margin-left: 20px;
             cursor: pointer;
@@ -301,16 +361,19 @@ p , h1, h2, h3, h4, h5{
         }
     }
     .owl-theme{
-        width: 80%;
+        width: 100%;
         .item {
             height: 10rem;
             background: #F7F9F2;
             padding: 1rem;
+            .btnS_line{
+                margin-top: 20px;
+            }
           }
           
-          .owl-carousel .item h4 {
-            font-weight: 400;
-            font-size: 1.4375rem;
+          .owl-carousel .item h5 {
+            font-weight: 100;
+            font-size: 1rem;
             margin-top: 0rem;
           }
     } 
@@ -318,9 +381,10 @@ p , h1, h2, h3, h4, h5{
 
 // 他人評價--------
 #travel_experience{
-    width: 88%;
+    width: 90%;
     margin: 50px auto;
     #travel_experience_1, #travel_experience_2, #travel_experience_3{
+        width: 90%;
         border: 2px solid #996A4D;
         border-radius: 25px;
         padding: 20px 100px;
@@ -337,8 +401,14 @@ p , h1, h2, h3, h4, h5{
             height: 15px;
         }
         p {
-            // border: 1px solid blue;
             display: inline-block;
+        }
+        .text{
+            display: inline-block;
+            width: 70%;
+            height: 30px;
+            vertical-align:50%;
+            margin-left: 30px;
         }
     }
     .btnS_line{
