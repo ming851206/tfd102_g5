@@ -81,7 +81,7 @@
                     left: -8px;
                 }
 
-                &:hover,&:focus,&:active,&:visited {
+                &:hover,&:focus,&:active{
                     &::after {
                         background-color: $main_br;
                         height: 2px;

@@ -835,10 +835,14 @@ h2 {
     padding: 0px 35px;
   }
   .phone_loginMemberPage .phone_loginInner > .phone_back_icon {
+    display: none;
     width: 100%;
   }
   .phone_loginMemberPage .phone_loginInner > .phone_back_icon a {
     padding: 10% 0;
+  }
+  .phone_loginMemberPage .phone_loginInner > .phone_loginInner_Img {
+    margin-top: 40px;
   }
   .phone_loginMemberPage .phone_loginInner > .phone_loginInner_block {
     display: -webkit-box;
@@ -3121,13 +3125,7 @@ h2 {
   left: -8px;
 }
 
-.faq_sec2 .flexbox .app_l a:hover::after, .faq_sec2 .flexbox .app_l a:focus::after {
-  background-color: #996A4D;
-  height: 2px;
-  width: 100%;
-}
-
-.faq_sec2 .flexbox .app_l .preChk::after {
+.faq_sec2 .flexbox .app_l a:hover::after, .faq_sec2 .flexbox .app_l a:focus::after, .faq_sec2 .flexbox .app_l a:active::after {
   background-color: #996A4D;
   height: 2px;
   width: 100%;
@@ -3229,6 +3227,9 @@ h2 {
   .faq_sec2 .flexbox .app_r {
     width: 78%;
     margin: 20px auto 0px auto;
+  }
+  .faq_sec2 .flexbox .app_r .qcard > p {
+    padding: 20px 55px;
   }
   .faq_sec2 .flexbox .app_r .word {
     border: 1px solid #AD8F70;
@@ -3461,9 +3462,13 @@ h2 {
   width: 100%;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  position: relative;
+  margin: 0 auto;
+}
+
+@media all and (max-width: 576px) {
+  .postcard_page_change {
+    margin-bottom: 100px;
+  }
 }
 
 .index_postcard_block {
@@ -3565,12 +3570,14 @@ h2 {
 
 .phone_text_block {
   display: none;
+  background-color: #F7F6F2;
 }
 
 @media all and (max-width: 576px) {
   .phone_text_block {
+    width: 100%;
     background-color: #F7F6F2;
-    padding: 40px;
+    padding: 42px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -3578,12 +3585,10 @@ h2 {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin-bottom: 75px;
   }
   .phone_text_block h3 {
     font-family: 'blod';
@@ -4175,8 +4180,15 @@ h2 {
 
 @media all and (max-width: 576px) {
   .next_postcard_btn {
+    width: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     text-align: center;
-    margin: 0 auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 30px auto;
   }
 }
 
@@ -4189,8 +4201,15 @@ h2 {
 
 @media all and (max-width: 576px) {
   .download_postcard_btn {
+    width: 60%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     text-align: center;
-    margin: 0 auto;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: 20px auto;
   }
 }
 
@@ -4682,16 +4701,18 @@ h2 {
 
 .left_block .trip_item .pic {
   height: 50%;
-  width: 100%;
-  background-image: url(/images/travel_list/800/wugerku.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  -o-object-fit: contain;
-     object-fit: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .left_block .trip_item .pic img {
-  width: 20px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .left_block .trip_item .content {
@@ -4711,6 +4732,19 @@ h2 {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+.left_block .trip_item .content .the_icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.left_block .trip_item .content .the_icon .fav {
+  margin-left: 10px;
 }
 
 .left_block .trip_item .content .star_num {
@@ -4762,16 +4796,18 @@ h2 {
 
 .right_block .trip_item .pic {
   height: 50%;
-  width: 100%;
-  background-image: url(/images/travel_list/800/wugerku.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  -o-object-fit: contain;
-     object-fit: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .right_block .trip_item .pic img {
-  width: 20px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .right_block .trip_item .content {
@@ -4791,6 +4827,19 @@ h2 {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+.right_block .trip_item .content .the_icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.right_block .trip_item .content .the_icon .fav {
+  margin-left: 10px;
 }
 
 .right_block .trip_item .content .star_num {
@@ -5052,17 +5101,19 @@ h2 {
 .thebest_trip .item a .trip_item .pic,
 .viewed_trip .item a .trip_item .pic {
   height: 50%;
-  width: 100%;
-  background-image: url(/images/travel_list/800/wugerku.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  -o-object-fit: contain;
-     object-fit: contain;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .thebest_trip .item a .trip_item .pic img,
 .viewed_trip .item a .trip_item .pic img {
-  width: 20px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .thebest_trip .item a .trip_item .content,
@@ -5084,6 +5135,21 @@ h2 {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+}
+
+.thebest_trip .item a .trip_item .content .the_icon,
+.viewed_trip .item a .trip_item .content .the_icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.thebest_trip .item a .trip_item .content .the_icon .fav,
+.viewed_trip .item a .trip_item .content .the_icon .fav {
+  margin-left: 10px;
 }
 
 .thebest_trip .item a .trip_item .content .star_num,
@@ -8654,6 +8720,7 @@ section.earth .earth_container .game::before {
   position: absolute;
   right: 40px;
   top: 20px;
+  cursor: pointer;
   pointer-events: none;
 }
 
@@ -8747,10 +8814,20 @@ section.earth .earth_container .game::before {
   padding: 3px 15px;
   border: 1px solid #333;
   cursor: pointer;
+  cursor: pointer;
+}
+
+.adm_sec .adm_flexbox .adm_appr .temp .addCoupon button:active, .adm_sec .adm_flexbox .adm_appr .temp .addCoupon button:visited {
+  background-color: #a7a7a7;
 }
 
 .adm_sec .adm_flexbox .adm_appr .temp .addCoupon button:nth-of-type(2) {
   background-color: #beffff;
+  cursor: pointer;
+}
+
+.adm_sec .adm_flexbox .adm_appr .temp .addCoupon button:nth-of-type(2):active, .adm_sec .adm_flexbox .adm_appr .temp .addCoupon button:nth-of-type(2):visited {
+  background-color: #8bffff;
 }
 
 .adm_sec .adm_flexbox .adm_appr .temp hr {
@@ -8799,6 +8876,11 @@ section.earth .earth_container .game::before {
   cursor: pointer;
   background-color: #beffff;
   margin: 0 0 15px 20px;
+  cursor: pointer;
+}
+
+.adm_sec .adm_flexbox .adm_appr .temp a button.add:active, .adm_sec .adm_flexbox .adm_appr .temp a button.add:visited {
+  background-color: #8bffff;
 }
 
 .adm_sec .adm_flexbox .adm_appr .temp table {
@@ -8832,8 +8914,17 @@ section.earth .earth_container .game::before {
   cursor: pointer;
 }
 
+.adm_sec .adm_flexbox .adm_appr .temp table button:active, .adm_sec .adm_flexbox .adm_appr .temp table button:visited {
+  background-color: #8affb6;
+}
+
 .adm_sec .adm_flexbox .adm_appr .temp table button:nth-of-type(2) {
   background-color: #ffcccc;
+  cursor: pointer;
+}
+
+.adm_sec .adm_flexbox .adm_appr .temp table button:nth-of-type(2):active, .adm_sec .adm_flexbox .adm_appr .temp table button:nth-of-type(2):visited {
+  background-color: #ff9999;
 }
 
 .adm_sec .adm_flexbox .adm_appr .temp .pager > ul {
@@ -8973,12 +9064,22 @@ section.earth .earth_container .game::before {
   background-color: #ffcccc;
   padding: 3px 15px;
   border: 1px solid #333;
+  cursor: pointer;
+}
+
+.adm_sec .adm_flexbox .adm_appr div .temp2 table button.revoke:active, .adm_sec .adm_flexbox .adm_appr div .temp2 table button.revoke:visited {
+  background-color: #ff9999;
 }
 
 .adm_sec .adm_flexbox .adm_appr div .temp2 table button.sendLink {
   background-color: #beffff;
   padding: 3px 15px;
   border: 1px solid #333;
+  cursor: pointer;
+}
+
+.adm_sec .adm_flexbox .adm_appr div .temp2 table button.sendLink:active, .adm_sec .adm_flexbox .adm_appr div .temp2 table button.sendLink:visited {
+  background-color: #8bffff;
 }
 
 .adm_sec .adm_flexbox .adm_appr div .temp2 label.allChk {
@@ -9005,6 +9106,11 @@ section.earth .earth_container .game::before {
   position: absolute;
   right: 29px;
   bottom: 150px;
+  cursor: pointer;
+}
+
+.adm_sec .adm_flexbox .adm_appr div .temp2 button.reject:active, .adm_sec .adm_flexbox .adm_appr div .temp2 button.reject:visited {
+  background-color: #ff9999;
 }
 
 .adm_sec .adm_flexbox .adm_appr div .temp2 button#delete {
@@ -9013,7 +9119,12 @@ section.earth .earth_container .game::before {
   cursor: pointer;
   background-color: #ffcccc;
   position: absolute;
+  cursor: pointer;
   right: 100px;
+}
+
+.adm_sec .adm_flexbox .adm_appr div .temp2 button#delete:active, .adm_sec .adm_flexbox .adm_appr div .temp2 button#delete:visited {
+  background-color: #ff9999;
 }
 
 .adm_sec .adm_flexbox .adm_appr div .pager2 > ul {
