@@ -39,10 +39,10 @@
         const Trip = {
             template: `
                 <div>
-                <div class="linkGroup">
-                    <router-link to="/trip" class="topA">旅程列表</router-link> 
-                    <router-link to="/trip/tripCheck" class="topA">旅程申請審核</router-link>
-                </div>
+                    <div class="linkGroup">
+                        <router-link to="/trip" class="topA">旅程列表</router-link> 
+                        <router-link to="/trip/tripCheck" class="topA">旅程申請審核</router-link>
+                    </div>
                     <router-view></router-view>
                 </div>
         ` };
@@ -50,9 +50,10 @@
         const Order = {
             template: `
                 <div>
-                    <router-link to="/order" class="topA">訂單管理</router-link> 
-                    <router-link to="/order/commentCheck" class="topA">旅程評論審查</router-link>
-
+                    <div class="linkGroup">
+                        <router-link to="/order" class="topA">訂單管理</router-link> 
+                        <router-link to="/order/commentCheck" class="topA">旅程評論審查</router-link>
+                    </div>
                     <router-view></router-view>
                 </div>
         ` };
@@ -595,7 +596,7 @@
                     <label for="" class="allChk">
                         全選<input type="checkbox" id="allChk">
                     </label>
-                    <button>刪除</button>
+                    <button id="delete">刪除</button>
                     <div class="pager2">
                             <ul>
                                 <li><a href="">&lt;</a></li>
@@ -614,28 +615,27 @@
         const NewCoupon = {
             template: ` 
                 <div class="temp">
-                     <h4 class="title">新增優惠券</h4> 
-                     <hr>
+                    <router-link to="/coupon" class="back">返回優惠券列表</router-link><h4 class="title">新增優惠券</h4>
                      <div class="addCoupon">
-                        <label>
+                        <label class="coupon">
                             優惠券名稱<input type="text" >
                         </label>
-                        <label>
+                        <label class="coupon">
                             優惠券內容<input type="text" >
                         </label>
-                        <label>
+                        <label class="coupon">
                             優惠碼<input type="text" >
                         </label>
-                        <label>
+                        <label class="coupon">
                             折扣比例<input type="text" >
                         </label>
-                        <label>
+                        <label class="coupon">
                             使用到期日 <input type="date" >
                         </label>
-                        <label>
+                        <label class="coupon">
                             優惠券來源<input type="text" >
                         </label>
-                        <p>(註:1為評論，2為任務)</p>
+                        <p class="tag">(註:1為評論，2為任務)</p>
                         <button>取消</button>
                         <button>新增</button>
                      </div> 
