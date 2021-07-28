@@ -12,10 +12,8 @@
         background-repeat: no-repeat;
         background-size: cover;
         object-fit: contain;
-
-        img {
-            width: 100%;
-        }
+        display: flex;
+        justify-content: flex-end;
     }
 
     .content {
@@ -35,6 +33,17 @@
             transform: translateX(-50%);
         }
 
+        .the_icon{
+            // border: 2px solid red;
+            display: flex;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+
+            .fav{
+                margin-left: 10px;
+            }
+        }
         .star_num {
             display: flex;
             flex-direction: row;
@@ -527,7 +536,17 @@
                 overflow: hidden;
                 position: relative;
 
+                .pic{
+                    border: 2px solid red;
+                    .share{
+                        background-image: url(./../../images/icon/share.svg);
+                    }
+                    .fav{
+                        background-image: url(./../../images/icon/like.svg);
+                    }
+                }
 
+    
                 img {
                     // border: 3px solid brown;
                     width: 100%;
