@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/vue/vue.js"></script>
     <script src="./js/jq/jquery-3.6.0.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <!-- <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
 </head>
 <body>
     <div class="game_wrapper">
@@ -73,7 +73,7 @@
                             </div>
                             <div class="btn_group">
                                 <div class="input_group">
-                                    <label class="opt opt1">
+                                    <label class="opt opt1" @click="win">
                                         <input type="radio" name="question1" :value="task.option_1">
                                         {{task.option_1}}                                  
                                     </label> 
@@ -93,7 +93,7 @@
                 </div>
 
                 <!-- 挑戰成功 -->
-                <div class="challenge winning">
+                <div class="challenge" id="winning" v-if="ans==true">
                     <div class="result_mask"></div>
                     <div class="game_detail">
                         <div class="game_close_btn"></div>
@@ -110,8 +110,7 @@
                 </div>
                     
                 <!-- 挑戰失敗 -->
-                <!--
-                <div class="challenge losing">
+                <div class="challenge" id="losing" v-else>
                     <div class="result_mask"></div>
                     <div class="game_detail">
                         <div class="game_close_btn"></div>
@@ -123,7 +122,7 @@
                             </div>   
                         </div>
                     </div>
-                </div>-->
+                </div>
                  
                 <!-- 任務進度 -->
                 <div class="game_result_overlay">
@@ -193,17 +192,17 @@
                         {num: "1", question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，它是非洲語的什麼意思呢？", option_1: "不用擔心", option_2: "明天會更好", option_3: "活在當下"},
                         // {num: "2", question: "下列何者不是在非洲內?", option_1: "埃及", option_2: "日本", option_3: "衣索比亞"},
                         // {num: "3", question: "世界上雙胞胎最多的地方在哪裡？", option_1: "印度", option_2: "奈及利亞", option_3: "美國"},
-                    ]
-                    // show: true,
+                    ],
+                    ans: true,
                 }
                 
             },
             methods: {
+                win: function(){
+                    this.ans = true;
+                }
+            },
 
-            },
-            computed: {
-                
-            },
             mounted() {
                 $(function(){
                     // $(".passport_page").delay(1200).fadeIn(400);
@@ -217,7 +216,7 @@
                         $(".game_world_map div").not(this).slideUp();
                         $("#game_word").fadeOut();
                         $(this).css({
-                            backgroundImage: "url('../images/index/game/landmark_gold.png')",
+                            backgroundImage: "url('./images/index/game/landmark_gold.png')",
                         });
                         $(".game_question").stop(true, true).delay(1000).fadeIn(800);
 
@@ -231,7 +230,7 @@
                     $(".game_continue").click(function(){
                         $(".game_result_overlay").fadeOut();
                         $(".landmark").css({
-                            backgroundImage: "url('../images/index/game/landmark_white.png')",
+                            backgroundImage: "url('./images/index/game/landmark_white.png')",
                         }).slideDown();
                         $(".opt").css({
                             backgroundColor: "#F7F6F2",
@@ -257,16 +256,18 @@
                         })
                     })
 
-                    $(".gift_icon").click(function(){
+                    $(".gift_icon").click(function(e){
                         $(".game_coupon").show();
                     })
                     
                     $(".coupon_close_btn").click(function(){
                         $(".game_coupon").hide();
-                        $(".unget_stamp").css("backgroundImage", "url('../images/index/game/unget.png')");
+                        $(".unget_stamp").css("backgroundImage", "url('./images/index/game/unget.png')");
                         $(".gift_icon").css({
-                            backgroundImage: "url('../images/index/game/gift_gray.svg')",
-                            cursor: "initial",
+                            backgroundImage: "url('./images/index/game/gift_gray.svg')",
+                            cursor: "default",
+                        }).click(function(e){
+                            $(".game_coupon").hide();
                         });
                     })
 
