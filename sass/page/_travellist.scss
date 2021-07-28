@@ -89,15 +89,34 @@
 
     .bg_img {
         width: 100%;
-        height: 300%;
+        height: 800%;
+        /* 寬度可以拉大測試，看要多大 */
         background-image: url(../../images/travel_list/banner_bg.jpg);
-        background-size: cover;
+        background-size: auto 90%;
         background-repeat: repeat-y;
-        animation: bgscrolldown 20s linear infinite;
+        animation: bgscrolldown 50s linear infinite;
+        transform: translateY(0%);
         position: absolute;
         top: 0;
         left: 0;
         z-index: 0;
+
+        @include laptop {
+            background-size: auto 70%;
+        }
+
+        @include tablet {
+            background-size: contain;
+        }
+
+        @include ipad {
+            background-size: contain;
+        }
+
+        @include mobile {
+            background-size: contain;
+            // transform: translateX(-400%);
+        }
     }
 }
 
