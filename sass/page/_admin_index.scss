@@ -1,6 +1,6 @@
 
 .adm_sec {
-
+   
     @mixin pagerSet {
         @include block_center;
         display: flex;
@@ -132,6 +132,7 @@
                     position: absolute;
                     right: 40px;
                     top: 20px;
+                    cursor: pointer;
                     pointer-events: none; //沒用嗎??
                 }
             }
@@ -210,9 +211,17 @@
                     button{
                         margin-left: 20px;
                         @include btnSetbl;
+                        cursor: pointer;
+                        &:active,&:visited{
+                            background-color: darken(rgb(192, 192, 192),10%);
+                        }
                     }
                     button:nth-of-type(2){
                         background-color: rgb(190, 255, 255);
+                        cursor: pointer;
+                        &:active,&:visited{
+                            background-color: darken(rgb(190, 255, 255),10%);
+                        }
                     }
                 }
                 hr{
@@ -230,6 +239,10 @@
                         @include btnSetbl;
                         background-color: rgb(190, 255, 255);
                         margin: 0 0 15px 20px;
+                        cursor: pointer;
+                        &:active,&:visited{
+                            background-color: darken(rgb(190, 255, 255),10%);
+                        }
                     }
                 }
 
@@ -244,10 +257,17 @@
                         padding: $btnPaddin;
                         border: $btnBorder;
                         cursor: pointer;
+                        &:active,&:visited{
+                            background-color: darken(rgb(189, 255, 214),10%);
+                        }
                     }
 
                     button:nth-of-type(2) {
                         background-color: rgb(255, 204, 204);
+                        cursor: pointer;
+                        &:active,&:visited{
+                            background-color: darken(rgb(255, 204, 204),10%);
+                        }
                     }
                 }
 
@@ -300,11 +320,19 @@
                             background-color: rgb(255, 204, 204);
                             padding:$btnPaddin;
                             border: $btnBorder;
+                            cursor: pointer;
+                            &:active,&:visited{
+                                background-color: darken(rgb(255, 204, 204),10%);
+                            }
                         }
                         button.sendLink{
                             background-color: rgb(190, 255, 255);
                             padding: $btnPaddin;
                             border: $btnBorder;
+                            cursor: pointer;
+                            &:active,&:visited{
+                                background-color: darken(rgb(190, 255, 255),10%);
+                            }
                         }
                     }
                     label.allChk{
@@ -328,12 +356,20 @@
                         position: absolute;
                         right: 29px;
                         bottom: 150px;
+                        cursor: pointer;
+                        &:active,&:visited{
+                            background-color: darken(rgb(255, 204, 204),10%);
+                        }
                     }
                     button#delete{
                         @include btnSetbl;
                         background-color: rgb(255, 204, 204);
                         position: absolute;
+                        cursor: pointer;
                         right: 100px;
+                        &:active,&:visited{
+                            background-color: darken(rgb(255, 204, 204),10%);
+                        }
                     }
                 }
                 .pager2>ul {
