@@ -135,7 +135,7 @@ const TravelEdit = {
                         </div>
 
                         <div v-else>
-                            <div class="travelValue" v-for="(value,index) in values"  :class="{'mobileshowinfo' : mobileshowinfo[index]}" >
+                            <div class="travelValue" v-for="(value,index) in values"   >
                                 <div class="travelP" @click="mobileShowInfo(index)">
                                     <p>主題名稱：{{value.title}}</p>
                                 </div>
@@ -222,9 +222,18 @@ const TravelEdit = {
     },
     methods: {
         mobileShowInfo(index) {
-            console.log(this.mobileshowinfo[index]);
-            this.mobileshowinfo[index] = !this.mobileshowinfo[index];
-            console.log(this.mobileshowinfo[index]);
+            // console.log(this.mobileshowinfo[index]);
+            // this.mobileshowinfo[index] = !this.mobileshowinfo[index];
+            // console.log(this.mobileshowinfo[index]);
+            // : class="{'mobileshowinfo' : mobileshowinfo[index]}"
+            let show = document.getElementsByClassName("travelValue")[index];
+            console.log(show.classList);
+            if (!show.classList.contains("mobileshowinfo")) {
+                show.classList.add("mobileshowinfo");
+            } else {
+                show.classList.remove("mobileshowinfo");
+
+            }
 
         },
         checkDeleteAddImg: function name(index) {

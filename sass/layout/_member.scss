@@ -892,12 +892,16 @@
 
             @include tablet {
                 font-size: 16px;
-
+                width: 435px;
+                overflow: hidden;
             }
 
             @include ipad {
                 font-size: 14px;
+                width: 319px;
+                overflow: hidden;
             }
+
         }
 
         &:first-child {
@@ -937,7 +941,7 @@
             }
 
             @include ipad {
-                width: 338px;
+                width: 100%;
                 margin: 0;
                 padding-top: 15px;
                 padding-bottom: 15px;
