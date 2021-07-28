@@ -81,7 +81,7 @@
                     left: -8px;
                 }
 
-                &:hover,&:focus {
+                &:hover,&:focus,&:active{
                     &::after {
                         background-color: $main_br;
                         height: 2px;
@@ -89,13 +89,6 @@
                     }
                 }
 
-            }
-            .preChk{
-                &::after{
-                    background-color: $main_br;
-                    height: 2px;
-                    width: 100%;
-                }
             }
         }
 
@@ -207,7 +200,9 @@
             .app_r {
                 width: 78%;
                 margin: 20px auto 0px auto;
-
+                .qcard>p{
+                    padding: 20px 55px;
+                }
                 .word {
                     @include border($sec_br);
                 }
