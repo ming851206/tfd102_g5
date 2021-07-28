@@ -1,0 +1,15 @@
+.enterpage_Body {
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.enterpage_Body h3 {
+  color: red;
+}
+
+.enterpage_Body .enterPage_container {
+  width: 1280%;
+  border: 1px solid red;
+  background-image: url(../../images/enterPage/enterpageBg.png);
+}
+/*# sourceMappingURL=enterpage.css.map */

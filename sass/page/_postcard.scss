@@ -535,7 +535,7 @@
     // height: 100vh;
     // background-color: white;
     // height: 500px;
-    padding: 10px;
+    padding-top: 10px;
     @include mobile{
         width: 100%;
     }
@@ -554,7 +554,8 @@
 // next 按鈕
 .next_postcard_btn{
     width: 50%;
-    margin: 0px;
+    margin: 20px;
+    margin-right: 0px;
     text-align: end;
     // border: 1px solid red;
     @include mobile{
@@ -568,7 +569,8 @@
 .download_postcard_btn{
     // display: none;
     width: 50%;
-    margin: 0px;
+    margin: 20px;
+    margin-right: 0px;
     text-align: end;
     // border: 1px solid red;
     @include mobile{
