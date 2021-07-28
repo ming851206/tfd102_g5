@@ -23,6 +23,16 @@
         height: 100%;
         width: 100%;
     }
+
+    input {
+        &:focus {
+            outline: none !important;
+        }
+    }
+
+    .btnL {
+        color: white;
+    }
 }
 
 //member---------------------------
@@ -749,6 +759,10 @@
         width: 678px;
     }
 
+    @include tablet {
+        display: none;
+    }
+
     .travelNavBarP {
         margin-left: 20px;
 
@@ -814,6 +828,7 @@
 
 }
 
+
 .travelValue {
     display: flex;
     border: 1px solid $main_br;
@@ -825,9 +840,28 @@
     width: 836px;
     margin-top: 20px;
     flex-wrap: nowrap;
+    position: relative;
 
     @include laptop {
         width: 678px;
+    }
+
+    @include tablet {
+        width: 506px;
+        display: block;
+
+        .mobileshowinfo {
+            height: unset;
+        }
+    }
+
+    @include ipad {
+        width: 390px;
+        display: block;
+
+        .mobileshowinfo {
+            height: unset;
+        }
     }
 
     .travelP {
@@ -839,20 +873,118 @@
             margin-left: 4px;
         }
 
+        @include tablet {
+            text-align: start;
+            margin: 0;
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        @include ipad {
+            text-align: start;
+            margin: 0;
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
         p {
             white-space: nowrap;
+
+            @include tablet {
+                font-size: 16px;
+
+            }
+
+            @include ipad {
+                font-size: 14px;
+            }
         }
 
         &:first-child {
             margin-left: 30px;
             width: 200px;
+
+            @include tablet {
+                width: 100%;
+                margin: 0;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                cursor: pointer;
+                border-bottom: 1px solid $main_br;
+
+                &::after {
+                    content: '';
+                    background-image: url("../../images/icon/down.svg");
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+
+                &::before {
+                    content: '';
+                    background-image: url("../../images/icon/up.svg");
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    visibility: hidden;
+                }
+            }
+
+            @include ipad {
+                width: 338px;
+                margin: 0;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                cursor: pointer;
+                border-bottom: 1px solid $main_br;
+
+                &::after {
+                    content: '';
+                    background-image: url("../../images/icon/down.svg");
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                }
+
+                &::before {
+                    content: '';
+                    background-image: url("../../images/icon/up.svg");
+                    background-repeat: no-repeat;
+                    width: 20px;
+                    height: 20px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    visibility: hidden;
+                }
+            }
         }
+
+
+
 
         &:nth-child(2) {
             width: 50px;
 
             @include laptop {
                 width: 65px;
+            }
+
+            @include tablet {
+                width: 100%;
+            }
+
+            @include ipad {
+                width: 100%;
             }
         }
 
@@ -862,6 +994,14 @@
             @include laptop {
                 width: 143px;
             }
+
+            @include tablet {
+                width: 100%;
+            }
+
+            @include ipad {
+                width: 100%;
+            }
         }
 
         &:nth-child(4) {
@@ -870,10 +1010,26 @@
             @include laptop {
                 width: 220px;
             }
+
+            @include tablet {
+                width: 100%;
+            }
+
+            @include ipad {
+                width: 100%;
+            }
         }
 
         &:nth-child(5) {
             width: 50px;
+
+            @include tablet {
+                width: 100%;
+            }
+
+            @include ipad {
+                width: 100%;
+            }
         }
 
         &:nth-child(6) {
@@ -882,19 +1038,59 @@
             @include laptop {
                 width: 120px;
             }
+
+            @include tablet {
+                width: 100%;
+            }
+
+            @include ipad {
+                width: 100%;
+            }
         }
 
         &:nth-child(7) {
             width: 50px;
+
+            @include tablet {
+                width: 100%;
+            }
+
+            @include ipad {
+                width: 100%;
+            }
         }
 
         &:last-child {
             margin-right: 30px;
             width: 50px;
+
+            @include tablet {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            @include ipad {
+                width: 100%;
+                margin-bottom: 15px;
+            }
         }
     }
 
+}
 
+
+@include tablet {
+
+    .mobileshowinfo {
+        height: unset;
+    }
+}
+
+@include ipad {
+
+    .mobileshowinfo {
+        height: unset;
+    }
 }
 
 #addFrom {
@@ -913,6 +1109,14 @@
             width: 664px;
         }
 
+        @include tablet {
+            width: 524px;
+        }
+
+        @include ipad {
+            width: 384px;
+        }
+
         select {
             border: 0;
             height: 45px;
@@ -926,6 +1130,15 @@
                 margin-right: 26px;
                 width: 660px;
             }
+
+            @include tablet {
+                width: 482px;
+                margin-right: 10px;
+            }
+
+            @include ipad {
+                width: 260px;
+            }
         }
 
         input {
@@ -935,6 +1148,14 @@
             margin: 0;
             width: 704px;
             margin-left: 10px;
+
+            @include tablet {
+                width: 384px;
+            }
+
+            @include ipad {
+                width: 260px;
+            }
         }
 
         .travelInputEditTitle {
@@ -954,16 +1175,39 @@
         width: 100%;
         height: unset;
 
+        @include tablet {
+            width: 524px;
+        }
+
+        @include ipad {
+            width: 384px;
+        }
+
+        .travelInputEditTitle {
+            margin-left: 0;
+            margin-right: 35px;
+
+        }
+
+
         span {
             padding: 15px;
+            white-space: nowrap;
         }
 
         .showImg {
             width: 590px;
             padding: 0;
             background-color: $sec_ivory;
-            margin-left: 45px;
             margin-top: 12px;
+
+            @include tablet {
+                width: 328px;
+            }
+
+            @include ipad {
+                width: 242px;
+            }
 
             .addimgborders {
                 position: relative;
@@ -1030,6 +1274,10 @@
         flex-direction: column;
         width: 100%;
         height: 550px;
+
+        @include tablet {
+            width: 524px;
+        }
 
         .travelInputEditTitle {
             align-items: flex-start;

@@ -55,7 +55,7 @@ const TravelEdit = {
                                         <div class="showImg" v-else>
                                             <div class="addimgborders" v-for="(file,index) in files">
                                                 <img :src="file">
-                                                <div class="addimgdelete" @click="checkDeleteAddImg(index,$event)">
+                                                <div class="addimgdelete" @click="checkDeleteAddImg(index)">
                                                 </div>
                                             </div>
                                         </div>
@@ -100,7 +100,7 @@ const TravelEdit = {
                                 <div id="clickAdd">
                                 </div>
                         </div>
-                        <div>
+                        <div v-if="mobile == false">
                             <div id="travelNavBar">
                                 <div class = "travelNavBarP" v-for="title in titles">
                                     <p >{{title}}</p>
@@ -133,6 +133,36 @@ const TravelEdit = {
                                 </div>
                             </div>
                         </div>
+
+                        <div v-else>
+                            <div class="travelValue" v-for="(value,index) in values"  :class="{'mobileshowinfo' : mobileshowinfo[index]}" >
+                                <div class="travelP" @click="mobileShowInfo(index)">
+                                    <p>主題名稱：{{value.title}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>類別：{{value.category}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>日期：{{value.date}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>時間：{{value.time}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>人數：{{value.people}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>審核狀態：{{value.status}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>{{value.edit}}</p>
+                                </div>
+                                <div class="travelP">
+                                    <p>{{value.cancel}}</p>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="loveNumberNav">
                             <div class="loveNavs">
                                 <div class="loveLeft">
@@ -184,10 +214,20 @@ const TravelEdit = {
             add: false,
             pops: false,
             files: [],
+            mobile: false,
+            screenwidth: window.innerWidth,
+            mobileshowinfo: [],
+
         };
     },
     methods: {
-        checkDeleteAddImg: function name(index, event) {
+        mobileShowInfo(index) {
+            console.log(this.mobileshowinfo[index]);
+            this.mobileshowinfo[index] = !this.mobileshowinfo[index];
+            console.log(this.mobileshowinfo[index]);
+
+        },
+        checkDeleteAddImg: function name(index) {
             let yes = confirm("確定要移除這張此照片嗎?");
             if (yes) {
                 this.files.splice(index, 1);
@@ -209,7 +249,6 @@ const TravelEdit = {
         InputImg: function (event) {
             let inputBtn = event.target.parentNode.children[1];
             inputBtn.click();
-            // console.log(inputBtn);
         },
         drop: function (e) {
             e.preventDefault();
@@ -227,36 +266,6 @@ const TravelEdit = {
             }
         },
         fileChange: function (e) {
-            // let files = document.getElementById('ImginputFiles').files;
-
-            // for (let i = 0; i < files.length; i++) {
-            //     let readFile = new FileReader();
-            //     readFile.readAsDataURL(files[i]);
-
-            //     readFile.addEventListener('load', function () {
-            //         let dropzone = document.getElementsByClassName('showImg')[0];
-            //         let div = document.createElement('div');
-            //         let text = `
-            //                                 <div class="addimgborders">
-            //                                     <img>
-            //                                     <div class="addimgdelete" @click="checkDeleteAddImg">
-            //                                     </div>
-            //                                 </div>
-            //         `;
-            //         div.innerHTML = text;
-            //         dropzone.insertBefore(div, dropzone.firstChild);
-            //         let image = document.getElementsByClassName('addimgborders')[0].querySelector("img");
-            //         image.src = readFile.result;
-            //         let deletes = document.getElementsByClassName("addimgdelete")[0];
-            //         deletes.addEventListener('click', function (event) {
-            //             let yes = confirm("確定要移除這張此照片嗎?");
-            //             if (yes) {
-            //                 event.target.parentNode.parentNode.remove();
-            //             }
-            //         })
-            //     });
-            // }
-
             let files = document.getElementById('ImginputFiles').files;
             for (let i = 0; i < files.length; i++) {
                 let readFile = new FileReader();
@@ -270,8 +279,25 @@ const TravelEdit = {
                     this.files.unshift(readFile.result);
                 })
             }
-            console.log(this.files);
         }
     }, mounted() {
-    },
+        var _this = this
+        window.onresize = function () { // 定義視窗大小變更通知事件
+            _this.screenwidth = window.innerWidth // 視窗高度
+        }
+        if (window.innerWidth < 996) {
+            this.mobile = true;
+        }
+        for (let i = 0; i < this.values.length; i++) {
+            this.mobileshowinfo.push(false);
+        }
+    }, watch: {
+        'screenwidth': function (val) {
+            if (window.innerWidth < 996) {
+                this.mobile = true;
+            } else {
+                this.mobile = false;
+            }
+        }
+    }
 };
