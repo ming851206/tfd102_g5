@@ -90,6 +90,13 @@
                 }
 
             }
+            .preChk{
+                &::after{
+                    background-color: $main_br;
+                    height: 2px;
+                    width: 100%;
+                }
+            }
         }
 
         .app_r {
