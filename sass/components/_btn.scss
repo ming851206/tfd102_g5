@@ -1,8 +1,8 @@
 //待修正==========
 @mixin if_bgc{
-    @if background-color = $main_br {
+    @if background-color == $main_br {
         color:$main_ivory;
-    }@else if $background-color = 'white'{
+    }@else if background-color == 'white'{
         color:$main_br;
     };
 }

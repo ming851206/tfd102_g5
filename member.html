@@ -163,7 +163,6 @@
             mounted() {
 
                 // 寬度大小決定進入頁面要不要點及
-
                 let clickActive = document.getElementsByClassName("active")[0].childNodes[0];
                 // console.log(clickActive);
                 let mobile = document.getElementById("memberMobile");
@@ -176,10 +175,12 @@
                         mobileSVG[i].style.display = "none";
                     }
                 }
-
-
-                // let list = document.getElementById("left");
-                // list.style.display = "none";
+                if (document.body.clientWidth < 560) {
+                    if (location.href.indexOf("member.html")) {
+                        let span = document.getElementsByTagName("span")[0];
+                        span.style.display = "none";
+                    }
+                }
             },
             updated() {
                 let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
@@ -188,13 +189,18 @@
                 } else {
                     $("#memberSpace").css("height", 0);
                 }
-                console.log(document.body.clientWidth);
-
                 if (document.body.clientWidth < 560) {
-                    if (event.target.getAttribute("href") == "/memberinfo" || event.target.getAttribute("href") == "/love" || event.target.getAttribute("href") == "/history" || event.target.getAttribute("href") == "/join") {
-                        this.showLeft = false;
-                        let title = document.getElementById("mobileMemberTitle");
-                        title.innerText = event.target.innerText;
+                    if (event.target.document != document) {
+                        if (event.target.getAttribute("href") == "/memberinfo" || event.target.getAttribute("href") == "/love" || event.target.getAttribute("href") == "/history" || event.target.getAttribute("href") == "/join") {
+                            this.showLeft = false;
+                            let title = document.getElementById("mobileMemberTitle");
+                            title.innerText = event.target.innerText;
+                            console.log(location.href.indexOf("member.html"));
+                            let span = document.getElementsByTagName("span")[0];
+                            span.style.display = "block";
+                        } else {
+                            this.showLeft = true;
+                        }
                     } else {
                         this.showLeft = true;
                     }
@@ -221,7 +227,9 @@
                     go.click();
                 },
                 memberReturn() {
-                    location.href = "/member.html";
+                    history.go(-1);
+                    let span = document.getElementsByTagName("span")[0];
+                    span.style.display = "none";
                 }
             },
 

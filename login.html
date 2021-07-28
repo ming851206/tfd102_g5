@@ -12,52 +12,51 @@
 </head>
 <body class="loginMemberPage_Body">
     
-    <div id="app">
+    <div id="login">
 
-    <!-- <h2>Hello</h2> -->
     <!--  include header   -->
     <header id="the_header">
-        <the-header></the-header>       
+        <the-header></the-header>
     </header>
     <div id="mobile_menu">
-        <menu-item></menu-item> 
+        <menu-item></menu-item>
     </div>
 
     <!-- 桌機版 -->
     <!-- 登入 -->
-        <div class="loginMemberPage_main">
+        <div class="loginMemberPage_main" v-if="areaShow">
 
-            <div class="loginInner">
+            <div class="loginInner" >
 
                 <div class="loginInner_Img">
                     <img src="./images/memberCenter/left_earth.png" alt="">
                 </div>
                 <!-- 內容區域 -->
-                <div class="loginInner_block">
+                <div class="loginInner_block" id="login_block" >
                     <h2>登入</h2>
                     <!-- 放登入的東西 -->
                     <!-- 輸入框欄位 -->
-                    <input v-model="account" type="text" placeholder="帳號 :">
-                    <input v-model="password" type="text" placeholder="密碼 :">
+                    <input class="login_input" v-model="account" type="text" placeholder="帳號 :">
+                    <input class="login_input" v-model="password" type="text" placeholder="密碼 :">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
                     <div class="forgetPassword" @click="open_forgetPassword_verification">
                         <p>忘記密碼?</p>
                     </div>
                     <!-- 登入切換按鈕 -->
-                    <button type="button" class="btnM " id="btn_login">登入</button>
+                    <button type="button" class="btnM areaShow" id="btn_login">登入</button>
                 </div>
 
                 <!-- 登入註冊切換按鈕區 -->
-                <div class="loginSitch -on ">
-                    <button type="button" class="btnM_light" id="btn_up">註冊</button>
+                <div class="loginSitch">
+                    <button type="button" class="btnM_light" id="btn_Signup" @click="showBtn">註冊</button>
                 </div>
             </div>
             
         </div>
 
         <!-- 註冊 -->
-        <div class="SiginMemberPage_main">
+        <div class="SiginMemberPage_main" v-else>
             <div class="SiginInner">
 
                 <div class="loginInner_Img">
@@ -66,21 +65,21 @@
 
                 <!-- 註冊切換按鈕區 -->
                 <div class="SiginSitch">
-                    <button type="button" class="btnM_light" id="btn_up">登入</button>
+                    <button type="button" class="btnM_light" id="btn_Signup" @click="showBtn">登入</button>
                 </div>
 
                 <!-- 內容區域 -->
-                <div class="SigiInner_block">
+                <div class="SigiInner_block" id="signUp_block">
                     <h2>註冊</h2>
                     <!-- 放登出的東西 -->
                     <!-- 輸入框欄位 -->
-                    <input v-model="account" type="text" placeholder="帳號 :">
-                    <input v-model="email" type="text" placeholder="Email :">
-                    <input v-model="password" type="text" placeholder="密碼 :">
+                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :">
+                    <input class="login_input" v-model="email_register" type="text" placeholder="Email :">
+                    <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input v-model="password" type="text" placeholder="確認密碼 :">
+                    <input class="login_input" v-model="password" type="text" placeholder="確認密碼 :">
                     <!-- 登入切換按鈕 -->
-                    <button type="button" class="btnM" id="btn_login" @click:>註冊</button>
+                    <button type="button" class="btnM" id="showBtn" >註冊</button>
                 </div>
 
                 
@@ -96,16 +95,17 @@
 
     <!-- 手機版 -->
         <!-- 登入 註冊 -->
-        <div class="phone_loginMemberPage">
+        <div class="phone_loginMemberPage" v-if="areaShow">
 
         <!-- 登入 -->
             
             <div class="phone_loginInner">
-
                 <div class="phone_back_icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17.492" viewBox="0 0 10 17.492">
-                        <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M14.265,14.937l6.618-6.613a1.25,1.25,0,0,0-1.77-1.765l-7.5,7.493a1.248,1.248,0,0,0-.036,1.724l7.53,7.545a1.25,1.25,0,0,0,1.77-1.765Z" transform="translate(-11.251 -6.194)" fill="#996a4d"/>
-                    </svg>
+                    <a href="./index.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17.492" viewBox="0 0 10 17.492">
+                            <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M14.265,14.937l6.618-6.613a1.25,1.25,0,0,0-1.77-1.765l-7.5,7.493a1.248,1.248,0,0,0-.036,1.724l7.53,7.545a1.25,1.25,0,0,0,1.77-1.765Z" transform="translate(-11.251 -6.194)" fill="#996a4d"/>
+                        </svg>
+                    </a>
                 </div>
 
                 <div class="phone_loginInner_Img">
@@ -116,8 +116,8 @@
                     <h2>登入</h2>
 
                     <!-- 輸入框欄位 -->
-                    <input v-model="account" type="text" placeholder="帳號 :">
-                    <input v-model="password" type="text" placeholder="密碼 :">
+                    <input class="login_input" v-model="account" type="text" placeholder="帳號 :">
+                    <input class="login_input" v-model="password" type="text" placeholder="密碼 :">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
                     <div class="phone_forgetPassword" @click="open_forgetPassword_verification">
@@ -127,7 +127,7 @@
                     <!-- 登入註冊切換按鈕區 -->
                     <div class="phone_loginSitch">
                         <button type="button" class="btnM " id="btn_login">登入</button>
-                        <button type="button" class="btnM_light" id="btn_up">註冊</button>
+                        <button type="button" class="btnM_light" id="btn_Signup" @click="showBtn">註冊</button>
                     </div>
                 </div>
 
@@ -137,7 +137,7 @@
         </div>
 
         <!-- 註冊 -->
-        <div class="phone_loginMemberPage">
+        <div class="phone_loginMemberPage" v-else>
 
                 
                 <div class="phone_loginInner">
@@ -156,16 +156,16 @@
                             <h2>登入</h2>
         
                             <!-- 輸入框欄位 -->
-                            <input v-model="account" type="text" placeholder="帳號 :">
-                            <input v-model="email" type="text" placeholder="Email :">
-                            <input v-model="password" type="text" placeholder="密碼 :">
+                            <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :">
+                            <input class="login_input" v-model="email_register" type="text" placeholder="Email :">
+                            <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :">
                             <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                            <input v-model="password" type="text" placeholder="確認密碼 :">
+                            <input class="login_input" v-model="password" type="text" placeholder="確認密碼 :">
                             <!-- 登入切換按鈕 -->
                             <!-- 登入註冊切換按鈕區 -->
                             <div class="phone_loginSitch">
-                                <button type="button" class="btnM " id="btn_login">登入</button>
-                                <button type="button" class="btnM_light" id="btn_up">註冊</button>
+                                <button type="button" class="btnM " id="btn_login" @click="showBtn">登入</button>
+                                <button type="button" class="btnM_light" id="btn_Signup">註冊</button>
                             </div>
     
                     </div>
@@ -173,7 +173,7 @@
     
                 </div>
                 
-            </div>
+        </div>
 
     </div>
 
@@ -182,8 +182,29 @@
         <the-footer></the-footer>
     </footer>
     <script src="./js/header_footer.js"></script>
+
     <script>
         
+        new Vue({
+            el: '#login',
+            data(){      //變數存放的地方
+                return{
+                // 登入註冊切換
+                    areaShow: true,
+                }
+                
+            },
+            watch: {
+                
+            },
+            methods: {  //函數（方法）大部分放這裡
+                // 登入註冊切換
+                showBtn(){
+                    this.areaShow =! this.areaShow
+                }
+            },
+        });
+
     </script>
 </body>
 </html>

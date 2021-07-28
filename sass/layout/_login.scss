@@ -1,8 +1,8 @@
 // 抓回上面的85px
 .loginMemberPage_Body {
-    padding-top: 85px;
+    // padding-top: 85px;
     // background-color: $main_br;
-    border: 1px solid black;
+    // border: 1px solid black;
     margin: 0 auto;
 
     // max-width: 1280px;
@@ -15,7 +15,7 @@
 .loginMemberPage_main {
     display: flex;
     max-width: 540px;
-    border: 1px solid blue;
+    // border: 1px solid blue;
     margin: 30px auto;
 
     @include mobile {
@@ -43,12 +43,12 @@
     flex-direction: column;
     padding-top: 105px;
 
-    border: 1px solid lightpink;
+    // border: 1px solid lightpink;
     // @include form();
 }
 
 p.sigin_tiny {
-    padding: 0;
+    padding-bottom: 0px;
     font-size: 10px;
     color: red;
 }
@@ -62,9 +62,9 @@ h2 {
 }
 
 // input 框框
-input {
+.login_input {
     @include form();
-    margin-top: 10px;
+    margin-bottom: 10px;
     width: 200px;
     height: 60px;
     font-size: 20px;
@@ -82,7 +82,7 @@ input {
     top: 50%;
     right: 0;
     // transform: translateY(30%);
-    border: 1px solid lightpink;
+    // border: 1px solid lightpink;
 }
 
 // 註冊
@@ -90,7 +90,7 @@ input {
 .SiginMemberPage_main {
     max-width: 540px;
     // background-image: url(../../images/memberCenter/left_earth.png);
-    border: 1px solid green;
+    // border: 1px solid green;
     margin: 30px auto;
 
     // display: none;
@@ -106,13 +106,12 @@ input {
     position: relative;
 }
 
-.SiginSitch,
-.on {
+.SiginSitch{
     width: 25%;
     position: absolute;
     top: 50%;
     left: 30px;
-    border: 1px solid lightpink;
+    // border: 1px solid lightpink;
 }
 
 .SigiInner_block {
@@ -123,7 +122,7 @@ input {
     align-items: center;
     flex-direction: column;
     right: 0;
-    border: 1px solid lightpink;
+    // border: 1px solid lightpink;
 }
 
 
@@ -131,7 +130,7 @@ input {
 .phone_loginMemberPage {
     width: 100%;
     display: none;
-
+    // border: 1px solid red;
     @include mobile {
         display: flex;
         margin: 0 auto;
@@ -143,20 +142,23 @@ input {
             align-items: center;
             width: 100%;
             padding: 0px 35px;
-            border: 1px solid red;
+            // border: 1px solid red;
 
             >.phone_back_icon {
                 width: 100%;
-                padding: 15px 0px;
-                border: 1px solid blue;
+                // padding: 15px 0px;
+                // border: 1px solid blue;
+                a{
+                    padding: 10% 0;
+                }
             }
 
-            >.phone_loginInner_Img {
-                border: 1px solid red;
-            }
+            // >.phone_loginInner_Img {
+                // border: 1px solid red;
+            // }
 
             >.phone_loginInner_block {
-                border: 1px solid red;
+                // border: 1px solid red;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -168,21 +170,24 @@ input {
 
                 >.phone_forgetPassword {
                     width: 100%;
-                    border: 1px solid green;
+                    // border: 1px solid green;
                     text-align: right;
                     // transform: translateX(50%);
                 }
 
                 >.phone_loginSitch {
-                    border: 1px solid salmon;
+                    // border: 1px solid salmon;
                     margin: 15px 0px;
 
                     button {
-                        border: 1px solid salmon;
+                        // border: 1px solid salmon;
                         margin-left: 20px;
+                        margin-bottom: 25%;
                     }
                 }
             }
         }
     }
 }
+
+
