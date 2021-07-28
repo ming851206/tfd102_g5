@@ -23,7 +23,7 @@
 
     <!-- travel_info  -->
         <div id="travel_title">
-            <h2>尼加拉大瀑布，感受世界前三大跨國瀑布</h2>
+            <h2>怔怔地望著尼加拉大瀑布那滂薄的氣勢</h2>
             <div id="display_block">
                 <video id="info_video" controlsList="nodownload" controls>
                     <source src="./video/niagara falls.mp4">
@@ -31,7 +31,6 @@
                 </video>
             </div>
             <div class="owl-carousel owl-theme">
-                <img src="./images/icon/page-prev.svg" alt="">
                 <div class="info_pic" id="pic_1"></div>
                 <div class="info_pic" id="pic_2"></div>
                 <div class="info_pic" id="pic_3"></div>
@@ -47,14 +46,18 @@
                 <!-- 導遊介紹 -->
                 <div class="traveler_info">
                     <div id="traveler">
-                        <img class="traveler_pic" src="./images/travel_info/pexels-zachary-debottis-3156515.jpg">
+                        <div class="tra_pic">
+                            <img class="traveler_pic" src="./images/travel_info/pexels-zachary-debottis-3156515.jpg">
+                        </div>
                         <div id="traveler_name">
-                            <div class="icon">
+                            <div class="tra_icon">
                                 <img src="./images/icon/share.svg">
                                 <img src="./images/icon/like.svg">
                             </div>
-                            <h2>Zachary DeBottis 舉辦的線上體驗</h2>
-                            <p>6 小時 · 使用的語言：英語</p>
+                            <div class="tra_info">
+                                <h2>Zachary DeBottis 舉辦的線上體驗</h2>
+                                <h2>6 小時 · 使用的語言：英語</h2>
+                            </div>
                         </div>
                     </div>
 
@@ -69,7 +72,9 @@
                             <p>身分已驗證</p>
                         </div>
                         <p>我來自南美洲北部，一個叫委內瑞拉的國家，之後移民來到了巴塞羅那，在那裡我致力於更多地了解這座城市，並將這些知識分享給任何訪問這座城市的人。參與旅遊的時間過得很快，你甚至不會注意到它!</p>                        
-                        <button class="btnS_line">聯絡線上導遊</button>
+                        <div class="tra_btn">
+                            <button class="btnS_line">聯絡線上導遊</button>
+                        </div>
                     </div>
                 </div> 
                 
@@ -77,19 +82,27 @@
 
         <!-- ----- -->
                 <div id="travel_rules">
-                    <div>
-                        <img src="./images/icon/internet.svg">
-                        <h5>線上加入</h5>
-                        <p>透過 Zoom 與體驗達人在線上交流。</p>
+                    <div class="join_web">
+                        <div>
+                            <img src="./images/icon/internet.svg">
+                        </div>
+                        <div>
+                            <h4>線上加入</h4>
+                            <p>透過 Zoom 與旅遊達人在線上交流。</p>
+                        </div>
                     </div>
-                    <div>
-                        <img src="./images/icon/calender.svg">
-                        <h5>免費退訂</h5>
-                        <p>在體驗開始前至少 1 天或預訂後 24 小時內取消，即可拿回全額退款。</p>    
+                    <div class="free_return">
+                        <div>
+                            <img src="./images/icon/calender.svg">
+                        </div>
+                        <div>
+                            <h4>免費退訂</h4>
+                            <p>在體驗開始前至少 1 天或預訂後 24 小時內取消，即可拿回全額退款。</p>    
+                        </div>
                     </div>
-                    <div>
+                    <div class="max_num">
                         <img src="./images/icon/group.svg">
-                        <p>最多 10 位參加者</p>
+                        <h4>最多 10 位參加者</h4>
                     </div>
                 </div>
 
@@ -106,15 +119,21 @@
         <!-- ------ -->
                 <div id="travel_way">
                     <h2>參加方式</h2>
-                    <div class="join_way">
-                        <img src="./images/icon/computer.svg">
-                        <p>加入視訊通話</p>
+                    <div class="way">
+                        <div class="join_way">
+                            <img src="./images/icon/computer.svg">
+                            <p>加入視訊通話</p>
+                        </div>
+                        <div class="chartered">
+                            <img src="./images/icon/group.svg">
+                            <div class="text_normal">
+                                <p>包場預定</p>
+                            </div>
+                            <div class="text_hover">
+                                <p>Zachary 可為團體舉辦包場體驗，最多可供 10 人參加。包場價 $3,000 起。</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="chartered">
-                        <img src="./images/icon/group.svg">
-                        <p>包場預定</p>
-                    </div>
-                    <!-- <p>Zachary 可為團體舉辦包場體驗，最多可供 10 人參加。包場價 $3,000 起。</p> -->
                 </div>
             </div>
 
@@ -122,27 +141,49 @@
             <!-- 右區塊 -->
             <div class="right_side">
                 <div class="text">
-                    <h5>最低 $3000 / 每人</h5>
+                    <h5>最低 $800 / 每人</h5>
+
+                    <!-- 來不及 -->
+                    <!-- <p>無法提供預定</p>
+                    <button class="btnS_line">額滿</button>
+                    <button class="btnL">瀏覽類似體驗</button> -->
+
+
+                    <!-- 來得及 -->
                     <p>顯示所有價格</p>
-                    <div class="date">
-                        <img src="./images/icon/calender.svg">
-                        <p>日期</p>
-                        <img src="./images/icon/arrowDown.svg" class="down">
+                    <div class="date selection">
+                        <div class="mix">
+                            <img src="./images/icon/calender.svg">
+                            <p>日期</p>
+                        </div>
+                        <div class="down">
+                            <img src="./images/icon/arrowDown.svg" >
+                        </div>
                     </div>
-                    <div class="time">
-                        <img src="./images/icon/clock.svg">
-                        <p>時間</p>
-                        <img src="./images/icon/arrowDown.svg" class="down">
+                    <div class="time selection">
+                        <div class="mix">
+                            <img src="./images/icon/clock.svg">
+                            <p>時間</p> 
+                        </div>
+                        <div class="down">
+                            <img src="./images/icon/arrowDown.svg" >
+                        </div>                    
                     </div>
                     <p>時間在您所在的時區表示</p>
-                    <div class="people">
-                        <img src="./images/icon/user.svg">
-                        <p>人數</p>
-                        <img src="./images/icon/arrowDown.svg" class="down">
+                    <div class="people selection">
+                        <div class="mix">
+                            <img src="./images/icon/user.svg">
+                            <p>人數</p>
+                        </div>
+                        <div class="down">
+                            <img src="./images/icon/arrowDown.svg" >
+                        </div>
                     </div>
                     <button class="btnL">馬上預約</button>
-                    <p>這種體驗是私人的，只有您和您的朋友們。</p>
-                    <p>在您完成預約後，您可以邀請您的朋友。</p>
+                    <div class="text">
+                        <p>這種體驗是私人的，只有您和您的朋友們。</p>
+                        <p>在您完成預約後，您可以邀請您的朋友。</p>
+                    </div>
                 </div>
 
 
@@ -165,27 +206,39 @@
                 </div>
                 <div class="owl-carousel owl-theme">
                     <div class="item">
-                        <h4>6月23日 週三</h4>
+                        <h5>6月23日 週三</h5>
                         <p>上午5:00 - 上午6:45 (TST)</p>
-                        <p>$3000</p>
+                        <p>$800</p>
                         <button class="btnS_line">額滿</button>
                     </div>
                     <div class="item">
-                        <h4>6月23日 週三</h4>
+                        <h5>6月24日 週四</h5>
                         <p>上午5:00 - 上午6:45 (TST)</p>
-                        <p>$3000</p>
+                        <p>$800</p>
                         <button class="btnS_line">額滿</button>
                     </div>
                     <div class="item">
-                        <h4>6月23日 週三</h4>
+                        <h5>6月25日 週五</h5>
                         <p>上午5:00 - 上午6:45 (TST)</p>
-                        <p>$3000</p>
+                        <p>$800</p>
                         <button class="btnS_line">額滿</button>
                     </div>
                     <div class="item">
-                        <h4>6月23日 週三</h4>
+                        <h5>6月26日 週六</h5>
                         <p>上午5:00 - 上午6:45 (TST)</p>
-                        <p>$3000</p>
+                        <p>$800</p>
+                        <button class="btnS_line">額滿</button>
+                    </div>
+                    <div class="item">
+                        <h5>6月27日 週日</h5>
+                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <p>$800</p>
+                        <button class="btnS_line">額滿</button>
+                    </div>
+                    <div class="item">
+                        <h5>6月28日 週一</h5>
+                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <p>$800</p>
                         <button class="btnS_line">額滿</button>
                     </div>
                 </div>
@@ -199,19 +252,25 @@
                 <img id="" src="./images/avatar/avatar20.jpg">
                 <img class="star_num" src="./images/index/content/star.svg">
                 <p>5</p>
-                <p>那裡的景色很不錯，但是在交通上要花很長時間，因為它離紐約很遠，如果自行搭乘公共汽車前往要花8個小時，透過參加線上旅由，不只節省時間，還能欣賞美景，我認為值得這樣做。</p>
+                <div class="text">
+                    <p>那裡的景色很不錯，但是在交通上要花很長時間，因為它離紐約很遠，如果自行搭乘公共汽車前往要花8個小時，透過參加線上旅由，不只節省時間，還能欣賞美景，我認為值得這樣做。</p>
+                </div>
             </div>
             <div id="travel_experience_2">
                 <img id="" src="./images/avatar/avatar18.jpg">
                 <img class="star_num" src="./images/index/content/star.svg">
                 <p>5</p>
-                <p>導遊很可愛，解說很好，有趣的人。讓旅途不枯燥，瀑布很美，第一次參加線上旅行很神奇，搭乘直升機俯瞰瀑布美景，令人回味無窮。各種觀點都很漂亮，印象深刻，很開心。如果有機會我會親自再次訪問這裡，我想晚上再次回來。</p>
+                <div class="text">
+                    <p>導遊很可愛，解說很好，有趣的人。讓旅途不枯燥，瀑布很美，第一次參加線上旅行很神奇，搭乘直升機俯瞰瀑布美景，令人回味無窮。各種觀點都很漂亮，印象深刻，很開心。如果有機會我會親自再次訪問這裡，我想晚上再次回來。</p>
+                </div>
             </div>
             <div id="travel_experience_3">
                 <img id="" src="./images/avatar/avatar10.jpg">
                 <img class="star_num" src="./images/index/content/star.svg">
                 <p>5</p>
-                <p>那裡的景色很不錯，但是在交通上要花很長時間，因為它離紐約很遠，如果自行搭乘公共汽車前往要花8個小時，透過參加線上旅由，不只節省時間，還能欣賞美景，我認為值得這樣做。</p>
+                <div class="text">
+                    <p>尼加拉瀑布的周圍到處可以看到漂亮的公園及綠地，看到許多人在草地上野餐，居住在這裡真的好享受喔!搭乘直升機觀看不同面向的瀑布都有著不一樣的感受，可惜不能親身體驗到瀑布的震撼，只能隔著螢幕欣賞，經過這次線上旅遊，我下次一定會親自去一探究竟!</p>
+                </div>
             </div>
             <button class="btnS_line">看更多</button>
 
@@ -358,11 +417,10 @@
             $(document).ready(function () {
     
                 $(".owl-carousel").owlCarousel({
-                    loop: true, // 循環播放
+                    loop: false, // 循環播放
                     margin: 10, // 外距 10px
-                    nav: true, // 顯示按鍵
+                    nav: false, // 顯示按鍵
                     dots: false, //顯示點點
-                    navText: ["",""],
                     responsive: {
                         0: {
                             items: 1 // 螢幕大小為 0~600 顯示 1 個項目
