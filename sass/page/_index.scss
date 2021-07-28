@@ -17,61 +17,66 @@ $w1200: 1180px;
 
 @keyframes scroll{
     50%{
-        top: 145%;
+        top: 142%;
     }
     100%{
-        top: 170%;
+        top: 165%;
     }
 }
 @keyframes scroll_1{
     50%{
-        top: 115%;
-    }
-    100%{
-        top: 130%;
-    }
-}
-@keyframes scroll_2{
-    50%{
-        top: 125%;
+        top: 120%;
     }
     100%{
         top: 145%;
     }
 }
+@keyframes scroll_2{
+    50%{
+        top: 122%;
+    }
+    100%{
+        top: 138%;
+    }
+}
 // 首頻地球
 section.earth{
-    display: flex;
     position: relative;
     width: 100%;
     height: calc(100vh - 85px);
-    background: linear-gradient(to bottom, #192B39 40%, #3F5361 55%, #8798A5 85%, #D0DCE1);
-    background-image: url("../images/index/content/bg_1.jpg");
+    background-image: url("../images/index/content/index_bg1.jpg");
     background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @media (max-width: 768px) {
+        background-image: url("../images/index/content/index_bg2.jpg");
+        background-position: center top;
+    }
     @include xs{
         height: calc(100vh - 53px);        
     }
     .earth_container{
-        @include margin0;
-        // border: 1px solid red;
+        display: inline-block;
+        position: relative;
+        top: 40%;
+        left: 11%;
+        @include lg_md{
+            left: 5%;
+        }
+        @media (max-width: 768px) {
+            top: 71%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        @include xs {
+            top: 63%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
         div.slogan{
             // border: 1px solid white;
             display: inline-block;
-            margin-top: 255px;
-            position: relative;
-            @include margin(25px, 155px);
-            @include xl {
-                @include margin(25px, 50px);
-            }
-            @include lg {
-                position: absolute;
-                left: 25px;
-                z-index: 1;
-            }
-            @include sm {
-                bottom: 13%;
-                left: 25px;
-                right: 0;
+            @media (max-width: 768px) {
                 text-align: center;
             }
             @include xs {
@@ -89,7 +94,7 @@ section.earth{
                 @include md{
                     text-shadow: 2px 2px 1px black;
                 }
-                @include sm{
+                @media (max-width: 768px){
                     font-size: 36px;
                     text-shadow: 1px 1px 1px black;
                     margin-bottom: 14px;
@@ -109,7 +114,7 @@ section.earth{
                 @include md{
                     text-shadow: 2px 2px 1px rgba(0,0,0,.6);
                 }
-                @include sm {
+                @media (max-width: 768px) {
                     font-size: 18px;
                     text-shadow: 1px 1px 1px rgba(0,0,0,.8);
                 }
@@ -120,110 +125,74 @@ section.earth{
             }
             img.scroll_down{
                 position: absolute;
-                top: 170%;
-                left: 40%;
-                animation: scroll 2.5s linear infinite;
-                @include sm {
-                    top: 130%;
+                top: 165%;
+                left: 45%;
+                animation: scroll 2s linear infinite;
+                @media (max-width: 768px) {
+                    top: 145%;
                     left: 48%;
                     animation: none;
-                    animation: scroll_1 1s linear infinite;
+                    animation: scroll_1 1.3s linear infinite;
                 }
                 @include xs {
-                    top: 145%;
+                    top: 138%;
                     animation: scroll_2 1.5s linear infinite;
                 }
             }
+        
         }
-        div.earthGame{
-            float: right;
-            width: 650px;
-            position: relative;
-            // border: 1px solid white;
+        .game{
+            width: 170px;
+            height: 58px;
+            font-size: 17px;
+            background-color: transparent;
+            color: whitesmoke;
+            border: 1px solid whitesmoke;
+            border-radius: 15px;
+            box-shadow: 0px 0px 5px 2px whitesmoke;
+            position: absolute;
+            top: 185%;
+            left: 104%;
+            cursor: pointer;
             @include xl {
-                width: 640px;
+                left: 90%;
             }
-            @include lg {
-                position: absolute;
-                right: 10px;
-                top: 25px;
+            @include md {
+                top: 25%;
+                left: 130%;
+                // transform: translateX(-30%);      
+                background-color: rgba(0,0,0,.35);
+                box-shadow: 0px 0px 5px 3px whitesmoke;                                 
             }
-            @include sm {
-                width: 460px;
-                position: relative;
-                right: 15px;
-                top: 5px;
+            @media (max-width: 768px) {
+                top: -200%;
+                left: 50%;
+                transform: translateX(-50%);
             }
             @include xs {
-                width: 280px;
-                top: 30px;
-                right: 8px;
-            }
-            img.earth_img{
-                width: 100%;
-                overflow: hidden;
-                float: right;
-                @include lg{
-                    width: 95%;
-                }
-            }
-            .game{
-                width: 170px;
-                height: 58px;
-                font-size: 17px;
+                top: -100%;
+                width: 142px;
+                height: 46px;
                 background-color: transparent;
-                color: whitesmoke;
-                border: 1px solid whitesmoke;
-                border-radius: 15px;
-                box-shadow: 0px 0px 5px 2px whitesmoke;
-                position: absolute;
-                bottom: 9.5%;
-                left: -18%;
-                cursor: pointer;
-                @include lg {
-                    left: -10%;
-                    bottom: 9%;
-                }
-                @include lg_md {
-                    left: 50%;
-                    bottom: 11.5%;
-                    transform: translateX(-30%);      
-                    background-color: rgba(0,0,0,.35);
-                    box-shadow: 0px 0px 5px 3px whitesmoke;                                 
-                }
-                @include sm {
-                    bottom: 40%;
-                    transform: translateX(-40%); 
-                    width: 150px;
-                    height: 50px;
-                    font-size: 16px;
-                }
+                font-size: 14px;
+            }
+            &::before{
+                content: "";
+                width: 35px;
+                height: 28px;
+                display: inline-block;
+                background-image: url("../images/index/content/dice.svg");
+                background-size: contain;
+                background-repeat: no-repeat;
+                margin-right: 5px;
+                vertical-align: sub;
                 @include xs {
-                    width: 142px;
-                    height: 42px;
-                    bottom: -22%;
-                    transform: translateX(-42%); 
-                    background-color: transparent;
-                    font-size: 14px;
-                }
-                  
-                &::before{
-                    content: "";
-                    width: 35px;
-                    height: 28px;
-                    display: inline-block;
-                    background-image: url("../images/index/content/dice.svg");
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    margin-right: 5px;
-                    vertical-align: sub;
-                    @include xs {
-                        width: 30px;
-                        height: 20px;
-                    }
+                    width: 30px;
+                    height: 20px;
                 }
             }
         }
+
     }   
 }
 // 我們的服務

@@ -7,14 +7,11 @@
 
     .pic {
         height: 50%;
-        width: 100%;
-        background-image: url(/images/travel_list/800/wugerku.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        object-fit: contain;
-
-        img {
+        display: flex;
+        justify-content: flex-end;
+        img{
             width: 100%;
+            object-fit: cover;
         }
     }
 
@@ -35,6 +32,17 @@
             transform: translateX(-50%);
         }
 
+        .the_icon{
+            // border: 2px solid red;
+            display: flex;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+
+            .fav{
+                margin-left: 10px;
+            }
+        }
         .star_num {
             display: flex;
             flex-direction: row;
@@ -527,7 +535,17 @@
                 overflow: hidden;
                 position: relative;
 
+                .pic{
+                    border: 2px solid red;
+                    .share{
+                        background-image: url(./../../images/icon/share.svg);
+                    }
+                    .fav{
+                        background-image: url(./../../images/icon/like.svg);
+                    }
+                }
 
+    
                 img {
                     // border: 3px solid brown;
                     width: 100%;
@@ -553,7 +571,7 @@
                     p.txt {
                         // border: 2px solid red;
                         width: 80%;
-                        max-height: 60px;
+                        // max-height: 60px;
                         padding: 10px;
                         margin-bottom: 50px;
                         font-size: 24px;
@@ -743,6 +761,7 @@
                 height: 30px;
                 right: 5%;
                 top: 85%;
+                color: transparent;
 
                 @include tablet {
                     right: 6%;
@@ -780,6 +799,8 @@
                 height: 30px;
                 right: 1%;
                 top: 85%;
+                color: transparent;
+
             }
 
             .owl-next:hover {
