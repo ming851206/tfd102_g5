@@ -7,6 +7,7 @@
     <meta name="description" content="online travel website">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/vue/vue.js"></script>
     <script src="./js/jq/jquery-3.6.0.js"></script>
@@ -209,7 +210,7 @@
 
                 
                     $(".btn_start").click(function(){
-                        $(".passport_page").fadeOut(600);
+                        $(".passport_page").fadeOut(800);
                     })
 
                     $(".landmark").click(function(){
@@ -229,7 +230,12 @@
 
                     $(".game_continue").click(function(){
                         $(".game_result_overlay").fadeOut();
-                        $(".landmark").show();
+                        $(".landmark").css({
+                            backgroundImage: "url('../images/index/game/landmark_white.png')",
+                        }).slideDown();
+                        $(".opt").css({
+                            backgroundColor: "#F7F6F2",
+                        });
                     })
 
                     $(".opt").click(function(){
