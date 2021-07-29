@@ -2,12 +2,14 @@
     margin-left: $left;
     margin-right: $right;
 }
-@mixin h2_margin($t,$b, $l) {
+
+@mixin h2_margin($t, $b, $l) {
     padding: 0;
     margin-top: $t;
     margin-bottom: $b;
     margin-left: $l;
 }
+
 @mixin margin0 {
     margin: 0 auto;
     @content;
@@ -15,133 +17,160 @@
 
 $w1200: 1180px;
 
-@keyframes scroll{
-    50%{
+@keyframes scroll {
+    50% {
         top: 142%;
     }
-    100%{
+
+    100% {
         top: 165%;
     }
 }
-@keyframes scroll_1{
-    50%{
+
+@keyframes scroll_1 {
+    50% {
         top: 120%;
     }
-    100%{
+
+    100% {
         top: 145%;
     }
 }
-@keyframes scroll_2{
-    50%{
+
+@keyframes scroll_2 {
+    50% {
         top: 122%;
     }
-    100%{
+
+    100% {
         top: 138%;
     }
 }
+
 // 首頻地球
-section.earth{
+section.earth {
     position: relative;
     width: 100%;
     height: calc(100vh - 85px);
-    background-image: url("../images/index/content/index_bg1.jpg");
+    background-image: url("../../images/index/content/index_bg1.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
+
     @media (max-width: 768px) {
-        background-image: url("../images/index/content/index_bg2.jpg");
+        background-image: url("../../images/index/content/index_bg2.jpg");
         background-position: center top;
     }
-    @include xs{
-        height: calc(100vh - 53px);        
+
+    @include xs {
+        height: calc(100vh - 53px);
     }
-    .earth_container{
+
+    .earth_container {
         display: inline-block;
         position: relative;
         top: 40%;
         left: 11%;
-        @include lg_md{
+
+        @include lg_md {
             left: 5%;
         }
+
         @media (max-width: 768px) {
             top: 71%;
             left: 50%;
             transform: translateX(-50%);
         }
+
         @include xs {
             top: 63%;
             left: 50%;
             transform: translateX(-50%);
         }
-        div.slogan{
+
+        div.slogan {
             // border: 1px solid white;
             display: inline-block;
+
             @media (max-width: 768px) {
                 text-align: center;
             }
+
             @include xs {
                 width: 350px;
                 @include margin0();
                 left: 0;
                 bottom: 20%;
             }
-            h2{
+
+            h2 {
                 color: $sec_ivory;
                 font-size: 48px;
-                font-family:'en';
+                font-family: 'en';
                 margin-bottom: 20px;
                 text-shadow: 1px 1px 1px black;
-                @include md{
+
+                @include md {
                     text-shadow: 2px 2px 1px black;
                 }
-                @media (max-width: 768px){
+
+                @media (max-width: 768px) {
                     font-size: 36px;
                     text-shadow: 1px 1px 1px black;
                     margin-bottom: 14px;
                     padding: 0;
                     text-shadow: none;
                 }
+
                 @include xs {
                     font-size: 28px;
-                }    
+                }
             }
-            h5{
+
+            h5 {
                 color: $sec_ivory;
                 font-size: 21px;
                 line-height: 1.5;
-                font-family:'regular';
-                text-shadow: 1px 1px 1px rgba(0,0,0,.6);
-                @include md{
-                    text-shadow: 2px 2px 1px rgba(0,0,0,.6);
+                font-family: 'regular';
+                text-shadow: 1px 1px 1px rgba(0, 0, 0, .6);
+
+                @include md {
+                    text-shadow: 2px 2px 1px rgba(0, 0, 0, .6);
                 }
+
                 @media (max-width: 768px) {
                     font-size: 18px;
-                    text-shadow: 1px 1px 1px rgba(0,0,0,.8);
+                    text-shadow: 1px 1px 1px rgba(0, 0, 0, .8);
                 }
+
                 @include xs {
                     font-size: 14px;
                     white-space: nowrap;
-                }   
+                }
             }
-            img.scroll_down{
+
+            img.scroll_down {
                 position: absolute;
                 top: 165%;
                 left: 45%;
                 animation: scroll 2s linear infinite;
+
                 @media (max-width: 768px) {
                     top: 145%;
                     left: 48%;
                     animation: none;
                     animation: scroll_1 1.3s linear infinite;
                 }
+
                 @include xs {
                     top: 138%;
                     animation: scroll_2 1.5s linear infinite;
                 }
             }
-        
+
         }
-        .game{
+
+        .game {
             width: 170px;
             height: 58px;
             font-size: 17px;
@@ -154,21 +183,25 @@ section.earth{
             top: 185%;
             left: 104%;
             cursor: pointer;
+
             @include xl {
                 left: 90%;
             }
+
             @include md {
                 top: 25%;
                 left: 130%;
-                // transform: translateX(-30%);      
-                background-color: rgba(0,0,0,.35);
-                box-shadow: 0px 0px 5px 3px whitesmoke;                                 
+                // transform: translateX(-30%);
+                background-color: rgba(0, 0, 0, .35);
+                box-shadow: 0px 0px 5px 3px whitesmoke;
             }
+
             @media (max-width: 768px) {
                 top: -200%;
                 left: 50%;
                 transform: translateX(-50%);
             }
+
             @include xs {
                 top: -100%;
                 width: 142px;
@@ -176,16 +209,18 @@ section.earth{
                 background-color: transparent;
                 font-size: 14px;
             }
-            &::before{
+
+            &::before {
                 content: "";
                 width: 35px;
                 height: 28px;
                 display: inline-block;
-                background-image: url("../images/index/content/dice.svg");
+                background-image: url("../../images/index/content/dice.svg");
                 background-size: contain;
                 background-repeat: no-repeat;
                 margin-right: 5px;
                 vertical-align: sub;
+
                 @include xs {
                     width: 30px;
                     height: 20px;
@@ -193,56 +228,73 @@ section.earth{
             }
         }
 
-    }   
+    }
 }
+
 // 我們的服務
-.about{
+.about {
     position: relative;
-    h2{
+
+    h2 {
         @include h2_margin(100px, 60px, 10px);
+
         @include sm {
             width: 500px;
             margin: 100px auto 60px;
         }
-        @include xs{
+
+        @include xs {
             width: 320px;
             margin: 100px auto 60px;
         }
     }
-    .about_container{
+
+    .about_container {
         width: $w1200;
         @include margin0();
+
         @include xl {
             width: 1080px;
         }
+
         @include lg {
             width: 900px;
         }
+
         @include md {
             width: 722px;
         }
+
         @include sm {
             width: 100%;
         }
-        @include xs{
+
+        @include xs {
             width: 100%;
         }
     }
-    .all_about{
+
+    .all_about {
         position: relative;
-        .about_1{
-            @include margin0{
+
+        .about_1 {
+            @include margin0 {
 
                 display: flex;
                 width: 990px;
                 margin-bottom: 60px;
-            };
+            }
+
+            ;
+
             @include lg {
                 width: 900px;
             }
+
             @include md {
                 width: 700px;
             }
+
             @include sm {
                 display: flex;
                 flex-direction: column;
@@ -251,69 +303,90 @@ section.earth{
                 width: 500px;
                 @include margin0();
             }
-            @include xs{
+
+            @include xs {
                 width: 320px;
                 justify-content: initial;
                 align-items: initial;
             }
-            img{
+
+            img {
                 width: 100%;
+
                 @include md {
                     width: 50%;
                 }
+
                 @include sm {
                     width: 90%;
                 }
-                @include xs{
+
+                @include xs {
                     width: 100%;
                 }
 
             }
-            .des_1{
+
+            .des_1 {
                 margin-left: 80px;
                 align-self: center;
-                @include md{
+
+                @include md {
                     margin-left: 60px;
                 }
+
                 @include sm {
                     margin-top: 20px;
                     @include margin(26px, 15px);
                 }
-                @include xs{
+
+                @include xs {
                     margin: 15px 10px 0;
                 }
             }
-            h3{
+
+            h3 {
                 line-height: 4;
-                @include md{
+
+                @include md {
                     line-height: 1;
                     margin-bottom: 25px;
                 }
+
                 @include sm {
                     margin-bottom: 20px;
                 }
-                @include xs{
+
+                @include xs {
                     margin-bottom: 10px;
                 }
             }
-            h4{
+
+            h4 {
                 font-size: 16px;
-                @include xs{
+
+                @include xs {
                     font-size: 14px;
                 }
             }
         }
-        .about_2{
-            @include margin0{
+
+        .about_2 {
+            @include margin0 {
                 display: flex;
                 width: 990px;
-            };
+            }
+
+            ;
+
             @include lg {
                 width: 900px;
             }
+
             @include md {
                 width: 700px;
             }
+
             @include sm {
                 display: flex;
                 flex-direction: column-reverse;
@@ -322,89 +395,109 @@ section.earth{
                 width: 500px;
                 margin: 90px auto 80px;
             }
-            @include xs{
+
+            @include xs {
                 justify-content: initial;
                 align-items: initial;
                 width: 320px;
                 margin: 50px auto 30px;
             }
-            img{
+
+            img {
                 width: 100%;
+
                 @include md {
                     width: 50%;
                 }
+
                 @include sm {
                     width: 90%;
                 }
-                @include xs{
+
+                @include xs {
                     width: 100%;
                 }
             }
-            .des_2{
+
+            .des_2 {
                 align-self: flex-start;
                 margin-top: 30px;
                 width: 900px;
                 @include margin(0px, 80px);
+
                 @include md {
                     @include margin(0px, 42px);
                 }
+
                 @include sm {
                     margin: 20px 0;
                     width: 450px;
                     align-self: initial;
                 }
-                @include xs{
+
+                @include xs {
                     margin: 15px 10px 20px;
                     width: 300px;
                 }
             }
-            
-            h3{
+
+            h3 {
                 line-height: 4;
+
                 @include lg {
                     line-height: 3;
                 }
-                @include md{
+
+                @include md {
                     line-height: 1;
                     margin-bottom: 25px;
                 }
+
                 @include sm {
                     margin-bottom: 20px;
                 }
-                @include xs{
+
+                @include xs {
                     margin-bottom: 10px;
                 }
             }
-            h4{
+
+            h4 {
                 font-size: 16px;
-                @include xs{
+
+                @include xs {
                     font-size: 14px;
                 }
             }
         }
     }
-    .light_bg{
+
+    .light_bg {
         width: 90%;
         height: 700px;
         display: inline-block;
-        background-image: url("../images/index/content/color_bg1.png");
+        background-image: url("../../images/index/content/color_bg1.png");
         position: absolute;
         bottom: 0;
         z-index: -1;
+
         @include lg {
             width: 85%;
         }
-        @include md{
+
+        @include md {
             width: 100%;
         }
-        @include sm{
+
+        @include sm {
             display: none;
         }
     }
-    .fence{
+
+    .fence {
         width: 100%;
         height: 45px;
-        background-image: url("../images/index/content/fence_hor.png");
+        background-image: url("../../images/index/content/fence_hor.png");
         z-index: 1;
     }
 }
@@ -421,168 +514,195 @@ section.earth{
     overflow: hidden;
     display: flex;
     align-items: center;
+
     // padding-top: 5vw;
-    @include sm{
+    @include sm {
         display: none;
     }
-    h2{
-      position: absolute;
-      top: 20vh;
-      left: 10.8vw;
-      color: white;
-      text-shadow: 1px 1px 1px black, -1px -1px 1px black;
-      @include xl{
-        left: 8.8vw;
-      }
-      @include lg{
-        left: 11.6vw;
-      }
-      @include md{
-        top: 23vh;
-      }
+
+    h2 {
+        position: absolute;
+        top: 20vh;
+        left: 10.8vw;
+        color: white;
+        text-shadow: 1px 1px 1px black, -1px -1px 1px black;
+
+        @include xl {
+            left: 8.8vw;
+        }
+
+        @include lg {
+            left: 11.6vw;
+        }
+
+        @include md {
+            top: 23vh;
+        }
     }
+
     .mentor {
-      position: absolute;
-      max-width: 600px;
-      top: 30vh;
-      left: 10vw;
-      color: black;
-      line-height: 1.6;
-      font-size: 16px;
-      background: rgba(255, 255, 255, 0.85);
-      padding: 16px;
-      opacity: 0;
-      transition: opacity 0.5s;
-      &--show {
-        opacity: 1;
-      }
-      @include xl{
-        left: 8vw;
+        position: absolute;
+        max-width: 600px;
+        top: 30vh;
+        left: 10vw;
+        color: black;
+        line-height: 1.6;
+        font-size: 16px;
+        background: rgba(255, 255, 255, 0.85);
         padding: 16px;
-      }
-      @include lg{
-        left: 10.5vw;
-        max-width: 450px
-      }
-      @include md{
-        top: 33vh;
-        max-width: 300px;
-      }
-      h3{
-          margin-bottom: 3px;
-          font-weight: 600;
-      }
-      p{
-          font-size: 16px;
-          line-height: 1.8;
-      }
+        opacity: 0;
+        transition: opacity 0.5s;
+
+        &--show {
+            opacity: 1;
+        }
+
+        @include xl {
+            left: 8vw;
+            padding: 16px;
+        }
+
+        @include lg {
+            left: 10.5vw;
+            max-width: 450px
+        }
+
+        @include md {
+            top: 33vh;
+            max-width: 300px;
+        }
+
+        h3 {
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
     }
 }
-  
-.circle-carousel { 
-    width: 600px; 
-    height: 600px; 
-    position: absolute; 
+
+.circle-carousel {
+    width: 600px;
+    height: 600px;
+    position: absolute;
     right: -300px;
     margin-top: -50px;
     transition: transform .5s;
     z-index: 90;
     cursor: pointer;
-    @include md{
+
+    @include md {
         right: -350px;
     }
-    &__item { 
-      width: 70px;
-      height: 70px;
-      position: absolute;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 20px;
-      color: rgba(247, 246, 242, 0.5);
-      transition: all 0.5s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      -webkit-filter: opacity(70%);
-      filter: opacity(70%);
-      cursor: pointer;
-      @include lg{
-        width: 65px;
-        height: 65px;
-      }
-      @include md{
-        width: 58px;
-        height: 58px;
-      }
-      
-      &.active{
-        background: rgba(247, 246, 242, 0.5) !important;
-        transform: scale(2.6);
-        -webkit-filter: opacity(90%);
-        filter: opacity(90%);
+
+    &__item {
+        width: 70px;
+        height: 70px;
+        position: absolute;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 20px;
+        color: rgba(247, 246, 242, 0.5);
+        transition: all 0.5s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        -webkit-filter: opacity(70%);
+        filter: opacity(70%);
         cursor: pointer;
-      }
-      &.next-to-active {
-        transform: scale(1.4);
-        cursor: pointer;
-      }
-      div {
-        background-size: cover;
-        background-position: center center;
-        width: 100%;
-        height: 100%;
-        transition: transform .5s;
-      }
+
+        @include lg {
+            width: 65px;
+            height: 65px;
+        }
+
+        @include md {
+            width: 58px;
+            height: 58px;
+        }
+
+        &.active {
+            background: rgba(247, 246, 242, 0.5) !important;
+            transform: scale(2.6);
+            -webkit-filter: opacity(90%);
+            filter: opacity(90%);
+            cursor: pointer;
+        }
+
+        &.next-to-active {
+            transform: scale(1.4);
+            cursor: pointer;
+        }
+
+        div {
+            background-size: cover;
+            background-position: center center;
+            width: 100%;
+            height: 100%;
+            transition: transform .5s;
+        }
     }
 }
-#circle-carousel{
-    @include sm{
+
+#circle-carousel {
+    @include sm {
         display: none;
     }
 }
-#mobile_theme{
+
+#mobile_theme {
     display: none;
-    @include sm{
+
+    @include sm {
         display: block;
         // border: 1px solid red;
         margin-top: 100px;
-        h2{
+
+        h2 {
             @include sm {
                 width: 500px;
                 margin: 0px auto 20px;
             }
-            @include xs{
+
+            @include xs {
                 width: 320px;
             }
         }
-        li{
+
+        li {
             height: 250px;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center center;
             position: relative;
             min-width: 320px;
-            h3{
+
+            h3 {
                 color: white;
                 font-size: 30px;
                 font-weight: bold;
-                text-shadow: 1px 1px 0px rgba(0,0,0,.8);
+                text-shadow: 1px 1px 0px rgba(0, 0, 0, .8);
                 position: absolute;
                 left: 50%;
                 top: 50%;
-                transform:translate(-50%, -50%);
+                transform: translate(-50%, -50%);
             }
-            &:nth-child(1){
-                h3{
-                    color: rgba(0,0,0,.8);
+
+            &:nth-child(1) {
+                h3 {
+                    color: rgba(0, 0, 0, .8);
                     text-shadow: 1px 1px 0px whitesmoke;
 
                 }
             }
-            &:nth-child(5){
-                h3{
-                    color: rgba(0,0,0,.8);
+
+            &:nth-child(5) {
+                h3 {
+                    color: rgba(0, 0, 0, .8);
                     text-shadow: 1px 1px 0px whitesmoke;
 
                 }
@@ -592,48 +712,59 @@ section.earth{
 }
 
 // 熱門旅遊
-.travel{
+.travel {
     width: $w1200;
     @include margin0();
     margin-top: 200px;
+
     @include xl {
         width: 1080px;
     }
+
     @include lg {
         width: 960px;
         margin-top: 140px;
     }
+
     @include md {
         width: 748px;
     }
+
     @include sm {
         width: 550px;
     }
-    @include xs{
+
+    @include xs {
         width: 350px;
         margin-top: 100px;
     }
-    h2{
+
+    h2 {
         padding: 0;
         margin-bottom: 60px;
+
         @include lg {
             width: 880px;
             @include margin(40px, 40px)
         }
+
         @include md {
             width: 700px;
             @include margin(30px, 0px)
         }
+
         @include sm {
             width: 550px;
             @include margin(25px, 40px)
         }
+
         @include xs {
             width: 295px;
             @include margin(25px, 0px)
         }
     }
-    ul#travel_container{
+
+    ul#travel_container {
         @include md {
             width: 580px;
             @include margin0();
@@ -641,114 +772,142 @@ section.earth{
             column-count: 2;
             column-gap: 30px;
         }
+
         @include sm {
             width: 540px;
             column-gap: 10px;
         }
-        @include xs{
+
+        @include xs {
             width: 320px;
         }
-        li{
+
+        li {
             border-radius: 25px;
             overflow: hidden;
             display: inline-block;
             margin-right: 20px;
             width: 280px;
             cursor: pointer;
-            &:nth-child(4){
+
+            &:nth-child(4) {
                 margin-right: 0;
             }
-            &:hover{
+
+            &:hover {
                 transform: scale(1.03);
-                box-shadow: 0px 0px 10px rgba(0,0, 0, 0.3);
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
             }
+
             // transition: all 0.5s;
             @include xl {
                 width: 255px;
                 margin-right: 16px;
             }
+
             @include lg {
                 width: 225px;
             }
+
             @include md {
                 width: 275px;
                 margin-bottom: 40px;
             }
+
             @include sm {
                 width: 260px;
             }
-            @include xs{
+
+            @include xs {
                 max-width: 100%;
             }
-            
-            img.place{
+
+            img.place {
                 width: 100%;
                 display: block;
             }
-            .main_content{
+
+            .main_content {
                 display: block;
                 background-color: $main_ivory;
                 padding: 12px 0 20px 20px;
+
                 @include xl {
                     padding-left: 10px
                 }
+
                 @include md {
                     padding-left: 30px
                 }
+
                 @include xs {
                     padding: 6px 0 10px 8px;
                     height: 140px;
                 }
-                .first{
+
+                .first {
                     margin-bottom: 16px;
                     display: flex;
-                    @include xs{
+
+                    @include xs {
                         margin-bottom: 8px;
                     }
-                    .star_num{
+
+                    .star_num {
                         display: inline-block;
                         @include margin(3px, 4px);
-                        img{
+
+                        img {
                             width: 18px;
                             vertical-align: text-top;
+
                             @include lg {
                                 width: 16px;
                             }
+
                             @include xs {
                                 width: 12px;
                                 vertical-align: baseline;
                             }
                         }
-                        p{
+
+                        p {
                             margin-left: 1px;
+
                             @include xs {
                                 font-size: 14px;
                             }
                         }
                     }
-                    p{
+
+                    p {
                         display: inline-block;
                         margin-left: 6px;
                         font-size: 16px;
                         margin-top: 10px;
+
                         @include xs {
                             font-size: 14px;
                         }
                     }
                 }
-                h3{
+
+                h3 {
                     font-size: 22px;
+
                     @include xs {
                         font-size: 20px;
                         line-height: 1.2;
                         height: 48px;
                     }
                 }
-                p.third{
+
+                p.third {
                     font-size: 16px;
                     margin-top: 10px;
                     padding-bottom: 5px;
-                    @include xs{
+
+                    @include xs {
                         font-size: 14px;
                     }
                 }
@@ -757,11 +916,13 @@ section.earth{
         }
 
     }
-    #index_travel_more{
+
+    #index_travel_more {
         display: block;
         @include margin0();
         margin-top: 50px;
-        @include md{
+
+        @include md {
             margin-top: 10px;
         }
 
@@ -769,76 +930,95 @@ section.earth{
 }
 
 // 選擇我們
-#choose_us{
+#choose_us {
     padding: 200px 0 250px;
-    background-image: url("../images/index/content/color_bg1.png");
+    background-image: url("../../images/index/content/color_bg1.png");
     background-size: contain;
-    @include lg{
+
+    @include lg {
         margin-top: 30px;
         padding: 200px 0 120px;
     }
+
     @include md {
         margin-top: 60px;
         padding: 150px 0 80px;
     }
-    @include sm{
+
+    @include sm {
         margin-top: 40px;
         background-size: cover;
     }
-    @include xs{
+
+    @include xs {
         margin-top: 20px;
         padding: 80px 0 60px;
     }
-    .the_reason{
+
+    .the_reason {
         width: $w1200;
         margin-top: 50px;
         @include margin0();
+
         @include xl {
             width: 1080px;
         }
+
         @include lg {
             width: 900px;
         }
+
         @include md {
             width: 722px;
             display: flex;
             align-items: center;
         }
+
         @include sm {
             width: 500px;
             flex-direction: column;
             align-items: flex-start;
         }
-        @include xs{
+
+        @include xs {
             width: 320px;
         }
-        .text{     
-                @include h2_margin(48px, 85px, 10px);
-                vertical-align: top;
-                display: inline-block;
-                @include lg {
-                    @include h2_margin(28px, 85px, 10px);
-                }
-                @include md{
-                    flex-grow: 1;
-                }
-                @include sm{
-                    @include h2_margin(28px, 45px, 10px);
-                }
-            h2{
+
+        .text {
+            @include h2_margin(48px, 85px, 10px);
+            vertical-align: top;
+            display: inline-block;
+
+            @include lg {
+                @include h2_margin(28px, 85px, 10px);
+            }
+
+            @include md {
+                flex-grow: 1;
+            }
+
+            @include sm {
+                @include h2_margin(28px, 45px, 10px);
+            }
+
+            h2 {
                 padding: 0;
                 margin-top: 10px;
                 margin-bottom: 50px;
-                @include md{
+
+                @include md {
                     margin-bottom: 30px;
                 }
-                @include sm{
+
+                @include sm {
                     margin-bottom: 30px;
                 }
             }
-            ul.reasons{
+
+            ul.reasons {
                 list-style: initial;
-                li{
+
+                li {
                     font-size: 17px;
                     line-height: 2;
                     margin-left: 20px;
@@ -847,180 +1027,223 @@ section.earth{
             }
         }
     }
-    #index_video{
+
+    #index_video {
         float: right;
         width: 672px;
         border-radius: 25px;
         cursor: pointer;
+
         @include lg {
             width: 550px;
         }
+
         @include md {
             width: 385px;
             margin-bottom: 45px;
         }
+
         @include sm {
             width: 500px;
         }
-        @include xs{
+
+        @include xs {
             width: 320px;
-        }   
+        }
     }
 }
+
 // 更多評價
-.more_opinion{
+.more_opinion {
     width: 100%;
     position: relative;
     display: flex;
-    aside.fence_col{
+
+    aside.fence_col {
         display: inline-block;
         width: 45px;
         // height: 100vh;
-        background-image: url("../images/index/content/fence_col.png");
+        background-image: url("../../images/index/content/fence_col.png");
         margin-right: 10px;
-        @include lg {  
+
+        @include lg {
             width: 28px;
         }
-        @include lg_md { 
+
+        @include lg_md {
             display: none;
         }
 
     }
-    .opinion_container{
+
+    .opinion_container {
         @include margin0();
         vertical-align: top;
         padding-bottom: 110px;
         width: 1060px;
-        @include xl {   
+
+        @include xl {
             width: 1000px;
         }
-        @include lg {  
+
+        @include lg {
             margin: 0 auto;
         }
-        @include lg_md {  
+
+        @include lg_md {
             margin-left: 50px;
         }
+
         @include md_sm {
             width: 740px;
         }
-        @include xs { 
+
+        @include xs {
             padding-bottom: 200px;
         }
-        h2{
+
+        h2 {
             @include h2_margin(100px, 60px, 0px);
-            @include sm {  
-                margin: 60px auto;   
+
+            @include sm {
+                margin: 60px auto;
             }
         }
-        #all_opinion{
+
+        #all_opinion {
             column-count: 3;
             column-gap: 50px;
             margin-bottom: 90px;
-            @include xl {   
+
+            @include xl {
                 column-gap: 40px;
             }
-            @include lg {  
+
+            @include lg {
                 column-gap: 20px;
             }
-            @include md_sm {  
+
+            @include md_sm {
                 column-count: 2;
                 column-gap: 30px;
             }
-            @include sm { 
+
+            @include sm {
                 column-count: 1;
                 column-gap: 0;
                 margin-bottom: 40px;
             }
-            li{
+
+            li {
                 border: 1px solid $main_br;
                 border-radius: 0 25px 0 25px;
                 margin-bottom: 50px;
                 padding: 36px 40px;
-                @include xl {   
+
+                @include xl {
                     margin-bottom: 50px;
                     padding: 32px 34px;
                 }
-                @include lg {  
+
+                @include lg {
                     margin-bottom: 32px;
                     padding: 26px;
                 }
-                @include md_sm {  
+
+                @include md_sm {
                     padding: 20px;
                     margin-bottom: 30px;
                 }
-                &:nth-child(4), 
+
+                &:nth-child(4),
                 &:nth-child(5),
-                &:nth-child(6){
+                &:nth-child(6) {
                     @include sm {
                         display: none;
                     }
                 }
 
-                .top{
+                .top {
                     margin-bottom: 25px;
                     font-size: 16px;
-                    @include lg {  
+
+                    @include lg {
                         margin-bottom: 12px;
                     }
-                    @include md_sm {  
+
+                    @include md_sm {
                         margin-bottom: 8px;
                     }
-                    img{
+
+                    img {
                         display: inline-block;
                     }
-                    .right{
+
+                    .right {
                         display: inline-block;
                         margin-left: 20px;
                         vertical-align: top;
-                        @include xs{
+
+                        @include xs {
                             vertical-align: super;
                         }
-                        .star_num{
+
+                        .star_num {
                             margin-top: 8px;
                             display: flex;
                             justify-content: flex-start;
                             margin-bottom: 8px;
-                            img{
+
+                            img {
                                 margin-right: 8px;
                                 width: 18px;
                             }
-                            p{
+
+                            p {
                                 font-size: 16px;
                             }
                         }
                     }
                 }
-                p.content{
+
+                p.content {
                     font-size: 16px;
                     line-height: 2;
-                    @include md_sm{
+
+                    @include md_sm {
                         line-height: 1.7;
                     }
-                    @include sm { 
+
+                    @include sm {
                         line-height: 1.4;
                         font-size: 14px;
                     }
                 }
             }
         }
-        #opinion_more{
+
+        #opinion_more {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-        }   
+        }
     }
-    #going_top{
+
+    #going_top {
         cursor: pointer;
         align-self: flex-end;
         margin-right: 35px;
         margin-bottom: 30px;
-        @include lg {  
+
+        @include lg {
             margin-right: 22px;
         }
+
         @include md_sm {
             margin-right: 16px;
         }
-        @include xs { 
+
+        @include xs {
             margin-bottom: 90px;
         }
     }

@@ -7,14 +7,12 @@
 
     .pic {
         height: 50%;
-        width: 100%;
-        background-image: url(/images/travel_list/800/wugerku.jpg);
-        background-repeat: no-repeat;
-        background-size: cover;
-        object-fit: contain;
+        display: flex;
+        justify-content: flex-end;
 
         img {
             width: 100%;
+            object-fit: cover;
         }
     }
 
@@ -33,6 +31,18 @@
             top: -25%;
             left: 50%;
             transform: translateX(-50%);
+        }
+
+        .the_icon {
+            // border: 2px solid red;
+            display: flex;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+
+            .fav {
+                margin-left: 10px;
+            }
         }
 
         .star_num {
@@ -254,7 +264,7 @@
         width: 200px;
         height: 30px;
         right: 5px;
-        background-image: url(/images/icon/search.svg);
+        background-image: url(../../images/icon/search.svg);
         background-repeat: no-repeat;
         background-position: 10px center;
 
@@ -367,12 +377,12 @@
     }
 
     .pic.upper {
-        background-image: url(/images/travel_list/500/africa_elephant.jpg);
+        background-image: url(../../images/travel_list/500/africa_elephant.jpg);
         background-position: center;
     }
 
     .pic.down {
-        background-image: url(/images/travel_list/500/louvre.jpg);
+        background-image: url(../../images/travel_list/500/louvre.jpg);
     }
 
     .content {
@@ -527,6 +537,18 @@
                 overflow: hidden;
                 position: relative;
 
+                .pic {
+                    border: 2px solid red;
+
+                    .share {
+                        background-image: url(../../images/icon/share.svg);
+                    }
+
+                    .fav {
+                        background-image: url(../../images/icon/like.svg);
+                    }
+                }
+
 
                 img {
                     // border: 3px solid brown;
@@ -553,7 +575,7 @@
                     p.txt {
                         // border: 2px solid red;
                         width: 80%;
-                        max-height: 60px;
+                        // max-height: 60px;
                         padding: 10px;
                         margin-bottom: 50px;
                         font-size: 24px;
@@ -646,7 +668,7 @@
                             width: 15px;
                         }
 
-                        @include mobile{
+                        @include mobile {
                             img {
                                 width: 8px;
                             }
@@ -682,7 +704,7 @@
     z-index: 10;
 }
 
-// ========= 輪播 ========= 
+// ========= 輪播 =========
 .owl-carousel {
     //   border: 2px solid blue;
     width: 100%;
@@ -736,13 +758,14 @@
         .owl-nav {
             .owl-prev {
                 //   border:1px solid red;
-                background-image: url(./../../images/icon/page-prev.svg);
+                background-image: url(../../images/icon/page-prev.svg);
                 background-size: cover;
                 position: absolute;
                 width: 30px;
                 height: 30px;
                 right: 5%;
                 top: 85%;
+                color: transparent;
 
                 @include tablet {
                     right: 6%;
@@ -773,13 +796,15 @@
     .owl-carousel {
         .owl-nav {
             .owl-next {
-                background-image: url(./../../images/icon/page-next.svg);
+                background-image: url(../../images/icon/page-next.svg);
                 background-size: cover;
                 position: absolute;
                 width: 30px;
                 height: 30px;
                 right: 1%;
                 top: 85%;
+                color: transparent;
+
             }
 
             .owl-next:hover {
