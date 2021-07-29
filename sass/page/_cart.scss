@@ -1,10 +1,3 @@
-// 文字設定
-p , h1, h2, h3, h4, h5{
-    font-family:'en';
-}
-h5{
-    margin: 15px auto;
-}
 hr{
     margin: 30px auto;
 }
@@ -21,6 +14,9 @@ hr{
 
 .main_container{
     width: 100%;
+    h5{
+        margin: 15px auto;
+    }
     // --------左區塊
     .cart_left_side{
         display: inline-block;
@@ -176,7 +172,6 @@ hr{
     .cart_right_side{
         display: inline-block;
         width: 25%;
-        height: 200vh;
         margin: 10px auto;
         padding: 0;
         border-radius: 25px;
@@ -186,7 +181,7 @@ hr{
         list-style: none;
         li{
             width: 100%;
-            a {
+            a.item_info {
                 text-decoration: none;
                 width: 100%;
                 border-radius: $borderRadius_cd;
@@ -195,10 +190,9 @@ hr{
                 .travel_item{
                     display: flex;
                     flex-direction: column;
-                    height: 70vh;
                     max-height: 530px;
                     .pic0 {
-                        height: 50%;
+                        height: 100px;
                         width: 100%;
                         background-repeat: no-repeat;
                         background-size: cover;
@@ -221,7 +215,7 @@ hr{
                             position: absolute;
                             top: -25%;
                             left: 50%;
-                            transform: translateX(-50%);
+                            transform: translate(-50%, 80%);
                         }
                     
                         .star_num {
@@ -234,14 +228,20 @@ hr{
                         }
                     
                         h4.intro {
-                            max-height: 20px;
                             font-size: 16px;
-                            margin-bottom: 20px;
+                            margin-bottom: 10px;
                             font-family: 'regular';
                             overflow: hidden;
                         }
+                        h5{
+                            margin: 10px auto;
+                        }
                         p{
                             font-size: 12px;
+                            margin: 3px auto;
+                        }
+                        .counting, .total_price{
+                            justify-content: space-between;
                         }
                     }
                 
@@ -260,8 +260,18 @@ hr{
                     .counting, .total_price{
                         display: flex;
                         flex-direction: row;
+                    }
+                    .row_bar{
+                        margin: 5px auto;
+                    }
+                    .policy{
+                        font-size: 5px;
                     }                   
                 }
+            }
+            a.item_info:hover{
+                color: black;
+                font-weight: normal;
             }
         }
     }

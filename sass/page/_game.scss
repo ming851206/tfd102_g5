@@ -646,10 +646,10 @@ $passportW: 402;
                 transform: translate(-50%, -50%);
             }
 
-            .top_word {
+            .top_word_game {
 
                 // border: 1px solid red;
-                .visa_word {
+                .visa_word_game {
                     display: flex;
                     justify-content: space-around;
                     margin-top: 15px;
@@ -657,7 +657,8 @@ $passportW: 402;
                     letter-spacing: 1px;
                     font-size: 15px;
 
-                    h5 {
+                    .visa_h5 {
+                        margin: 0 !important;
                         &:nth-child(2) {
                             @include sm {
                                 display: none;
