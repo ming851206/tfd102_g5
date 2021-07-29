@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./dist/css/style.css">
     <script src="./js/vue/vue.js"></script>
     <script src="./js/jq/jquery-3.6.0.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <title>確認並付款</title>
 </head>
+
 <body class="Cart_Body">
     <div id="main">
         <!--  include header   -->
         <header id="the_header">
-            <the-header></the-header>       
+            <the-header></the-header>
         </header>
         <div id="mobile_menu">
-            <menu-item></menu-item> 
+            <menu-item></menu-item>
         </div>
     </div>
     <main>
@@ -29,7 +31,7 @@
                     <img src="./images/icon/left-arrow.svg">
                     <h2>確認並付款</h2>
                 </div>
- 
+
                 <!-- 付款資訊 -->
                 <div class="payment_info">
                     <h5>你的旅遊</h5>
@@ -44,7 +46,7 @@
                         <p class="read_more">了解更多</p>
                     </div>
                     <div class="chartered_toggle">
-                        <img src="./images/icon/toggle_off.svg" >
+                        <img src="./images/icon/toggle_off.svg">
                     </div>
                 </div>
                 <h5>體驗人數</h5>
@@ -54,7 +56,7 @@
                         <p>人數</p>
                     </div>
                     <div class="down">
-                        <img src="./images/icon/arrowDown.svg" >
+                        <img src="./images/icon/arrowDown.svg">
                     </div>
                 </div>
 
@@ -91,7 +93,7 @@
                             <p>信用卡</p>
                         </div>
                         <div class="plus">
-                            <img src="./images/icon/plus.svg" >
+                            <img src="./images/icon/plus.svg">
                         </div>
                     </div>
                 </div>
@@ -106,7 +108,7 @@
                             <p>輸入優惠碼</p>
                         </div>
                         <div class="plus">
-                            <img src="./images/icon/plus.svg" >
+                            <img src="./images/icon/plus.svg">
                         </div>
                     </div>
                     <button class="btnM_line">套用</button>
@@ -115,10 +117,10 @@
                 <hr size="4px" align="center" width="100%" color="#996A4D">
 
                 <p>選擇以下按鈕即代表您同意參加者免責聲明、退訂政策和參加者退款政策。</p>
-                
+
                 <button class="btnL">確認並付款</button>
-            </div>    
-            
+            </div>
+
             <!-- 右區塊 -->
             <div class="cart_right_side">
                 <li>
@@ -129,7 +131,7 @@
                                 <div class="fav"></div>
                             </div>
                             <div class="content">
-    
+
                                 <div class="avatar">
                                     <img src="./images/travel_info/pexels-zachary-debottis-3156515.jpg">
                                 </div>
@@ -153,8 +155,8 @@
                             </div>
                         </div>
                     </a>
-                </li>    
-            </div>   
+                </li>
+            </div>
         </div>
 
         <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
@@ -163,36 +165,39 @@
 
 
 
-     <footer id="the_footer">
+    <footer id="the_footer">
         <the-footer></the-footer>
-     </footer>
-    
-        <script src="./js/vue/vue.js"></script>
-        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script src="./js/header_footer.js"></script>
-        <script src="./js/index/index.js"></script>
+    </footer>
 
-        <!-- owl.carousel -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-        <script>
+    <script src="./js/vue/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="./js/header_footer.js"></script>
+    <script src="./js/index/index.js"></script>
+
+    <!-- owl.carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    </link>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    </link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
         $("#go_top").click(function () {
             $("html, body").animate({
                 scrollTop: 0,
             }, 1000)
         })
-        </script>
-        <script>
-            new Vue({
-                el: '',
-                data: {
-    
-                },
-            });
-        </script>
-    
+    </script>
+    <script>
+        new Vue({
+            el: '',
+            data: {
+
+            },
+        });
+    </script>
+
 </body>
-    
+
 </html>
