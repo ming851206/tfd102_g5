@@ -1,16 +1,9 @@
 @mixin info_pic_set {
-    margin:10px 20px;
+    margin: 10px 20px;
     height: 13rem;
     padding: 1rem;
     border-radius: 5px;
 }
-
-// 文字設定
-p , h1, h2, h3, h4, h5{
-    font-family:'en';
-}
-
-
 
 // 旅遊瀏覽--------
 @mixin travel_card {
@@ -20,13 +13,14 @@ p , h1, h2, h3, h4, h5{
     max-height: 530px;
 
     .pic0 {
-        height: 70%;
+        height: 50%;
         width: 100%;
         background-repeat: no-repeat;
         background-size: cover;
 
         img {
             width: 100%;
+            object-fit: cover;
         }
     }
 
@@ -44,13 +38,24 @@ p , h1, h2, h3, h4, h5{
             position: absolute;
             top: -25%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -10%);
+        }
+        .the_icon_sf {
+            display: flex;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            .share, .fav{
+                width: 20px;
+                height: 20px;
+            }
         }
 
         .star_num {
             display: flex;
             flex-direction: row;
             padding: 10px 0;
+
             p {
 
                 margin: 0 0 0 10px;
@@ -65,7 +70,8 @@ p , h1, h2, h3, h4, h5{
             overflow: hidden;
             font-weight: bold;
         }
-        p{
+
+        p {
             font-size: 12px;
         }
     }
@@ -73,87 +79,104 @@ p , h1, h2, h3, h4, h5{
 
 
 // 旅遊照片瀏覽--------
-#travel_title{
+#travel_title {
     background-image: url("../../images/travel_info/photo-1489447068241-b3490214e8791.jpg");
     background-size: cover;
     height: 140vh;
-    h2{
+
+    h2 {
         width: 90%;
-        margin:0 auto;
-        font-family:'en';
-        padding: 30px 20px;  
-        @include sm{
+        margin: 0 auto;
+        font-family: 'en';
+        padding: 30px 20px;
+
+        @include sm {
             font-size: 36px;
         }
+
         @include xs {
             font-size: 28px;
-        }   
+        }
     }
-    #display_block{
+
+    #display_block {
         border: 2px solid white;
         border-radius: 25px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin:30px auto;
+        margin: 30px auto;
         width: 730px;
+
         @include lg {
             width: 610px;
         }
+
         @include md {
             width: 445px;
         }
+
         @include sm {
             width: 560px;
         }
-        @include xs{
+
+        @include xs {
             width: 380px;
-        }   
+        }
+
         #info_video {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin:20px 30px;
+            margin: 20px 30px;
             width: 672px;
             border-radius: 25px;
             cursor: pointer;
+
             @include lg {
                 width: 550px;
             }
+
             @include md {
                 width: 385px;
             }
+
             @include sm {
                 width: 500px;
             }
-            @include xs{
+
+            @include xs {
                 width: 320px;
-            }   
+            }
         }
     }
-    
-    
-    .owl-theme{
+
+
+    .owl-theme {
         #pic_1 {
             background-image: url("../../images/travel_info/pexels-zachary-debottis-3063055.jpg");
             background-size: cover;
             @include info_pic_set;
         }
+
         #pic_2 {
             background-image: url("../../images/travel_info/pexels-zachary-debottis-3003038.jpg");
             background-size: cover;
             @include info_pic_set;
         }
+
         #pic_3 {
             background-image: url("../../images/travel_info/pexels-zachary-debottis-3003077.jpg");
             background-size: cover;
             @include info_pic_set;
         }
+
         #pic_4 {
             background-image: url("../../images/travel_info/pexels-zachary-debottis-30030331.jpg");
             background-size: cover;
             @include info_pic_set;
         }
+
         #pic_5 {
             background-image: url("../../images/travel_info/pexels-zachary-debottis-1816237.jpg");
             background-size: cover;
@@ -162,66 +185,80 @@ p , h1, h2, h3, h4, h5{
     }
 }
 
-.main_container{
+.main_container {
     width: 100%;
+
     // 導遊介紹--------左區塊
-    .left_side{
+    .left_side {
         display: inline-block;
         width: 60%;
-        margin:0 5%;
+        margin: 0 5%;
         padding: 10px;
-        #traveler{
+
+        #traveler {
             display: flex;
             align-items: center;
             margin-top: 50px;
             margin-bottom: 30px;
-            .traveler_pic{
+
+            .traveler_pic {
                 display: flex;
                 flex: 1 0 auto;
                 width: 180px;
                 height: 180px;
                 border-radius: 50%;
                 margin-right: 10px;
+                object-fit: cover;
             }
-            #traveler_name{
+
+            #traveler_name {
                 display: flex;
                 flex-direction: column;
-                .tra_icon{
+
+                .tra_icon {
                     display: flex;
                     justify-content: flex-end;
                     margin-bottom: 20px;
-                    img{
+
+                    img {
                         margin-left: 10px;
                     }
                 }
-                .tra_info{
+
+                .tra_info {
                     display: flex;
                     flex-direction: column;
-                    h2{
+
+                    h2 {
                         padding-bottom: 0;
                         margin-bottom: 10px;
                     }
                 }
             }
         }
-        #traveler_introduce{
+
+        #traveler_introduce {
             padding: 10px 0;
             flex-direction: row;
-            .icon_s{
-                img{
+
+            .icon_s {
+                img {
                     width: 20px;
                     height: 20px;
                     margin: 5px 10px;
                 }
-                p{
+
+                p {
                     vertical-align: middle;
-                    display:inline-block;
+                    display: inline-block;
                     margin-bottom: 20px;
                 }
             }
-            .tra_btn{
-                text-align:end;
-                .btnS_line{
+
+            .tra_btn {
+                text-align: end;
+
+                .btnS_line {
                     margin-top: 30px;
                     white-space: nowrap;
                 }
@@ -229,29 +266,38 @@ p , h1, h2, h3, h4, h5{
 
 
         }
-        #travel_rules{
+
+        #travel_rules {
             margin: 50px auto;
-            .join_web, .free_return, .max_num{
+
+            .join_web,
+            .free_return,
+            .max_num {
                 display: flex;
                 flex-direction: row;
                 margin-bottom: 20px;
             }
-            img{
+
+            img {
                 width: 50px;
                 height: 50px;
                 margin-right: 20px;
             }
         }
-        
-        #travel_text{
+
+        #travel_text {
             margin: 50px auto;
         }
-        #travel_way{
+
+        #travel_way {
             margin: 50px auto;
-            .way{
+
+            .way {
                 display: flex;
                 flex-direction: row;
-                .join_way, .chartered{
+
+                .join_way,
+                .chartered {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
@@ -261,35 +307,41 @@ p , h1, h2, h3, h4, h5{
                     border: 2px solid #996A4D;
                     border-radius: 50%;
                     margin: 10px 30px;
-                    img{
+
+                    img {
                         width: 50px;
                         height: 40px;
                         margin-bottom: 10px;
                     }
-                    .text_hover{
+
+                    .text_hover {
                         display: none;
                     }
                 }
-                .chartered:hover{
+
+                .chartered:hover {
                     background-color: #996A4D;
                     color: white;
-                    .text_normal, img{
+
+                    .text_normal,
+                    img {
                         display: none;
                     }
-                    .text_hover{
+
+                    .text_hover {
                         display: flex;
                         text-align: center;
                         background-image: url(../../images/icon/group.svg);
                         background-repeat: no-repeat;
                         background-position: center;
-                    }                    
+                    }
                 }
             }
         }
     }
 
     // 預約-------- 右區塊
-    .right_side{
+    .right_side {
         display: inline-block;
         width: 25%;
         height: 450px;
@@ -300,129 +352,151 @@ p , h1, h2, h3, h4, h5{
         position: -webkit-sticky;
         position: sticky;
         bottom: 10px;
-        .text{
-            margin:30px auto;
+
+        .text {
+            margin: 30px auto;
             height: 200px;
             // 來不及
             // .btnS_line{
             //     margin-bottom: 20px;
             //     cursor: not-allowed;
             // }
-            
+
             // 來得及
-            .selection{
+            .selection {
                 display: flex;
                 border: 1px solid #996A4D;
-                border-radius: 10px; 
+                border-radius: 10px;
                 padding: 10px;
                 margin: 10px auto;
-                .mix{
+
+                .mix {
                     display: flex;
                     flex-direction: row;
-                    width: 80px;   
-                    img{
+                    width: 80px;
+
+                    img {
                         width: 25px;
                         height: 25px;
                     }
-                    p{
+
+                    p {
                         margin-left: 10px;
                         vertical-align: middle;
                     }
                 }
-                .down{
+
+                .down {
                     flex: 1;
                     text-align: right;
                 }
             }
-            .btnL{
+
+            .btnL {
                 width: 100%;
                 color: white;
             }
-            .text{
+
+            .text {
                 text-align: center;
-            }           
-        }   
+            }
+        }
     }
 }
 
 // 從可訂日期中選擇--------
-#travel_choose_date{
+#travel_choose_date {
     width: 90%;
     margin: 50px auto;
-    .arrow{
+
+    .arrow {
         margin-bottom: 20px;
         display: flex;
-        width: 90%;
+        width: 100%;
         justify-content: flex-end;
-        div{
+
+        div {
             margin-left: 20px;
             cursor: pointer;
             display: inline-block;
         }
     }
-    .owl-theme{
+
+    .owl-theme {
         width: 100%;
+        height: 40vh;
+
         .item {
-            height: 10rem;
+            height: 11rem;
             background: #F7F9F2;
             padding: 1rem;
-            .btnS_line{
+
+            .btnS_line {
                 margin-top: 20px;
             }
-          }
-          
-          .owl-carousel .item h5 {
+        }
+
+        .owl-carousel .item h5 {
             font-weight: 100;
             font-size: 1rem;
             margin-top: 0rem;
-          }
-    } 
+        }
+    }
 }
 
 // 他人評價--------
-#travel_experience{
+#travel_experience {
     width: 90%;
     margin: 50px auto;
-    #travel_experience_1, #travel_experience_2, #travel_experience_3{
+
+    #travel_experience_1,
+    #travel_experience_2,
+    #travel_experience_3 {
         width: 90%;
         border: 2px solid #996A4D;
         border-radius: 25px;
         padding: 20px 100px;
         margin: 30px auto;
-        img{
+
+        img {
             display: inline-block;
             width: 100px;
             height: 100px;
             border-radius: 50%;
+            object-fit: cover;
         }
+
         .star_num {
             display: inline-block;
             width: 15px;
             height: 15px;
         }
+
         p {
             display: inline-block;
         }
-        .text{
+
+        .text {
             display: inline-block;
             width: 70%;
             height: 30px;
-            vertical-align:50%;
+            vertical-align: 50%;
             margin-left: 30px;
         }
     }
-    .btnS_line{
+
+    .btnS_line {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin:30px auto;
+        margin: 30px auto;
     }
-    
+
 }
 
 
 
-// 相信你會喜歡-------- 
+// 相信你會喜歡--------
 .travel_recommend {
     width: 100%;
     max-width: 1200px;
@@ -435,14 +509,15 @@ p , h1, h2, h3, h4, h5{
         font-weight: bold;
         padding: 20px 0 40px 0;
     }
-    
-    .arrow{
+
+    .arrow {
         margin-bottom: 20px;
         width: 180px;
         float: right;
         display: flex;
         align-items: center;
-        div{
+
+        div {
             margin-left: 20px;
             cursor: pointer;
             display: inline-block;
@@ -454,37 +529,74 @@ p , h1, h2, h3, h4, h5{
         padding: 0;
         display: flex;
         justify-content: space-between;
-        
-        li{
+
+        li {
             width: 23%;
+
             a {
                 width: 100%;
                 // border: 2px solid red;
                 border-radius: $borderRadius_cd;
                 overflow: hidden;
-    
+
                 .travel_item {
                     @include travel_card;
                     max-height: 350px;
-                    .pic_01{
-                        background-image: url(/images/travel_info/pexels-ahmad-syahrir-758742.jpg);
+
+                    .pic_01 {
+                        background-image: url(../../images/travel_info/pexels-ahmad-syahrir-758742.jpg);
                     }
-                    .pic_02{
-                        background-image: url(/images/travel_info/pexels-humphrey-muleba-1647064.jpg);
+
+                    .pic_02 {
+                        background-image: url(../../images/travel_info/pexels-humphrey-muleba-1647064.jpg);
                     }
-                    .pic_03{
-                        background-image: url(/images/travel_info/pexels-dominika-gregušová-672532.jpg);
+
+                    .pic_03 {
+                        background-image: url(../../images/travel_info/pexels-dominika-gregušová-672532.jpg);
                     }
-                    .pic_04{
-                        background-image: url(/images/travel_info/pexels-ethan-brooke-2122423.jpg);
+
+                    .pic_04 {
+                        background-image: url(../../images/travel_info/pexels-ethan-brooke-2122423.jpg);
+                    }
+                    .pic0{
+                        // .icon_sf{
+                        //     display: flex;
+                        //     flex-direction: row;
+                        //     justify-content: flex-end;
+                        //     margin-right: 10px;
+                        //     .share, .fav{
+                        //         width: 18px;
+                        //         height: 18px;
+                        //         margin: 15px 5px 0 0px;
+                        //     }
+                        // }
+                        
                     }
     
                     .content{
                         padding: 40px 20px 80px 20px;
-                        .avatar img{
+
+                        .avatar img {
                             width: 100px;
                             height: 100px;
                             top: -30%;
+                            object-fit: cover;
+                        }
+
+                        .star_num {
+                            display: flex;
+                            flex-direction: row;
+                            padding: 0;
+    
+                            img {
+                                width: 15px;
+                            }
+    
+                            @include mobile {
+                                img {
+                                    width: 8px;
+                                }
+                            }
                         }
                         h4.intro {
                             max-height: 50px;
@@ -498,24 +610,21 @@ p , h1, h2, h3, h4, h5{
     }
 }
 
-#go_top{
-    position: fixed;
-    right: 0;
-    bottom: 50px;
+#going_top {
     cursor: pointer;
     align-self: flex-end;
     margin-right: 35px;
     margin-bottom: 30px;
-    @include lg {  
+
+    @include lg {
         margin-right: 22px;
     }
+
     @include md_sm {
         margin-right: 16px;
     }
-    @include sm { 
-    
-    }
-    @include xs { 
+
+    @include xs {
         margin-bottom: 90px;
     }
 }

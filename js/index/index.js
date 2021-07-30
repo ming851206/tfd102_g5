@@ -84,16 +84,16 @@ const blade = Vue.component("the-carosul", {
                 {num: "mentor 131415", title: "大洋洲", content: "位於南太平洋上的無數國度，四周被美麗的蔚藍海洋包圍，大洋洲上的海島國家一直是許多人心中的首選度假勝地。跟著jumper的腳步，將帶您一覽澳大利亞所擁有的國寶動物—袋鼠及無尾熊，並帶您前往擁有壯麗景致、冰河與火山奇景共存的紐西蘭國度，又或是那些最令人嚮往旅遊的大溪地、斐濟等，我們將與您一同感受，那專屬於南半球的島嶼風情。"}
             ],
             items:[
-                {name: "circle-carousel__item", num: "1", mentorid: "123", background: "./images/index/content/africa.jpg", circle: "background-image: url('./images/index/content/africa_circle.png')"},
-                {name: "circle-carousel__item", num: "2", mentorid: "456", background: "./images/index/content/europe1.jpg", circle: "background-image: url('./images/index/content/europe_circle.png')"},
-                {name: "circle-carousel__item active", num: "3", mentorid: "789", background: "./images/index/content/asia.jpg", circle: "background-image: url('./images/index/content/asia_circle.png')"},
-                {name: "circle-carousel__item", num: "4", mentorid: "101112", background: "./images/index/content/america4.jpg", circle: "background-image: url('./images/index/content/america_circle.png')"},
-                {name: "circle-carousel__item", num: "5", mentorid: "131415", background: "./images/index/content/oceanina1.jpg", circle: "background-image: url('./images/index/content/oceanina_circle.png')"},
-                {name: "circle-carousel__item", num: "6", mentorid: "123", background: "./images/index/content/africa.jpg", circle: "background-image: url('./images/index/content/africa_circle.png')"},
-                {name: "circle-carousel__item", num: "7", mentorid: "456", background: "./images/index/content/europe1.jpg", circle: "background-image: url('./images/index/content/europe_circle.png')"},
-                {name: "circle-carousel__item active", num: "8", mentorid: "789", background: "./images/index/content/asia.jpg", circle: "background-image: url('./images/index/content/asia_circle.png')"},
-                {name: "circle-carousel__item", num: "9", mentorid: "101112", background: "./images/index/content/america4.jpg", circle: "background-image: url('./images/index/content/america_circle.png')"},
-                {name: "circle-carousel__item", num: "10", mentorid: "131415", background: "./images/index/content/oceanina1.jpg", circle: "background-image: url('./images/index/content/oceanina_circle.png')"},
+                {name: "circle-carousel__item", num: "1", mentorid: "123", background: "./images/index/content/africa.jpg", circle: "background-image: url('./images/index/content/africa_circle.svg')"},
+                {name: "circle-carousel__item", num: "2", mentorid: "456", background: "./images/index/content/europe1.jpg", circle: "background-image: url('./images/index/content/europe_circle.svg')"},
+                {name: "circle-carousel__item active", num: "3", mentorid: "789", background: "./images/index/content/asia.jpg", circle: "background-image: url('./images/index/content/asia_circle.svg')"},
+                {name: "circle-carousel__item", num: "4", mentorid: "101112", background: "./images/index/content/america4.jpg", circle: "background-image: url('./images/index/content/america_circle.svg')"},
+                {name: "circle-carousel__item", num: "5", mentorid: "131415", background: "./images/index/content/oceanina1.jpg", circle: "background-image: url('./images/index/content/oceanina_circle.svg')"},
+                {name: "circle-carousel__item", num: "6", mentorid: "123", background: "./images/index/content/africa.jpg", circle: "background-image: url('./images/index/content/africa_circle.svg')"},
+                {name: "circle-carousel__item", num: "7", mentorid: "456", background: "./images/index/content/europe1.jpg", circle: "background-image: url('./images/index/content/europe_circle.svg')"},
+                {name: "circle-carousel__item active", num: "8", mentorid: "789", background: "./images/index/content/asia.jpg", circle: "background-image: url('./images/index/content/asia_circle.svg')"},
+                {name: "circle-carousel__item", num: "9", mentorid: "101112", background: "./images/index/content/america4.jpg", circle: "background-image: url('./images/index/content/america_circle.svg')"},
+                {name: "circle-carousel__item", num: "10", mentorid: "131415", background: "./images/index/content/oceanina1.jpg", circle: "background-image: url('./images/index/content/oceanina_circle.svg')"},
 
             ]
         }

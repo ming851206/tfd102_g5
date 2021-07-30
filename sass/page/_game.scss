@@ -4,7 +4,8 @@
     background-size: $size;
     @content;
 }
-@mixin all_zero($position){
+
+@mixin all_zero($position) {
     top: 0;
     left: 0;
     right: 0;
@@ -12,55 +13,63 @@
     position: $position;
     @content;
 }
+
 @mixin margin0 {
     display: block;
     margin: 0 auto;
 }
+
 $passportW: 402;
 
 
-@keyframes fade-in_1{
-    0%{
-      opacity: 0;
-      filter: blur(100px);
+@keyframes fade-in_1 {
+    0% {
+        opacity: 0;
+        filter: blur(100px);
     }
-    100%{
-      opacity: 1;
-      filter: blur(0);
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
     }
-  }
+}
 
 @keyframes slide-down {
-  0%{
-    bottom: 100%;
-    opacity: 0;
-  }
-  100%{
-    bottom: 0%;
-    opacity: 1;
-  }
+    0% {
+        bottom: 100%;
+        opacity: 0;
+    }
+
+    100% {
+        bottom: 0%;
+        opacity: 1;
+    }
 }
-  
-.game_bg{
-    background-image: url("../images/index/game/game_bg.jpg");
+
+.game_bg {
+    background-image: url("../../images/index/game/game_bg.jpg");
     position: relative;
     opacity: 0;
     // opacity: 1;
     animation: fade-in_1 1s ease-out both;
-    @include img_setting(cover){
+
+    @include img_setting(cover) {
         width: 100%;
         height: calc(100vh - 85px);
-        @include xs{
+
+        @include xs {
             height: 100vh;
             background-position: left 22% center;
             animation: none;
             opacity: 1;
             bottom: 53px;
         }
-    };
-    
-    .game_world_map{
-        background-image: url("../images/index/game/world_map.svg");
+    }
+
+    ;
+
+    .game_world_map {
+        background-image: url("../../images/index/game/world_map.svg");
         width: 1180px;
         height: 657px;
         position: relative;
@@ -68,87 +77,107 @@ $passportW: 402;
         @include margin0;
         top: 50%;
         transform: translateY(-50%);
-        @include lg{
+
+        @include lg {
             width: 975px;
             height: 543px;
         }
-        @include md{
+
+        @include md {
             width: 747px;
             height: 543px;
         }
-        @include sm{
+
+        @include sm {
             width: 554px;
             height: 309px;
         }
-        @include xs{
+
+        @include xs {
             max-width: 100%;
             top: 10%;
             transform: translateY(-10%);
         }
-    
-        .landmark{
-            background-image: url('../images/index/game/landmark_white.png');
+
+        .landmark {
+            background-image: url('../../images/index/game/landmark_white.png');
             width: 50px;
             height: 90px;
             @include img_setting(contain);
             cursor: pointer;
             position: absolute;
-            @include md{
+
+            @include md {
                 width: 40px;
                 height: 72px;
             }
         }
-        #am{
+
+        #am {
             left: 12.5%;
             top: 35%;
-            @include sm{
+
+            @include sm {
                 top: 25%;
             }
         }
-        #eu{
+
+        #eu {
             left: 62%;
             top: 32%;
-            @include sm{
+
+            @include sm {
                 top: 20%;
             }
         }
-        #af{
+
+        #af {
             left: 56%;
             top: 47%;
-            @include sm{
+
+            @include sm {
                 left: 54%;
                 top: 38%;
             }
         }
-        #as{
+
+        #as {
             left: 78%;
             top: 39%;
-            @include sm{
+
+            @include sm {
                 top: 27%;
             }
         }
-        #oc{
+
+        #oc {
             left: 85%;
             top: 64.5%;
-            @include md{
+
+            @include md {
                 top: 59%;
             }
-            @include sm{
+
+            @include sm {
                 left: 83%;
                 top: 52%;
             }
-            @include xs{
+
+            @include xs {
                 top: 51.5%;
             }
         }
     }
-    #game_word{
+
+    #game_word {
         display: none;
-        @include xs{
+
+        @include xs {
             display: block;
             position: relative;
             bottom: -4vh;
-            h3{
+
+            h3 {
                 color: #202B36;
                 background-color: rgba(225, 225, 225, .95);
                 width: 300px;
@@ -158,7 +187,8 @@ $passportW: 402;
                 text-align: center;
                 margin-bottom: 55px;
             }
-            img{
+
+            img {
                 width: 40px;
                 height: 36px;
                 margin: 0 auto;
@@ -166,44 +196,53 @@ $passportW: 402;
             }
         }
     }
-    .passport_page{
+
+    .passport_page {
         @include all_zero(absolute);
         // opacity: 1;
         opacity: 0;
         animation: slide-down 1s ease 1.6s both;
-        @include xs{
+
+        @include xs {
             // top: 59%;
             animation: none;
             opacity: 1;
         }
-        .game_overlay{
+
+        .game_overlay {
             @include all_zero(fixed);
             z-index: 10;
         }
-        .passport{
+
+        .passport {
             z-index: 11;
             @include total_center;
             width: $passportW;
 
-            @include xs{
+            @include xs {
                 top: 59%;
                 // animation: none;
                 // opacity: 1;
             }
-            img{
+
+            img {
                 position: relative;
                 @include margin0();
-                @include md{
+
+                @include md {
                     width: $passportW * 0.9 +px;
-                }         
-                @include md_sm{
+                }
+
+                @include md_sm {
                     width: $passportW * 0.8 +px;
                 }
-                @include sm{
+
+                @include sm {
                     width: $passportW * 0.72 +px;
                 }
             }
-            .click_word{
+
+            .click_word {
                 // border: 1px solid blue;
                 position: absolute;
                 bottom: 12.5%;
@@ -211,21 +250,24 @@ $passportW: 402;
                 transform: translateX(-50%);
                 width: 100%;
                 display: block;
+
                 // @include lg{
                 //     width: 100%;
                 //     display: block;
                 //     @include margin0();
                 // }
-                @include md{
+                @include md {
                     // width: 90%;
                     bottom: 11.5%;
-                }   
-                @include md_sm{
                 }
-                @include sm{
+
+                @include md_sm {}
+
+                @include sm {
                     bottom: 9.5%;
                 }
-                .btn_start{
+
+                .btn_start {
                     color: #996A4D;
                     font-size: 26px;
                     font-weight: normal;
@@ -235,50 +277,61 @@ $passportW: 402;
                     @include margin0;
                     margin-bottom: 30px;
                     border-radius: 15px;
-                    @include md{
+
+                    @include md {
                         width: 142px * 0.9;
                         margin-bottom: 25px;
-                    } 
-                    @include md_sm{
+                    }
+
+                    @include md_sm {
                         width: 142px * 0.75;
                         height: 49px * 0.85;
                         font-size: 24px;
                         margin-bottom: 20px;
                     }
-                    @include sm{
+
+                    @include sm {
                         width: 142px * 0.72;
                         height: 49px * 0.8;
                         font-size: 22px;
                         margin-bottom: 20px;
                     }
-                    @include xs{
+
+                    @include xs {
                         width: 142px * 0.8;
                     }
                 }
-                .passport_item{
+
+                .passport_item {
                     @include margin0;
                     display: flex;
                     justify-content: space-evenly;
                     align-items: center;
+
                     // width: 100%;
-                    @include md{
+                    @include md {
                         width: 90%;
-                    } 
-                    h4, a{
+                    }
+
+                    h4,
+                    a {
                         color: $main_ivory;
                         font-size: 16px;
                         cursor: pointer;
                         vertical-align: middle;
                         font-family: "regular";
                         margin-left: 10px;
-                        @include md_sm{
-                            font-size: 15px;                        
+
+                        @include md_sm {
+                            font-size: 15px;
                         }
-                        @include sm{
+
+                        @include sm {
                             font-size: 14px;
                         }
                     }
-                    a{
+
+                    a {
                         margin-right: 25px;
                     }
                 }
@@ -286,94 +339,116 @@ $passportW: 402;
 
         }
     }
-    .game_question{
+
+    .game_question {
         display: none;
         @include total_center;
         z-index: 12;
         background-color: whitesmoke;
         width: 550px;
         height: 468px;
-        @include lg{
+
+        @include lg {
             width: 550px * 0.92;
             height: 468px * 0.96;
         }
-        @include md{
+
+        @include md {
             width: 550px * 0.85;
             height: 468px * 0.93;
         }
-        @include sm{
+
+        @include sm {
             width: 550px * 0.66;
             height: 468px * 0.85;
         }
-        @include xs{
+
+        @include xs {
             width: 550px * 0.58;
             height: 468px * 0.8;
         }
-        form{
+
+        form {
             // border: 1px solid red;
             padding: 35px 26px;
-            @include lg{
+
+            @include lg {
                 padding: 33px 26px;
             }
-            @include md{
+
+            @include md {
                 padding: 30px 18px;
             }
-            @include xs{
+
+            @include xs {
                 padding: 18px 12px;
             }
-            .q_container{
+
+            .q_container {
                 display: flex;
                 justify-content: space-evenly;
                 align-items: center;
-                h2{
+
+                h2 {
                     font-size: 50px;
                     margin: 0;
                     display: inline-block;
                     font-family: "en";
-                    @include md{
+
+                    @include md {
                         font-size: 40px;
                     }
-                    @include sm{
+
+                    @include sm {
                         font-size: 32px;
                     }
                 }
-                h3{
-                    display: inline-block; 
+
+                h3 {
+                    display: inline-block;
                     width: 350px;
-                    line-height: 1.5; 
-                    @include md{
+                    line-height: 1.5;
+
+                    @include md {
                         font-size: 22px;
                     }
-                    @include sm{
+
+                    @include sm {
                         font-size: 18px;
                         width: 350px * 0.75;
                     }
-                    @include xs{
+
+                    @include xs {
                         font-size: 17px;
                         width: 350px * 0.65;
-                    }        
+                    }
                 }
             }
-            .btn_group{
-                .input_group{
+
+            .btn_group {
+                .input_group {
                     display: flex;
                     flex-direction: column;
                     align-items: flex-start;
                     width: 385px;
                     margin: 30px auto 8px;
-                    @include lg{
+
+                    @include lg {
                         width: 385px * 0.965;
                         margin-bottom: 3px;
                     }
-                    @include sm{
+
+                    @include sm {
                         width: 385px * 0.72;
                         margin-top: 24px;
                     }
-                    @include xs{
+
+                    @include xs {
                         width: 385px * 0.64;
                         margin: 20px auto 3px;
-                    }    
-                    label.opt{
+                    }
+
+                    label.opt {
                         @include word_center(100px, 42px);
                         margin: 0 auto 25px;
                         font-family: "regular";
@@ -388,73 +463,92 @@ $passportW: 402;
                         text-align: center;
                         background-color: $main_ivory;
                         color: $main_br;
+
                         // &:checked
-                        input{
-                            &[type="radio"]{
+                        input {
+                            &[type="radio"] {
                                 display: none;
                             }
                         }
-                        @include sm{
+
+                        @include sm {
                             width: 160px;
                             font-size: 16px;
                             margin: 0 auto 22px;
-                        }                        
+                        }
                     }
                 }
-                .ans_confirm{
+
+                .ans_confirm {
                     width: 120px;
                     display: block;
                     margin: 0 auto;
                     border-radius: $borderRadius_cd;
-                    @include xs{
+
+                    @include xs {
                         width: 100px;
                     }
                 }
-    
+
             }
 
         }
 
     }
-    .challenge{
-        display: none;       
-        @include all_zero(fixed){
+
+    .challenge {
+        display: none;
+
+        @include all_zero(fixed) {
             height: calc(100vh - 85px);
             z-index: 14;
-        };
-        @include xs{
-            @include all_zero(fixed){
-                height: calc(100vh - 53px);
-            };
         }
-        .result_mask{
+
+        ;
+
+        @include xs {
+            @include all_zero(fixed) {
+                height: calc(100vh - 53px);
+            }
+
+            ;
+        }
+
+        .result_mask {
             height: calc(100vh - 85px);
             z-index: 15;
             background-color: rgba(0, 0, 0, .4);
-            @include all_zero(fixed){
+
+            @include all_zero(fixed) {
                 height: calc(100vh - 53px);
-            };
+            }
+
+            ;
         }
-        .game_detail{
+
+        .game_detail {
             background-color: white;
-            box-shadow:  0 0 15px rgba(255, 255, 255, .95);
+            box-shadow: 0 0 15px rgba(255, 255, 255, .95);
             width: 430px;
             height: 410px;
             @include total_center;
             z-index: 16;
             text-align: center;
             padding: 56px 20px;
-            @include sm{
+
+            @include sm {
                 width: 370px;
             }
-            @include xs{
+
+            @include xs {
                 padding: 50px 20px;
                 width: 310px;
                 height: 380px;
             }
-            .game_close_btn{
-                background-image: url("../images/icon/header/close.svg");
-                background-repeat: no-repeat; 
+
+            .game_close_btn {
+                background-image: url("../../images/icon/header/close.svg");
+                background-repeat: no-repeat;
                 background-size: contain;
                 width: 14px;
                 height: 14px;
@@ -464,32 +558,39 @@ $passportW: 402;
                 right: 22px;
                 cursor: pointer;
             }
-            .main_result{
-                .result_title{            
+
+            .main_result {
+                .result_title {
                     font-size: 26px;
                     margin-bottom: 28px;
-                    @include xs{
+
+                    @include xs {
                         margin-bottom: 22px;
                     }
                 }
-                .get_stamp{
-                    background-image: url("../images/index/game/africa_stamp.svg");
+
+                .get_stamp {
+                    background-image: url("../../images/index/game/africa_stamp.svg");
                     width: 200px;
                     height: 180px;
                     @include img_setting(contain);
                     @include margin0();
                 }
-                .game_words{
+
+                .game_words {
                     display: flex;
                     justify-content: center;
                     margin-top: 20px;
-                    @include xs{
+
+                    @include xs {
                         margin-top: 12px;
                     }
-                    .game_word{
+
+                    .game_word {
                         font-size: 20px;
                         line-height: 1.5;
-                        @include xs{
+
+                        @include xs {
                             font-size: 18px;
                         }
                     }
@@ -497,231 +598,287 @@ $passportW: 402;
             }
         }
     }
-    .game_result_overlay{
-        display: none;       
-        @include all_zero(fixed){
+
+    .game_result_overlay {
+        display: none;
+
+        @include all_zero(fixed) {
             height: calc(100vh - 85px);
             z-index: 12;
-        };
-        @include xs{
-            @include all_zero(fixed){
+        }
+
+        ;
+
+        @include xs {
+            @include all_zero(fixed) {
                 height: calc(100vh - 53px);
                 // bottom: 60px;
-            };
+            }
+
+            ;
         }
+
         z-index: 10;
-        .game_result{
+
+        .game_result {
             @include total_center;
             z-index: 13;
             background-color: whitesmoke;
             width: 650px;
             height: 450px;
             border-radius: 25px;
-            box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.3);
-            @include md{
+            box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+
+            @include md {
                 width: 650px * 0.75;
             }
-            @include sm{
+
+            @include sm {
                 width: 650px * 0.56;
                 height: 450px * 0.9;
             }
-            @include xs{
+
+            @include xs {
                 width: 650px * 0.48;
                 position: absolute;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
-            .top_word{
+
+            .top_word_game {
+
                 // border: 1px solid red;
-                .visa_word{
+                .visa_word_game {
                     display: flex;
                     justify-content: space-around;
                     margin-top: 15px;
-                    color: rgba(0,0,0,0.22);
+                    color: rgba(0, 0, 0, 0.22);
                     letter-spacing: 1px;
                     font-size: 15px;
-                    h5{
-                        &:nth-child(2){
-                            @include sm{
+
+                    .visa_h5 {
+                        margin: 0 !important;
+                        &:nth-child(2) {
+                            @include sm {
                                 display: none;
                             }
                         }
                     }
-    
+
                 }
-                .num_word{
+
+                .num_word {
                     display: flex;
                     justify-content: space-between;
                     margin: auto 35px;
-                    @include sm{
+
+                    @include sm {
                         margin: auto 20px;
                     }
-                    color: rgba(0,0,0,0.22);
-                    h2{
+
+                    color: rgba(0, 0, 0, 0.22);
+
+                    h2 {
                         padding: 0;
                         margin-bottom: 10px;
-                        @include sm{
+
+                        @include sm {
                             font-size: 30px;
                         }
-                        &:nth-child(2){
-                            @include sm{
+
+                        &:nth-child(2) {
+                            @include sm {
                                 display: none;
                             }
                         }
                     }
                 }
             }
-            .game_main{
+
+            .game_main {
                 // border: 1px solid red;
                 text-align: center;
-                h2{
+
+                h2 {
                     // border: 1px solid red;
                     letter-spacing: 3px;
                     text-indent: 3px;
                     padding-bottom: 28px;
-                    @include sm{
+
+                    @include sm {
                         font-size: 26px;
                         padding-bottom: 18px;
                     }
-                    @include xs{
+
+                    @include xs {
                         font-size: 22px;
                         padding-bottom: 18px;
                     }
                 }
-                .game_stamp{
-                    @include md{
+
+                .game_stamp {
+                    @include md {
                         margin: 5px auto 8px;
                     }
-                    @include sm(){
+
+                    @include sm() {
                         margin-bottom: 15px;
                     }
-                    @include xs(){
+
+                    @include xs() {
                         margin-bottom: 8px;
                     }
-                    .top_stamp{
+
+                    .top_stamp {
                         display: flex;
                         justify-content: center;
-                        @include md{
+
+                        @include md {
                             margin-top: 12px;
                         }
-                        @include sm{
+
+                        @include sm {
                             margin-top: 0px;
                         }
-                        .unget_stamp{
-                            background-image: url("../images/index/game/america.svg");
-                            // background-image: url("../images/index/game/unget.png");
+
+                        .unget_stamp {
+                            background-image: url("../../images/index/game/america.svg");
+                            // background-image: url("../../images/index/game/unget.png");
                             background-repeat: no-repeat;
                             background-size: contain;
                             width: 130px;
                             height: 100px;
-                            @include md{
+
+                            @include md {
                                 width: 130px * 0.9;
                                 height: 100px * 0.9;
                             }
-                            @include sm{
+
+                            @include sm {
                                 width: 130px * 0.68;
                                 height: 100px * 0.68;
                             }
-                            &:nth-child(2){
+
+                            &:nth-child(2) {
                                 margin: auto 40px;
-                                background-image: url("../images/index/game/europe.svg");
-                                @include md{
+                                background-image: url("../../images/index/game/europe.svg");
+
+                                @include md {
                                     margin: auto 12px;
                                 }
-                                @include xs{
+
+                                @include xs {
                                     margin: auto 8px;
                                 }
                             }
-                            &:nth-child(3){
-                                background-image: url("../images/index/game/oceania.svg");
+
+                            &:nth-child(3) {
+                                background-image: url("../../images/index/game/oceania.svg");
                             }
                         }
                     }
-                    .bottom_stamp{
+
+                    .bottom_stamp {
                         display: flex;
                         justify-content: center;
-                        @include md{
+
+                        @include md {
                             margin-bottom: 10px;
                         }
-                        @include xs{
+
+                        @include xs {
                             margin-bottom: 16px;
                         }
-                        .unget_stamp{
-                            // background-image: url("../images/index/game/unget.png");
-                            background-image: url("../images/index/game/asia.svg");
+
+                        .unget_stamp {
+                            // background-image: url("../../images/index/game/unget.png");
+                            background-image: url("../../images/index/game/asia.svg");
                             background-repeat: no-repeat;
                             background-size: contain;
                             width: 130px;
                             height: 100px;
                             margin: 0 20px;
-                            @include md{
+
+                            @include md {
                                 width: 130px * 0.9;
                                 height: 100px * 0.9;
                                 margin: 0 15px;
                             }
-                            @include sm{
+
+                            @include sm {
                                 width: 130px * 0.8;
                                 height: 100px * 0.8;
                                 margin: 0 8px;
                             }
-                            @include sm{
+
+                            @include sm {
                                 width: 130px * 0.7;
                                 height: 100px * 0.7;
                             }
-                            &:nth-child(1){
-                                // background-image: url("../images/index/game/unget.png");
-                                background-image: url("../images/index/game/africa.svg");
+
+                            &:nth-child(1) {
+                                // background-image: url("../../images/index/game/unget.png");
+                                background-image: url("../../images/index/game/africa.svg");
                             }
                         }
                     }
-                    .gift_icon{
+
+                    .gift_icon {
                         width: 32px;
                         height: 29px;
                         cursor: pointer;
                         @include margin0();
                         background-repeat: no-repeat;
                         background-size: contain;
-                        // background-image: url("../images/index/game/gift_gray.svg");
-                        background-image: url("../images/index/game/gift_gold.svg");
-                        @include md{
+                        // background-image: url("../../images/index/game/gift_gray.svg");
+                        background-image: url("../../images/index/game/gift_gold.svg");
+
+                        @include md {
                             margin-top: 0;
                         }
                     }
                 }
             }
-            .gamebtn{
+
+            .gamebtn {
                 display: flex;
                 justify-content: center;
-                .btnM_line{
+
+                .btnM_line {
                     margin: 20px 20px 10px;
                     width: 110px;
-                    @include md{
+
+                    @include md {
                         width: 100px;
                         margin: 20px 13px 10px;
                     }
-                    @include sm{
+
+                    @include sm {
                         width: 85px;
                         margin: 12px 10px 10px;
                     }
-                    @include xs{
+
+                    @include xs {
                         width: 80px;
                         margin: 20px 8px 10px;
                         border-radius: 13px;
                         font-size: 13px;
                     }
                 }
-                .game_share{
-                    &::before{
+
+                .game_share {
+                    &::before {
                         content: "";
                         display: inline-block;
                         width: 10px;
                         height: 14px;
                         background-size: contain;
-                        background-image: url("../images/index/game/share_fb.svg");
+                        background-image: url("../../images/index/game/share_fb.svg");
                         background-repeat: no-repeat;
                         margin-right: 4px;
-                        @include xs{
+
+                        @include xs {
                             vertical-align: text-top;
                         }
                     }
@@ -729,24 +886,27 @@ $passportW: 402;
             }
         }
     }
-    .game_coupon{
+
+    .game_coupon {
         @include all_zero(fixed);
         height: calc(100vh - 85px);
         z-index: 15;
         display: none;
-        .game_mask{
+
+        .game_mask {
             background-color: rgba(0, 0, 0, .4);
             @include all_zero(fixed);
             height: 100vh;
             bottom: 53px;
             z-index: 15;
         }
-        .coupon_detail{
-            background-image: url("../images/index/game/coupon_bg1.png"), url("../images/index/game/coupon_bg2.png");
+
+        .coupon_detail {
+            background-image: url("../../images/index/game/coupon_bg1.png"), url("../../images/index/game/coupon_bg2.png");
             background-repeat: no-repeat;
             background-position: bottom 0 left -3px, bottom -5px right 0px;
             background-color: white;
-            box-shadow:  0 0 15px rgba(255, 255, 255, .95);
+            box-shadow: 0 0 15px rgba(255, 255, 255, .95);
             width: 430px;
             height: 350px;
             position: absolute;
@@ -756,15 +916,18 @@ $passportW: 402;
             z-index: 16;
             text-align: center;
             padding: 50px 20px;
-            @include sm{
+
+            @include sm {
                 width: 370px;
             }
-            @include xs{
+
+            @include xs {
                 width: 310px;
             }
-            .coupon_close_btn{
-                background-image: url("../images/icon/header/close.svg");
-                background-repeat: no-repeat; 
+
+            .coupon_close_btn {
+                background-image: url("../../images/icon/header/close.svg");
+                background-repeat: no-repeat;
                 background-size: contain;
                 width: 14px;
                 height: 14px;
@@ -774,13 +937,15 @@ $passportW: 402;
                 right: 20px;
                 cursor: pointer;
             }
-            .game_award{
+
+            .game_award {
                 // border: 1px solid green;
                 margin: 5px auto 30px;
                 font-size: 26px;
-                color:rgba(0, 0, 0, .5);
+                color: rgba(0, 0, 0, .5);
             }
-            #coupon_title{
+
+            #coupon_title {
                 // border: 1px solid blue;
                 line-height: 1.7;
                 letter-spacing: 4px;
@@ -788,20 +953,25 @@ $passportW: 402;
                 color: #996A4D;
                 margin: 41px auto 24px;
             }
-            .game_coupon_info{                
+
+            .game_coupon_info {
+
                 // border: 1px solid red;
-                .first_row{
+                .first_row {
                     display: flex;
                     justify-content: center;
                     margin-bottom: 10px;
-                    p{
+
+                    p {
                         font-size: 16px;
                     }
                 }
-                .second_row{
+
+                .second_row {
                     display: flex;
                     justify-content: center;
-                    p{
+
+                    p {
                         font-size: 16px;
                     }
                 }
@@ -811,8 +981,9 @@ $passportW: 402;
     }
 
 }
-.game_wrapper{
-    #the_footer{
+
+.game_wrapper {
+    #the_footer {
         display: none;
     }
 }

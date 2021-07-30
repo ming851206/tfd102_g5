@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EnterPage</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./dist/css/style.css">
     <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
     <script src="./js/vue/vue.js"></script>
 
 </head>
+
 <body class="enterpage_Body">
     <div id="enterpage">
         <div class="enterPage_container">
@@ -23,7 +25,9 @@
                     <img src="./images/logo/logo-circle.png" id="image">
                     <div class="slide_pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="31.5" height="36" viewBox="0 0 31.5 36">
-                            <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M31.5,16.875v6.75a2.811,2.811,0,0,1-.075.644l-2.25,9.563A2.813,2.813,0,0,1,26.438,36H11.813a2.813,2.813,0,0,1-2.275-1.158l-9-12.375a2.812,2.812,0,1,1,4.549-3.308l2.225,3.06V2.813a2.813,2.813,0,0,1,5.625,0V16.875H13.5V14.063a2.813,2.813,0,0,1,5.625,0v2.813h.563V15.188a2.813,2.813,0,0,1,5.625,0v1.688h.563a2.813,2.813,0,0,1,5.625,0ZM13.5,22.5h-.562v6.75H13.5Zm6.188,0h-.562v6.75h.563Zm6.188,0h-.562v6.75h.563Z" fill="rgba(0,0,0,0.8)"/>
+                            <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer"
+                                d="M31.5,16.875v6.75a2.811,2.811,0,0,1-.075.644l-2.25,9.563A2.813,2.813,0,0,1,26.438,36H11.813a2.813,2.813,0,0,1-2.275-1.158l-9-12.375a2.812,2.812,0,1,1,4.549-3.308l2.225,3.06V2.813a2.813,2.813,0,0,1,5.625,0V16.875H13.5V14.063a2.813,2.813,0,0,1,5.625,0v2.813h.563V15.188a2.813,2.813,0,0,1,5.625,0v1.688h.563a2.813,2.813,0,0,1,5.625,0ZM13.5,22.5h-.562v6.75H13.5Zm6.188,0h-.562v6.75h.563Zm6.188,0h-.562v6.75h.563Z"
+                                fill="rgba(0,0,0,0.8)" />
                         </svg>
                         <h4>請托拉我</h4>
                     </div>
@@ -33,7 +37,7 @@
                     <h3 class="front_Title">後台</h3>
                 </div>
             </div>
-    
+
             <div class="enter_choose_text">
                 <p>© 2021 BY JUMPER</p>
                 <p>本網站為緯育TibaMe前端設計工程師班第68期學員專題作品，本平台僅供學習、展示之用。</p>
@@ -43,45 +47,45 @@
     </div>
 
     <script>
-        function doFirst(){
+        function doFirst() {
             // 先跟畫面產生關聯，再建事件聆聽功能
             image = document.getElementById('image');
-            image.addEventListener('dragstart' ,startDrag);
+            image.addEventListener('dragstart', startDrag);
             image.addEventListener('dragend', endDrag);
-            
+
             // 前台
             leftbox = document.getElementById('leftbox');
-            leftbox.addEventListener('dragenter',function(e){e.preventDefault()});
-            leftbox.addEventListener('dragover',function(e){e.preventDefault()});
-            leftbox.addEventListener('drop',dropped);
+            leftbox.addEventListener('dragenter', function (e) { e.preventDefault() });
+            leftbox.addEventListener('dragover', function (e) { e.preventDefault() });
+            leftbox.addEventListener('drop', dropped);
             // 後台
             rightbox = document.getElementById('rightbox');
-            rightbox.addEventListener('dragenter',function(e){e.preventDefault()});
-            rightbox.addEventListener('dragover',function(e){e.preventDefault()});
-            rightbox.addEventListener('drop',dropped);
+            rightbox.addEventListener('dragenter', function (e) { e.preventDefault() });
+            rightbox.addEventListener('dragover', function (e) { e.preventDefault() });
+            rightbox.addEventListener('drop', dropped);
         }
 
-        function startDrag(e){
+        function startDrag(e) {
             let data = '<img src="./images/logo/logo-circle.png">';
             e.dataTransfer.setData('image/png', data);
         }
-    
-        function endDrag(){
-        
-        }   
-        function dropped(e){
+
+        function endDrag() {
+
+        }
+        function dropped(e) {
             const check = e.target.innerText
             e.preventDefault();
 
-            if(check === '前台'){
+            if (check === '前台') {
                 leftbox.innerHTML = e.dataTransfer.getData('image/png');
-                window.location.href='./index.html';
-            }else{
+                window.location.href = './index.html';
+            } else {
                 rightbox.innerHTML = e.dataTransfer.getData('image/png');
-                window.location.href='./admin/login.html';
+                window.location.href = './admin/login.html';
             }
 
-        }    
+        }
         // function droppedFrontEnd(e){
         //     console.log(e.target.innerText);
         //     e.preventDefault();
@@ -98,8 +102,9 @@
         //     rightbox.innerHTML = e.dataTransfer.getData('image/png');
         //     // window.location.href='./member.html';
         // }
-        window.addEventListener('load',doFirst);
-        
+        window.addEventListener('load', doFirst);
+
     </script>
 </body>
+
 </html>

@@ -12,7 +12,7 @@
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     </link>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="dist/css/style.css">
 </head>
 
 <body>
@@ -21,9 +21,9 @@
     </header>
     <main>
         <section class="banner">
-            <div class="intro">
-                <h2>線上旅遊</h2>
-                <h5>無須踏出家門即可參加由獨具魅力的<br>
+            <div class="trip_intro">
+                <h2 class="list_title">線上旅遊</h2>
+                <h5 class="list_subtitle">無須踏出家門即可參加由獨具魅力的<br>
                     旅遊達人所舉辦的互動旅遊。
                 </h5>
             </div>
@@ -31,7 +31,7 @@
         </section>
         <section class="main"></section>
 
-        <div class="filters">
+        <div class="travel_filters">
             <div class="content">
                 <ul class="filter1">
                     <li class="customer"><button class="btnS_line">篩選條件</button></li>
@@ -46,20 +46,20 @@
                     <li class="category"><button class="btnS_line">大洋洲</button></li>
                 </ul>
             </div>
-            <input class="search" placeholder="搜尋"></li>
+            <input class="trip_search" placeholder="搜尋"></li>
         </div>
-        <div class="new_trip">
+        <div class="the_new_trip">
             <h3>最新旅遊</h3>
             <div class="container">
                 <div class="left_block">
                     <a href="">
                         <div class="trip_item">
                             <div class="pic">
-                                <img src="images/travel_list/800/wugerku.jpg">
+                                <img src="./images/travel_list/800/wugerku.jpg">
                             </div>
                             <div class="content">
                                 <div class="avatar">
-                                    <img src="/images/avatar/avatar.jpg">
+                                    <img src="./images/avatar/avatar.jpg">
                                 </div>
                                 <div class="the_icon">
                                     <div class="share">
@@ -75,22 +75,23 @@
                                             viewBox="0 0 20.143 17.824">
                                             <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                 d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                transform="translate(-1.323 -3.497)" fill="none"
+                                                stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" />
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="star_num">
+                                <div class="the_star_num">
                                     <div>
                                         <img src="./images/index/content/star.svg">
                                     </div>
-                                    <p>5(102) · </p>
-                                    <p class="middle">亞洲</p>
+                                    <p class="star_get">5(102) · </p>
+                                    <p class="area">亞洲</p>
                                 </div>
-                                <h4 class="intro">
+                                <h4 class="trip_intro">
                                     穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。
-                                    <h4>
-                                        <p>每人 $ 800 TWD 起</p>
+                                </h4>
+                                <p>每人 $ 800 TWD 起</p>
                             </div>
                         </div>
 
@@ -101,7 +102,7 @@
                         <div class="upper_area">
                             <div class="trip_item">
                                 <div class="pic upper">
-                                    <img src="images/travel_list/250/africa_elephant.jpg">
+                                    <img src="./images/travel_list/250/africa_elephant.jpg">
                                 </div>
                                 <div class="content">
                                     <div class="avatar">
@@ -121,17 +122,18 @@
                                                 viewBox="0 0 20.143 17.824">
                                                 <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                     d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                    transform="translate(-1.323 -3.497)" fill="none"
+                                                    stroke="rgba(0,0,0,0.8)" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" />
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="star_num">
+                                    <div class="the_star_num">
                                         <img src="./images/index/content/star.svg">
-                                        <p>5(102) · </p>
-                                        <p class="middle">非洲</p>
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">非洲</p>
                                     </div>
-                                    <h4 class="intro">
+                                    <h4 class="trip_intro">
                                         遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
                                     </h4>
                                     <p class="startprice">每人 $ 800 TWD 起</p>
@@ -143,7 +145,7 @@
                         <div class="down_area">
                             <div class="trip_item">
                                 <div class="pic down">
-                                    <img src="images/travel_list/250/louvre.jpg">
+                                    <img src="./images/travel_list/250/louvre.jpg">
                                 </div>
                                 <div class="content">
 
@@ -164,17 +166,18 @@
                                                 viewBox="0 0 20.143 17.824">
                                                 <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                     d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                    transform="translate(-1.323 -3.497)" fill="none"
+                                                    stroke="rgba(0,0,0,0.8)" stroke-linecap="round"
+                                                    stroke-linejoin="round" stroke-width="2" />
                                             </svg>
                                         </div>
                                     </div>
-                                    <div class="star_num">
+                                    <div class="the_star_num">
                                         <img src="./images/index/content/star.svg">
-                                        <p>5(12) · </p>
-                                        <p class="middle">歐洲</p>
+                                        <p class="star_get">5(12) · </p>
+                                        <p class="area">歐洲</p>
                                     </div>
-                                    <h4 class="intro">
+                                    <h4 class="trip_intro">
                                         羅浮宮象徵藝術，撼動人心之情久久保留
                                     </h4>
                                     <p class="startprice">每人 $ 800 TWD 起</p>
@@ -185,10 +188,10 @@
                 </div>
             </div>
         </div>
-        <div class="thebest_trip">
+        <div class="the_best_trip">
             <h3>最獲好評的旅遊</h3>
-            <div class="arrow">
-                <p>顯示 12 個</p>
+            <div class="slider_arrow">
+                <p class="slider_count">顯示 12 個</p>
             </div>
 
             <div class="owl-carousel owl-theme">
@@ -215,17 +218,18 @@
                                             viewBox="0 0 20.143 17.824">
                                             <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                 d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                transform="translate(-1.323 -3.497)" fill="none"
+                                                stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" />
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="star_num">
+                                <div class="the_star_num">
                                     <img src="./images/index/content/star.svg">
-                                    <p>5(102) · </p>
-                                    <p class="middle">歐洲</p>
+                                    <p class="star_get">5(102) · </p>
+                                    <p class="area">歐洲</p>
                                 </div>
-                                <h4 class="intro">
+                                <h4 class="trip_intro">
                                     羅浮宮象徵藝術，撼動人心之情久久保留
                                 </h4>
                                 <p class="startprice">每人 $ 800 TWD 起</p>
@@ -255,17 +259,18 @@
                                             viewBox="0 0 20.143 17.824">
                                             <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                 d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                transform="translate(-1.323 -3.497)" fill="none"
+                                                stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" />
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="star_num">
+                                <div class="the_star_num">
                                     <img src="./images/index/content/star.svg">
-                                    <p>5(142) · </p>
-                                    <p class="middle">歐洲</p>
+                                    <p class="star_get">5(142) · </p>
+                                    <p class="area">歐洲</p>
                                 </div>
-                                <h4 class="intro">
+                                <h4 class="trip_intro">
                                     於芬蘭玻璃屋邂逅屬於北極圈的夢幻自然
                                 </h4>
                                 <p class="startprice">每人 $ 999 TWD 起</p>
@@ -295,17 +300,18 @@
                                             viewBox="0 0 20.143 17.824">
                                             <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                 d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                transform="translate(-1.323 -3.497)" fill="none"
+                                                stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" />
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="star_num">
+                                <div class="the_star_num">
                                     <img src="./images/index/content/star.svg">
-                                    <p>5(99) · </p>
-                                    <p class="middle">美洲</p>
+                                    <p class="star_get">5(99) · </p>
+                                    <p class="area">美洲</p>
                                 </div>
-                                <h4 class="intro">
+                                <h4 class="trip_intro">
                                     怔怔地望著尼基拉瓜大瀑布那滂薄的氣勢。
                                 </h4>
                                 <p class="startprice">每人 $ 800 TWD 起</p>
@@ -335,17 +341,18 @@
                                             viewBox="0 0 20.143 17.824">
                                             <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                 d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                transform="translate(-1.323 -3.497)" fill="none"
+                                                stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" />
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="star_num">
+                                <div class="the_star_num">
                                     <img src="./images/index/content/star.svg">
-                                    <p>5(103) · </p>
-                                    <p class="middle">大洋洲</p>
+                                    <p class="star_get">5(103) · </p>
+                                    <p class="area">大洋洲</p>
                                 </div>
-                                <h4 class="intro">
+                                <h4 class="trip_intro">
                                     來探索澳洲黃金海岸，吹吹海風踏踏浪
                                 </h4>
                                 <p class="startprice">每人 $ 800 TWD 起</p>
@@ -355,10 +362,10 @@
                 </div>
             </div>
         </div>
-        <div class="main_trip">
+        <div class="the_main_trip">
             <h3>本月主打的旅遊</h3>
-            <div class="arrow">
-                <p>顯示 12 個</p>
+            <div class="slider_arrow">
+                <p class="slider_count">顯示 12 個</p>
             </div>
             <div class="owl-carousel owl-theme" id="bigcard">
                 <div class="item">
@@ -399,10 +406,10 @@
                 </div>
             </div>
         </div>
-        <div class="viewed_trip">
+        <div class="the_viewed_trip">
             <h3>近期瀏覽的旅遊</h3>
-            <div class="arrow">
-                <p>顯示 12 個</p>
+            <div class="slider_arrow">
+                <p class="slider_count">顯示 12 個</p>
             </div>
             <div class="owl-carousel owl-theme">
                 <div class="item">
@@ -427,17 +434,18 @@
                                             viewBox="0 0 20.143 17.824">
                                             <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                 d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                transform="translate(-1.323 -3.497)" fill="none"
+                                                stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" />
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="star_num">
+                                <div class="the_star_num">
                                     <img src="./images/index/content/star.svg">
-                                    <p>5(102) · </p>
-                                    <p class="middle">歐洲</p>
+                                    <p class="star_get">5(102) · </p>
+                                    <p class="area">歐洲</p>
                                 </div>
-                                <h4 class="intro">
+                                <h4 class="trip_intro">
                                     Bib Ben 大笨鐘倫敦，最具指標性的景觀。
                                 </h4>
                                 <p class="startprice">每人 $ 800 TWD 起</p>
@@ -467,17 +475,18 @@
                                             viewBox="0 0 20.143 17.824">
                                             <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                 d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                transform="translate(-1.323 -3.497)" fill="none"
+                                                stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" />
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="star_num">
+                                <div class="the_star_num">
                                     <img src="./images/index/content/star.svg">
-                                    <p>5(102) · </p>
-                                    <p class="middle">美洲</p>
+                                    <p class="star_get">5(102) · </p>
+                                    <p class="area">美洲</p>
                                 </div>
-                                <h4 class="intro">
+                                <h4 class="trip_intro">
                                     怔怔地望著尼加拉瓜大瀑布那滂薄的氣勢。
                                 </h4>
                                 <p class="startprice">每人 $ 800 TWD 起</p>
@@ -507,17 +516,18 @@
                                             viewBox="0 0 20.143 17.824">
                                             <path id="Icon_feather-heart" data-name="Icon feather-heart"
                                                 d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                                transform="translate(-1.323 -3.497)" fill="none"
+                                                stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" />
                                         </svg>
                                     </div>
                                 </div>
-                                <div class="star_num">
+                                <div class="the_star_num">
                                     <img src="./images/index/content/star.svg">
-                                    <p>5(102) · </p>
-                                    <p class="middle">非洲</p>
+                                    <p class="star_get">5(102) · </p>
+                                    <p class="area">非洲</p>
                                 </div>
-                                <h4 class="intro">
+                                <h4 class="trip_intro">
                                     馬爾地夫，上帝灑落在印度洋的一顆珍珠。
                                 </h4>
                                 <p class="startprice">每人 $ 800 TWD 起</p>
@@ -527,7 +537,7 @@
                 </div>
             </div>
         </div>
-        <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+        <img id="go_the_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
     </main>
     <footer id="the_footer">
         <the-footer></the-footer>

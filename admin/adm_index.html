@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>後台主頁</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../dist/css/style.css">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
     <script src="../js/jq/jquery-3.6.0.js"></script>
     <script src="../js/vue/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
-  
+
     <script>
         Vue.use(VueRouter);
 
@@ -42,7 +42,7 @@
             template: `
                 <div>
                     <div class="linkGroup">
-                        <router-link to="/trip" class="topA">旅程列表</router-link> 
+                        <router-link to="/trip" class="topA">旅程列表</router-link>
                         <router-link to="/trip/tripCheck" class="topA">旅程申請審核</router-link>
                     </div>
                     <router-view></router-view>
@@ -53,7 +53,7 @@
             template: `
                 <div>
                     <div class="linkGroup">
-                        <router-link to="/order" class="topA">訂單管理</router-link> 
+                        <router-link to="/order" class="topA">訂單管理</router-link>
                         <router-link to="/order/commentCheck" class="topA">旅程評論審查</router-link>
                     </div>
                     <router-view></router-view>
@@ -62,16 +62,16 @@
 
         const Coupon = {
             template: `
-                <div class="temp"> 
+                <div class="temp">
                     <h3>優惠券管理</h3>
                         <router-link to="/coupon/newCoupon">
                             <button class="add">新增優惠券</button>
                         </router-link>
-                        
+
                         <label>
                             <input type="text" name="adm_query" placeholder="輸入會員帳號">
                             <img src="../images/icon/search.svg" alt="">
-                        </label> 
+                        </label>
                         <router-view></router-view>
                             <table>
                                 <tr>
@@ -247,7 +247,7 @@
                     <label>
                         <input type="text" name="adm_query" placeholder="輸入會員帳號">
                         <img src="../images/icon/search.svg" alt="">
-                    </label> 
+                    </label>
                     <table border="1">
                         <tr>
                             <th>編號</th>
@@ -300,13 +300,13 @@
         //=====================================================
         //子元件
         const TripList = {
-            template: ` 
+            template: `
                 <div class="temp2">
                     <h3>旅程列表</h3>
                     <label>
                         <input type="text" name="adm_query" placeholder="輸入旅程名稱">
                         <img src="../images/icon/search.svg" alt="">
-                    </label> 
+                    </label>
                     <table>
                         <tr>
                             <th>編號</th>
@@ -379,7 +379,7 @@
                             <td><button class="revoke">下架</button></td>
                         </tr>
                     </table>
-                    
+
                     <div class="pager2">
                             <ul>
                                 <li><a href="">&lt;</a></li>
@@ -393,14 +393,14 @@
                         </div>
                 </div>
         ` }
-        const TripCheck = { 
+        const TripCheck = {
             template: `
             <div class="temp2">
                 <h3>旅程申請審核</h3>
                 <label>
                    <input type="text" name="adm_query" placeholder="輸入旅程名稱">
                    <img src="../images/icon/search.svg" alt="">
-                </label> 
+                </label>
                 <table>
                     <tr>
                         <th>編號</th>
@@ -446,7 +446,7 @@
                         <td>$1000</td>
                         <td><input type="checkbox" ></td>
                     </tr>
- 
+
                 </table>
                 <button class="reject">退件</button>
                 <div class="pager2">
@@ -463,14 +463,14 @@
             </div>
              ` }
 
-        const OrderList = { 
-            template: ` 
+        const OrderList = {
+            template: `
             <div class="temp2">
                 <h3>訂單管理</h3>
                 <label>
                    <input type="text" name="adm_query" placeholder="輸入訂單編號">
                    <img src="../images/icon/search.svg" alt="">
-                </label> 
+                </label>
                 <table>
                     <tr>
                         <th>訂單編號</th>
@@ -525,10 +525,10 @@
                      </ul>
                 </div>
             </div>
-                
+
             ` }
-        const CommentCheck = { 
-            template: ` 
+        const CommentCheck = {
+            template: `
             <div class="temp2">
                 <h3>旅程評論審查</h3>
                     <table>
@@ -612,20 +612,20 @@
                             </ul>
                     </div>
                 </div>
-                
+
             `,
-        methods: {
-            allchk(e){
-                let items = document.querySelectorAll('input.chkbox'); //全選勾選大家跟著勾
-                items.forEach(function(item, i){
-                    item.checked = e.target.checked;
-                });
+            methods: {
+                allchk(e) {
+                    let items = document.querySelectorAll('input.chkbox'); //全選勾選大家跟著勾
+                    items.forEach(function (item, i) {
+                        item.checked = e.target.checked;
+                    });
+                },
             },
-        },        
         }
 
         const NewCoupon = {
-            template: ` 
+            template: `
                 <div class="temp">
                     <router-link to="/coupon" class="back">返回優惠券列表</router-link><h4 class="title">新增優惠券</h4>
                      <div class="addCoupon">
@@ -650,7 +650,7 @@
                         <p class="tag">(註:1為評論，2為任務)</p>
                         <button>取消</button>
                         <button>新增</button>
-                     </div> 
+                     </div>
                 </div>
                 ` }
 
@@ -689,7 +689,7 @@
                     //     { path: 'newCoupon', component: NewCoupon },
                     // ]
                 },
-                
+
                 {
                     path: '/faq',
                     component: Faq,
@@ -705,7 +705,7 @@
         new Vue({
             el: '#app',
             router,
-            mounted(){
+            mounted() {
 
             },
         });

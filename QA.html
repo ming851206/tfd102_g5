@@ -49,11 +49,11 @@
 
             <div class="flexbox">
                 <div class="app_l">
-                    <router-link to="/q_acc" class="preChk">個人帳戶</router-link>
-                    <router-link to="/q_trip">參與旅程</router-link>
-                    <router-link to="/q_pay">購買與付款</router-link>
-                    <router-link to="/q_cancel">取消與退款</router-link>
-                    <router-link to="/q_coupon">使用優惠碼</router-link>
+                    <router-link to="/tfd102/project/g5/q_acc" class="preChk">個人帳戶</router-link>
+                    <router-link to="/tfd102/project/g5/q_trip">參與旅程</router-link>
+                    <router-link to="/tfd102/project/g5/q_pay">購買與付款</router-link>
+                    <router-link to="/tfd102/project/g5/q_cancel">取消與退款</router-link>
+                    <router-link to="/tfd102/project/g5/q_coupon">使用優惠碼</router-link>
                 </div>
                 <div class="app_r">
                     <router-view></router-view>
@@ -136,7 +136,7 @@
                     <template v-if="card.path === $route.path">
                     <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}" v-text="card.title"></p>
                     <div v-if="card.isActive" class="word" v-html="card.content">
-                        
+
                     </div>
                     </template>
                 </div>
@@ -169,7 +169,7 @@
                         <template v-if="card.path === $route.path">
                         <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}" v-text="card.title"></p>
                         <div v-if="card.isActive" class="word" v-html="card.content">
-                            
+
                         </div>
                         </template>
                     </div>
@@ -207,7 +207,7 @@
                         <template v-if="card.path === $route.path">
                         <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}" v-text="card.title"></p>
                         <div v-if="card.isActive" class="word" v-html="card.content">
-                            
+
                         </div>
                         </template>
                     </div>
@@ -251,7 +251,7 @@
                         <template v-if="card.path === $route.path">
                         <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}" v-text="card.title"></p>
                         <div v-if="card.isActive" class="word" v-html="card.content">
-                            
+
                         </div>
                         </template>
                     </div>
@@ -301,11 +301,11 @@
             router: new VueRouter({
                 mode: 'history',
                 routes: [
-                    { path: '/q_acc', component: Acc },
-                    { path: '/q_trip', component: Trip },
-                    { path: '/q_pay', component: Pay },
-                    { path: '/q_cancel', component: Cancel },
-                    { path: '/q_coupon', component: Coupon },
+                    { path: '/tfd102/project/g5/q_acc', component: Acc },
+                    { path: '/tfd102/project/g5/q_trip', component: Trip },
+                    { path: '/tfd102/project/g5/q_pay', component: Pay },
+                    { path: '/tfd102/project/g5/q_cancel', component: Cancel },
+                    { path: '/tfd102/project/g5/q_coupon', component: Coupon },
                 ],
             }),
             methods:{
