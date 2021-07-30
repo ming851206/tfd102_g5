@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./dist/css/style.css">
     <script src="./js/vue/vue.js"></script>
     <script src="./js/jq/jquery-3.6.0.js"></script>
     <!-- <script src="./js/postcard/postcard.js"></script> -->
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>客制明信片</title>
 </head>
 <body class="postcard_Body">
-    <!-- <h2>Hello</h2> -->
+
     <div id="postcard">
         <!--  include header   -->
         <header id="the_header">
@@ -23,7 +24,7 @@
         </div>
 
         <!-- index postcard -->
-        <div class="postcard_page_change" v-if="index == 1">
+        <div class="postcard_page_change"  v-if="index == 1">
             <!-- index postcard -->
             <div class="index_postcard_block">
                 <div class="index_postcard_BG">
@@ -65,7 +66,7 @@
         <!-- 選擇照片 -->
         <div class="postcard_page_change" v-else-if="index == 2">
             <!-- 進度區 -->
-            <div class="progress_block">
+            <!-- <div class="progress_block">
                 <div class="frist_block textblock_Show">
                     <h4>選擇照片</h4>  
                     <span>1</span>
@@ -86,72 +87,67 @@
                     <h4>完成</h4>  
                     <span>5</span>
                 </div>
-            </div>
+            </div> -->
     
             <!-- 選擇照片 -->
             <div class="choose_img_block">
                 <!-- 圖片卡片區 -->
                 <div class="choose_img_title">
-                    <h3>五洲景點總覽</h3>
+                    <h3>選擇喜歡的照片</h3>
                 </div>
                 <!-- card -->
                 <div class="choose_card_block">
-                    <div class="card_block">
+                    <div class="card_block" @click="changeindex">
                         <img src="./images/postcard/225/arcit01_550-320.jpg" alt="">
                         <p>北極-看看北極熊</p>
-                        <button type="button" class="btnM" id="pickMe">選我</button>
+                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
                     </div>
-                    <div class="card_block">
+                    <div class="card_block" @click="changeindex">
                         <img src="./images/postcard/225/australia01_550-320.jpg" alt="">
                         <p>澳洲－雪梨歌劇院</p>
-                        <button type="button" class="btnM" id="pickMe">選我</button>
+                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
                     </div>
-                    <div class="card_block">
+                    <div class="card_block" @click="changeindex">
                         <img src="./images/postcard/225/finland01_550-320.jpg" alt="">
                         <p>芬蘭－極光冰雪世界</p>
-                        <button type="button" class="btnM" id="pickMe">選我</button>
+                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
                     </div>
-                    <div class="card_block">
+                    <div class="card_block" @click="changeindex">
                         <img src="./images/postcard/225/japan02_550-320.jpg" alt="">
                         <p>日本－櫻花花語</p>
-                        <button type="button" class="btnM" id="pickMe">選我</button>
+                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
                     </div>
                 </div>
-                <div class="choose_card_block">
+                <div class="choose_card_block" @click="changeindex">
                     <div class="card_block">
                         <img src="./images/postcard/225/maldives02_550-320.jpg" alt="">
                         <p>北極-看看北極熊</p>
-                        <button type="button" class="btnM" id="pickMe">選我</button>
+                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
                     </div>
-                    <div class="card_block">
+                    <div class="card_block" @click="changeindex">
                         <img src="./images/postcard/225/uk01_550-320.jpg" alt="">
                         <p>北極－冰雪世界</p>
-                        <button type="button" class="btnM" id="pickMe">選我</button>
+                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
                     </div>
-                    <div class="card_block">
+                    <div class="card_block" @click="changeindex">
                         <img src="./images/postcard/225/china01_550-320.jpg" alt="">
                         <p>北極－冰雪世界</p>
-                        <button type="button" class="btnM" id="pickMe">選我</button>
+                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
                     </div>
-                    <div class="card_block">
+                    <div class="card_block" @click="changeindex">
                         <img src="./images/postcard/225/france01_550-320.jpg" alt="">
                         <p>法國－亞歷山大三世橋</p>
-                        <button type="button" class="btnM" id="pickMe">選我</button>
+                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
                     </div>
-                </div>
-    
-                <!-- next -->
-                <div class="next_btn">
-                    <button type="button"  class="btnM" id="next" @click="changeindex">下一步</button>
                 </div>
             </div>
         </div>
         
         
-        <!-- 明信片 選擇郵票 -->
+        <!-- 明信片 -->
         <div class="postcard_page_change" v-else-if="index == 3">
             <!-- 進度區 -->
-            <div class="progress_block">
+            <!-- <div class="progress_block">
                 <div class="frist_block">
                     <h4>選擇照片</h4>  
                     <span>1</span>
@@ -172,49 +168,77 @@
                     <h4>完成</h4>  
                     <span>5</span>
                 </div>
-            </div>
-            <!-- 明信片 選擇郵票 -->
+            </div> -->
+            <!-- 明信片-->
             <div class="postcardStart_block">
     
                 <div class="Img_bg">
                     <!-- 明信片 -->
                     <div class="main_writting_block">
         
-                        <!-- 文字區 -->
+                        <!-- 左邊-->
                         <div class="main_writting_left">
                             <div class="writting_title">
                                 <h3>POSTCARD</h3>
-                                <!-- <h4>寫下你的訊息</h4> -->
+                                <div class="writting_art">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 19.743 22.563">
+                                        <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M19.743,10.576v4.231a1.762,1.762,0,0,1-.047.4L18.286,21.2a1.763,1.763,0,0,1-1.716,1.359H7.4a1.763,1.763,0,0,1-1.426-.726L.337,14.081a1.763,1.763,0,1,1,2.851-2.074l1.395,1.918V1.763a1.763,1.763,0,0,1,3.525,0v8.814h.353V8.814a1.763,1.763,0,1,1,3.525,0v1.763h.353V9.519a1.763,1.763,0,0,1,3.525,0v1.058h.353a1.763,1.763,0,1,1,3.525,0ZM8.461,14.1H8.109v4.231h.353Zm3.878,0h-.353v4.231h.353Zm3.878,0h-.353v4.231h.353Z" transform="translate(19.743 22.563) rotate(180)" fill="#F7F9F2"/>
+                                    </svg>
+                                    <h4 class="writting_art_h4">寫下你的訊息</h4>
+                                </div>
                             </div>
                             <div class="writting_bg">
-                                <!-- <textarea></textarea> -->
+                                <textarea class="writting_area"></textarea>
                             </div>
                         </div>
         
-                        <!-- 郵票區 -->
+                        <!-- 右邊 -->
                         <div class="main_writting_right">
                             <!-- 郵票 -->
                             <div class="choose_stamp_block" >
                                 
+                                <div class="remind_stamp">
+                                    <h4 class="remind_stamp_h4">請選擇郵票</h4>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 22.563 19.743">
+                                        <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M19.743,10.576v4.231a1.762,1.762,0,0,1-.047.4L18.286,21.2a1.763,1.763,0,0,1-1.716,1.359H7.4a1.763,1.763,0,0,1-1.426-.726L.337,14.081a1.763,1.763,0,1,1,2.851-2.074l1.395,1.918V1.763a1.763,1.763,0,0,1,3.525,0v8.814h.353V8.814a1.763,1.763,0,1,1,3.525,0v1.763h.353V9.519a1.763,1.763,0,0,1,3.525,0v1.058h.353a1.763,1.763,0,1,1,3.525,0ZM8.461,14.1H8.109v4.231h.353Zm3.878,0h-.353v4.231h.353Zm3.878,0h-.353v4.231h.353Z" transform="translate(22.563) rotate(90)" fill="#F7F9F2"/>
+                                    </svg>
+                                </div>
+
                                 <div class="stamp_block" @click="stamp_Sbtn">
                                     <img src="./images/postcard/stamp/stamp1.png" alt="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
                                         <g id="Group_293" data-name="Group 293" transform="translate(-1016 -414)">
                                             <circle id="Ellipse_46" data-name="Ellipse 46" cx="30" cy="30" r="30" transform="translate(1016 414)" fill="#fff"/>
                                             <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M19.743,10.576v4.231a1.762,1.762,0,0,1-.047.4L18.286,21.2a1.763,1.763,0,0,1-1.716,1.359H7.4a1.763,1.763,0,0,1-1.426-.726L.337,14.081a1.763,1.763,0,1,1,2.851-2.074l1.395,1.918V1.763a1.763,1.763,0,0,1,3.525,0v8.814h.353V8.814a1.763,1.763,0,1,1,3.525,0v1.763h.353V9.519a1.763,1.763,0,0,1,3.525,0v1.058h.353a1.763,1.763,0,1,1,3.525,0ZM8.461,14.1H8.109v4.231h.353Zm3.878,0h-.353v4.231h.353Zm3.878,0h-.353v4.231h.353Z" transform="translate(1036.129 432.719)" fill="rgba(0,0,0,0.8)"/>
                                         </g>
-                                    </svg>
-                                    
+                                    </svg> -->
                                 </div>
                                 <div class="seal_block">
                                     <img src="./images/logo/logo-circle.png" alt="">
                                 </div>
                             </div>
+
+                            <!-- 收件者info -->
+                            <div class="sentTO_block">
+                                <!-- typeTo_Fadeout -->
+                                <div class="sentTO_block_grey">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 19.743 22.563">
+                                        <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M19.743,10.576v4.231a1.762,1.762,0,0,1-.047.4L18.286,21.2a1.763,1.763,0,0,1-1.716,1.359H7.4a1.763,1.763,0,0,1-1.426-.726L.337,14.081a1.763,1.763,0,1,1,2.851-2.074l1.395,1.918V1.763a1.763,1.763,0,0,1,3.525,0v8.814h.353V8.814a1.763,1.763,0,1,1,3.525,0v1.763h.353V9.519a1.763,1.763,0,0,1,3.525,0v1.058h.353a1.763,1.763,0,1,1,3.525,0ZM8.461,14.1H8.109v4.231h.353Zm3.878,0h-.353v4.231h.353Zm3.878,0h-.353v4.231h.353Z" transform="translate(19.743 22.563) rotate(180)" fill="#F7F9F2"/>
+                                    </svg>
+                                    <h4 class="sentTO_block_h4">請輸入收件者 </h4>
+                                </div>
+                                <!-- @click="typeTo_area" -->
+                                <div class="typeTo_block">
+                                    <textarea class="sentTO_People"> TO : </textarea>
+                                </div>
+                            </div>
+
+                            
+                        </div>
                     </div>
                     
-                    </div>
             
-                    <!-- next 按鈕 -->
+                    <!-- 上下一步按鈕 -->
                     <div class="next_postcard_btn">
                         <button type="button"  class="btnM" id="previous" @click="changeprevious">上一步</button>
                         <button type="button"  class="btnM" id="next" @click="changeindex">下一步</button>
@@ -238,26 +262,24 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 
                 </div>
         
-            </div>
         </div>
-
-        
-        <!-- 明信片 輸入內文 -->
+        <!-- 明信片 完成 -->
         <div class="postcard_page_change" v-else-if="index == 4">
             <!-- 進度區 -->
-            <div class="progress_block">
+            <!-- <div class="progress_block">
                 <div class="frist_block">
                     <h4>選擇照片</h4>  
                     <span>1</span>
                 </div>
-                <div class="frist_block">
+                <div class="frist_block textblock_Show">
                     <h4>選擇郵票</h4>  
                     <span>2</span>
                 </div>
-                <div class="frist_block textblock_Show">
+                <div class="frist_block">
                     <h4>輸入內文</h4>  
                     <span>3</span>
                 </div>
@@ -269,30 +291,29 @@
                     <h4>完成</h4>  
                     <span>5</span>
                 </div>
-            </div>
-            <!-- 明信片 輸入內文 -->
+            </div> -->
+            <!-- 明信片-->
             <div class="postcardStart_block">
     
                 <div class="Img_bg">
                     <!-- 明信片 -->
                     <div class="main_writting_block" v-if ="cardShow == true">
         
-                        <!-- 文字區 -->
+                        <!-- 左邊-->
                         <div class="main_writting_left">
                             <div class="writting_title">
                                 <h3>POSTCARD</h3>
-                                <h4>寫下你的訊息</h4>
                             </div>
                             <div class="writting_bg">
-                                <textarea></textarea>
+                                <textarea class="writting_area"></textarea>
                             </div>
                         </div>
         
-                        <!-- 郵票區 -->
+                        <!-- 右邊 -->
                         <div class="main_writting_right">
                             <!-- 郵票 -->
-                            <div class="choose_stamp_block">
-                                
+                            <div class="choose_stamp_block" >
+
                                 <div class="stamp_block">
                                     <img src="./images/postcard/stamp/stamp1.png" alt="">
                                 </div>
@@ -300,17 +321,19 @@
                                     <img src="./images/logo/logo-circle.png" alt="">
                                 </div>
                             </div>
-        
+
                             <!-- 收件者info -->
-                            <div class="typeTo_block">
-                                <!-- <h4>TO :</h4> -->
-                                <!-- <textarea></textarea> -->
+                            <div class="sentTO_block">
+                                <div class="typeTo_block">
+                                    <textarea class="sentTO_People"> TO : </textarea>
+                                </div>
                             </div>
                         </div>
-                        
                     </div>
-                    <!-- 明信片背面照片 -->
-                    <div class="main_IMG_block" v-else>
+                    
+            
+                     <!-- 明信片背面照片 -->
+                     <div class="main_IMG_block" v-else>
                         <div class="IMG_block">
                             <img src="./images/postcard/650/africa01_1300-900.jpg" alt="">
                         </div>
@@ -318,215 +341,38 @@
         
                     <!-- 翻轉按鈕 -->
                     <div class="main_changeBtn_block" @click="changebtn">
-                        <div class="changeBtn">
+                        <button type="button" class="btnL_light">翻轉至所選圖片</button>
+                        <!-- <div class="changeBtn">
+
                             <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
                                 <g id="Group_293" data-name="Group 293" transform="translate(-1016 -414)">
-                                    <circle id="Ellipse_46" data-name="Ellipse 46" cx="30" cy="30" r="30" transform="translate(1016 414)" fill="#fff"/>
-                                    <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M19.743,10.576v4.231a1.762,1.762,0,0,1-.047.4L18.286,21.2a1.763,1.763,0,0,1-1.716,1.359H7.4a1.763,1.763,0,0,1-1.426-.726L.337,14.081a1.763,1.763,0,1,1,2.851-2.074l1.395,1.918V1.763a1.763,1.763,0,0,1,3.525,0v8.814h.353V8.814a1.763,1.763,0,1,1,3.525,0v1.763h.353V9.519a1.763,1.763,0,0,1,3.525,0v1.058h.353a1.763,1.763,0,1,1,3.525,0ZM8.461,14.1H8.109v4.231h.353Zm3.878,0h-.353v4.231h.353Zm3.878,0h-.353v4.231h.353Z" transform="translate(1036.129 432.719)" fill="rgba(0,0,0,0.8)"/>
+                                  <circle id="Ellipse_46" data-name="Ellipse 46" cx="30" cy="30" r="30" transform="translate(1016 414)" fill="#fff"/>
+                                  <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M19.743,10.576v4.231a1.762,1.762,0,0,1-.047.4L18.286,21.2a1.763,1.763,0,0,1-1.716,1.359H7.4a1.763,1.763,0,0,1-1.426-.726L.337,14.081a1.763,1.763,0,1,1,2.851-2.074l1.395,1.918V1.763a1.763,1.763,0,0,1,3.525,0v8.814h.353V8.814a1.763,1.763,0,1,1,3.525,0v1.763h.353V9.519a1.763,1.763,0,0,1,3.525,0v1.058h.353a1.763,1.763,0,1,1,3.525,0ZM8.461,14.1H8.109v4.231h.353Zm3.878,0h-.353v4.231h.353Zm3.878,0h-.353v4.231h.353Z" transform="translate(1036.129 432.719)" fill="rgba(0,0,0,0.8)"/>
                                 </g>
-                            </svg>
-                        </div>
+                              </svg>
+                        </div> -->
                     </div>
-        
-                    <!-- next 按鈕 -->
+
+                    <!-- 再試一次 下載按鈕 -->
                     <div class="next_postcard_btn">
-                        <button type="button"  class="btnM" id="previous" @click="changeprevious">上一步</button>
-                        <button type="button"  class="btnM" id="next"  @click="changeindex">下一步</button>
+                        <button type="button"  class="btnM" id="tryAgain" @click="tryAgain">再製作一次</button>
+                        <button type="button"  class="btnM" id="downLoad">下載</button>
                     </div>
-        
+
                     
                 </div>
                 
-            </div>
+                </div>
+        
         </div>
 
-        <!-- 明信片 輸入收件者 -->
-        <div class="postcard_page_change" v-else-if="index == 5">
-            <!-- 進度區 -->
-            <div class="progress_block">
-                <div class="frist_block">
-                    <h4>選擇照片</h4>  
-                    <span>1</span>
-                </div>
-                <div class="frist_block">
-                    <h4>選擇郵票</h4>  
-                    <span>2</span>
-                </div>
-                <div class="frist_block ">
-                    <h4>輸入內文</h4>  
-                    <span>3</span>
-                </div>
-                <div class="frist_block textblock_Show">
-                    <h4>輸入收件者</h4>  
-                    <span>4</span>
-                </div>
-                <div class="frist_block">
-                    <h4>完成</h4>  
-                    <span>5</span>
-                </div>
-            </div>
-            <!-- 明信片 輸入收件者 -->
-            <div class="postcardStart_block">
-    
-                <div class="Img_bg">
-                    <!-- 明信片 -->
-                    <div class="main_writting_block" v-if ="cardShow == true">
-        
-                        <!-- 文字區 -->
-                        <div class="main_writting_left" >
-                            <div class="writting_title">
-                                <h3>POSTCARD</h3>
-                                <h4>寫下你的訊息</h4>
-                            </div>
-                            <div class="writting_bg">
-                                <textarea></textarea>
-                            </div>
-                        </div>
-        
-                        <!-- 郵票區 -->
-                        <div class="main_writting_right">
-                            <!-- 郵票 -->
-                            <div class="choose_stamp_block">
-                                
-                                <div class="stamp_block">
-                                    <img src="./images/postcard/stamp/stamp1.png" alt="">
-                                </div>
-                                <div class="seal_block">
-                                    <img src="./images/logo/logo-circle.png" alt="">
-                                </div>
-                            </div>
-        
-                            <!-- 收件者info -->
-                            <h4>TO :</h4>
-                            <div class="typeTo_block">
-                                <textarea></textarea>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <!-- 明信片背面照片 -->
-                    <div class="main_IMG_block" v-else>
-                        <div class="IMG_block">
-                            <img src="./images/postcard/650/africa01_1300-900.jpg" alt="">
-                        </div>
-                    </div>
-        
-                    <!-- 翻轉按鈕 -->
-                    <div class="main_changeBtn_block" @click="changebtn">
-                        <div class="changeBtn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
-                                <g id="Group_293" data-name="Group 293" transform="translate(-1016 -414)">
-                                    <circle id="Ellipse_46" data-name="Ellipse 46" cx="30" cy="30" r="30" transform="translate(1016 414)" fill="#fff"/>
-                                    <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M19.743,10.576v4.231a1.762,1.762,0,0,1-.047.4L18.286,21.2a1.763,1.763,0,0,1-1.716,1.359H7.4a1.763,1.763,0,0,1-1.426-.726L.337,14.081a1.763,1.763,0,1,1,2.851-2.074l1.395,1.918V1.763a1.763,1.763,0,0,1,3.525,0v8.814h.353V8.814a1.763,1.763,0,1,1,3.525,0v1.763h.353V9.519a1.763,1.763,0,0,1,3.525,0v1.058h.353a1.763,1.763,0,1,1,3.525,0ZM8.461,14.1H8.109v4.231h.353Zm3.878,0h-.353v4.231h.353Zm3.878,0h-.353v4.231h.353Z" transform="translate(1036.129 432.719)" fill="rgba(0,0,0,0.8)"/>
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-        
-                    <!-- next 按鈕 -->
-                    <div class="next_postcard_btn" >
-                        <button type="button"  class="btnM" id="previous" id="previous" @click="changeprevious">上一步</button>
-                        <button type="button"  class="btnM" id="next"  @click="changeindex">下一步</button>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
 
-        <!-- 明信片 完成 -->
-        <div class="postcard_page_change" v-else-if="index == 6">
-            <!-- 進度區 -->
-            <div class="progress_block">
-                <div class="frist_block">
-                    <h4>選擇照片</h4>  
-                    <span>1</span>
-                </div>
-                <div class="frist_block">
-                    <h4>選擇郵票</h4>  
-                    <span>2</span>
-                </div>
-                <div class="frist_block ">
-                    <h4>輸入內文</h4>  
-                    <span>3</span>
-                </div>
-                <div class="frist_block ">
-                    <h4>輸入收件者</h4>  
-                    <span>4</span>
-                </div>
-                <div class="frist_block textblock_Show">
-                    <h4>完成</h4>  
-                    <span>5</span>
-                </div>
-            </div>
-            <!-- 明信片 完成 -->
-            <div class="postcardStart_block">
+        <!-- </div> -->
 
-                <div class="Img_bg">
-                    <!-- 明信片 -->
-                    <div class="main_writting_block"  v-if ="cardShow == true">
-        
-                        <!-- 文字區 -->
-                        <div class="main_writting_left">
-                            <div class="writting_title">
-                                <h3>POSTCARD</h3>
-                                <h4>寫下你的訊息</h4>
-                            </div>
-                            <div class="writting_bg">
-                                <textarea></textarea>
-                            </div>
-                        </div>
-        
-                        <!-- 郵票區 -->
-                        <div class="main_writting_right">
-                            <!-- 郵票 -->
-                            <div class="choose_stamp_block">
-                                
-                                <div class="stamp_block">
-                                    <img src="./images/postcard/stamp/stamp1.png" alt="">
-                                </div>
-                                <div class="seal_block">
-                                    <img src="./images/logo/logo-circle.png" alt="">
-                                </div>
-                            </div>
-        
-                            <!-- 收件者info -->
-                            <h4>TO :</h4>
-                            <div class="typeTo_block">
-                                <textarea></textarea>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <!-- 明信片背面照片 -->
-                    <div class="main_IMG_block" v-else>
-                        <div class="IMG_block">
-                            <img src="./images/postcard/650/africa01_1300-900.jpg" alt="">
-                        </div>
-                    </div>
-        
-                    <!-- 翻轉按鈕 -->
-                    <div class="main_changeBtn_block">
-                        <div class="changeBtn" @click="changebtn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
-                                <g id="Group_293" data-name="Group 293" transform="translate(-1016 -414)">
-                                <circle id="Ellipse_46" data-name="Ellipse 46" cx="30" cy="30" r="30" transform="translate(1016 414)" fill="#fff"/>
-                                <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M19.743,10.576v4.231a1.762,1.762,0,0,1-.047.4L18.286,21.2a1.763,1.763,0,0,1-1.716,1.359H7.4a1.763,1.763,0,0,1-1.426-.726L.337,14.081a1.763,1.763,0,1,1,2.851-2.074l1.395,1.918V1.763a1.763,1.763,0,0,1,3.525,0v8.814h.353V8.814a1.763,1.763,0,1,1,3.525,0v1.763h.353V9.519a1.763,1.763,0,0,1,3.525,0v1.058h.353a1.763,1.763,0,1,1,3.525,0ZM8.461,14.1H8.109v4.231h.353Zm3.878,0h-.353v4.231h.353Zm3.878,0h-.353v4.231h.353Z" transform="translate(1036.129 432.719)" fill="rgba(0,0,0,0.8)"/>
-                                </g>
-                            </svg>
-                        </div>
-                    </div>
-        
-                    <!-- 下載按鈕 -->
-                    <div class="download_postcard_btn">
-                        <button type="button"  class="btnM" id="tryAgain" @click="tryAgain">再做一次</button>
-                        <button type="button"  class="btnM" id="download">下載</button>
-                    </div>
-        
-                </div>
-                
-            </div>
-        </div>
 
+
+
+        
         <footer id="the_footer">
             <the-footer></the-footer>
         </footer>
@@ -551,6 +397,8 @@
 
                 // 同頁面切換
                 index: 1,
+                
+                // typeTo_Fadeout: '',
 
                 }
                 
@@ -575,6 +423,11 @@
                         this.stampShow=false;
                     }
                 },
+
+                // gsap.to('typeTo_area',{
+                //     duration: 2s,
+                // })
+
                 // 同頁面切換
                 changeindex() {
                     if (this.index == 1) {
@@ -583,26 +436,23 @@
                         this.index = 3;
                     } else if (this.index == 3) {
                         this.index = 4;
-                    } else if (this.index == 4) {
-                        this.index = 5;
-                    } else if (this.index == 5) {
-                        this.index = 6;
-                    }
+                    } 
                 },
                 changeprevious() {
-                    if (this.index == 5) {
-                        this.index = 4;
-                    } else if (this.index == 4) {
-                        this.index = 3;
-                    } else if (this.index == 3) {
+                    if (this.index == 3) {
                         this.index = 2;
                     }
                 },
                 tryAgain(){
-                    if (this.index == 6){
+                    if (this.index == 4){
                         this.index = 1;
                     }
                 },
+                // animate__animated animate__fadeOutUp
+                // remove_To(){
+                //     this.asssssssss = true;
+                //     alert(this.asssssssss);
+                // },
             },
         });
 
