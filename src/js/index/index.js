@@ -5,14 +5,14 @@ const aboutUsService = Vue.component("the-service",{
         <div class="about_container">
             <h2>我們的服務</h2>
             <div class="all_about">
-                <div class="about_1">
+                <div class="about_1" data-aos="fade-right" data-aos-duration="1000" data-aos-once="false">
                     <img src="./images/index/content/about_1.jpg" alt="專業的線上導遊">
                     <div class="des_1"> 
                         <h3>專業的線上導遊</h3>
                         <h4>我們提供具有專業知識背景的線上導遊，零時差導覽您的線上旅程，透過直播即時互動，他們將帶領您身歷其境，讓您隨時隨地，開機就能遊覽世界。</h4>
                     </div>
                 </div>
-                <div class="about_2">
+                <div class="about_2" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" data-aos-once="false">
                     <div class="des_2">
                         <h3>提供包場</h3>
                         <h4>在任何您舒適的環境享受這場線上社交活動，沒有陌生人，只有您和您的親朋好友，由專業的當地導遊帶領遊樂世界各處，創造獨一無二的旅遊體驗。</h4>
@@ -174,7 +174,7 @@ const travel = Vue.component("travel-item", {
         <h2>熱門旅遊</h2>
         <div id="the-travel">
             <ul id="travel_container">
-                <li id="travel_li" v-for="trip in trips">
+                <li id="travel_li" v-for="trip in trips"  data-aos="zoom-in-up" data-aos-duration="1200" data-aos-once="false">
                     <img class="place" :src="trip.photo" alt="看吳哥窟全景">
                     <div class="main_content">
                         <div class="first">
@@ -218,13 +218,13 @@ const vue_travel = new Vue({
 const video = Vue.component("the-reason",{
     template: `
     <div class="the_reason">
-        <div class="text">
+        <div class="text" data-aos="zoom-in" data-aos-duration="600">
             <h2>為何選擇我們？</h2>
             <ul class="reasons">
                 <li v-for="reason in reasons">{{reason}}</li>
             </ul>
         </div>
-        <video id="index_video" poster="./video/video_img.jpg" controlsList="nodownload" controls>
+        <video id="index_video" poster="./images/index/content/video_img.jpg" controlsList="nodownload" controls data-aos="flip-left" data-aos-duration="1500" data-aos-delay="500" data-aos-once="false">
             <source src="./video/choose_us.mp4">
             <p>Sorry, your browser doesn't support embedded videos.</p>
         </video>
@@ -254,7 +254,7 @@ const opinion = Vue.component("the-opinion",{
         <div class="opinion_container">
             <h2>看看大家怎麼說 . . .</h2>
             <div id="opinion">
-                <ul id="all_opinion">
+                <ul id="all_opinion" data-aos="fade-up" data-aos-duration="700">
                 <li class="person" v-for="person in people">
                     <div class="top">
                         <img :src="person.avatar">
@@ -304,3 +304,10 @@ const vue_opinion = new Vue({
     el: "#more_opinion",  
 })
 
+$(function() {
+    AOS.init();
+  });
+  
+  $(window).on('load', function() {
+    AOS.refresh();
+  });

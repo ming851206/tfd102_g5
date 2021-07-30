@@ -2,17 +2,8 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
     <title>旅遊護照遊戲</title>
-    <meta name="keywords" content="travel, tour, trip, online travel">
-    <meta name="description" content="online travel website">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-    <link rel="stylesheet" href="./dist/css/style.css">
-    <script src="./js/vue/vue.js"></script>
-    <script src="./js/jq/jquery-3.6.0.js"></script>
-    <!-- <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
+    @@include('layout_html/plugin.html')
 </head>
 
 <body>
@@ -93,7 +84,7 @@
                         </div>
                      </form>
                 </div>
-
+                 
                 <!-- 挑戰成功 -->
                 <div class="challenge winning">
                     <div class="result_mask"></div>
@@ -111,8 +102,9 @@
                     </div>
                 </div>
 
+               
                  <!-- 挑戰失敗 -->
-                 <!--<div class="challenge losing">
+            <!--<div class="challenge losing">
                     <div class="result_mask"></div>
                     <div class="game_detail">
                         <div class="game_close_btn"></div>
@@ -204,20 +196,19 @@
 
             mounted() {
                 $(function () {
-                    // $(".passport_page").delay(1200).fadeIn(400);
-
-
                     $(".btn_start").click(function () {
-                        $(".passport_page").fadeOut(800);
+                        $(".passport_page").fadeOut(700);
+                        $(".landmark").delay(5000).addClass("scale");
                     })
 
                     $(".landmark").click(function () {
-                        $(".game_world_map div").not(this).slideUp();
-                        $("#game_word").fadeOut();
+                        $(".landmark").removeClass("scale");
                         $(this).css({
                             backgroundImage: "url('./images/index/game/landmark_gold.png')",
                         });
-                        $(".game_question").stop(true, true).delay(1000).fadeIn(800);
+                        $(".game_world_map div").not(this).delay(500).slideUp(700);
+                        $("#game_word").fadeOut();
+                        $(".game_question").stop(true, true).delay(1900).fadeIn(800);
 
                     });
 
@@ -230,7 +221,7 @@
                         $(".game_result_overlay").fadeOut();
                         $(".landmark").css({
                             backgroundImage: "url('./images/index/game/landmark_white.png')",
-                        }).slideDown();
+                        }).slideDown().addClass("scale");
                         $(".opt").css({
                             backgroundColor: "#F7F6F2",
                         });
@@ -269,8 +260,6 @@
                             $(".game_coupon").hide();
                         });
                     })
-
-
                 })
             },
         })
