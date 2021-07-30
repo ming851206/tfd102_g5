@@ -2,12 +2,8 @@
 <html lang="zh_Hant">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>常見問題</title>
-    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-    <link rel="stylesheet" href="./dist/css/style.css">
+    @@include('layout_html/plugin.html')
     <style>
         .turnBg {
             background-image: url(./images/icon/minus2.svg) !important;
@@ -49,11 +45,11 @@
 
             <div class="flexbox">
                 <div class="app_l">
-                    <router-link to="/tfd102/project/g5/q_acc" class="preChk">個人帳戶</router-link>
-                    <router-link to="/tfd102/project/g5/q_trip">參與旅程</router-link>
-                    <router-link to="/tfd102/project/g5/q_pay">購買與付款</router-link>
-                    <router-link to="/tfd102/project/g5/q_cancel">取消與退款</router-link>
-                    <router-link to="/tfd102/project/g5/q_coupon">使用優惠碼</router-link>
+                    <router-link to="/q_acc" class="preChk">個人帳戶</router-link>
+                    <router-link to="/q_trip">參與旅程</router-link>
+                    <router-link to="/q_pay">購買與付款</router-link>
+                    <router-link to="/q_cancel">取消與退款</router-link>
+                    <router-link to="/q_coupon">使用優惠碼</router-link>
                 </div>
                 <div class="app_r">
                     <router-view></router-view>
@@ -80,10 +76,6 @@
         <the-footer></the-footer>
     </footer>
 
-    <script src="./js/vue/vue.js"></script>
-    <script src="./js/jq/jquery-3.6.0.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
-    <script src="./js/header_footer.js"></script>
     <script>
 
         Vue.use(VueRouter);
@@ -301,11 +293,11 @@
             router: new VueRouter({
                 mode: 'history',
                 routes: [
-                    { path: '/tfd102/project/g5/q_acc', component: Acc },
-                    { path: '/tfd102/project/g5/q_trip', component: Trip },
-                    { path: '/tfd102/project/g5/q_pay', component: Pay },
-                    { path: '/tfd102/project/g5/q_cancel', component: Cancel },
-                    { path: '/tfd102/project/g5/q_coupon', component: Coupon },
+                    { path: '/q_acc', component: Acc },
+                    { path: '/q_trip', component: Trip },
+                    { path: '/q_pay', component: Pay },
+                    { path: '/q_cancel', component: Cancel },
+                    { path: '/q_coupon', component: Coupon },
                 ],
             }),
             methods:{
