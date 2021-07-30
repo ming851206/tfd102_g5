@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./dist/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="./js/vue/vue.js"></script>
     <script src="./js/jq/jquery-3.6.0.js"></script>
     <!-- <script src="./js/postcard/postcard.js"></script> -->
@@ -332,8 +332,8 @@
                     </div>
                     
             
-                     <!-- 明信片背面照片 -->
-                     <div class="main_IMG_block" v-else>
+                    <!-- 明信片背面照片 -->
+                    <div class="main_IMG_block" v-else>
                         <div class="IMG_block">
                             <img src="./images/postcard/650/africa01_1300-900.jpg" alt="">
                         </div>
@@ -425,8 +425,9 @@
                 },
 
                 // gsap.to('typeTo_area',{
-                //     duration: 2s,
-                // })
+                //     duration: 2,
+                //     opacity: 0,
+                // }),
 
                 // 同頁面切換
                 changeindex() {

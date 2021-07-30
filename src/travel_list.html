@@ -2,17 +2,12 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>旅遊總覽</title>
-    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    </link>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    </link>
-    <link rel="stylesheet" href="dist/css/style.css">
+    <title>旅遊導覽</title>
+    <!-- 共用 -->
+    @@include('layout_html/plugin.html')
+    <!-- 輪播套件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
 </head>
 
 <body>
@@ -30,24 +25,31 @@
             <div class="bg_img"></div>
         </section>
         <section class="main"></section>
-
-        <div class="travel_filters">
-            <div class="content">
-                <ul class="filter1">
-                    <li class="customer"><button class="btnS_line">篩選條件</button></li>
-                    <li class="customer"><button class="btnS_line">日期</button></li>
-                    <li class="customer"><button class="btnS_line">團體人數</button></li>
-                </ul>
-                <ul class="filter2">
-                    <li class="category"><button class="btnS_line">美洲</button></li>
-                    <li class="category"><button class="btnS_line">歐洲</button></li>
-                    <li class="category"><button class="btnS_line">亞洲</button></li>
-                    <li class="category"><button class="btnS_line">非洲</button></li>
-                    <li class="category"><button class="btnS_line">大洋洲</button></li>
-                </ul>
+        
+        <div id="app">
+            <div class="travel_filters">
+                <div class="content">
+                    <ul class="filter1">
+                        <li class="customer"><button class="btnS_line">篩選條件</button></li>
+                        <li class="customer"><button class="btnS_line">日期</button></li>
+                        <li class="customer"><button class="btnS_line">團體人數</button></li>
+                    </ul>
+                    <ul class="filter2"> 
+                        <li class="category"><button class="btnS_line" @click="content='na'">美洲</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='eu'">歐洲</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='as'">亞洲</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='af'">非洲</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='oc'">大洋洲</button></li>
+                    </ul>
+                </div>
+                <input class="trip_search" placeholder="搜尋"></li>
             </div>
-            <input class="trip_search" placeholder="搜尋"></li>
+            <keep-alive>
+                <component :is="content"></component>
+            </keep-alive>
         </div>
+        
+
         <div class="the_new_trip">
             <h3>最新旅遊</h3>
             <div class="container">
@@ -554,10 +556,104 @@
     <script src="./js/header_footer.js"></script>
     <script src="./js/travel_list/travel_list.js"></script>
     <script>
-        new Vue({
-            el: '',
-            data: {
+        Vue.component('na', {
+            template: `
+            <div class="the_new_trip">
+    <h3>最新旅遊</h3>
+    <div class="container">
+        <div class="left_block">
+            <a href="">
+                <div class="trip_item">
+                    <div class="pic">
+                        <img src="./images/travel_list/800/wugerku.jpg">
+                    </div>
+                    <div class="content">
+                        <div class="avatar">
+                            <img src="./images/avatar/avatar.jpg">
+                        </div>
+                        <div class="the_icon">
+                            <div class="share">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                    viewBox="0 0 13.846 15.824">
+                                    <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                        d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                        fill="rgba(0,0,0,0.8)" />
+                                </svg>
+                            </div>
+                            <div class="fav">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                    viewBox="0 0 20.143 17.824">
+                                    <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                        d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                        transform="translate(-1.323 -3.497)" fill="none"
+                                        stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="the_star_num">
+                            <div>
+                                <img src="./images/index/content/star.svg">
+                            </div>
+                            <p class="star_get">5(102) · </p>
+                            <p class="area">亞洲</p>
+                        </div>
+                        <h4 class="trip_intro">
+                            穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。
+                        </h4>
+                        <p>每人 $ 800 TWD 起</p>
+                    </div>
+                </div>
 
+            </a>
+        </div>
+    </div>
+</div>
+            `,
+        });
+        Vue.component('eu', {
+            template: `
+            <form>
+                    <p>
+                        <textarea rows="5"></textarea>
+                    </p>
+                    <button> Submit </button>
+                </form>
+            `,
+        });
+        Vue.component('as', {
+            template: `
+                <form>
+                    <p>
+                        <textarea rows="5"></textarea>
+                    </p>
+                    <button> Submit </button>
+                </form>
+            `,
+        });
+        Vue.component('af', {
+            template: `
+            <form>
+                    <p>
+                        <textarea rows="5"></textarea>
+                    </p>
+                    <button> Submit </button>
+                </form>
+            `,
+        });
+        Vue.component('oc', {
+            template: `
+            <form>
+                    <p>
+                        <textarea rows="5"></textarea>
+                    </p>
+                    <button> Submit </button>
+                </form>`,
+        });
+        new Vue({
+            el: '#app',
+            data: {
+                content: 'na',
             },
         });
     </script>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-    <link rel="stylesheet" href="./dist/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <script src="./js/vue/vue.js"></script>
     <script src="./js/jq/jquery-3.6.0.js"></script>
     <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
@@ -39,9 +39,9 @@
                     <h2>登入</h2>
                     <!-- 放登入的東西 -->
                     <!-- 輸入框欄位 -->
-                    <input class="login_input" v-model="account" type="text" placeholder="帳號 :">
+                    <input class="login_input" type="text" placeholder="帳號 :">
                     <input class="login_input" v-model="password" type="text" placeholder="密碼 :">
-                    <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
                     <div class="forgetPassword" @click="open_forgetPassword_verification">
                         <p>忘記密碼?</p>
@@ -79,11 +79,11 @@
                     <h2>註冊</h2>
                     <!-- 放登出的東西 -->
                     <!-- 輸入框欄位 -->
-                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="email_register" type="text" placeholder="Email :">
+                    <input class="login_input"  type="text" placeholder="帳號 :">
+                    <input class="login_input" type="text" placeholder="Email :">
                     <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" v-model="password" type="text" placeholder="確認密碼 :">
+                    <input class="login_input" type="text" placeholder="確認密碼 :">
                     <!-- 登入切換按鈕 -->
                     <button type="button" class="btnM" id="showBtn">註冊</button>
                 </div>
@@ -169,7 +169,7 @@
                     <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :">
                     <input class="login_input" v-model="email_register" type="text" placeholder="Email :">
                     <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :">
-                    <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <p v-if="!password_register_msg" class="sigin_tiny" v-if="!password_register_msg">密碼長度需高於6個字元</p>
                     <input class="login_input" v-model="password" type="text" placeholder="確認密碼 :">
                     <!-- 登入切換按鈕 -->
                     <!-- 登入註冊切換按鈕區 -->
@@ -201,11 +201,17 @@
                 return {
                     // 登入註冊切換
                     areaShow: true,
+
+
+                    password: '',
+                    password_login:true,
                 }
 
             },
             watch: {
-
+                // password: function(){
+                //     if(!isText.text)
+                // }
             },
             methods: {  //函數（方法）大部分放這裡
                 // 登入註冊切換
