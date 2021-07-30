@@ -45,7 +45,7 @@ $(document).ready(function () {
     });
 });
 
-$("#go_top").click(function () {
+$("#go_the_top").click(function () {
     $("html, body").animate({
         scrollTop: 0,
     }, 1000)

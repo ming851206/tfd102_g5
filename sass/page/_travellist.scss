@@ -17,6 +17,7 @@
     }
 
     .content {
+        // border: 2px solid red;
         height: 50%;
         padding: 60px 20px 30px 20px;
         background-color: #FAF9F2;
@@ -39,34 +40,71 @@
             position: absolute;
             right: 10px;
             top: 10px;
+            margin-left: 5px;
+
+            @include mobile {
+                // border: 2px solid red;
+
+                right: 2px;
+                // margin-left: 1px;
+
+            }
+
+            .share {
+                @include mobile {
+                    svg {
+                        // border: 2px solid red;
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
+            }
 
             .fav {
                 margin-left: 10px;
+
+                @include mobile {
+                    svg {
+                        // border: 2px solid red;
+                        width: 15px;
+                        height: 15px;
+                    }
+                }
             }
         }
 
-        .star_num {
+        .the_star_num {
             display: flex;
             flex-direction: row;
             padding: 10px 0;
 
-            p {
-
+            p.star_get, p.area {
+                // border: 2px solid brown;
                 margin: 0 0 0 10px;
             }
         }
 
-        h4.intro {
+        h4.trip_intro {
+            // border: 2px solid red;
             max-height: 55px;
             font-size: 16px;
+            color:rgba(0, 0, 0, 0.8);
             margin-bottom: 20px;
             font-family: 'regular';
             overflow: hidden;
             font-weight: bold;
+
+            
+            @include mobile {
+                font-size: 14px;
+            }
+        }
+        h4.trip_intro:hover {
+            font-weight: bold;
         }
 
         p {
-            font-size: 12px;
+            font-size: 6px;
         }
     }
 }
@@ -77,7 +115,12 @@
     position: relative;
     overflow: hidden;
 
-    .intro {
+    @include mobile {
+        height: calc(100vh - 85px - 20px);
+
+    }
+
+    .trip_intro {
         // border: 2px solid blue;
         padding: 20px;
         background: rgba(254, 254, 254, 0.574);
@@ -86,13 +129,13 @@
         bottom: 40%;
         z-index: 1;
 
-        h2 {
+        h2.list_title {
             font-weight: bold;
             text-align: left;
             margin-left: 0;
         }
 
-        h5 {
+        h5.list_subtitle {
             line-height: 1.5;
         }
     }
@@ -140,7 +183,7 @@
     }
 }
 
-.filters {
+.travel_filters {
     background-color: #FAF9F2;
     width: 100%;
     height: 50px;
@@ -175,7 +218,8 @@
         display: flex;
         flex-wrap: wrap;
 
-        ul {
+        ul.filter1,
+        ul.filter2 {
             // border: 2px solid black;
             width: 280px;
             display: flex;
@@ -208,7 +252,7 @@
             }
         }
 
-        ul:last-child {
+        ul.filter2 {
             width: 60%;
 
             @include laptop {
@@ -257,7 +301,7 @@
         }
     }
 
-    input.search {
+    input.trip_search {
         @include form;
         padding-left: 40px;
         margin-top: 0;
@@ -285,7 +329,7 @@
 
 
 // ========= 最新旅遊區塊 =========
-.new_trip {
+.the_new_trip {
     // border: 2px solid red;
     width: 100%;
     max-width: 1200px;
@@ -294,6 +338,11 @@
     justify-content: center;
     padding: 40px 40px;
 
+    @include mobile {
+        // border: 2px solid red;
+        padding: 5px;
+
+    }
 
     h3 {
         font-weight: bold;
@@ -301,6 +350,7 @@
     }
 
     .container {
+        // border: 2px solid red;
         width: 100%;
         padding: 0;
         display: flex;
@@ -364,6 +414,9 @@
     @include tripcard();
 }
 
+.left_block .trip_item:hover {
+    transform: scale(1.02);
+}
 .right_block .trip_item {
     @include tripcard();
     flex-direction: row;
@@ -401,21 +454,33 @@
             margin-left: 30px;
         }
 
-        .star_num {
+        .the_star_num {
             display: flex;
             flex-direction: row;
         }
 
         h4.intro {
+            // border: 2px solid blue;
+            font-size: 16px;
             max-height: 50px;
             overflow: hidden;
             margin-bottom: 20px;
         }
+        h4.intro:hover {
+            font-weight: bold;
+        }
+        p.startprice{
+            // border: 2px solid red;
+            font-size: 12px;
+        }
     }
+}
+.right_block .trip_item:hover {
+    transform: scale(1.02);
 }
 
 // ========= 最獲好評的旅遊 =========
-// .thebest_trip {
+// .the_best_trip {
 //     width: 100%;
 //     max-width: 1200px;
 //     box-sizing: border-box;
@@ -428,7 +493,7 @@
 //         padding: 20px 0 40px 0;
 //     }
 
-//     .arrow {
+//     .slider_arrow {
 //         // border: 2px solid red;
 //         margin-bottom: 20px;
 //         width: 180px;
@@ -485,28 +550,36 @@
 // }
 
 // ========= 本月主打的旅遊 =========
-.main_trip {
+.the_main_trip {
+    // border: 2px solid blue;
     width: 100%;
+    height: 450px;
     max-width: 1200px;
     box-sizing: border-box;
     margin: 0 auto;
     justify-content: center;
     padding: 40px 40px;
 
+    @include mobile {
+        // border: 2px solid red;
+        padding: 5px;
+
+    }
+
     h3 {
         font-weight: bold;
         padding: 20px 0 40px 0;
     }
 
-    .arrow {
+    .slider_arrow {
         margin-bottom: 20px;
         width: 100%;
         height: 30px;
         display: flex;
         justify-content: flex-end;
 
-        p {
-
+        p.slider_count {
+            // border: 2px solid red;
             margin-right: 100px;
         }
     }
@@ -532,13 +605,14 @@
                 border-radius: $borderRadius_cd;
                 width: 100%;
                 height: 100%;
+
                 max-height: 600px;
                 display: flex;
                 overflow: hidden;
                 position: relative;
 
                 .pic {
-                    border: 2px solid red;
+                    // border: 2px solid red;
 
                     .share {
                         background-image: url(../../images/icon/share.svg);
@@ -553,10 +627,10 @@
                 img {
                     // border: 3px solid brown;
                     width: 100%;
+                    height: 100%;
                     position: absolute;
                     z-index: 1;
                     object-fit: cover;
-
                 }
 
                 .content {
@@ -575,12 +649,15 @@
                     p.txt {
                         // border: 2px solid red;
                         width: 80%;
-                        // max-height: 60px;
                         padding: 10px;
-                        margin-bottom: 50px;
+                        margin-bottom: 30px;
                         font-size: 24px;
                         line-height: 30px;
                         background-color: #ffffff9d;
+
+                        @include mobile {
+                            font-size: 18px;
+                        }
                     }
 
                     button {
@@ -595,8 +672,8 @@
 }
 
 // ========= 最獲好評的旅遊 & 近期瀏覽旅遊 =========
-.thebest_trip,
-.viewed_trip {
+.the_best_trip,
+.the_viewed_trip {
     // border: 3px solid red;
     width: 100%;
     max-width: 1200px;
@@ -606,12 +683,18 @@
     flex-direction: column;
     padding: 40px 40px;
 
+    @include mobile {
+        // border: 2px solid red;
+        padding: 5px;
+
+    }
+
     h3 {
         font-weight: bold;
         padding: 20px 0 40px 0;
     }
 
-    .arrow {
+    .slider_arrow {
         // border: 2px solid red;
         margin-bottom: 20px;
         width: 100%;
@@ -619,7 +702,7 @@
         display: flex;
         justify-content: flex-end;
 
-        p {
+        p.slider_count {
             // border: 2px solid red;
 
             margin-right: 100px;
@@ -658,7 +741,7 @@
                         transform: translateX(-50%);
                     }
 
-                    .star_num {
+                    .the_star_num {
                         // border: 20px solid red;
                         display: flex;
                         flex-direction: row;
@@ -673,6 +756,10 @@
                                 width: 8px;
                             }
                         }
+                        p.star_get, p.area {
+                            // border: 2px solid brown;
+                            margin: 0 0 0 10px;
+                        }
                     }
 
                     h4.intro {
@@ -684,11 +771,20 @@
                         color: rgba(0, 0, 0, 0.8);
                         overflow: hidden;
                         font-weight: bold;
+
+                        @include mobile {
+                            font-size: 12px;
+                        }
                     }
 
-                    p {
-                        font-size: 12px;
+                    p.startprice {
+                        // border: 2px solid red;
+                        font-size: 8px;
                         color: rgba(0, 0, 0, 0.8);
+
+                        @include mobile {
+                            font-size: 8px;
+                        }
                     }
                 }
             }
@@ -696,12 +792,19 @@
     }
 }
 
-#go_top {
-    cursor: pointer;
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
-    z-index: 10;
+#go_the_top {
+    display: none;
+
+    @include desktop {
+        display: block;
+        // border: 2px solid red;
+        cursor: pointer;
+        position: relative;
+        float: right;
+        right: 5%;
+        bottom: 200px;
+        z-index: 10;
+    }
 }
 
 // ========= 輪播 =========
@@ -724,6 +827,10 @@
     height: 350px;
 }
 
+.owl-item .item:hover {
+    // border: 2px solid brown;
+    transform: scale(1.02);
+}
 .owl-carousel .item h4 {
     color: #fff;
     font-weight: 400;
@@ -751,13 +858,12 @@
 }
 
 
-.thebest_trip,
-.viewed_trip,
-.main_trip {
+.the_best_trip,
+.the_viewed_trip,
+.the_main_trip {
     .owl-carousel {
         .owl-nav {
             .owl-prev {
-                //   border:1px solid red;
                 background-image: url(../../images/icon/page-prev.svg);
                 background-size: cover;
                 position: absolute;
@@ -767,8 +873,13 @@
                 top: 85%;
                 color: transparent;
 
-                @include tablet {
+                @include laptop {
                     right: 6%;
+
+                }
+
+                @include tablet {
+                    right: 8%;
 
                 }
 
@@ -777,7 +888,7 @@
                 }
 
                 @include mobile {
-                    right: 14%;
+                    right: 11%;
                 }
             }
 
@@ -790,9 +901,9 @@
     }
 }
 
-.thebest_trip,
-.viewed_trip,
-.main_trip {
+.the_best_trip,
+.the_viewed_trip,
+.the_main_trip {
     .owl-carousel {
         .owl-nav {
             .owl-next {
