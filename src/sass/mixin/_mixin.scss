@@ -1,0 +1,100 @@
+
+//一般寬高設定
+@mixin box($w, $h) {
+  width:$w;
+  height:$h;
+  display: block;
+  @content;
+}
+
+//一般外框線
+@mixin border($color) {
+  border: 1px solid #{$color} ;
+}
+
+//製作圓形
+@mixin circle($size,$bgcolor:null){
+  height: $size;
+  width:$size;
+  border-radius: $size;
+  background-color: $bgcolor;
+  @content
+};
+
+//=====置中系列=====
+//物件垂直水平置中-position法
+@mixin total_center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @content
+};
+
+@mixin total_center2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  @content
+};
+
+//物件垂直水平置中-flex法(子元素)
+@mixin flex_all_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @content
+};
+
+//區塊水平置中
+@mixin block_center{
+  margin-left: auto;
+  margin-right: auto;
+  @content
+};
+
+//單行文字垂直置中(套用於父區塊)
+@mixin word_center($w, $h) {
+  width: $w;
+  height: $h;
+  line-height: $h;
+  @content
+};
+
+//=====表單系列=====
+//input
+@mixin form{
+  @include border($main_br);
+  outline: none;
+  appearance: none;
+  border-radius: $borderRadius_cd;
+  font-size: map-get($map: $font_d_map, $key: p);
+  padding: 10px 20px;
+  &:focus{
+    border: 2px solid $main_br;
+  }
+  @content;
+}
+
+//select(還會修改)
+@mixin select {
+  @include form;
+  @include box(212px, 42px);
+  @content;
+}
+
+//=====清除浮動=====
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  @content;
+}
+
+
+

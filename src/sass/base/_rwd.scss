@@ -1,0 +1,68 @@
+
+//=====RWD系列=====
+@mixin mobile { //手機:575以下
+  @media all and (max-width : $mobile ) {
+     @content 
+  }
+};
+
+@mixin ipad {   //ipad:576~767
+  @media all and (min-width : $mobile + 1px ) and (max-width: $ipad) {
+     @content 
+  }
+};
+
+@mixin tablet { //768~996
+  @media all and (min-width : $ipad + 1px ) and (max-width:$tablet) {
+     @content 
+  }
+};
+@mixin laptop { //997~1200
+  @media all and (min-width : $tablet + 1px ) and (max-width:$desktop) {
+     @content 
+  }
+};
+@mixin desktop{ //1201以上
+  @media all and (min-width : $desktop + 1px ) {
+    @content
+  }
+};
+
+
+// ===============================================
+// 無區間(xl、lg_md是首頁需要)
+@mixin xl {
+@media (max-width: 1279.9px){
+    @content;
+}
+}
+@mixin lg {
+@media (max-width: 1199.9px){
+    @content;
+}
+}
+@mixin lg_md {
+@media (max-width: 1159.9px){
+    @content;
+}
+}
+@mixin md {
+@media (max-width: 996.9px){
+    @content;
+}
+}
+@mixin md_sm {
+@media (max-width: 895.9px){
+    @content;
+}
+}
+@mixin sm {
+@media (max-width: 767.9px){
+    @content;
+}
+}
+@mixin xs {
+@media (max-width: 575.9px){
+    @content;
+}
+}

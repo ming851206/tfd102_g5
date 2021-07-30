@@ -1,0 +1,33 @@
+//base
+@import 'base/var';
+@import 'base/color';
+@import 'base/reset';
+@import 'base/rwd';
+@import 'base/font';
+@import 'base/common';
+
+//mixin
+@import 'mixin/mixin';
+
+// components
+@import 'components/btn';
+
+// layout
+@import "layout/header";
+@import "layout/footer";
+
+// page
+@import 'layout/login';
+@import 'layout/member';
+@import 'layout/about';
+@import 'page/faq';
+@import 'page/postcard';
+@import 'page/travellist';
+@import 'page/travelcat';
+@import 'page/enterpage';
+@import 'page/admin_login';
+@import 'page/admin_index';
+@import 'page/travel_info';
+@import 'page/cart';
+@import "page/game";
+@import 'page/index';

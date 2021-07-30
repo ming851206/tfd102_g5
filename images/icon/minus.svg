@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
-  <g id="Group_292" data-name="Group 292" transform="translate(-13362 -1301)">
-    <g id="Ellipse_80" data-name="Ellipse 80" transform="translate(13362 1301)" fill="#fff" stroke="#b9b9b9" stroke-width="1">
-      <circle cx="12.5" cy="12.5" r="12.5" stroke="none"/>
-      <circle cx="12.5" cy="12.5" r="12" fill="none"/>
-    </g>
-    <path id="Icon_awesome-minus" data-name="Icon awesome-minus" d="M13.655,14.625H1.05A1.051,1.051,0,0,0,0,15.675v1.05a1.051,1.051,0,0,0,1.05,1.05H13.655a1.051,1.051,0,0,0,1.05-1.05v-1.05A1.051,1.051,0,0,0,13.655,14.625Z" transform="translate(13367.147 1297.299)" fill="#a0a0a0" stroke="#9c9c9c" stroke-width="1"/>
-  </g>
-</svg>

@@ -1,0 +1,417 @@
+.faq_sec1 {
+    h2 {
+        margin: 100px auto 40px auto;
+        text-align: center;
+        padding-bottom: 0px;
+    }
+
+    input {
+        display: block;
+        @include block_center;
+        @include form;
+        width: 48%;
+        height: 60px;
+        background-image: url(../../images/icon/search.svg);
+        background-repeat: no-repeat;
+        background-position: 15px 50%;
+        background-size: 20px;
+        padding-left: 3rem;
+        font-size: 16px;
+    }
+
+    .deco {
+        height: 100px;
+        background-image: url(../../images/index/content/fence_hor.png);
+        background-position: bottom;
+        background-repeat: repeat-x;
+        background-size: 28px;
+    }
+}
+
+@include ipad {
+    .faq_sec1 {
+        input {
+            height: 50px;
+        }
+    }
+}
+
+@include mobile {
+    .faq_sec1 {
+        background-color: $main_ivory;
+        padding: 5px 0 40px 0;
+
+        .deco {
+            background-image: none;
+            height: 0px;
+        }
+
+        input {
+            width: 80%;
+            padding-left: 3rem;
+            height: 50px;
+        }
+    }
+
+}
+
+//==================================================
+.faq_sec2 {
+    padding: 80px 80px;
+
+    h3 {
+        padding-left: 1.2rem;
+        margin-bottom: 50px;
+    }
+
+    .flexbox {
+        display: flex;
+
+        .app_l {
+            a {
+                position: relative;
+                padding: 15px 20px;
+
+                &::after {
+                    transition: all .5s;
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    width: 0%;
+                    left: -8px;
+                }
+
+                &:hover,&:focus,&:active{
+                    &::after {
+                        background-color: $main_br;
+                        height: 2px;
+                        width: 100%;
+                    }
+                }
+
+            }
+        }
+
+        .app_r {
+            width: 70%;
+            margin-left: 120px;
+
+            .qcard {
+                width: 100%;
+                margin-bottom: 20px;
+                
+
+                >p {
+                    background-color: $sec_br;
+                    border-radius: $borderRadius_cd;
+                    padding: 20px 40px;
+                    background-image: url(../../images/icon/add.svg);
+                    background-repeat: no-repeat;
+                    background-position: top 22px right 30px;
+                    font-size: 16px;
+                    color: #F7F9F2;
+                    font-weight: bold;
+                    transition: .3s;
+                    cursor: pointer;
+                }
+
+                .word {
+                    background-color: $the_ivory;
+                    padding: 20px 40px;
+                    font-size: 14px;
+                    white-space: wrap;
+                    transition: .3s;
+                }
+            }
+        }
+    }
+}
+
+@include tablet {
+    .faq_sec2 {
+        padding: 80px 45px;
+
+        .flexbox {
+            .app_l {
+                width: 25%;
+            }
+
+            .app_r {
+                margin-left: 30px;
+            }
+        }
+    }
+}
+
+@include ipad {
+    .faq_sec2 {
+        padding: 80px 25px;
+
+        .flexbox {
+            .app_l {
+                width: 25%;
+            }
+
+            .app_r {
+                margin-left: 10px
+            }
+        }
+    }
+}
+
+@include mobile {
+    .faq_sec2 {
+        padding: 0px;
+
+        h3 {
+            margin-top: 80px;
+            margin-bottom: 20px;
+            padding-left: 2.5rem;
+            font-weight: bold;
+        }
+
+        .flexbox {
+            display: block;
+            font-size: 0;
+
+            .app_l {
+                @include block_center;
+                width: 80%;
+
+                a {
+                    @include border($sec_br);
+                    background-color: $main_ivory;
+                    border-radius: $borderRadius_m_btn;
+                    padding-top: 9px;
+                    padding-bottom: 9px;
+                    display: inline-block;
+                    width: 47%;
+                    text-align: center;
+                    margin: 7px 4px;
+                    font-size: 16px;
+                    color: $sec_br;
+
+                    &::after {
+                        content: none;
+                    }
+                }
+            }
+
+            .app_r {
+                width: 78%;
+                margin: 20px auto 0px auto;
+                .qcard>p{
+                    padding: 20px 55px;
+                }
+                .word {
+                    @include border($sec_br);
+                }
+            }
+        }
+    }
+}
+
+//==================================================
+.faq_sec3 {
+
+    position: relative;
+    padding-bottom: 100px;
+
+    %marginLeft {
+        margin-left: 400px;
+    }
+
+    h3 {
+        margin: 100px 0px 60px 100px;
+    }
+
+    p {
+        @extend %marginLeft;
+    }
+
+    form {
+        @extend %marginLeft;
+        font-size: 16px;
+
+        label {
+            position: relative;
+            display: block;
+
+            span {
+                position: absolute;
+                display: block;
+                top: 38%;
+                margin-left: 2rem;
+            }
+
+            input {
+                @include form;
+                width: 50%;
+                padding-left: 7.5rem;
+                font-size: 16px;
+                border-color: $sec_br;
+                margin-top: 10px
+            }
+        }
+
+        textarea {
+            @include border($sec_br);
+            width: 50%;
+            resize: none;
+            border-radius: $borderRadius_cd;
+            outline: none;
+            margin-top: 10px;
+            padding-left: 2rem;
+            padding-top: 1rem;
+            font-size: 16px;
+
+            &:focus {
+                border: 2px solid $sec_br;
+            }
+        }
+
+        button {
+            display: block;
+            margin-top: 15px;
+        }
+    }
+
+    img {
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+        cursor: pointer;
+
+    }
+}
+
+@include laptop {
+    .faq_sec3 {
+        %marginLeft {
+            margin-left: 350px;
+        }
+
+        form {
+            label {
+                input {
+                    width: 60%;
+                }
+            }
+
+            textarea {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@include tablet {
+    .faq_sec3 {
+        %marginLeft {
+            margin-left: 250px;
+            padding: 0;
+        }
+
+        h3 {
+            margin: 80px 0px 60px 45px;
+            padding-left: 1.3rem;
+        }
+
+        form {
+            label {
+                input {
+                    width: 75%;
+                }
+            }
+
+            textarea {
+                width: 75%;
+            }
+        }
+    }
+}
+
+@include ipad {
+    .faq_sec3 {
+        %marginLeft {
+            margin-left: 130px;
+        }
+
+        h3 {
+            margin: 80px 0px 60px 25px;
+            padding-left: 1.3rem;
+        }
+
+        form {
+            label {
+                input {
+                    width: 80%;
+                }
+            }
+
+            textarea {
+                width: 80%;
+            }
+        }
+    }
+}
+
+$fontSize_m:12px;
+
+@include mobile {
+    .faq_sec3 {
+        background-color: $the_ivory;
+        padding-top: 80px;
+
+        h3,
+        form,
+        p {
+            margin: 0px;
+        }
+
+        h3 {
+            margin-left: 2.5rem;
+            font-weight: bold;
+        }
+
+        p {
+            margin-top: 15px;
+            margin-left: 2.5rem;
+        }
+
+        form {
+            @include block_center;
+            width: 80%;
+
+            label,
+            textarea {
+                width: 100%;
+                font-size: $fontSize_m;
+
+                span {
+                    margin-left: 1rem;
+                    top: 38%;
+                }
+
+                input {
+                    width: 100%;
+                    font-size: $fontSize_m;
+                    height: 45px;
+                    padding-left: 5rem;
+                }
+            }
+
+            textarea {
+                padding-left: 1rem;
+            }
+
+            button {
+                margin-bottom: 150px;
+            }
+        }
+
+        img {
+            bottom: 100px;
+        }
+    }
+}

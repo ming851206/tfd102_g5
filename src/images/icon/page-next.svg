@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="right" transform="translate(-680 -2279)">
+    <g id="Ellipse_21" data-name="Ellipse 21" transform="translate(710 2309) rotate(180)" fill="#fff" stroke="#996a4d" stroke-width="1">
+      <circle cx="15" cy="15" r="15" stroke="none"/>
+      <circle cx="15" cy="15" r="14.5" fill="none"/>
+    </g>
+    <path id="Icon_awesome-angle-left" data-name="Icon awesome-angle-left" d="M2.031,12.783,7.77,7.044a1.009,1.009,0,0,1,1.43,0L10.154,8a1.009,1.009,0,0,1,0,1.43L6.09,13.5l4.068,4.068a1.009,1.009,0,0,1,0,1.43l-.954.958a1.009,1.009,0,0,1-1.43,0L2.035,14.217a1.01,1.01,0,0,1,0-1.435Z" transform="translate(701.455 2307.254) rotate(180)" fill="rgba(0,0,0,0.7)"/>
+  </g>
+</svg>

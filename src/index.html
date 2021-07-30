@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jumper</title>
+    <!-- 共用 -->
+    @@include('layout_html/plugin.html')
+    <!-- 自己套件 -->
+    <!-- <script src="#"></script> -->
+</head>
+
+<body>
+    <section class="earth">
+        <div class="earth_container">
+            <div class="slogan">
+                <h2>Welcome to jumper</h2>
+                <h5>隨時隨地、隨心所欲，和我們一起暢跳世界！<br>
+                    立即開始您的線上旅遊！
+                </h5>
+                <img class="scroll_down" src="./images/index/content/scroll_down.png">
+            </div>
+            <a href="game.html">
+                <button class="game">點我玩玩看</button>
+            </a>
+        </div>
+    </section>
+
+    <header id="the_header">
+        <the-header></the-header>
+    </header>
+    <div id="mobile_menu">
+        <menu-item></menu-item>
+    </div>
+
+    <main>
+        <div id="our-service">
+            <the-service></the-service>
+        </div>
+
+        <div id="best_theme">
+            <mobile-theme></mobile-theme>
+            <the-carosul></the-carosul>
+        </div>
+
+        <div id="popular_travel">
+            <travel-item></travel-item>
+        </div>
+
+        <div id="choose_us">
+            <the-reason></the-reason>
+        </div>
+
+    </main>
+
+    <section id="more_opinion">
+        <the-opinion></the-opinion>
+    </section>
+
+    <footer id="the_footer">
+        <the-footer></the-footer>
+    </footer>
+
+    <script>
+
+    </script>
+    <script src="./js/header_footer.js"></script>
+    <script src="./js/index/index.js"></script>
+</body>
+
+</html>

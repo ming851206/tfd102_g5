@@ -1,0 +1,120 @@
+//待修正==========
+@mixin if_bgc{
+    @if background-color == $main_br {
+        color:$main_ivory;
+    }@else if background-color == 'white'{
+        color:$main_br;
+    };
+}
+//================
+
+//按鈕基本設定=====
+@mixin btn{
+    font-size: map-get($map: $font_d_map, $key: h4);
+    border: none;
+    border-radius: $borderRadius_cd;
+    cursor: pointer;
+    font-weight: 600;
+    @content;  
+}
+
+@mixin btn_s{
+    @include btn;
+    font-size: map-get($map: $font_d_map, $key: p);
+    padding: 8px 20px;
+}
+//================
+.btnL{
+    @include btn;
+    @include word_center(212px, 42px);
+    background-color: $main_br;
+    @include if_bgc;
+    &:hover{
+        background-color: darken($color: $main_br, $amount: 10%);
+    }
+}
+
+.btnL_light{
+    @include btn;
+    @include word_center(212px, 42px);
+    background-color: $main_ivory;
+    color:$main_br;
+    filter: drop-shadow(0 0 8px rgb(175, 175, 175));
+    &:hover{
+        background-color: darken($color: $main_ivory, $amount: 1%);
+    }
+    &:active{
+        box-shadow: inset 0 0 8px rgb(175, 175, 175);
+        filter: drop-shadow(0 0 0 rgb(175, 175, 175));
+    }
+}
+
+.btnL_line{
+    @include btn;
+    @include word_center(212px, 42px);
+    background-color: white;
+    border: 1px solid $main_br;
+    color:$main_br;
+    border-radius:$borderRadius_m_btn;
+    &:active{
+        background-color: darken($color: white, $amount: 5%);
+    }
+}
+
+.btnM{
+    @include btn;
+    @include word_center(100px, 42px);
+    background-color: $main_br;
+    color: $main_ivory;
+    &:hover{
+        background-color: darken($color: $main_br, $amount: 10%);
+    }
+}
+
+.btnM_light{
+    @include btn;
+    @include word_center(100px, 42px);
+    background-color: $main_ivory;
+    color: $main_br;
+    &:hover{
+        background-color: darken($color: $main_ivory, $amount: 10%);
+    }
+}
+
+.btnM_line{
+    @include btn;
+    @include word_center(100px, 42px);
+    background-color: white;
+    border: 1px solid $main_br;
+    color: $main_word;
+    &:active{
+        background-color: darken($color: white, $amount: 5%);
+    }
+}
+
+.btnS{
+    @include btn_s;
+    background-color: $main_br;
+    color: $main_ivory;
+    &:hover{
+        background-color: darken($color: $main_br, $amount: 10%);
+    }
+}
+
+.btnS_line{
+    @include btn_s;
+    font-weight: 400;
+    background-color: white;
+    color: $main_word;
+    padding: 5px 10px;
+    border:1px solid $main_br;
+    &:hover{
+        background-color: darken($color: white, $amount: 10%);
+    }
+}
+
+@include mobile{
+    .btnL, .btnL_light, .btnM, .btnM_light,.btnM_line ,.btnS{
+        border-radius:$borderRadius_m_btn; 
+    }
+}
