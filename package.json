@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "安裝套件" : "npm i ",
-    "開發" : "gulp",
-    "打包"  : "gulp package" 
+    "安裝套件": "npm i ",
+    "開發": "gulp",
+    "打包": "gulp package"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,7 @@
     "url": "https://github.com/ming851206/tfd102_g5/issues"
   },
   "homepage": "https://github.com/ming851206/tfd102_g5#readme",
-    "devDependencies": {
+  "devDependencies": {
     "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
     "@vue/cli": "^4.5.13",
