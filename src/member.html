@@ -30,7 +30,7 @@
 
 
 
-                <router-link to="/tfd102/project/g5/memberinfo">會員資料</router-link>
+                <router-link to="/memberinfo">會員資料</router-link>
 
                 <div class="mobileMemberSvg" @click="changes">
                     <svg xmlns="http://www.w3.org/2000/svg" width="36" height="33.6" viewBox="0 0 36 33.6">
@@ -48,7 +48,7 @@
             </div>
             <div class="memberborder">
 
-                <router-link to="/tfd102/project/g5/love">我的最愛</router-link>
+                <router-link to="/love">我的最愛</router-link>
 
                 <div class="mobileMemberSvg" @click="changes">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.044" height="12.542" viewBox="0 0 13.044 12.542">
@@ -60,7 +60,7 @@
 
             </div>
             <div class="memberborder">
-                <router-link to="/tfd102/project/g5/join">即將參與旅遊</router-link>
+                <router-link to="/join">即將參與旅遊</router-link>
 
                 <div class="mobileMemberSvg" @click="changes">
                     <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222">
@@ -72,7 +72,7 @@
 
             </div>
             <div class="memberborder">
-                <router-link to="/tfd102/project/g5/history">旅遊紀錄</router-link>
+                <router-link to="/history">旅遊紀錄</router-link>
 
                 <div class="mobileMemberSvg" @click="changes">
                     <svg xmlns="http://www.w3.org/2000/svg" width="29.818" height="13.667" viewBox="0 0 29.818 13.667">
@@ -84,7 +84,7 @@
 
             </div>
             <div class="memberborder mobileMemberEditTrival">
-                <router-link to="/tfd102/project/g5/traveledit">管理旅遊</router-link>
+                <router-link to="/traveledit">管理旅遊</router-link>
 
 
             </div>
@@ -131,25 +131,25 @@
                 mode: 'history',
                 routes: [
                     {
-                        path: '/tfd102/project/g5/memberinfo',
+                        path: '/memberinfo',
                         component: MemberInfo,
 
                     },
 
                     {
-                        path: '/tfd102/project/g5/love',
+                        path: '/love',
                         component: Love,
                     },
                     {
-                        path: '/tfd102/project/g5/history',
+                        path: '/history',
                         component: Historys,
                     },
                     {
-                        path: '/tfd102/project/g5/join',
+                        path: '/join',
                         component: Join,
                     },
                     {
-                        path: '/tfd102/project/g5/traveledit',
+                        path: '/traveledit',
                         component: TravelEdit,
                     }
                 ],

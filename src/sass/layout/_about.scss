@@ -1,5 +1,4 @@
 #about {
-    background-image: url('../../images/about/background.jpg');
 
     background-repeat: no-repeat;
     padding-top: 100px;
@@ -53,6 +52,7 @@
         p {
             margin-top: 40px;
             font-size: 20px;
+            line-height: unset;
 
             @include mobile {
                 font-size: 14px;

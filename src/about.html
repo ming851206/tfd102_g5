@@ -6,6 +6,8 @@
     @@include('layout_html/plugin.html')
     <!-- 自己套件 -->
     <!-- <script src="#"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <title>關於我們</title>
 </head>
 
@@ -45,7 +47,8 @@
         <div class="aboutDown">
             <h2>參與旅遊流程</h2>
             <div class="aboutNumber">
-                <div class="aboutNumbers" v-for="sop in sops">
+                <div class="aboutNumbers" v-for="sop in sops" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
+                    data-aos-once="true">
                     <div class="abourNumberBorder"><span>{{sop.num}}</span></div>
                     <div class="abourNumberContent">{{sop.content}}</div>
                 </div>
@@ -71,6 +74,9 @@
     </footer>
     <script src="./js/header_footer.js"></script>
     <script>
+        $(function () {
+            AOS.init();
+        });
 
         new Vue({
             el: '#about',
