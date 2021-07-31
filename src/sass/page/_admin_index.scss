@@ -257,6 +257,7 @@
                         padding: $btnPaddin;
                         border: $btnBorder;
                         cursor: pointer;
+                        margin-right: 7px;
                         &:active,&:visited{
                             background-color: darken(rgb(189, 255, 214),10%);
                         }
@@ -269,6 +270,20 @@
                             background-color: darken(rgb(255, 204, 204),10%);
                         }
                     }
+                    tr{
+                       
+                        td.cContent{
+                            width: 120px;
+                        }
+                        td.toggle{
+                            background-image: url(../../images/icon/toggle_on.svg);
+                            background-repeat: no-repeat;
+                            background-size: 30px;
+                            background-position: left 30px top 13px;
+                            cursor: pointer;
+                        }
+                    }
+                  
                 }
 
                 .pager>ul {
@@ -308,6 +323,10 @@
                         @include tableSet;
                         th{
                             padding: 5px 15px;
+                        }
+                        tr.trans{
+                            opacity: 1; //沒用
+                            transition: all 1s; //沒用討厭
                         }
                         .textContent2{
                             width: 150px;
