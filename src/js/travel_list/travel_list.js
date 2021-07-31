@@ -1,5 +1,5 @@
 const vue_opinion = new Vue({
-    el: "#opinion",
+    el: "",
     data: {
 
     }
@@ -13,6 +13,7 @@ $(document).ready(function () {
         loop: true, // 循環播放
         margin: 10, // 外距 10px
         nav: true, // 顯示點點
+        dots: false,
 
         responsive: {
             0: {
