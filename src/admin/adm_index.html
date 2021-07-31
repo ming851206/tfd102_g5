@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>後台主頁</title>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .switchIo{
+            background-image: url(../images/icon/toggle_off.svg) !important;
+        }
+        .fadeOut{
+            opacity: 0 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,7 +36,6 @@
                     <router-view></router-view>
                 </div>
             </div>
-
         </div>
     </section>
     <script src="../js/jq/jquery-3.6.0.js"></script>
@@ -85,90 +92,19 @@
                                     <th>建立時間</th>
                                     <th>功能</th>
                                 </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>這夏有福了</td>
-                                    <td>我是優惠券</td>
-                                    <td>jumpjump</td>
-                                    <td>9</td>
-                                    <td>2023/12/31</td>
-                                    <td>1</td>
-                                    <td>2022 Jun25 15:00</td>
-                                    <td>
-                                        <button>編輯</button>
-                                        <button>刪除</button>
+                                <tr v-for="coupon in data">
+                                    <td v-text="coupon.num"></td>
+                                    <td v-text="coupon.c_name"></td>
+                                    <td v-text="coupon.c_content" class="cContent"></td>
+                                    <td v-text="coupon.c_code"></td>
+                                    <td v-text="coupon.c_discount"></td>
+                                    <td v-text="coupon.c_expire"></td>
+                                    <td v-text="coupon.c_come"></td>
+                                    <td v-text="coupon.c_create"></td>
+                                    <td v-html="coupon.c_function">
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>這夏有福了</td>
-                                    <td>我是優惠券</td>
-                                    <td>jumpjump</td>
-                                    <td>75</td>
-                                    <td>2023/12/31</td>
-                                    <td>1</td>
-                                    <td>2022 Jun25 15:00</td>
-                                    <td>
-                                        <button>編輯</button>
-                                        <button>刪除</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>這夏有福了</td>
-                                    <td>我是優惠券</td>
-                                    <td>jumpjump</td>
-                                    <td>9</td>
-                                    <td>2023/12/31</td>
-                                    <td>1</td>
-                                    <td>2022 Jun25 15:00</td>
-                                    <td>
-                                        <button>編輯</button>
-                                        <button>刪除</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>這夏有福了</td>
-                                    <td>我是優惠券</td>
-                                    <td>jumpjump</td>
-                                    <td>9</td>
-                                    <td>2023/12/31</td>
-                                    <td>1</td>
-                                    <td>2022 Jun25 15:00</td>
-                                    <td>
-                                        <button>編輯</button>
-                                        <button>刪除</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>這夏有福了</td>
-                                    <td>我是優惠券</td>
-                                    <td>jumpjump</td>
-                                    <td>9</td>
-                                    <td>2023/12/31</td>
-                                    <td>1</td>
-                                    <td>2022 Jun25 15:00</td>
-                                    <td>
-                                        <button>編輯</button>
-                                        <button>刪除</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>這夏有福了</td>
-                                    <td>我是優惠券</td>
-                                    <td>jumpjump</td>
-                                    <td>9</td>
-                                    <td>2023/12/31</td>
-                                    <td>1</td>
-                                    <td>2022 Jun25 15:00</td>
-                                    <td>
-                                        <button>編輯</button>
-                                        <button>刪除</button>
-                                    </td>
-                                </tr>
+                             
                             </table>
                             <div class="pager2">
                                 <ul>
@@ -182,7 +118,47 @@
                                 </ul>
                             </div>
                 </div>
-        ` };
+        `,
+        data(){
+            return{
+                data:[
+                    {
+                        num:1,
+                        c_name:'這夏有福了',
+                        c_content:'優惠券內容',
+                        c_code:'優惠碼',
+                        c_discount:'9',
+                        c_expire:'2023/12/31',
+                        c_come:'1',
+                        c_create:'2022 Jun25 15:00',
+                        c_function:'<button>編輯</button><button>刪除</button>'
+                    },
+                    {
+                        num:2,
+                        c_name:'這夏有打折了',
+                        c_content:'優惠券內容',
+                        c_code:'優惠碼',
+                        c_discount:'75',
+                        c_expire:'2023/12/31',
+                        c_come:'2',
+                        c_create:'2022 Jun25 15:00',
+                        c_function:'<button>編輯</button><button>刪除</button>'
+                    },
+                    {
+                        num:2,
+                        c_name:'超級夏殺價',
+                        c_content:'優惠券內容優惠券內容',
+                        c_code:'優惠碼',
+                        c_discount:'75',
+                        c_expire:'2023/12/31',
+                        c_come:'1',
+                        c_create:'2022 Jun25 15:00',
+                        c_function:'<button>編輯</button><button>刪除</button>'
+                    },
+                ],
+            }
+        },
+     };
 
         const Faq = {
             template: `
@@ -260,27 +236,16 @@
                             <th>建立時間</th>
                             <th>帳號狀態</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>芝加哥哥</td>
-                            <td>chicagogo</td>
-                            <td>1</td>
-                            <td>jumpjump@gmail.com</td>
-                            <td>0987654321</td>
-                            <td>2021/01/01</td>
-                            <td>2021 Jun 25 15:00</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>芝加哥哥</td>
-                            <td>chicagogo</td>
-                            <td>1</td>
-                            <td>jumpjump@gmail.com</td>
-                            <td>0987654321</td>
-                            <td>2021/01/01</td>
-                            <td>2021 Jun 25 15:00</td>
-                            <td></td>
+                        <tr v-for="person in data">
+                            <td v-text="person.no"></td>
+                            <td v-text="person.username"></td>
+                            <td v-text="person.id"></td>
+                            <td v-text="person.level"></td>
+                            <td v-text="person.email"></td>
+                            <td v-text="person.phone"></td>
+                            <td v-text="person.birthday"></td>
+                            <td v-text="person.create"></td>
+                            <td class="toggle" :class="{switchIo:person.isActive}" @click="person.isActive = !person.isActive"></td>
                         </tr>
                      </table>
                      <div class="pager2">
@@ -295,7 +260,60 @@
                         </ul>
                     </div>
                 </div>
-        ` };
+        `,
+        data(){
+                return{
+                    data:[
+                        {
+                            no:1,
+                            username:'芝加哥哥',
+                            id:'chicagogo',
+                            level:'1',
+                            email:'jumpjump@gmail.com',
+                            phone:'0987654321',
+                            birthday:'2021/01/01',
+                            create:'2021 Jun 25 15:00',
+                            isActive:false
+                        },
+                        {
+                            no:2,
+                            username:'芝加哥哥哥',
+                            id:'chicagogogogo',
+                            level:'1',
+                            email:'jumpjumpjump@gmail.com',
+                            phone:'0912345678',
+                            birthday:'2022/02/02',
+                            create:'2021 Jun 25 15:00',
+                            isActive:false
+                        },
+                        {
+                            no:3,
+                            username:'芝加鴿鴿',
+                            id:'ididid',
+                            level:'2',
+                            email:'jump@gmail.com',
+                            phone:'0987654321',
+                            birthday:'2033/03/03',
+                            create:'2021 Jun 25 14:00',
+                            isActive:false
+                        },
+                        {
+                            no:4,
+                            username:'芝心披薩',
+                            id:'pizza',
+                            level:'1',
+                            email:'pizza@gmail.com',
+                            phone:'0912345678',
+                            birthday:'2044/04/04',
+                            create:'2021 Jun 25 12:00',
+                            isActive:false
+                        },
+
+
+                    ],
+                };
+            },
+    };
 
         //=====================================================
         //子元件
@@ -318,7 +336,7 @@
                             <th>價格</th>
                             <th>功能</th>
                         </tr>
-                        <tr>
+                        <tr class="trans">
                             <td>1</td>
                             <td class="textContent2">遊覽巴黎全景一次兩次三次四次五次六次七次八次九次十次</td>
                             <td>Carols</td>
@@ -326,7 +344,7 @@
                             <td>否</td>
                             <td>2022 Jun25 15:00</td>
                             <td>$495</td>
-                            <td><button class="revoke">下架</button></td>
+                            <td><button class="revoke" @click="revoke">下架</button></td>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -336,7 +354,7 @@
                             <td>否</td>
                             <td>2022 Jun25 15:00</td>
                             <td>$495</td>
-                            <td><button class="revoke">下架</button></td>
+                            <td><button class="revoke" @click="revoke">下架</button></td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -346,7 +364,7 @@
                             <td>否</td>
                             <td>2022 Jun25 15:00</td>
                             <td>$495</td>
-                            <td><button class="revoke">下架</button></td>
+                            <td><button class="revoke" @click="revoke">下架</button></td>
                         </tr>
                         <tr>
                             <td>4</td>
@@ -356,7 +374,7 @@
                             <td>否</td>
                             <td>2022 Jun25 15:00</td>
                             <td>$495</td>
-                            <td><button class="revoke">下架</button></td>
+                            <td><button class="revoke" @click="revoke">下架</button></td>
                         </tr>
                         <tr>
                             <td>5</td>
@@ -366,7 +384,7 @@
                             <td>否</td>
                             <td>2022 Jun25 15:00</td>
                             <td>$495</td>
-                            <td><button class="revoke">下架</button></td>
+                            <td><button class="revoke" @click="revoke">下架</button></td>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -376,7 +394,7 @@
                             <td>否</td>
                             <td>2022 Jun25 15:00</td>
                             <td>$495</td>
-                            <td><button class="revoke">下架</button></td>
+                            <td><button class="revoke" @click="revoke">下架</button></td>
                         </tr>
                     </table>
 
@@ -392,7 +410,22 @@
                             </ul>
                         </div>
                 </div>
-        ` }
+        ` ,
+        methods: {
+            revoke(e){
+                
+                if(confirm('是否下架旅遊?')){
+                    let theTr = e.target.closest('tr');
+                    theTr.classList.add('fadeOut'); //加轉場效果
+
+                    setTimeout(function(){ //移除該項目
+                        theTr.remove();
+                    },1000);
+                    
+                }
+            },
+        },
+    }
         const TripCheck = {
             template: `
             <div class="temp2">
