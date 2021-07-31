@@ -40,13 +40,13 @@ const header = Vue.component("the-header", {
 `, mounted() {
             let locationName = location.pathname;
             if(locationName == "/about.html"){
-                $(".web_bar li:nth-child(1)").addClass("bold");
+                $(".web_bar li:nth-child(1) a").addClass("bold");
             }else if(locationName == "/travel_list.html"){
-                $(".web_bar li:nth-child(2)").addClass("bold");
+                $(".web_bar li:nth-child(2) a").addClass("bold");
             }else if(locationName == "/postcard.html"){
-                $(".web_bar li:nth-child(3)").addClass("bold");
+                $(".web_bar li:nth-child(3) a").addClass("bold_3");
             }else if(locationName == "/q_acc" || locationName == "/QA.html"){
-                $(".web_bar li:nth-child(4)").addClass("bold");
+                $(".web_bar li:nth-child(4) a").addClass("bold");
             }
         // document.addEventListener('click', function (e) {
         //     // console.log(location.href);

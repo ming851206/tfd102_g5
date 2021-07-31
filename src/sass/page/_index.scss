@@ -111,6 +111,12 @@ $w1200: 1180px;
         transform: scale(1);
     }
 }
+.animation_header{
+    animation: zoom_in 2.3s ease 1.6s both;
+    @include xs{
+        animation: none;
+    }
+}
 // 首頻地球
 section#earth {
     position: relative;
@@ -218,7 +224,7 @@ section#earth {
                     top: 145%;
                     left: 48%;
                     animation: none;
-                    animation: zoom_in 1s ease 2s both, scroll_1 1.3s linear infinite;
+                    animation: zoom_in 1s ease 5s both, scroll_1 1.3s linear infinite;
                 }
 
                 @include xs {

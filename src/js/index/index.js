@@ -33,7 +33,7 @@ const aboutUsService = Vue.component("the-service", {
                         <h4>我們提供具有專業知識背景的線上導遊，零時差導覽您的線上旅程，透過直播即時互動，他們將帶領您身歷其境，讓您隨時隨地，開機就能遊覽世界。</h4>
                     </div>
                 </div>
-                <div class="about_2" data-aos="fade-down" data-aos-duration="600" data-aos-duration="500" data-aos-once="false">
+                <div class="about_2" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300" data-aos-once="false">
                     <div class="des_2">
                         <h3>提供包場</h3>
                         <h4>在任何您舒適的環境享受這場線上社交活動，沒有陌生人，只有您和您的親朋好友，由專業的當地導遊帶領遊樂世界各處，創造獨一無二的旅遊體驗。</h4>
@@ -57,7 +57,7 @@ const mobileTheme = Vue.component("mobile-theme", {
     <div id="mobile_theme">
         <h2>精選主題</h2>
         <ul class="continents">
-            <li v-for="continent in continents" :style="continent.image">
+            <li v-for="continent in continents" :style="continent.image" data-aos="fade-up" data-aos-delay="100">
                 <h3>{{continent.name}}</h3>
             </li>
         </ul>
@@ -78,7 +78,7 @@ const mobileTheme = Vue.component("mobile-theme", {
 })
 const blade = Vue.component("the-carosul", {
     template: `
-    <div id="blade">
+    <div id="blade" data-aos="fade-up" data-aos-duration="1000" >
         <div class="description">
             <h2>精選主題</h2>
             <div v-for="mentor in mentors" :class ="mentor.num">
@@ -240,13 +240,13 @@ const vue_travel = new Vue({
 const video = Vue.component("the-reason", {
     template: `
     <div class="the_reason">
-        <div class="text" data-aos="zoom-in" data-aos-duration="600">
+        <div class="text" data-aos="zoom-in" data-aos-duration="0">
             <h2>為何選擇我們？</h2>
             <ul class="reasons">
                 <li v-for="reason in reasons">{{reason}}</li>
             </ul>
         </div>
-        <iframe id="index_video" src="https://www.youtube.com/embed/pTq7qMTPHBE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-aos="flip-left" data-aos-duration="1500" data-aos-delay="500" data-aos-once="false"></iframe>
+        <iframe id="index_video" src="https://www.youtube.com/embed/pTq7qMTPHBE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen data-aos="flip-left" data-aos-duration="1500" data-aos-delay="100" data-aos-once="false"></iframe>
     </div>
     `,
     data() {

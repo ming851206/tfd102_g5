@@ -60,20 +60,47 @@ header#the_header{
                 @include xs{
                     display: none;
                 }
-            }
-                .web_bar > li.bold{
-                    font-weight: bold;
-                }
-                .web_bar > li a{
-                    text-decoration: none;
-                    color: rgba(0,0,0,.8);
-                    margin-right: 30px;
-                    font-family:'regular';
-                    font-size: 15px;
-                    @include sm {
-                        margin-right: 16px;
+                li{
+                    position: relative;
+                    a{
+                        text-decoration: none;
+                        color: rgba(0,0,0,.8);
+                        margin-right: 30px;
+                        font-family:'regular';
+                        font-size: 16px;
+                        &:hover{
+                            color: $main_br;
+                        }
+                        @include sm {
+                            margin-right: 14px;
+                        }
+                    }
+                    a.bold_3{
+                        font-weight: bold;
+                        color: $main_br;
+                        &::after{
+                            content: "";
+                            width: 85px;
+                            border-bottom: 2px solid $sec_br;
+                            position: absolute;
+                            bottom: 26px;
+                            left: -2px;
+                        }
+                    }
+                    a.bold{
+                        font-weight: bold;
+                        color: $main_br;
+                        &::after{
+                            content: "";
+                            width: 72px;
+                            border-bottom: 2px solid $sec_br;
+                            position: absolute;
+                            bottom: 26px;
+                            left: -4px;
+                        }
                     }
                 }
+            }
             .mobile_bar{
                 @include xs{
                     display: flex;
