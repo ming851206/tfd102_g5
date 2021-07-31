@@ -60,9 +60,59 @@ $w1200: 1180px;
 
     }
 }
+@keyframes fade-in_1 {
+    0% {
+        opacity: 0;
+        filter: blur(100px);
+    }
 
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+@keyframes zoom_in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes slide_down{
+    0%{
+        opacity: 0;
+        top: 15%;
+        filter: blur(100px);
+    }
+    100%{
+        top: 40%;
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+@keyframes slide_down2{
+    0%{
+        opacity: 0;
+        top: 56%;
+        filter: blur(100px);
+    }
+    100%{
+        top: 71%;
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+@keyframes show {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
 // 首頻地球
-section.earth {
+section#earth {
     position: relative;
     width: 100%;
     height: calc(100vh - 85px);
@@ -70,14 +120,14 @@ section.earth {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-
+    animation: fade-in_1 .8s ease-in backwards;
     @media (max-width: 768px) {
         background-image: url("../../images/index/content/index_bg2.jpg");
         background-position: center top;
     }
-
     @include xs {
         height: calc(100vh - 53px);
+        animation: none;
     }
 
     .earth_container {
@@ -85,31 +135,28 @@ section.earth {
         position: relative;
         top: 40%;
         left: 11%;
-
+        animation: slide_down 1.2s linear .5s both;
         @include lg_md {
             left: 5%;
         }
-
         @media (max-width: 768px) {
             top: 71%;
             left: 50%;
             transform: translateX(-50%);
+            animation: slide_down2 1.2s linear .5s both;
         }
-
         @include xs {
             top: 63%;
             left: 50%;
             transform: translateX(-50%);
+            animation: none;
         }
 
         div.slogan {
-            // border: 1px solid white;
             display: inline-block;
-
             @media (max-width: 768px) {
                 text-align: center;
             }
-
             @include xs {
                 width: 350px;
                 @include margin0();
@@ -123,7 +170,6 @@ section.earth {
                 font-family: 'en';
                 margin-bottom: 20px;
                 text-shadow: 1px 1px 1px black;
-
                 @include md {
                     text-shadow: 2px 2px 1px black;
                 }
@@ -167,13 +213,12 @@ section.earth {
                 position: absolute;
                 top: 165%;
                 left: 45%;
-                animation: scroll 2s linear infinite;
-
+                animation: zoom_in 1s ease 2.7s both, scroll 2s linear 2.3s infinite;
                 @media (max-width: 768px) {
                     top: 145%;
                     left: 48%;
                     animation: none;
-                    animation: scroll_1 1.3s linear infinite;
+                    animation: zoom_in 1s ease 2s both, scroll_1 1.3s linear infinite;
                 }
 
                 @include xs {
@@ -197,7 +242,7 @@ section.earth {
             top: 178%;
             left: 104%;
             cursor: pointer;
-            animation: shine 1.6s linear infinite;
+            animation: show 1s ease-out 1.8s both, shine 1.6s linear infinite;
 
             @include xl {
                 left: 90%;
@@ -215,6 +260,7 @@ section.earth {
                 top: -200%;
                 left: 50%;
                 transform: translateX(-50%);
+                animation: shine 1.6s linear infinite;
             }
 
             @include xs {
@@ -294,7 +340,6 @@ section.earth {
 
         .about_1 {
             @include margin0 {
-
                 display: flex;
                 width: 990px;
                 margin-bottom: 60px;
@@ -391,17 +436,12 @@ section.earth {
                 display: flex;
                 width: 990px;
             }
-
-            ;
-
             @include lg {
                 width: 900px;
             }
-
             @include md {
                 width: 700px;
             }
-
             @include sm {
                 display: flex;
                 flex-direction: column-reverse;
@@ -410,7 +450,6 @@ section.earth {
                 width: 500px;
                 margin: 90px auto 80px;
             }
-
             @include xs {
                 justify-content: initial;
                 align-items: initial;
@@ -769,7 +808,7 @@ section.earth {
         }
 
         @include sm {
-            width: 550px;
+            width: 520px;
             @include margin(25px, 40px)
         }
 
@@ -1046,6 +1085,7 @@ section.earth {
     #index_video {
         float: right;
         width: 672px;
+        height: 381px;
         border-radius: 25px;
         cursor: pointer;
 

@@ -21,21 +21,16 @@
 @keyframes zoom_out {
     0%{
         transform: scale(1);
-        // top: +0%;
     }
     50%{
         transform: scale(1.2);
-        // top: +5%;
-
     }
     90%{
         transform: scale(1);
-        // top: +0%;
     }
 }
 
 $passportW: 402;
-
 
 @keyframes fade-in_1 {
     0% {
@@ -46,6 +41,14 @@ $passportW: 402;
     100% {
         opacity: 1;
         filter: blur(0);
+    }
+}
+@keyframes zoom_in {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }
 
@@ -80,9 +83,6 @@ $passportW: 402;
             bottom: 53px;
         }
     }
-
-    ;
-
     .game_world_map {
         background-image: url("../../images/index/game/world_map.svg");
         width: 1180px;
@@ -92,12 +92,11 @@ $passportW: 402;
         @include margin0;
         top: 50%;
         transform: translateY(-50%);
-
+        animation: zoom_in 1.8s ease-in-out 0.7s backwards;
         @include lg {
             width: 975px;
             height: 543px;
         }
-
         @include md {
             width: 747px;
             height: 543px;
@@ -112,6 +111,8 @@ $passportW: 402;
             max-width: 100%;
             top: 10%;
             transform: translateY(-10%);
+            animation: none;
+
         }
 
         .landmark {
@@ -219,7 +220,7 @@ $passportW: 402;
         @include all_zero(absolute);
         // opacity: 1;
         opacity: 0;
-        animation: slide-down 1s ease 1.6s both;
+        animation: slide-down 1s ease 2.5s both;
 
         @include xs {
             // top: 59%;
@@ -269,11 +270,6 @@ $passportW: 402;
                 width: 100%;
                 display: block;
 
-                // @include lg{
-                //     width: 100%;
-                //     display: block;
-                //     @include margin0();
-                // }
                 @include md {
                     // width: 90%;
                     bottom: 11.5%;

@@ -61,14 +61,17 @@ header#the_header{
                     display: none;
                 }
             }
+                .web_bar > li.bold{
+                    font-weight: bold;
+                }
                 .web_bar > li a{
                     text-decoration: none;
                     color: rgba(0,0,0,.8);
                     margin-right: 30px;
                     font-family:'regular';
-                    font-size: 14px;
+                    font-size: 15px;
                     @include sm {
-                        margin-right: 20px;
+                        margin-right: 16px;
                     }
                 }
             .mobile_bar{
