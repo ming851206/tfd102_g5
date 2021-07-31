@@ -238,7 +238,7 @@
                     button.add {
                         @include btnSetbl;
                         background-color: rgb(190, 255, 255);
-                        margin: 0 0 15px 20px;
+                        margin: 0 0 15px 33px;
                         cursor: pointer;
                         &:active,&:visited{
                             background-color: darken(rgb(190, 255, 255),10%);
@@ -271,7 +271,9 @@
                         }
                     }
                     tr{
-                       
+                        th{
+                            padding: 13px 8px;
+                        }
                         td.cContent{
                             width: 120px;
                         }
