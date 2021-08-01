@@ -1,0 +1,33 @@
+{
+    "version": 3,
+    
+    "sources": [
+        "../src/sass/style.scss",
+        "../src/sass/base/_var.scss",
+        "../src/sass/base/_color.scss",
+        "../src/sass/base/_reset.scss",
+        "../src/sass/base/_rwd.scss",
+        "../src/sass/base/_font.scss",
+        "../src/sass/base/_common.scss",
+        "../src/sass/mixin/_mixin.scss",
+        "../src/sass/components/_btn.scss",
+        "../src/sass/layout/_header.scss",
+        "../src/sass/layout/_footer.scss",
+        "../src/sass/layout/_login.scss",
+        "../src/sass/layout/_member.scss",
+        "../src/sass/layout/_about.scss",
+        "../src/sass/page/_faq.scss",
+        "../src/sass/page/_postcard.scss",
+        "../src/sass/page/_travellist.scss",
+        "../src/sass/page/_travelcat.scss",
+        "../src/sass/page/_enterpage.scss",
+        "../src/sass/page/_admin_login.scss",
+        "../src/sass/page/_admin_index.scss",
+        "../src/sass/page/_travel_info.scss",
+        "../src/sass/page/_cart.scss",
+        "../src/sass/page/_game.scss",
+        "../src/sass/page/_index.scss"
+    ],
+    "names": [],
+    "file": "style.css"
+}

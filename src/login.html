@@ -1,16 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh_Hant">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="./js/vue/vue.js"></script>
-    <script src="./js/jq/jquery-3.6.0.js"></script>
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
     <title>會員登入/註冊</title>
+    <!-- 共用 -->
+    @@include('layout_html/plugin.html')
 </head>
 
 <body class="loginMemberPage_Body">
@@ -40,16 +34,15 @@
                     <!-- 放登入的東西 -->
                     <!-- 輸入框欄位 -->
                     <input class="login_input" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="password" type="text" placeholder="密碼 :">
+                    <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off" required name="member_password_input">
                     <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
-                    <div class="forgetPassword" @click="open_forgetPassword_verification">
+                    <div class="forgetPassword">
                         <p>忘記密碼?</p>
                     </div>
                     <!-- 登入切換按鈕 -->
-                    <a href="./member.html">
-                        <button type="button" class="btnM areaShow" id="btn_login">登入</button>
-                    </a>
+                        <button type="button" class="btnM areaShow" id="btn_login" value="登入">登入</button>
+
                 </div>
 
                 <!-- 登入註冊切換按鈕區 -->
@@ -80,12 +73,16 @@
                     <!-- 放登出的東西 -->
                     <!-- 輸入框欄位 -->
                     <input class="login_input"  type="text" placeholder="帳號 :">
-                    <input class="login_input" type="text" placeholder="Email :">
+
+                    <input class="login_input" v-model="email_register"  type="email" placeholder="Email :" autocomplete="off">
+                    <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
+
                     <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" type="text" placeholder="確認密碼 :">
+                    <input class="login_input" type="text" v-model="password_register_again" placeholder="確認密碼 :">
+                    <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 登入切換按鈕 -->
-                    <button type="button" class="btnM" id="showBtn">註冊</button>
+                    <button type="button" class="btnM Sign_BTN" id="showBtn">註冊</button>
                 </div>
 
 
@@ -124,11 +121,11 @@
                     <h2>登入</h2>
 
                     <!-- 輸入框欄位 -->
-                    <input class="login_input" v-model="account" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="password" type="text" placeholder="密碼 :">
-                    <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <input class="login_input" type="text" placeholder="帳號 :">
+                    <input class="login_input" v-model="password"  type="text" placeholder="密碼 :">
+                    <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
-                    <div class="phone_forgetPassword" @click="open_forgetPassword_verification">
+                    <div class="phone_password_forget" @click="phone_password_forget">
                         <p>忘記密碼?</p>
                     </div>
                     <!-- 登入切換按鈕 -->
@@ -166,11 +163,11 @@
                     <h2>登入</h2>
 
                     <!-- 輸入框欄位 -->
-                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="email_register" type="text" placeholder="Email :">
-                    <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :">
-                    <p v-if="!password_register_msg" class="sigin_tiny" v-if="!password_register_msg">密碼長度需高於6個字元</p>
-                    <input class="login_input" v-model="password" type="text" placeholder="確認密碼 :">
+                    <input class="login_input" type="text" placeholder="帳號 :">
+                    <input class="login_input" type="text" placeholder="Email :">
+                    <input class="login_input" type="text" placeholder="密碼 :">
+                    <p class="sigin_tiny"></p>密碼長度需高於6個字元</p>
+                    <input class="login_input" type="text" placeholder="確認密碼 :">
                     <!-- 登入切換按鈕 -->
                     <!-- 登入註冊切換按鈕區 -->
                     <div class="phone_loginSitch">
@@ -201,23 +198,59 @@
                 return {
                     // 登入註冊切換
                     areaShow: true,
-
-
                     password: '',
-                    password_login:true,
+                    password_login: true,
+                    password_register:'',
+                    password_register_msg: true,
+                    password_register_again: '',
+                    password_register_again_msg: true,
+                    email_register: '',
+                    email_register_msg: true,
+                    
                 }
 
             },
             watch: {
-                // password: function(){
-                //     if(!isText.text)
-                // }
+                password: function () {
+                    if (this.password.length < 6) {
+                        this.password_login = false;
+                    } else {
+                        this.password_login = true;
+                    }
+                },
+                password_register: function(){
+                    if(this.password_register.length < 6){
+                        this.password_register_msg = false;
+                    } else {
+                        this.password_register_msg = true;
+                    }
+                },
+                password_register_again: function(){
+                    if(this.password_register_again != this.password_register){
+                        this.password_register_again_msg = false;
+                    } else{
+                        this.password_register_again_msg = true;
+                    }
+                },
+                email_register: function(){
+                    let isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+                    if(!isText.test(this.email_register) && this.email_register.length > 10){
+                        this.email_register_msg = false;
+                    } else {
+                        this.email_register_msg = true;
+                    }
+                },
+
+                
             },
             methods: {  //函數（方法）大部分放這裡
                 // 登入註冊切換
                 showBtn() {
                     this.areaShow = !this.areaShow
-                }
+                },
+                password_forget(){
+                    alert(123)
+                },
             },
         });
 

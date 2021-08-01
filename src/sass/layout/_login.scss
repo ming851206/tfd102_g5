@@ -64,7 +64,7 @@ h2 {
 // input 框框
 .login_input {
     @include form();
-    margin-bottom: 10px;
+    margin-top: 10px;
     width: 200px;
     height: 60px;
     font-size: 20px;
@@ -74,6 +74,7 @@ h2 {
     margin: 10px 0px;
     transform: translateX(100%);
     font-size: map-get($map: $font_d_map, $key: p);
+    cursor: pointer;
 }
 
 .loginSitch {
@@ -123,6 +124,9 @@ h2 {
     flex-direction: column;
     right: 0;
     // border: 1px solid lightpink;
+    >.Sign_BTN{
+        margin-top: 10px;
+    }
 }
 
 
@@ -186,6 +190,9 @@ h2 {
                         margin-left: 20px;
                         margin-bottom: 25%;
                     }
+                }
+                >.password_forget{
+                    cursor: pointer;
                 }
             }
         }
