@@ -74,9 +74,9 @@
                         <router-link to="/coupon/newCoupon">
                             <button class="add">新增優惠券</button>
                         </router-link>
-                        <p>{{search}}</p>
+                      
                         <label>
-                            <input type="text" name="adm_query" placeholder="輸入會員帳號" v-model="search">
+                            <input type="text" name="adm_query" placeholder="輸入優惠券名稱" v-model="search">
                             <img src="../images/icon/search.svg" alt="">
                         </label>
                         <router-view></router-view>
@@ -92,7 +92,7 @@
                                     <th>建立時間</th>
                                     <th>功能</th>
                                 </tr>
-                                <tr v-for="coupon in data">
+                                <tr v-for="coupon in filterList">
                                     <td v-text="coupon.num"></td>
                                     <td v-text="coupon.c_name"></td>
                                     <td v-text="coupon.c_content" class="cContent"></td>
@@ -121,7 +121,7 @@
         `,
         data(){
             return{
-                search:'快出現快出現',
+                search:'',
                 data:[
                   
                     {
@@ -159,6 +159,13 @@
                     },
                 ],
             }
+        },
+        computed: {
+            filterList(){ 
+                return this.data.filter((coupon) => {
+                    return coupon.c_name.toLowerCase().includes(this.search.toLowerCase());
+                })
+            },
         },
      };
 
