@@ -195,7 +195,8 @@
 
 
     @include tablet {
-        padding: 10px 20px
+        border: 2px solid orange;
+        padding: 10px 10px
     }
 
     // @include tablet {
@@ -256,16 +257,18 @@
             width: 60%;
 
             @include laptop {
-                width: 400px;
+                // border: 2px solid pink;
+                width: 500px;
             }
 
             @include tablet {
-                width: 320px;
+                // border: 2px solid pink;
+                width: 380px;
             }
 
             @include ipad {
                 border-top: 2px solid lightgrey;
-                width: 320px;
+                width: 380px;
                 padding: 10px 0;
 
             }
@@ -313,7 +316,8 @@
         background-position: 10px center;
 
         @include tablet {
-            width: 20%;
+            width: 12%;
+            padding-left: 28px;
         }
 
         @include ipad {
@@ -577,6 +581,7 @@
         height: 30px;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
 
         p.slider_count {
             // border: 2px solid red;
@@ -701,6 +706,7 @@
         height: 30px;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
 
         p.slider_count {
             // border: 2px solid red;
@@ -792,6 +798,121 @@
     }
 }
 
+// ========= 分類旅遊 =========
+.the_cat_trip{
+    // border: 3px solid red;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    padding: 40px 40px;
+
+    @include mobile {
+        // border: 2px solid red;
+        padding: 5px;
+
+    }
+
+    h3 {
+        font-weight: bold;
+        padding: 20px 0 40px 0;
+    }
+
+    ul.item_list {
+        // border: 2px solid red;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+
+        .item{
+            width: 25%;
+            padding: 5px;
+            a {
+                width: 100%;
+                // border: 2px solid red;
+                border-radius: $borderRadius_cd;
+                overflow: hidden;
+    
+                .trip_item {
+                    @include tripcard();
+                    max-height: 350px;
+    
+                    .content {
+                        
+                        height: 50%;
+                        padding: 50px 20px 30px 20px;
+                        background-color: #FAF9F2;
+                        position: relative;
+    
+                        .avatar img {
+                            border: 6px solid white;
+                            // border: 2px solid red;
+                            object-fit: cover;
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: -30%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+    
+                        .the_star_num {
+                            // border: 20px solid red;
+                            display: flex;
+                            flex-direction: row;
+                            padding: 0;
+    
+                            img {
+                                width: 15px;
+                            }
+    
+                            @include mobile {
+                                img {
+                                    width: 8px;
+                                }
+                            }
+                            p.star_get, p.area {
+                                // border: 2px solid brown;
+                                margin: 0 0 0 10px;
+                            }
+                        }
+    
+                        h4.intro {
+                            max-height: 55px;
+                            font-size: 14px;
+                            margin-bottom: 5px;
+                            margin-top: 5px;
+                            font-family: 'regular';
+                            color: rgba(0, 0, 0, 0.8);
+                            overflow: hidden;
+                            font-weight: bold;
+    
+                            @include mobile {
+                                font-size: 12px;
+                            }
+                        }
+    
+                        p.startprice {
+                            // border: 2px solid red;
+                            font-size: 8px;
+                            color: rgba(0, 0, 0, 0.8);
+    
+                            @include mobile {
+                                font-size: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}
+
 #go_the_top {
     display: none;
 
@@ -839,7 +960,8 @@
 }
 
 .owl-carousel .owl-nav.disabled {
-    display: block;
+    // border: 2px solid red;
+    display: block!important;
 }
 
 .owl-carousel .owl-dots {
@@ -870,8 +992,9 @@
                 width: 30px;
                 height: 30px;
                 right: 5%;
-                top: 85%;
+                top: 65%;
                 color: transparent;
+                z-index: 10;
 
                 @include laptop {
                     right: 6%;
@@ -893,9 +1016,13 @@
             }
 
             .owl-prev:hover {
+                background-image: url(../../images/icon/page-prev.svg);
+                background-size: cover;
                 width: 33px;
                 height: 33px;
                 border-radius: 50%;
+                color: transparent;
+
             }
         }
     }
@@ -913,15 +1040,17 @@
                 width: 30px;
                 height: 30px;
                 right: 1%;
-                top: 85%;
+                top: 65%;
                 color: transparent;
-
             }
 
             .owl-next:hover {
+                background-image: url(../../images/icon/page-next.svg);
+                background-size: cover;
                 width: 33px;
                 height: 33px;
                 border-radius: 50%;
+                color: transparent;
             }
         }
     }
