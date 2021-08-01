@@ -195,7 +195,8 @@
 
 
     @include tablet {
-        padding: 10px 20px
+        border: 2px solid orange;
+        padding: 10px 10px
     }
 
     // @include tablet {
@@ -256,16 +257,18 @@
             width: 60%;
 
             @include laptop {
-                width: 400px;
+                // border: 2px solid pink;
+                width: 500px;
             }
 
             @include tablet {
-                width: 320px;
+                // border: 2px solid pink;
+                width: 380px;
             }
 
             @include ipad {
                 border-top: 2px solid lightgrey;
-                width: 320px;
+                width: 380px;
                 padding: 10px 0;
 
             }
@@ -313,7 +316,8 @@
         background-position: 10px center;
 
         @include tablet {
-            width: 20%;
+            width: 12%;
+            padding-left: 28px;
         }
 
         @include ipad {
