@@ -794,6 +794,121 @@
     }
 }
 
+// ========= 分類旅遊 =========
+.the_cat_trip{
+    // border: 3px solid red;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    padding: 40px 40px;
+
+    @include mobile {
+        // border: 2px solid red;
+        padding: 5px;
+
+    }
+
+    h3 {
+        font-weight: bold;
+        padding: 20px 0 40px 0;
+    }
+
+    ul.item_list {
+        // border: 2px solid red;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+
+        .item{
+            width: 25%;
+            padding: 5px;
+            a {
+                width: 100%;
+                // border: 2px solid red;
+                border-radius: $borderRadius_cd;
+                overflow: hidden;
+    
+                .trip_item {
+                    @include tripcard();
+                    max-height: 350px;
+    
+                    .content {
+                        
+                        height: 50%;
+                        padding: 50px 20px 30px 20px;
+                        background-color: #FAF9F2;
+                        position: relative;
+    
+                        .avatar img {
+                            border: 6px solid white;
+                            // border: 2px solid red;
+                            object-fit: cover;
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: -30%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+    
+                        .the_star_num {
+                            // border: 20px solid red;
+                            display: flex;
+                            flex-direction: row;
+                            padding: 0;
+    
+                            img {
+                                width: 15px;
+                            }
+    
+                            @include mobile {
+                                img {
+                                    width: 8px;
+                                }
+                            }
+                            p.star_get, p.area {
+                                // border: 2px solid brown;
+                                margin: 0 0 0 10px;
+                            }
+                        }
+    
+                        h4.intro {
+                            max-height: 55px;
+                            font-size: 14px;
+                            margin-bottom: 5px;
+                            margin-top: 5px;
+                            font-family: 'regular';
+                            color: rgba(0, 0, 0, 0.8);
+                            overflow: hidden;
+                            font-weight: bold;
+    
+                            @include mobile {
+                                font-size: 12px;
+                            }
+                        }
+    
+                        p.startprice {
+                            // border: 2px solid red;
+                            font-size: 8px;
+                            color: rgba(0, 0, 0, 0.8);
+    
+                            @include mobile {
+                                font-size: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}
+
 #go_the_top {
     display: none;
 

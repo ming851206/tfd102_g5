@@ -42,7 +42,7 @@
                     </ul>
                     <ul class="filter2">
                         <li class="category"><button class="btnS_line" @click="content='all'">全部</button></li>
-                        <li class="category"><button class="btnS_line" @click="content='na'">美洲</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='us'">美洲</button></li>
                         <li class="category"><button class="btnS_line" @click="content='eu'">歐洲</button></li>
                         <li class="category"><button class="btnS_line" @click="content='as'">亞洲</button></li>
                         <li class="category"><button class="btnS_line" @click="content='af'">非洲</button></li>
@@ -571,386 +571,304 @@ template: `
         </div>
 `,
 });
-        Vue.component('na', {
+        Vue.component('us', {
 
             template: `
             <div class="the_cat_trip">
                 <h3>美洲旅遊</h3>
-                <div class="slider_arrow">
-                    <p class="slider_count">根據你的篩選條件搜尋到 10 筆結果</p>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
+                <p class="slider_count">根據你的篩選條件搜尋到 10 筆結果</p>
+                <ul class="item_list">
+                    <li class="item">
+                        <a href="">
+                            <div class="trip_item">
+                                <img src="./images/travel_list/400/bigben.jpg">
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar18.jpg">
                                     </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
+                                    <div class="the_icon">
+                                        <div class="share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                                viewBox="0 0 13.846 15.824">
+                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                                    fill="rgba(0,0,0,0.8)" />
+                                            </svg>
+                                        </div>
+                                        <div class="fav">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                                viewBox="0 0 20.143 17.824">
+                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </svg>
+                                        </div>
                                     </div>
+                                    <div class="the_star_num">
+                                        <img src="./images/index/content/star.svg">
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">歐洲</p>
+                                    </div>
+                                    <h4 class="trip_intro">
+                                        Bib Ben 大笨鐘倫敦，最具指標性的景觀。
+                                    </h4>
+                                    <p class="startprice">每人 $ 800 TWD 起</p>
                                 </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="">
+                            <div class="trip_item">
+                                <img src="./images/travel_list/400/bigben.jpg">
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar18.jpg">
+                                    </div>
+                                    <div class="the_icon">
+                                        <div class="share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                                viewBox="0 0 13.846 15.824">
+                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                                    fill="rgba(0,0,0,0.8)" />
+                                            </svg>
+                                        </div>
+                                        <div class="fav">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                                viewBox="0 0 20.143 17.824">
+                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="the_star_num">
+                                        <img src="./images/index/content/star.svg">
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">歐洲</p>
+                                    </div>
+                                    <h4 class="trip_intro">
+                                        Bib Ben 大笨鐘倫敦，最具指標性的景觀。
+                                    </h4>
+                                    <p class="startprice">每人 $ 800 TWD 起</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="">
+                            <div class="trip_item">
+                                <img src="./images/travel_list/400/bigben.jpg">
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar18.jpg">
+                                    </div>
+                                    <div class="the_icon">
+                                        <div class="share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                                viewBox="0 0 13.846 15.824">
+                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                                    fill="rgba(0,0,0,0.8)" />
+                                            </svg>
+                                        </div>
+                                        <div class="fav">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                                viewBox="0 0 20.143 17.824">
+                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="the_star_num">
+                                        <img src="./images/index/content/star.svg">
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">歐洲</p>
+                                    </div>
+                                    <h4 class="trip_intro">
+                                        Bib Ben 大笨鐘倫敦，最具指標性的景觀。
+                                    </h4>
+                                    <p class="startprice">每人 $ 800 TWD 起</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="">
+                            <div class="trip_item">
+                                <img src="./images/travel_list/400/bigben.jpg">
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar18.jpg">
+                                    </div>
+                                    <div class="the_icon">
+                                        <div class="share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                                viewBox="0 0 13.846 15.824">
+                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                                    fill="rgba(0,0,0,0.8)" />
+                                            </svg>
+                                        </div>
+                                        <div class="fav">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                                viewBox="0 0 20.143 17.824">
+                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="the_star_num">
+                                        <img src="./images/index/content/star.svg">
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">歐洲</p>
+                                    </div>
+                                    <h4 class="trip_intro">
+                                        Bib Ben 大笨鐘倫敦，最具指標性的景觀。
+                                    </h4>
+                                    <p class="startprice">每人 $ 800 TWD 起</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="">
+                            <div class="trip_item">
+                                <img src="./images/travel_list/400/bigben.jpg">
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar18.jpg">
+                                    </div>
+                                    <div class="the_icon">
+                                        <div class="share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                                viewBox="0 0 13.846 15.824">
+                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                                    fill="rgba(0,0,0,0.8)" />
+                                            </svg>
+                                        </div>
+                                        <div class="fav">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                                viewBox="0 0 20.143 17.824">
+                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="the_star_num">
+                                        <img src="./images/index/content/star.svg">
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">歐洲</p>
+                                    </div>
+                                    <h4 class="trip_intro">
+                                        Bib Ben 大笨鐘倫敦，最具指標性的景觀。
+                                    </h4>
+                                    <p class="startprice">每人 $ 800 TWD 起</p>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
             `,
         });
         Vue.component('eu', {
             template: `
             <div class="the_cat_trip">
-
                 <h3>歐洲旅遊</h3>
-                <div class="slider_arrow">
-                    <p class="slider_count">根據你的篩選條件搜尋到 10 筆結果</p>
-                </div>
-
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
+                <p class="slider_count">根據你的篩選條件搜尋到 10 筆結果</p>
+                <ul class="item_list">
+                    <li class="item">
+                        <a href="">
+                            <div class="trip_item">
+                                <img src="./images/travel_list/400/bigben.jpg">
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar18.jpg">
                                     </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
+                                    <div class="the_icon">
+                                        <div class="share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                                viewBox="0 0 13.846 15.824">
+                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                                    fill="rgba(0,0,0,0.8)" />
+                                            </svg>
+                                        </div>
+                                        <div class="fav">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                                viewBox="0 0 20.143 17.824">
+                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </svg>
+                                        </div>
                                     </div>
+                                    <div class="the_star_num">
+                                        <img src="./images/index/content/star.svg">
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">歐洲</p>
+                                    </div>
+                                    <h4 class="trip_intro">
+                                        Bib Ben 大笨鐘倫敦，最具指標性的景觀。
+                                    </h4>
+                                    <p class="startprice">每人 $ 800 TWD 起</p>
                                 </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="">
+                            <div class="trip_item">
+                                <img src="./images/travel_list/400/bigben.jpg">
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar18.jpg">
                                     </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
+                                    <div class="the_icon">
+                                        <div class="share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                                viewBox="0 0 13.846 15.824">
+                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                                    fill="rgba(0,0,0,0.8)" />
+                                            </svg>
+                                        </div>
+                                        <div class="fav">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                                viewBox="0 0 20.143 17.824">
+                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </svg>
+                                        </div>
                                     </div>
+                                    <div class="the_star_num">
+                                        <img src="./images/index/content/star.svg">
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">歐洲</p>
+                                    </div>
+                                    <h4 class="trip_intro">
+                                        Bib Ben 大笨鐘倫敦，最具指標性的景觀。
+                                    </h4>
+                                    <p class="startprice">每人 $ 800 TWD 起</p>
                                 </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             `,
@@ -963,326 +881,88 @@ template: `
                     <p class="slider_count">根據你的篩選條件搜尋到 10 筆結果</p>
                 </div>
 
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
+                <ul class="item_list">
+                    <li class="item">
+                        <a href="">
+                            <div class="trip_item">
+                                <img src="./images/travel_list/400/bigben.jpg">
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar18.jpg">
                                     </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
+                                    <div class="the_icon">
+                                        <div class="share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                                viewBox="0 0 13.846 15.824">
+                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                                    fill="rgba(0,0,0,0.8)" />
+                                            </svg>
+                                        </div>
+                                        <div class="fav">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                                viewBox="0 0 20.143 17.824">
+                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </svg>
+                                        </div>
                                     </div>
+                                    <div class="the_star_num">
+                                        <img src="./images/index/content/star.svg">
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">歐洲</p>
+                                    </div>
+                                    <h4 class="trip_intro">
+                                        Bib Ben 大笨鐘倫敦，最具指標性的景觀。
+                                    </h4>
+                                    <p class="startprice">每人 $ 800 TWD 起</p>
                                 </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="">
+                            <div class="trip_item">
+                                <img src="./images/travel_list/400/bigben.jpg">
+                                <div class="content">
+                                    <div class="avatar">
+                                        <img src="./images/avatar/avatar18.jpg">
                                     </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
+                                    <div class="the_icon">
+                                        <div class="share">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
+                                                viewBox="0 0 13.846 15.824">
+                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
+                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
+                                                    fill="rgba(0,0,0,0.8)" />
+                                            </svg>
+                                        </div>
+                                        <div class="fav">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
+                                                viewBox="0 0 20.143 17.824">
+                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
+                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
+                                                    transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                                            </svg>
+                                        </div>
                                     </div>
+                                    <div class="the_star_num">
+                                        <img src="./images/index/content/star.svg">
+                                        <p class="star_get">5(102) · </p>
+                                        <p class="area">歐洲</p>
+                                    </div>
+                                    <h4 class="trip_intro">
+                                        Bib Ben 大笨鐘倫敦，最具指標性的景觀。
+                                    </h4>
+                                    <p class="startprice">每人 $ 800 TWD 起</p>
                                 </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
                             </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="">
-                        <div class="trip_item">
-                            <img src="./images/travel_list/400/bigben.jpg">
-                            <div class="content">
-                                <div class="avatar">
-                                    <img src="./images/avatar/avatar18.jpg">
-                                </div>
-                                <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="the_star_num">
-                                    <img src="./images/index/content/star.svg">
-                                    <p class="star_get">5(102) · </p>
-                                    <p class="area">歐洲</p>
-                                </div>
-                                <h4 class="trip_intro">
-                                    Bib Ben 大笨鐘倫敦，最具指標性的景觀。
-                                </h4>
-                                <p class="startprice">每人 $ 800 TWD 起</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
             `,
         });
