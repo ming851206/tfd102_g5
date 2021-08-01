@@ -74,9 +74,9 @@
                         <router-link to="/coupon/newCoupon">
                             <button class="add">新增優惠券</button>
                         </router-link>
-
+                        <p>{{search}}</p>
                         <label>
-                            <input type="text" name="adm_query" placeholder="輸入會員帳號">
+                            <input type="text" name="adm_query" placeholder="輸入會員帳號" v-model="search">
                             <img src="../images/icon/search.svg" alt="">
                         </label>
                         <router-view></router-view>
@@ -121,7 +121,9 @@
         `,
         data(){
             return{
+                search:'快出現快出現',
                 data:[
+                  
                     {
                         num:1,
                         c_name:'這夏有福了',
