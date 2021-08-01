@@ -48,7 +48,7 @@
             <h2>參與旅遊流程</h2>
             <div class="aboutNumber">
                 <div class="aboutNumbers" v-for="sop in sops" data-aos="fade-up" data-aos-anchor-placement="top-bottom"
-                    data-aos-once="true">
+                    data-aos-once="true" data-aos-duration="1500">
                     <div class="abourNumberBorder"><span>{{sop.num}}</span></div>
                     <div class="abourNumberContent">{{sop.content}}</div>
                 </div>
@@ -76,6 +76,7 @@
     <script>
         $(function () {
             AOS.init();
+
         });
 
         new Vue({
