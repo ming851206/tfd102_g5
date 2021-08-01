@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh_Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="./js/vue/vue.js"></script>
-    <script src="./js/jq/jquery-3.6.0.js"></script>
-    <!-- <script src="./js/postcard/postcard.js"></script> -->
-    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <title>客製明信片</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <title>客制明信片</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <!-- 共用 -->
+    @@include('layout_html/plugin.html')
 </head>
 <body class="postcard_Body">
 
@@ -187,7 +184,7 @@
                                     <h4 class="writting_art_h4">寫下你的訊息</h4>
                                 </div>
                             </div>
-                            <div class="writting_bg">
+                            <div class="writting_bg" @click="remove_art_h4">
                                 <textarea class="writting_area"></textarea>
                             </div>
                         </div>
@@ -204,7 +201,7 @@
                                     </svg>
                                 </div>
 
-                                <div class="stamp_block" @click="stamp_Sbtn">
+                                <div class="stamp_block" @click="stamp_Sbtn" >
                                     <img src="./images/postcard/stamp/stamp1.png" alt="">
                                     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
                                         <g id="Group_293" data-name="Group 293" transform="translate(-1016 -414)">
@@ -213,7 +210,7 @@
                                         </g>
                                     </svg> -->
                                 </div>
-                                <div class="seal_block">
+                                <div class="seal_block" @click="dispaly_block_Btn">
                                     <img src="./images/logo/logo-circle.png" alt="">
                                 </div>
                             </div>
@@ -229,7 +226,7 @@
                                 </div>
                                 <!-- @click="typeTo_area" -->
                                 <div class="typeTo_block">
-                                    <textarea class="sentTO_People"> TO : </textarea>
+                                    <textarea class="sentTO_People" @click="remove_dis"> TO : </textarea>
                                 </div>
                             </div>
 
@@ -421,6 +418,7 @@
                         this.stampShow=true;
                     }else{
                         this.stampShow=false;
+                        this.dispaly_block_Btn();
                     }
                 },
 
@@ -450,10 +448,31 @@
                     }
                 },
                 // animate__animated animate__fadeOutUp
-                // remove_To(){
-                //     this.asssssssss = true;
-                //     alert(this.asssssssss);
-                // },
+
+                remove_dis(){
+                    gsap.to('.sentTO_block_grey',{
+                        y: -200,
+                        duration: 1,
+                        ease: 'slow',
+                        opacity: 0,
+                    })
+                },
+
+                remove_art_h4(){
+                    gsap.to('.writting_art',{
+                        duection: 1,
+                        opacity: 0,
+                        ease : 'slow'
+                    })
+                },
+                dispaly_block_Btn(){
+                    gsap.to('.remind_stamp',{
+                        duection: 1,
+                        opacity: 0,
+                        ease : 'slow'
+                    })
+                    
+                }
             },
         });
 
