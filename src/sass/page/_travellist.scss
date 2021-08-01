@@ -577,6 +577,7 @@
         height: 30px;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
 
         p.slider_count {
             // border: 2px solid red;
@@ -701,6 +702,7 @@
         height: 30px;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
 
         p.slider_count {
             // border: 2px solid red;
@@ -839,7 +841,8 @@
 }
 
 .owl-carousel .owl-nav.disabled {
-    display: block;
+    // border: 2px solid red;
+    display: block!important;
 }
 
 .owl-carousel .owl-dots {
@@ -870,8 +873,9 @@
                 width: 30px;
                 height: 30px;
                 right: 5%;
-                top: 85%;
+                top: 65%;
                 color: transparent;
+                z-index: 10;
 
                 @include laptop {
                     right: 6%;
@@ -893,9 +897,13 @@
             }
 
             .owl-prev:hover {
+                background-image: url(../../images/icon/page-prev.svg);
+                background-size: cover;
                 width: 33px;
                 height: 33px;
                 border-radius: 50%;
+                color: transparent;
+
             }
         }
     }
@@ -913,15 +921,17 @@
                 width: 30px;
                 height: 30px;
                 right: 1%;
-                top: 85%;
+                top: 65%;
                 color: transparent;
-
             }
 
             .owl-next:hover {
+                background-image: url(../../images/icon/page-next.svg);
+                background-size: cover;
                 width: 33px;
                 height: 33px;
                 border-radius: 50%;
+                color: transparent;
             }
         }
     }
