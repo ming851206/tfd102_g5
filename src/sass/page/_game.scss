@@ -401,20 +401,25 @@ $passportW: 402;
             .q_container {
                 display: flex;
                 justify-content: space-evenly;
-                align-items: center;
-
+                align-items: cneter;
                 h2 {
-                    font-size: 50px;
+                    font-size: 46px;
                     margin: 0;
+                    margin-top: 15px;
+                    padding: 0;
                     display: inline-block;
                     font-family: "en";
-
-                    @include md {
-                        font-size: 40px;
+                    @include lg{
+                        margin-top: 12px;
+                        font-size: 42px;
                     }
-
+                    @include md {
+                        margin-top: 8px;
+                        font-size: 36px;
+                    }
                     @include sm {
-                        font-size: 32px;
+                        margin-top: 5px;
+                        font-size: 28px;
                     }
                 }
 
@@ -422,19 +427,19 @@ $passportW: 402;
                     display: inline-block;
                     width: 350px;
                     line-height: 1.5;
-
+                    height: 115.2px;
                     @include md {
                         font-size: 22px;
                     }
-
                     @include sm {
                         font-size: 18px;
                         width: 350px * 0.75;
+                        height: 79.2px;
                     }
-
                     @include xs {
                         font-size: 17px;
                         width: 350px * 0.65;
+                        height: 74.7px;
                     }
                 }
             }
@@ -445,26 +450,26 @@ $passportW: 402;
                     flex-direction: column;
                     align-items: flex-start;
                     width: 385px;
-                    margin: 30px auto 8px;
-
+                    margin: 28px auto 8px;
                     @include lg {
                         width: 385px * 0.965;
                         margin-bottom: 3px;
                     }
-
+                    @include md {
+                        margin-top: 20px;
+                    }
                     @include sm {
                         width: 385px * 0.72;
-                        margin-top: 24px;
+                        margin-top: 25px;
                     }
-
                     @include xs {
                         width: 385px * 0.64;
-                        margin: 20px auto 3px;
+                        margin-top: 24px;
                     }
 
                     label.opt {
                         @include word_center(100px, 42px);
-                        margin: 0 auto 25px;
+                        margin: 0 auto;
                         font-family: "regular";
                         cursor: pointer;
                         border: 1px solid $main_br;
@@ -477,18 +482,14 @@ $passportW: 402;
                         text-align: center;
                         background-color: $main_ivory;
                         color: $main_br;
-
-                        // &:checked
                         input {
                             &[type="radio"] {
                                 display: none;
                             }
                         }
-
                         @include sm {
                             width: 160px;
                             font-size: 16px;
-                            margin: 0 auto 22px;
                         }
                     }
                 }
@@ -496,11 +497,14 @@ $passportW: 402;
                 .ans_confirm {
                     width: 120px;
                     display: block;
-                    margin: 0 auto;
+                    margin: 30px auto 0;
                     border-radius: $borderRadius_cd;
-
+                    @include sm{
+                        margin-top: 24px;
+                    }
                     @include xs {
                         width: 100px;
+                        margin-top: 22px;
                     }
                 }
 
@@ -511,21 +515,15 @@ $passportW: 402;
     }
 
     .challenge {
-        display: none;
-
+        // display: none;
         @include all_zero(fixed) {
             height: calc(100vh - 85px);
             z-index: 14;
         }
-
-        ;
-
         @include xs {
             @include all_zero(fixed) {
                 height: calc(100vh - 53px);
             }
-
-            ;
         }
 
         .result_mask {
@@ -615,25 +613,16 @@ $passportW: 402;
 
     .game_result_overlay {
         display: none;
-
+        z-index: 10;
         @include all_zero(fixed) {
             height: calc(100vh - 85px);
             z-index: 12;
         }
-
-        ;
-
         @include xs {
             @include all_zero(fixed) {
                 height: calc(100vh - 53px);
-                // bottom: 60px;
             }
-
-            ;
         }
-
-        z-index: 10;
-
         .game_result {
             @include total_center;
             z-index: 13;
@@ -661,8 +650,6 @@ $passportW: 402;
             }
 
             .top_word_game {
-
-                // border: 1px solid red;
                 .visa_word_game {
                     display: flex;
                     justify-content: space-around;
@@ -686,13 +673,10 @@ $passportW: 402;
                     display: flex;
                     justify-content: space-between;
                     margin: auto 35px;
-
+                    color: rgba(0, 0, 0, 0.22);
                     @include sm {
                         margin: auto 20px;
                     }
-
-                    color: rgba(0, 0, 0, 0.22);
-
                     h2 {
                         padding: 0;
                         margin-bottom: 10px;
@@ -711,11 +695,9 @@ $passportW: 402;
             }
 
             .game_main {
-                // border: 1px solid red;
                 text-align: center;
 
                 h2 {
-                    // border: 1px solid red;
                     letter-spacing: 3px;
                     text-indent: 3px;
                     padding-bottom: 28px;
@@ -724,7 +706,6 @@ $passportW: 402;
                         font-size: 26px;
                         padding-bottom: 18px;
                     }
-
                     @include xs {
                         font-size: 22px;
                         padding-bottom: 18px;
@@ -735,11 +716,9 @@ $passportW: 402;
                     @include md {
                         margin: 5px auto 8px;
                     }
-
                     @include sm() {
                         margin-bottom: 15px;
                     }
-
                     @include xs() {
                         margin-bottom: 8px;
                     }
@@ -905,7 +884,7 @@ $passportW: 402;
         @include all_zero(fixed);
         height: calc(100vh - 85px);
         z-index: 15;
-        display: none;
+        // display: none;
 
         .game_mask {
             background-color: rgba(0, 0, 0, .4);
