@@ -9,24 +9,6 @@
 <body>
     <div class="game_wrapper">
         <div id="the_game">
-            <the-game></the-game>
-        </div>
-
-        <header id="the_header" class="animation_header">
-            <the-header></the-header>
-        </header>
-        <div id="mobile_menu">
-            <menu-item></menu-item>
-        </div>
-
-        <!-- @click="showQuestion" -->
-        <footer id="the_footer">
-            <the-footer></the-footer>
-        </footer>
-    </div>
-    <script>
-        const the_game = Vue.component("the-game", {
-            template: `
             <div class="game_bg">
                 <div class="game_world_map">
                     <div class="landmark" id="am"></div>
@@ -59,64 +41,60 @@
                 <!-- 遊戲題目 -->
                 <div class="game_question">
                     <form method="POST">
-                        <div v-for="task in tasks" :class="task.num">
-                            <div class='q_container'>
-                                <h2>Q:</h2>
-                                <h3>{{task.question}}</h3>
-                            </div>
-                            <div class="btn_group">
-                                <div class="input_group">
-                                    <label class="opt opt1">
-                                        <input type="radio" name="question1" :value="task.option_1">
-                                        {{task.option_1}}
-                                    </label>
-                                    <label class="opt opt2">
-                                        <input type="radio" name="question1" :value="task.option_2">
-                                        {{task.option_2}}
-                                    </label>
-                                    <label class="opt opt3">
-                                        <input type="radio" name="question1" :value="task.option_3">
-                                        {{task.option_3}}
-                                    </label>
+                        <div v-for="(task, index) in quiz.tasks" :class="task.num">
+                            <div v-show="index === taskIndex">
+                                <div class='q_container'>
+                                    <h2>Q{{task.num}}</h2>
+                                    <h3>{{task.question}}</h3>
                                 </div>
-                                <input class="btnM ans_confirm" id='ans_confirm' type="button" value="確定">
-                            </div>
+                                <div class="btn_group">
+                                    <div class="input_group" v-for="answer in task.answers">
+                                        <label class="opt">
+                                            <input type="radio" :name="index" :value="answer.correct" v-model="userAnswer[index]">
+                                            {{answer.option}}
+                                        </label>
+                                    </div>
+                                    <input class="btnM ans_confirm" id='ans_confirm' type="button" value="確定" @click="next">
+                                </div>
+                            </div>    
                         </div>
                      </form>
                 </div>
                  
-                <!-- 挑戰成功 -->
-                <div class="challenge winning">
-                    <div class="result_mask"></div>
-                    <div class="game_detail">
-                        <div class="game_close_btn"></div>
-                        <div class="main_result">
-                            <h3 class="result_title">挑戰成功！</h3>
-                            <div class="get_stamp"></div>
-                            <div class="game_words" id="win_word">
-                                <p class="game_word row_1">恭喜獲得「旅遊</p>
-                                <p class="game_word row_2" id="continent_name">非洲</p>
-                                <p class="game_word row_3">印章」一枚</p>
+                <!-- 挑戰結果 -->
+                <div v-show="taskIndex == 3"> 
+                    <!-- 成功 -->
+                    <div class="challenge winning" v-if="winning==true">
+                        <div class="result_mask"></div>
+                        <div class="game_detail">
+                            <div class="game_close_btn"></div>
+                            <div class="main_result">
+                                <h3 class="result_title">挑戰成功！</h3>
+                                <div class="get_stamp"></div>
+                                <div class="game_words" id="win_word">
+                                    <p class="game_word row_1">恭喜獲得「旅遊</p>
+                                    <p class="game_word row_2" id="continent_name">非洲</p>
+                                    <p class="game_word row_3">印章」一枚</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-               
-                 <!-- 挑戰失敗 -->
-            <!--<div class="challenge losing">
-                    <div class="result_mask"></div>
-                    <div class="game_detail">
-                        <div class="game_close_btn"></div>
-                        <div class="main_result">
-                            <h3 class="result_title">挑戰失敗</h3>
-                            <img class="fail_stamp" src="./images/index/game/fail.png">
-                            <div class="game_words">
-                                <p class="game_word">再接再厲，<br>下一次旅遊達人就是你！</p>
+                
+                    <!-- 失敗 -->
+                    <div class="challenge losing" v-else>
+                        <div class="result_mask"></div>
+                        <div class="game_detail">
+                            <div class="game_close_btn"></div>
+                            <div class="main_result">
+                                <h3 class="result_title">挑戰失敗</h3>
+                                <img class="fail_stamp" src="./images/index/game/fail.png">
+                                <div class="game_words">
+                                    <p class="game_word">再接再厲，<br>下一次旅遊達人就是你！</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div> -->
+                    </div> 
+                </div>    
 
                 <!-- 任務進度 -->
                 <div class="game_result_overlay">
@@ -144,7 +122,7 @@
                                     <div class="af unget_stamp"></div>
                                     <div class="oc unget_stamp"></div>
                                 </div>
-                                <div class="gift_icon gold"></div>
+                                <div class="gift_icon gold" @click="getCoupon"></div>
                             </div>
                         </div>
 
@@ -159,10 +137,10 @@
                 </div>
 
                 <!-- 優惠券 -->
-                <div class="game_coupon">
+                <div class="game_coupon" v-if="showCoupon==true">
                     <div class="game_mask"></div>
                     <div class="coupon_detail">
-                        <div class="coupon_close_btn"></div>
+                        <div class="coupon_close_btn" @click="closeCoupon"></div>
                         <h3 class="game_award">今天的獎品是！！</h3>
                         <h3 id="coupon_title">跳轉世界玩翻天<br>75 折優惠券 一張</h3>
                         <div class="game_coupon_info">
@@ -179,21 +157,99 @@
                 </div>
 
             </div>
-            `,
-            data() {
-                return {
-                    tasks: [
-                        { num: "1", question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，它是非洲語的什麼意思呢？", option_1: "不用擔心", option_2: "明天會更好", option_3: "活在當下" },
-                        // {num: "2", question: "下列何者不是在非洲內?", option_1: "埃及", option_2: "日本", option_3: "衣索比亞"},
-                        // {num: "3", question: "世界上雙胞胎最多的地方在哪裡？", option_1: "印度", option_2: "奈及利亞", option_3: "美國"},
+
+        </div>
+
+        <header id="the_header" class="animation_header">
+            <the-header></the-header>
+        </header>
+        <div id="mobile_menu">
+            <menu-item></menu-item>
+        </div>
+
+        <footer id="the_footer">
+            <the-footer></the-footer>
+        </footer>
+    </div>
+    <script>
+        var quiz = {
+            tasks: [
+                        { 
+                            num: 1, 
+                            question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，它是非洲語的什麼意思呢？", 
+                            answers:[
+                                {num: 1, option: "不用擔心", correct: true},
+                                {num: 2, option: "明天會更好"},
+                                {num: 3, option: "活在當下"},
+                            ]
+                        },
+                        { 
+                            num: 2, 
+                            question: "下列何者不是在非洲內？", 
+                            answers:[
+                                {num: 1, option: "埃及"},
+                                {num: 2, option: "日本", correct: true},
+                                {num: 3, option: "衣索比亞"},
+                            ]
+                        },
+                        { 
+                            num: 3, 
+                            question: "世界上雙胞胎最多的地方在哪裡？", 
+                            answers:[
+                                {num: 1, option: "印度"},
+                                {num: 2, option: "奈及利亞", correct: true},
+                                {num: 3, option: "美國"},
+                            ]
+                        },                    
                     ],
+        }
+
+        new Vue({
+            el: "#the_game",
+            data: {
+                quiz: quiz,
+                taskIndex: 0,
+                userAnswer: Array(quiz.tasks.length).fill(false),
+                winning: false,
+                showCoupon: false,
+            },
+            methods:{
+                next(){
+                    // 下一題，最後一題要判斷是否全對
+                    if(this.taskIndex == 3){
+                        // console.log(this.taskIndex);
+                        let correctAnswer = this.userAnswer.filter(function(val){return val}).length;
+                        console.log(correctAnswer);
+
+                        if(correctAnswer = 3){
+                            this.winning = true;
+                        }else{
+                            this.winning = false;
+                        }
+                    }else{
+                        this.taskIndex++;
+                    }
+                },
+                getCoupon(){
+                    // 判斷印章數 == 5
+                    // if () {
+                    //     this.showCoupon = true;
+                    // }else {
+                    //     this.showCoupon = false;
+                    // }
+                    this.showCoupon = true;
+                },
+                closeCoupon(){
+                    this.showCoupon = false;
+
+                    $(".unget_stamp").css("backgroundImage", "url('./images/index/game/unget.png')");
+                    $(".gift_icon").css({
+                        backgroundImage: "url('./images/index/game/gift_gray.svg')",
+                        cursor: "default",
+                    })
+
                 }
-
             },
-            methods: {
-
-            },
-
             mounted() {
                 $(function () {
                     $(".btn_start").click(function () {
@@ -206,9 +262,9 @@
                         $(this).css({
                             backgroundImage: "url('./images/index/game/landmark_gold.png')",
                         });
-                        $(".game_world_map div").not(this).delay(500).slideUp(700);
+                        $(".game_world_map div").not(this).delay(100).slideUp(700);
                         $("#game_word").fadeOut();
-                        $(".game_question").stop(true, true).delay(1900).fadeIn(800);
+                        $(".game_question").delay(2200).fadeIn(800);
 
                     });
 
@@ -236,35 +292,33 @@
                         });
                     })
 
-                    $("#ans_confirm").click(function () {
-                        $(".game_question").fadeOut(400);
-                        $(".challenge").delay(400).fadeIn(400);
+                    // $("#ans_confirm").click(function () {
+                        // $(".game_question").fadeOut(400);
+                        // $(".challenge").delay(400).fadeIn(400);
 
                         $(".game_close_btn").click(function () {
+                            $(".game_question").fadeOut(400);
                             $(".challenge").fadeOut(400);
                             $(".game_result_overlay").delay(400).fadeIn(400);
                         })
-                    })
+                    // })
 
-                    $(".gift_icon").click(function (e) {
-                        $(".game_coupon").show();
-                    })
+                    // $(".gift_icon").click(function (e) {
+                    //     $(".game_coupon").show();
+                    // })
 
-                    $(".coupon_close_btn").click(function () {
-                        $(".game_coupon").hide();
-                        $(".unget_stamp").css("backgroundImage", "url('./images/index/game/unget.png')");
-                        $(".gift_icon").css({
-                            backgroundImage: "url('./images/index/game/gift_gray.svg')",
-                            cursor: "default",
-                        }).click(function (e) {
-                            $(".game_coupon").hide();
-                        });
-                    })
+                    // $(".coupon_close_btn").click(function () {
+                    //     $(".game_coupon").hide();
+                    //     $(".unget_stamp").css("backgroundImage", "url('./images/index/game/unget.png')");
+                    //     $(".gift_icon").css({
+                    //         backgroundImage: "url('./images/index/game/gift_gray.svg')",
+                    //         cursor: "default",
+                    //     }).click(function (e) {
+                    //         $(".game_coupon").hide();
+                    //     });
+                    // })
                 })
             },
-        })
-        const vue_game = new Vue({
-            el: "#the_game",
         });
 
     </script>
