@@ -74,9 +74,9 @@
                         <router-link to="/coupon/newCoupon">
                             <button class="add">新增優惠券</button>
                         </router-link>
-                        <p>{{search}}</p>
+                      
                         <label>
-                            <input type="text" name="adm_query" placeholder="輸入會員帳號" v-model="search">
+                            <input type="text" name="adm_query" placeholder="輸入優惠券名稱" v-model="search">
                             <img src="../images/icon/search.svg" alt="">
                         </label>
                         <router-view></router-view>
@@ -92,7 +92,7 @@
                                     <th>建立時間</th>
                                     <th>功能</th>
                                 </tr>
-                                <tr v-for="coupon in data">
+                                <tr v-for="coupon in filterList">
                                     <td v-text="coupon.num"></td>
                                     <td v-text="coupon.c_name"></td>
                                     <td v-text="coupon.c_content" class="cContent"></td>
@@ -121,7 +121,7 @@
         `,
         data(){
             return{
-                search:'快出現快出現',
+                search:'',
                 data:[
                   
                     {
@@ -159,6 +159,13 @@
                     },
                 ],
             }
+        },
+        computed: {
+            filterList(){ //搜尋功能
+                return this.data.filter((coupon) => { //把data送下來使用filter功能
+                    return coupon.c_name.toLowerCase().includes(this.search.toLowerCase());
+                })
+            },
         },
      };
 
@@ -223,7 +230,7 @@
             <div class="temp">
                  <h3>會員管理</h3>
                     <label>
-                        <input type="text" name="adm_query" placeholder="輸入會員帳號">
+                        <input type="text" name="adm_query" placeholder="輸入會員帳號" v-model="search">
                         <img src="../images/icon/search.svg" alt="">
                     </label>
                     <table border="1">
@@ -238,7 +245,7 @@
                             <th>建立時間</th>
                             <th>帳號狀態</th>
                         </tr>
-                        <tr v-for="person in data">
+                        <tr v-for="person in filterList">
                             <td v-text="person.no"></td>
                             <td v-text="person.username"></td>
                             <td v-text="person.id"></td>
@@ -265,6 +272,7 @@
         `,
         data(){
                 return{
+                    search:'',
                     data:[
                         {
                             no:1,
@@ -315,6 +323,13 @@
                     ],
                 };
             },
+            computed: {
+            filterList(){ //搜尋功能
+                return this.data.filter((person) => { //把data送下來使用filter功能
+                    return person.id.toLowerCase().includes(this.search.toLowerCase());
+                })
+            },
+        },
     };
 
         //=====================================================
@@ -563,13 +578,16 @@
 
             ` }
         const CommentCheck = {
+            data(){
+                return{
+                    ischk:0,
+                };
+            },
             template: `
             <div class="temp2">
                 <h3>旅程評論審查</h3>
                     <table>
                         <tr>
-                            <th>編號</th>
-                            <th>會員</th>
                             <th>旅程編號</th>
                             <th>評論</th>
                             <th>評論時間</th>
@@ -583,7 +601,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" class="chkbox"></td>
+                            <td><input type="checkbox" name="" class="chkbox" @click="checkNum"></td>
                         </tr>
                         <tr>
                             <td>2</td>
@@ -592,7 +610,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" class="chkbox"></td>
+                            <td><input type="checkbox" name="" class="chkbox" @click="checkNum"></td>
                         </tr>
                         <tr>
                             <td>3</td>
@@ -601,7 +619,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" class="chkbox"></td>
+                            <td><input type="checkbox" name="" class="chkbox" @click="checkNum"></td>
                         </tr>
                         <tr>
                             <td>4</td>
@@ -610,7 +628,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" class="chkbox"></td>
+                            <td><input type="checkbox" name="" class="chkbox" @click="checkNum"></td>
                         </tr>
                         <tr>
                             <td>5</td>
@@ -619,7 +637,7 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" class="chkbox"></td>
+                            <td><input type="checkbox" name="" class="chkbox" @click="checkNum"></td>
                         </tr>
                         <tr>
                             <td>6</td>
@@ -628,11 +646,11 @@
                             <td>真是太棒了了了了了了</td>
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
-                            <td><input type="checkbox" name="" class="chkbox"></td>
+                            <td><input type="checkbox" name="" class="chkbox" @click="checkNum"></td>
                         </tr>
                     </table>
                     <label for="" class="allChk">
-                        全選<input type="checkbox" id="allChk" @click="allchk">
+                        全選<input type="checkbox" id="allChk" @click="allchk" :checked="ischk == 1">
                     </label>
                     <button id="delete">刪除</button>
                     <div class="pager2">
@@ -647,7 +665,6 @@
                             </ul>
                     </div>
                 </div>
-
             `,
             methods: {
                 allchk(e) {
@@ -655,6 +672,13 @@
                     items.forEach(function (item, i) {
                         item.checked = e.target.checked;
                     });
+                },
+                checkNum(){
+                    let itemsChk = document.querySelectorAll('input.chkbox:checked').length;
+                    let allItems = document.querySelectorAll('input.chkbox').length;
+                    if( itemsChk==allItems ){
+                        return this.data.ischk == 1;
+                    }//怎麼壞掉了?寫return也沒用
                 },
             },
         }
