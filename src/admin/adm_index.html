@@ -677,7 +677,7 @@
                     let itemsChk = document.querySelectorAll('input.chkbox:checked').length;
                     let allItems = document.querySelectorAll('input.chkbox').length;
                     if( itemsChk==allItems ){
-                        return this.data.ischk == 1;
+                        return this.data.ischk = 1;
                     }//怎麼壞掉了?寫return也沒用
                 },
             },
