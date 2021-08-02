@@ -122,8 +122,8 @@
 
                     <!-- 輸入框欄位 -->
                     <input class="login_input" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="password"  type="text" placeholder="密碼 :">
-                    <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <input class="login_input" v-model="phone_password"  type="text" placeholder="密碼 :">
+                    <p v-if="!phone_password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
                     <div class="phone_password_forget" @click="phone_password_forget">
                         <p>忘記密碼?</p>
