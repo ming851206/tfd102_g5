@@ -45,9 +45,8 @@
                                         <h3>{{task.question}}</h3>
                                     </div>
                                     <div class="btn_group">
-                                        <div class="input_group" v-for="answer in task.answers">
-                                            <!-- <label class="opt" @click="changeColor = !changeColor" :class="{clicked: changeColor}"> -->
-                                                <label class="opt">
+                                        <div class="input_group">
+                                                <label class="opt default" v-for="answer in task.answers">
                                                     <input type="radio" :name="index" :value="answer.correct" v-model="userAnswer[index]">
                                                 {{answer.option}}
                                             </label>
@@ -212,7 +211,6 @@
                 quiz: quiz,
                 outerPasswort: true,
                 question: false,
-                // changeColor: false,
                 taskIndex: 0,
                 userAnswer: Array(quiz.tasks.length).fill(false),
                 winning: false,
@@ -229,6 +227,9 @@
                 showPasswort(){
                     this.outerPasswort = false;
                     this.innerPasswort = true;
+
+                    // ================local storage
+                    let record = localStorage.getItem("task_record")
                 },
                 game_continue(){
                     this.innerPasswort = false;
@@ -236,24 +237,33 @@
                 chooseTheme(){
                     this.question = true;
                 },
-                // changeColor(){
-                //     this.style.css.addClass("clicked");
-                //     this.siblings.style.css.removeClass('clicked');
-                // },
                 next(){
                     // 下一題，最後一題要判斷是否全對
                     if(this.taskIndex == 2){
-                        // this.taskIndex == 0;
                         let correctAnswer = this.userAnswer.filter(function(val){return val}).length;
-                        // console.log(correctAnswer);
                         this.result = true;
+                        // console.log(correctAnswer);
                         if(correctAnswer == 3){
                             this.winning = true;
+                            this.taskIndex = 0;
 
+                            // ================== local stroage ===================
+                            task = {
+                                "task_id": new Date(),
+                                "am": 0,
+                                "eu": 0,
+                                "af": 0,
+                                "as": 0,
+                                "oc": 0
+                            }
+                            // if(localStorage["task_record"] == null){
+                            //     localStorage["task_record"] = "";
+                            // }                            
+                            localStorage.setItem("task_record", JSON.stringify(task));
                         }else{
                             this.winning = false;
+                            this.taskIndex = 0;
                         }
-
                     }else{
                         this.taskIndex++;
                     }
@@ -264,6 +274,7 @@
                     this.innerPasswort = true;
                 },
                 getCoupon(){
+                    // 先判斷登入登出
                     // 判斷印章數 == 5
                     // if () {
                     //     this.showCoupon = true;
@@ -313,7 +324,7 @@
                         });
                     })
 
-                    $(".opt").click(function () {
+                     $(".opt").click(function () {
                         $(this).css({
                             backgroundColor: "rgba(0,0,0,0.06)",
                         })
@@ -353,6 +364,7 @@
 
     </script>
     <script src="./js/header_footer.js"></script>
+    <!-- <script src="./js/game.js"></script> -->
 </body>
 
 </html>

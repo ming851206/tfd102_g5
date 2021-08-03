@@ -466,13 +466,13 @@ $passportW: 402;
                         width: 385px * 0.64;
                         margin-top: 24px;
                     }
-
-                    label.opt {
+                    .opt{
                         @include word_center(100px, 42px);
                         margin: 0 auto;
                         font-family: "regular";
                         cursor: pointer;
                         border: 1px solid $main_br;
+                        background-color: $main_ivory;
                         width: 180px;
                         height: 42px;
                         font-size: map-get($map: $font_d_map, $key: h4);
@@ -480,20 +480,22 @@ $passportW: 402;
                         cursor: pointer;
                         font-weight: 600;
                         text-align: center;
-                        background-color: $main_ivory;
                         color: $main_br;
                         input {
                             &[type="radio"] {
                                 display: none;
                             }
                         }
+                        &:nth-child(2){
+                            margin: 25px auto;
+                            @include sm{
+                                margin: 20px auto;
+                            }
+                        }
                         @include sm {
                             width: 160px;
                             font-size: 16px;
                         }
-                    }
-                    .clicked{
-                        background-color: "rgba(0,0,0,0.06)";
                     }
                 }
 
