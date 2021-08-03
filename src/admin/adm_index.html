@@ -496,7 +496,7 @@
                         <td v-text="trip.t_title" class="textContent2"></td>
                         <td v-text="trip.t_content" class="textContent3"></td>
                         <td v-text="trip.t_startedat"></td>
-                        <td v-text="trip.t_numlimit"></td>
+                        <td v-text="trip.t_numlimit == true? '是':'否' " ></td>
                         <td v-text="trip.t_isgroup"></td>
                         <td v-text="trip.t_price"></td>
                         <td><input type="checkbox" name=""></td>
@@ -680,6 +680,8 @@
                 <h3>旅程評論審查</h3>
                     <table>
                         <tr>
+                            <th>編號</th>
+                            <th>會員</th>
                             <th>旅程編號</th>
                             <th>評論</th>
                             <th>評論時間</th>
