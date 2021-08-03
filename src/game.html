@@ -126,7 +126,7 @@
                             </div>
     
                             <div class="gamebtn">
-                                <button class="btnM_line game_share">分享</button>
+                                <button class="btnM_line game_share" onclick="share()">分享</button>
                                 <a href='index.html'>
                                     <button class="btnM_line back_index">回首頁</button>
                                 </a>
@@ -172,6 +172,41 @@
         </footer>
     </div>
     <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '385510642997838',
+            xfbml      : true,
+            version    : 'v2.4'
+          });
+        };
+      
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+
+         
+         function share(){
+            FB.ui(
+                {
+                method: 'share',
+                href: 'https://tibamef2e.com/tfd102/project/g5/game.html',
+                // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
+                },
+                // callback
+                function(response) {
+                if (response && !response.error_message) {
+                    alert('分享至臉書，邀請朋友一起成為jumper!');
+                } else {
+                    // alert('Error while posting.');
+                }
+                }
+            )
+        };
+        
         var quiz = {
             continents: ["am", "eu", "af", "as", "oc"],
             tasks: [
