@@ -82,22 +82,22 @@
 #travel_title {
     background-image: url("../../images/travel_info/photo-1489447068241-b3490214e8791.jpg");
     background-size: cover;
-    height: 140vh;
+    .t_title{
+            width: 90%;
+            margin: 0 auto;
+            padding: 30px 20px;
+    
+            @include tablet {
+                font-size: 36px;
+            }    
+            @include ipad {
+                font-size: 28px;
+            }
 
-    h2 {
-        width: 90%;
-        margin: 0 auto;
-        font-family: 'en';
-        padding: 30px 20px;
-
-        @include sm {
-            font-size: 36px;
+            @include mobile{
+                display: none;
+            }
         }
-
-        @include xs {
-            font-size: 28px;
-        }
-    }
 
     #display_block {
         border: 2px solid white;
@@ -108,19 +108,19 @@
         margin: 30px auto;
         width: 730px;
 
-        @include lg {
+        @include laptop {
             width: 610px;
         }
 
-        @include md {
-            width: 445px;
-        }
-
-        @include sm {
+        @include tablet {
             width: 560px;
         }
 
-        @include xs {
+        @include ipad {
+            width: 445px;
+        }
+
+        @include mobile {
             width: 380px;
         }
 
@@ -133,26 +133,27 @@
             border-radius: 25px;
             cursor: pointer;
 
-            @include lg {
+            @include laptop {
                 width: 550px;
             }
 
-            @include md {
-                width: 385px;
-            }
-
-            @include sm {
+            @include tablet {
                 width: 500px;
             }
 
-            @include xs {
+            @include mobile {
                 width: 320px;
             }
         }
     }
 
 
-    .owl-theme {
+    .info_owl {
+        @include  mobile { //手機:575以下
+            @media all and (max-width : $mobile ) {
+               display: none;
+            }
+        }
         #pic_1 {
             background-image: url("../../images/travel_info/pexels-zachary-debottis-3063055.jpg");
             background-size: cover;
@@ -185,8 +186,9 @@
     }
 }
 
-.main_container {
+.main_info_container {
     width: 100%;
+
 
     // 導遊介紹--------左區塊
     .left_side {
@@ -194,12 +196,92 @@
         width: 60%;
         margin: 0 5%;
         padding: 10px;
+        @include  mobile { //手機:575以下
+            @media all and (max-width : $mobile ) {
+               width: 90%; 
+            }
+        }
+
+        .traveler_name_mobile{
+            display: none;
+            @include mobile{
+                display: flex;
+                flex-direction: column;
+            }
+            .tra_icon_mobile{
+                display: flex;
+                flex-direction: row;
+                width: 90%;
+                margin: 0 auto;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                .icon_1{
+                    display: flex;
+                    vertical-align: middle;
+                    width: 100px;
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                    }
+                }
+                .icon_2{
+                    display: flex;
+                    flex-direction: row;
+                    img{
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                    }
+                }
+                
+            }
+            .icon_3{
+                display: flex;
+                flex-direction: row;
+                vertical-align: middle;
+                margin-top: 20px;
+                img{
+                    margin-right: 5px;
+                }
+                a{
+                    font-size: 12px;
+                    text-decoration: underline;
+                    color: gray;
+                }
+            }
+            .choose_date_mobile{
+                display: flex;
+                flex-direction: row;
+                background-color: #F7F6F2;
+                padding: 5px 50px;
+                justify-content: space-between;
+                margin-top: 10px;
+                .text_mobile{
+                    display: flex;
+                    flex-direction: column;
+                    a.price{
+                        color: gray;
+                        text-decoration: underline;
+                        font-size: 12px;
+                    }
+                }
+                .btn_mobile{
+                    margin-top: 3px;
+                }
+            }
+        }
+
 
         #traveler {
             display: flex;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 30px;
             margin-bottom: 30px;
+            @include mobile{
+                flex-direction: row-reverse;
+                justify-content: center;
+            }
 
             .traveler_pic {
                 display: flex;
@@ -209,16 +291,27 @@
                 border-radius: 50%;
                 margin-right: 10px;
                 object-fit: cover;
+                @include mobile{
+                    width: 60px;
+                    height: 60px;
+                    margin-left: 10px;
+                }
             }
 
             #traveler_name {
                 display: flex;
                 flex-direction: column;
+                @include mobile{
+                    flex-direction: row;
+                }
 
                 .tra_icon {
                     display: flex;
                     justify-content: flex-end;
                     margin-bottom: 20px;
+                    @include mobile {
+                        display: none;
+                    }
 
                     img {
                         margin-left: 10px;
@@ -232,6 +325,10 @@
                     h2 {
                         padding-bottom: 0;
                         margin-bottom: 10px;
+                        @include mobile{
+                            font-size: 14px;
+                            margin-bottom: 2px;
+                        }                                                    
                     }
                 }
             }
@@ -240,6 +337,9 @@
         #traveler_introduce {
             padding: 10px 0;
             flex-direction: row;
+            @include mobile{
+                display: none;
+            }
 
             .icon_s {
                 img {
@@ -289,12 +389,61 @@
             margin: 50px auto;
         }
 
+        .pic_mobile{
+            display: none;
+            @include mobile{
+                display: flex;
+                flex-direction: column;
+            }
+            .pic_mb{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .pic_1_mb{
+                    background-image: url('../../images/travel_info/pexels-zachary-debottis-3063055.jpg');
+                    background-size: cover;
+                    width: 48%;
+                    height: 300px;
+                    margin-right: 10px;
+                    margin-bottom: 20px;
+                }
+                .pic_column_mb{
+                    display: flex;
+                    flex-direction: column;
+                    width: 48%;
+                    height: 300px;
+                    .pic_2_mb{
+                        background-image: url("../../images/travel_info/pexels-zachary-debottis-3003038.jpg");
+                        background-size: cover;
+                        width: 100%;
+                        height: 145px;
+                        margin-bottom: 10px;
+                    }
+                    .pic_3_mb{
+                        background-image: url("../../images/travel_info/pexels-zachary-debottis-3003077.jpg");
+                        background-size: cover;
+                        width: 100%;
+                        height: 145px;
+                    }
+                }
+            }
+            .btnL_line{
+                width: 100%;
+                margin-bottom: 30px;
+            }
+        }
+
         #travel_way {
             margin: 50px auto;
 
             .way {
                 display: flex;
                 flex-direction: row;
+                @include  mobile { //手機:575以下
+                    @media all and (max-width : $mobile ) {
+                       flex-direction: column; 
+                    }
+                }
 
                 .join_way,
                 .chartered {
@@ -307,6 +456,18 @@
                     border: 2px solid #996A4D;
                     border-radius: 50%;
                     margin: 10px 30px;
+                    @include ipad{
+                        width: 140px;
+                        height: 140px;
+                    }
+                    @include  mobile { //手機:575以下
+                        @media all and (max-width : $mobile ) {
+                           width: 100%;
+                           height: 200px;
+                           border-radius: 25px; 
+                           margin: 0 0 20px 0;
+                        }
+                    }
 
                     img {
                         width: 50px;
@@ -316,26 +477,89 @@
 
                     .text_hover {
                         display: none;
+                        @include mobile{
+                            display: flex;
+                            width: 80%;
+                        }
                     }
                 }
-
-                .chartered:hover {
-                    background-color: #996A4D;
-                    color: white;
-
-                    .text_normal,
-                    img {
-                        display: none;
-                    }
-
-                    .text_hover {
-                        display: flex;
-                        text-align: center;
-                        background-image: url(../../images/icon/group.svg);
-                        background-repeat: no-repeat;
-                        background-position: center;
+                @include desktop{
+                    .chartered:hover {
+                        background-color: #996A4D;
+                        color: white;
+    
+                        .text_normal,
+                        img {
+                            display: none;
+                        }
+    
+                        .text_hover {
+                            display: flex;
+                            text-align: center;
+                            background-image: url(../../images/icon/group.svg);
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
                     }
                 }
+                @include laptop{
+                    .chartered:hover {
+                        background-color: #996A4D;
+                        color: white;
+    
+                        .text_normal,
+                        img {
+                            display: none;
+                        }
+    
+                        .text_hover {
+                            display: flex;
+                            text-align: center;
+                            background-image: url(../../images/icon/group.svg);
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                    }
+                }
+                @include tablet{
+                    .chartered:hover {
+                        background-color: #996A4D;
+                        color: white;
+    
+                        .text_normal,
+                        img {
+                            display: none;
+                        }
+    
+                        .text_hover {
+                            display: flex;
+                            text-align: center;
+                            background-image: url(../../images/icon/group.svg);
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                    }
+                }
+                @include ipad{
+                    .chartered:hover {
+                        background-color: #996A4D;
+                        color: white;
+    
+                        .text_normal,
+                        img {
+                            display: none;
+                        }
+    
+                        .text_hover {
+                            display: flex;
+                            text-align: center;
+                            background-image: url(../../images/icon/group.svg);
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                    }
+                }
+                
             }
         }
     }
@@ -352,17 +576,22 @@
         position: -webkit-sticky;
         position: sticky;
         bottom: 10px;
+        @include  mobile { //手機:575以下
+            @media all and (max-width : $mobile ) {
+               display: none; 
+            }
+        }
 
         .text {
             margin: 30px auto;
             height: 200px;
-            // 來不及
+            // 額滿
             // .btnS_line{
             //     margin-bottom: 20px;
             //     cursor: not-allowed;
             // }
 
-            // 來得及
+            // 未額滿
             .selection {
                 display: flex;
                 border: 1px solid #996A4D;
@@ -395,10 +624,33 @@
             .btnL {
                 width: 100%;
                 color: white;
+                margin-top: 5px;
+                @include ipad{
+                    margin-bottom: 0;
+                }
             }
 
             .text {
                 text-align: center;
+                p{
+                    @include desktop{
+                        font-size: 8px;
+                        line-height: 12px;
+                    }
+                    @include laptop{
+                        font-size: 8xp;
+                        line-height: 10xp;;
+                    }
+                    @include tablet{
+                        font-size: 8px;
+                        line-height: 10px;
+                    }
+                    @include ipad{
+                        font-size: 4px;
+                        line-height: 9px;
+                    }
+                }
+
             }
         }
     }
@@ -414,6 +666,9 @@
         display: flex;
         width: 100%;
         justify-content: flex-end;
+        @include mobile{
+            display: none;
+        }
 
         div {
             margin-left: 20px;
@@ -425,11 +680,17 @@
     .owl-theme {
         width: 100%;
         height: 40vh;
+        @include mobile{
+            height: 150px;
+        }
 
         .item {
             height: 11rem;
             background: #F7F9F2;
             padding: 1rem;
+            @include mobile{
+                margin-right: 10px;
+            }
 
             .btnS_line {
                 margin-top: 20px;
@@ -444,6 +705,20 @@
     }
 }
 
+.date_mb{
+    display: none;
+    @include mobile{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .btnL_line{
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+}
+
 // 他人評價--------
 #travel_experience {
     width: 90%;
@@ -452,45 +727,87 @@
     #travel_experience_1,
     #travel_experience_2,
     #travel_experience_3 {
+        display: flex;
         width: 90%;
         border: 2px solid #996A4D;
         border-radius: 25px;
         padding: 20px 100px;
         margin: 30px auto;
+        @include ipad{
+            padding: 10px 50px;
+        }
+        @include mobile{
+            padding: 10px 5px ;
+            height: 160px;
+        }
 
-        img {
-            display: inline-block;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
+        .user{
+            display: flex;
             object-fit: cover;
+            vertical-align: middle;
+            img {
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                object-fit: cover;
+                @include mobile{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
         }
 
-        .star_num {
-            display: inline-block;
-            width: 15px;
-            height: 15px;
+        .exp_stars{
+            display: flex;
+            align-items: bottom;
+            .star_num {
+                width: 15px;
+                height: 15px;
+            }
         }
 
-        p {
-            display: inline-block;
-        }
 
         .text {
-            display: inline-block;
+            display: flex;
             width: 70%;
             height: 30px;
-            vertical-align: 50%;
             margin-left: 30px;
+            p{
+                @include ipad{
+                    font-size: 8px;
+                    line-height: 15px;
+                }
+                @include mobile{
+                    font-size: 8px;
+                    line-height: 15px;
+                }
+            }
+
         }
     }
 
-    .btnS_line {
+    .exp_btn_pc{
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 30px auto;
+        @include mobile{
+            display: none;
+        }
     }
+
+    .exp_btn_mb{
+        display: none;
+        @include mobile{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin: 30px auto;
+        }
+    }
+
 
 }
 
@@ -504,6 +821,7 @@
     margin: 0 auto;
     justify-content: center;
     padding: 40px 40px;
+    overflow: hidden;
 
     h3 {
         font-weight: bold;
@@ -511,11 +829,15 @@
     }
 
     .arrow {
+        display: none;
         margin-bottom: 20px;
         width: 180px;
         float: right;
-        display: flex;
+        // display: flex;
         align-items: center;
+        @include mobile{
+            display: none;
+        }
 
         div {
             margin-left: 20px;
@@ -529,9 +851,26 @@
         padding: 0;
         display: flex;
         justify-content: space-between;
+        .item3, .item4{
+            @include mobile{
+                display: none;
+            }
+        }
 
-        li {
+        .item4{
+            @include ipad{
+                display: none;
+            }
+        }
+
+        .item {
             width: 23%;
+            @include ipad{
+                width: 33%;
+            }
+            @include mobile{
+                width: 45%;
+            }
 
             a {
                 width: 100%;
@@ -559,17 +898,17 @@
                         background-image: url(../../images/travel_info/pexels-ethan-brooke-2122423.jpg);
                     }
                     .pic0{
-                        // .icon_sf{
-                        //     display: flex;
-                        //     flex-direction: row;
-                        //     justify-content: flex-end;
-                        //     margin-right: 10px;
-                        //     .share, .fav{
-                        //         width: 18px;
-                        //         height: 18px;
-                        //         margin: 15px 5px 0 0px;
-                        //     }
-                        // }
+                        .icon_sf{
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-end;
+                            margin-right: 10px;
+                            .share, .fav{
+                                width: 18px;
+                                height: 18px;
+                                margin: 15px 5px 0 0px;
+                            }
+                        }
                         
                     }
     
@@ -610,21 +949,36 @@
     }
 }
 
-#going_top {
-    cursor: pointer;
-    align-self: flex-end;
-    margin-right: 35px;
-    margin-bottom: 30px;
-
-    @include lg {
-        margin-right: 22px;
+.hr_mb{
+    display: none;
+    @include mobile{
+        display: block;
+        width: 90%;
     }
 
-    @include md_sm {
-        margin-right: 16px;
-    }
+}
 
-    @include xs {
-        margin-bottom: 90px;
+.info_function_go_top{
+    width: 100%;
+    text-align: right;
+    #info_go_top {
+        width: 30px;
+        height: 150px;
+        cursor: pointer;
+        margin-right: 35px;
+        margin-bottom: 30px;
+    
+        @include tablet {
+            margin-right: 22px;
+        }
+    
+        @include ipad {
+            margin-right: 16px;
+        }
+    
+        @include mobile{
+            margin-right: 14px;
+            margin-bottom: 50px;
+        }
     }
 }

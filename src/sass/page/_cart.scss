@@ -1,6 +1,3 @@
-hr{
-    margin: 30px auto;
-}
 .read_more{
     color: #202B36;
 }
@@ -8,20 +5,50 @@ hr{
     color: blue;
     cursor: pointer;
 }
+.cart_mb_none{
+    @include mobile{
+        display: none;
+    }
+}
 
 // 結帳--------
 
 
-.main_container{
+.main_cart_container{
     width: 100%;
     h5{
         margin: 15px auto;
     }
+    hr{
+        margin: 30px auto;
+    }
+    .cart_hr_mb{
+        display:none;
+        @include mobile{
+            display: block;
+        }
+    }
+
+    .p_bold_mb{
+        font-size: 14px;
+        font-weight:bold;
+    }
+    .p_underline_mb{
+        text-decoration: none;
+        @include mobile{
+            text-decoration: underline;
+        }
+    }
+
     // --------左區塊
+
     .cart_left_side{
         display: inline-block;
         width: 60%;
         margin:0 5%;
+        @include mobile{
+            width:90%;
+        }
         .cart_title{
             display: flex;
             flex-direction: row;
@@ -33,12 +60,74 @@ hr{
                 margin-right: 20px;
             }
         }
+
+        .cart_mobile{
+            display: none;
+            @include mobile{
+                display: flex;
+            }
+            flex-direction: row;
+            padding: 0 30px;
+
+            .cart_pic_mb{
+                width: 160px;
+                height: 150px;
+                background-image: url('../../images/travel_info/photo-1489447068241-b3490214e879.jpg');
+                background-size: cover;
+            }
+            .cart_text_mb{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: 160px;
+                margin-left: 10px;
+                .down_mb{
+                    align-content: flex-end;
+                    .exp_mb{
+                        display: flex;
+                        flex-direction: row;
+                        img{
+                            width: 20px;
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
         .payment_info{
+            @include mobile{
+                padding: 0 30px;
+            }
             h5{
                 margin: 10px auto;
             }
         }
+
+        .payment_count_mb{
+            display: none;
+            padding: 0 30px;
+            @include mobile{
+                display: flex;
+                flex-direction: column;
+                margin: 10px auto 10px auto;
+
+                .count_edit_mb{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    .p_underline_mb{
+                        font-size: 12px;
+                        text-decoration: underline;
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+
         .payment_chartered{
+            @include mobile{
+                padding: 0 30px;
+            }
             margin: 10px auto;
             display: flex;
             flex-direction: row;
@@ -61,6 +150,9 @@ hr{
             width: 60%;
             padding: 10px 20px;
             margin-top: 20px;
+            @include mobile{
+                display: none;
+            }
             .mix{
                 display: flex;
                 flex-direction: row;
@@ -80,7 +172,50 @@ hr{
             }
 
         }
+
+        .price_mb{
+            display: none;
+            padding: 0 30px;
+            @include mobile{
+                display: flex;
+                flex-direction: column;
+                padding: 0 30px;
+                h5{
+                    margin: 15px 0 15px 0;
+                }
+                .var_calc_mb, .var_price_mb{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .payment_notice_mb{
+            display: none;
+            padding: 0 30px;
+            @include mobile{
+                display: block;
+            }
+        }
+
         .user_info{
+            @include mobile{
+                padding: 0 30px;
+            }
+            h5{
+                display: block;
+                @include mobile{
+                    display: none;
+                }
+            }
+            .p_h5_mb{
+                @include mobile{
+                    margin: 15px auto;
+                    font-size: 16px;
+                }
+            }
             .phone_number{
                 display: flex;
                 text-align: left;
@@ -89,6 +224,9 @@ hr{
                 width: 60%;
                 padding: 10px 20px;
                 margin-top: 20px;
+                @include mobile{
+                    border-radius: 10px;
+                }
                 .mix{
                     display: flex;
                     flex-direction: row;
@@ -104,7 +242,18 @@ hr{
                 }
             }
         }
+
+        .payment_notice{
+            display: block;
+            @include mobile{
+                display: none;
+            }
+        }
+
         .payment{
+            @include mobile{
+                display: none;
+            }
             .payment_credit_card{
                 display: flex;
                 text-align: left;
@@ -133,6 +282,9 @@ hr{
             }
         }       
         .pay_with_coupon{
+            @include mobile{
+                display: none;
+            }
             .use_coupon{
                 display: flex;
                 text-align: left;
@@ -163,13 +315,63 @@ hr{
             }
 
         }
-        .btnL{
-            color: white;
-            margin: 20px 0 50px 0;
-        }       
+
+        .payment_mb{
+            display: none;
+            padding: 0 30px;
+            @include mobile{
+                display: flex;
+                flex-direction: column;
+                .mix_mb{
+                    display: flex;
+                    flex-direction: row;
+                    img{
+                        width: 30px;
+                        height: 30px;
+                        vertical-align: middle;
+                    }
+                    p{
+                        margin-left: 5px;
+                    }
+                }
+                h5{
+                    margin: 20px 0 10px 0;
+                }
+                .payment_hr{
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        .policy_mb{
+            display: none;
+            padding: 0 30px;
+            @include mobile{
+                display: block;
+            }
+        }
+
+        .confirm{
+            @include mobile{
+                padding: 0 30px;
+            }
+            .btnL{
+                color: white;
+                margin: 20px 0 50px 0;
+                @include mobile{
+                    width: 100%;
+                    margin: 20px auto 20px auto;
+                }
+            }  
+        }
+     
     }
 
+    // 右區塊--------
     .cart_right_side{
+        @include mobile{
+            display: none;
+        }
         display: inline-block;
         width: 25%;
         margin: 10px auto;
@@ -277,24 +479,26 @@ hr{
     }
 }
 
-
-
-
-
-
-
-#going_top{
-    cursor: pointer;
-    align-self: flex-end;
-    margin-right: 35px;
-    margin-bottom: 30px;
-    @include lg {  
-        margin-right: 22px;
-    }
-    @include md_sm {
-        margin-right: 16px;
-    }
-    @include xs { 
-        margin-bottom: 90px;
+.cart_function_go_top{
+    width: 100%;
+    text-align: right;
+    #info_go_top {
+        width: 30px;
+        height: 150px;
+        cursor: pointer;
+        margin-right: 35px;
+        margin-bottom: 30px;    
+        @include tablet {
+            margin-right: 22px;
+        }
+    
+        @include ipad {
+            margin-right: 16px;
+        }
+    
+        @include mobile{
+            margin-right: 14px;
+            margin-bottom: 50px;
+        }
     }
 }
