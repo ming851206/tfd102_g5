@@ -582,13 +582,8 @@
             <div class="temp2">
                 <h3>訂單管理</h3>
                 <label>
-<<<<<<< HEAD
                    <input type="text" name="adm_query" placeholder="輸入訂單編號" v-model="search">
                    <img src="../images/icon/search.svg" alt="">
-=======
-                    <input type="text" name="adm_query" placeholder="輸入訂單編號" v-model="search">
-                    <img src="../images/icon/search.svg" alt="">
->>>>>>> 316de57d6e04164357d7efa0a62d0c563936a528
                 </label>
                 <table>
                     <tr>
@@ -600,19 +595,11 @@
                         <th>功能</th>
                     </tr>
                     <tr v-for="order in filterList">
-<<<<<<< HEAD
                         <td v-text="order.ID"></td>
-                        <td v-text="order.member_ID"></td>
+                        <td v-text="order.name"></td>
                         <td v-text="'$'+ order.price"></td>
-                        <td v-text="order.is_alerted"></td>
+                        <td v-text="order.is_alerted = 1 ? '未發送':'已發送' "></td>
                         <td v-text="order.created_at"></td>
-=======
-                        <td v-text="order.o_num"></td>
-                        <td v-text="order.o_memberid"></td>
-                        <td v-text="order.o_numlimit"></td>
-                        <td v-text="order.o_issend"></td>
-                        <td v-text="order.o_createdat"></td>
->>>>>>> 316de57d6e04164357d7efa0a62d0c563936a528
                         <td><button class="sendLink">發送連結</button></td>
                     </tr>
                 </table>
@@ -630,7 +617,6 @@
             </div>
 
             `,
-<<<<<<< HEAD
             data() {
                 return {
                     search:'',
@@ -683,51 +669,6 @@
             },
         };
 
-=======
-            data(){
-                return{
-                    search:'',
-                    data:[
-                        {
-                            o_num:'order001',
-                            o_memberid:'abei',
-                            o_numlimit:'20',
-                            o_issend: false,
-                            o_createdat:'2023/12/31',
-                        },
-                        {
-                            o_num:'order002',
-                            o_memberid:'mei',
-                            o_numlimit:'20',
-                            o_issend: false,
-                            o_createdat:'2023/12/31',
-                        },
-                        {
-                            o_num:'order003',
-                            o_memberid:'kingbaby',
-                            o_numlimit:'20',
-                            o_issend: false,
-                            o_createdat:'2023/12/31',
-                        },
-                        {
-                            o_num:'order004',
-                            o_memberid:'mei',
-                            o_numlimit:'20',
-                            o_issend: false,
-                            o_createdat:'2023/12/31',
-                        },
-                    ],
-                }
-            },
-            computed: {
-                filterList(){ //搜尋功能
-                    return this.data.filter((order) => { //把data送下來使用filter功能
-                        return order.o_num.includes(this.search);
-                    })
-                },
-            },
-        }
->>>>>>> 316de57d6e04164357d7efa0a62d0c563936a528
         const CommentCheck = {
             data() {
                 return {
