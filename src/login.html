@@ -33,15 +33,18 @@
                     <h2>登入</h2>
                     <!-- 放登入的東西 -->
                     <!-- 輸入框欄位 -->
-                    <input class="login_input" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off" required name="member_password_input">
-                    <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <!-- 無法登入 -->
-                    <div class="forgetPassword">
-                        <p>忘記密碼?</p>
-                    </div>
-                    <!-- 登入切換按鈕 -->
-                        <button type="button" class="btnM areaShow" id="btn_login" value="登入">登入</button>
+                    <form>
+                        <input class="login_input" type="text" placeholder="帳號 :">
+                        <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off" required name="member_password_input">
+                        <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
+                        <!-- 無法登入 -->
+                        <div class="forgetPassword" @click="password_forget">
+                            <p>忘記密碼?</p>
+                        </div>
+                        <!-- 登入切換按鈕 -->
+                            <button type="button" class="btnM areaShow" id="btn_login" value="登入">登入</button>
+
+                    </form>
 
                 </div>
 
@@ -72,17 +75,21 @@
                     <h2>註冊</h2>
                     <!-- 放登出的東西 -->
                     <!-- 輸入框欄位 -->
-                    <input class="login_input"  type="text" placeholder="帳號 :">
+                    <form method="POST" action="">
+                        <input class="login_input"  type="text" placeholder="帳號 :">
+    
+                        <input class="login_input" v-model="email_register"  type="email" placeholder="Email :" autocomplete="off">
+                        <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
+    
+                        <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :">
+                        <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                        <input class="login_input" type="text" v-model="password_register_again" placeholder="確認密碼 :">
+                        <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                        <!-- 登入切換按鈕 -->
+                        <button type="button" class="btnM Sign_BTN" id="showBtn">註冊</button>
+                        
 
-                    <input class="login_input" v-model="email_register"  type="email" placeholder="Email :" autocomplete="off">
-                    <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
-
-                    <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :">
-                    <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" type="text" v-model="password_register_again" placeholder="確認密碼 :">
-                    <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <!-- 登入切換按鈕 -->
-                    <button type="button" class="btnM Sign_BTN" id="showBtn">註冊</button>
+                    </form>
                 </div>
 
 
@@ -97,7 +104,7 @@
 
 
         <!-- 手機版 -->
-        <!-- 登入 註冊 -->
+        <!-- 登入 -->
         <div class="phone_loginMemberPage" v-if="areaShow">
 
             <!-- 登入 -->
@@ -121,19 +128,22 @@
                     <h2>登入</h2>
 
                     <!-- 輸入框欄位 -->
-                    <input class="login_input" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="phone_password"  type="text" placeholder="密碼 :">
-                    <p v-if="!phone_password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <!-- 無法登入 -->
-                    <div class="phone_password_forget" @click="phone_password_forget">
-                        <p>忘記密碼?</p>
-                    </div>
-                    <!-- 登入切換按鈕 -->
-                    <!-- 登入註冊切換按鈕區 -->
-                    <div class="phone_loginSitch">
-                        <button type="button" class="btnM " id="btn_login">登入</button>
-                        <button type="button" class="btnM_light" id="btn_Signup" @click="showBtn">註冊</button>
-                    </div>
+                    <form>
+                        <input class="login_input" type="text" placeholder="帳號 :">
+                        <input class="login_input" v-model="phone_password"  type="text" placeholder="密碼 :">
+                        <p v-if="!phone_password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
+                        <!-- 無法登入 -->
+                        <div class="forgetPassword"  @click="phone_password_forget">
+                            <p>忘記密碼?</p>
+                        </div>
+                        <!-- 登入切換按鈕 -->
+                        <!-- 登入註冊切換按鈕區 -->
+                        <div class="phone_loginSitch">
+                            <button type="button" class="btnM " id="btn_login">登入</button>
+                            <button type="button" class="btnM_light" id="btn_Signup" @click="showBtn">註冊</button>
+                        </div>
+
+                    </form>
                 </div>
 
 
@@ -163,17 +173,21 @@
                     <h2>登入</h2>
 
                     <!-- 輸入框欄位 -->
-                    <input class="login_input" type="text" placeholder="帳號 :">
-                    <input class="login_input" type="text" placeholder="Email :">
-                    <input class="login_input" type="text" placeholder="密碼 :">
-                    <p class="sigin_tiny"></p>密碼長度需高於6個字元</p>
-                    <input class="login_input" type="text" placeholder="確認密碼 :">
-                    <!-- 登入切換按鈕 -->
-                    <!-- 登入註冊切換按鈕區 -->
-                    <div class="phone_loginSitch">
-                        <button type="button" class="btnM " id="btn_login" @click="showBtn">登入</button>
-                        <button type="button" class="btnM_light" id="btn_Signup">註冊</button>
-                    </div>
+                    <form method="POST" action=""> 
+                        <input class="login_input" type="text" placeholder="帳號 :">
+                        <input class="login_input" v-model="phone_email_register" type="email" placeholder="Email :">
+                        <p v-if="!phone_email_register_msg"class="sigin_tiny">信箱格式錯誤</p>
+                        <input class="login_input" v-model="phone_password_register" type="password" placeholder="密碼 :">
+                        <p v-if="!phone_password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                        <input class="login_input" v-model="phone_password_register_again" type="text" placeholder="確認密碼 :">
+                        <p v-if="!phone_password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                        <!-- 登入切換按鈕 -->
+                        <!-- 登入註冊切換按鈕區 -->
+                        <div class="phone_loginSitch">
+                            <button type="button" class="btnM " id="btn_login" @click="showBtn">登入</button>
+                            <button type="button" class="btnM_light" id="btn_Signup">註冊</button>
+                        </div>
+                    </form>
 
                 </div>
 
@@ -206,7 +220,14 @@
                     password_register_again_msg: true,
                     email_register: '',
                     email_register_msg: true,
-                    
+                    phone_password: '',
+                    phone_password_login: true,
+                    phone_email_register:'',
+                    phone_email_register_msg: true,
+                    phone_password_register: '',
+                    phone_password_register_msg: true,
+                    phone_password_register_again: '',
+                    phone_password_register_again_msg: true,
                 }
 
             },
@@ -240,8 +261,36 @@
                         this.email_register_msg = true;
                     }
                 },
+                phone_password: function(){
+                    if(this.phone_password.length < 6){
+                        this.phone_password_login = false;
+                    } else { 
+                        this.phone_password_login = true;
+                    }
+                },
+                phone_email_register: function(){
+                    let isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
+                    if(!isText.test(this.phone_email_register) && this.phone_email_register.length > 10){
+                        this.phone_email_register_msg = false;
+                    } else{
+                        this.phone_email_register_msg = true;
+                    }
+                },
+                phone_password_register: function(){
+                    if(this.phone_password_register.length < 6){
+                        this.phone_password_register_msg = false;
+                    } else {
+                        this.phone_password_register_msg = true;
+                    }
+                },
+                phone_password_register_again: function(){
+                    if(this.phone_password_register_again != this.phone_password_register){
+                        this.phone_password_register_again_msg = false;
+                    } else { 
+                        thisphone_password_register_again_msg = true;
+                    }
+                },
 
-                
             },
             methods: {  //函數（方法）大部分放這裡
                 // 登入註冊切換
@@ -249,7 +298,10 @@
                     this.areaShow = !this.areaShow
                 },
                 password_forget(){
-                    alert(123)
+                    alert("請輸入正確帳號")
+                },
+                phone_password_forget(){
+                    alert("請輸入正確帳號")
                 },
             },
         });
