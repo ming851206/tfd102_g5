@@ -8,10 +8,11 @@
     <title>後台主頁</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-        .switchIo{
+        .switchIo {
             background-image: url(../images/icon/toggle_off.svg) !important;
         }
-        .fadeOut{
+
+        .fadeOut {
             opacity: 0 !important;
         }
     </style>
@@ -41,7 +42,7 @@
     <script src="../js/jq/jquery-3.6.0.js"></script>
     <script src="../js/vue/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script>
         Vue.use(VueRouter);
 
@@ -119,55 +120,55 @@
                             </div>
                 </div>
         `,
-        data(){
-            return{
-                search:'',
-                data:[
-                  
-                    {
-                        num:1,
-                        c_name:'這夏有福了',
-                        c_content:'優惠券內容',
-                        c_code:'優惠碼',
-                        c_discount:'9',
-                        c_expire:'2023/12/31',
-                        c_come:'1',
-                        c_create:'2022 Jun25 15:00',
-                        c_function:'<button>編輯</button><button>刪除</button>'
-                    },
-                    {
-                        num:2,
-                        c_name:'這夏有打折了',
-                        c_content:'優惠券內容',
-                        c_code:'優惠碼',
-                        c_discount:'75',
-                        c_expire:'2023/12/31',
-                        c_come:'2',
-                        c_create:'2022 Jun25 15:00',
-                        c_function:'<button>編輯</button><button>刪除</button>'
-                    },
-                    {
-                        num:2,
-                        c_name:'超級夏殺價',
-                        c_content:'優惠券內容優惠券內容',
-                        c_code:'優惠碼',
-                        c_discount:'75',
-                        c_expire:'2023/12/31',
-                        c_come:'1',
-                        c_create:'2022 Jun25 15:00',
-                        c_function:'<button>編輯</button><button>刪除</button>'
-                    },
-                ],
-            }
-        },
-        computed: {
-            filterList(){ //搜尋功能
-                return this.data.filter((coupon) => { //把data送下來使用filter功能
-                    return coupon.c_name.toLowerCase().includes(this.search.toLowerCase());
-                })
+            data() {
+                return {
+                    search: '',
+                    data: [
+
+                        {
+                            num: 1,
+                            c_name: '這夏有福了',
+                            c_content: '優惠券內容',
+                            c_code: '優惠碼',
+                            c_discount: '9',
+                            c_expire: '2023/12/31',
+                            c_come: '1',
+                            c_create: '2022 Jun25 15:00',
+                            c_function: '<button>編輯</button><button>刪除</button>'
+                        },
+                        {
+                            num: 2,
+                            c_name: '這夏有打折了',
+                            c_content: '優惠券內容',
+                            c_code: '優惠碼',
+                            c_discount: '75',
+                            c_expire: '2023/12/31',
+                            c_come: '2',
+                            c_create: '2022 Jun25 15:00',
+                            c_function: '<button>編輯</button><button>刪除</button>'
+                        },
+                        {
+                            num: 2,
+                            c_name: '超級夏殺價',
+                            c_content: '優惠券內容優惠券內容',
+                            c_code: '優惠碼',
+                            c_discount: '75',
+                            c_expire: '2023/12/31',
+                            c_come: '1',
+                            c_create: '2022 Jun25 15:00',
+                            c_function: '<button>編輯</button><button>刪除</button>'
+                        },
+                    ],
+                }
             },
-        },
-     };
+            computed: {
+                filterList() { //搜尋功能
+                    return this.data.filter((coupon) => { //把data送下來使用filter功能
+                        return coupon.c_name.toLowerCase().includes(this.search.toLowerCase());
+                    })
+                },
+            },
+        };
 
         const Faq = {
             template: `
@@ -270,53 +271,53 @@
                     </div>
                 </div>
         `,
-        data(){
-                return{
-                    search:'',
-                    data:[
+            data() {
+                return {
+                    search: '',
+                    data: [
                         {
-                            no:1,
-                            username:'芝加哥哥',
-                            id:'chicagogo',
-                            level:'1',
-                            email:'jumpjump@gmail.com',
-                            phone:'0987654321',
-                            birthday:'2021/01/01',
-                            create:'2021 Jun 25 15:00',
-                            isActive:false
+                            no: 1,
+                            username: '芝加哥哥',
+                            id: 'chicagogo',
+                            level: '1',
+                            email: 'jumpjump@gmail.com',
+                            phone: '0987654321',
+                            birthday: '2021/01/01',
+                            create: '2021 Jun 25 15:00',
+                            isActive: false
                         },
                         {
-                            no:2,
-                            username:'芝加哥哥哥',
-                            id:'chicagogogogo',
-                            level:'1',
-                            email:'jumpjumpjump@gmail.com',
-                            phone:'0912345678',
-                            birthday:'2022/02/02',
-                            create:'2021 Jun 25 15:00',
-                            isActive:false
+                            no: 2,
+                            username: '芝加哥哥哥',
+                            id: 'chicagogogogo',
+                            level: '1',
+                            email: 'jumpjumpjump@gmail.com',
+                            phone: '0912345678',
+                            birthday: '2022/02/02',
+                            create: '2021 Jun 25 15:00',
+                            isActive: false
                         },
                         {
-                            no:3,
-                            username:'芝加鴿鴿',
-                            id:'ididid',
-                            level:'2',
-                            email:'jump@gmail.com',
-                            phone:'0987654321',
-                            birthday:'2033/03/03',
-                            create:'2021 Jun 25 14:00',
-                            isActive:false
+                            no: 3,
+                            username: '芝加鴿鴿',
+                            id: 'ididid',
+                            level: '2',
+                            email: 'jump@gmail.com',
+                            phone: '0987654321',
+                            birthday: '2033/03/03',
+                            create: '2021 Jun 25 14:00',
+                            isActive: false
                         },
                         {
-                            no:4,
-                            username:'芝心披薩',
-                            id:'pizza',
-                            level:'1',
-                            email:'pizza@gmail.com',
-                            phone:'0912345678',
-                            birthday:'2044/04/04',
-                            create:'2021 Jun 25 12:00',
-                            isActive:false
+                            no: 4,
+                            username: '芝心披薩',
+                            id: 'pizza',
+                            level: '1',
+                            email: 'pizza@gmail.com',
+                            phone: '0912345678',
+                            birthday: '2044/04/04',
+                            create: '2021 Jun 25 12:00',
+                            isActive: false
                         },
 
 
@@ -324,13 +325,13 @@
                 };
             },
             computed: {
-            filterList(){ //搜尋功能
-                return this.data.filter((person) => { //把data送下來使用filter功能
-                    return person.id.toLowerCase().includes(this.search.toLowerCase());
-                })
+                filterList() { //搜尋功能
+                    return this.data.filter((person) => { //把data送下來使用filter功能
+                        return person.id.toLowerCase().includes(this.search.toLowerCase());
+                    })
+                },
             },
-        },
-    };
+        };
 
         //=====================================================
         //子元件
@@ -428,21 +429,21 @@
                         </div>
                 </div>
         ` ,
-        methods: {
-            revoke(e){
-                
-                if(confirm('是否下架旅遊?')){
-                    let theTr = e.target.closest('tr');
-                    theTr.classList.add('fadeOut'); //加轉場效果
+            methods: {
+                revoke(e) {
 
-                    setTimeout(function(){ //移除該項目
-                        theTr.remove();
-                    },1000);
-                    
-                }
+                    if (confirm('是否下架旅遊?')) {
+                        let theTr = e.target.closest('tr');
+                        theTr.classList.add('fadeOut'); //加轉場效果
+
+                        setTimeout(function () { //移除該項目
+                            theTr.remove();
+                        }, 1000);
+
+                    }
+                },
             },
-        },
-    }
+        }
         const TripCheck = {
             template: `
             <div class="temp2">
@@ -518,7 +519,7 @@
             <div class="temp2">
                 <h3>訂單管理</h3>
                 <label>
-                   <input type="text" name="adm_query" placeholder="輸入訂單編號">
+                   <input type="text" name="adm_query" placeholder="輸入訂單編號" v-model="search">
                    <img src="../images/icon/search.svg" alt="">
                 </label>
                 <table>
@@ -530,36 +531,12 @@
                         <th>訂單時間</th>
                         <th>功能</th>
                     </tr>
-                    <tr>
-                        <td>order0001</td>
-                        <td>第五組</td>
-                        <td>$999</td>
-                        <td>已發送</td>
-                        <td>2022 Jun25 15:00</td>
-                        <td><button class="sendLink">發送連結</button></td>
-                    </tr>
-                    <tr>
-                        <td>order0002</td>
-                        <td>第五組</td>
-                        <td>$999</td>
-                        <td>已發送</td>
-                        <td>2022 Jun25 15:00</td>
-                        <td><button class="sendLink">發送連結</button></td>
-                    </tr>
-                    <tr>
-                        <td>order0003</td>
-                        <td>第五組</td>
-                        <td>$999</td>
-                        <td>已發送</td>
-                        <td>2022 Jun25 15:00</td>
-                        <td><button class="sendLink">發送連結</button></td>
-                    </tr>
-                    <tr>
-                        <td>order0004</td>
-                        <td>第五組</td>
-                        <td>$999</td>
-                        <td>已發送</td>
-                        <td>2022 Jun25 15:00</td>
+                    <tr v-for="order in filterList">
+                        <td v-text="order.ID"></td>
+                        <td v-text="order.member_ID"></td>
+                        <td v-text="'$'+ order.price"></td>
+                        <td v-text="order.is_alerted"></td>
+                        <td v-text="order.created_at"></td>
                         <td><button class="sendLink">發送連結</button></td>
                     </tr>
                 </table>
@@ -576,11 +553,63 @@
                 </div>
             </div>
 
-            ` }
+            `,
+            data() {
+                return {
+                    search:'',
+                    data: [
+                        // {
+                        //     o_id:'1',
+                        //     o_username: '第五組',
+                        //     o_price: '$999',
+                        //     o_isMailed: '已發送',
+                        //     o_create: '2022 Jun25 15:00',
+                        //     o_sentLink: '<button class="sendLink">發送連結</button>',
+                        // },
+                        // {
+                        //     o_id:'2',
+                        //     o_username: '第五組',
+                        //     o_price: '$999',
+                        //     o_isMailed: '已發送',
+                        //     o_create: '2022 Jun25 15:00',
+                        //     o_sentLink: '<button class="sendLink">發送連結</button>',
+                        // },
+                        // {
+                        //     o_id:'3',
+                        //     o_username: '第五組',
+                        //     o_price: '$999',
+                        //     o_isMailed: '已發送',
+                        //     o_create: '2022 Jun25 15:00',
+                        //     o_sentLink: '<button class="sendLink">發送連結</button>',
+                        // },
+                        // {
+                        //     o_id:'4',
+                        //     o_username: '第五組',
+                        //     o_price: '$999',
+                        //     o_isMailed: '已發送',
+                        //     o_create: '2022 Jun25 15:00',
+                        //     o_sentLink: '<button class="sendLink">發送連結</button>',
+                        // },
+                    ],
+                };
+            },
+            computed: {
+                filterList() { //搜尋功能
+                    return this.data.filter((order) => { //把data送下來使用filter功能
+                        return order.ID.toLowerCase().includes(this.search.toLowerCase());
+                    })
+                },
+            },
+            mounted() {
+                axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => this.data = res.data);
+                 //fetch('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => console.log(res)); 
+            },
+        };
+
         const CommentCheck = {
-            data(){
-                return{
-                    ischk:0,
+            data() {
+                return {
+                    ischk: 0,
                 };
             },
             template: `
@@ -673,10 +702,10 @@
                         item.checked = e.target.checked;
                     });
                 },
-                checkNum(){
+                checkNum() {
                     let itemsChk = document.querySelectorAll('input.chkbox:checked').length;
                     let allItems = document.querySelectorAll('input.chkbox').length;
-                    if( itemsChk==allItems ){
+                    if (itemsChk == allItems) {
                         return this.data.ischk = 1;
                     }//怎麼壞掉了?寫return也沒用
                 },
