@@ -7542,7 +7542,7 @@ hr {
 }
 
 .game_bg .game_question {
-  display: none;
+  animation: zoom_in 1s ease 1.8s both;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -7733,6 +7733,10 @@ hr {
   }
 }
 
+.game_bg .game_question form .btn_group .input_group .clicked {
+  background-color: "rgba(0,0,0,0.06)";
+}
+
 .game_bg .game_question form .btn_group .ans_confirm {
   width: 120px;
   display: block;
@@ -7873,7 +7877,6 @@ hr {
 }
 
 .game_bg .game_result_overlay {
-  display: none;
   z-index: 10;
   top: 0;
   left: 0;
@@ -8301,6 +8304,30 @@ hr {
 
 .game_wrapper #the_footer {
   display: none;
+}
+
+.v-leave {
+  opacity: 1;
+}
+
+.v-leave-active {
+  transition: opacity 1.2s;
+}
+
+.v-leave-to {
+  opacity: 0;
+}
+
+.v-enter {
+  opacity: 0;
+}
+
+.v-enter-active {
+  transition: opacity 1.2s;
+}
+
+.v-enter-to {
+  opacity: 1;
 }
 
 @keyframes scroll {
