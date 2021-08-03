@@ -5,12 +5,13 @@
 <!-- 共用 -->
 @@include('layout_html/plugin.html')
 <!-- 自己套件 -->
-<!-- <script src="#"></script> -->
-    <title>尼加拉大瀑布</title>
+<!-- 輪播套件 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
+<title>尼加拉大瀑布</title>
 </head>
 
 <body class="travel_info_Body">
-    <!-- <h2>Hello</h2> -->
     <div id="main">
         <!--  include header   -->
         <header id="the_header">
@@ -22,14 +23,14 @@
 
         <!-- travel_info  -->
         <div id="travel_title">
-            <h2>怔怔地望著尼加拉大瀑布那滂薄的氣勢</h2>
+            <h2 class="t_title">怔怔地望著尼加拉大瀑布那滂薄的氣勢</h2>
             <div id="display_block">
                 <video id="info_video" controlsList="nodownload" controls>
                     <source src="./video/niagara falls.mp4">
                     <p>Sorry, your browser doesn't support embedded videos.</p>
                 </video>
             </div>
-            <div class="owl-carousel owl-theme">
+            <div class="owl-carousel owl-theme info_owl">
                 <div class="info_pic" id="pic_1"></div>
                 <div class="info_pic" id="pic_2"></div>
                 <div class="info_pic" id="pic_3"></div>
@@ -38,11 +39,38 @@
             </div>
         </div>
 
-        <div class="main_container">
+        <div class="main_info_container">
             <!-- 左區塊 -->
             <div class="left_side">
 
                 <!-- 導遊介紹 -->
+                <div class="traveler_name_mobile">
+                    <div class="tra_icon_mobile">
+                        <div class="icon_1">
+                            <img src="./images/icon/laptop.svg" alt="">
+                            <p>線上旅遊</p>
+                        </div>
+                        <div class="icon_2">
+                            <img src="./images/icon/share.svg">
+                            <img src="./images/icon/like.svg">
+                        </div>
+                    </div>
+                    <h3>怔怔地望著尼加拉大瀑布那滂薄的氣勢</h3>
+                    <div class="icon_3">
+                        <img src="./images/icon/star.svg" alt="">
+                        <p>4.9(112)　</p>
+                        <a href="">奧斯丁　美國</a>
+                    </div>
+                    <div class="choose_date_mobile">
+                        <div class="text_mobile">
+                            <p>最低$800/每人</p>
+                            <a class="price">顯示所有價格</a>
+                        </div>
+                        <div class="btn_mobile">
+                            <button class="btnS">選擇日期</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="traveler_info">
                     <div id="traveler">
                         <div class="tra_pic">
@@ -75,12 +103,13 @@
                         <div class="tra_btn">
                             <button class="btnS_line">聯絡線上導遊</button>
                         </div>
+                        <hr size="4px" align="center" width="100%" color="#996A4D">
                     </div>
                 </div>
 
-                <hr size="4px" align="center" width="100%" color="#996A4D">
 
                 <!-- ----- -->
+
                 <div id="travel_rules">
                     <div class="join_web">
                         <div>
@@ -115,6 +144,20 @@
                     </p>
                 </div>
 
+                <div class="pic_mobile">
+                    <div class="pic_mb">
+                        <div class="pic_1_mb"></div>
+                        <div class="pic_column_mb">
+                            <div class="pic_2_mb"></div>
+                            <div class="pic_3_mb"></div>
+                        </div>
+                    </div>
+                    <div class="pic_btn_mb">
+                        <button class="btnL_line">顯示所有相片(共6張)</button>
+                    </div>
+                </div>
+
+
                 <hr size="4px" align="center" width="100%" color="#996A4D">
 
                 <!-- ------ -->
@@ -144,13 +187,13 @@
                 <div class="text">
                     <h5>最低 $800 / 每人</h5>
 
-                    <!-- 來不及 -->
+                    <!-- 額滿 -->
                     <!-- <p>無法提供預定</p>
                     <button class="btnS_line">額滿</button>
                     <button class="btnL">瀏覽類似體驗</button> -->
 
 
-                    <!-- 來得及 -->
+                    <!-- 未額滿 -->
                     <p>顯示所有價格</p>
                     <div class="date selection">
                         <div class="mix">
@@ -190,6 +233,7 @@
                 </div>
             </div>
         </div>
+        <hr class="hr_mb" size="4px" align="center" width="100%" color="#996A4D">
 
         <!-- 選擇日期------ -->
         <section>
@@ -244,40 +288,61 @@
                     </div>
                 </div>
             </div>
+            <div class="date_mb">
+                <button class="btnL_line">查看更多日期</button>
+            </div>
         </section>
+
+        <hr class="hr_mb" size="4px" align="center" width="100%" color="#996A4D">
 
         <!-- ------ -->
         <div id="travel_experience">
             <h2>他人評價</h2>
             <div id="travel_experience_1">
-                <img id="" src="./images/avatar/avatar20.jpg">
-                <img class="star_num" src="./images/index/content/star.svg">
-                <p>5</p>
+                <div class="user">
+                    <img id="" src="./images/avatar/avatar20.jpg">
+                </div>
+                <div class="exp_stars">
+                    <img class="star_num" src="./images/index/content/star.svg">
+                    <p>5</p>
+                </div>
                 <div class="text">
                     <p>那裡的景色很不錯，但是在交通上要花很長時間，因為它離紐約很遠，如果自行搭乘公共汽車前往要花8個小時，透過參加線上旅由，不只節省時間，還能欣賞美景，我認為值得這樣做。</p>
                 </div>
             </div>
             <div id="travel_experience_2">
-                <img id="" src="./images/avatar/avatar18.jpg">
-                <img class="star_num" src="./images/index/content/star.svg">
-                <p>5</p>
+                <div class="user">
+                    <img id="" src="./images/avatar/avatar18.jpg">
+                </div>
+                <div class="exp_stars">
+                    <img class="star_num" src="./images/index/content/star.svg">
+                    <p>5</p>
+                </div>
                 <div class="text">
-                    <p>導遊很可愛，解說很好，有趣的人。讓旅途不枯燥，瀑布很美，第一次參加線上旅行很神奇，搭乘直升機俯瞰瀑布美景，令人回味無窮。各種觀點都很漂亮，印象深刻，很開心。如果有機會我會親自再次訪問這裡，我想晚上再次回來。
-                    </p>
+                    <p>導遊很可愛，解說很好，有趣的人。讓旅途不枯燥，瀑布很美，第一次參加線上旅行很神奇，搭乘直升機俯瞰瀑布美景，令人回味無窮。各種觀點都很漂亮，印象深刻，很開心。如果有機會我會親自再次訪問這裡，我想晚上再次回來。</p>
                 </div>
             </div>
             <div id="travel_experience_3">
-                <img id="" src="./images/avatar/avatar10.jpg">
-                <img class="star_num" src="./images/index/content/star.svg">
-                <p>5</p>
+                <div class="user">
+                    <img id="" src="./images/avatar/avatar10.jpg">
+                </div>
+                <div class="exp_stars">
+                    <img class="star_num" src="./images/index/content/star.svg">
+                    <p>5</p>
+                </div>
                 <div class="text">
-                    <p>尼加拉瀑布的周圍到處可以看到漂亮的公園及綠地，看到許多人在草地上野餐，居住在這裡真的好享受喔!搭乘直升機觀看不同面向的瀑布都有著不一樣的感受，可惜不能親身體驗到瀑布的震撼，只能隔著螢幕欣賞，經過這次線上旅遊，我下次一定會親自去一探究竟!
-                    </p>
+                    <p>尼加拉瀑布的周圍到處可以看到漂亮的公園及綠地，看到許多人在草地上野餐，居住在這裡真的好享受喔!搭乘直升機觀看不同面向的瀑布都有著不一樣的感受，可惜不能親身體驗到瀑布的震撼，只能隔著螢幕欣賞，經過這次線上旅遊，我下次一定會親自去一探究竟!</p>
                 </div>
             </div>
-            <button class="btnS_line">看更多</button>
+
+            <button class="btnS_line exp_btn_pc">看更多</button>
+
+            <button class="btnL_line exp_btn_mb">查看更多評價</button>
 
         </div>
+
+        <hr class="hr_mb" size="4px" align="center" width="100%" color="#996A4D">
+
         <!-- ------ -->
         <div class="travel_recommend">
             <h3>相信你會喜歡</h3>
@@ -292,7 +357,7 @@
                 </div>
             </div>
             <ul class="container">
-                <li>
+                <li class="item">
                     <a href="">
                         <div class="travel_item">
                             <div class="pic0 pic_01"></div>
@@ -322,7 +387,7 @@
                         </div>
                     </a>
                 </li>
-                <li>
+                <li class="item">
                     <a href="">
                         <div class="travel_item">
                             <div class="pic0 pic_02"></div>
@@ -352,7 +417,7 @@
                         </div>
                     </a>
                 </li>
-                <li>
+                <li class="item item3">
                     <a href="">
                         <div class="travel_item">
                             <div class="pic0 pic_03"></div>
@@ -382,7 +447,7 @@
                         </div>
                     </a>
                 </li>
-                <li>
+                <li class="item item4">
                     <a href="">
                         <div class="travel_item">
                             <div class="pic0 pic_04"></div>
@@ -414,8 +479,9 @@
                 </li>
             </ul>
         </div>
-
-        <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+        <div class="info_function_go_top">
+            <img id="info_go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+        </div>
 
 
 
@@ -450,7 +516,7 @@
             dots: false, //顯示點點
             responsive: {
                 0: {
-                    items: 1 // 螢幕大小為 0~600 顯示 1 個項目
+                    items: 2 // 螢幕大小為 0~600 顯示 1 個項目
                 },
                 600: {
                     items: 3 // 螢幕大小為 600~1000 顯示 3 個項目
@@ -462,7 +528,7 @@
         });
     });
 
-    $("#go_top").click(function () {
+    $("#info_go_top").click(function () {
         $("html, body").animate({
             scrollTop: 0,
         }, 1000)
