@@ -184,32 +184,14 @@
                                 <th>狀態</th>
                                 <th>功能</th>
                             </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>楊先生</td>
-                                <td>a1234@gmail.com</td>
-                                <td class="textContent">我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題我是問題</td>
-                                <td>2022 Jun25 15:00</td>
-                                <td>未回覆</td>
-                                <td><button>回覆</button></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>陳先生</td>
-                                <td>b1234@gmail.com</td>
-                                <td class="textContent">我是問題我是問題我是問題我是問題我是問題我是問題</td>
-                                <td>2022 Jun25 15:00</td>
-                                <td>未回覆</td>
-                                <td><button>回覆</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>王先生</td>
-                                <td>c1234@gmail.com</td>
-                                <td class="textContent">我是問題我是問題我是問題我是問題我是問題我是問題</td>
-                                <td>2022 Jun25 15:00</td>
-                                <td>未回覆</td>
-                                <td><button>回覆</button></td>
+                            <tr v-for="faq in data">
+                                <td v-text="faq.num"></td>
+                                <td v-text="faq.f_username"></td>
+                                <td v-text="faq.f_email"></td>
+                                <td v-text="faq.f_question" class="textContent"></td>
+                                <td v-text="faq.f_createdat"></td>
+                                <td v-text="faq.f_isreply">/td>
+                                <td><button>回覆</button></td>   
                             </tr>
                         </table>
                         <div class="pager2">
@@ -224,7 +206,51 @@
                             </ul>
                         </div>
                 </div>
-        ` };
+            `,
+            data(){
+                return{
+                    data:[
+                    {
+                        num:1,
+                        f_username:'嗚咪',
+                        f_email:'wumi@jumper.com',
+                        f_question:'嗚咪的老虎會出現在非洲嗎',
+                        f_createdat:'2023/12/31',
+                        f_isreply: '未回覆',
+                        f_function:'<button>編輯</button><button>刪除</button>'
+                    },
+
+                    {
+                        num:2,
+                        f_username:'小丹尼',
+                        f_email:'danny@jumper.com',
+                        f_question:'小丹尼希望導遊陪人家玩啦！！！',
+                        f_createdat:'2023/12/31',
+                        f_isreply: '未回覆',
+                        f_function:'<button>編輯</button><button>刪除</button>'
+                    },
+                    {
+                        num:3,
+                        f_username:'莎拉公主',
+                        f_email:'sala@jumper.com',
+                        f_question:'旅程可以多一些購物行程嗎？',
+                        f_createdat:'2023/12/31',
+                        f_isreply: '未回覆',
+                        f_function:'<button>編輯</button><button>刪除</button>'
+                    },
+                    {
+                        num:4,
+                        f_username:'金貝貝',
+                        f_email:'kingbaby@jumper.com',
+                        f_question:'咿咿呀呀呀咿呀咿呀呀呀呀呀',
+                        f_createdat:'2023/12/31',
+                        f_isreply: '已回覆',
+                        f_function:'<button>編輯</button><button>刪除</button>'
+                    },
+                    ],
+                }
+        }, 
+};
 
         const Member = {
             template: `
@@ -449,8 +475,8 @@
             <div class="temp2">
                 <h3>旅程申請審核</h3>
                 <label>
-                   <input type="text" name="adm_query" placeholder="輸入旅程名稱">
-                   <img src="../images/icon/search.svg" alt="">
+                    <input type="text" name="adm_query" placeholder="輸入旅程名稱" v-model="search">
+                    <img src="../images/icon/search.svg" alt="">
                 </label>
                 <table>
                     <tr>
@@ -464,63 +490,105 @@
                         <th>價格</th>
                         <th>勾選</th>
                     </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>Carlos</td>
-                        <td class="textContent2">環遊世界180天遊覽巴黎全景一次兩次三次四次五次六次七次八次九次十次</td>
-                        <td class="textContent3">我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容我是旅程內容</td>
-                        <td>2022 Jun25 15:00</td>
-                        <td>10</td>
-                        <td>否</td>
-                        <td>$1000</td>
+                    <tr v-for="trip in filterList">
+                        <td v-text="trip.num"></td>
+                        <td v-text="trip.t_owner">Carlos</td>
+                        <td v-text="trip.t_title" class="textContent2"></td>
+                        <td v-text="trip.t_content" class="textContent3"></td>
+                        <td v-text="trip.t_startedat"></td>
+                        <td v-text="trip.t_numlimit"></td>
+                        <td v-text="trip.t_isgroup"></td>
+                        <td v-text="trip.t_price"></td>
                         <td><input type="checkbox" name=""></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Carlos</td>
-                        <td>環遊世界180天</td>
-                        <td>我是旅程內容</td>
-                        <td>2022 Jun25 15:00</td>
-                        <td>10</td>
-                        <td>否</td>
-                        <td>$1000</td>
-                        <td><input type="checkbox"></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Carlos</td>
-                        <td>環遊世界180天</td>
-                        <td>我是旅程內容</td>
-                        <td>2022 Jun25 15:00</td>
-                        <td>10</td>
-                        <td>否</td>
-                        <td>$1000</td>
-                        <td><input type="checkbox" ></td>
                     </tr>
 
                 </table>
                 <button class="reject">退件</button>
                 <div class="pager2">
-                            <ul>
-                                <li><a href="">&lt;</a></li>
-                                <li><a href="" class="-on">1</a></li>
-                                <li><a href="">2</a></li>
-                                <li><a href="">3</a></li>
-                                <li><a href="">4</a></li>
-                                <li><a href="">5</a></li>
-                                <li><a href="">&gt;</a></li>
-                            </ul>
-                        </div>
+                        <ul>
+                            <li><a href="">&lt;</a></li>
+                            <li><a href="" class="-on">1</a></li>
+                            <li><a href="">2</a></li>
+                            <li><a href="">3</a></li>
+                            <li><a href="">4</a></li>
+                            <li><a href="">5</a></li>
+                            <li><a href="">&gt;</a></li>
+                        </ul>
+                </div>
             </div>
-             ` }
+            `,
+            data(){
+                return{
+                    search:'',
+                    data:[
+                        {
+                            num:1,
+                            t_owner:'錢夫人',
+                            t_title:'自由女神朝聖之旅',
+                            t_content:'紐約最美麗的地標，一起來一睹她美麗的風采',
+                            t_startedat:'2023/12/31',
+                            t_numlimit:'20',
+                            t_isgroup: false,
+                            t_price:'599',
+                            t_ischeck: false,
+                        },
+                        {
+                            num:2,
+                            t_owner:'糖糖',
+                            t_title:'紐西蘭自然體驗',
+                            t_content:'該體驗從農場現場直播，並將首先介紹新西蘭',
+                            t_startedat:'2023/12/31',
+                            t_numlimit:'20',
+                            t_isgroup: false,
+                            t_price:'599',
+                            t_ischeck: false,
+                        },
+                        {
+                            num:3,
+                            t_owner:'宮本寶藏',
+                            t_title:'京都森林浴',
+                            t_content:'大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。',
+                            t_startedat:'2023/12/31',
+                            t_numlimit:'20',
+                            t_isgroup: false,
+                            t_price:'599',
+                            t_ischeck: false,
+                        },
+                        {
+                            num:4,
+                            t_owner:'金貝貝',
+                            t_title:'環遊世界180天遊覽',
+                            t_content:'咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀',
+                            t_startedat:'2023/12/31',
+                            t_numlimit:'20',
+                            t_isgroup: false,
+                            t_price:'599',
+                            t_ischeck: false,
+                        },
+                    ],
+                }
+            },
+            computed: {
+                filterList(){ //搜尋功能
+                    return this.data.filter((trip) => { //把data送下來使用filter功能
+                        return trip.t_title.includes(this.search);
+                    })
+                },
+            },
+        }
 
         const OrderList = {
             template: `
             <div class="temp2">
                 <h3>訂單管理</h3>
                 <label>
+<<<<<<< HEAD
                    <input type="text" name="adm_query" placeholder="輸入訂單編號" v-model="search">
                    <img src="../images/icon/search.svg" alt="">
+=======
+                    <input type="text" name="adm_query" placeholder="輸入訂單編號" v-model="search">
+                    <img src="../images/icon/search.svg" alt="">
+>>>>>>> 316de57d6e04164357d7efa0a62d0c563936a528
                 </label>
                 <table>
                     <tr>
@@ -532,11 +600,19 @@
                         <th>功能</th>
                     </tr>
                     <tr v-for="order in filterList">
+<<<<<<< HEAD
                         <td v-text="order.ID"></td>
                         <td v-text="order.member_ID"></td>
                         <td v-text="'$'+ order.price"></td>
                         <td v-text="order.is_alerted"></td>
                         <td v-text="order.created_at"></td>
+=======
+                        <td v-text="order.o_num"></td>
+                        <td v-text="order.o_memberid"></td>
+                        <td v-text="order.o_numlimit"></td>
+                        <td v-text="order.o_issend"></td>
+                        <td v-text="order.o_createdat"></td>
+>>>>>>> 316de57d6e04164357d7efa0a62d0c563936a528
                         <td><button class="sendLink">發送連結</button></td>
                     </tr>
                 </table>
@@ -549,11 +625,12 @@
                         <li><a href="">4</a></li>
                         <li><a href="">5</a></li>
                         <li><a href="">&gt;</a></li>
-                     </ul>
+                        </ul>
                 </div>
             </div>
 
             `,
+<<<<<<< HEAD
             data() {
                 return {
                     search:'',
@@ -573,6 +650,51 @@
             },
         };
 
+=======
+            data(){
+                return{
+                    search:'',
+                    data:[
+                        {
+                            o_num:'order001',
+                            o_memberid:'abei',
+                            o_numlimit:'20',
+                            o_issend: false,
+                            o_createdat:'2023/12/31',
+                        },
+                        {
+                            o_num:'order002',
+                            o_memberid:'mei',
+                            o_numlimit:'20',
+                            o_issend: false,
+                            o_createdat:'2023/12/31',
+                        },
+                        {
+                            o_num:'order003',
+                            o_memberid:'kingbaby',
+                            o_numlimit:'20',
+                            o_issend: false,
+                            o_createdat:'2023/12/31',
+                        },
+                        {
+                            o_num:'order004',
+                            o_memberid:'mei',
+                            o_numlimit:'20',
+                            o_issend: false,
+                            o_createdat:'2023/12/31',
+                        },
+                    ],
+                }
+            },
+            computed: {
+                filterList(){ //搜尋功能
+                    return this.data.filter((order) => { //把data送下來使用filter功能
+                        return order.o_num.includes(this.search);
+                    })
+                },
+            },
+        }
+>>>>>>> 316de57d6e04164357d7efa0a62d0c563936a528
         const CommentCheck = {
             data() {
                 return {
@@ -760,9 +882,7 @@
         new Vue({
             el: '#app',
             router,
-            mounted() {
-
-            },
+  
         });
     </script>
 

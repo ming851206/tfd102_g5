@@ -190,7 +190,6 @@ $passportW: 402;
 
     #game_word {
         display: none;
-
         @include xs {
             display: block;
             position: relative;
@@ -355,7 +354,8 @@ $passportW: 402;
     }
 
     .game_question {
-        display: none;
+        // display: none;
+        animation: zoom_in 1s ease 1.8s both;
         @include total_center;
         z-index: 12;
         background-color: whitesmoke;
@@ -492,6 +492,9 @@ $passportW: 402;
                             font-size: 16px;
                         }
                     }
+                    .clicked{
+                        background-color: "rgba(0,0,0,0.06)";
+                    }
                 }
 
                 .ans_confirm {
@@ -612,7 +615,7 @@ $passportW: 402;
     }
 
     .game_result_overlay {
-        display: none;
+        // display: none;
         z-index: 10;
         @include all_zero(fixed) {
             height: calc(100vh - 85px);
@@ -979,4 +982,22 @@ $passportW: 402;
     #the_footer {
         display: none;
     }
+}
+.v-leave {
+    opacity: 1;
+}
+.v-leave-active {
+    transition: opacity 1.2s;
+}
+.v-leave-to {
+    opacity: 0;
+}
+.v-enter {
+    opacity: 0;
+}
+.v-enter-active {
+transition: opacity 1.2s;
+}
+.v-enter-to {
+    opacity: 1;
 }
