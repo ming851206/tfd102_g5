@@ -8,7 +8,7 @@ $sql = "SELECT * FROM member WHERE ID = ? ";
 
 //執行
 $statement = getPDO()->prepare($sql);
- $statement->bindValue(1,2);
+ $statement->bindValue(1,1);
 $statement->execute();
 $data = $statement->fetchAll();
 
