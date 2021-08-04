@@ -871,9 +871,13 @@ body {
         width: 100%;
 
         .item {
+            // border: 2px solid red;
             width: 25%;
             padding: 5px;
 
+            &:hover{
+                transform: scale(1.02);
+            }
             @include mobile {
                 width: 50%;
 
@@ -992,7 +996,7 @@ body {
 
 
 .owl-item .item {
-    // border: 2px solid brown;
+    // border: 2px solid green;
     border-radius: $borderRadius_cd;
     width: 100%;
     height: 350px;
