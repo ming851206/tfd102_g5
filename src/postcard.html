@@ -95,46 +95,38 @@
                 <!-- card -->
                 <div class="choose_card_block">
                     <div class="card_block" @click="changeindex">
-                        <img src="./images/postcard/225/arcit01_550-320.jpg" alt="">
-                        <p>北極-看看北極熊</p>
-                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
+                        <img @click="change_picture = './images/postcard/1280/arcit01_1280-715.jpg'" src="./images/postcard/1280/arcit01_1280-715.jpg" alt="">
+                        <p>北極 - 看看北極熊</p>
                     </div>
                     <div class="card_block" @click="changeindex">
-                        <img src="./images/postcard/225/australia01_550-320.jpg" alt="">
-                        <p>澳洲－雪梨歌劇院</p>
-                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
+                        <img @click="change_picture = './images/postcard/1280/australia01_1280-715.jpg'" src="./images/postcard/1280/australia01_1280-715.jpg" alt="">
+                        <p>澳洲 - 雪梨歌劇院</p>
                     </div>
                     <div class="card_block" @click="changeindex">
-                        <img src="./images/postcard/225/finland01_550-320.jpg" alt="">
-                        <p>芬蘭－極光冰雪世界</p>
-                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
+                        <img @click="change_picture = './images/postcard/1280/finland01_1280-715.jpg'" src="./images/postcard/1280/finland01_1280-715.jpg" alt="">
+                        <p>芬蘭 - 極光冰雪世界</p>
                     </div>
                     <div class="card_block" @click="changeindex">
-                        <img src="./images/postcard/225/japan02_550-320.jpg" alt="">
-                        <p>日本－櫻花花語</p>
-                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
+                        <img @click="change_picture = './images/postcard/1280/japan01_1280-715.jpg'" src="./images/postcard/1280/japan01_1280-715.jpg" alt="">
+                        <p>日本 - 櫻花花語</p>
                     </div>
                 </div>
                 <div class="choose_card_block" @click="changeindex">
                     <div class="card_block">
-                        <img src="./images/postcard/225/maldives02_550-320.jpg" alt="">
-                        <p>北極-看看北極熊</p>
-                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
+                        <img @click="change_picture = './images/postcard/1280/africa01_1280-715.jpg'" src="./images/postcard/1280/africa01_1280-715.jpg" alt="">
+                        <p>非洲 - 斑馬在看你</p>
                     </div>
                     <div class="card_block" @click="changeindex">
-                        <img src="./images/postcard/225/uk01_550-320.jpg" alt="">
-                        <p>北極－冰雪世界</p>
-                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
+                        <img @click="change_picture = './images/postcard/1280/egypt01_1280-715.jpg'" src="./images/postcard/1280/egypt01_1280-715.jpg" alt="">
+                        <p>埃及 - 金字塔的秘密</p>
                     </div>
                     <div class="card_block" @click="changeindex">
-                        <img src="./images/postcard/225/china01_550-320.jpg" alt="">
-                        <p>北極－冰雪世界</p>
-                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
+                        <img @click="change_picture = './images/postcard/1280/china01_1280-715.jpg'" src="./images/postcard/1280/china01_1280-715.jpg" alt="">
+                        <p>中國 - 最長的長城</p>
                     </div>
                     <div class="card_block" @click="changeindex">
-                        <img src="./images/postcard/225/france01_550-320.jpg" alt="">
-                        <p>法國－亞歷山大三世橋</p>
-                        <!-- <button type="button" class="btnM" id="pickMe">選我</button> -->
+                        <img @click="change_picture = './images/postcard/1280/france011280-715.jpg'" src="./images/postcard/1280/france011280-715.jpg" alt="">
+                        <p>法國 - 亞歷山大三世橋</p>
                     </div>
                 </div>
             </div>
@@ -169,6 +161,7 @@
             <!-- 明信片-->
             <div class="postcardStart_block">
     
+                <!-- <div class="Img_bg" :style="background-image:'change_picture'"> -->
                 <div class="Img_bg">
                     <!-- 明信片 -->
                     <div class="main_writting_block">
@@ -228,10 +221,9 @@
                                 </div>
                                 <!-- @click="typeTo_area" -->
                                 <div class="typeTo_block">
-                                    <textarea class="sentTO_People" @click="remove_dis" rows="5" cols="25" maxlength="10" v-model="tkinfoTo"> TO : </textarea>
-                                    
+                                    <textarea class="sentTO_People" @click="remove_dis" rows="5" cols="25" maxlength="15" v-model="tkinfoTo" v-model="message"> TO : </textarea>
                                 </div>
-                                <p id="feedback">{{texsumTo}}/10</p>
+                                <p>{{texsumTo}}/15</p>
                             </div>
 
                             
@@ -251,7 +243,7 @@
                             <div class="stamp_container">
                                 <h3>選擇喜歡的郵票</h3>
                                 <div class="stamp_5">
-                                    <img @click="change__stamp_IMG = '/images/postcard/stamp/stamp1.png'" id="stamp_1" src="./images/postcard/stamp/stamp1.png" alt="">
+                                    <img @click="change__stamp_IMG = './images/postcard/stamp/stamp1.png'" id="stamp_1" src="./images/postcard/stamp/stamp1.png" alt="">
                                     <img @click="change__stamp_IMG = './images/postcard/stamp/stamp2.png'" id="stamp_2" src="./images/postcard/stamp/stamp2.png" alt="">
                                     <img @click="change__stamp_IMG = './images/postcard/stamp/stamp3.png'" id="stamp_3" src="./images/postcard/stamp/stamp3.png" alt="">
                                     <img @click="change__stamp_IMG = './images/postcard/stamp/stamp4.png'" id="stamp_4" src="./images/postcard/stamp/stamp4.png" alt="">
@@ -268,6 +260,8 @@
                 </div>
         
         </div>
+
+
         <!-- 明信片 完成 -->
         <div class="postcard_page_change" v-else-if="index == 4">
             <!-- 進度區 -->
@@ -327,7 +321,7 @@
                             <!-- 收件者info -->
                             <div class="sentTO_block">
                                 <div class="typeTo_block">
-                                    <textarea class="sentTO_People"> TO : </textarea>
+                                    <textarea class="sentTO_People"> {{message}} </textarea>
                                 </div>
                             </div>
                         </div>
@@ -337,7 +331,7 @@
                     <!-- 明信片背面照片 -->
                     <div class="main_IMG_block" v-else>
                         <div class="IMG_block">
-                            <img src="./images/postcard/650/africa01_1300-900.jpg" alt="">
+                            <img :src="change_picture" alt="">
                         </div>
                     </div>
         
@@ -401,12 +395,17 @@
                 index: 1,
                 
                 change__stamp_IMG: './images/postcard/stamp/stamp1.png',
-                // change__stamp_IMG: '',
-                
+                change_picture: './images/postcard/1280/china01_1280-715.jpg',
+                // Img_bg: {
+                //     backgroundImage: "url(" + require("../../images/postcard/1280/africa01_1280-715.jpg") + ")",
+                // },
+
                 tkinfotest: '',
                 texsum: 0,
                 tkinfoTo:'',
                 texsumTo: 0,
+
+                message: '',
                 }
 
             },
@@ -416,7 +415,7 @@
                 },
                 tkinfoTo(){
                     this.texsumTo = this.tkinfoTo.length;
-                }
+                },
             },
             methods: {  //函數（方法）大部分放這裡
                 // 照片正反切換               
@@ -485,11 +484,6 @@
             },
         });
 
-
-        function doFirst(){
-            let paperList = document.querySelectorAll('.postcardPaper');
-            
-        }
         // 第一頁文字淡出
         $(document).ready(function(){
             $('.textblock h2').animate({opacity: '1'}, 3000);
