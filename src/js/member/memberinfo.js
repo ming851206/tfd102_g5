@@ -185,17 +185,36 @@ const MemberInfo = {
         }
     },
     mounted() {
+        axios.get('../../php/member.php').then(res => {
+            console.log(res.data);
+
+            console.log(res.data[0]);
+            let data = res.data[0];
+            this.values[0].val = data.name;
+
+            this.values[2].val = data.birthday;
+            this.values[3].val = data.phone;
+
+            this.values[5].val = data.password;
+
+        });
+
         let passwdlength = this.values[5].val.length;
         for (let i = 0; i < passwdlength; i++) {
             this.passwdwd += '*';
         }
+
         this.gender = this.values[1].val;
         this.CachePasswd = this.values[5].val;
         this.CacheCheckPasswd = this.values[5].val;
+
+
     },
     updated() {
         let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
         $("#memberSpace").css("height", height);
+
+
     }
 
 };
