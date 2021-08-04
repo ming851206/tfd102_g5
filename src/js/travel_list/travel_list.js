@@ -177,24 +177,8 @@ Vue.component('all', {
                                         <img src="./images/avatar/avatar.jpg">
                                     </div>
                                     <div class="the_icon">
-                                        <div class="share">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                                viewBox="0 0 13.846 15.824">
-                                                <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                    d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                    fill="rgba(0,0,0,0.8)" />
-                                            </svg>
-                                        </div>
-                                        <div class="fav">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                                viewBox="0 0 20.143 17.824">
-                                                <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                    d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                    transform="translate(-1.323 -3.497)" fill="none"
-                                                    stroke="rgba(0,0,0,0.8)" stroke-linecap="round" stroke-linejoin="round"
-                                                    stroke-width="2" />
-                                            </svg>
-                                        </div>
+                                        <div class="share"></div>
+                                        <div class="fav" @click="changeiColor"></div>
                                     </div>
                                     <div class="the_star_num">
                                         <div>
@@ -223,24 +207,8 @@ Vue.component('all', {
                                             <img src="./images/avatar/avatar1.jpg">
                                         </div>
                                         <div class="the_icon">
-                                            <div class="share">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                                    viewBox="0 0 13.846 15.824">
-                                                    <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                        d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                        fill="rgba(0,0,0,0.8)" />
-                                                </svg>
-                                            </div>
-                                            <div class="fav">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                                    viewBox="0 0 20.143 17.824">
-                                                    <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                        d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                        transform="translate(-1.323 -3.497)" fill="none"
-                                                        stroke="rgba(0,0,0,0.8)" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2" />
-                                                </svg>
-                                            </div>
+                                        <div class="share"></div>
+                                        <div class="fav" @click="changeiColor"></div>
                                         </div>
                                         <div class="the_star_num">
                                             <img src="./images/index/content/star.svg">
@@ -267,24 +235,8 @@ Vue.component('all', {
                                             <img src="./images/avatar/avatar21.jpg">
                                         </div>
                                         <div class="the_icon">
-                                            <div class="share">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                                    viewBox="0 0 13.846 15.824">
-                                                    <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                        d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                        fill="rgba(0,0,0,0.8)" />
-                                                </svg>
-                                            </div>
-                                            <div class="fav">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                                    viewBox="0 0 20.143 17.824">
-                                                    <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                        d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                        transform="translate(-1.323 -3.497)" fill="none"
-                                                        stroke="rgba(0,0,0,0.8)" stroke-linecap="round"
-                                                        stroke-linejoin="round" stroke-width="2" />
-                                                </svg>
-                                            </div>
+                                            <div class="share"></div>
+                                            <div class="fav" @click="changeiColor"></div>
                                         </div>
                                         <div class="the_star_num">
                                             <img src="./images/index/content/star.svg">
@@ -317,23 +269,8 @@ Vue.component('all', {
                                     <img :src="item.avatar">
                                 </div>
                                 <div class="the_icon">
-                                    <div class="share">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                            viewBox="0 0 13.846 15.824">
-                                            <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                fill="rgba(0,0,0,0.8)" />
-                                        </svg>
-                                    </div>
-                                    <div class="fav">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                            viewBox="0 0 20.143 17.824">
-                                            <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                        </svg>
-                                    </div>
+                                    <div class="share"></div>
+                                    <div class="fav" @click="changeiColor"></div>
                                 </div>
                                 <div class="the_star_num">
                                     <img src="./images/index/content/star.svg">
@@ -357,7 +294,7 @@ Vue.component('all', {
                 </div>
                 <ul class="owl-carousel owl-theme" id="bigcard">
                     <li v-for="item in maintrip_items" :id="item.id" class="item">
-                                  <a :href="item.link">
+                                <a :href="item.link">
                                 <div class="trip_item">
                                     <img :src="item.cover_img">
 
@@ -386,23 +323,8 @@ Vue.component('all', {
                                             <img :src="item.avatar">
                                         </div>
                                         <div class="the_icon">
-                                            <div class="share">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                                    viewBox="0 0 13.846 15.824">
-                                                    <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                                        d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                                        fill="rgba(0,0,0,0.8)" />
-                                                </svg>
-                                            </div>
-                                            <div class="fav">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                                    viewBox="0 0 20.143 17.824">
-                                                    <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                                        d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                                        transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                                </svg>
-                                            </div>
+                                            <div class="share"></div>
+                                            <div class="fav" @click="changeiColor"></div>
                                         </div>
                                         <div class="the_star_num">
                                             <img src="./images/index/content/star.svg">
@@ -421,6 +343,14 @@ Vue.component('all', {
          </div>
     </div>
     `,
+    methods: {
+        changeiColor(e){
+            e.preventDefault();
+            // console.log(e.target);
+            e.target.classList.toggle('clicked');
+            
+        }
+    },
 });
 
 Vue.component('us', {
@@ -457,23 +387,8 @@ Vue.component('us', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                        viewBox="0 0 13.846 15.824">
-                                        <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                            d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                            fill="rgba(0,0,0,0.8)" />
-                                    </svg>
-                                </div>
-                                <div class="fav">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                        viewBox="0 0 20.143 17.824">
-                                        <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                            d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                            transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                    </svg>
-                                </div>
+                                <div class="share"></div>
+                                <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -491,6 +406,14 @@ Vue.component('us', {
         </ul>
     </div>
     `,
+    methods: {
+        changeiColor(e){
+            e.preventDefault();
+            // console.log(e.target);
+            e.target.classList.toggle('clicked');
+            
+        }
+    },
 });
 
 Vue.component('eu', {
@@ -548,23 +471,8 @@ Vue.component('eu', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                        viewBox="0 0 13.846 15.824">
-                                        <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                            d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                            fill="rgba(0,0,0,0.8)" />
-                                    </svg>
-                                </div>
-                                <div class="fav">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                        viewBox="0 0 20.143 17.824">
-                                        <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                            d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                            transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                    </svg>
-                                </div>
+                                <div class="share"></div>
+                                <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -582,6 +490,14 @@ Vue.component('eu', {
         </ul>
     </div>
     `,
+    methods: {
+        changeiColor(e){
+            e.preventDefault();
+            // console.log(e.target);
+            e.target.classList.toggle('clicked');
+            
+        }
+    },
 });
 
 Vue.component('as', {
@@ -617,23 +533,8 @@ Vue.component('as', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                        viewBox="0 0 13.846 15.824">
-                                        <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                            d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                            fill="rgba(0,0,0,0.8)" />
-                                    </svg>
-                                </div>
-                                <div class="fav">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                        viewBox="0 0 20.143 17.824">
-                                        <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                            d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                            transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                    </svg>
-                                </div>
+                                <div class="share"></div>
+                                <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -651,6 +552,14 @@ Vue.component('as', {
         </ul>
     </div>
     `,
+    methods: {
+        changeiColor(e){
+            e.preventDefault();
+            // console.log(e.target);
+            e.target.classList.toggle('clicked');
+            
+        }
+    },
 });
 Vue.component('af', {
     data() {
@@ -685,23 +594,8 @@ Vue.component('af', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                        viewBox="0 0 13.846 15.824">
-                                        <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                            d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                            fill="rgba(0,0,0,0.8)" />
-                                    </svg>
-                                </div>
-                                <div class="fav">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                        viewBox="0 0 20.143 17.824">
-                                        <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                            d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                            transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                    </svg>
-                                </div>
+                                <div class="share"></div>
+                                <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -719,6 +613,14 @@ Vue.component('af', {
         </ul>
     </div>
     `,
+    methods: {
+        changeiColor(e){
+            e.preventDefault();
+            // console.log(e.target);
+            e.target.classList.toggle('clicked');
+            
+        }
+    },
 });
 
 Vue.component('oc', {
@@ -810,23 +712,8 @@ Vue.component('oc', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.846" height="15.824"
-                                        viewBox="0 0 13.846 15.824">
-                                        <path id="Icon_awesome-share-alt" data-name="Icon awesome-share-alt"
-                                            d="M10.879,9.89a2.954,2.954,0,0,0-1.848.646L5.864,8.556a2.984,2.984,0,0,0,0-1.288l3.168-1.98A2.962,2.962,0,1,0,7.982,3.611L4.815,5.591a2.967,2.967,0,1,0,0,4.642l3.168,1.98a2.967,2.967,0,1,0,2.9-2.323Z"
-                                            fill="rgba(0,0,0,0.8)" />
-                                    </svg>
-                                </div>
-                                <div class="fav">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20.143" height="17.824"
-                                        viewBox="0 0 20.143 17.824">
-                                        <path id="Icon_feather-heart" data-name="Icon feather-heart"
-                                            d="M19.067,5.9a4.774,4.774,0,0,0-6.753,0l-.92.92-.92-.92a4.775,4.775,0,1,0-6.753,6.753l.92.92,6.753,6.753,6.753-6.753.92-.92a4.774,4.774,0,0,0,0-6.753Z"
-                                            transform="translate(-1.323 -3.497)" fill="none" stroke="rgba(0,0,0,0.8)"
-                                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                                    </svg>
-                                </div>
+                                <div class="share"></div>
+                                <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -844,6 +731,14 @@ Vue.component('oc', {
         </ul>
     </div>
     `,
+    methods: {
+        changeiColor(e){
+            e.preventDefault();
+            // console.log(e.target);
+            e.target.classList.toggle('clicked');
+            
+        }
+    },
 });
 
 // $(選取).處理();
@@ -885,6 +780,7 @@ $(document).ready(function () {
     });
 });
 
+
 $("#go_the_top").click(function () {
     $("html, body").animate({
         scrollTop: 0,
@@ -907,5 +803,7 @@ function customize() {
         inputValue: 400
     })
 }
+
+
 
 
