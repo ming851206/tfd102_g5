@@ -185,8 +185,10 @@
                                 </div>
                             </div>
                             <div class="writting_bg" @click="remove_art_h4">
-                                <textarea class="writting_area"></textarea>
+                                <textarea class="writting_area" rows="5" cols="25" maxlength="120" v-model="tkinfotest"></textarea>
+                                <p id="feedback">{{texsum}}/120</p>
                             </div>
+
                         </div>
         
                         <!-- 右邊 -->
@@ -201,8 +203,8 @@
                                     </svg>
                                 </div>
 
-                                <div class="stamp_block" @click="stamp_Sbtn" >
-                                    <img src="./images/postcard/stamp/stamp1.png" alt="">
+                                <div class="stamp_block" @click="stamp_Sbtn" id="stamp_block1ID">
+                                    <img :src="change__stamp_IMG" alt="">
                                     <!-- <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
                                         <g id="Group_293" data-name="Group 293" transform="translate(-1016 -414)">
                                             <circle id="Ellipse_46" data-name="Ellipse 46" cx="30" cy="30" r="30" transform="translate(1016 414)" fill="#fff"/>
@@ -226,8 +228,10 @@
                                 </div>
                                 <!-- @click="typeTo_area" -->
                                 <div class="typeTo_block">
-                                    <textarea class="sentTO_People" @click="remove_dis"> TO : </textarea>
+                                    <textarea class="sentTO_People" @click="remove_dis" rows="5" cols="25" maxlength="10" v-model="tkinfoTo"> TO : </textarea>
+                                    
                                 </div>
+                                <p id="feedback">{{texsumTo}}/10</p>
                             </div>
 
                             
@@ -247,11 +251,11 @@
                             <div class="stamp_container">
                                 <h3>選擇喜歡的郵票</h3>
                                 <div class="stamp_5">
-                                    <img src="./images/postcard/stamp/stamp1.png" alt="">
-                                    <img src="./images/postcard/stamp/stamp2.png" alt="">
-                                    <img src="./images/postcard/stamp/stamp3.png" alt="">
-                                    <img src="./images/postcard/stamp/stamp4.png" alt="">
-                                    <img src="./images/postcard/stamp/stamp5.png" alt="">
+                                    <img @click="change__stamp_IMG = '/images/postcard/stamp/stamp1.png'" id="stamp_1" src="./images/postcard/stamp/stamp1.png" alt="">
+                                    <img @click="change__stamp_IMG = './images/postcard/stamp/stamp2.png'" id="stamp_2" src="./images/postcard/stamp/stamp2.png" alt="">
+                                    <img @click="change__stamp_IMG = './images/postcard/stamp/stamp3.png'" id="stamp_3" src="./images/postcard/stamp/stamp3.png" alt="">
+                                    <img @click="change__stamp_IMG = './images/postcard/stamp/stamp4.png'" id="stamp_4" src="./images/postcard/stamp/stamp4.png" alt="">
+                                    <img @click="change__stamp_IMG = './images/postcard/stamp/stamp5.png'" id="stamp_4.5" src="./images/postcard/stamp/stamp5.png" alt="">
                                 </div>
                                 <div class="stamp_next_btn" @click="stamp_Sbtn">
                                     <button type="button"  class="btnM" id="next">確定</button>
@@ -311,8 +315,9 @@
                             <!-- 郵票 -->
                             <div class="choose_stamp_block" >
 
-                                <div class="stamp_block">
-                                    <img src="./images/postcard/stamp/stamp1.png" alt="">
+                                <div class="stamp_block" style="opacity: 1;">
+                                    <img :src="change__stamp_IMG" alt="">
+
                                 </div>
                                 <div class="seal_block">
                                     <img src="./images/logo/logo-circle.png" alt="">
@@ -395,13 +400,23 @@
                 // 同頁面切換
                 index: 1,
                 
-                // typeTo_Fadeout: '',
-
-                }
+                change__stamp_IMG: './images/postcard/stamp/stamp1.png',
+                // change__stamp_IMG: '',
                 
+                tkinfotest: '',
+                texsum: 0,
+                tkinfoTo:'',
+                texsumTo: 0,
+                }
+
             },
             watch: {
-                
+                tkinfotest(){
+                    this.texsum = this.tkinfotest.length;
+                },
+                tkinfoTo(){
+                    this.texsumTo = this.tkinfoTo.length;
+                }
             },
             methods: {  //函數（方法）大部分放這裡
                 // 照片正反切換               
@@ -470,6 +485,11 @@
             },
         });
 
+
+        function doFirst(){
+            let paperList = document.querySelectorAll('.postcardPaper');
+            
+        }
         // 第一頁文字淡出
         $(document).ready(function(){
             $('.textblock h2').animate({opacity: '1'}, 3000);
