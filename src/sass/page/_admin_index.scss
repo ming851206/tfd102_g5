@@ -248,6 +248,8 @@
 
                 table {
                     @include tableSet;
+                    // width: 1200px;
+                    // margin: 10px 0px 20px 25px;
                     .textContent {
                         width: 270px;
                     }
@@ -270,6 +272,21 @@
                             background-color: darken(rgb(255, 204, 204),10%);
                         }
                     }
+                    button.cancel {
+                        background-color:rgb(173, 171, 171);
+                        cursor: pointer;
+                        &:active,&:visited{
+                            background-color: darken(rgb(173, 171, 171),10%);
+                        }
+                    }
+                    button.confirm {
+                        background-color: rgb(190, 255, 255);
+                        cursor: pointer;
+                        &:active,&:visited{
+                            background-color: darken(rgb(190, 255, 255),10%);
+                        }
+                        margin-right: 0;
+                    }
                     tr{
                         th{
                             padding: 13px 8px;
@@ -284,6 +301,43 @@
                             background-position: left 30px top 13px;
                             cursor: pointer;
                         }
+                        td{
+                            input{
+                                @include border($sec_br);
+                                margin: 0;
+                                padding: 0px!important;
+                                width: 100%;
+                                border-radius: $borderRadius_m_btn;
+                                font-size: 16px;
+                    
+                                &:focus {
+                                    border: 2px solid $sec_br;
+                                    outline: none;
+                                }
+                            }
+                        }
+                        td.cName{
+                            border: 2px solid red;
+                            width: 140px,
+                        }
+                        td.cCode{
+                            // border: 2px solid red;
+                            width: 120px,
+                        }
+                        td.cCome, td.cDiscount{
+                            // border: 2px solid red;
+                            width: 60px,
+                        }
+                        td.cExpire, td.cCreate{
+                            // border: 2px solid red;
+                            width: 120px,
+                        }
+                 
+                        td.chk_btns{
+                            display: flex;
+                            // border: 2px solid blue;
+                            padding: 0px;
+                        }       
                     }
                   
                 }
