@@ -75,7 +75,7 @@
     top: 0;
     left: 0;
     margin: 0 auto;
-    border: 1px solid red;
+    // border: 1px solid red;
     @include mobile{
         margin-bottom: 100px;
     }
@@ -287,6 +287,8 @@
             }
             >img{
                 width: 100%;
+                height: 100%;
+                object-fit: cover;
             }
             >p{
                 margin: 20px 0 20px 0;
@@ -599,7 +601,7 @@
     // border: 3px solid blue;
     display: flex;
     // height: 100vh;
-    background-color: red;
+    background-color: $main_ivory;
     // height: 500px;
     @include tablet{
         width: 80%;
@@ -611,9 +613,12 @@
         width: 100%;
     }
 
+
     .IMG_block{
-        border: 1px solid red;
+        // border: 1px solid red;
         width: 100%;
+        height: 100%;
+        object-fit: cover;
         margin: 10px;
 
         @include mobile{
