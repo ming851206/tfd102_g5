@@ -37,7 +37,7 @@
 
     <script>
         Vue.use(VueRouter);
-
+        // ========== 旅程管理 ========== 
         const Trip = {
             template: `
                 <div>
@@ -48,7 +48,7 @@
                     <router-view></router-view>
                 </div>
         ` };
-
+        // ========== 旅程訂單管理 ========== 
         const Order = {
             template: `
                 <div>
@@ -59,7 +59,7 @@
                     <router-view></router-view>
                 </div>
         ` };
-
+        // ========== 優惠券管理 ========== 
         const Coupon = {
             template: `
                 <div class="temp">
@@ -79,12 +79,13 @@
                                     <th>優惠券名稱</th>
                                     <th>優惠券內容</th>
                                     <th>優惠碼</th>
-                                    <th>折扣比例</th>
+                                    <th>比例</th>
                                     <th>使用期限</th>
-                                    <th>優惠券來源</th>
+                                    <th>來源</th>
                                     <th>建立時間</th>
                                     <th>功能</th>
                                 </tr>
+<<<<<<< Updated upstream:admin/adm_index.html
                                 <tr>
                                     <td>1</td>
                                     <td>這夏有福了</td>
@@ -167,6 +168,30 @@
                                     <td>
                                         <button>編輯</button>
                                         <button>刪除</button>
+=======
+                                <tr v-for="coupon in filterList" v-if="editType==false">
+                                    <td v-text="coupon.num" ></td>
+                                    <td v-text="coupon.c_name"></td>
+                                    <td v-text="coupon.c_content" class="cContent"></td>
+                                    <td v-text="coupon.c_code"></td>
+                                    <td v-text="coupon.c_discount"></td>
+                                    <td v-text="coupon.c_expire"></td>
+                                    <td v-text="coupon.c_come"></td>
+                                    <td v-text="coupon.c_create"></td>
+                                    <td v-if="editType==false"><button @click="edit">編輯</button><button>刪除</button></td>
+                                    </td>
+                                </tr>
+                                <tr v-for="coupon in filterList" v-else>
+                                    <td v-text="coupon.num"></td>
+                                    <td><input :value="coupon.c_name"></td>
+                                    <td class="cContent"><input :value="coupon.c_content"></td>
+                                    <td class="cCode"><input :value="coupon.c_code"></td>
+                                    <td class="cDiscount"><input :value="coupon.c_discount"></td>
+                                    <td class="cExpire"><input :value="coupon.c_expire"></td>
+                                    <td class="cCome"><input :value="coupon.c_come"></td>
+                                    <td class="cCreate"v-text="coupon.c_create"></td>
+                                    <td><button class="cancel" @click="cancel">取消</button><button class="confirm" @click="confirm">確認</button></td>
+>>>>>>> Stashed changes:src/admin/adm_index.html
                                     </td>
                                 </tr>
                             </table>
@@ -182,8 +207,82 @@
                                 </ul>
                             </div>
                 </div>
+<<<<<<< Updated upstream:admin/adm_index.html
         ` };
 
+=======
+        `,
+            data() {
+                return {
+                    search: '',
+                    editType: false,
+                    editNum: null,
+                    data: [
+
+                        {
+                            num: 1,
+                            c_name: '這夏有福了',
+                            c_content: '優惠券內容',
+                            c_code: '優惠碼',
+                            c_discount: '9',
+                            c_expire: '2023/12/31',
+                            c_come: '1',
+                            c_create: '2022/12/31',
+                            is_active: false,
+                        },
+                        {
+                            num: 2,
+                            c_name: '這夏有打折了',
+                            c_content: '優惠券內容',
+                            c_code: '優惠碼',
+                            c_discount: '75',
+                            c_expire: '2023/12/31',
+                            c_come: '2',
+                            c_create: '2022/12/31',
+                            is_active: false,
+                        },
+                        {
+                            num: 3,
+                            c_name: '超級夏殺價',
+                            c_content: '優惠券內容優惠券內容',
+                            c_code: '優惠碼',
+                            c_discount: '75',
+                            c_expire: '2023/12/31',
+                            c_come: '1',
+                            c_create: '2022/12/31',
+                            is_active: false,
+                        },
+                    ],
+                }
+            },
+            methods: {
+                edit() {
+                    console.log(11111);
+                    this.editType = true;
+
+                    // this.editNum == coupon.num;
+                },
+                cancel() {
+                    this.editType = false;
+
+                    // this.editNum == null;
+                },
+                confirm() {
+                    this.editType = false;
+
+                    // this.editNum == null;
+                },
+            },
+            computed: {
+                filterList() { //搜尋功能
+                    return this.data.filter((coupon) => { //把data送下來使用filter功能
+                        return coupon.c_name.toLowerCase().includes(this.search.toLowerCase());
+                    })
+                },
+            },
+        };
+        // ========== 問題意見管理 ========== 
+>>>>>>> Stashed changes:src/admin/adm_index.html
         const Faq = {
             template: `
                 <div class="temp">
@@ -238,8 +337,57 @@
                             </ul>
                         </div>
                 </div>
+<<<<<<< Updated upstream:admin/adm_index.html
         ` };
 
+=======
+            `,
+            data() {
+                return {
+                    data: [
+                        {
+                            num: 1,
+                            f_username: '嗚咪',
+                            f_email: 'wumi@jumper.com',
+                            f_question: '嗚咪的老虎會出現在非洲嗎',
+                            f_createdat: '2023/12/31',
+                            f_isreply: '未回覆',
+                            f_function: '<button>編輯</button><button>刪除</button>'
+                        },
+
+                        {
+                            num: 2,
+                            f_username: '小丹尼',
+                            f_email: 'danny@jumper.com',
+                            f_question: '小丹尼希望導遊陪人家玩啦！！！',
+                            f_createdat: '2023/12/31',
+                            f_isreply: '未回覆',
+                            f_function: '<button>編輯</button><button>刪除</button>'
+                        },
+                        {
+                            num: 3,
+                            f_username: '莎拉公主',
+                            f_email: 'sala@jumper.com',
+                            f_question: '旅程可以多一些購物行程嗎？',
+                            f_createdat: '2023/12/31',
+                            f_isreply: '未回覆',
+                            f_function: '<button>編輯</button><button>刪除</button>'
+                        },
+                        {
+                            num: 4,
+                            f_username: '金貝貝',
+                            f_email: 'kingbaby@jumper.com',
+                            f_question: '咿咿呀呀呀咿呀咿呀呀呀呀呀',
+                            f_createdat: '2023/12/31',
+                            f_isreply: '已回覆',
+                            f_function: '<button>編輯</button><button>刪除</button>'
+                        },
+                    ],
+                }
+            },
+        };
+        // ========== 會員管理 ========== 
+>>>>>>> Stashed changes:src/admin/adm_index.html
         const Member = {
             template: `
             <div class="temp">
@@ -299,25 +447,28 @@
 
         //=====================================================
         //子元件
+        // ========== 旅程列表 ========== 
         const TripList = {
             template: `
                 <div class="temp2">
                     <h3>旅程列表</h3>
                     <label>
-                        <input type="text" name="adm_query" placeholder="輸入旅程名稱">
+                        <input type="text" name="adm_query" placeholder="輸入旅程名稱" v-model="search">
                         <img src="../images/icon/search.svg" alt="">
                     </label>
                     <table>
                         <tr>
                             <th>編號</th>
-                            <th>旅遊名稱</th>
                             <th>舉辦人</th>
+                            <th>旅遊名稱</th>
+                            <th>旅遊內容</th>
+                            <th>舉辦時間</th>
                             <th>人數限制</th>
                             <th>是否額滿</th>
-                            <th>舉辦時間</th>
                             <th>價格</th>
                             <th>功能</th>
                         </tr>
+<<<<<<< Updated upstream:admin/adm_index.html
                         <tr>
                             <td>1</td>
                             <td class="textContent2">遊覽巴黎全景一次兩次三次四次五次六次七次八次九次十次</td>
@@ -377,6 +528,18 @@
                             <td>2022 Jun25 15:00</td>
                             <td>$495</td>
                             <td><button class="revoke">下架</button></td>
+=======
+                            <tr v-for="trip in filterList" class="trans">
+                            <td v-text="trip.num"></td>
+                            <td v-text="trip.t_owner">Carlos</td>
+                            <td v-text="trip.t_title" class="textContent2"></td>
+                            <td v-text="trip.t_content" class="textContent3"></td>
+                            <td v-text="trip.t_startedat"></td>
+                            <td v-text="trip.t_numlimit"></td>
+                            <td v-text="trip.t_isgroup"></td>
+                            <td v-text="trip.t_price"></td>
+                            <td><button class="revoke" @click="revoke">下架</button></td>
+>>>>>>> Stashed changes:src/admin/adm_index.html
                         </tr>
                     </table>
 
@@ -392,7 +555,85 @@
                             </ul>
                         </div>
                 </div>
+<<<<<<< Updated upstream:admin/adm_index.html
         ` }
+=======
+        ` ,
+            data() {
+                return {
+                    search: '',
+                    data: [
+                        {
+                            num: 1,
+                            t_owner: '錢夫人',
+                            t_title: '自由女神朝聖之旅',
+                            t_content: '紐約最美麗的地標，一起來一睹她美麗的風采',
+                            t_startedat: '2023/12/31',
+                            t_numlimit: '20',
+                            t_isgroup: false,
+                            t_price: '599',
+                            t_ischeck: false,
+                        },
+                        {
+                            num: 2,
+                            t_owner: '糖糖',
+                            t_title: '紐西蘭自然體驗',
+                            t_content: '該體驗從農場現場直播，並將首先介紹新西蘭',
+                            t_startedat: '2023/12/31',
+                            t_numlimit: '20',
+                            t_isgroup: false,
+                            t_price: '599',
+                            t_ischeck: false,
+                        },
+                        {
+                            num: 3,
+                            t_owner: '宮本寶藏',
+                            t_title: '京都森林浴',
+                            t_content: '大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。',
+                            t_startedat: '2023/12/31',
+                            t_numlimit: '20',
+                            t_isgroup: false,
+                            t_price: '599',
+                            t_ischeck: false,
+                        },
+                        {
+                            num: 4,
+                            t_owner: '金貝貝',
+                            t_title: '環遊世界180天遊覽',
+                            t_content: '咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀',
+                            t_startedat: '2023/12/31',
+                            t_numlimit: '20',
+                            t_isgroup: false,
+                            t_price: '599',
+                            t_ischeck: false,
+                        },
+                    ],
+                }
+            },
+            computed: {
+                filterList() { //搜尋功能
+                    return this.data.filter((trip) => { //把data送下來使用filter功能
+                        return trip.t_title.includes(this.search);
+                    })
+                },
+            },
+            methods: {
+                revoke(e) {
+
+                    if (confirm('是否下架旅遊?')) {
+                        let theTr = e.target.closest('tr');
+                        theTr.classList.add('fadeOut'); //加轉場效果
+
+                        setTimeout(function () { //移除該項目
+                            theTr.remove();
+                        }, 1000);
+
+                    }
+                },
+            },
+        }
+        // ========== 旅程申請審核 ========== 
+>>>>>>> Stashed changes:src/admin/adm_index.html
         const TripCheck = {
             template: `
             <div class="temp2">
@@ -413,6 +654,7 @@
                         <th>價格</th>
                         <th>勾選</th>
                     </tr>
+<<<<<<< Updated upstream:admin/adm_index.html
                     <tr>
                         <td>1</td>
                         <td>Carlos</td>
@@ -423,6 +665,18 @@
                         <td>否</td>
                         <td>$1000</td>
                         <td><input type="checkbox" name=""></td>
+=======
+                    <tr v-for="(trip,index) in filterList" :id="index">
+                        <td v-text="trip.num"></td>
+                        <td v-text="trip.t_owner">Carlos</td>
+                        <td v-text="trip.t_title" class="textContent2"></td>
+                        <td v-text="trip.t_content" class="textContent3"></td>
+                        <td v-text="trip.t_startedat"></td>
+                        <td v-text="trip.t_numlimit"></td>
+                        <td v-text="trip.t_isgroup"></td>
+                        <td v-text="trip.t_price"></td>
+                        <td><input type="checkbox" name="" @click="addChecedTask(index)"></td>
+>>>>>>> Stashed changes:src/admin/adm_index.html
                     </tr>
                     <tr>
                         <td>2</td>
@@ -448,7 +702,7 @@
                     </tr>
 
                 </table>
-                <button class="reject">退件</button>
+                <button class="reject" @click="reject">退件</button>
                 <div class="pager2">
                             <ul>
                                 <li><a href="">&lt;</a></li>
@@ -461,15 +715,108 @@
                             </ul>
                         </div>
             </div>
+<<<<<<< Updated upstream:admin/adm_index.html
              ` }
+=======
+            `,
+            data() {
+                return {
+                    checkedTasks: [],
+                    search: '',
+                    data: [
+                        {
+                            num: 1,
+                            t_owner: '錢夫人',
+                            t_title: '自由女神朝聖之旅',
+                            t_content: '紐約最美麗的地標，一起來一睹她美麗的風采',
+                            t_startedat: '2023/12/31',
+                            t_numlimit: '20',
+                            t_isgroup: false,
+                            t_price: '599',
+                            t_ischeck: false,
+                        },
+                        {
+                            num: 2,
+                            t_owner: '糖糖',
+                            t_title: '紐西蘭自然體驗',
+                            t_content: '該體驗從農場現場直播，並將首先介紹新西蘭',
+                            t_startedat: '2023/12/31',
+                            t_numlimit: '20',
+                            t_isgroup: false,
+                            t_price: '599',
+                            t_ischeck: false,
+                        },
+                        {
+                            num: 3,
+                            t_owner: '宮本寶藏',
+                            t_title: '京都森林浴',
+                            t_content: '大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。',
+                            t_startedat: '2023/12/31',
+                            t_numlimit: '20',
+                            t_isgroup: false,
+                            t_price: '599',
+                            t_ischeck: false,
+                        },
+                        {
+                            num: 4,
+                            t_owner: '金貝貝',
+                            t_title: '環遊世界180天遊覽',
+                            t_content: '咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀',
+                            t_startedat: '2023/12/31',
+                            t_numlimit: '20',
+                            t_isgroup: false,
+                            t_price: '599',
+                            t_ischeck: false,
+                        },
+                    ],
+                }
+            },
+            methods: {
+                addChecedTask(index) {
+                    this.checkedTasks.push(index);
+                    console.log(this.checkedTasks);
+                },
+                reject(e) {
 
+                    if (confirm('是否下架旅遊?')) {
+                        for ($i = 1; $i < this.checkedTasks.length; $i++) {
+
+                            let theTr = document.querySelector("tr");
+                            console.log(theTr);
+                            theTr.classList.add('fadeOut'); //加轉場效果
+
+                            setTimeout(function () { //移除該項目
+                                theTr.remove();
+                            }, 1000);
+
+                        }
+                    }
+                },
+            },
+            computed: {
+                filterList() { //搜尋功能
+                    return this.data.filter((trip) => { //把data送下來使用filter功能
+                        return trip.t_title.includes(this.search);
+                    })
+                },
+
+            },
+        }
+>>>>>>> Stashed changes:src/admin/adm_index.html
+
+        // ========== 訂單管理 ========== 
         const OrderList = {
             template: `
             <div class="temp2">
                 <h3>訂單管理</h3>
                 <label>
+<<<<<<< Updated upstream:admin/adm_index.html
                    <input type="text" name="adm_query" placeholder="輸入訂單編號">
                    <img src="../images/icon/search.svg" alt="">
+=======
+                    <input type="text" name="adm_query" placeholder="輸入訂單編號" v-model="search">
+                    <img src="../images/icon/search.svg" alt="">
+>>>>>>> Stashed changes:src/admin/adm_index.html
                 </label>
                 <table>
                     <tr>
@@ -480,6 +827,7 @@
                         <th>訂單時間</th>
                         <th>功能</th>
                     </tr>
+<<<<<<< Updated upstream:admin/adm_index.html
                     <tr>
                         <td>order0001</td>
                         <td>第五組</td>
@@ -510,6 +858,14 @@
                         <td>$999</td>
                         <td>已發送</td>
                         <td>2022 Jun25 15:00</td>
+=======
+                    <tr v-for="order in filterList">
+                        <td v-text="order.o_num"></td>
+                        <td v-text="order.o_memberid"></td>
+                        <td v-text="order.o_numlimit"></td>
+                        <td v-text="order.o_issend"></td>
+                        <td v-text="order.o_createdat"></td>
+>>>>>>> Stashed changes:src/admin/adm_index.html
                         <td><button class="sendLink">發送連結</button></td>
                     </tr>
                 </table>
@@ -526,21 +882,86 @@
                 </div>
             </div>
 
+<<<<<<< Updated upstream:admin/adm_index.html
             ` }
         const CommentCheck = {
+=======
+            `,
+            data() {
+                return {
+                    search: '',
+                    data: [
+                        {
+                            o_num: 'order001',
+                            o_memberid: 'abei',
+                            o_numlimit: '20',
+                            o_issend: false,
+                            o_createdat: '2023/12/31',
+                        },
+                        {
+                            o_num: 'order002',
+                            o_memberid: 'mei',
+                            o_numlimit: '20',
+                            o_issend: false,
+                            o_createdat: '2023/12/31',
+                        },
+                        {
+                            o_num: 'order003',
+                            o_memberid: 'kingbaby',
+                            o_numlimit: '20',
+                            o_issend: false,
+                            o_createdat: '2023/12/31',
+                        },
+                        {
+                            o_num: 'order004',
+                            o_memberid: 'mei',
+                            o_numlimit: '20',
+                            o_issend: false,
+                            o_createdat: '2023/12/31',
+                        },
+                    ],
+                }
+            },
+            computed: {
+                filterList() { //搜尋功能
+                    return this.data.filter((order) => { //把data送下來使用filter功能
+                        return order.o_num.includes(this.search);
+                    })
+                },
+            },
+        }
+
+        // ========== 旅程評論審查 ========== 
+        const CommentCheck = {
+            data() {
+                return {
+                    ischk: 0,
+                    data: [
+                        {
+                            o_num: 'order001',
+                            o_memberid: 'abei',
+                            o_numlimit: '20',
+                            o_issend: false,
+                            o_createdat: '2023/12/31',
+                        },
+                    ],
+                };
+            },
+>>>>>>> Stashed changes:src/admin/adm_index.html
             template: `
             <div class="temp2">
                 <h3>旅程評論審查</h3>
                     <table>
                         <tr>
-                            <th>編號</th>
-                            <th>會員</th>
                             <th>旅程編號</th>
-                            <th>評論</th>
+                            <th>會員</th>
+                            <th>星數</th>
+                            <th>評論內容</th>
                             <th>評論時間</th>
                             <th>審核狀態</th>
                             <th>勾選</th>
                         </tr>
+<<<<<<< Updated upstream:admin/adm_index.html
                         <tr>
                             <td>1</td>
                             <td>第五組</td>
@@ -594,6 +1015,16 @@
                             <td>2022 Jun25 15:00</td>
                             <td>通過</td>
                             <td><input type="checkbox" name="" class="chkbox"></td>
+=======
+                        <tr v-for="comment in data">
+                            <td v-text="comment.t_num"></td>
+                            <td v-text="comment.c_username"></td>
+                            <td v-text="comment.c_star"></td>
+                            <td v-text="comment.c_content"></td>
+                            <td v-text="comment.c_createdat"></td>
+                            <td v-text="comment.c_status"></td>
+                            <td><input type="checkbox" name="" class="chkbox" @click="checkNum"></td>
+>>>>>>> Stashed changes:src/admin/adm_index.html
                         </tr>
                     </table>
                     <label for="" class="allChk">
@@ -614,6 +1045,42 @@
                 </div>
 
             `,
+            data() {
+                return {
+                    data: [
+                        {
+                            t_num: 1,
+                            c_username: '嗚咪',
+                            c_star: '5',
+                            c_content: '行程安排非常充實！',
+                            c_createdat: '2023/12/31',
+                            c_status: "待審"
+                        },
+                        {
+                            t_num: 2,
+                            c_username: '孫小美',
+                            c_star: '4',
+                            c_content: '行程安排非常充實！',
+                            c_createdat: '2023/12/31',
+                            c_status: "待審"
+                        }, {
+                            t_num: 3,
+                            c_username: '金貝貝',
+                            c_star: '5',
+                            c_content: '我學到了很多,也很享受這次的旅程',
+                            c_createdat: '2023/12/31',
+                            c_status: "待審"
+                        }, {
+                            t_num: 4,
+                            c_username: '阿土伯',
+                            c_star: '5',
+                            c_content: '這是一個非常美好､有趣和開心的夜晚～',
+                            c_createdat: '2023/12/31',
+                            c_status: "待審"
+                        },
+                    ],
+                }
+            },
             methods: {
                 allchk(e) {
                     let items = document.querySelectorAll('input.chkbox'); //全選勾選大家跟著勾
@@ -621,9 +1088,19 @@
                         item.checked = e.target.checked;
                     });
                 },
+<<<<<<< Updated upstream:admin/adm_index.html
+=======
+                checkNum() {
+                    let itemsChk = document.querySelectorAll('input.chkbox:checked').length;
+                    let allItems = document.querySelectorAll('input.chkbox').length;
+                    if (itemsChk == allItems) {
+                        return this.data.ischk == 1;
+                    }//怎麼壞掉了?寫return也沒用
+                },
+>>>>>>> Stashed changes:src/admin/adm_index.html
             },
         }
-
+        // ========== 新增優惠券 ========== 
         const NewCoupon = {
             template: `
                 <div class="temp">
@@ -705,9 +1182,13 @@
         new Vue({
             el: '#app',
             router,
+<<<<<<< Updated upstream:admin/adm_index.html
             mounted() {
 
             },
+=======
+
+>>>>>>> Stashed changes:src/admin/adm_index.html
         });
     </script>
 

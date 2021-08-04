@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>旅遊導覽</title>
+    <!-- 共用 -->
+    @@include('layout_html/plugin.html')
+    <!-- 輪播套件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    </link>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    </link>
+</head>
+
+<body>
+    <header id="the_header">
+        <the-header></the-header>
+    </header>
+    <div id="mobile_menu">
+        <menu-item></menu-item>
+    </div>
+    <main>
+        <section class="banner">
+            <div class="trip_intro">
+                <h2 class="list_title">線上旅遊</h2>
+                <h5 class="list_subtitle">無須踏出家門即可參加由獨具魅力的<br>
+                    旅遊達人所舉辦的互動旅遊。
+                </h5>
+            </div>
+            <div class="bg_img"></div>
+        </section>
+        <section class="main"></section>
+
+        <div id="app">
+            <div class="travel_filters">
+                <div class="content">
+                    <ul class="filter1">
+                        <li class="customer"><button class="btnS_line" onclick="customize()">篩選條件</button></li>
+                        <li class="datepicker"><button class="btnS_line">日期</button></li>
+                        <li class="peoplecount"><button class="btnS_line">團體人數</button></li>
+                    </ul>
+                    <ul class="filter2">
+                        <li class="category"><button class="btnS_line" @click="content='all'">全部</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='us'">美洲</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='eu'">歐洲</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='as'">亞洲</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='af'">非洲</button></li>
+                        <li class="category"><button class="btnS_line" @click="content='oc'">大洋洲</button></li>
+                    </ul>
+                </div>
+                <input class="trip_search" placeholder="搜尋"></li>
+            </div>
+            <keep-alive>
+                <component :is="content"></component>
+            </keep-alive>
+        </div>
+
+
+
+        <img id="go_the_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+    </main>
+    <footer id="the_footer">
+        <the-footer></the-footer>
+    </footer>
+
+    <!-- vue -->
+    <script src="./js/vue/vue.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- owl.carousel -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <!-- sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="./js/header_footer.js"></script>
+    <script src="./js/travel_list/travel_list.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                content: 'all',
+            },
+        });
+    </script>
+
+</body>
+
+</html>

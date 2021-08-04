@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<!-- 共用 -->
+ @@include('layout_html/plugin.html')
+<!-- 自己套件 -->
+<!-- <script src="#"></script> -->
+    <title>尼加拉大瀑布</title>
+</head>
+
+
+<body class="Cart_Body">
+    <div id="main">
+        <!--  include header   -->
+        <header id="the_header">
+            <the-header></the-header>
+        </header>
+        <div id="mobile_menu">
+            <menu-item></menu-item>
+        </div>
+    </div>
+    <main>
+        <div class="main_container">
+            <!-- 左區塊 -->
+            <div class="cart_left_side">
+                <div class="cart_title">
+                    <a href="./travel_info.html">
+                        <img src="./images/icon/left-arrow.svg">
+                    </a>
+                    <h2>確認並付款</h2>
+                </div>
+
+                <!-- 付款資訊 -->
+                <div class="payment_info">
+                    <h5>你的旅遊</h5>
+                    <p>日期</p>
+                    <p>6月26日 週六 上午5:00 - 上午6:45 (TST)</p>
+                </div>
+
+                <div class="payment_chartered">
+                    <div class="text">
+                        <p>為您和親朋好友預定包場旅遊</p>
+                        <p>DeBottis 接受任何規模的團體包場預定，上限為20位參加者。 體驗包場價格 $13,000 起。</p>
+                        <p class="read_more">了解更多</p>
+                    </div>
+                    <div class="chartered_toggle">
+                        <img src="./images/icon/toggle_off.svg">
+                    </div>
+                </div>
+                <h5>體驗人數</h5>
+                <div class="payment_count">
+                    <div class="mix">
+                        <img src="./images/icon/user.svg">
+                        <p>人數</p>
+                    </div>
+                    <div class="down">
+                        <img src="./images/icon/arrowDown.svg">
+                    </div>
+                </div>
+
+                <hr size="4px" align="center" width="100%" color="#996A4D">
+
+                <div class="user_info">
+                    <h5>體驗者必填資訊</h5>
+                    <p>電話號碼</p>
+                    <p>新增並驗證電話號碼，以便JUMPER傳送最新的旅程通知給你。</p>
+                    <div class="phone_number">
+                        <div class="mix">
+                            <img src="./images/icon/phone.svg">
+                            <p>0988888888</p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr size="4px" align="center" width="100%" color="#996A4D">
+
+                <div class="payment_notice">
+                    <h5>注意事項</h5>
+                    <p>參加者預定要求</p>
+                    <p>最多 20 人參加，年齡需滿18歲。</p>
+                    <p class="read_more">了解更多</p>
+                </div>
+
+                <hr size="4px" align="center" width="100%" color="#996A4D">
+
+                <div class="payment">
+                    <h5>付款方式</h5>
+                    <div class="payment_credit_card">
+                        <div class="mix">
+                            <img src="./images/icon/credit-card.svg">
+                            <p>信用卡</p>
+                        </div>
+                        <div class="plus">
+                            <img src="./images/icon/plus.svg">
+                        </div>
+                    </div>
+                </div>
+
+                <hr size="4px" align="center" width="100%" color="#996A4D">
+
+                <div class="pay_with_coupon">
+                    <h5>輸入優惠券</h5>
+                    <div class="use_coupon">
+                        <div class="mix">
+                            <img src="./images/icon/coupon.svg">
+                            <p>輸入優惠碼</p>
+                        </div>
+                        <div class="plus">
+                            <img src="./images/icon/plus.svg">
+                        </div>
+                    </div>
+                    <button class="btnM_line">套用</button>
+                </div>
+
+                <hr size="4px" align="center" width="100%" color="#996A4D">
+
+                <p>選擇以下按鈕即代表您同意參加者免責聲明、退訂政策和參加者退款政策。</p>
+
+                <button class="btnL">確認並付款</button>
+            </div>
+
+            <!-- 右區塊 -->
+            <div class="cart_right_side">
+                <li>
+                    <a class="item_info">
+                        <div class="travel_item">
+                            <div class="pic0 pic_00">
+                                <div class="share"></div>
+                                <div class="fav"></div>
+                            </div>
+                            <div class="content">
+
+                                <div class="avatar">
+                                    <img src="./images/travel_info/pexels-zachary-debottis-3156515.jpg">
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>112 則評價</p>
+                                </div>
+                                <h4 class="intro">
+                                    怔怔地望著尼加拉大瀑布那滂薄的氣勢
+                                </h4>
+                                <p>使用語言 : 英語</p>
+                                <p>價格詳情</p>
+                                <div class="counting">
+                                    <h5> $800 * 1 名成人</h5>
+                                    <h5>$800</h5>
+                                </div>
+                                <div class="total_price">
+                                    <h5>總價(TWD)</h5>
+                                    <h5>$800</h5>
+                                </div>
+
+                                <hr class="row_bar" size="4px" align="center" width="100%" color="#996A4D">
+
+                                <p class=".policy">
+                                    退訂政策，體驗在預定完成後24小時內取消，或退訂時間與體驗開始時間間隔7天以上，可獲得全額退款。
+                                </p>
+                                <p class="read_more">了解更多</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </div>
+        </div>
+
+        <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+
+    </main>
+
+
+
+    <footer id="the_footer">
+        <the-footer></the-footer>
+    </footer>
+
+    <script src="./js/vue/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="./js/header_footer.js"></script>
+    <script src="./js/index/index.js"></script>
+
+    <!-- owl.carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    </link>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    </link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $("#go_top").click(function () {
+            $("html, body").animate({
+                scrollTop: 0,
+            }, 1000)
+        })
+    </script>
+    <script>
+        new Vue({
+            el: '',
+            data: {
+
+            },
+        });
+    </script>
+
+</body>
+
+</html>

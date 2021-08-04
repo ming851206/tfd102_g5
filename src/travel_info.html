@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<!-- 共用 -->
+@@include('layout_html/plugin.html')
+<!-- 自己套件 -->
+<!-- <script src="#"></script> -->
+    <title>尼加拉大瀑布</title>
+</head>
+
+<body class="travel_info_Body">
+    <!-- <h2>Hello</h2> -->
+    <div id="main">
+        <!--  include header   -->
+        <header id="the_header">
+            <the-header></the-header>
+        </header>
+        <div id="mobile_menu">
+            <menu-item></menu-item>
+        </div>
+
+        <!-- travel_info  -->
+        <div id="travel_title">
+            <h2>怔怔地望著尼加拉大瀑布那滂薄的氣勢</h2>
+            <div id="display_block">
+                <video id="info_video" controlsList="nodownload" controls>
+                    <source src="./video/niagara falls.mp4">
+                    <p>Sorry, your browser doesn't support embedded videos.</p>
+                </video>
+            </div>
+            <div class="owl-carousel owl-theme">
+                <div class="info_pic" id="pic_1"></div>
+                <div class="info_pic" id="pic_2"></div>
+                <div class="info_pic" id="pic_3"></div>
+                <div class="info_pic" id="pic_4"></div>
+                <div class="info_pic" id="pic_5"></div>
+            </div>
+        </div>
+
+        <div class="main_container">
+            <!-- 左區塊 -->
+            <div class="left_side">
+
+                <!-- 導遊介紹 -->
+                <div class="traveler_info">
+                    <div id="traveler">
+                        <div class="tra_pic">
+                            <img class="traveler_pic" src="./images/travel_info/pexels-zachary-debottis-3156515.jpg">
+                        </div>
+                        <div id="traveler_name">
+                            <div class="tra_icon">
+                                <img src="./images/icon/share.svg">
+                                <img src="./images/icon/like.svg">
+                            </div>
+                            <div class="tra_info">
+                                <h2>Zachary DeBottis 舉辦的線上體驗</h2>
+                                <h2>6 小時 · 使用的語言：英語</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr size="4px" align="center" width="100%" color="#996A4D">
+
+                    <div id="traveler_introduce">
+                        <p>2021年加入Jumper的旅遊達人</p>
+                        <div class="icon_s">
+                            <img class="star_num" src="./images/index/content/star.svg">
+                            <p>112 則評價</p>
+                            <img class="verify" src="./images/icon/verify.svg">
+                            <p>身分已驗證</p>
+                        </div>
+                        <p>我來自南美洲北部，一個叫委內瑞拉的國家，之後移民來到了巴塞羅那，在那裡我致力於更多地了解這座城市，並將這些知識分享給任何訪問這座城市的人。參與旅遊的時間過得很快，你甚至不會注意到它!
+                        </p>
+                        <div class="tra_btn">
+                            <button class="btnS_line">聯絡線上導遊</button>
+                        </div>
+                    </div>
+                </div>
+
+                <hr size="4px" align="center" width="100%" color="#996A4D">
+
+                <!-- ----- -->
+                <div id="travel_rules">
+                    <div class="join_web">
+                        <div>
+                            <img src="./images/icon/internet.svg">
+                        </div>
+                        <div>
+                            <h4>線上加入</h4>
+                            <p>透過 Zoom 與旅遊達人在線上交流。</p>
+                        </div>
+                    </div>
+                    <div class="free_return">
+                        <div>
+                            <img src="./images/icon/calender.svg">
+                        </div>
+                        <div>
+                            <h4>免費退訂</h4>
+                            <p>在體驗開始前至少 1 天或預訂後 24 小時內取消，即可拿回全額退款。</p>
+                        </div>
+                    </div>
+                    <div class="max_num">
+                        <img src="./images/icon/group.svg">
+                        <h4>最多 10 位參加者</h4>
+                    </div>
+                </div>
+
+                <hr size="4px" align="center" width="100%" color="#996A4D">
+
+                <!-- ------ -->
+                <div id="travel_text">
+                    <h2>活動內容</h2>
+                    <p>見過紐約氣派的高樓大廈和繁華的城市魅力後，啟程往北，一睹大自然最美產物之一的尼亞加拉大瀑布。尼亞加拉大瀑布以每秒150,000加侖的流水量傾瀉而下，氣勢滂礡的絕世景觀被譽為世界上最美的天然奇景之一。行程沿路帶你欣賞阿帕拉契山脈和上紐約州的美麗風景、遠觀北美廣闊無邊的平地和東岸沿海平原之間天然的群山屏障。緊接著抵達本行程的目的地──尼亞加拉大瀑布，重頭戲帶你搭乘直升機，從空中俯瞰瀑布，水流奔騰而下的臨場震撼感一生一定要體會一次。之後到山羊島，換個角度欣賞瀑布宏偉壯觀的全貌。
+                    </p>
+                </div>
+
+                <hr size="4px" align="center" width="100%" color="#996A4D">
+
+                <!-- ------ -->
+                <div id="travel_way">
+                    <h2>參加方式</h2>
+                    <div class="way">
+                        <div class="join_way">
+                            <img src="./images/icon/computer.svg">
+                            <p>加入視訊通話</p>
+                        </div>
+                        <div class="chartered">
+                            <img src="./images/icon/group.svg">
+                            <div class="text_normal">
+                                <p>包場預定</p>
+                            </div>
+                            <div class="text_hover">
+                                <p>Zachary 可為團體舉辦包場體驗，最多可供 10 人參加。包場價 $3,000 起。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ------ -->
+            <!-- 右區塊 -->
+            <div class="right_side">
+                <div class="text">
+                    <h5>最低 $800 / 每人</h5>
+
+                    <!-- 來不及 -->
+                    <!-- <p>無法提供預定</p>
+                    <button class="btnS_line">額滿</button>
+                    <button class="btnL">瀏覽類似體驗</button> -->
+
+
+                    <!-- 來得及 -->
+                    <p>顯示所有價格</p>
+                    <div class="date selection">
+                        <div class="mix">
+                            <img src="./images/icon/calender.svg">
+                            <p>日期</p>
+                        </div>
+                        <div class="down">
+                            <img src="./images/icon/arrowDown.svg">
+                        </div>
+                    </div>
+                    <div class="time selection">
+                        <div class="mix">
+                            <img src="./images/icon/clock.svg">
+                            <p>時間</p>
+                        </div>
+                        <div class="down">
+                            <img src="./images/icon/arrowDown.svg">
+                        </div>
+                    </div>
+                    <p>時間在您所在的時區表示</p>
+                    <div class="people selection">
+                        <div class="mix">
+                            <img src="./images/icon/user.svg">
+                            <p>人數</p>
+                        </div>
+                        <div class="down">
+                            <img src="./images/icon/arrowDown.svg">
+                        </div>
+                    </div>
+                    <a href="./cart.html">
+                        <button class="btnL">馬上預約</button>
+                    </a>
+                    <div class="text">
+                        <p>這種體驗是私人的，只有您和您的朋友們。</p>
+                        <p>在您完成預約後，您可以邀請您的朋友。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 選擇日期------ -->
+        <section>
+            <div id="travel_choose_date">
+                <h2>從可訂日期中選擇</h2>
+                <div class="arrow">
+                    <p>1 / 2</p>
+                    <div class="prev">
+                        <img src="./images/icon/page-prev.svg" alt="">
+
+                    </div>
+                    <div class="next">
+                        <img src="./images/icon/page-next.svg" alt="">
+                    </div>
+                </div>
+                <div class="owl-carousel owl-theme">
+                    <div class="item">
+                        <h5>6月23日 週三</h5>
+                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <p>$800</p>
+                        <button class="btnS_line">額滿</button>
+                    </div>
+                    <div class="item">
+                        <h5>6月24日 週四</h5>
+                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <p>$800</p>
+                        <button class="btnS_line">額滿</button>
+                    </div>
+                    <div class="item">
+                        <h5>6月25日 週五</h5>
+                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <p>$800</p>
+                        <button class="btnS_line">額滿</button>
+                    </div>
+                    <div class="item">
+                        <h5>6月26日 週六</h5>
+                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <p>$800</p>
+                        <button class="btnS_line">額滿</button>
+                    </div>
+                    <div class="item">
+                        <h5>6月27日 週日</h5>
+                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <p>$800</p>
+                        <button class="btnS_line">額滿</button>
+                    </div>
+                    <div class="item">
+                        <h5>6月28日 週一</h5>
+                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <p>$800</p>
+                        <button class="btnS_line">額滿</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ------ -->
+        <div id="travel_experience">
+            <h2>他人評價</h2>
+            <div id="travel_experience_1">
+                <img id="" src="./images/avatar/avatar20.jpg">
+                <img class="star_num" src="./images/index/content/star.svg">
+                <p>5</p>
+                <div class="text">
+                    <p>那裡的景色很不錯，但是在交通上要花很長時間，因為它離紐約很遠，如果自行搭乘公共汽車前往要花8個小時，透過參加線上旅由，不只節省時間，還能欣賞美景，我認為值得這樣做。</p>
+                </div>
+            </div>
+            <div id="travel_experience_2">
+                <img id="" src="./images/avatar/avatar18.jpg">
+                <img class="star_num" src="./images/index/content/star.svg">
+                <p>5</p>
+                <div class="text">
+                    <p>導遊很可愛，解說很好，有趣的人。讓旅途不枯燥，瀑布很美，第一次參加線上旅行很神奇，搭乘直升機俯瞰瀑布美景，令人回味無窮。各種觀點都很漂亮，印象深刻，很開心。如果有機會我會親自再次訪問這裡，我想晚上再次回來。
+                    </p>
+                </div>
+            </div>
+            <div id="travel_experience_3">
+                <img id="" src="./images/avatar/avatar10.jpg">
+                <img class="star_num" src="./images/index/content/star.svg">
+                <p>5</p>
+                <div class="text">
+                    <p>尼加拉瀑布的周圍到處可以看到漂亮的公園及綠地，看到許多人在草地上野餐，居住在這裡真的好享受喔!搭乘直升機觀看不同面向的瀑布都有著不一樣的感受，可惜不能親身體驗到瀑布的震撼，只能隔著螢幕欣賞，經過這次線上旅遊，我下次一定會親自去一探究竟!
+                    </p>
+                </div>
+            </div>
+            <button class="btnS_line">看更多</button>
+
+        </div>
+        <!-- ------ -->
+        <div class="travel_recommend">
+            <h3>相信你會喜歡</h3>
+            <div class="arrow">
+                <p>顯示 12 個</p>
+                <div class="prev">
+                    <img src="./images/icon/page-prev.svg" alt="">
+
+                </div>
+                <div class="next">
+                    <img src="./images/icon/page-next.svg" alt="">
+                </div>
+            </div>
+            <ul class="container">
+                <li>
+                    <a href="">
+                        <div class="travel_item">
+                            <div class="pic0 pic_01"></div>
+                            <div class="content">
+
+                                <div class="avatar">
+                                    <img src="./images/avatar/avatar6.jpg">
+                                </div>
+                                <div class="the_icon_sf">
+                                    <div class="share">
+                                        <img src="./images/icon/share.svg" alt="">
+                                    </div>
+                                    <div class="fav">
+                                        <img src="./images/icon/like.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">印尼</p>
+                                </div>
+                                <h4 class="intro">
+                                    馬辰水上市場藝術節，體驗當地水上文化之旅
+                                    <h4>
+                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="travel_item">
+                            <div class="pic0 pic_02"></div>
+                            <div class="content">
+
+                                <div class="avatar">
+                                    <img src="./images/avatar/avatar9.jpg">
+                                </div>
+                                <div class="the_icon_sf">
+                                    <div class="share">
+                                        <img src="./images/icon/share.svg" alt="">
+                                    </div>
+                                    <div class="fav">
+                                        <img src="./images/icon/like.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">泰國</p>
+                                </div>
+                                <h4 class="intro">
+                                    泰國黃金海岸，欣賞Pattaya的海岸風光
+                                    <h4>
+                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="travel_item">
+                            <div class="pic0 pic_03"></div>
+                            <div class="content">
+
+                                <div class="avatar">
+                                    <img src="./images/avatar/avatar.jpg">
+                                </div>
+                                <div class="the_icon_sf">
+                                    <div class="share">
+                                        <img src="./images/icon/share.svg" alt="">
+                                    </div>
+                                    <div class="fav">
+                                        <img src="./images/icon/like.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">英國</p>
+                                </div>
+                                <h4 class="intro">
+                                    Big Ben 大笨鐘，倫敦最具指標性的景觀
+                                    <h4>
+                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <div class="travel_item">
+                            <div class="pic0 pic_04"></div>
+                            <div class="content">
+
+                                <div class="avatar">
+                                    <img src="./images/avatar/avatar2.jpg">
+                                </div>
+                                <div class="the_icon_sf">
+                                    <div class="share">
+                                        <img src="./images/icon/share.svg" alt="">
+                                    </div>
+                                    <div class="fav">
+                                        <img src="./images/icon/like.svg" alt="">
+                                    </div>
+                                </div>
+                                <div class="star_num">
+                                    <img src="./images/index/content//star.svg">
+                                    <p>5(102) · </p>
+                                    <p class="middle">澳洲</p>
+                                </div>
+                                <h4 class="intro">
+                                    勒格蘭德角國家公園，探索野生動物
+                                    <h4>
+                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+
+
+
+
+
+        <footer id="the_footer">
+            <the-footer></the-footer>
+        </footer>
+
+        <script src="./js/vue/vue.js"></script>
+        <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="./js/header_footer.js"></script>
+        <script src="./js/index/index.js"></script>
+
+        <!-- owl.carousel -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+        </link>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+        </link>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script>
+            // $(選取).處理();
+    $(document).ready(function () {
+    
+        $(".owl-carousel").owlCarousel({
+            loop: false, // 循環播放
+            margin: 10, // 外距 10px
+            nav: false, // 顯示按鍵
+            dots: false, //顯示點點
+            responsive: {
+                0: {
+                    items: 1 // 螢幕大小為 0~600 顯示 1 個項目
+                },
+                600: {
+                    items: 3 // 螢幕大小為 600~1000 顯示 3 個項目
+                },
+                1000: {
+                    items: 5 // 螢幕大小為 1000 以上 顯示 5 個項目
+                }
+            }
+        });
+    });
+
+    $("#go_top").click(function () {
+        $("html, body").animate({
+            scrollTop: 0,
+        }, 1000)
+    })
+
+
+    
+        </script>
+        <script>
+            new Vue({
+                el: '',
+                data: {
+
+                },
+            });
+        </script>
+
+</body>
+
+</html>

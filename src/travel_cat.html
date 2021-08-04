@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旅遊總覽</title>
+    <link rel="stylesheet" href="./dist/css/style.css">
+</head>
+
+<body>
+    <header id="the_header">
+        <the-header></the-header>
+    </header>
+    <main>
+        <div class="filters">
+            <div class="content">
+                <ul class="filter1">
+                    <li class="customer"><button class="btnS_line">篩選條件</button></li>
+                    <li class="customer"><button class="btnS_line">日期</button></li>
+                    <li class="customer"><button class="btnS_line">團體人數</button></li>
+                </ul>
+                <ul class="filter2">
+                    <li class="category"><button class="btnS_line">美洲</button></li>
+                    <li class="category"><button class="btnS_line">歐洲</button></li>
+                    <li class="category"><button class="btnS_line">亞洲</button></li>
+                    <li class="category"><button class="btnS_line">非洲</button></li>
+                    <li class="category"><button class="btnS_line">大洋洲</button></li>
+                </ul>
+            </div>
+            <input class="search" placeholder="搜尋"></li>
+        </div>
+        <div class="thecat_trip">
+            <h3>最獲好評的旅遊</h3>
+            <div class="arrow">
+                <p>顯示 12 個</p>
+            </div>
+
+            <img id="go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
+    </main>
+    <footer id="the_footer">
+        <the-footer></the-footer>
+    </footer>
+
+    <!-- vue -->
+    <script src="./js/vue/vue.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="./js/header_footer.js"></script>
+    <script src="./js/travel_list/travel_cat.js"></script>
+    <script>
+        new Vue({
+            el: '',
+            data: {
+
+            },
+        });
+    </script>
+
+</body>
+
+</html>

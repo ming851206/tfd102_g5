@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <title>jumper</title>
+    @@include('layout_html/plugin.html')
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <section id="earth">
+        <first-animation></first-animation>
+    </section>
+
+    <header id="the_header" class="animation_header">
+        <the-header></the-header>
+    </header>
+    <div id="mobile_menu">
+        <menu-item></menu-item>
+    </div>
+
+    <main>
+        <div id="our-service">
+            <the-service></the-service>
+        </div>
+
+        <div id="best_theme">
+            <mobile-theme></mobile-theme>
+            <the-carosul></the-carosul>
+        </div>
+
+        <div id="popular_travel">
+            <travel-item></travel-item>
+        </div>
+
+        <div id="choose_us">
+            <the-reason></the-reason>
+        </div>
+
+    </main>
+
+    <section id="more_opinion">
+        <the-opinion></the-opinion>
+    </section>
+
+    <footer id="the_footer">
+        <the-footer></the-footer>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>    
+    <script>AOS.init();</script>
+    <script src="./js/header_footer.js"></script>
+    <script src="./js/index/index.js"></script>
+</body>
+</html>

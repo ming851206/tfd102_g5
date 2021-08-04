@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300&display=swap');
+
+$font_d_map:( //桌機版字體大小
+    'h2':32px,
+    'h3':26px,
+    'h4':16px,
+    'p':14px
+);
+
+$font_m_map:( //手機版字體大小 
+    'h2':26px,
+    'h3':22px,
+    'h4':16px,
+    'p':12px,
+    '.p_tiny':10px
+);
+
+@font-face{
+    font-family:'en';
+    src: url(../../font/DejaVuSansCondensed.ttf);
+}
+
+//桌機h2~p大小
+@mixin font_size($font-map) {
+    @each $key,$val in $font-map {
+        #{$key} {
+            font-size: $val;
+            font-family: 'Noto Sans TC', sans-serif;
+            @content;
+        }
+    }
+}
+@include font-size($font_d_map);
+
+//行高
+h4{
+    line-height: 26px;
+}
+p{
+    line-height: 20px;
+}
+
+@media all and (max-width : $mobile ) {
+    @include font-size($font_m_map);
+    p{
+        line-height: 18px;
+    }
+ }
+
+//logo
+h1{
+    margin: 25px;
+    display: none;
+    img{
+        height: 37px;
+    }
+}
+@include mobile{
+    h1{
+        display: block;
+    }
+} 
