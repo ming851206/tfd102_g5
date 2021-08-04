@@ -1,7 +1,7 @@
 <?php
-// echo 'test';
-// exit();
-include('conn.php');
+
+// 
+include('./conn.php');
  
 //建立SQL
 $sql = "SELECT t.ID, m.name, t.price, t.is_alerted, t.created_at
@@ -15,6 +15,9 @@ $statement->execute();
 $data = $statement->fetchAll();
 
 //回傳json
+// print_r($data);
+// exit();
 echo json_encode($data);
+
 
 ?>
