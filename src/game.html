@@ -11,7 +11,11 @@
         <div id="the_game">
             <div class="game_bg">
                 <div class="game_world_map">
-                    <div class="landmark" :id="continent" @click="chooseTheme" v-for="(continent, index) in quiz.continents"></div>
+                    <div class="landmark am" id="1" @click="chooseTheme"></div>
+                    <div class="landmark eu" id="2" @click="chooseTheme"></div>
+                    <div class="landmark af" id="4" @click="chooseTheme"></div>
+                    <div class="landmark as" id="3" @click="chooseTheme"></div>
+                    <div class="landmark oc" id="5" @click="chooseTheme"></div>
                 </div>
 
                 <div id="game_word">
@@ -37,19 +41,27 @@
                 <!-- 遊戲題目 -->
                 <!-- <transition> -->
                     <div class="game_question" v-show="question==true">
-                        <form method="POST">
-                            <div v-for="(task, index) in quiz.tasks" :class="task.num">
+                        <form method="GET">
+                            <div v-for="(task, index) in tasks" :class="task.num">
                                 <div v-show="index === taskIndex">
                                     <div class='q_container'>
-                                        <h2>Q{{task.num}}</h2>
+                                        <h2>Q:</h2>
                                         <h3>{{task.question}}</h3>
                                     </div>
                                     <div class="btn_group">
                                         <div class="input_group">
-                                                <label class="opt default" v-for="answer in task.answers">
-                                                    <input type="radio" :name="index" :value="answer.correct" v-model="userAnswer[index]">
-                                                {{answer.option}}
-                                            </label>
+                                                <label class="opt default">
+                                                    <input type="radio" :name="index" :value="1" v-model="userAnswer[index]">
+                                                    {{task.option1}}
+                                                </label>
+                                                <label class="opt default">
+                                                    <input type="radio" :name="index" :value="2" v-model="userAnswer[index]">
+                                                    {{task.option2}}
+                                                </label>
+                                                <label class="opt default">
+                                                    <input type="radio" :name="index" :value="3" v-model="userAnswer[index]">
+                                                    {{task.option3}}
+                                                </label>
                                         </div>
                                         <input class="btnM ans_confirm" id='ans_confirm' type="button" value="確定" @click="next">
                                     </div>
@@ -207,47 +219,46 @@
             )
         };
         
-        var quiz = {
-            continents: ["am", "eu", "af", "as", "oc"],
-            tasks: [
-                        { 
-                            num: 1, 
-                            question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，它是非洲語的什麼意思呢？", 
-                            answers:[
-                                {num: 1, option: "不用擔心", correct: true},
-                                {num: 2, option: "明天會更好"},
-                                {num: 3, option: "活在當下"},
-                            ]
-                        },
-                        { 
-                            num: 2, 
-                            question: "下列何者不是在非洲內？", 
-                            answers:[
-                                {num: 1, option: "埃及"},
-                                {num: 2, option: "日本", correct: true},
-                                {num: 3, option: "衣索比亞"},
-                            ]
-                        },
-                        { 
-                            num: 3, 
-                            question: "世界上雙胞胎最多的地方在哪裡？", 
-                            answers:[
-                                {num: 1, option: "印度"},
-                                {num: 2, option: "奈及利亞", correct: true},
-                                {num: 3, option: "美國"},
-                            ]
-                        },                    
-                    ],
-        }
+        // var quiz = [{
+        //     question: '自由女神像是哪個國家送給美國的禮物?', option1: '法國', option2: '德國', option3: '英國', answer: 1
+        // }, {
+        //     question: '自由女神像是哪個國家送給美國的禮物?', option1: '法國', option2: '德國', option3: '英國', answer: 1
+        // },
+        // {
+        //     question: '自由女神像是哪個國家送給美國的禮物?', option1: '法國', option2: '德國', option3: '英國', answer: 1
+        // }];
+
 
         new Vue({
             el: "#the_game",
             data: {
-                quiz: quiz,
+                tasks: [
+                        {  
+                            question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，它是非洲語的什麼意思呢？", 
+                            option1: "不用擔心",
+                            option2: "明天會更好",
+                            option3: "活在當下",
+                            answer: 1
+                        },
+                        { 
+                            question: "下列何者不是在非洲內？", 
+                            option1: "埃及",
+                            option2: "日本", 
+                            option3:"衣索比亞",
+                            answer: 2
+                        },
+                        {  
+                            question: "世界上雙胞胎最多的地方在哪裡？", 
+                            option1: "印度",
+                            option2: "奈及利亞",
+                            option3:"美國",
+                            answer: 2
+                        },                    
+                    ],
                 outerPasswort: true,
                 question: false,
                 taskIndex: 0,
-                userAnswer: Array(quiz.tasks.length).fill(false),
+                userAnswer: Array(3).fill(false),
                 winning: false,
                 innerPasswort: false,
                 showCoupon: false,
@@ -264,7 +275,7 @@
                     this.innerPasswort = true;
 
                     // ================local storage
-                    let record = localStorage.getItem("task_record")
+                    // let record = localStorage.getItem("task_record")
                 },
                 game_continue(){
                     this.innerPasswort = false;
@@ -283,18 +294,18 @@
                             this.taskIndex = 0;
 
                             // ================== local stroage ===================
-                            task = {
-                                "task_id": new Date(),
-                                "am": 0,
-                                "eu": 0,
-                                "af": 0,
-                                "as": 0,
-                                "oc": 0
-                            }
+                            // task = {
+                            //     "task_id": new Date(),
+                            //     "am": 0,
+                            //     "eu": 0,
+                            //     "af": 0,
+                            //     "as": 0,
+                            //     "oc": 0
+                            // }
                             // if(localStorage["task_record"] == null){
                             //     localStorage["task_record"] = "";
                             // }                            
-                            localStorage.setItem("task_record", JSON.stringify(task));
+                            // localStorage.setItem("task_record", JSON.stringify(task));
                         }else{
                             this.winning = false;
                             this.taskIndex = 0;
@@ -328,6 +339,10 @@
                 }
             },
             mounted() {
+                // axios.get('../php/game.php').then(res => this.data = res.data);
+                
+                axios.get('../php/game.php').then(res =>console.log(res.data));
+
                 $(function () {
                     $(".btn_start").click(function () {
                         // $(".passport_page").fadeOut(700);
