@@ -34,7 +34,13 @@ function html_back() {
             basepath: '@file'
         })).pipe(dest('dist/admin'))
 }
-
+function php() {
+    return src(['./src/php/*.php'])
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        })).pipe(dest('dist/php'))
+}
 
 //image 打包  
 const imagemin = require('gulp-imagemin');
@@ -60,9 +66,9 @@ const babel = require('gulp-babel');
 
 function babel5() {
     return src(['src/js/*.js' , 'src/js/**/*.js'])
-        .pipe(babel({
-            presets: ['@babel/env']
-        }))
+        // .pipe(babel({
+        //     presets: ['@babel/env']
+        // }))
         .pipe(dest('dist/js'));
 }
 
@@ -89,10 +95,10 @@ function browser(done) {
 }
 
 
-exports.default = series( parallel(img_orig ,sassmap , html_front , html_back , babel5), browser)
+exports.default = series( parallel(img_orig ,sassmap , html_front , html_back,php , babel5), browser)
 
 
-exports.package = parallel(img_compress ,sassmap , html_front , html_back , babel5)
+exports.package = parallel(img_compress ,sassmap , html_front , html_back,php , babel5)
 
 
 

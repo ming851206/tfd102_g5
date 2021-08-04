@@ -1,10 +1,14 @@
 <?php
 
-// 
 include('./conn.php');
-$id = $_GET["productid"];
-echo($id);
-exit();
+
+//================前->後，php接值的寫法==================
+// $name =  json_decode(file_get_contents('php://input'), true); //$name會是Array，下面可以用自己的寫法跑迴圈
+// foreach($name as $value) {
+//     echo $value."</br>";
+// }
+//======================================================
+
 //建立SQL 
 $sql = "SELECT t.ID, m.name, t.price, t.is_alerted, t.created_at
         FROM JUMPER.member m
@@ -17,9 +21,6 @@ $statement->execute();
 $data = $statement->fetchAll();
 
 //回傳json
-// print_r($data);
-// exit();
 echo json_encode($data);
-
 
 ?>

@@ -622,14 +622,14 @@
 
                     search: '',
                     data: [
-                        {
-                            o_id:'1',
-                            o_username: '第五組',
-                            o_price: '$999',
-                            o_isMailed: '已發送',
-                            o_create: '2022 Jun25 15:00',
-                            o_sentLink: '<button class="sendLink">發送連結</button>',
-                        },
+                        // {
+                        //     o_id:'1',
+                        //     o_username: '第五組',
+                        //     o_price: '$999',
+                        //     o_isMailed: '已發送',
+                        //     o_create: '2022 Jun25 15:00',
+                        //     o_sentLink: '<button class="sendLink">發送連結</button>',
+                        // },
                         // {
                         //     o_id:'2',
                         //     o_username: '第五組',
@@ -677,18 +677,21 @@
                 },
             },
             mounted() {
-                // axios.post('../php/adm_orderList.php', JSON.stringify({
-                //     name: this.name,
-                //     age: this.age
-                // }), {
-                //     headers: {
-                //         'Content-Type': 'application/json'
-                //     }
-                // })
-        
+            //==========前->後axios傳值的寫法=============
 
-                axios.get('../php/adm_orderList.php')
-                .then(res => this.data = res.data);
+            //    axios.post('http://localhost/g5/php/adm_orderList.php', JSON.stringify({
+            //         name: this.data[0].o_username, 
+            //         price: this.data[0].o_price,
+
+            //     }), {
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         }
+            //     }).then(res => console.log(res.data)); //非測試時請把clg改掉
+
+            //===========================================
+
+                axios.get('http://localhost/php/adm_orderList.php').then(res => this.data = res.data);
                 // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
                 // .then(res => this.data = res.data);
                 //fetch('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => console.log(res)); 
