@@ -33,8 +33,8 @@
                     <h2>登入</h2>
                     <!-- 放登入的東西 -->
                     <!-- 輸入框欄位 -->
-                    <form>
-                        <input class="login_input" type="text" placeholder="帳號 :">
+
+                        <input class="login_input" type="text" placeholder="帳號 :" autocomplete="off" required name="member_account_input" >
                         <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off" required name="member_password_input">
                         <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                         <!-- 無法登入 -->
@@ -44,7 +44,7 @@
                         <!-- 登入切換按鈕 -->
                             <button type="button" class="btnM areaShow" id="btn_login" value="登入">登入</button>
 
-                    </form>
+
 
                 </div>
 
@@ -75,7 +75,7 @@
                     <h2>註冊</h2>
                     <!-- 放登出的東西 -->
                     <!-- 輸入框欄位 -->
-                    <form method="POST" action="">
+
                         <input class="login_input"  type="text" placeholder="帳號 :">
     
                         <input class="login_input" v-model="email_register"  type="email" placeholder="Email :" autocomplete="off">
@@ -89,7 +89,6 @@
                         <button type="button" class="btnM Sign_BTN" id="showBtn">註冊</button>
                         
 
-                    </form>
                 </div>
 
 
@@ -128,7 +127,7 @@
                     <h2>登入</h2>
 
                     <!-- 輸入框欄位 -->
-                    <form>
+
                         <input class="login_input" type="text" placeholder="帳號 :">
                         <input class="login_input" v-model="phone_password"  type="text" placeholder="密碼 :">
                         <p v-if="!phone_password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
@@ -143,7 +142,6 @@
                             <button type="button" class="btnM_light" id="btn_Signup" @click="showBtn">註冊</button>
                         </div>
 
-                    </form>
                 </div>
 
 
@@ -173,7 +171,7 @@
                     <h2>登入</h2>
 
                     <!-- 輸入框欄位 -->
-                    <form method="POST" action=""> 
+
                         <input class="login_input" type="text" placeholder="帳號 :">
                         <input class="login_input" v-model="phone_email_register" type="email" placeholder="Email :">
                         <p v-if="!phone_email_register_msg"class="sigin_tiny">信箱格式錯誤</p>
@@ -187,8 +185,6 @@
                             <button type="button" class="btnM " id="btn_login" @click="showBtn">登入</button>
                             <button type="button" class="btnM_light" id="btn_Signup">註冊</button>
                         </div>
-                    </form>
-
                 </div>
 
 
