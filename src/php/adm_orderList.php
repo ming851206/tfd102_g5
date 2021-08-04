@@ -2,8 +2,10 @@
 
 // 
 include('./conn.php');
- 
-//建立SQL
+$id = $_GET["productid"];
+echo($id);
+exit();
+//建立SQL 
 $sql = "SELECT t.ID, m.name, t.price, t.is_alerted, t.created_at
         FROM JUMPER.member m
         JOIN JUMPER.trip_order t 
