@@ -177,7 +177,7 @@ Vue.component('all', {
                                         <img src="./images/avatar/avatar.jpg">
                                     </div>
                                     <div class="the_icon">
-                                        <div class="share"></div>
+                                        <div class="share" @click="share"></div>
                                         <div class="fav" @click="changeiColor"></div>
                                     </div>
                                     <div class="the_star_num">
@@ -207,7 +207,7 @@ Vue.component('all', {
                                             <img src="./images/avatar/avatar1.jpg">
                                         </div>
                                         <div class="the_icon">
-                                        <div class="share"></div>
+                                        <div class="share" @click="share"></div>
                                         <div class="fav" @click="changeiColor"></div>
                                         </div>
                                         <div class="the_star_num">
@@ -235,7 +235,7 @@ Vue.component('all', {
                                             <img src="./images/avatar/avatar21.jpg">
                                         </div>
                                         <div class="the_icon">
-                                            <div class="share"></div>
+                                            <div class="share" @click="share"></div>
                                             <div class="fav" @click="changeiColor"></div>
                                         </div>
                                         <div class="the_star_num">
@@ -269,7 +269,7 @@ Vue.component('all', {
                                     <img :src="item.avatar">
                                 </div>
                                 <div class="the_icon">
-                                    <div class="share"></div>
+                                    <div class="share" @click="share"></div>
                                     <div class="fav" @click="changeiColor"></div>
                                 </div>
                                 <div class="the_star_num">
@@ -323,7 +323,7 @@ Vue.component('all', {
                                             <img :src="item.avatar">
                                         </div>
                                         <div class="the_icon">
-                                            <div class="share"></div>
+                                            <div class="share" @click="share"></div>
                                             <div class="fav" @click="changeiColor"></div>
                                         </div>
                                         <div class="the_star_num">
@@ -349,7 +349,24 @@ Vue.component('all', {
             // console.log(e.target);
             e.target.classList.toggle('clicked');
             
-        }
+        },
+        share() {
+            FB.ui(
+                {
+                    method: 'share',
+                    href: 'https://tibamef2e.com/tfd102/project/g5/travel_list.html',
+                    // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
+                },
+                // callback
+                function (response) {
+                    if (response && !response.error_message) {
+                        alert('分享至臉書，邀請朋友一起成為jumper!');
+                    } else {
+                        // alert('Error while posting.');
+                    }
+                }
+            )
+        },
     },
 });
 
@@ -387,7 +404,7 @@ Vue.component('us', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share"></div>
+                                <div class="share" @click="share"></div>
                                 <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
@@ -412,7 +429,24 @@ Vue.component('us', {
             // console.log(e.target);
             e.target.classList.toggle('clicked');
             
-        }
+        },
+        share() {
+            FB.ui(
+                {
+                    method: 'share',
+                    href: 'https://tibamef2e.com/tfd102/project/g5/travel_list.html',
+                    // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
+                },
+                // callback
+                function (response) {
+                    if (response && !response.error_message) {
+                        alert('分享至臉書，邀請朋友一起成為jumper!');
+                    } else {
+                        // alert('Error while posting.');
+                    }
+                }
+            )
+        },
     },
 });
 
@@ -471,7 +505,7 @@ Vue.component('eu', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share"></div>
+                                <div class="share" @click="share"></div>
                                 <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
@@ -496,7 +530,24 @@ Vue.component('eu', {
             // console.log(e.target);
             e.target.classList.toggle('clicked');
             
-        }
+        },
+        share() {
+            FB.ui(
+                {
+                    method: 'share',
+                    href: 'https://tibamef2e.com/tfd102/project/g5/travel_list.html',
+                    // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
+                },
+                // callback
+                function (response) {
+                    if (response && !response.error_message) {
+                        alert('分享至臉書，邀請朋友一起成為jumper!');
+                    } else {
+                        // alert('Error while posting.');
+                    }
+                }
+            )
+        },
     },
 });
 
@@ -533,7 +584,7 @@ Vue.component('as', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share"></div>
+                                <div class="share" @click="share"></div>
                                 <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
@@ -558,7 +609,24 @@ Vue.component('as', {
             // console.log(e.target);
             e.target.classList.toggle('clicked');
             
-        }
+        },
+        share() {
+            FB.ui(
+                {
+                    method: 'share',
+                    href: 'https://tibamef2e.com/tfd102/project/g5/travel_list.html',
+                    // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
+                },
+                // callback
+                function (response) {
+                    if (response && !response.error_message) {
+                        alert('分享至臉書，邀請朋友一起成為jumper!');
+                    } else {
+                        // alert('Error while posting.');
+                    }
+                }
+            )
+        },
     },
 });
 Vue.component('af', {
@@ -594,7 +662,7 @@ Vue.component('af', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share"></div>
+                                <div class="share" @click="share"></div>
                                 <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
@@ -619,7 +687,24 @@ Vue.component('af', {
             // console.log(e.target);
             e.target.classList.toggle('clicked');
             
-        }
+        },
+        share() {
+            FB.ui(
+                {
+                    method: 'share',
+                    href: 'https://tibamef2e.com/tfd102/project/g5/travel_list.html',
+                    // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
+                },
+                // callback
+                function (response) {
+                    if (response && !response.error_message) {
+                        alert('分享至臉書，邀請朋友一起成為jumper!');
+                    } else {
+                        // alert('Error while posting.');
+                    }
+                }
+            )
+        },
     },
 });
 
@@ -712,7 +797,7 @@ Vue.component('oc', {
                                 <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
-                                <div class="share"></div>
+                                <div class="share" @click="share"></div>
                                 <div class="fav" @click="changeiColor"></div>
                             </div>
                             <div class="the_star_num">
@@ -737,8 +822,25 @@ Vue.component('oc', {
             // console.log(e.target);
             e.target.classList.toggle('clicked');
             
-        }
-    },
+        },
+        share() {
+            FB.ui(
+                {
+                    method: 'share',
+                    href: 'https://tibamef2e.com/tfd102/project/g5/travel_list.html',
+                    // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
+                },
+                // callback
+                function (response) {
+                    if (response && !response.error_message) {
+                        alert('分享至臉書，邀請朋友一起成為jumper!');
+                    } else {
+                        // alert('Error while posting.');
+                    }
+                }
+            )
+        },
+    }
 });
 
 // $(選取).處理();
@@ -803,6 +905,24 @@ function customize() {
         inputValue: 400
     })
 }
+
+
+// 分享臉書
+window.fbAsyncInit = function () {
+    FB.init({
+        appId: '385510642997838',
+        xfbml: true,
+        version: 'v2.4'
+    });
+};
+
+(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 
 
