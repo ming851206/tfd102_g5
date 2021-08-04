@@ -52,7 +52,9 @@
                         </div>
                         <div class="icon_2">
                             <img src="./images/icon/share.svg">
-                            <img src="./images/icon/like.svg">
+                            <div class="fav">
+                                <img src="./images/icon/like.svg">
+                            </div>
                         </div>
                     </div>
                     <h3>怔怔地望著尼加拉大瀑布那滂薄的氣勢</h3>
@@ -78,8 +80,12 @@
                         </div>
                         <div id="traveler_name">
                             <div class="tra_icon">
-                                <img src="./images/icon/share.svg">
-                                <img src="./images/icon/like.svg">
+                                <div class="share">
+                                    <img src="./images/icon/share.svg" style="width: 25px; height: 25px;">
+                                </div>
+                                <div class="fav">
+                                    <img src="./images/icon/like.svg" style="width: 25px; height: 25px;"/>
+                                </div>
                             </div>
                             <div class="tra_info">
                                 <h2>Zachary DeBottis 舉辦的線上體驗</h2>
@@ -106,7 +112,6 @@
                         <hr size="4px" align="center" width="100%" color="#996A4D">
                     </div>
                 </div>
-
 
                 <!-- ----- -->
 
@@ -157,7 +162,6 @@
                     </div>
                 </div>
 
-
                 <hr size="4px" align="center" width="100%" color="#996A4D">
 
                 <!-- ------ -->
@@ -191,7 +195,6 @@
                     <!-- <p>無法提供預定</p>
                     <button class="btnS_line">額滿</button>
                     <button class="btnL">瀏覽類似體驗</button> -->
-
 
                     <!-- 未額滿 -->
                     <p>顯示所有價格</p>
@@ -344,6 +347,7 @@
         <hr class="hr_mb" size="4px" align="center" width="100%" color="#996A4D">
 
         <!-- ------ -->
+        
         <div class="travel_recommend">
             <h3>相信你會喜歡</h3>
             <div class="arrow">
@@ -431,7 +435,7 @@
                                         <img src="./images/icon/share.svg" alt="">
                                     </div>
                                     <div class="fav">
-                                        <img src="./images/icon/like.svg" alt="">
+                                        <img src="./images/icon/like.svg" />
                                     </div>
                                 </div>
                                 <div class="star_num">
@@ -461,7 +465,7 @@
                                         <img src="./images/icon/share.svg" alt="">
                                     </div>
                                     <div class="fav">
-                                        <img src="./images/icon/like.svg" alt="">
+                                        <img src="./images/icon/like.svg" />
                                     </div>
                                 </div>
                                 <div class="star_num">
@@ -479,23 +483,23 @@
                 </li>
             </ul>
         </div>
+
         <div class="info_function_go_top">
             <img id="info_go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
         </div>
-
-
-
-
 
         <footer id="the_footer">
             <the-footer></the-footer>
         </footer>
 
+        <script src="./js/travel_info/travel_info.js"></script>
+
+        <!-- vue -->
         <script src="./js/vue/vue.js"></script>
         <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="./js/header_footer.js"></script>
-        <script src="./js/index/index.js"></script>
 
         <!-- owl.carousel -->
         <link rel="stylesheet"
@@ -505,47 +509,6 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
         </link>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-        <script>
-            // $(選取).處理();
-    $(document).ready(function () {
-    
-        $(".owl-carousel").owlCarousel({
-            loop: false, // 循環播放
-            margin: 10, // 外距 10px
-            nav: false, // 顯示按鍵
-            dots: false, //顯示點點
-            responsive: {
-                0: {
-                    items: 2 // 螢幕大小為 0~600 顯示 1 個項目
-                },
-                600: {
-                    items: 3 // 螢幕大小為 600~1000 顯示 3 個項目
-                },
-                1000: {
-                    items: 5 // 螢幕大小為 1000 以上 顯示 5 個項目
-                }
-            }
-        });
-    });
-
-    $("#info_go_top").click(function () {
-        $("html, body").animate({
-            scrollTop: 0,
-        }, 1000)
-    })
-
-
-    
-        </script>
-        <script>
-            new Vue({
-                el: '',
-                data: {
-
-                },
-            });
-        </script>
-
 </body>
 
 </html>
