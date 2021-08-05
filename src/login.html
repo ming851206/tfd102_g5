@@ -305,14 +305,38 @@
                     // console.log(p)
                     console.log(this.password)
                     console.log(this.account)
-                    axios.post("./php/Login.php",{
-                        password: this.password,
-                        account: this.account
-                    }).then(res =>{
-                        console.log(res)
-                    })
-                }
-            },
+                    // axios.post("./php/Login.php",{
+                    //     password: this.password,
+                    //     account: this.account
+                    // }).then(res => {
+                    //     console.log(res)
+                    // })
+                    $.ajax({
+                        method: 'POST',
+                        url: './php/Login.php',
+                        data:{
+                            password: $('#password').val(),
+                            account : $('#account').val(),
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            console.log(response);
+                            if(response == 1){
+                                alert('登入成功');
+                                window.location.href = './member.html';  
+                            }else{
+                                console.log(response)
+                                alert('查無會員');
+                                window.location.href = './login.html';  
+
+                            }
+                        },
+                        error: function(exception) {
+                            alert("發生錯誤: " + exception.status);
+                        },
+                        })
+                    }
+                },
         });
 
     </script>
