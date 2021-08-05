@@ -46,27 +46,28 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.6.2/vuex.js"></script>
 
     <script>
-        Vue.use(VueRouter);
-        //Vuex
-        const store = new Vuex.Store({  //global store
-            state: {   //類似 new Vue() 的 data
-                timestamp:'1630375200',
+        var timestampMixin = {
+            data(){
+                return {
+                   timestamp:'' 
+                }
             },
-            mutations: { //類似 new Vue() 的 methods
+            methods: {
                 timestampToTime(timestamp) {
-                   
-                   var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
-                   Y = date.getFullYear() + '/';
-                   M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
-                   D = date.getDate() + ' ';
-                   h = date.getHours() + ':';
-                   m = date.getMinutes() + ':';
-                   s = date.getSeconds();
-                   return this.timestamp = Y + M + D;
-                 
-               }
-            },
-        });
+
+                    var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
+                    Y = date.getFullYear() + '/';
+                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
+                    D = date.getDate() + ' ';
+                    h = date.getHours() + ':';
+                    m = date.getMinutes() + ':';
+                    s = date.getSeconds();
+                    return this.timestamp = Y + M + D;
+
+                }
+            }
+        }
+        Vue.use(VueRouter);
 
         // ========== 旅程管理 ========== 
         const Trip = {
@@ -645,6 +646,7 @@
 
         // ========== 訂單管理 ========== 
         const OrderList = {
+            store,
             template: `
             <div class="temp2">
                 <h3>訂單管理</h3>
@@ -685,8 +687,8 @@
 
             `,
             data() {
+              
                 return {
-                    timestamp:'',
                     search: '',
                     data: [
                         // {
@@ -697,14 +699,15 @@
                         //     o_create: '2022 Jun25 15:00',
                         //     o_sentLink: '<button class="sendLink">發送連結</button>',
                         // },
-                       
+
                     ],
                 };
             },
+            mixins:[timestampMixin],
             methods: {
-                timestampToTime(){
-                    this.$store.commit('timestampToTime');
-                },            
+                // timestampToTime() {
+                //     this.$store.commit('timestampToTime');
+                // },
             },
             computed: {
                 filterList() { //搜尋功能
@@ -714,24 +717,24 @@
                 },
             },
             mounted() {
-            //==========前->後axios傳值的寫法=============
+                //==========前->後axios傳值的寫法=============
 
-            //    axios.post('http://localhost/g5/php/adm_orderList.php', JSON.stringify({
-            //         name: this.data[0].o_username, 
-            //         price: this.data[0].o_price,
+                //    axios.post('http://localhost/g5/php/adm_orderList.php', JSON.stringify({
+                //         name: this.data[0].o_username, 
+                //         price: this.data[0].o_price,
 
-            //     }), {
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //         }
+                //     }), {
+                //         headers: {
+                //             'Content-Type': 'application/json'
+                //         }
                 // 以上，前端丟json到後端
 
 
-            //     }).then(res => console.log(res.data)); //非測試時請把clg改掉 (後端丟回json，前端需再處理)
-            // }).then(res => this.data = res.data)
-            
+                //     }).then(res => console.log(res.data)); //非測試時請把clg改掉 (後端丟回json，前端需再處理)
+                // }).then(res => this.data = res.data)
 
-            //===========================================
+
+                //===========================================
 
                 axios.get('http://localhost/php/adm_orderList.php').then(res => this.data = res.data);
                 // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
@@ -747,7 +750,7 @@
                 <h3>旅程評論審查</h3>
                     <table>
                         <tr>
-                            <th>評論</th>
+                            <th>編號</th>
                             <th>旅程名稱</th>
                             <th>會員</th>
                             <th>星數</th>
@@ -784,6 +787,7 @@
             `,
             data() {
                 return {
+                    ischk: 0,
                     data: [],
                 }
             },
@@ -798,14 +802,15 @@
                     let itemsChk = document.querySelectorAll('input.chkbox:checked').length;
                     let allItems = document.querySelectorAll('input.chkbox').length;
                     if (itemsChk == allItems) {
-                        return this.data.ischk == 1;
-                    }//怎麼壞掉了?寫return也沒用
+                        console.log('object'); //這行有用
+                        this.ischk == 1; 
+                    }
                 },
             },
-            mounted(){
+            mounted() {
                 axios.get('http://localhost/php/adm_commentchk.php').then(res => this.data = res.data);
             },
-            
+
         }
         // ========== 新增優惠券 ========== 
         const NewCoupon = {
@@ -891,6 +896,8 @@
             router,
         });
     </script>
+
+
 
 </body>
 

@@ -380,6 +380,11 @@
                         th{
                             padding: 5px 15px;
                         }
+                        tr{
+                            td.cmt_content{
+                                width: 370px;
+                            }
+                        }
                         tr.trans{
                             opacity: 1; //沒用
                             transition: all 1s; //沒用討厭
