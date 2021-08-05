@@ -1,20 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>旅遊護照遊戲</title>
-    <meta charset="UTF-8">
-    <meta name="keywords" content="travel, tour, trip, online travel">
-    <meta name="description" content="online travel website">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/jq/jquery-3.6.0.js"></script>
-    <script src="./js/vue/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
-    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/style.css">
+    @@include('layout_html/plugin.html')
 </head>
 
 <body>
@@ -22,30 +10,9 @@
         <div id="the_game">
             <div class="game_bg">
                 <div class="game_world_map">
-                    <div class="landmark" :class="theme.continent" @click="chooseTheTheme(index)"
-                        v-for="(theme,index) in themes">
+                    <div class="landmark" :class="theme.continent" @click="chooseTheTheme(index)" v-for="(theme,index) in themes">
                         <input type="radio" :value="theme.num" name="theme" v-model="theTheme">
                     </div>
-                    <!-- <div class="landmark am" @click="chooseTheme()">
-                        <input type="radio" :value="1" name="theme" v-model="theTheme">
-                    </div>
-                    <div class="landmark eu" @click="chooseTheme()">
-                        <input type="radio" :value="2" name="theme" v-model="theTheme">
-                    </div>
-                    <div class="landmark as" @click="chooseTheme()">
-                        <input type="radio" :value="3" name="theme" v-model="theTheme">
-                    </div>
-                    <div class="landmark af" @click="chooseTheme()">
-                        <input type="radio" :value="4" name="theme" v-model="theTheme">
-                    </div>
-                    <div class="landmark oc" @click="chooseTheme()">
-                        <input type="radio" :value="5" name="theme" v-model="theTheme">
-                    </div> -->
-
-                    <!-- <div class="landmark eu" id="2" @click="chooseTheme"></div>
-                    <div class="landmark af" id="4" @click="chooseTheme"></div>
-                    <div class="landmark as" id="3" @click="chooseTheme"></div>
-                    <div class="landmark oc" id="5" @click="chooseTheme"></div> -->
                 </div>
 
                 <div id="game_word">
@@ -69,13 +36,12 @@
                 </div>
 
                 <!-- 遊戲題目 -->
-                <!-- <transition> -->
                 <div class="game_question" v-show="question==true">
                     <form method="GET">
                         <div v-for="(task, index) in task_ID" :class="task.num">
                             <div v-show="index === taskIndex">
                                 <div class='q_container'>
-                                    <h2>Q:</h2>
+                                    <h2>Q{{index+1}}</h2>
                                     <h3>{{task.question}}</h3>
                                 </div>
                                 <div class="btn_group">
@@ -99,16 +65,6 @@
                         </div>
                     </form>
                 </div>
-                <!-- </transition> -->
-
-                <!-- <img class="get_stamp" src="./images/index/game/africa_stamp.svg">
-                <div class="game_words" id="win_word">
-                    <p class="game_word row_1">恭喜獲得「旅遊</p> -->
-                <!-- <p class="game_word row_2" v-if="theTheme==1">美洲</p> -->
-                <!-- <p class="game_word row_2" v-else-if="theTheme==2">歐洲</p> -->
-                <!-- <p class="game_word row_2" v-else-if="theTheme==3">亞洲</p> -->
-                <!-- <p class="game_word row_2" v-else-if="theTheme==4">非洲</p> -->
-                <!-- <p class="game_word row_2" v-else-if="theTheme==5">大洋洲</p> -->
 
                 <!-- 挑戰結果 -->
                 <div v-show="result == true">
@@ -122,8 +78,7 @@
                                 <img class="get_stamp" src="./images/index/game/america.svg" v-if="theTheme==1">
                                 <img class="get_stamp" src="./images/index/game/europe.svg" v-else-if="theTheme==2">
                                 <img class="get_stamp" src="./images/index/game/asia.svg" v-else-if="theTheme==3">
-                                <img class="get_stamp" src="./images/index/game/africa_stamp.svg"
-                                    v-else-if="theTheme==4">
+                                <img class="get_stamp" src="./images/index/game/africa_stamp.svg" v-else-if="theTheme==4">
                                 <img class="get_stamp" src="./images/index/game/oceania.svg" v-else-if="theTheme==5">
 
                                 <div class="game_words" id="win_word">
@@ -133,7 +88,6 @@
                                     <p class="game_word row_2" v-else-if="theTheme==3">亞洲</p>
                                     <p class="game_word row_2" v-else-if="theTheme==4">非洲</p>
                                     <p class="game_word row_2" v-else-if="theTheme==5">大洋洲</p>
-                                    <!-- <p class="game_word row_2">非洲</p> -->
                                     <p class="game_word row_3">印章」一枚</p>
                                 </div>
                             </div>
@@ -175,34 +129,25 @@
                                 <h2>我的遊戲護照</h2>
                                 <div class="game_stamp">
                                     <div class="top_stamp">
-                                        <!-- <img class="am unget_stamp" src="./images/index/game/unget.png"> -->
-                                        <img class="am unget_stamp" src="./images/index/game/america.svg"
-                                            v-if="theTheme==1  && winning==true">
+                                        <img class="am unget_stamp" src="./images/index/game/america.svg" v-if="theTheme==1  && winning==true">
                                         <img class="am unget_stamp" src="./images/index/game/unget.png" v-else>
 
-                                        <!-- <img class="am unget_stamp" src="./images/index/game/unget.png"> -->
-                                        <img class="eu unget_stamp" src="./images/index/game/europe.svg"
-                                            v-if="theTheme==2&&winning==true">
+                                        <img class="eu unget_stamp" src="./images/index/game/europe.svg" v-if="theTheme==2 && winning==true">
                                         <img class="eu unget_stamp" src="./images/index/game/unget.png" v-else>
 
-                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
-                                        <!-- <img class="as unget_stamp" src="./images/index/game/oceania.svg" v-if="theTheme==3&&winning==true"> -->
-                                        <!-- <img class="as unget_stamp" src="./images/index/game/unget.png" v-else> -->
+                                        <img class="as unget_stamp" src="./images/index/game/asia.svg" v-if="theTheme==3  && winning==true">
+                                        <img class="as unget_stamp" src="./images/index/game/unget.png" v-else>
 
                                     </div>
                                     <div class="bottom_stamp">
-                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
-                                        <!-- <img class="af unget_stamp" src="./images/index/game/africa_stamp.svgs" v-if="theTheme==4&&winning==true"> -->
-                                        <!-- <img class="af unget_stamp" src="./images/index/game/unget.png" v-else> -->
+                                        <img class="af unget_stamp" src="./images/index/game/africa_stamp.svg" v-if="theTheme==4 && winning==true">
+                                        <img class="af unget_stamp" src="./images/index/game/unget.png" v-else>
 
-                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
-                                        <!-- <img class="oc unget_stamp" src="./images/index/game/africa_stamp.svgs" v-if="theTheme==5&&winning==true"> -->
-                                        <!-- <img class="oc unget_stamp" src="./images/index/game/unget.png" v-else> -->
+                                        <img class="oc unget_stamp" src="./images/index/game/oceania.svg" v-if="theTheme==5 && winning==true">
+                                        <img class="oc unget_stamp" src="./images/index/game/unget.png" v-else>
 
                                     </div>
-                                    <!-- <div class="gift_icon gold" @click="getCoupon"></div> -->
-                                    <img class="gift_icon" src="./images/index/game/gift_gold.svg" v-if="getGift==true"
-                                        @click="getCoupon">
+                                    <img class="gift_icon" src="./images/index/game/gift_gold.svg" v-if="getGift==true" @click="getCoupon">
                                     <img class="gift_icon" src="./images/index/game/gift_gray.svg" v-else>
                                 </div>
                             </div>
@@ -288,16 +233,6 @@
             )
         };
 
-        // var quiz = [{
-        //     question: '自由女神像是哪個國家送給美國的禮物?', option1: '法國', option2: '德國', option3: '英國', answer: 1
-        // }, {
-        //     question: '自由女神像是哪個國家送給美國的禮物?', option1: '法國', option2: '德國', option3: '英國', answer: 1
-        // },
-        // {
-        //     question: '自由女神像是哪個國家送給美國的禮物?', option1: '法國', option2: '德國', option3: '英國', answer: 1
-        // }];
-
-
         new Vue({
             el: "#the_game",
             data: {
@@ -344,6 +279,7 @@
                 getGift: false,
             },
             computed: {
+
             },
             methods: {
                 startGame() {
@@ -352,13 +288,21 @@
                 showPasswort() {
                     this.outerPasswort = false;
                     this.innerPasswort = true;
+
+                    // axios.post('./php/game_record.php').then(res =>console.log(res.data));
+                    axios.post('./php/game_record.php').then(res => this.data = res.data);
+                    // 判斷印章數 == 5 ，getGift = true;
+                    // if () {
+                    //     this.showCoupon = true;
+                    // }else {
+                    //     this.showCoupon = false;
+                    // }
                 },
                 chooseTheTheme(index) {
-
                     this.theTheme = index + 1;
-                    // console.log(val);
-                    // console.log(this.themes[index].num);
-                    axios.post('./php/game.php', {
+                    
+                    axios.post('./php/game_qa.php', {
+                        // console.log(this.themes[index].num);
                         num: this.themes[index].num
                     }).then(res => {
                         // console.log(res.data);
@@ -372,29 +316,12 @@
                             this.task_ID[i].option3 = data[i].option3;
                             this.task_ID[i].answer = data[i].answer;
                         }
-
-                        // this.data = res.data
-                        // q1 = res.data[this.themes[index].num - 1];
-
-                        // q1.task_ID = this.themes[index].num;
-                        // q1[0] = this.themes[index].num;
-
-                        // q1.task_ID[0].question = q1.question;
-                        // q1.task_ID[this.taskIndex].option1 = q1.option1;
-                        // q1.task_ID[this.taskIndex].option2 = q1.option2;
-                        // q1.task_ID[this.taskIndex].option3 = q1.option3;
-                        // q1.task_ID[this.taskIndex].answer = q1.answer;
-                        // console.log(q1.task_ID);  //this.task_ID[this.taskIndex].answer
-                        // console.log(q1.question);  //this.task_ID[this.taskIndex].answer
                         this.question = true;
                     });
 
                 },
                 game_continue() {
                     this.innerPasswort = false;
-                },
-                chooseTheme() {
-                    this.question = true;
                 },
                 next() {
                     // // 下一題，最後一題要判斷是否全對
@@ -428,30 +355,26 @@
                     this.result = false;
                     this.question = false;
                     this.innerPasswort = true;
-                },
-                getCoupon() {
-                    // 先判斷登入登出
-                    // 判斷印章數 == 5
+
+                    // 判斷印章數 == 5 ，getGift = true;
                     // if () {
                     //     this.showCoupon = true;
                     // }else {
                     //     this.showCoupon = false;
                     // }
+                },
+                getCoupon() {
+                    // 先判斷登入登出
                     this.showCoupon = true;
                 },
                 closeCoupon() {
                     this.showCoupon = false;
-                    this.getGift = false,
-                        $(".unget_stamp").css("backgroundImage", "url('./images/index/game/unget.png')");
-                    $(".gift_icon").css({
-                        backgroundImage: "url('./images/index/game/gift_gray.svg')",
-                        cursor: "default",
-                    })
+                    this.getGift = false;
                 }
             },
             mounted() {
 
-                // axios.get('../php/game.php').then(res =>console.log(res.data));
+                // axios.get('./php/game.php').then(res =>console.log(res.data));
 
                 $(function () {
                     $(".btn_start").click(function () {
@@ -466,13 +389,7 @@
                         });
                         $(".game_world_map div").not(this).delay(200).slideUp(700);
                         $("#game_word").fadeOut();
-                        // $(".game_question").delay(2200).fadeIn(800);
                     });
-
-                    // $("#task_process").click(function () {
-                    //     $(".passport_page").fadeOut(400);
-                    //     $(".game_result_overlay").delay(500).fadeIn(1000);
-                    // })
 
                     $(".game_continue").click(function () {
                         $(".game_result_overlay").fadeOut();
@@ -492,32 +409,6 @@
                             backgroundColor: "#F7F6F2",
                         });
                     })
-
-                    // $("#ans_confirm").click(function () {
-                    // $(".game_question").fadeOut(400);
-                    // $(".challenge").delay(400).fadeIn(400);
-
-                    // $(".game_close_btn").click(function () {
-                    //     $(".game_question").fadeOut(400);
-                    //     $(".challenge").fadeOut(400);
-                    //     $(".game_result_overlay").delay(400).fadeIn(400);
-                    // })
-                    // })
-
-                    // $(".gift_icon").click(function (e) {
-                    //     $(".game_coupon").show();
-                    // })
-
-                    // $(".coupon_close_btn").click(function () {
-                    //     $(".game_coupon").hide();
-                    //     $(".unget_stamp").css("backgroundImage", "url('./images/index/game/unget.png')");
-                    //     $(".gift_icon").css({
-                    //         backgroundImage: "url('./images/index/game/gift_gray.svg')",
-                    //         cursor: "default",
-                    //     }).click(function (e) {
-                    //         $(".game_coupon").hide();
-                    //     });
-                    // })
                 })
             },
         });
