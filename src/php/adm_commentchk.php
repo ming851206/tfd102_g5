@@ -8,6 +8,9 @@
 // 	join product_info pi
 // 		on c.product_ID = pi.ID
 //======================================
+// 轉換陣列
+//settype ($data ,"array");
+
 include('./conn.php');
 
 //建立SQL 
