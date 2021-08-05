@@ -1,5 +1,5 @@
 <?php
-	
+
     include('conn.php');
     //  get 數值
     $data = json_decode(file_get_contents('php://input'), true);
@@ -8,45 +8,45 @@
     settype ($data ,"array");
 
     // 觀看陣列長怎樣
-    print_r ($data);
-    exit();
+    // print_r ($data);
 
     //建立SQL
     $sql = "SELECT * FROM member WHERE account_status = 1 and username= ? and password = ?";
 
     //給值
     $statement = getPDO()->prepare($sql);
-    $statement->bindValue(1, $_POST["account"]);
-    $statement->bindValue(2, $_POST["password"]);
+    $statement->bindValue(1, $data["account"]);
+    $statement->bindValue(2, $data["password"]);
     $statement->execute();
-    $data = $statement->fetchAll();
-    
+    $datas = $statement->fetchAll();
+
     $memberID = "";
     $memberName = "";
-    foreach($data as $index => $row){
+    foreach($datas as $index => $row){
         $memberID = $row["ID"];
-        $memberName = $row["Account"];
+        $memberName = $row["username"];
     }
 
-    //判斷是否有會員資料?
-    if($memberID != "" && $memberName != ""){
+    // //判斷是否有會員資料?
+    if($memberID!="" && $memberName!=""){
 
-        include("./member.php");        
-    
+        // include("./member.php");
+
         //將會員資訊寫入session
-        setMemberInfo($memberID, $memberName);
+        // setMemberInfo($memberID, $memberName);
 
-        //導回產品頁   
+        //導回產品頁
         // echo json_encode(0);
 
-        echo "<script>alert('登入成功!'); location.href = '../../../member.html';</script>"; 
-
+        // echo "<script>alert('登入成功!'); location.href = '../../../member.html';</script>";
+        echo $memberID;
     }else{
 
         //跳出提示停留在登入頁
         // echo json_encode(1);
+        echo 0;
 
-        echo "<script>alert('帳號或密碼錯誤!'); location.href = '../../../login_member.html';</script>"; 
+        // echo "<script>alert('帳號或密碼錯誤!'); location.href = '../../../login_member.html';</script>";
     }
 
     //回傳json
