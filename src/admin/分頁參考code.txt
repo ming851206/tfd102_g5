@@ -1,0 +1,56 @@
+<?php
+  /*需要的變數：
+$curr_page        目前第幾頁(索引號碼)
+$first_row        目前頁面第一筆的索引號碼
+$last_row         目前頁面最後一筆的索引號碼
+$total_rows       總共的筆數
+$total_pages      總共的頁數
+$page_file        連結的頁面
+$search_str       連結時需帶著的參數:搜尋關鍵字
+$class_str        連結時需帶著的參數:分類id
+*/
+  ?>
+  <div class="pager">
+    <!-- ====================== 左邊：筆數資料區 ====================== -->
+    <div> <?php echo '第'.($first_row+1).'~'.min($last_row+1,$total_rows).'筆 / 共'.$total_rows.'筆'; ?> </div>
+
+    <!-- ====================== 中央：頁碼導覽區 ====================== -->
+    <div>
+      <?php
+      //顯示 第一筆及上一筆的連結 --------------------- 
+      if( $curr_page>0 ){
+        echo '<a href="?page='.$page_file.'&curr_page=0'.$search.'"><i class="fa fa-angle-double-left"></i></a>';
+
+        echo '<a href="?page='.$page_file.'&curr_page='.($curr_page-1).$search.'">
+              <i class="fa fa-angle-left"></i></a>';
+      }
+
+      //顯示頁碼連結 -------------------------------- 
+      for( $i=0; $i<$total_pages; $i++ ){
+        //假如是目前所在的頁碼 > 不用連結, 用span > CSS設計
+        if( $i == $curr_page ){
+          echo '<span class="current">'.($i+1).'</span>';
+        }else{
+          echo '<a href="?page='.$page_file.'&curr_page='.$i.$search.'">';
+          echo $i+1;
+          echo '</a>';
+        } //if end
+      } //for end
+
+      //顯示 下一筆及最後一筆的連結 ------------------- 
+      if( $curr_page < $total_pages-1 ){
+
+        echo '<a href="?page='.$page_file.'&curr_page='.($curr_page+1).$search.'">
+              <i class="fa fa-angle-right"></i></a>';
+
+        echo '<a href="?page='.$page_file.'&curr_page='.($total_pages-1).$search.'">
+              <i class="fa fa-angle-double-right"></i></a>';
+      }
+      ?>
+    </div>
+
+    <!-- ====================== 右邊：頁數資料區 ====================== -->
+    <div> <?php echo '第'.($curr_page+1).'頁 / 共'.$total_pages.'頁'; ?> </div>
+  </div>
+
+  <?php //echo $uri; ?>

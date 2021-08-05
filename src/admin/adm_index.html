@@ -639,11 +639,19 @@
                         <th>功能</th>
                     </tr>
                     <tr v-for="order in filterList">
+<<<<<<< HEAD
                         <td v-text="order.o_num"></td>
                         <td v-text="order.o_memberid"></td>
                         <td v-text="order.o_numlimit"></td>
                         <td v-text="order.o_issend"></td>
                         <td v-text="order.o_createdat"></td>
+=======
+                        <td v-text="order.ID"></td>
+                        <td v-text="order.name"></td>
+                        <td v-text="'$'+ order.price"></td>
+                        <td v-text="order.is_alerted = 1 ? '未發送':'已發送' "></td>
+                        <td id="ts">{{timestampToTime(order.created_at)}}</td>
+>>>>>>> new_JOi
                         <td><button class="sendLink">發送連結</button></td>
                     </tr>
                 </table>
@@ -663,6 +671,7 @@
             `,
             data() {
                 return {
+<<<<<<< HEAD
                     search: '',
                     data: [
                         {
@@ -695,6 +704,36 @@
                         },
                     ],
                 }
+=======
+                    timestamp:'',
+                    search: '',
+                    data: [
+                        // {
+                        //     o_id:'1',
+                        //     o_username: '第五組',
+                        //     o_price: '$999',
+                        //     o_isMailed: '已發送',
+                        //     o_create: '2022 Jun25 15:00',
+                        //     o_sentLink: '<button class="sendLink">發送連結</button>',
+                        // },
+                       
+                    ],
+                };
+            },
+            methods: {
+                timestampToTime(timestamp) {
+                   
+                   var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
+                   Y = date.getFullYear() + '/';
+                   M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
+                   D = date.getDate() + ' ';
+                   h = date.getHours() + ':';
+                   m = date.getMinutes() + ':';
+                   s = date.getSeconds();
+                   return this.timestamp = Y + M + D;
+                   //nsole.log(this.timestamp);
+               }
+>>>>>>> new_JOi
             },
             computed: {
                 filterList() { //搜尋功能
@@ -837,6 +876,7 @@
                     }//怎麼壞掉了?寫return也沒用
                 },
             },
+            
         }
         // ========== 新增優惠券 ========== 
         const NewCoupon = {
