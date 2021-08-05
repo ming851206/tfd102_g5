@@ -3,7 +3,18 @@
 
 <head>
     <title>旅遊護照遊戲</title>
-    @@include('layout_html/plugin.html')
+    <meta charset="UTF-8">
+<meta name="keywords" content="travel, tour, trip, online travel">
+<meta name="description" content="online travel website">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="./js/jq/jquery-3.6.0.js"></script>
+<script src="./js/vue/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+<link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -42,7 +53,7 @@
                 <!-- <transition> -->
                     <div class="game_question" v-show="question==true">
                         <form method="GET">
-                            <div v-for="(task, index) in tasks" :class="task.num">
+                            <div v-for="(task, index) in task_ID" :class="task.num">
                                 <div v-show="index === taskIndex">
                                     <div class='q_container'>
                                         <h2>Q:</h2>
@@ -51,15 +62,15 @@
                                     <div class="btn_group">
                                         <div class="input_group">
                                                 <label class="opt default">
-                                                    <input type="radio" :name="index" :value="1" v-model="userAnswer[index]">
+                                                    <input type="radio" :name="index" :value="1" v-model="userAnswer">
                                                     {{task.option1}}
                                                 </label>
                                                 <label class="opt default">
-                                                    <input type="radio" :name="index" :value="2" v-model="userAnswer[index]">
+                                                    <input type="radio" :name="index" :value="2" v-model="userAnswer">
                                                     {{task.option2}}
                                                 </label>
                                                 <label class="opt default">
-                                                    <input type="radio" :name="index" :value="3" v-model="userAnswer[index]">
+                                                    <input type="radio" :name="index" :value="3" v-model="userAnswer">
                                                     {{task.option3}}
                                                 </label>
                                         </div>
@@ -206,7 +217,6 @@
                 {
                 method: 'share',
                 href: 'https://tibamef2e.com/tfd102/project/g5/game.html',
-                // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
                 },
                 // callback
                 function(response) {
@@ -232,7 +242,7 @@
         new Vue({
             el: "#the_game",
             data: {
-                tasks: [
+                task_ID: [
                         {  
                             question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，它是非洲語的什麼意思呢？", 
                             option1: "不用擔心",
@@ -258,7 +268,8 @@
                 outerPasswort: true,
                 question: false,
                 taskIndex: 0,
-                userAnswer: Array(3).fill(false),
+                userAnswers: [],
+                userAnswer:'',
                 winning: false,
                 innerPasswort: false,
                 showCoupon: false,
@@ -273,9 +284,6 @@
                 showPasswort(){
                     this.outerPasswort = false;
                     this.innerPasswort = true;
-
-                    // ================local storage
-                    // let record = localStorage.getItem("task_record")
                 },
                 game_continue(){
                     this.innerPasswort = false;
@@ -284,32 +292,29 @@
                     this.question = true;
                 },
                 next(){
-                    // 下一題，最後一題要判斷是否全對
+                    // // 下一題，最後一題要判斷是否全對
+                    // console.log(this.userAnswer);
+                    // console.log(this.task_ID[this.taskIndex].answer);
+                    // console.log(this.task_ID[this.taskIndex].answer == this.userAnswer);
+                    if(this.task_ID[this.taskIndex].answer == this.userAnswer){
+                        this.userAnswers.push(true);
+                    }else{
+                        this.userAnswers.push(false);
+                    }
+                    // console.log(this.userAnswers);
+
                     if(this.taskIndex == 2){
-                        let correctAnswer = this.userAnswer.filter(function(val){return val}).length;
+                        let correctAnswer = this.userAnswers.filter(function(val){return val}).length;
                         this.result = true;
                         // console.log(correctAnswer);
                         if(correctAnswer == 3){
                             this.winning = true;
                             this.taskIndex = 0;
-
-                            // ================== local stroage ===================
-                            // task = {
-                            //     "task_id": new Date(),
-                            //     "am": 0,
-                            //     "eu": 0,
-                            //     "af": 0,
-                            //     "as": 0,
-                            //     "oc": 0
-                            // }
-                            // if(localStorage["task_record"] == null){
-                            //     localStorage["task_record"] = "";
-                            // }                            
-                            // localStorage.setItem("task_record", JSON.stringify(task));
                         }else{
                             this.winning = false;
                             this.taskIndex = 0;
                         }
+                        this.userAnswers.splice(0);
                     }else{
                         this.taskIndex++;
                     }
@@ -339,9 +344,17 @@
                 }
             },
             mounted() {
-                // axios.get('../php/game.php').then(res => this.data = res.data);
+                axios.get('../php/game.php').then(res => {
+                    this.data = res.data
+                    let q1 = res.data[0];
+                    this.task_ID[0].question = q1.question;
+                    this.task_ID[0].option1 = q1.option1;
+                    this.task_ID[0].option2 = q1.option2;
+                    this.task_ID[0].option3 = q1.option3;
+                    this.task_ID[0].answer = q1.answer;
+                });
                 
-                axios.get('../php/game.php').then(res =>console.log(res.data));
+                // axios.get('../php/game.php').then(res =>console.log(res.data));
 
                 $(function () {
                     $(".btn_start").click(function () {

@@ -29,9 +29,6 @@
         transform: scale(1);
     }
 }
-
-$passportW: 402;
-
 @keyframes fade-in_1 {
     0% {
         opacity: 0;
@@ -63,6 +60,32 @@ $passportW: 402;
         opacity: 1;
     }
 }
+@keyframes text_shadow {
+    0%{
+        text-shadow: 0px 0px 0px #996A4D;
+    }
+    50%{
+        text-shadow: 0px 0px 2px #996A4D;
+    }
+    90%{
+        text-shadow: 0px 0px 0px #996A4D;
+    }
+}
+@keyframes shine {
+    0%{
+        box-shadow: 0px 0px 6px 4px whitesmoke;
+
+    }
+    50%{
+        box-shadow: 0px 0px 12px 8px whitesmoke;
+
+    }
+    90%{
+        box-shadow: 0px 0px 6px 4px whitesmoke;
+    }
+}
+
+$passportW: 402;
 
 .game_bg {
     background-image: url("../../images/index/game/game_bg.jpg");
@@ -307,13 +330,13 @@ $passportW: 402;
                     color: #996A4D;
                     font-size: 26px;
                     font-weight: normal;
-                    width: 142px;
+                    width: 136px;
                     vertical-align: middle;
-                    height: 49px;
+                    height: 46px;
                     @include margin0;
                     margin-bottom: 30px;
                     border-radius: 15px;
-
+                    animation: shine 2s linear infinite, text_shadow 2s linear infinite;
                     @include md {
                         width: 142px * 0.9;
                         margin-bottom: 25px;
