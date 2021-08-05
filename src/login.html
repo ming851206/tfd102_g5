@@ -34,15 +34,15 @@
                     <!-- 放登入的東西 -->
                     <!-- 輸入框欄位 -->
 
-                        <input class="login_input" type="text" placeholder="帳號 :" autocomplete="off" required name="member_account_input" >
-                        <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off" required name="member_password_input">
+                        <input class="login_input" v-model="account" type="account" placeholder="帳號 :" autocomplete="off"  name="member_account_input" id="account">
+                        <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off"  name="member_password_input">
                         <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                         <!-- 無法登入 -->
                         <div class="forgetPassword" @click="password_forget">
                             <p>忘記密碼?</p>
                         </div>
                         <!-- 登入切換按鈕 -->
-                            <button type="button" class="btnM areaShow" id="btn_login" value="登入">登入</button>
+                            <button type="button" class="btnM areaShow" id="btn_login" value="登入" @click="signIN">登入</button>
 
 
 
@@ -207,6 +207,7 @@
             data() {      //變數存放的地方
                 return {
                     // 登入註冊切換
+                    account:'',
                     areaShow: true,
                     password: '',
                     password_login: true,
@@ -224,6 +225,7 @@
                     phone_password_register_msg: true,
                     phone_password_register_again: '',
                     phone_password_register_again_msg: true,
+
                 }
 
             },
@@ -299,6 +301,17 @@
                 phone_password_forget(){
                     alert("請輸入正確帳號")
                 },
+                signIN(){
+                    // console.log(p)
+                    console.log(this.password)
+                    console.log(this.account)
+                    axios.post("./php/Login.php",{
+                        password: this.password,
+                        account: this.account
+                    }).then(res =>{
+                        console.log(res)
+                    })
+                }
             },
         });
 
