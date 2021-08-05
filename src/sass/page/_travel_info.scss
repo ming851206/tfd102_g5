@@ -325,6 +325,12 @@
                     h2 {
                         padding-bottom: 0;
                         margin-bottom: 10px;
+                        @include tablet{
+                            font-size: 25px;
+                        }
+                        @include ipad{
+                            font-size: 19px;
+                        }
                         @include mobile{
                             font-size: 14px;
                             margin-bottom: 2px;
@@ -576,6 +582,12 @@
         position: -webkit-sticky;
         position: sticky;
         bottom: 10px;
+        @include ipad{
+            padding: 0 10px;
+            h5, p{
+                font-size: 12px;
+            }
+        }
         @include  mobile { //手機:575以下
             @media all and (max-width : $mobile ) {
                display: none; 
@@ -639,15 +651,15 @@
                     }
                     @include laptop{
                         font-size: 8xp;
-                        line-height: 10xp;;
+                        line-height: 12xp;;
                     }
                     @include tablet{
                         font-size: 8px;
-                        line-height: 10px;
+                        line-height: 12px;
                     }
                     @include ipad{
                         font-size: 4px;
-                        line-height: 9px;
+                        line-height: 12px;
                     }
                 }
 
@@ -663,17 +675,48 @@
 
     .arrow {
         margin-bottom: 20px;
-        display: flex;
+        display: none;
         width: 100%;
         justify-content: flex-end;
         @include mobile{
             display: none;
         }
-
         div {
-            margin-left: 20px;
+            margin-left: 20;
             cursor: pointer;
             display: inline-block;
+        }
+    }
+
+    .owl-nav{
+        height: 30px;
+        position: relative;
+        top: -250px;
+        margin-right: 10px;
+        text-align: right;
+        span{
+
+            visibility: hidden;
+        }
+        .owl-prev{
+            background-image: url(../../images/icon/page-prev.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            padding: auto !important;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .owl-next{
+            background-image: url(../../images/icon/page-next.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            padding: auto !important;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
         }
     }
 
@@ -955,7 +998,6 @@
         display: block;
         width: 90%;
     }
-
 }
 
 .info_function_go_top{
@@ -982,3 +1024,4 @@
         }
     }
 }
+
