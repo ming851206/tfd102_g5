@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抓取現在時間戳記及轉換時間</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="getNow"> 點擊抓取現在時間 </button>
+        <h1>現在時間戳記: {{now}}</h1>
+        <h1>今天日期: {{timestampToDate(now)}}</h1>
+        <h1>現在時間: {{timestampToTime(now)}}</h1>
+    </div>
+
+
+    <script src="./js/vue/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                now: 0,
+            },
+            methods: {
+                //抓取現在時間戳記
+                getNow() {
+                    var date = new Date();
+                    this.now = date.getTime(); // 1628178635786
+                },
+                // 轉換成日期 (1970-01-1)
+                timestampToDate(timestamp) {
+                    var date = new Date(timestamp); //時間戳為10位需*1000，時間戳為13位的話不需乘1000
+                    Y = date.getFullYear() + '-';
+                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                    D = date.getDate() + ' ';
+                    h = date.getHours() + ':';
+                    m = date.getMinutes() + ':';
+                    s = date.getSeconds();
+                    return this.timestamp = Y+M+D; // 2021-08-31
+                },
+                // 轉換成時間 + 日期 (1970-01-1 8:0:0)
+                timestampToTime(timestamp) {
+                    var date = new Date(timestamp); //時間戳為10位需*1000，時間戳為13位的話不需乘1000
+                    Y = date.getFullYear() + '-';
+                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+                    D = date.getDate() + ' ';
+                    h = date.getHours() + ':';
+                    m = date.getMinutes() + ':';
+                    s = date.getSeconds();
+                    return this.timestamp = Y + M + D + h + m + s; // 2021-08-31 10:0:0
+                }
+
+            },
+
+        });
+
+    </script>
+</body>
+
+</html>

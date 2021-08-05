@@ -41,6 +41,7 @@ COMMENT = '會員';
 CREATE TABLE IF NOT EXISTS `JUMPER`.`product_info` (
   `ID` INT NOT NULL,
   `category` INT NOT NULL COMMENT '分類\n',
+  `place` VARCHAR(45) NOT NULL,
   `title` VARCHAR(45) NOT NULL COMMENT '主題',
   `content` VARCHAR(255) NOT NULL COMMENT '\n內容 ',
   `intro_pics` VARCHAR(255) NOT NULL,
@@ -91,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `JUMPER`.`trip_order` (
   `people` INT NOT NULL,
   `is_alerted` BIT(1) NOT NULL COMMENT '紅點通知',
   `is_clicked` BIT(1) NOT NULL,
+  `is_commented` BIT(1) NULL,
   PRIMARY KEY (`ID`),
   INDEX `FK_ORDER_MEMBER_ID_idx` (`member_ID` ASC) VISIBLE,
   INDEX `FK_ORDER_SESSION_ID_idx` (`session_ID` ASC) VISIBLE,
@@ -218,7 +220,6 @@ CREATE TABLE IF NOT EXISTS `JUMPER`.`task_record` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `member_ID` INT NOT NULL COMMENT '會員ID',
   `task_ID` INT NOT NULL,
-  `is_pass` INT NOT NULL,
   PRIMARY KEY (`ID`),
   INDEX `FK_TASK_RECORD_MEMBER_ID_idx` (`member_ID` ASC) VISIBLE,
   INDEX `FK_TASK_RECORD_TASK_ID_idx` (`task_ID` ASC) VISIBLE,
