@@ -42,9 +42,32 @@
     <script src="../js/jq/jquery-3.6.0.js"></script>
     <script src="../js/vue/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.6.2/vuex.js"></script>
 
     <script>
         Vue.use(VueRouter);
+        //Vuex
+        const store = new Vuex.Store({  //global store
+            state: {   //類似 new Vue() 的 data
+                timestamp:'1630375200',
+            },
+            mutations: { //類似 new Vue() 的 methods
+                timestampToTime(timestamp) {
+                   
+                   var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
+                   Y = date.getFullYear() + '/';
+                   M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
+                   D = date.getDate() + ' ';
+                   h = date.getHours() + ':';
+                   m = date.getMinutes() + ':';
+                   s = date.getSeconds();
+                   return this.timestamp = Y + M + D;
+                 
+               }
+            },
+        });
+
         // ========== 旅程管理 ========== 
         const Trip = {
             template: `
@@ -663,7 +686,7 @@
             `,
             data() {
                 return {
-                    timestamp: '',
+                    timestamp:'',
                     search: '',
                     data: [
                         // {
@@ -679,23 +702,14 @@
                 };
             },
             methods: {
-                timestampToTime(timestamp) {
-
-                    var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
-                    Y = date.getFullYear() + '/';
-                    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
-                    D = date.getDate() + ' ';
-                    h = date.getHours() + ':';
-                    m = date.getMinutes() + ':';
-                    s = date.getSeconds();
-                    return this.timestamp = Y + M + D;
-                    //nsole.log(this.timestamp);
-                }
+                timestampToTime(){
+                    this.$store.commit('timestampToTime');
+                },            
             },
             computed: {
                 filterList() { //搜尋功能
                     return this.data.filter((order) => { //把data送下來使用filter功能
-                        return order.o_num.includes(this.search);
+                        return order.ID.includes(this.search);
                     })
                 },
             },
@@ -728,27 +742,26 @@
 
         // ========== 旅程評論審查 ========== 
         const CommentCheck = {
-
             template: `
             <div class="temp2">
                 <h3>旅程評論審查</h3>
                     <table>
                         <tr>
-                            <th>旅程編號</th>
+                            <th>評論</th>
+                            <th>旅程名稱</th>
                             <th>會員</th>
                             <th>星數</th>
                             <th>評論內容</th>
                             <th>評論時間</th>
-                            <th>審核狀態</th>
                             <th>勾選</th>
                         </tr>
                         <tr v-for="comment in data">
-                            <td v-text="comment.t_num"></td>
-                            <td v-text="comment.c_username"></td>
-                            <td v-text="comment.c_star"></td>
-                            <td v-text="comment.c_content"></td>
-                            <td v-text="comment.c_createdat"></td>
-                            <td v-text="comment.c_status"></td>
+                            <td v-text="comment.id"></td>
+                            <td v-text="comment.title"></td>
+                            <td v-text="comment.name"></td>
+                            <td v-text="comment.star"></td>
+                            <td v-text="comment.content" class="cmt_content"></td>
+                            <td v-text="comment.create_at"></td>
                             <td><input type="checkbox" name="" class="chkbox" @click="checkNum"></td>
                         </tr>
                     </table>
@@ -771,38 +784,7 @@
             `,
             data() {
                 return {
-                    data: [
-                        {
-                            t_num: 1,
-                            c_username: '嗚咪',
-                            c_star: '5',
-                            c_content: '行程安排非常充實！',
-                            c_createdat: '2023/12/31',
-                            c_status: "待審"
-                        },
-                        {
-                            t_num: 2,
-                            c_username: '孫小美',
-                            c_star: '4',
-                            c_content: '行程安排非常充實！',
-                            c_createdat: '2023/12/31',
-                            c_status: "待審"
-                        }, {
-                            t_num: 3,
-                            c_username: '金貝貝',
-                            c_star: '5',
-                            c_content: '我學到了很多,也很享受這次的旅程',
-                            c_createdat: '2023/12/31',
-                            c_status: "待審"
-                        }, {
-                            t_num: 4,
-                            c_username: '阿土伯',
-                            c_star: '5',
-                            c_content: '這是一個非常美好､有趣和開心的夜晚～',
-                            c_createdat: '2023/12/31',
-                            c_status: "待審"
-                        },
-                    ],
+                    data: [],
                 }
             },
             methods: {
@@ -820,7 +802,10 @@
                     }//怎麼壞掉了?寫return也沒用
                 },
             },
-
+            mounted(){
+                axios.get('http://localhost/php/adm_commentchk.php').then(res => this.data = res.data);
+            },
+            
         }
         // ========== 新增優惠券 ========== 
         const NewCoupon = {
