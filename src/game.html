@@ -22,11 +22,29 @@
         <div id="the_game">
             <div class="game_bg">
                 <div class="game_world_map">
-                    <div class="landmark am" id="1" @click="chooseTheme"></div>
-                    <div class="landmark eu" id="2" @click="chooseTheme"></div>
+                    <div class="landmark" :class="theme.continent" @click="chooseTheTheme(index)" v-for="(theme,index) in themes">
+                        <input type="radio" :value="theme.num" name="theme" v-model="theTheme">
+                    </div>
+                    <!-- <div class="landmark am" @click="chooseTheme()">
+                        <input type="radio" :value="1" name="theme" v-model="theTheme">
+                    </div>
+                    <div class="landmark eu" @click="chooseTheme()">
+                        <input type="radio" :value="2" name="theme" v-model="theTheme">
+                    </div>
+                    <div class="landmark as" @click="chooseTheme()">
+                        <input type="radio" :value="3" name="theme" v-model="theTheme">
+                    </div>
+                    <div class="landmark af" @click="chooseTheme()">
+                        <input type="radio" :value="4" name="theme" v-model="theTheme">
+                    </div>
+                    <div class="landmark oc" @click="chooseTheme()">
+                        <input type="radio" :value="5" name="theme" v-model="theTheme">
+                    </div> -->
+                    
+                    <!-- <div class="landmark eu" id="2" @click="chooseTheme"></div>
                     <div class="landmark af" id="4" @click="chooseTheme"></div>
                     <div class="landmark as" id="3" @click="chooseTheme"></div>
-                    <div class="landmark oc" id="5" @click="chooseTheme"></div>
+                    <div class="landmark oc" id="5" @click="chooseTheme"></div> -->
                 </div>
 
                 <div id="game_word">
@@ -74,14 +92,23 @@
                                                     {{task.option3}}
                                                 </label>
                                         </div>
-                                        <input class="btnM ans_confirm" id='ans_confirm' type="button" value="確定" @click="next">
+                                        <input class="btnM ans_confirm" type="button" value="確定" @click="next">
                                     </div>
                                 </div>    
                             </div>
                          </form>
                     </div>
                 <!-- </transition> -->
-                 
+
+                <!-- <img class="get_stamp" src="./images/index/game/africa_stamp.svg">
+                <div class="game_words" id="win_word">
+                    <p class="game_word row_1">恭喜獲得「旅遊</p> -->
+                    <!-- <p class="game_word row_2" v-if="theTheme==1">美洲</p> -->
+                    <!-- <p class="game_word row_2" v-else-if="theTheme==2">歐洲</p> -->
+                    <!-- <p class="game_word row_2" v-else-if="theTheme==3">亞洲</p> -->
+                    <!-- <p class="game_word row_2" v-else-if="theTheme==4">非洲</p> -->
+                    <!-- <p class="game_word row_2" v-else-if="theTheme==5">大洋洲</p> -->
+                    
                 <!-- 挑戰結果 -->
                 <div v-show="result == true"> 
                     <!-- 成功 -->
@@ -91,10 +118,20 @@
                             <div class="game_close_btn" @click="closeResult"></div>
                             <div class="main_result">
                                 <h3 class="result_title">挑戰成功！</h3>
-                                <div class="get_stamp"></div>
+                                <img class="get_stamp" src="./images/index/game/america.svg" v-if="theTheme==1">
+                                <img class="get_stamp" src="./images/index/game/europe.svg" v-else-if="theTheme==2">
+                                <img class="get_stamp" src="./images/index/game/asia.svg" v-else-if="theTheme==3">
+                                <img class="get_stamp" src="./images/index/game/africa_stamp.svg" v-else-if="theTheme==4">
+                                <img class="get_stamp" src="./images/index/game/oceania.svg" v-else-if="theTheme==5">
+
                                 <div class="game_words" id="win_word">
                                     <p class="game_word row_1">恭喜獲得「旅遊</p>
-                                    <p class="game_word row_2" id="continent_name">非洲</p>
+                                    <p class="game_word row_2" v-if="theTheme==1">美洲</p>
+                                    <p class="game_word row_2" v-else-if="theTheme==2">歐洲</p>
+                                    <p class="game_word row_2" v-else-if="theTheme==3">亞洲</p>
+                                    <p class="game_word row_2" v-else-if="theTheme==4">非洲</p>
+                                    <p class="game_word row_2" v-else-if="theTheme==5">大洋洲</p>
+                                    <!-- <p class="game_word row_2">非洲</p> -->
                                     <p class="game_word row_3">印章」一枚</p>
                                 </div>
                             </div>
@@ -136,15 +173,32 @@
                                 <h2>我的遊戲護照</h2>
                                 <div class="game_stamp">
                                     <div class="top_stamp">
-                                        <div class="am unget_stamp"></div>
-                                        <div class="eu unget_stamp"></div>
-                                        <div class="as unget_stamp"></div>
+                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
+                                        <!-- <img class="am unget_stamp" src="./images/index/game/america.svg" v-if="theTheme==1&&winning==true"> -->
+                                        <!-- <img class="am unget_stamp" src="./images/index/game/unget.png" v-else> -->
+
+                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
+                                        <!-- <img class="eu unget_stamp" src="./images/index/game/europe.svg" v-if="theTheme==2&&winning==true"> -->
+                                        <!-- <img class="eu unget_stamp" src="./images/index/game/unget.png" v-else> -->
+                                        
+                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
+                                        <!-- <img class="as unget_stamp" src="./images/index/game/oceania.svg" v-if="theTheme==3&&winning==true"> -->
+                                        <!-- <img class="as unget_stamp" src="./images/index/game/unget.png" v-else> -->
+                                    
                                     </div>
                                     <div class="bottom_stamp">
-                                        <div class="af unget_stamp"></div>
-                                        <div class="oc unget_stamp"></div>
+                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
+                                        <!-- <img class="af unget_stamp" src="./images/index/game/africa_stamp.svgs" v-if="theTheme==4&&winning==true"> -->
+                                        <!-- <img class="af unget_stamp" src="./images/index/game/unget.png" v-else> -->
+
+                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
+                                        <!-- <img class="oc unget_stamp" src="./images/index/game/africa_stamp.svgs" v-if="theTheme==5&&winning==true"> -->
+                                        <!-- <img class="oc unget_stamp" src="./images/index/game/unget.png" v-else> -->
+
                                     </div>
-                                    <div class="gift_icon gold" @click="getCoupon"></div>
+                                    <!-- <div class="gift_icon gold" @click="getCoupon"></div> -->
+                                    <img class="gift_icon" src="./images/index/game/gift_gold.svg" v-if="getGift==true" @click="getCoupon">
+                                    <img class="gift_icon" src="./images/index/game/gift_gray.svg" v-else>
                                 </div>
                             </div>
     
@@ -242,6 +296,14 @@
         new Vue({
             el: "#the_game",
             data: {
+                theTheme: 0,
+                themes:[
+                        {continent: "am", num: 1},
+                        {continent: "eu", num: 2},
+                        {continent: "as", num: 3},
+                        {continent: "af", num: 4},
+                        {continent: "oc", num: 5},
+                    ],
                 task_ID: [
                         {  
                             question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，它是非洲語的什麼意思呢？", 
@@ -274,6 +336,7 @@
                 innerPasswort: false,
                 showCoupon: false,
                 result: false,
+                getGift: false,
             },
             computed: {
             },
@@ -285,6 +348,31 @@
                     this.outerPasswort = false;
                     this.innerPasswort = true;
                 },
+                chooseTheTheme(index){
+                    // console.log(val);
+                    console.log(this.themes[index].num);
+
+                    axios.get('../php/game.php', {
+                        num: this.themes[index].num
+                    }).then(res => {
+                        console.log(res.data);
+                        this.data = res.data
+                        q1 = res.data[this.themes[index].num -1 ];
+
+                        q1.task_ID = this.themes[index].num;
+                        q1[0] = this.themes[index].num;
+
+                        // q1.task_ID[0].question = q1.question;
+                        // q1.task_ID[this.taskIndex].option1 = q1.option1;
+                        // q1.task_ID[this.taskIndex].option2 = q1.option2;
+                        // q1.task_ID[this.taskIndex].option3 = q1.option3;
+                        // q1.task_ID[this.taskIndex].answer = q1.answer;
+                        console.log(q1.task_ID);  //this.task_ID[this.taskIndex].answer
+                        console.log(q1.question);  //this.task_ID[this.taskIndex].answer
+                        
+                    });
+
+                },
                 game_continue(){
                     this.innerPasswort = false;
                 },
@@ -294,7 +382,7 @@
                 next(){
                     // // 下一題，最後一題要判斷是否全對
                     // console.log(this.userAnswer);
-                    // console.log(this.task_ID[this.taskIndex].answer);
+                    console.log(this.task_ID[this.taskIndex].answer);
                     // console.log(this.task_ID[this.taskIndex].answer == this.userAnswer);
                     if(this.task_ID[this.taskIndex].answer == this.userAnswer){
                         this.userAnswers.push(true);
@@ -336,6 +424,7 @@
                 },
                 closeCoupon(){
                     this.showCoupon = false;
+                    this.getGift = false,
                     $(".unget_stamp").css("backgroundImage", "url('./images/index/game/unget.png')");
                     $(".gift_icon").css({
                         backgroundImage: "url('./images/index/game/gift_gray.svg')",

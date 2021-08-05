@@ -151,6 +151,11 @@ $passportW: 402;
                 width: 40px;
                 height: 72px;
             }
+            input{
+                &[type="radio"] {
+                    display: none;
+                }
+            }
         }
         .landmark.scale{
             animation: zoom_out 1.5s linear infinite;
@@ -633,7 +638,7 @@ $passportW: 402;
                 }
 
                 .get_stamp {
-                    background-image: url("../../images/index/game/africa_stamp.svg");
+                    // background-image: url("../../images/index/game/africa_stamp.svg");
                     width: 200px;
                     height: 180px;
                     @include img_setting(contain);
@@ -787,10 +792,10 @@ $passportW: 402;
                         }
 
                         .unget_stamp {
-                            background-image: url("../../images/index/game/america.svg");
+                            // background-image: url("../../images/index/game/america.svg");
                             // background-image: url("../../images/index/game/unget.png");
-                            background-repeat: no-repeat;
-                            background-size: contain;
+                            // background-repeat: no-repeat;
+                            // background-size: contain;
                             width: 130px;
                             height: 100px;
 
@@ -806,7 +811,7 @@ $passportW: 402;
 
                             &:nth-child(2) {
                                 margin: auto 40px;
-                                background-image: url("../../images/index/game/europe.svg");
+                                // background-image: url("../../images/index/game/europe.svg");
 
                                 @include md {
                                     margin: auto 12px;
@@ -817,9 +822,9 @@ $passportW: 402;
                                 }
                             }
 
-                            &:nth-child(3) {
-                                background-image: url("../../images/index/game/oceania.svg");
-                            }
+                            // &:nth-child(3) {
+                            //     // background-image: url("../../images/index/game/oceania.svg");
+                            // }
                         }
                     }
 
@@ -837,9 +842,9 @@ $passportW: 402;
 
                         .unget_stamp {
                             // background-image: url("../../images/index/game/unget.png");
-                            background-image: url("../../images/index/game/asia.svg");
-                            background-repeat: no-repeat;
-                            background-size: contain;
+                            // background-image: url("../../images/index/game/asia.svg");
+                            // background-repeat: no-repeat;
+                            // background-size: contain;
                             width: 130px;
                             height: 100px;
                             margin: 0 20px;
@@ -861,10 +866,10 @@ $passportW: 402;
                                 height: 100px * 0.7;
                             }
 
-                            &:nth-child(1) {
+                            // &:nth-child(1) {
                                 // background-image: url("../../images/index/game/unget.png");
-                                background-image: url("../../images/index/game/africa.svg");
-                            }
+                                // background-image: url("../../images/index/game/africa.svg");
+                            // }
                         }
                     }
 
@@ -873,11 +878,6 @@ $passportW: 402;
                         height: 29px;
                         cursor: pointer;
                         @include margin0();
-                        background-repeat: no-repeat;
-                        background-size: contain;
-                        // background-image: url("../../images/index/game/gift_gray.svg");
-                        background-image: url("../../images/index/game/gift_gold.svg");
-
                         @include md {
                             margin-top: 0;
                         }
