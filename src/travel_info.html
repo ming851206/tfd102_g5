@@ -51,7 +51,7 @@
                             <p>線上旅遊</p>
                         </div>
                         <div class="icon_2">
-                            <img src="./images/icon/share.svg">
+                            <img src="./images/icon/share.svg" onclick="share()">
                             <div class="fav">
                                 <img src="./images/icon/like.svg">
                             </div>
@@ -492,6 +492,42 @@
             <the-footer></the-footer>
         </footer>
 
+        <script>
+                   window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '385510642997838',
+            xfbml      : true,
+            version    : 'v2.4'
+          });
+        };
+      
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+
+         
+         function share(){
+            FB.ui(
+                {
+                method: 'share',
+                href: 'https://tibamef2e.com/tfd102/project/g5/travel_info.html',
+                // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
+                },
+                // callback
+                function(response) {
+                if (response && !response.error_message) {
+                    alert('分享至臉書，邀請朋友一起成為jumper!');
+                } else {
+                    // alert('Error while posting.');
+                }
+                }
+            )
+        };
+        </script>
         <script src="./js/travel_info/travel_info.js"></script>
 
         <!-- vue -->
