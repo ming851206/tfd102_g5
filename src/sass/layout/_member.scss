@@ -337,6 +337,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 820px;
+    height: 430px;
+
 
     @include laptop {
         width: 660px;
@@ -364,6 +366,10 @@
         @include ipad {
             margin-top: 20px;
         }
+    }
+
+    .next_off {
+        display: none !important;
     }
 
     .loveContentBorder {
