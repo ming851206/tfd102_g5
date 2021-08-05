@@ -77,4 +77,10 @@ const Love = {
             ],
         };
     },
+    mounted() {
+        axios.get('../../php/love.php').then(res => {
+            let data = res.data;
+            console.log(data);
+        });
+    },
 };

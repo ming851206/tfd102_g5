@@ -62,19 +62,55 @@ const Historys = {
                                                                     </div>
                                                             </div>
                                                             <div class="Star">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" >
-                                                                        <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
-                                                                    </svg>
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" >
-                                                                        <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
-                                                                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" >
-                                                                        <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
-                                                                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" >
-                                                                        <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
-                                                                    </svg><svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" >
-                                                                        <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
-                                                                    </svg>
-                                                                    <p>非常滿意</p>
+                                                                    <span @click="star(1)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-if="stars>=1">
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
+                                                                        </svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-else>
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#d0cccc"/>
+                                                                        </svg>
+                                                                    </span>
+
+                                                                    <span @click="star(2)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-if="stars>=2">
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
+                                                                        </svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-else>
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#d0cccc"/>
+                                                                        </svg>
+                                                                    </span>
+
+                                                                    <span @click="star(3)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-if="stars>=3">
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
+                                                                        </svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-else>
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#d0cccc"/>
+                                                                        </svg>
+                                                                    </span>
+
+                                                                    <span @click="star(4)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-if="stars>=4">
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
+                                                                        </svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-else>
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#d0cccc"/>
+                                                                        </svg>
+                                                                    </span>
+                                                                    <span @click="star(5)">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-if="stars>=5">
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#996a4d"/>
+                                                                        </svg>
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="13.814" height="13.222" viewBox="0 0 13.814 13.222" v-else>
+                                                                            <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M7.607.459,5.921,3.878l-3.772.55a.827.827,0,0,0-.457,1.41L4.421,8.5l-.646,3.757a.826.826,0,0,0,1.2.87L8.348,11.35l3.375,1.774a.826.826,0,0,0,1.2-.87L12.276,8.5,15,5.837a.827.827,0,0,0-.457-1.41l-3.772-.55L9.089.459a.827.827,0,0,0-1.482,0Z" transform="translate(-1.441 0.001)" fill="#d0cccc"/>
+                                                                        </svg>
+                                                                    </span>
+                                                                    <p v-if="stars ==5">非常滿意</p>
+                                                                    <p v-if="stars ==4">滿意</p>
+                                                                    <p v-if="stars ==3">普通</p>
+                                                                    <p v-if="stars ==2">不滿意</p>
+                                                                    <p v-if="stars ==1">非常不滿意</p>
+
                                                             </div>
                                                             <div class="addDivDown">
                                                                 <textarea placeholder="想說的話:">
@@ -126,9 +162,14 @@ const Historys = {
                 { star: "4.2", content: "泰國黃金海岸，欣賞Pattaya的海岸風光。", from: "泰國", time: "2021.07.10", comment: "未評論" },
             ],
             addcomment: false,
+            stars: 1,
+            text: '',
         };
     },
     methods: {
+        star(index) {
+            this.stars = index;
+        },
         addComment() {
             this.addcomment = true;
         },
