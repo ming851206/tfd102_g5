@@ -4,17 +4,17 @@
 <head>
     <title>旅遊護照遊戲</title>
     <meta charset="UTF-8">
-<meta name="keywords" content="travel, tour, trip, online travel">
-<meta name="description" content="online travel website">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="./js/jq/jquery-3.6.0.js"></script>
-<script src="./js/vue/vue.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
-<link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-<link rel="stylesheet" href="./css/style.css">
+    <meta name="keywords" content="travel, tour, trip, online travel">
+    <meta name="description" content="online travel website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="./js/vue/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -22,7 +22,8 @@
         <div id="the_game">
             <div class="game_bg">
                 <div class="game_world_map">
-                    <div class="landmark" :class="theme.continent" @click="chooseTheTheme(index)" v-for="(theme,index) in themes">
+                    <div class="landmark" :class="theme.continent" @click="chooseTheTheme(index)"
+                        v-for="(theme,index) in themes">
                         <input type="radio" :value="theme.num" name="theme" v-model="theTheme">
                     </div>
                     <!-- <div class="landmark am" @click="chooseTheme()">
@@ -40,7 +41,7 @@
                     <div class="landmark oc" @click="chooseTheme()">
                         <input type="radio" :value="5" name="theme" v-model="theTheme">
                     </div> -->
-                    
+
                     <!-- <div class="landmark eu" id="2" @click="chooseTheme"></div>
                     <div class="landmark af" id="4" @click="chooseTheme"></div>
                     <div class="landmark as" id="3" @click="chooseTheme"></div>
@@ -60,7 +61,7 @@
                         <div class="click_word">
                             <button class="btnL_line btn_start" @click="startGame">START</button>
                             <div class="passport_item">
-                                <h4 id="task_process"  @click="showPasswort">查看遊戲進度</h4>
+                                <h4 id="task_process" @click="showPasswort">查看遊戲進度</h4>
                                 <a href="index.html">回首頁</a>
                             </div>
                         </div>
@@ -69,48 +70,48 @@
 
                 <!-- 遊戲題目 -->
                 <!-- <transition> -->
-                    <div class="game_question" v-show="question==true">
-                        <form method="GET">
-                            <div v-for="(task, index) in task_ID" :class="task.num">
-                                <div v-show="index === taskIndex">
-                                    <div class='q_container'>
-                                        <h2>Q:</h2>
-                                        <h3>{{task.question}}</h3>
+                <div class="game_question" v-show="question==true">
+                    <form method="GET">
+                        <div v-for="(task, index) in task_ID" :class="task.num">
+                            <div v-show="index === taskIndex">
+                                <div class='q_container'>
+                                    <h2>Q:</h2>
+                                    <h3>{{task.question}}</h3>
+                                </div>
+                                <div class="btn_group">
+                                    <div class="input_group">
+                                        <label class="opt default">
+                                            <input type="radio" :name="index" :value="1" v-model="userAnswer">
+                                            {{task.option1}}
+                                        </label>
+                                        <label class="opt default">
+                                            <input type="radio" :name="index" :value="2" v-model="userAnswer">
+                                            {{task.option2}}
+                                        </label>
+                                        <label class="opt default">
+                                            <input type="radio" :name="index" :value="3" v-model="userAnswer">
+                                            {{task.option3}}
+                                        </label>
                                     </div>
-                                    <div class="btn_group">
-                                        <div class="input_group">
-                                                <label class="opt default">
-                                                    <input type="radio" :name="index" :value="1" v-model="userAnswer">
-                                                    {{task.option1}}
-                                                </label>
-                                                <label class="opt default">
-                                                    <input type="radio" :name="index" :value="2" v-model="userAnswer">
-                                                    {{task.option2}}
-                                                </label>
-                                                <label class="opt default">
-                                                    <input type="radio" :name="index" :value="3" v-model="userAnswer">
-                                                    {{task.option3}}
-                                                </label>
-                                        </div>
-                                        <input class="btnM ans_confirm" type="button" value="確定" @click="next">
-                                    </div>
-                                </div>    
+                                    <input class="btnM ans_confirm" type="button" value="確定" @click="next">
+                                </div>
                             </div>
-                         </form>
-                    </div>
+                        </div>
+                    </form>
+                </div>
                 <!-- </transition> -->
 
                 <!-- <img class="get_stamp" src="./images/index/game/africa_stamp.svg">
                 <div class="game_words" id="win_word">
                     <p class="game_word row_1">恭喜獲得「旅遊</p> -->
-                    <!-- <p class="game_word row_2" v-if="theTheme==1">美洲</p> -->
-                    <!-- <p class="game_word row_2" v-else-if="theTheme==2">歐洲</p> -->
-                    <!-- <p class="game_word row_2" v-else-if="theTheme==3">亞洲</p> -->
-                    <!-- <p class="game_word row_2" v-else-if="theTheme==4">非洲</p> -->
-                    <!-- <p class="game_word row_2" v-else-if="theTheme==5">大洋洲</p> -->
-                    
+                <!-- <p class="game_word row_2" v-if="theTheme==1">美洲</p> -->
+                <!-- <p class="game_word row_2" v-else-if="theTheme==2">歐洲</p> -->
+                <!-- <p class="game_word row_2" v-else-if="theTheme==3">亞洲</p> -->
+                <!-- <p class="game_word row_2" v-else-if="theTheme==4">非洲</p> -->
+                <!-- <p class="game_word row_2" v-else-if="theTheme==5">大洋洲</p> -->
+
                 <!-- 挑戰結果 -->
-                <div v-show="result == true"> 
+                <div v-show="result == true">
                     <!-- 成功 -->
                     <div class="challenge winning" v-if="winning==true">
                         <div class="result_mask"></div>
@@ -121,7 +122,8 @@
                                 <img class="get_stamp" src="./images/index/game/america.svg" v-if="theTheme==1">
                                 <img class="get_stamp" src="./images/index/game/europe.svg" v-else-if="theTheme==2">
                                 <img class="get_stamp" src="./images/index/game/asia.svg" v-else-if="theTheme==3">
-                                <img class="get_stamp" src="./images/index/game/africa_stamp.svg" v-else-if="theTheme==4">
+                                <img class="get_stamp" src="./images/index/game/africa_stamp.svg"
+                                    v-else-if="theTheme==4">
                                 <img class="get_stamp" src="./images/index/game/oceania.svg" v-else-if="theTheme==5">
 
                                 <div class="game_words" id="win_word">
@@ -137,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <!-- 失敗 -->
                     <div class="challenge losing" v-else>
                         <div class="result_mask"></div>
@@ -151,7 +153,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
 
                 <!-- 任務進度 -->
@@ -168,23 +170,25 @@
                                     <h2>11</h2>
                                 </div>
                             </div>
-    
+
                             <div class="game_main">
                                 <h2>我的遊戲護照</h2>
                                 <div class="game_stamp">
                                     <div class="top_stamp">
-                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
-                                        <!-- <img class="am unget_stamp" src="./images/index/game/america.svg" v-if="theTheme==1&&winning==true"> -->
-                                        <!-- <img class="am unget_stamp" src="./images/index/game/unget.png" v-else> -->
+                                        <!-- <img class="am unget_stamp" src="./images/index/game/unget.png"> -->
+                                        <img class="am unget_stamp" src="./images/index/game/america.svg"
+                                            v-if="theTheme==1  && winning==true">
+                                        <img class="am unget_stamp" src="./images/index/game/unget.png" v-else>
 
-                                        <img class="am unget_stamp" src="./images/index/game/unget.png">
-                                        <!-- <img class="eu unget_stamp" src="./images/index/game/europe.svg" v-if="theTheme==2&&winning==true"> -->
-                                        <!-- <img class="eu unget_stamp" src="./images/index/game/unget.png" v-else> -->
-                                        
+                                        <!-- <img class="am unget_stamp" src="./images/index/game/unget.png"> -->
+                                        <img class="eu unget_stamp" src="./images/index/game/europe.svg"
+                                            v-if="theTheme==2&&winning==true">
+                                        <img class="eu unget_stamp" src="./images/index/game/unget.png" v-else>
+
                                         <img class="am unget_stamp" src="./images/index/game/unget.png">
                                         <!-- <img class="as unget_stamp" src="./images/index/game/oceania.svg" v-if="theTheme==3&&winning==true"> -->
                                         <!-- <img class="as unget_stamp" src="./images/index/game/unget.png" v-else> -->
-                                    
+
                                     </div>
                                     <div class="bottom_stamp">
                                         <img class="am unget_stamp" src="./images/index/game/unget.png">
@@ -197,11 +201,12 @@
 
                                     </div>
                                     <!-- <div class="gift_icon gold" @click="getCoupon"></div> -->
-                                    <img class="gift_icon" src="./images/index/game/gift_gold.svg" v-if="getGift==true" @click="getCoupon">
+                                    <img class="gift_icon" src="./images/index/game/gift_gold.svg" v-if="getGift==true"
+                                        @click="getCoupon">
                                     <img class="gift_icon" src="./images/index/game/gift_gray.svg" v-else>
                                 </div>
                             </div>
-    
+
                             <div class="gamebtn">
                                 <button class="btnM_line game_share" onclick="share()">分享</button>
                                 <a href='index.html'>
@@ -249,40 +254,40 @@
         </footer>
     </div>
     <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '385510642997838',
-            xfbml      : true,
-            version    : 'v2.4'
-          });
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '385510642997838',
+                xfbml: true,
+                version: 'v2.4'
+            });
         };
-      
-        (function(d, s, id){
-           var js, fjs = d.getElementsByTagName(s)[0];
-           if (d.getElementById(id)) {return;}
-           js = d.createElement(s); js.id = id;
-           js.src = "//connect.facebook.net/en_US/sdk.js";
-           fjs.parentNode.insertBefore(js, fjs);
-         }(document, 'script', 'facebook-jssdk'));
 
-         
-         function share(){
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+        function share() {
             FB.ui(
                 {
-                method: 'share',
-                href: 'https://tibamef2e.com/tfd102/project/g5/game.html',
+                    method: 'share',
+                    href: 'https://tibamef2e.com/tfd102/project/g5/game.html',
                 },
                 // callback
-                function(response) {
-                if (response && !response.error_message) {
-                    alert('分享至臉書，邀請朋友一起成為jumper!');
-                } else {
-                    // alert('Error while posting.');
-                }
+                function (response) {
+                    if (response && !response.error_message) {
+                        alert('分享至臉書，邀請朋友一起成為jumper!');
+                    } else {
+                        // alert('Error while posting.');
+                    }
                 }
             )
         };
-        
+
         // var quiz = [{
         //     question: '自由女神像是哪個國家送給美國的禮物?', option1: '法國', option2: '德國', option3: '英國', answer: 1
         // }, {
@@ -297,41 +302,41 @@
             el: "#the_game",
             data: {
                 theTheme: 0,
-                themes:[
-                        {continent: "am", num: 1},
-                        {continent: "eu", num: 2},
-                        {continent: "as", num: 3},
-                        {continent: "af", num: 4},
-                        {continent: "oc", num: 5},
-                    ],
+                themes: [
+                    { continent: "am", num: 1 },
+                    { continent: "eu", num: 2 },
+                    { continent: "as", num: 3 },
+                    { continent: "af", num: 4 },
+                    { continent: "oc", num: 5 },
+                ],
                 task_ID: [
-                        {  
-                            question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，它是非洲語的什麼意思呢？", 
-                            option1: "不用擔心",
-                            option2: "明天會更好",
-                            option3: "活在當下",
-                            answer: 1
-                        },
-                        { 
-                            question: "下列何者不是在非洲內？", 
-                            option1: "埃及",
-                            option2: "日本", 
-                            option3:"衣索比亞",
-                            answer: 2
-                        },
-                        {  
-                            question: "世界上雙胞胎最多的地方在哪裡？", 
-                            option1: "印度",
-                            option2: "奈及利亞",
-                            option3:"美國",
-                            answer: 2
-                        },                    
-                    ],
+                    {
+                        question: "電影『獅子王』中，彭彭與丁滿唱的「Hakuna Matata」，它是非洲語的什麼意思呢？",
+                        option1: "不用擔心",
+                        option2: "明天會更好",
+                        option3: "活在當下",
+                        answer: 1
+                    },
+                    {
+                        question: "下列何者不是在非洲內？",
+                        option1: "埃及",
+                        option2: "日本",
+                        option3: "衣索比亞",
+                        answer: 2
+                    },
+                    {
+                        question: "世界上雙胞胎最多的地方在哪裡？",
+                        option1: "印度",
+                        option2: "奈及利亞",
+                        option3: "美國",
+                        answer: 2
+                    },
+                ],
                 outerPasswort: true,
                 question: false,
                 taskIndex: 0,
                 userAnswers: [],
-                userAnswer:'',
+                userAnswer: '',
                 winning: false,
                 innerPasswort: false,
                 showCoupon: false,
@@ -340,79 +345,91 @@
             },
             computed: {
             },
-            methods:{
-                startGame(){
+            methods: {
+                startGame() {
                     this.outerPasswort = false;
                 },
-                showPasswort(){
+                showPasswort() {
                     this.outerPasswort = false;
                     this.innerPasswort = true;
                 },
-                chooseTheTheme(index){
-                    // console.log(val);
-                    console.log(this.themes[index].num);
+                chooseTheTheme(index) {
 
-                    axios.get('../php/game.php', {
+                    this.theTheme = index + 1;
+                    // console.log(val);
+                    // console.log(this.themes[index].num);
+                    axios.post('./php/game.php', {
                         num: this.themes[index].num
                     }).then(res => {
-                        console.log(res.data);
-                        this.data = res.data
-                        q1 = res.data[this.themes[index].num -1 ];
+                        // console.log(res.data);
 
-                        q1.task_ID = this.themes[index].num;
-                        q1[0] = this.themes[index].num;
+                        let data = res.data;
+
+                        for (let i = 0; i < data.length; i++) {
+                            this.task_ID[i].question = data[i].question;
+                            this.task_ID[i].option1 = data[i].option1;
+                            this.task_ID[i].option2 = data[i].option2;
+                            this.task_ID[i].option3 = data[i].option3;
+                            this.task_ID[i].answer = data[i].answer;
+                        }
+
+                        // this.data = res.data
+                        // q1 = res.data[this.themes[index].num - 1];
+
+                        // q1.task_ID = this.themes[index].num;
+                        // q1[0] = this.themes[index].num;
 
                         // q1.task_ID[0].question = q1.question;
                         // q1.task_ID[this.taskIndex].option1 = q1.option1;
                         // q1.task_ID[this.taskIndex].option2 = q1.option2;
                         // q1.task_ID[this.taskIndex].option3 = q1.option3;
                         // q1.task_ID[this.taskIndex].answer = q1.answer;
-                        console.log(q1.task_ID);  //this.task_ID[this.taskIndex].answer
-                        console.log(q1.question);  //this.task_ID[this.taskIndex].answer
-                        
+                        // console.log(q1.task_ID);  //this.task_ID[this.taskIndex].answer
+                        // console.log(q1.question);  //this.task_ID[this.taskIndex].answer
+                        this.question = true;
                     });
 
                 },
-                game_continue(){
+                game_continue() {
                     this.innerPasswort = false;
                 },
-                chooseTheme(){
+                chooseTheme() {
                     this.question = true;
                 },
-                next(){
+                next() {
                     // // 下一題，最後一題要判斷是否全對
                     // console.log(this.userAnswer);
-                    console.log(this.task_ID[this.taskIndex].answer);
+                    // console.log(this.task_ID[this.taskIndex].answer);
                     // console.log(this.task_ID[this.taskIndex].answer == this.userAnswer);
-                    if(this.task_ID[this.taskIndex].answer == this.userAnswer){
+                    if (this.task_ID[this.taskIndex].answer == this.userAnswer) {
                         this.userAnswers.push(true);
-                    }else{
+                    } else {
                         this.userAnswers.push(false);
                     }
                     // console.log(this.userAnswers);
 
-                    if(this.taskIndex == 2){
-                        let correctAnswer = this.userAnswers.filter(function(val){return val}).length;
+                    if (this.taskIndex == 2) {
+                        let correctAnswer = this.userAnswers.filter(function (val) { return val }).length;
                         this.result = true;
                         // console.log(correctAnswer);
-                        if(correctAnswer == 3){
+                        if (correctAnswer == 3) {
                             this.winning = true;
                             this.taskIndex = 0;
-                        }else{
+                        } else {
                             this.winning = false;
                             this.taskIndex = 0;
                         }
                         this.userAnswers.splice(0);
-                    }else{
+                    } else {
                         this.taskIndex++;
                     }
                 },
-                closeResult(){
+                closeResult() {
                     this.result = false;
                     this.question = false;
                     this.innerPasswort = true;
                 },
-                getCoupon(){
+                getCoupon() {
                     // 先判斷登入登出
                     // 判斷印章數 == 5
                     // if () {
@@ -422,10 +439,10 @@
                     // }
                     this.showCoupon = true;
                 },
-                closeCoupon(){
+                closeCoupon() {
                     this.showCoupon = false;
                     this.getGift = false,
-                    $(".unget_stamp").css("backgroundImage", "url('./images/index/game/unget.png')");
+                        $(".unget_stamp").css("backgroundImage", "url('./images/index/game/unget.png')");
                     $(".gift_icon").css({
                         backgroundImage: "url('./images/index/game/gift_gray.svg')",
                         cursor: "default",
@@ -433,16 +450,7 @@
                 }
             },
             mounted() {
-                axios.get('../php/game.php').then(res => {
-                    this.data = res.data
-                    let q1 = res.data[0];
-                    this.task_ID[0].question = q1.question;
-                    this.task_ID[0].option1 = q1.option1;
-                    this.task_ID[0].option2 = q1.option2;
-                    this.task_ID[0].option3 = q1.option3;
-                    this.task_ID[0].answer = q1.answer;
-                });
-                
+
                 // axios.get('../php/game.php').then(res =>console.log(res.data));
 
                 $(function () {
@@ -476,7 +484,7 @@
                         });
                     })
 
-                     $(".opt").click(function () {
+                    $(".opt").click(function () {
                         $(this).css({
                             backgroundColor: "rgba(0,0,0,0.06)",
                         })
@@ -486,14 +494,14 @@
                     })
 
                     // $("#ans_confirm").click(function () {
-                        // $(".game_question").fadeOut(400);
-                        // $(".challenge").delay(400).fadeIn(400);
+                    // $(".game_question").fadeOut(400);
+                    // $(".challenge").delay(400).fadeIn(400);
 
-                        // $(".game_close_btn").click(function () {
-                        //     $(".game_question").fadeOut(400);
-                        //     $(".challenge").fadeOut(400);
-                        //     $(".game_result_overlay").delay(400).fadeIn(400);
-                        // })
+                    // $(".game_close_btn").click(function () {
+                    //     $(".game_question").fadeOut(400);
+                    //     $(".challenge").fadeOut(400);
+                    //     $(".game_result_overlay").delay(400).fadeIn(400);
+                    // })
                     // })
 
                     // $(".gift_icon").click(function (e) {

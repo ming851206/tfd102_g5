@@ -44,9 +44,9 @@ const MemberInfo = {
                                     <div class="nameBorder gender">
                                             <div class="memberInfoName">性別</div>
 
-                                                <input type="radio"" value="男" v-model="gender"  id="memberman">
+                                                <input type="radio"" value="男" v-model="editValue[1]"  id="memberman">
                                                 <label for="memberman" id="membermanlabel" >男</label>
-                                                <input type="radio"  value="女" v-model="gender" id="membergirl">
+                                                <input type="radio"  value="女" v-model="editValue[1]" id="membergirl">
                                                 <label for="membergirl" id="membergirllabel" >女</label>
 
                                     </div>
@@ -105,6 +105,8 @@ const MemberInfo = {
                 { name: "E-mail", val: "jumper@gmail.com" },
                 { name: "會員密碼", val: "0123456789" },
                 { name: "確認密碼", val: "0123456789" },
+                { name: "照片", val: "" },
+
             ],
             passwdwd: '',
             editType: false,
@@ -161,7 +163,12 @@ const MemberInfo = {
         },
         confirms() {
             this.editValue[2] = document.getElementById("memberHBYdate").value;
+            if (this.editValue[1] == "女") {
+                this.editValue[1] = 1;
+            } else {
+                this.editValue[1] = 0;
 
+            }
             axios.post('../../php/memberedit.php', {
                 name: this.editValue[0],
                 gender: this.editValue[1],
@@ -206,10 +213,8 @@ const MemberInfo = {
     },
     mounted() {
         axios.get('../../php/memberinfo.php').then(res => {
-            // console.log(res.data);
-
-            // console.log(res.data[0]);
             let data = res.data[0];
+            console.log(data);
             this.values[0].val = data.name;
             if (data.gender == 0) {
                 this.values[1].val = "男";
