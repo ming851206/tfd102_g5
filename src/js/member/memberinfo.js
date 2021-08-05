@@ -53,7 +53,7 @@ const MemberInfo = {
 
                                     <div class="nameBorder">
                                             <div class="memberInfoName">出生日期</div>
-                                            <input :value="editValue[2]" @focus="inputFocus(2,$event)" @blur="inputBlur(2,$event)" disabled style="background-color: rgba(255, 255, 255, 0) ; color:gray;">
+                                            <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:470px;" type="date" @keyup="inputtype(2,$event)" id="memberHBYdate">
                                     </div>
                                     <div class="nameBorder">
                                             <div class="memberInfoName">手機號碼</div>
@@ -99,8 +99,8 @@ const MemberInfo = {
         return {  //組件的變數寫在這裡！
             values: [
                 { name: "姓名", val: "王某某" },
-                { name: "性別", val: "女" },
-                { name: "出生日期", val: "2020/01/01" },
+                { name: "性別", val: "" },
+                { name: "出生日期", val: "" },
                 { name: "手機號碼", val: "0988888888" },
                 { name: "E-mail", val: "jumper@gmail.com" },
                 { name: "會員密碼", val: "0123456789" },
@@ -160,6 +160,7 @@ const MemberInfo = {
             this.editType = false;
         },
         confirms() {
+            this.editValue[2] = document.getElementById("memberHBYdate").value;
 
             axios.post('../../php/memberedit.php', {
                 name: this.editValue[0],
@@ -169,21 +170,24 @@ const MemberInfo = {
                 email: this.editValue[4],
                 passwd: this.editValue[5]
 
-            }).then(function (response) {
-                console.log(response);
-            }).catch(function (error) {
-                console.log(error);
             });
 
             axios.get('../../php/memberinfo.php').then(res => {
                 let data = res.data[0];
                 this.values[0].val = data.name;
+                if (data.gender == 0) {
+                    this.values[1].val = "男";
+                } else if (data.gender == 1) {
+                    this.values[1].val = "女";
+                } else {
+                    this.values[1].val = "";
+                }
                 this.values[2].val = data.birthday;
                 this.values[3].val = data.phone;
+                this.values[4].val = data.email;
                 this.values[5].val = data.password;
                 this.values[6].val = data.password;
             });
-
             this.editValue.slice(0);
             this.editType = false;
         },
@@ -207,10 +211,16 @@ const MemberInfo = {
             // console.log(res.data[0]);
             let data = res.data[0];
             this.values[0].val = data.name;
-
+            if (data.gender == 0) {
+                this.values[1].val = "男";
+            } else if (data.gender == 1) {
+                this.values[1].val = "女";
+            } else {
+                this.values[1].val = "";
+            }
             this.values[2].val = data.birthday;
             this.values[3].val = data.phone;
-
+            this.values[4].val = data.email;
             this.values[5].val = data.password;
             this.values[6].val = data.password;
 
