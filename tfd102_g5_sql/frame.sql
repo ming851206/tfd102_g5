@@ -28,6 +28,8 @@ CREATE TABLE IF NOT EXISTS `JUMPER`.`member` (
   `level` INT NOT NULL,
   `account_status` INT NOT NULL COMMENT '會員狀態',
   `created_at` VARCHAR(45) NOT NULL,
+  `gender` BIT(1) NULL,
+  `email` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
 COMMENT = '會員';
