@@ -28,7 +28,7 @@ const MemberInfo = {
 
 
                             <div class = "memberInput" v-if="editType==false">
-                                <div class="nameBorder" v-for = "(value,index) in values " v-if="index != 6 ">
+                                <div class="nameBorder" v-for = "(value,index) in values " v-if="index < 6 ">
                                         <div class="memberInfoName">{{value.name}}</div>
                                         <div class="memberInfoVal" v-if="index == 5" >{{passwdwd}}</div>
                                         <div class="memberInfoVal" v-else >{{value.val}}</div>
@@ -178,25 +178,27 @@ const MemberInfo = {
                 passwd: this.editValue[5]
 
             });
+            setTimeout(() => {
+                axios.get('../../php/memberinfo.php').then(res => {
+                    let data = res.data[0];
+                    this.values[0].val = data.name;
+                    if (data.gender == 0) {
+                        this.values[1].val = "男";
+                    } else if (data.gender == 1) {
+                        this.values[1].val = "女";
+                    } else {
+                        this.values[1].val = "";
+                    }
+                    this.values[2].val = data.birthday;
+                    this.values[3].val = data.phone;
+                    this.values[4].val = data.email;
+                    this.values[5].val = data.password;
+                    this.values[6].val = data.password;
+                });
+                this.editValue = [];
+                this.editType = false;
+            }, 50);
 
-            axios.get('../../php/memberinfo.php').then(res => {
-                let data = res.data[0];
-                this.values[0].val = data.name;
-                if (data.gender == 0) {
-                    this.values[1].val = "男";
-                } else if (data.gender == 1) {
-                    this.values[1].val = "女";
-                } else {
-                    this.values[1].val = "";
-                }
-                this.values[2].val = data.birthday;
-                this.values[3].val = data.phone;
-                this.values[4].val = data.email;
-                this.values[5].val = data.password;
-                this.values[6].val = data.password;
-            });
-            this.editValue.slice(0);
-            this.editType = false;
         },
         inputFocus(index, event) {
             if (event.target.value == this.values[index].val) {

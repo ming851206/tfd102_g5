@@ -637,6 +637,14 @@
             align-items: center;
             justify-content: space-evenly;
 
+            p {
+                min-width: 70px;
+            }
+
+            span {
+                cursor: pointer;
+            }
+
             svg {
                 width: 30px;
                 height: 30px;
