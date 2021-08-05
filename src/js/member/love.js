@@ -5,7 +5,7 @@ const Love = {
                             <h2>我的最愛</h2>
                         </div>
                         <div id="loveContent">
-                            <div class="loveContentBorder" v-for="value in values">
+                            <div class="loveContentBorder" v-for="(returndata,index) in returndatas"  v-if="index < show" :class=" { 'next_off' :  index < close}">
                                 <div class="cardBorder">
                                     <div class="loveImg">
                                         <img src="https://picsum.photos/150/200">
@@ -24,15 +24,15 @@ const Love = {
                                                             transform="translate(-1.441 0.001)" fill="#996a4d" />
                                                     </svg>
 
-                                                    {{value.star}}
+                                                    {{returndata.staravg}}
                                                 </div>
                                                 <div class="from">
-                                                    {{value.from}}
+                                                    {{returndata.staravg}}
                                                 </div>
                                             </div>
                                         </div>
                                         <p class="memberLoveConcent">
-                                            {{value.content}}
+                                            {{returndata.content}}
                                         </p>
                                     </div>
                                 </div>
@@ -51,13 +51,13 @@ const Love = {
                         </div>
                         <div class="loveNumberNav">
                             <div class="loveNavs">
-                                <div class="loveLeft">
+                                <div class="loveLeft" @click = "back">
                                     < </div>
                                         <div class="mid">
-                                            1/2
+                                            {{now}}/{{total}}
                                         </div>
 
-                                        <div class="loveRight">
+                                        <div class="loveRight" @click ="next">
                                             >
                                         </div>
                                 </div>
@@ -75,12 +75,37 @@ const Love = {
                 { star: "3", content: "漫步古羅馬遺址，燦爛一個時代的歷史文化古城。", from: "非洲" },
                 { star: "4.2", content: "泰國黃金海岸，欣賞Pattaya的海岸風光。", from: "泰國" },
             ],
+            returndatas: [],
+            show: 4,
+            now: 1,
+            total: 0,
+            close: 0,
         };
+    },
+    methods: {
+        next() {
+            if (this.now != this.total) {
+                this.show += 4;
+                this.close += 4;
+                this.now++;
+            }
+        },
+        back() {
+            if (this.now != 1) {
+                this.show -= 4;
+                this.close -= 4;
+                this.now--;
+
+            }
+        }
     },
     mounted() {
         axios.get('../../php/love.php').then(res => {
             let data = res.data;
-            console.log(data);
+            this.returndatas = data;
         });
+        setTimeout(() => {
+            this.total = Math.ceil(this.returndatas.length / 4);
+        }, 100);
     },
 };

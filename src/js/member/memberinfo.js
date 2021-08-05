@@ -216,7 +216,6 @@ const MemberInfo = {
     mounted() {
         axios.get('../../php/memberinfo.php').then(res => {
             let data = res.data[0];
-            console.log(data);
             this.values[0].val = data.name;
             if (data.gender == 0) {
                 this.values[1].val = "男";
