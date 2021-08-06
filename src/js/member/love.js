@@ -27,7 +27,7 @@ const Love = {
                                                     {{returndata.staravg}}
                                                 </div>
                                                 <div class="from">
-                                                    {{returndata.staravg}}
+                                                    {{returndata.place}}
                                                 </div>
                                             </div>
                                         </div>
@@ -36,7 +36,7 @@ const Love = {
                                         </p>
                                     </div>
                                 </div>
-                                <div class="TopRithtLove">
+                                <div class="TopRithtLove" @click="removeItem(index)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="13.044" height="12.542"
                                         viewBox="0 0 13.044 12.542">
                                         <path id="Icon_ionic-ios-heart" data-name="Icon ionic-ios-heart"
@@ -77,7 +77,7 @@ const Love = {
             ],
             returndatas: [],
             show: 4,
-            now: 1,
+            now: 0,
             total: 0,
             close: 0,
         };
@@ -91,11 +91,34 @@ const Love = {
             }
         },
         back() {
-            if (this.now != 1) {
+            if (this.now > 1) {
                 this.show -= 4;
                 this.close -= 4;
                 this.now--;
 
+            }
+        },
+        removeItem(index) {
+            let yes = confirm("你確定要移除此項目至您的最愛嗎?");
+            if (yes) {
+                if (this.returndatas.length % 4 == 1) {
+                    this.show -= 4;
+                    this.close -= 4;
+                    this.now--;
+                }
+                let sql_id = this.returndatas[index].ID;
+                axios.post('../../php/removelove.php', {
+                    ID: sql_id
+                });
+                setTimeout(() => {
+                    axios.get('../../php/love.php').then(res => {
+                        let data = res.data;
+                        this.returndatas = data;
+                    });
+                    setTimeout(() => {
+                        this.total = Math.ceil(this.returndatas.length / 4);
+                    }, 50);
+                }, 50);
             }
         }
     },
@@ -106,6 +129,9 @@ const Love = {
         });
         setTimeout(() => {
             this.total = Math.ceil(this.returndatas.length / 4);
+            if (this.returndatas.length > 0) {
+                this.now = 1;
+            }
         }, 100);
     },
 };
