@@ -44,12 +44,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.6.2/vuex.js"></script>
+    <!--各元件引入-->
+    <script src="../js/admin_index/coupon.js"></script>
+    <script src="../js/admin_index/faq.js"></script>
+    <script src="../js/admin_index/member.js"></script>
+    <script src="../js/admin_index/child_triplist.js"></script>
+    <script src="../js/admin_index/child_tripcheck.js"></script>
+    <script src="../js/admin_index/child_orderlist.js"></script>
 
     <script>
         var timestampMixin = {
-            data(){
+            data() {
                 return {
-                   timestamp:'' 
+                    timestamp: ''
                 }
             },
             methods: {
@@ -65,6 +72,12 @@
                     return this.timestamp = Y + M + D;
 
                 }
+                // filterList(data) { //實驗中 
+                //     // return this.data.filter((dataTr) => { //把data送下來使用filter功能
+                //     //     return dataTr.dataTd.includes(this.search);
+                //     // })
+                //         console.log(this.data[0].ID);
+                // },
             }
         }
         Vue.use(VueRouter);
@@ -646,7 +659,6 @@
 
         // ========== 訂單管理 ========== 
         const OrderList = {
-            store,
             template: `
             <div class="temp2">
                 <h3>訂單管理</h3>
@@ -706,8 +718,8 @@
             mixins:[timestampMixin],
             methods: {
             },
-            computed: {
-                filterList() { //搜尋功能
+            computed:{
+                filterList() { //實驗中 
                     return this.data.filter((order) => { //把data送下來使用filter功能
                         return order.ID.includes(this.search);
                     })
@@ -757,7 +769,7 @@
                         </tr>
                         <tr v-for="comment in data">
                             <td v-text="comment.id"></td>
-                            <td v-text="comment.title"></td>
+                            <td v-text="comment.title" class="cmt_title"></td>
                             <td v-text="comment.name"></td>
                             <td v-text="comment.star"></td>
                             <td v-text="comment.content" class="cmt_content"></td>
