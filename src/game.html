@@ -13,11 +13,12 @@
                     <div class="landmark" :class="theme.continent" @click="chooseTheTheme(index)" v-for="(theme,index) in themes">
                         <input type="radio" :value="theme.num" name="theme" v-model="theTheme">
                     </div>
-                </div>
-
-                <div id="game_word">
-                    <h3>點選地標圖示參加問答遊戲<br>集滿各大洲印章領取優惠券!</h3>
-                    <img src="./images/index/game/gift_white.svg">
+                    <transition>
+                        <div id="game_word" v-show="gameWordShow==true">
+                            <h3>點選地標圖示參加問答遊戲<br>集滿各大洲印章領取優惠券!</h3>
+                            <img src="./images/index/game/gift_white.svg">
+                        </div>    
+                    </transition>
                 </div>
 
                 <!-- 護照 -->
@@ -268,6 +269,7 @@
                     },
                 ],
                 outerPasswort: true,
+                gameWordShow: false,
                 question: false,
                 taskIndex: 0,
                 userAnswers: [],
@@ -284,6 +286,7 @@
             methods: {
                 startGame() {
                     this.outerPasswort = false;
+                    this.gameWordShow = true;
                 },
                 showPasswort() {
                     this.outerPasswort = false;
@@ -299,6 +302,7 @@
                     // }
                 },
                 chooseTheTheme(index) {
+                    this.gameWordShow = false;
                     this.theTheme = index + 1;
                     
                     axios.post('./php/game_qa.php', {
@@ -322,6 +326,7 @@
                 },
                 game_continue() {
                     this.innerPasswort = false;
+                    this.gameWordShow = true;
                 },
                 next() {
                     // // 下一題，最後一題要判斷是否全對
@@ -373,29 +378,32 @@
                 }
             },
             mounted() {
-
                 // axios.get('./php/game.php').then(res =>console.log(res.data));
 
                 $(function () {
                     $(".btn_start").click(function () {
-                        // $(".passport_page").fadeOut(700);
-                        $(".landmark").delay(5000).addClass("scale");
+                        $(".landmark").delay(5000).css({
+                            transformOrigin: "50% 50%",
+                            animation: "zoom_out 1.4s linear infinite",
+                        });
                     })
 
                     $(".landmark").click(function () {
-                        $(".landmark").removeClass("scale");
+                        $(".landmark").css({
+                            animation: "none",
+                        });
                         $(this).css({
                             backgroundImage: "url('./images/index/game/landmark_gold.png')",
                         });
-                        $(".game_world_map div").not(this).delay(200).slideUp(700);
-                        $("#game_word").fadeOut();
+                        $(".game_world_map div").not(this).delay(500).slideUp(700);
                     });
 
                     $(".game_continue").click(function () {
                         $(".game_result_overlay").fadeOut();
                         $(".landmark").css({
                             backgroundImage: "url('./images/index/game/landmark_white.png')",
-                        }).slideDown().addClass("scale");
+                            animation: "zoom_out 1.4s linear infinite",
+                        }).slideDown();
                         $(".opt").css({
                             backgroundColor: "#F7F6F2",
                         });
