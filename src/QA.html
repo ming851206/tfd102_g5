@@ -61,13 +61,13 @@
             <p>Jumper客服團隊很樂意為您服務</p>
             <form action="#">
                 <label for="">
-                    <span>您的稱呼：</span><input type="text" placeholder="陳先生／小姐">
+                    <span>您的稱呼：</span><input :class="{'error':formData.name.checked == false}" v-model="formData.name.value" type="text" placeholder="陳先生／小姐">
                 </label>
                 <label for="">
-                    <span>您的信箱：</span><input type="email" placeholder="jumper@gmail.com">
+                    <span>您的信箱：</span><input :class="{'error':formData.email.checked == false}"  v-model="formData.email.value" type="email" placeholder="jumper@gmail.com">
                 </label>
-                <textarea cols="30" rows="10">想問的問題：</textarea>
-                <button class="btnM" id="qa_submit" @click="qaSubmit">送出</button>
+                <textarea cols="30" rows="10" :class="{'error':formData.textarea.checked == false}"  v-model="formData.textarea.value">想問的問題：</textarea>
+                <button class="btnM" id="qa_submit" type="button" @click="qaSubmit">送出</button>
             </form>
             <img src="./images/icon/toTop_dark.svg" alt="" id="goTop">
         </section>
@@ -285,9 +285,23 @@
 
         new Vue({
             el: '#faq_app',
-            data:{
-                classList:{
-                    iserror:false,
+            data: {
+                classList: {
+                    iserror: false,
+                },
+                formData: {
+                        name: {
+                            value: '',
+                            checked: true
+                        },
+                        email: {
+                            value: '',
+                            checked: true
+                        },
+                        textarea: {
+                            value: '',
+                            checked: true
+                        }
                 }
             },
             router: new VueRouter({
@@ -300,31 +314,19 @@
                     { path: '/q_coupon', component: Coupon },
                 ],
             }),
-            methods:{
-                qaSubmit(e){
-                    //alert(e.target);
-                    let inputs = document.querySelectorAll('input');
-                    inputs.forEach(function(item, i){
-                        if(item.value ==""){
-                            item.classList.add('error'); //input加上紅框
-                            //this.classList.iserror = true;
-                            e.preventDefault();//vue裡直接寫e.preventDefault()即可~
-                        }else{
-                            item.classList.remove('error');
-                            console.log('sssssss');
+            methods: {
+                qaSubmit(e) {
+                    //物件跑回圈的寫法:
+                    Object.keys(this.formData).map( (objectKey, index)=> {
+                        var current = this.formData[objectKey];
+                        if(current.value ===''){
+                            this.formData[objectKey].checked = false;
+                        }
+                        else{
+                            this.formData[objectKey].checked = true
                         }
                     });
-                    //判斷textarea
-                    let txtContent = document.querySelector('textarea');
-                    //console.log(txtContent.value.length);
-                    if( txtContent.value.length<=6 ){
-                        txtContent.classList.add('error');
-                        e.preventDefault();
-                    }else{
-                        txtContent.classList.remove('error');
-                        console.log('object');
-                    }
-                    
+
                 },
             },
             mounted() {
@@ -346,5 +348,4 @@
 
     </script>
 </body>
-
 </html>
