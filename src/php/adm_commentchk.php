@@ -19,7 +19,7 @@ $sql = "SELECT c.id, pi.title, m.name, c.star, c.content, c.create_at
 	     comment c
         JOIN member m
 		on c.member_ID = m.ID
-	JOIN product_info pi
+		JOIN product_info pi
 		on c.product_ID = pi.ID;";
 
 //執行

@@ -253,7 +253,6 @@
                     .textContent {
                         width: 270px;
                     }
-
                     button {
                         background-color: rgb(189, 255, 214);
                         padding: $btnPaddin;
@@ -294,6 +293,7 @@
                         td.cContent{
                             width: 120px;
                         }
+                        
                         td.toggle{
                             background-image: url(../../images/icon/toggle_on.svg);
                             background-repeat: no-repeat;
@@ -381,6 +381,9 @@
                             padding: 5px 15px;
                         }
                         tr{
+                            td.cmt_title{
+                                width: 170px;
+                            }
                             td.cmt_content{
                                 width: 370px;
                             }
@@ -419,12 +422,11 @@
                         position: relative;
                         text-align: right;
                         top:-80px;
-                        transform: translateX(-145px);
+                        transform: translateX(0px);
                         input#allChk{
                             position: static;
                             padding: 0;
-                            right: 0;
-                            top:0;
+                            margin-right: 44px;
                             width: 20px;
                             height: auto;
                         }
