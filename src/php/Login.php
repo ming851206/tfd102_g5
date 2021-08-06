@@ -1,43 +1,56 @@
 <?php
-	
+
     include('conn.php');
+    //  get 數值
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    // 轉換陣列
+    settype ($data ,"array");
+
+    // 觀看陣列長怎樣
+    // print_r ($data);
 
     //建立SQL
-    $sql = "SELECT * FROM member WHERE member_status = 1 and member_account= ? and member_password = ?";
+    $sql = "SELECT * FROM member WHERE account_status = 1 and username= ? and password = ?";
 
     //給值
     $statement = getPDO()->prepare($sql);
-    $statement->bindValue(1, $_POST["member_account_input"]);
-    $statement->bindValue(2, $_POST["member_password_input"]);
+    $statement->bindValue(1, $data["account"]);
+    $statement->bindValue(2, $data["password"]);
     $statement->execute();
-    $data = $statement->fetchAll();
-    
-    $memberAccount = "";
+    $datas = $statement->fetchAll();
+
     $memberID = "";
-    foreach($data as $index => $row){
-        $memberAccount = $row["memberAccount"];
-        $memberID = $row["member_id"];
+    $memberName = "";
+    foreach($datas as $index => $row){
+        $memberID = $row["ID"];
+        $memberName = $row["username"];
     }
 
-    //判斷是否有會員資料?
-    if($memberAccount != "" && $memberID != ""){
+    // //判斷是否有會員資料?
+    if($memberID!="" && $memberName!=""){
 
-        // include("../../Lib/Member.php");        
-    
+        // include("./member.php");
+
         //將會員資訊寫入session
-        setMemberInfo($memberAccount, $memberID);
+        // setMemberInfo($memberID, $memberName);
 
-        //導回產品頁        
-        echo "<script>alert('登入成功!'); location.href = '../../../index.html';</script>"; 
+        //導回產品頁
+        // echo json_encode(0);
 
+        // echo "<script>alert('登入成功!'); location.href = '../../../member.html';</script>";
+        echo $memberID;
     }else{
 
         //跳出提示停留在登入頁
-        echo "<script>alert('帳號或密碼錯誤!'); location.href = '../../../login_member.html';</script>"; 
+        // echo json_encode(1);
+        echo 0;
+
+        // echo "<script>alert('帳號或密碼錯誤!'); location.href = '../../../login_member.html';</script>";
     }
 
     //回傳json
-    echo json_encode($data);
+    // echo json_encode($data);
     // exit();
 
 ?>
