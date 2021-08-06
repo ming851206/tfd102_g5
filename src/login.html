@@ -77,7 +77,7 @@
                     <img src="./images/memberCenter/right_earth.png" alt="">
                 </div>
 
-                <!-- 註冊切換按鈕區 -->
+                <!-- 登入註冊切換按鈕區 -->
                 <div class="SiginSitch">
                     <button type="button" class="btnM_light" id="btn_Signup" @click="showBtn">登入</button>
                 </div>
@@ -99,8 +99,8 @@
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <input class="login_input" type="text" v-model="password_register_again" placeholder="確認密碼 :">
                     <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <!-- 登入切換按鈕 -->
-                    <button type="button" class="btnM Sign_BTN" id="showBtn">註冊</button>
+                    <!-- 登入按鈕 -->
+                    <button type="button" class="btnM Sign_BTN" id="showBtn" @click="joinIN">註冊</button>
 
 
                 </div>
@@ -109,11 +109,6 @@
             </div>
 
         </div>
-
-        <!-- 認證彈窗verification -->
-        <!-- <div class="verification" v-show="forgetPassword_verification">
-
-        </div> -->
 
 
         <!-- 手機版 -->
@@ -142,9 +137,9 @@
 
                     <!-- 輸入框欄位 -->
 
-                    <input class="login_input" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="phone_password" type="text" placeholder="密碼 :">
-                    <p v-if="!phone_password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <input class="login_input" v-model="account" type="text" placeholder="帳號 :">
+                    <input class="login_input" v-model="password" type="text" placeholder="密碼 :">
+                    <p v-if="!password_login"class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
                     <div class="forgetPassword" @click="phone_password_forget">
                         <p>忘記密碼?</p>
@@ -152,7 +147,7 @@
                     <!-- 登入切換按鈕 -->
                     <!-- 登入註冊切換按鈕區 -->
                     <div class="phone_loginSitch">
-                        <button type="button" class="btnM " id="btn_login">登入</button>
+                        <button type="button" class="btnM " id="btn_login" @click="signIN">登入</button>
                         <button type="button" class="btnM_light" id="btn_Signup" @click="showBtn">註冊</button>
                     </div>
 
@@ -326,22 +321,32 @@
                         console.log(res.data);
                         if (res.data == 0) {
                             alert("登入失敗");
+                            window.location.href = './login.html';  
+                            
                         } else {
                             sessionStorage.setItem("memberID", res.data);
                             alert("登入成功");
+                            window.location.href = './member.html';  
+
                         }
 
                     })
+                },
+                joinIN(){
+                    $.ajax({
+                        methods: 'POST',
+                        url: './php/Join.php',
+                        data:{
+                            account : $('#account').val(),
+                            account : $('#email').val(),
+                            password: $('#password').val(),
+
+                        }
+                    })
                 }
+
+
             },
-                    // console.log(this.password)
-                    // console.log(this.account)
-                    // axios.post("./php/Login.php",{
-                    //     password: this.password,
-                    //     account: this.account
-                    // }).then(res => {
-                    //     console.log(res)
-                    // })
                 //     $.ajax({
                 //         method: 'POST',
                 //         url: './php/Login.php',
