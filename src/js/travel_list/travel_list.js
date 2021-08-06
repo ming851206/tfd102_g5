@@ -1054,22 +1054,6 @@ $("#go_the_top").click(function () {
 })
 
 
-// 篩選器
-function customize() {
-    Swal.fire({
-        title: '價格範圍',
-        // icon: 'question',
-        input: 'range',
-        inputLabel: '體驗的平均價格為$495',
-        inputAttributes: {
-            min: 0,
-            max: 1000,
-            step: 1
-        },
-        inputValue: 400
-    })
-}
-
 
 // 分享臉書
 window.fbAsyncInit = function () {
@@ -1089,5 +1073,25 @@ window.fbAsyncInit = function () {
 }(document, 'script', 'facebook-jssdk'));
 
 
+// 開啟 Modal 彈跳視窗
+$(function () {
 
+    // 開啟 Modal 彈跳視窗
+    $("button.btn_modal").on("click", function () {
+        $("div.overlay").fadeIn();
+    });
 
+    // 關閉 Modal
+    $("button.btn_modal_close").on("click", function () {
+        $("div.overlay").fadeOut();
+    });
+
+    // 商品數量
+    
+    var product_price = document.getElementsByClassName("product_price")[0];
+    var num = document.getElementsByClassName("num")[0];
+    product_price.addEventListener("mousemove", function () {
+        console.log(this.value);
+        num.innerHTML = this.value;
+    });
+});

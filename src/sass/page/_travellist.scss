@@ -62,6 +62,7 @@ body {
                 height: 22px;
                 background-size: 14px;
                 background-repeat: no-repeat;
+
                 @include mobile {
                     svg {
                         // border: 2px solid red;
@@ -875,9 +876,10 @@ body {
             width: 25%;
             padding: 5px;
 
-            &:hover{
+            &:hover {
                 transform: scale(1.02);
             }
+
             @include mobile {
                 width: 50%;
 
@@ -1119,4 +1121,72 @@ body {
 .swal2-styled.swal2-confirm {
     // border: 2px solid red!important;
     background-color: #AD8F70 !important;
+}
+
+
+// ========= 篩選器彈窗 =========
+/* 元素 article 置中及基本樣式 */
+div.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #202b3641;
+    z-index: 20;
+    display: none;
+
+    article {
+        background-color: white;
+        width: 35%;
+        height: 250px;
+        max-width: 800px;
+        border-radius: 10px;
+        // box-shadow: 0 0 10px #ddd;
+        box-shadow: 0px 0px 5px 2px #f5f5f5;
+        padding: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        @include tablet {
+            // border: 2px solid red;
+            width: 50%;
+        }
+
+        @include ipad {
+            // border: 2px solid red;
+            width: 80%;
+        }
+
+        @include mobile {
+            // border: 2px solid red;
+            width: 80%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 50%;
+
+            button.btn_modal_close {
+                @include btn_s;
+                background-color: #AD8F70;
+                color: white;
+
+                &:hover {
+                    background-color: #996A4D;
+                }
+            }
+        }
+    }
 }
