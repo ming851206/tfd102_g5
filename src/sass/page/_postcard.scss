@@ -476,7 +476,7 @@
                 // border: 1px solid red;
                 >.remind_stamp_h4{
                     @include mobile{
-                       display: none;
+                        display: none;
                     }
                 }
             }
@@ -493,16 +493,6 @@
                 img{
                     width: 100%;
                 }
-                // &:hover{
-                //     svg{
-                //         position: absolute;
-                //         right: 5px;
-                //         top: 0;
-                //         transform: translateY(30%);
-                //         opacity: .7;
-                //         // transform: translateX(-10%);
-                //     }
-                // }
                 }
             
             .seal_block{
@@ -521,14 +511,14 @@
                 }
             }
         }
-        .sentTO_block{
+        >.sentTO_block{
             display: flex;
             flex-direction: column;
             // justify-content: flex-end;
             // align-items: flex-end;
             border: 1px solid red;
             width: 70%;
-            .sentTO_block_grey{
+            >.sentTO_block_grey{
                 width: 72%;
                 // flex-wrap: wrap;
                 display: flex;
@@ -560,7 +550,7 @@
                     // width: 100%;
                 // transform: translateX(40%);
                 }
-                .sentTO_People{
+                >.sentTO_People{
                     border: 1px solid white;
                     // transform: translateX(40%);
                     // width: 70%;
@@ -592,7 +582,7 @@
                 }
             }
         }
-        }
+    }
 }
 // 明信片背面照片
 .main_IMG_block{
