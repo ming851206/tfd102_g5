@@ -705,9 +705,6 @@
             },
             mixins:[timestampMixin],
             methods: {
-                // timestampToTime() {
-                //     this.$store.commit('timestampToTime');
-                // },
             },
             computed: {
                 filterList() { //搜尋功能
@@ -764,7 +761,7 @@
                             <td v-text="comment.name"></td>
                             <td v-text="comment.star"></td>
                             <td v-text="comment.content" class="cmt_content"></td>
-                            <td v-text="comment.create_at"></td>
+                            <td>{{timestampToTime(comment.create_at)}}</td>
                             <td><input type="checkbox" name="" class="chkbox" @click="checkNum"></td>
                         </tr>
                     </table>
@@ -791,6 +788,7 @@
                     data: [],
                 }
             },
+            mixins:[timestampMixin],
             methods: {
                 allchk(e) {
                     let items = document.querySelectorAll('input.chkbox'); //全選勾選大家跟著勾
