@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>後台登入</title>
-        <link rel="stylesheet" href="../css/style.css">
-        <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-    </head>
-    
-    <body>
-        <section class="adm_sec">
-            <div class="loginBox">
-                <h3>管理員登入</h3>
-                <form method="POST" action="../php/adm_login.php">
-                    <label for="">
-                        <input type="text" name="username" id="username">
-                    </label>
-                    <label for="">
-                        <input type="text" name="pwd" id="pwd">
-                    </label>
-                    <button class="btnL" type="submit" onclick="return doSubmit();">登入</button>
-                </form>
-            </div>
-        </section>
-        <script>
-            function doSubmit() {
-                if (document.getElementById('username').value == '' || document.getElementById('pwd').value == '') {
-                    alert("請填寫[帳號]");
-                    return false;
-                }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>後台登入</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
+</head>
+
+<body>
+    <section class="adm_sec">
+        <div class="loginBox">
+            <h3>管理員登入</h3>
+            <form method="POST" action="../php/adm_login.php">
+                <label for="">
+                    <input type="text" name="username" id="username">
+                </label>
+                <label for="">
+                    <input type="text" name="pwd" id="pwd">
+                </label>
+                <button class="btnL" type="submit" onclick="return doSubmit();">登入</button>
+            </form>
+        </div>
+    </section>
+    <script>
+        function doSubmit() {
+            if (document.getElementById('username').value == '' || document.getElementById('pwd').value == '') {
+                alert("請填寫[帳號]");
+                return false;
             }
-        </script>
-    </body>
-    
-    </html>
+        }
+    </script>
+</body>
+
+</html>
