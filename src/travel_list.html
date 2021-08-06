@@ -47,9 +47,26 @@
             <div class="travel_filters">
                 <div class="content">
                     <ul class="filter1">
-                        <li class="customer"><button class="btnS_line" @click="customize">篩選條件</button></li>
-                        <li class="datepicker"><button class="btnS_line">日期</button></li>
-                        <li class="peoplecount"><button class="btnS_line">團體人數</button></li>
+                        <li class="customer"><button class="btn_modal btnS_line">篩選條件</button></li>
+                        <li class="datepicker"><button type="button" class="btnS_line" @click="customize">日期</button></li>
+                        <li class="peoplecount"><button class="btn_modal btnS_line">團體人數</button></li>
+                        <!-- 篩選器彈窗 -->
+                        <div class="overlay">
+                            <article>
+                                <h3>價格範圍</h3>
+                                <p>(體驗的平均價格為 $500)</p>
+                                <form action="#" method="#" id="the_form">
+                                    <div class="price_filter">
+                                        <label>體驗價格：</label>
+                                        <input type="range" min="400" max="1000" value="500" class="product_price">
+                                        <span class="num" data-default="500">500</span>
+                                    </div>
+                                    <button type="button" class="btn_modal_close">OK</button>
+                                </form>
+                            </article>
+                        </div>
+                        <!-------------->
+
                     </ul>
                     <ul class="filter2">
                         <li class="category"><button class="btnS_line" @click="content='all'">全部</button></li>
@@ -89,13 +106,13 @@
     <script>
         new Vue({
             el: '#app',
-            data: {      
+            data: {
                 searchword: '',
                 content: 'all',
             },
             methods: {
                 search() {
-                    this.content='filterTrip';
+                    this.content = 'filterTrip';
                 },
                 // 價格篩選
                 customize() {

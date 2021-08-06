@@ -171,6 +171,7 @@ CREATE TABLE IF NOT EXISTS `JUMPER`.`coupon` (
   `content` VARCHAR(45) NOT NULL COMMENT '優惠碼內容',
   `off_percent` INT NOT NULL COMMENT '折扣比例',
   `expired_at` VARCHAR(25) NOT NULL COMMENT '使用期限',
+  `is_edit` BIT(1) NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
 COMMENT = '優惠券';
