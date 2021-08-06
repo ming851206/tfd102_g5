@@ -4,7 +4,18 @@
 <head>
     <title>旅遊導覽</title>
     <!-- 共用 -->
-    @@include('layout_html/plugin.html')
+    <meta charset="UTF-8">
+    <meta name="keywords" content="travel, tour, trip, online travel">
+    <meta name="description" content="online travel website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="./js/vue/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
     <!-- 輪播套件 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     </link>
@@ -36,9 +47,26 @@
             <div class="travel_filters">
                 <div class="content">
                     <ul class="filter1">
-                        <li class="customer"><button class="btnS_line" onclick="customize()">篩選條件</button></li>
-                        <li class="datepicker"><button class="btnS_line">日期</button></li>
-                        <li class="peoplecount"><button class="btnS_line">團體人數</button></li>
+                        <li class="customer"><button class="btn_modal btnS_line">篩選條件</button></li>
+                        <li class="datepicker"><button type="button" class="btnS_line" @click="customize">日期</button></li>
+                        <li class="peoplecount"><button class="btn_modal btnS_line">團體人數</button></li>
+                        <!-- 篩選器彈窗 -->
+                        <div class="overlay">
+                            <article>
+                                <h3>價格範圍</h3>
+                                <p>(體驗的平均價格為 $500)</p>
+                                <form action="#" method="#" id="the_form">
+                                    <div class="price_filter">
+                                        <label>體驗價格：</label>
+                                        <input type="range" min="400" max="1000" value="500" class="product_price">
+                                        <span class="num" data-default="500">500</span>
+                                    </div>
+                                    <button type="button" class="btn_modal_close">OK</button>
+                                </form>
+                            </article>
+                        </div>
+                        <!-------------->
+
                     </ul>
                     <ul class="filter2">
                         <li class="category"><button class="btnS_line" @click="content='all'">全部</button></li>
@@ -49,10 +77,10 @@
                         <li class="category"><button class="btnS_line" @click="content='oc'">大洋洲</button></li>
                     </ul>
                 </div>
-                <input class="trip_search" placeholder="搜尋"></li>
+                <input class="trip_search" placeholder="搜尋" v-model="searchword" @keyup.enter="search"></li>
             </div>
             <keep-alive>
-                <component :is="content"></component>
+                <component :the-input="searchword" :is="content"></component>
             </keep-alive>
         </div>
 
@@ -79,7 +107,28 @@
         new Vue({
             el: '#app',
             data: {
+                searchword: '',
                 content: 'all',
+            },
+            methods: {
+                search() {
+                    this.content = 'filterTrip';
+                },
+                // 價格篩選
+                customize() {
+                    Swal.fire({
+                        title: '價格範圍',
+                        // icon: 'question',
+                        input: 'range',
+                        inputLabel: '體驗的平均價格為$495',
+                        inputAttributes: {
+                            min: 0,
+                            max: 1000,
+                            step: 1
+                        },
+                        inputValue: 400
+                    })
+                }
             },
         });
     </script>

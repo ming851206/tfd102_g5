@@ -337,6 +337,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     width: 820px;
+    height: 430px;
+
 
     @include laptop {
         width: 660px;
@@ -364,6 +366,10 @@
         @include ipad {
             margin-top: 20px;
         }
+    }
+
+    .next_off {
+        display: none !important;
     }
 
     .loveContentBorder {
@@ -409,7 +415,7 @@
 
     .loveContentBorder:nth-child(3n),
     .loveContentBorder:nth-child(4n) {
-        margin-top: 30px;
+
 
         @include tablet {
             margin-top: 0;
@@ -636,6 +642,14 @@
             text-align: center;
             align-items: center;
             justify-content: space-evenly;
+
+            p {
+                min-width: 70px;
+            }
+
+            span {
+                cursor: pointer;
+            }
 
             svg {
                 width: 30px;
