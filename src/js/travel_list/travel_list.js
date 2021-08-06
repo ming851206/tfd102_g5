@@ -942,8 +942,7 @@ Vue.component('filterTrip', {
     },
     template: `
     <div class="the_cat_trip">
-    <h3>{{theInput}}</h3>
-        <h3>{{category}}旅遊</h3>
+        <h3>{{category}}: {{theInput}}</h3>
         <p class="slider_count">根據你的篩選條件搜尋到 {{filterList.length}} 筆結果</p>
         <ul class="item_list">
             <li v-for="item in filterList" :id="item.id" class="item">
