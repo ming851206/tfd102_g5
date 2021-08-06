@@ -128,7 +128,7 @@
                         <img @click="change_picture = './images/postcard/1280/france011280-715.jpg'" src="./images/postcard/1280/france011280-715.jpg" alt="">
                         <p>法國 - 亞歷山大三世橋</p>
                     </div>
-                </div>
+                </div>
             </div>
         </div>
         
@@ -139,8 +139,8 @@
             <!-- 明信片-->
             <div class="postcardStart_block">
     
-                <!-- <div class="Img_bg" :style="background-image:'change_picture'"> -->
-                <div class="Img_bg">
+                <div class="Img_bg" :style="'background-image:url('+ change_picture+')'">
+                <!-- <div class="Img_bg"> -->
                     <!-- 明信片 -->
                     <div class="main_writting_block">
         
@@ -157,7 +157,7 @@
                             </div>
                             <div class="writting_bg" @click="remove_art_h4">
                                 <textarea class="writting_area" rows="5" cols="25" maxlength="120" v-model="tkinfotest"></textarea>
-                                <p>{{texsum}}/120</p>
+                                <p>{{tkinfotest.length}}/120</p>
                             </div>
 
                         </div>
@@ -193,9 +193,9 @@
                                 </div>
                                 <!-- @click="typeTo_area" -->
                                 <div class="typeTo_block">
-                                    <textarea class="sentTO_People" @click="remove_dis" rows="5" cols="25" maxlength="15" v-model="tkinfoTo" v-model="message"> TO : </textarea>
+                                    <textarea class="sentTO_People" @click="remove_dis" rows="5" cols="25" maxlength="15" v-model="tkinfoTo"> TO : </textarea>
                                 </div>
-                                <p>{{texsumTo}}/15</p>
+                                <p>{{tkinfoTo.length}}/15</p>
                             </div>
 
                             
@@ -239,7 +239,8 @@
             <!-- 明信片-->
             <div class="postcardStart_block">
     
-                <div class="Img_bg">
+                <div class="Img_bg" :style="'background-image:url('+ change_picture+')'">
+                <!-- <div class="Img_bg"> -->
                     <!-- 明信片 -->
                     <div class="main_writting_block" v-if ="cardShow == true">
         
@@ -249,7 +250,7 @@
                                 <h3>POSTCARD</h3>
                             </div>
                             <div class="writting_bg">
-                                <textarea class="writting_area"></textarea>
+                                <textarea class="writting_area" v-model="tkinfotest"></textarea>
                             </div>
                         </div>
         
@@ -269,9 +270,11 @@
 
                             <!-- 收件者info -->
                             <div class="sentTO_block">
+
                                 <div class="typeTo_block">
-                                    <textarea class="sentTO_People"> {{message}} </textarea>
+                                    <textarea class="sentTO_People" v-model="tkinfoTo">TO : </textarea>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -320,7 +323,6 @@
     <!-- <script src="./js/postcard/postcard_1.js"></script> -->
     <script src="./js/header_footer.js"></script>
     <script>
-
         new Vue({
             el: '#postcard',
             data(){      //變數存放的地方
@@ -344,8 +346,6 @@
                 texsum: 0,
                 tkinfoTo:'',
                 texsumTo: 0,
-
-                message: '',
                 }
 
             },
