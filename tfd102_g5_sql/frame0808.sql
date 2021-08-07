@@ -45,6 +45,7 @@ CREATE TABLE IF NOT EXISTS `JUMPER`.`product_info` (
   `title` VARCHAR(45) NOT NULL COMMENT '主題',
   `content` VARCHAR(255) NOT NULL COMMENT '\n內容 ',
   `intro_pics` VARCHAR(255) NOT NULL,
+  `link` VARCHAR(45) NOT NULL,
   `total_people` INT NOT NULL,
   `fav_count` INT NOT NULL COMMENT '收藏人數\n',
   `comment_count` INT NOT NULL COMMENT '評價人數',
