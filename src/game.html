@@ -76,19 +76,19 @@
                             <div class="game_close_btn" @click="closeResult"></div>
                             <div class="main_result">
                                 <h3 class="result_title">挑戰成功！</h3>
-                                <img class="get_stamp" src="./images/index/game/america.svg" v-if="theTheme==1">
-                                <img class="get_stamp" src="./images/index/game/europe.svg" v-else-if="theTheme==2">
-                                <img class="get_stamp" src="./images/index/game/asia.svg" v-else-if="theTheme==3">
-                                <img class="get_stamp" src="./images/index/game/africa_stamp.svg" v-else-if="theTheme==4">
-                                <img class="get_stamp" src="./images/index/game/oceania.svg" v-else-if="theTheme==5">
+                                <img class="get_stamp" src="./images/index/game/america.svg" v-if="theTheme == 1">
+                                <img class="get_stamp" src="./images/index/game/europe.svg" v-else-if="theTheme == 2">
+                                <img class="get_stamp" src="./images/index/game/asia.svg" v-else-if="theTheme == 3">
+                                <img class="get_stamp" src="./images/index/game/africa_stamp.svg" v-else-if="theTheme == 4">
+                                <img class="get_stamp" src="./images/index/game/oceania.svg" v-else-if="theTheme == 5">
 
                                 <div class="game_words" id="win_word">
                                     <p class="game_word row_1">恭喜獲得「旅遊</p>
-                                    <p class="game_word row_2" v-if="theTheme==1">美洲</p>
-                                    <p class="game_word row_2" v-else-if="theTheme==2">歐洲</p>
-                                    <p class="game_word row_2" v-else-if="theTheme==3">亞洲</p>
-                                    <p class="game_word row_2" v-else-if="theTheme==4">非洲</p>
-                                    <p class="game_word row_2" v-else-if="theTheme==5">大洋洲</p>
+                                    <p class="game_word row_2" v-if="theTheme == 1">美洲</p>
+                                    <p class="game_word row_2" v-else-if="theTheme == 2">歐洲</p>
+                                    <p class="game_word row_2" v-else-if="theTheme == 3">亞洲</p>
+                                    <p class="game_word row_2" v-else-if="theTheme == 4">非洲</p>
+                                    <p class="game_word row_2" v-else-if="theTheme == 5">大洋洲</p>
                                     <p class="game_word row_3">印章」一枚</p>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
 
                 <!-- 任務進度 -->
                 <transition>
-                    <div class="game_result_overlay" v-show="innerPasswort==true">
+                    <div class="game_result_overlay" v-show="innerPasswort == true">
                         <div class="game_result">
                             <div class="top_word_game">
                                 <div class="visa_word_game">
@@ -130,25 +130,25 @@
                                 <h2>我的遊戲護照</h2>
                                 <div class="game_stamp">
                                     <div class="top_stamp">
-                                        <img class="am unget_stamp" src="./images/index/game/america.svg" v-if="theTheme==1  && winning==true">
+                                        <img class="am unget_stamp" src="./images/index/game/america.svg" v-if="(theTheme == 1 && winning == true) || hasRecord_1 == true">
                                         <img class="am unget_stamp" src="./images/index/game/unget.png" v-else>
 
-                                        <img class="eu unget_stamp" src="./images/index/game/europe.svg" v-if="theTheme==2 && winning==true">
+                                        <img class="eu unget_stamp" src="./images/index/game/europe.svg" v-if="(theTheme == 2 && winning == true) || hasRecord_2 == true">
                                         <img class="eu unget_stamp" src="./images/index/game/unget.png" v-else>
 
-                                        <img class="as unget_stamp" src="./images/index/game/asia.svg" v-if="theTheme==3  && winning==true">
+                                        <img class="as unget_stamp" src="./images/index/game/asia.svg" v-if="(theTheme==3  && winning==true) || hasRecord_3 == true">
                                         <img class="as unget_stamp" src="./images/index/game/unget.png" v-else>
 
                                     </div>
                                     <div class="bottom_stamp">
-                                        <img class="af unget_stamp" src="./images/index/game/africa_stamp.svg" v-if="theTheme==4 && winning==true">
+                                        <img class="af unget_stamp" src="./images/index/game/africa_stamp.svg" v-if="(theTheme==4 && winning==true) || hasRecord_4 == true">
                                         <img class="af unget_stamp" src="./images/index/game/unget.png" v-else>
 
-                                        <img class="oc unget_stamp" src="./images/index/game/oceania.svg" v-if="theTheme==5 && winning==true">
+                                        <img class="oc unget_stamp" src="./images/index/game/oceania.svg" v-if="(theTheme==5 && winning==true) || hasRecord_5 == true">
                                         <img class="oc unget_stamp" src="./images/index/game/unget.png" v-else>
 
                                     </div>
-                                    <img class="gift_icon" src="./images/index/game/gift_gold.svg" v-if="getGift==true" @click="getCoupon">
+                                    <img class="gift_icon gold" src="./images/index/game/gift_gold.svg" v-if="getGift==true" @click="getCoupon">
                                     <img class="gift_icon" src="./images/index/game/gift_gray.svg" v-else>
                                 </div>
                             </div>
@@ -237,7 +237,6 @@
         new Vue({
             el: "#the_game",
             data: {
-                theTheme: 0,
                 themes: [
                     { continent: "am", num: 1 },
                     { continent: "eu", num: 2 },
@@ -270,15 +269,23 @@
                 ],
                 outerPasswort: true,
                 gameWordShow: false,
+                theTheme: 0,
                 question: false,
                 taskIndex: 0,
                 userAnswers: [],
                 userAnswer: '',
                 winning: false,
                 innerPasswort: false,
+                hasRecord_1: false,
+                hasRecord_2: false,
+                hasRecord_3: false,
+                hasRecord_4: false,
+                hasRecord_5: false,
                 showCoupon: false,
                 result: false,
                 getGift: false,
+                task_record: [],
+                // task_record.slice(1, task_ID,)
             },
             computed: {
 
@@ -292,14 +299,6 @@
                     this.outerPasswort = false;
                     this.innerPasswort = true;
 
-                    // axios.post('./php/game_record.php').then(res =>console.log(res.data));
-                    axios.post('./php/game_record.php').then(res => this.data = res.data);
-                    // 判斷印章數 == 5 ，getGift = true;
-                    // if () {
-                    //     this.showCoupon = true;
-                    // }else {
-                    //     this.showCoupon = false;
-                    // }
                 },
                 chooseTheTheme(index) {
                     this.gameWordShow = false;
@@ -322,7 +321,6 @@
                         }
                         this.question = true;
                     });
-
                 },
                 game_continue() {
                     this.innerPasswort = false;
@@ -360,17 +358,19 @@
                     this.result = false;
                     this.question = false;
                     this.innerPasswort = true;
-
-                    // 判斷印章數 == 5 ，getGift = true;
-                    // if () {
-                    //     this.showCoupon = true;
-                    // }else {
-                    //     this.showCoupon = false;
-                    // }
                 },
                 getCoupon() {
                     // 先判斷登入登出
                     this.showCoupon = true;
+                    this.task_record.splice(0);
+                    this.hasRecord_1 =  false;
+                    this.hasRecord_2 = false;
+                    this.hasRecord_3 = false;
+                    this.hasRecord_4 = false;
+                    this.hasRecord_5 = false;
+                    // console.log(this.task_record);
+
+                    // ++++寫回資料庫++++
                 },
                 closeCoupon() {
                     this.showCoupon = false;
@@ -379,6 +379,60 @@
             },
             mounted() {
                 // axios.get('./php/game.php').then(res =>console.log(res.data));
+                    // axios.post('./php/game_record.php').then(res =>console.log(res.data));
+                    axios.post('./php/game_record.php').then(res => {
+                       let data = res.data;
+                        // console.log(data);
+                    
+                        data.forEach((value) => {
+                            //    console.log(value.task_ID);
+
+                                // 印章紀錄資料(化成陣列)
+                            let record = value.task_ID;
+                            if(record == 1){
+                                    this.task_record.push(1);
+                                    // console.log(this.task_record);
+                            }else if(record == 2){
+                                    this.task_record.push(2);
+                                    // console.log(this.task_record);
+                            }else if(record == 3){
+                                    this.task_record.push(3);
+                                    // console.log(this.task_record);
+                            }else if(record == 4){
+                                    this.task_record.push(4);
+                                    // console.log(this.task_record);
+                            }else if(record == 5){
+                                    this.task_record.push(5);
+                            }
+                        });
+
+                        // 有印章紀錄 -> 顯示印章在護照上
+                        if(this.task_record.includes(1)){
+                                this.hasRecord_1 = true;
+                        }
+                        
+                        if(this.task_record.includes(2)){
+                                this.hasRecord_2 = true;
+                        }
+
+                        if(this.task_record.includes(3)){
+                                this.hasRecord_3 = true;
+                        }
+                        
+                        if(this.task_record.includes(4)){
+                                this.hasRecord_4 = true;
+                        }
+
+                        if(this.task_record.includes(5)){
+                                this.hasRecord_5 = true;
+                        }
+
+                        // 集滿五個印章，可兌換優惠券    
+                        if(this.task_record.length == 5){
+                        // console.log(this.task_record.length);
+                        this.getGift = true;
+                        }
+                    });
 
                 $(function () {
                     $(".btn_start").click(function () {
