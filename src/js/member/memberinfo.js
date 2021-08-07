@@ -31,6 +31,8 @@ const MemberInfo = {
                                 <div class="nameBorder" v-for = "(value,index) in values " v-if="index < 6 ">
                                         <div class="memberInfoName">{{value.name}}</div>
                                         <div class="memberInfoVal" v-if="index == 5" >{{passwdwd}}</div>
+                                        <div class="memberInfoVal" v-else-if="index == 3" >{{value.val | phoneFormater}}</div>
+
                                         <div class="memberInfoVal" v-else >{{value.val}}</div>
                                 </div>
                             </div>
@@ -101,7 +103,7 @@ const MemberInfo = {
                 { name: "姓名", val: "王某某" },
                 { name: "性別", val: "" },
                 { name: "出生日期", val: "" },
-                { name: "手機號碼", val: "0988888888" },
+                { name: "手機號碼", val: "" },
                 { name: "E-mail", val: "jumper@gmail.com" },
                 { name: "會員密碼", val: "0123456789" },
                 { name: "確認密碼", val: "0123456789" },
@@ -245,6 +247,19 @@ const MemberInfo = {
         let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
         $("#memberSpace").css("height", height);
 
+    },
+    filters: {
+        phoneFormater(phone) {
+            if (phone != '' && phone != undefined) {
+                let num = '';
+                num += phone.substr(0, 4);
+                num += "-";
+                num += phone.substr(4, 3);
+                num += "-";
+                num += phone.substr(7, 3);
+                return num;
+            }
+        }
     }
 
 };
