@@ -48,7 +48,50 @@
         opacity: 1;
     }
 }
-
+@keyframes scale_in {
+    0%{
+        opacity: 0;
+        transform: translateY(-50%) scale(10);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+    }
+}
+@keyframes appear1 {
+    0%{
+      opacity: 0;
+      transform: translate(-50%, -50%) scaleY(0);
+      filter: blur(20px);
+    }
+    100%{
+      opacity: 1;
+      transform: translate(-50%, -50%) scaleY(1);
+      filter: blur(0);
+    }
+}
+@keyframes appear2 {
+    0%{
+      opacity: 0;
+      transform: translate(-50%, 80%) scaleY(0);
+      filter: blur(20px);
+    }
+    100%{
+      opacity: 1;
+      transform: translate(-50%, 80%) scaleY(1);
+      filter: blur(0);
+    }
+}
+@keyframes slideUp {
+    0%{
+        opacity: 0;
+        transform: scaleY(0);
+      }
+      100%{
+        opacity: 1;
+        transform: scaleY(1);
+      }
+}
 @keyframes slide-down {
     0% {
         bottom: 100%;
@@ -92,6 +135,7 @@ $passportW: 402;
     position: relative;
     opacity: 0;
     // opacity: 1;
+    overflow: hidden;
     animation: fade-in_1 1s ease-out both;
 
     @include img_setting(cover) {
@@ -115,7 +159,7 @@ $passportW: 402;
         @include margin0;
         top: 50%;
         transform: translateY(-50%);
-        animation: zoom_in 1.8s ease-in-out 0.7s backwards;
+        animation: scale_in 1.4s linear 0.4s backwards;
         @include lg {
             width: 975px;
             height: 543px;
@@ -137,13 +181,14 @@ $passportW: 402;
             animation: none;
 
         }
-
         .landmark {
             background-image: url('../../images/index/game/landmark_white.png');
             background-size: contain;
             width: 50px;
             height: 90px;
             transform: scale(1);
+            transform-origin: 50% 100%;
+            animation: slideUp 0.5s linear 2s 1 backwards;
             @include img_setting(contain);
             cursor: pointer;
             position: absolute;
@@ -157,9 +202,6 @@ $passportW: 402;
                 }
             }
         }
-        .landmark.scale{
-            animation: zoom_out 1.5s linear infinite;
-        };
         .am {
             left: 12.5%;
             top: 35%;
@@ -214,63 +256,59 @@ $passportW: 402;
                 top: 51.5%;
             }
         }
-    }
-
-    #game_word {
-        display: block;
-        position: relative;
-        bottom: 200px;
-        animation: zoom_in 1s ease 3s both;
-        @include lg{
-            bottom: 90px;
-        }
-        @include lg_md{
-            bottom: 110px;
-        }
-        @include sm{
-            bottom: -116px;
-        }
-        @include xs{
-            bottom: -4vh;
-        }
-        h3 {
-            width: 350px;
-            color: #202B36;
-            background-color: rgba(225, 225, 225, .9);
-            @include margin0;
-            padding: 6px;
-            line-height: 1.6;
-            text-align: center;
-            margin-bottom: 55px;
-            @include lg_md{
-                width: 280px;
-                font-size: 20px;
-            }
+        #game_word {
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, -50%);
+            animation: appear1 1s ease backwards;
             @include sm{
-                width: 240px;
-                font-size: 18px;
+                transform: translate(-50%, 80%);
+                animation: appear2 1s ease backwards;
             }
             @include xs{
-                width: 300px;
+                top: 380px;
             }
-        }
-        img {
-            width: 40px;
-            height: 36px;
-            margin: 0 auto;
-            display: none;
-            @include xs{
-                display: block;
+            h3 {
+                width: 350px;
+                color: #202B36;
+                background-color: rgba(225, 225, 225, .9);
+                @include margin0;
+                padding: 6px;
+                line-height: 1.6;
+                text-align: center;
+                @include lg_md{
+                    width: 280px;
+                    font-size: 20px;
+                }
+                @include sm{
+                    width: 240px;
+                    font-size: 18px;
+                }
+                @include xs{
+                    width: 300px;
+                    margin-bottom: 60px;
+                }
+            }
+            img {
                 width: 40px;
                 height: 36px;
+                margin: 0 auto;
+                display: none;
+                @include xs{
+                    display: block;
+                    width: 40px;
+                    height: 36px;
+                }
             }
-        }
+        }    
     }
     .passport_page {
         @include all_zero(absolute);
         // opacity: 1;
         opacity: 0;
-        animation: slide-down 1s ease 2.5s both;
+        animation: slide-down 1s ease 2.8s both;
 
         @include xs {
             animation: none;
@@ -548,9 +586,7 @@ $passportW: 402;
                     }
                 }
             }
-
         }
-
     }
 
     .challenge {
