@@ -1,0 +1,15 @@
+insert into product_info values(1,1,'美國','自由女神朝聖之旅','紐約最美麗的地標，一起來一睹她美麗的風采','./images/travel_list/250/libertystatue.jpg','./travel_info.html',10,89,15,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,'');
+insert into product_info values(2,1,'美國','怔怔地望著尼加拉大瀑布那滂薄的氣勢','見過紐約氣派的高樓大廈和繁華的城市魅力後，啟程往北，一睹大自然最美產物之一的尼亞加拉大瀑布。尼亞加拉大瀑布以每秒150,000加侖的流水量傾瀉而下，氣勢滂礡的絕世景觀被譽為世界上最美的天然奇景之一。行程沿路帶你欣賞阿帕拉契山脈和上紐約州的美麗風景、遠觀北美廣闊無邊的平地和東岸沿海平原之間天然的群山屏障。緊接著抵達本行程的目的地──尼亞加拉大瀑布，重頭戲帶你搭乘直升機，從空中俯瞰瀑布，水流奔騰而下的臨場震撼感一生一定要體會一次。之後到山羊島，換個角度欣賞瀑布宏偉壯觀的全貌。','./images/travel_list/250/niagarafalls.jpg','./travel_info.html',10,112,5,'',1,'');
+insert into product_info values(3,2,'英國','Big Ben 大笨鐘，倫敦最具指標性的景觀','「Big Ben 大笨鐘」是英國倫敦最具指標性和最熱門的景觀，聳立在倫敦泰晤士河畔最精華的地段，直到今年2021年剛好歷經也見證了162年的各種風風雨雨，如今不僅是英國尤其倫敦人心中的精神指標，更是到訪倫敦的觀光客最愛拍照打卡的背景之一！','./images/travel_list/250/bigben.jpg','./travel_info.html',10,45,5,'',1,'');
+insert into product_info values(4,3,'日本','京都森林浴','大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。了解神道教儀式以及如何在京都最古老的神社之一（建於 1300 年前！）進行森林沐浴
+','./images/travel_list/250/kyoto.jpg','./travel_info.html',10,38,3,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,'');
+insert into product_info values(5,3,'泰國','泰國黃金海岸，欣賞Pattaya的海岸風光
+                                    ','泰國PATTAYA PARK海灘，是目前少有的安靜海灘。中天海灣長約 1.5 公里的海 岸上，被泰國政府列為全Pattaya最安靜也是最優美的生態環境保護區，是老外集中最多的度假勝地。此處經常是泰國舉辦國際性沙灘排球比賽的首選場地，沿岸區域設有游泳保護區及 1.2 公里的自行車專用車道，由泰國海岸巡邏人員看管，可提供遊客欣賞Pattaya的海岸風光。','./images/travel_list/250/pataya.jpg','./travel_info.html',10,45,5,'',1,'');
+insert into product_info values(6,3,'印尼','馬辰水上市場藝術節，體驗當地水上文化之旅','馬辰(Banjarmasin)是印尼南加里曼丹的首府，錯綜複雜的水道使得這城市有「千河之城」之稱。水道夾雜的城市少不了水上交易，天未亮，河道上便開始出現載滿蔬果的彩色扁舟，戴著斗笠的婦女們划著船兒整齊的排列在岸邊，等待生意上門。小船兒搖又晃的直到傍晚下班時刻，等待著又一批人潮聚集岸邊。','./images/travel_list/250/watermarket.jpg','./travel_info.html',10,45,5,'',1,'');
+insert into product_info values(7,4,'非洲','非洲
+神奇夢幻的野性美','無數生命在非洲的原野上生生不息，為了追尋嫩草，每年百萬牛羚及斑馬在大平原上大遷徙，構成幕幕萬馬奔騰的自然奇觀，宏偉地展現大自然的魔力，懾人心魄','./images/travel_list/250/africa_elephant.jpg','./travel_info.html',10,38,3,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,'');
+insert into product_info values(8,4,'埃及','埃及金字塔，世界上最神祕的三角形','歷代王朝中，以吉薩三大金字塔最經典，亦是世界上唯一僅存的七大奇景。坐臥在吉薩的卡夫拉金字塔旁，考古發現約在西元前2500年完成。接著帶您體驗騎駱駝的樂趣，信步在埃及黃土天地的蒼穹感。','./images/travel_list/250/egypt.jpg','./travel_info.html',10,45,5,'',1,'');
+insert into product_info values(9,5,'澳洲','雪梨歌劇院','縱使沒來過雪梨，都肯定聽說過「雪梨歌劇院（Sydney Opera House）」，這可是來雪梨絕不可錯過的地標等級景點，於1973年落成的帆船形建物，可是20世紀少數列入世界文化遺產的建築呢！一整個就很重量級。
+','./images/travel_list/250/sydney.jpg','./travel_info.html',10,38,3,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,'');
+insert into product_info values(10,5,'澳大利亞','勒格蘭德角國家公園，探索野生動物','澳大利亞能看到袋鼠在沙灘上曬太陽的地方並不多，但在勒格蘭德角國家公園 (Cape Le Grand National Park) ，這只是眾多天然樂趣之一。','./images/travel_list/250/legrand.jpg','./travel_info.html',10,45,5,'',1,'');
+insert into product_info values(11,5,'紐西蘭','紐西蘭自然體驗','該體驗從農場現場直播，並將首先介紹新西蘭。由於它是一個生活方式農場，動物在不同的圍場（田地）周圍輪換，但您很有可能會看到母羊（綿羊）、奶牛和雞','./images/travel_list/250/newzland.jpg','./travel_info.html',10,120,2,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,'');
