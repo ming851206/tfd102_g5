@@ -2,13 +2,13 @@
 Vue.component('us', {
     data() {
         return {  //組件的變數寫在這裡！
-            nowCat: 0,
+            nowCat: 0, // 目前的旅遊分類編號
             category_list: [
-                {cat: '美洲',},
-                {cat: '歐洲',},
-                {cat: '亞洲',},
-                {cat: '非洲',},
-                {cat: '大洋洲',},
+                { cat: '美洲', },
+                { cat: '歐洲', },
+                { cat: '亞洲', },
+                { cat: '非洲', },
+                { cat: '大洋洲', },
             ],
             item_counts: "",
             items: [
@@ -28,7 +28,7 @@ Vue.component('us', {
     },
     template: `
     <div class="the_cat_trip">
-        <h3>{{category_list[0].cat}}旅遊</h3>
+        <h3>{{category_list[nowCat].cat}}旅遊</h3>
         <p class="slider_count">根據你的篩選條件搜尋到 {{item_counts}} 筆結果</p>
         <ul class="item_list">
             <li v-for="item in items" :id="item.ID" class="item">
@@ -104,15 +104,17 @@ Vue.component('us', {
 
 
         //===========================================
-
-        axios.get('http://localhost/php/showUsTrip.php')
-        .then(res => {
-            console.log(res.data[0].category);
+        axios.get('http://localhost/php/showTrip.php', {
+            params: {  // 帶參數
+                cat: 1 // 1 代表美洲
+            }
+        }).then(res => {
+            console.log(res.data);
             this.items = res.data; // 旅遊內容
             this.item_counts = res.data.length; // 旅遊筆數
-            this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊分類 ：抓取旅遊內容的 category 當 key 去 mapping category_list
+            this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list
         });
-        // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
+     // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
         // .then(res => this.data = res.data);
         //fetch('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => console.log(res)); 
     },
