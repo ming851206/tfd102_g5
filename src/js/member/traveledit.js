@@ -222,10 +222,6 @@ const TravelEdit = {
     },
     methods: {
         mobileShowInfo(index) {
-            // console.log(this.mobileshowinfo[index]);
-            // this.mobileshowinfo[index] = !this.mobileshowinfo[index];
-            // console.log(this.mobileshowinfo[index]);
-            // : class="{'mobileshowinfo' : mobileshowinfo[index]}"
             let show = document.getElementsByClassName("travelValue")[index];
             console.log(show.classList);
             if (!show.classList.contains("mobileshowinfo")) {
@@ -262,9 +258,11 @@ const TravelEdit = {
         fileChange: function (e) {
             let files = this.$refs.update.files;
             for (let i = 0; i < files.length; i++) {
-                if (files[i].type.match(/^image\/(png|jpg|jpeg)$/)) {
-                    this.files.unshift(window.URL.createObjectURL(files[i]));
-                }
+                let readFile = new FileReader();
+                readFile.readAsDataURL(files[i]);
+                readFile.addEventListener('load', (event) => {
+                    this.files.unshift(readFile.result);
+                })
             }
         }
     }, mounted() {
