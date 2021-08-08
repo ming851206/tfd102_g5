@@ -41,18 +41,26 @@ COMMENT = '會員';
 CREATE TABLE IF NOT EXISTS `JUMPER`.`product_info` (
   `ID` INT NOT NULL,
   `category` INT NOT NULL COMMENT '分類\n',
+  `member_ID` INT NOT NULL,
   `place` VARCHAR(45) NOT NULL,
   `title` VARCHAR(45) NOT NULL COMMENT '主題',
   `content` VARCHAR(255) NOT NULL COMMENT '\n內容 ',
   `intro_pics` VARCHAR(255) NOT NULL,
-  `link` VARCHAR(45) NOT NULL,
   `total_people` INT NOT NULL,
-  `fav_count` INT NOT NULL COMMENT '收藏人數\n',
+  `event_price` INT NOT NULL,
+  `star_num` INT NOT NULL COMMENT '收藏人數\n',
   `comment_count` INT NOT NULL COMMENT '評價人數',
   `intro_video` VARCHAR(255) NOT NULL,
+  `link` VARCHAR(45) NOT NULL,
   `is_checked` INT NOT NULL,
   `reject_reason` VARCHAR(45) NULL COMMENT '退件原因',
-  PRIMARY KEY (`ID`))
+  PRIMARY KEY (`ID`),
+  INDEX `FK_PRODUCT_INFO_MEMBER_ID_idx` (`member_ID` ASC) VISIBLE,
+  CONSTRAINT `FK_PRODUCT_INFO_MEMBER_ID`
+    FOREIGN KEY (`member_ID`)
+    REFERENCES `JUMPER`.`member` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 COMMENT = '旅程資訊';
 

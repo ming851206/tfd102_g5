@@ -34,7 +34,7 @@ CREATE TABLE `comment` (
   KEY `FK_PRODUCT_APPRAISE_PRODUCT_ID_idx` (`product_ID`),
   CONSTRAINT `FK_COMMENT_MEMBER_ID` FOREIGN KEY (`member_ID`) REFERENCES `member` (`ID`),
   CONSTRAINT `FK_COMMENT_PRODUCT_ID` FOREIGN KEY (`product_ID`) REFERENCES `product_info` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3 COMMENT='產品評價';
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb3 COMMENT='產品評價';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `comment` (
 
 LOCK TABLES `comment` WRITE;
 /*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-INSERT INTO `comment` VALUES (1,1,1,3,'行程安排非常充實！','1630375200'),(2,2,1,4,'很適合一家大小的虛擬旅行～','1630375200'),(3,3,1,5,'導遊很漂釀！','1630375200'),(4,4,1,5,'是一位非凡的主持人｡擅長指導,更擅長講故事','1630375200'),(5,5,1,5,'很棒的旅程～','1630375200'),(6,6,2,5,'這是一個非常美好､有趣和開心的夜晚～','1630375200'),(7,7,2,5,'這是一次非凡的體驗! 導遊非常和藹可親,讓我們開懷大笑','1630375200'),(8,8,2,5,'我學到了很多,也很享受這次的旅程','1630375200'),(9,9,2,5,'有機會近距離看到長頸鹿､羚羊和斑馬,並欣賞風景｡感覺就像我們在南非呆了一個小時而不必離開我們的沙發','1630375200'),(10,10,2,5,'很有趣!我喜歡它是互動的,而且(在我們的私人小組中)我們可以選擇我們想去的地方','1630375200'),(11,11,3,5,'令人愉快的主人','1630375200'),(12,12,3,5,'內容非常豐富,也很有趣｡一切都很完美!','1630375200'),(13,13,3,5,'等不及參加下一場旅程了！','1630375200'),(14,14,3,5,'這是一次令人難以置信的體驗,100% 推薦!!如此有意義和周到','1630375200'),(15,15,3,5,'我喜歡這種經歷,我遇到了獨特而美妙的地方,我想有一天親自去參觀｡我強烈推薦!','1630375200');
+INSERT INTO `comment` VALUES (1,1,1,3,'行程安排非常充實！','1630375200'),(2,2,1,4,'很適合一家大小的虛擬旅行～','1630375200'),(3,3,1,5,'導遊很漂釀！','1630375200'),(4,4,1,5,'是一位非凡的主持人｡擅長指導,更擅長講故事','1630375200'),(5,5,1,5,'很棒的旅程～','1630375200'),(6,6,2,5,'這是一個非常美好､有趣和開心的夜晚～','1630375200'),(7,7,2,5,'這是一次非凡的體驗! 導遊非常和藹可親,讓我們開懷大笑','1630375200'),(8,8,2,5,'我學到了很多,也很享受這次的旅程','1630375200'),(9,9,2,5,'有機會近距離看到長頸鹿､羚羊和斑馬,並欣賞風景｡感覺就像我們在南非呆了一個小時而不必離開我們的沙發','1630375200'),(10,10,2,5,'很有趣!我喜歡它是互動的,而且(在我們的私人小組中)我們可以選擇我們想去的地方','1630375200'),(11,11,3,5,'令人愉快的主人','1630375200'),(12,12,3,5,'內容非常豐富,也很有趣｡一切都很完美!','1630375200'),(13,13,3,5,'等不及參加下一場旅程了！','1630375200'),(14,14,3,5,'這是一次令人難以置信的體驗,100% 推薦!!如此有意義和周到','1630375200'),(15,15,3,5,'我喜歡這種經歷,我遇到了獨特而美妙的地方,我想有一天親自去參觀｡我強烈推薦!','1630375200'),(16,1,4,5,'很棒！','1630375200'),(17,1,5,5,'很棒！','1630375200'),(18,2,5,3,'讚讚！','1630375200'),(19,2,4,4,'讚讚！','1630375200'),(20,3,5,2,'普通！','1630375200'),(21,3,4,1,'普通！','1630375200'),(22,1,7,5,'很棒！','1630375200'),(23,1,8,5,'很棒！','1630375200'),(24,2,9,3,'讚讚！','1630375200'),(25,2,10,4,'讚讚！','1630375200'),(26,3,11,2,'普通！','1630375200'),(27,3,6,4,'普通！','1630375200');
 /*!40000 ALTER TABLE `comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,7 +72,7 @@ CREATE TABLE `coupon` (
 
 LOCK TABLES `coupon` WRITE;
 /*!40000 ALTER TABLE `coupon` DISABLE KEYS */;
-INSERT INTO `coupon` VALUES (1,1,'summerlove','這夏有禮了',9,'1640966399',_binary '\0'),(2,2,'jumper','跳轉世界玩翻天 5 折優惠',5,'1640966399',_binary '\0'),(3,1,'lovego','旅遊 5 折優惠',5,'1640966399',_binary '\0');
+INSERT INTO `coupon` VALUES (1,1,'summerlove','這夏有禮了',9,'1640966399',_binary '\0'),(2,2,'jumper','跳轉世界玩翻天 75 折優惠',75,'1640966399',_binary '\0'),(3,1,'lovego','旅遊 5 折優惠',5,'1640966399',_binary '\0');
 /*!40000 ALTER TABLE `coupon` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,7 +157,7 @@ CREATE TABLE `fav` (
 
 LOCK TABLES `fav` WRITE;
 /*!40000 ALTER TABLE `fav` DISABLE KEYS */;
-INSERT INTO `fav` VALUES (1,1,1),(2,2,1),(3,3,1),(4,4,1),(5,5,1),(6,6,1),(7,7,1),(8,8,1),(9,9,1),(10,10,1),(11,11,1),(12,12,1),(13,13,1),(14,14,1),(15,15,1);
+INSERT INTO `fav` VALUES (1,1,1),(2,1,2),(3,1,3),(4,1,4),(5,1,5),(6,1,7),(7,1,8),(8,1,9),(9,1,10),(10,10,1),(11,1,11),(12,12,1),(13,13,1),(14,14,1),(15,15,1);
 /*!40000 ALTER TABLE `fav` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,13 +205,15 @@ DROP TABLE IF EXISTS `product_info`;
 CREATE TABLE `product_info` (
   `ID` int NOT NULL,
   `category` int NOT NULL COMMENT '分類\n',
+  `member_ID` int NOT NULL,
   `place` varchar(45) NOT NULL,
   `title` varchar(45) NOT NULL COMMENT '主題',
   `content` varchar(255) NOT NULL COMMENT '\n內容 ',
   `intro_pics` varchar(255) NOT NULL,
   `link` varchar(45) NOT NULL,
   `total_people` int NOT NULL,
-  `fav_count` int NOT NULL COMMENT '收藏人數\n',
+  `event_price` int NOT NULL COMMENT '商品單價',
+  `star_num` int NOT NULL COMMENT '星數\\n',
   `comment_count` int NOT NULL COMMENT '評價人數',
   `intro_video` varchar(255) NOT NULL,
   `is_checked` int NOT NULL,
@@ -226,7 +228,7 @@ CREATE TABLE `product_info` (
 
 LOCK TABLES `product_info` WRITE;
 /*!40000 ALTER TABLE `product_info` DISABLE KEYS */;
-INSERT INTO `product_info` VALUES (1,1,'美國','自由女神朝聖之旅','紐約最美麗的地標，一起來一睹她美麗的風采','./images/travel_list/250/libertystatue.jpg','./travel_info.html',10,89,15,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,''),(2,1,'美國','怔怔地望著尼加拉大瀑布那滂薄的氣勢','見過紐約氣派的高樓大廈和繁華的城市魅力後，啟程往北，一睹大自然最美產物之一的尼亞加拉大瀑布。尼亞加拉大瀑布以每秒150,000加侖的流水量傾瀉而下，氣勢滂礡的絕世景觀被譽為世界上最美的天然奇景之一。行程沿路帶你欣賞阿帕拉契山脈和上紐約州的美麗風景、遠觀北美廣闊無邊的平地和東岸沿海平原之間天然的群山屏障。緊接著抵達本行程的目的地──尼亞加拉大瀑布，重頭戲帶你搭乘直升機，從空中俯瞰瀑布，水流奔騰而下的臨場震撼感一生一定要體會一次。之後到山羊島，換個角度欣賞瀑布宏偉壯觀的全貌。','./images/travel_list/250/niagarafalls.jpg','./travel_info.html',10,112,5,'',1,''),(3,2,'英國','Big Ben 大笨鐘，倫敦最具指標性的景觀','「Big Ben 大笨鐘」是英國倫敦最具指標性和最熱門的景觀，聳立在倫敦泰晤士河畔最精華的地段，直到今年2021年剛好歷經也見證了162年的各種風風雨雨，如今不僅是英國尤其倫敦人心中的精神指標，更是到訪倫敦的觀光客最愛拍照打卡的背景之一！','./images/travel_list/250/bigben.jpg','./travel_info.html',10,45,5,'',1,''),(4,3,'日本','京都森林浴','大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。了解神道教儀式以及如何在京都最古老的神社之一（建於 1300 年前！）進行森林沐浴\n','./images/travel_list/250/kyoto.jpg','./travel_info.html',10,38,3,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,''),(5,3,'泰國','泰國黃金海岸，欣賞Pattaya的海岸風光\n                       ','泰國PATTAYA PARK海灘，是目前少有的安靜海灘。中天海灣長約 1.5 公里的海 岸上，被泰國政府列為全Pattaya最安靜也是最優美的生態環境保護區，是老外集中最多的度假勝地。此處經常是泰國舉辦國際性沙灘排球比賽的首選場地，沿岸區域設有游泳保護區及 1.2 公里的自行車專用車道，由泰國海岸巡邏人員看管，可提供遊客欣賞Pattaya的海岸風光。','./images/travel_list/250/pataya.jpg','./travel_info.html',10,45,5,'',1,''),(6,3,'印尼','馬辰水上市場藝術節，體驗當地水上文化之旅','馬辰(Banjarmasin)是印尼南加里曼丹的首府，錯綜複雜的水道使得這城市有「千河之城」之稱。水道夾雜的城市少不了水上交易，天未亮，河道上便開始出現載滿蔬果的彩色扁舟，戴著斗笠的婦女們划著船兒整齊的排列在岸邊，等待生意上門。小船兒搖又晃的直到傍晚下班時刻，等待著又一批人潮聚集岸邊。','./images/travel_list/250/watermarket.jpg','./travel_info.html',10,45,5,'',1,''),(7,4,'非洲','非洲\n神奇夢幻的野性美','無數生命在非洲的原野上生生不息，為了追尋嫩草，每年百萬牛羚及斑馬在大平原上大遷徙，構成幕幕萬馬奔騰的自然奇觀，宏偉地展現大自然的魔力，懾人心魄','./images/travel_list/250/africa_elephant.jpg','./travel_info.html',10,38,3,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,''),(8,4,'埃及','埃及金字塔，世界上最神祕的三角形','歷代王朝中，以吉薩三大金字塔最經典，亦是世界上唯一僅存的七大奇景。坐臥在吉薩的卡夫拉金字塔旁，考古發現約在西元前2500年完成。接著帶您體驗騎駱駝的樂趣，信步在埃及黃土天地的蒼穹感。','./images/travel_list/250/egypt.jpg','./travel_info.html',10,45,5,'',1,''),(9,5,'澳洲','雪梨歌劇院','縱使沒來過雪梨，都肯定聽說過「雪梨歌劇院（Sydney Opera House）」，這可是來雪梨絕不可錯過的地標等級景點，於1973年落成的帆船形建物，可是20世紀少數列入世界文化遺產的建築呢！一整個就很重量級。\n','./images/travel_list/250/sydney.jpg','./travel_info.html',10,38,3,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,''),(10,5,'澳大利亞','勒格蘭德角國家公園，探索野生動物','澳大利亞能看到袋鼠在沙灘上曬太陽的地方並不多，但在勒格蘭德角國家公園 (Cape Le Grand National Park) ，這只是眾多天然樂趣之一。','./images/travel_list/250/legrand.jpg','./travel_info.html',10,45,5,'',1,''),(11,5,'紐西蘭','紐西蘭自然體驗','該體驗從農場現場直播，並將首先介紹新西蘭。由於它是一個生活方式農場，動物在不同的圍場（田地）周圍輪換，但您很有可能會看到母羊（綿羊）、奶牛和雞','./images/travel_list/250/newzland.jpg','./travel_info.html',10,120,2,'https://www.youtube.com/watch?v=z1HxBn01oXk',1,'');
+INSERT INTO `product_info` VALUES (1,1,1,'美國','自由女神朝聖之旅','紐約最美麗的地標，一起來一睹她美麗的風采','./images/travel_list/250/libertystatue.jpg','./travel_info.html',10,499,4,89,'https://www.youtube.com/watch?v=z1HxBn01oXk',0,''),(2,1,1,'美國','怔怔地望著尼加拉大瀑布那滂薄的氣勢','見過紐約氣派的高樓大廈和繁華的城市魅力後，啟程往北，一睹大自然最美產物之一的尼亞加拉大瀑布。尼亞加拉大瀑布以每秒150,000加侖的流水量傾瀉而下，氣勢滂礡的絕世景觀被譽為世界上最美的天然奇景之一。行程沿路帶你欣賞阿帕拉契山脈和上紐約州的美麗風景、遠觀北美廣闊無邊的平地和東岸沿海平原之間天然的群山屏障。緊接著抵達本行程的目的地──尼亞加拉大瀑布，重頭戲帶你搭乘直升機，從空中俯瞰瀑布，水流奔騰而下的臨場震撼感一生一定要體會一次。之後到山羊島，換個角度欣賞瀑布宏偉壯觀的全貌。','./images/travel_list/250/niagarafalls.jpg','./travel_info.html',10,499,5,112,'',0,''),(3,2,2,'英國','Big Ben 大笨鐘，倫敦最具指標性的景觀','「Big Ben 大笨鐘」是英國倫敦最具指標性和最熱門的景觀，聳立在倫敦泰晤士河畔最精華的地段，直到今年2021年剛好歷經也見證了162年的各種風風雨雨，如今不僅是英國尤其倫敦人心中的精神指標，更是到訪倫敦的觀光客最愛拍照打卡的背景之一！','./images/travel_list/250/bigben.jpg','./travel_info.html',10,499,5,45,'',0,''),(4,3,3,'日本','京都森林浴','大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。了解神道教儀式以及如何在京都最古老的神社之一（建於 1300 年前！）進行森林沐浴\n','./images/travel_list/250/kyoto.jpg','./travel_info.html',10,499,3,38,'https://www.youtube.com/watch?v=z1HxBn01oXk',0,''),(5,3,3,'泰國','泰國黃金海岸，欣賞Pattaya的海岸風光\n                       ','泰國PATTAYA PARK海灘，是目前少有的安靜海灘。中天海灣長約 1.5 公里的海 岸上，被泰國政府列為全Pattaya最安靜也是最優美的生態環境保護區，是老外集中最多的度假勝地。此處經常是泰國舉辦國際性沙灘排球比賽的首選場地，沿岸區域設有游泳保護區及 1.2 公里的自行車專用車道，由泰國海岸巡邏人員看管，可提供遊客欣賞Pattaya的海岸風光。','./images/travel_list/250/pataya.jpg','./travel_info.html',10,499,5,45,'',0,''),(6,3,3,'印尼','馬辰水上市場藝術節，體驗當地水上文化之旅','馬辰(Banjarmasin)是印尼南加里曼丹的首府，錯綜複雜的水道使得這城市有「千河之城」之稱。水道夾雜的城市少不了水上交易，天未亮，河道上便開始出現載滿蔬果的彩色扁舟，戴著斗笠的婦女們划著船兒整齊的排列在岸邊，等待生意上門。小船兒搖又晃的直到傍晚下班時刻，等待著又一批人潮聚集岸邊。','./images/travel_list/250/watermarket.jpg','./travel_info.html',10,599,5,45,'',0,''),(7,4,4,'非洲','非洲\n神奇夢幻的野性美','無數生命在非洲的原野上生生不息，為了追尋嫩草，每年百萬牛羚及斑馬在大平原上大遷徙，構成幕幕萬馬奔騰的自然奇觀，宏偉地展現大自然的魔力，懾人心魄','./images/travel_list/250/africa_elephant.jpg','./travel_info.html',10,599,3,38,'https://www.youtube.com/watch?v=z1HxBn01oXk',0,''),(8,4,4,'埃及','埃及金字塔，世界上最神祕的三角形','歷代王朝中，以吉薩三大金字塔最經典，亦是世界上唯一僅存的七大奇景。坐臥在吉薩的卡夫拉金字塔旁，考古發現約在西元前2500年完成。接著帶您體驗騎駱駝的樂趣，信步在埃及黃土天地的蒼穹感。','./images/travel_list/250/egypt.jpg','./travel_info.html',10,699,5,45,'',0,''),(9,5,5,'澳洲','雪梨歌劇院','縱使沒來過雪梨，都肯定聽說過「雪梨歌劇院（Sydney Opera House）」，這可是來雪梨絕不可錯過的地標等級景點，於1973年落成的帆船形建物，可是20世紀少數列入世界文化遺產的建築呢！一整個就很重量級。\n','./images/travel_list/250/sydney.jpg','./travel_info.html',10,699,3,38,'https://www.youtube.com/watch?v=z1HxBn01oXk',0,''),(10,5,5,'澳大利亞','勒格蘭德角國家公園，探索野生動物','澳大利亞能看到袋鼠在沙灘上曬太陽的地方並不多，但在勒格蘭德角國家公園 (Cape Le Grand National Park) ，這只是眾多天然樂趣之一。','./images/travel_list/250/legrand.jpg','./travel_info.html',10,699,5,45,'',0,''),(11,5,5,'紐西蘭','紐西蘭自然體驗','該體驗從農場現場直播，並將首先介紹新西蘭。由於它是一個生活方式農場，動物在不同的圍場（田地）周圍輪換，但您很有可能會看到母羊（綿羊）、奶牛和雞','./images/travel_list/250/newzland.jpg','./travel_info.html',10,999,2,120,'https://www.youtube.com/watch?v=z1HxBn01oXk',0,'');
 /*!40000 ALTER TABLE `product_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -393,4 +395,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-08  2:20:06
+-- Dump completed on 2021-08-08 19:02:27
