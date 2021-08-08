@@ -45,7 +45,7 @@ Vue.component('as', {
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
-                                <p class="star_get">{{item.fav_count}}({{item.comment_count}}) · </p>
+                                <p class="star_get">{{item.star_num}}({{item.comment_count}}) · </p>
                                 <p class="area">{{item.place}}</p>
                             </div>
                             <h4 class="trip_intro">
@@ -91,7 +91,7 @@ Vue.component('as', {
                 cat: 3 // 3 代表亞洲
             }
         }).then(res => {
-            console.log('test');
+            // console.log('as');
             this.items = res.data; // 旅遊內容
             this.item_counts = res.data.length; // 旅遊筆數
             this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list 的值

@@ -45,7 +45,7 @@ Vue.component('oc', {
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
-                                <p class="star_get">{{item.fav_count}}({{item.comment_count}}) · </p>
+                                <p class="star_get">{{item.star_num}}({{item.comment_count}}) · </p>
                                 <p class="area">{{item.place}}</p>
                             </div>
                             <h4 class="trip_intro">
@@ -88,7 +88,7 @@ Vue.component('oc', {
     mounted() {
         axios.get('http://localhost/php/showTrip.php', {
             params: {  // 帶參數
-                cat: 5 //4 代表大洋洲
+                cat: 5 //5 代表大洋洲
             }
         }).then(res => {
             // console.log('oc');

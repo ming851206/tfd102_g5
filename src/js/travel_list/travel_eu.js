@@ -45,7 +45,7 @@ Vue.component('eu', {
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
-                                <p class="star_get">{{item.fav_count}}({{item.comment_count}}) · </p>
+                                <p class="star_get">{{item.star_num}}({{item.comment_count}}) · </p>
                                 <p class="area">{{item.place}}</p>
                             </div>
                             <h4 class="trip_intro">
