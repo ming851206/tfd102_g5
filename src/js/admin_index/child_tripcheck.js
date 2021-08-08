@@ -7,12 +7,14 @@ const TripCheck = {
             <input type="text" name="adm_query" placeholder="輸入旅程名稱" v-model="search">
             <img src="../images/icon/search.svg" alt="">
         </label>
-        <div class="rejectBox" v-if="this.showBox == true">
-            旅程退件原因:
-            <img src="../images/icon/close.svg" alt="" @click="closeBox">
-            <textarea name="" id="rejectText"></textarea>
-            <button class="btnS" type="button">送出</button>
-        </div>
+        
+            <div class="rejectBox" v-if="this.showBox == true">
+                旅程退件原因:
+                <img src="../images/icon/close.svg" alt="" @click="closeBox">
+                <textarea name="" id="rejectText"></textarea>
+                <button class="btnS" type="button">送出</button>
+            </div>
+
         <table>
             <tr>
                 <th>編號</th>
@@ -57,6 +59,138 @@ const TripCheck = {
             timestamp: '',
             showBox: false,
             data: [
+                {
+                    num: 1,
+                    t_owner: '錢夫人',
+                    t_title: '自由女神朝聖之旅',
+                    t_content: '紐約最美麗的地標，一起來一睹她美麗的風采',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 2,
+                    t_owner: '糖糖',
+                    t_title: '紐西蘭自然體驗',
+                    t_content: '該體驗從農場現場直播，並將首先介紹新西蘭',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 3,
+                    t_owner: '宮本寶藏',
+                    t_title: '京都森林浴',
+                    t_content: '大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 4,
+                    t_owner: '金貝貝',
+                    t_title: '環遊世界180天遊覽',
+                    t_content: '咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 1,
+                    t_owner: '錢夫人',
+                    t_title: '自由女神朝聖之旅',
+                    t_content: '紐約最美麗的地標，一起來一睹她美麗的風采',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 2,
+                    t_owner: '糖糖',
+                    t_title: '紐西蘭自然體驗',
+                    t_content: '該體驗從農場現場直播，並將首先介紹新西蘭',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 3,
+                    t_owner: '宮本寶藏',
+                    t_title: '京都森林浴',
+                    t_content: '大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 4,
+                    t_owner: '金貝貝',
+                    t_title: '環遊世界180天遊覽',
+                    t_content: '咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 1,
+                    t_owner: '錢夫人',
+                    t_title: '自由女神朝聖之旅',
+                    t_content: '紐約最美麗的地標，一起來一睹她美麗的風采',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 2,
+                    t_owner: '糖糖',
+                    t_title: '紐西蘭自然體驗',
+                    t_content: '該體驗從農場現場直播，並將首先介紹新西蘭',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 3,
+                    t_owner: '宮本寶藏',
+                    t_title: '京都森林浴',
+                    t_content: '大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
+                {
+                    num: 4,
+                    t_owner: '金貝貝',
+                    t_title: '環遊世界180天遊覽',
+                    t_content: '咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀',
+                    t_startedat: '2023/12/31',
+                    t_numlimit: '20',
+                    t_isgroup: false,
+                    t_price: '599',
+                    t_ischeck: false,
+                },
                 {
                     num: 1,
                     t_owner: '錢夫人',
