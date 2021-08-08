@@ -109,16 +109,10 @@ const Love = {
                 let sql_id = this.returndatas[index].ID;
                 axios.post('../../php/removelove.php', {
                     ID: sql_id
-                });
-                setTimeout(() => {
-                    axios.get('../../php/love.php').then(res => {
-                        let data = res.data;
-                        this.returndatas = data;
-                    });
-                    setTimeout(() => {
-                        this.total = Math.ceil(this.returndatas.length / 4);
-                    }, 50);
-                }, 50);
+                }).then(res => {
+                    let data = res.data;
+                    this.returndatas = data;
+                }).then(res => this.total = Math.ceil(this.returndatas.length / 4));
             }
         }
     },
@@ -126,12 +120,14 @@ const Love = {
         axios.get('../../php/love.php').then(res => {
             let data = res.data;
             this.returndatas = data;
-        });
-        setTimeout(() => {
+
+        }).then(res => {
             this.total = Math.ceil(this.returndatas.length / 4);
             if (this.returndatas.length > 0) {
                 this.now = 1;
             }
-        }, 100);
+        }
+        );
+
     },
 };
