@@ -121,17 +121,16 @@
             .adm_above {
                 position: relative;
                 padding: 20px 40px;
+                display: flex;
+                justify-content: flex-end;
 
                 h4 {
                     color: $sec_ivory;
-                    text-align: right;
-                    transform: translate(-120px, 5px);
+                    margin-right: 20px;
+                    line-height: 42px;
                 }
 
                 button {
-                    position: absolute;
-                    right: 40px;
-                    top: 20px;
                     cursor: pointer;
                     pointer-events: none; //沒用嗎??
                 }
@@ -380,6 +379,10 @@
                         th{
                             padding: 5px 15px;
                         }
+                        th.numLimit{
+                            padding: 5px 0px;
+                            width: 2.5rem;
+                        }
                         tr{
                             td.cmt_title{
                                 width: 170px;
@@ -399,7 +402,7 @@
                         .textContent3{
                             width: 230px;
                         }
-                        button.revoke{
+                        button.revoke, button.rejectBtn{
                             background-color: rgb(255, 204, 204);
                             padding:$btnPaddin;
                             border: $btnBorder;
@@ -408,13 +411,20 @@
                                 background-color: darken(rgb(255, 204, 204),10%);
                             }
                         }
-                        button.sendLink{
+                        button.sendLink, button.submitBtn{
                             background-color: rgb(190, 255, 255);
                             padding: $btnPaddin;
                             border: $btnBorder;
                             cursor: pointer;
                             &:active,&:visited{
                                 background-color: darken(rgb(190, 255, 255),10%);
+                            }
+                        }
+                        button.submitBtn{
+                            background-color: rgb(189, 255, 214);
+                            margin-right: 10px;
+                            &:active,&:visited{
+                                background-color: darken(rgb(189, 255, 214),10%);
                             }
                         }
                     }
@@ -451,6 +461,42 @@
                         right: 100px;
                         &:active,&:visited{
                             background-color: darken(rgb(255, 204, 204),10%);
+                        }
+                    }
+                    .rejectBox{
+                        position: absolute;
+                        @include total_center;
+                        width: 60%;
+                        box-shadow: 0px 0px 20px #333;
+                        background-color: $main_ivory;
+                        border-radius: $borderRadius_cd;
+                        padding: 30px 40px 60px 40px;
+                        img{
+                            position: absolute;
+                            right: 20px;
+                            top:20px;
+                            width: 16px;
+                            cursor: pointer;
+                        }
+                        textarea{
+                            @include block_center;
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            padding: 10px;
+                            display: block;
+                            width: 100%;
+                            height: 200px;
+                            resize: unset;
+                            outline: none;
+                            border-radius: $borderRadius_m_btn;
+                            &:focus{
+                                border: 2px solid $main_br;
+                            }
+                        }
+                        button{
+                            position: absolute;
+                            right: 40px;
+                            bottom: 20px;
                         }
                     }
                 }

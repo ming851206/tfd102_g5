@@ -7,6 +7,12 @@ const TripCheck = {
             <input type="text" name="adm_query" placeholder="輸入旅程名稱" v-model="search">
             <img src="../images/icon/search.svg" alt="">
         </label>
+        <div class="rejectBox" v-if="this.showBox == true">
+            旅程退件原因:
+            <img src="../images/icon/close.svg" alt="" @click="closeBox">
+            <textarea name="" id="rejectText"></textarea>
+            <button class="btnS" type="button">送出</button>
+        </div>
         <table>
             <tr>
                 <th>編號</th>
@@ -14,10 +20,10 @@ const TripCheck = {
                 <th>旅程名稱</th>
                 <th>旅程內容</th>
                 <th>舉辦時間</th>
-                <th>人數限制</th>
+                <th class="numLimit">人數限制</th>
                 <th>是否包場</th>
                 <th>價格</th>
-                <th>勾選</th>
+                <th>功能</th>
             </tr>
             <tr v-for="trip in filterList">
                 <td v-text="trip.num"></td>
@@ -28,11 +34,10 @@ const TripCheck = {
                 <td v-text="trip.t_numlimit"></td>
                 <td v-text="trip.t_isgroup"></td>
                 <td v-text="trip.t_price"></td>
-                <td><input type="checkbox" name=""></td>
+                <td><button type="button" class="submitBtn">通過</button><button type="button" class="rejectBtn" @click="reject">退件</button></td>
             </tr>
-
         </table>
-        <button class="reject">退件</button>
+        
         <div class="pager2">
                 <ul>
                     <li><a href="">&lt;</a></li>
@@ -50,6 +55,7 @@ const TripCheck = {
         return {
             search: '',
             timestamp: '',
+            showBox: false,
             data: [
                 {
                     num: 1,
@@ -99,6 +105,12 @@ const TripCheck = {
         }
     },
     methods: {
+        reject(){
+            this.showBox = true;
+        },
+        closeBox(){
+            this.showBox = false;
+        },
         timestampToTime(timestamp) {
 
             var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
