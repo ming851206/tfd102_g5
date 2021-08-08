@@ -358,6 +358,9 @@
 
     .memberLoveConcent {
         margin-top: 10px;
+        height: 63px;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         @include tablet {
             margin-top: 20px;
@@ -477,6 +480,15 @@
 .StarAndFrom {
     display: flex;
     margin-left: 20px;
+
+    .star {
+        white-space: nowrap;
+
+    }
+
+    .from {
+        white-space: nowrap;
+    }
 
     @include laptop {
         margin-left: 0;
@@ -903,6 +915,9 @@
 
         p {
             white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100%;
+            overflow: hidden;
 
             @include tablet {
                 font-size: 16px;
@@ -1508,9 +1523,14 @@
     }
 
     #loveContent {
-        flex-direction: column;
+        flex-direction: row;
         width: 320px;
         margin: 0;
+        height: unset;
+
+        .memberLoveConcent {
+            height: 70px;
+        }
 
         .loveContentBorder {
             width: unset;
