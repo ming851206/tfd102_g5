@@ -120,6 +120,14 @@ body {
                 // border: 2px solid red;
                 background-image: url('../../images/icon/like_full.svg');
                 background-size: 17px;
+                @include ipad {
+                    // border: 2px solid blue;
+                    background-size: 14px;
+                }
+                @include mobile {
+                    background-size: 14px;
+
+                }
             }
         }
 
