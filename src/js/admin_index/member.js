@@ -27,7 +27,7 @@
                     <td v-text="person.email"></td>
                     <td v-text="person.phone"></td>
                     <td v-text="person.birthday"></td>
-                    <td v-text="person.create"></td>
+                    <td>{{timestampToTime(person.create)}}</td>
                     <td class="toggle" :class="{switchIo:person.isActive}" @click="person.isActive = !person.isActive"></td>
                 </tr>
              </table>
@@ -57,44 +57,9 @@
                     email: 'jumpjump@gmail.com',
                     phone: '0987654321',
                     birthday: '2021/01/01',
-                    create: '2021 Jun 25 15:00',
+                    create: '1588694400',
                     isActive: false
                 },
-                {
-                    no: 2,
-                    username: '芝加哥哥哥',
-                    id: 'chicagogogogo',
-                    level: '1',
-                    email: 'jumpjumpjump@gmail.com',
-                    phone: '0912345678',
-                    birthday: '2022/02/02',
-                    create: '2021 Jun 25 15:00',
-                    isActive: false
-                },
-                {
-                    no: 3,
-                    username: '芝加鴿鴿',
-                    id: 'ididid',
-                    level: '2',
-                    email: 'jump@gmail.com',
-                    phone: '0987654321',
-                    birthday: '2033/03/03',
-                    create: '2021 Jun 25 14:00',
-                    isActive: false
-                },
-                {
-                    no: 4,
-                    username: '芝心披薩',
-                    id: 'pizza',
-                    level: '1',
-                    email: 'pizza@gmail.com',
-                    phone: '0912345678',
-                    birthday: '2044/04/04',
-                    create: '2021 Jun 25 12:00',
-                    isActive: false
-                },
-
-
             ],
         };
     },

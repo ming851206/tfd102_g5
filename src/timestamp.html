@@ -10,6 +10,7 @@
 
 <body>
     <div id="app">
+        <input type="datetime-local" @change="insertData" ref="date">
         <button @click="getNow"> 點擊抓取現在時間 </button>
         <h1>現在時間戳記: {{now}}</h1>
         <h1>今天日期: {{timestampToDate(now)}}</h1>
@@ -23,8 +24,15 @@
             el: '#app',
             data: {
                 now: 0,
+                dates: '',
+                times: '',
+
             },
             methods: {
+                insertData() {
+                    this.dates = new Date(this.$refs.date.value);
+                    this.now = this.dates.getTime();
+                },
                 //抓取現在時間戳記
                 getNow() {
                     var date = new Date();
@@ -39,7 +47,7 @@
                     h = date.getHours() + ':';
                     m = date.getMinutes() + ':';
                     s = date.getSeconds();
-                    return this.timestamp = Y+M+D; // 2021-08-31
+                    return this.timestamp = Y + M + D; // 2021-08-31
                 },
                 // 轉換成時間 + 日期 (1970-01-1 8:0:0)
                 timestampToTime(timestamp) {
