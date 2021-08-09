@@ -32,7 +32,7 @@ const Love = {
                                             </div>
                                         </div>
                                         <p class="memberLoveConcent">
-                                            {{returndata.content}}
+                                            {{returndata.title}}
                                         </p>
                                     </div>
                                 </div>
