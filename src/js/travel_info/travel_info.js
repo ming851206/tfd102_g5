@@ -1,10 +1,9 @@
-
-// $(選取).處理();
+// 輪播圖
 $(document).ready(function () {
     $(".owl-carousel").owlCarousel({
-        loop: false, // 循環播放
+        loop: true, // 循環播放
         margin: 10, // 外距 10px
-        nav: false, // 顯示按鍵
+        nav: true, // 顯示按鍵
         dots: false, //顯示點點
         responsive: {
             0: {
@@ -20,12 +19,14 @@ $(document).ready(function () {
     });
 });
 
+// 回到最上方
 $("#info_go_top").click(function () {
     $("html, body").animate({
         scrollTop: 0,
     }, 1000)
 });
 
+// 收藏功能
 var flag=true;
 $(".fav").click(function(){
     if(flag){
@@ -36,3 +37,44 @@ $(".fav").click(function(){
         flag=true;
     }
 });
+
+// 臉書分享功能  
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '385510642997838',
+    xfbml      : true,
+    version    : 'v2.4'
+    });
+};
+      
+(function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+     
+function share(){
+    FB.ui({
+        method: 'share',
+        href: 'https://tibamef2e.com/tfd102/project/g5/travel_info.html',
+        // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
+    },
+     // callback
+    function(response) {
+        if (response && !response.error_message) {
+            alert('分享至臉書，邀請朋友一起成為jumper!');
+        } else {
+            // alert('Error while posting.');
+        }
+    })
+};
+
+// v-calendar
+new Vue({
+    el: '#app',
+    data: {
+      selectedDate: null,
+    }
+  })
