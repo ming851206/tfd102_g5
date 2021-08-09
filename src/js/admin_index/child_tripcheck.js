@@ -83,8 +83,9 @@ const TripCheck = {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }).then(res => reshow(res));//要出現''alert"上架成功"+自動重整頁面的函式還沒好''
-
+                }).then(res => console.log(res)); //then裡面要怎麼寫res取到的存進一個變數?
+                alert('上架成功!');
+                this.data.splice(index, 1);
             }
         },
       

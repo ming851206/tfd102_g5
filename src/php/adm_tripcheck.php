@@ -9,7 +9,7 @@ $sql = "SELECT p.ID, m.name, p.title, p.content, s.started_at, p.total_people, s
             on p.member_ID = m.ID 
             JOIN session s
             on p.ID = s.product_info_ID 
-        WHERE p.is_checked = 0 and p.reject_reason = 'null'";
+        WHERE p.is_checked = 0 and p.reject_reason = '';";
 
 //執行
 $statement = getPDO()->prepare($sql);
