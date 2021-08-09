@@ -75,13 +75,4 @@ $(function () {
     $("button.btn_modal_close").on("click", function () {
         $("div.overlay").fadeOut();
     });
-
-    // 商品數量
-    
-    var product_price = document.getElementsByClassName("product_price")[0];
-    var num = document.getElementsByClassName("num")[0];
-    product_price.addEventListener("mousemove", function () {
-        console.log(this.value);
-        num.innerHTML = this.value;
-    });
 });
