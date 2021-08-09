@@ -59,7 +59,7 @@
                                     <div class="price_filter">
                                         <label>體驗價格：</label>
                                         <input type="range" min="400" max="1000" value="500" class="product_price" v-model="searchprice">
-                                        <span class="num" data-default="500">500</span>
+                                        <span class="num" data-default="500">{{searchprice}}</span>
                                     </div>
                                     <button type="button" class="btn_modal_close" @click="content='priceTrip'">OK</button>
                                 </form>
@@ -118,7 +118,7 @@
             data: {
                 searchword: '',
                 content: 'all',
-                searchprice: '',
+                searchprice: 500, // 預設為 $500
             },
             methods: {
                 search() {
