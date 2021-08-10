@@ -1,13 +1,11 @@
 <?php
 include('./conn.php');
 
-$sql = "SELECT member_ID, task_ID
-        FROM JUMPER.task_record
-        where member_ID = ?
-        Order by task_ID";
+$name =  json_decode(file_get_contents('php://input'), true);
+
+$sql = "INSERT into JUMPER.coupon_record values(null, ?, 2, 0);";
 
 $statement = getPDO()->prepare($sql);
-$statement->bindValue(1,1);
 $statement->execute();
 $data = $statement->fetchAll();
 
