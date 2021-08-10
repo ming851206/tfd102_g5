@@ -58,10 +58,10 @@
                                 <form action="#" method="#" id="the_form">
                                     <div class="price_filter">
                                         <label>體驗價格：</label>
-                                        <input type="range" min="400" max="1000" value="500" class="product_price">
-                                        <span class="num" data-default="500">500</span>
+                                        <input type="range" min="400" max="1000" value="500" class="product_price" v-model="searchprice">
+                                        <span class="num" data-default="500">{{searchprice}}</span>
                                     </div>
-                                    <button type="button" class="btn_modal_close">OK</button>
+                                    <button type="button" class="btn_modal_close" @click="content='priceTrip'">OK</button>
                                 </form>
                             </article>
                         </div>
@@ -80,7 +80,7 @@
                 <input class="trip_search" placeholder="搜尋" v-model="searchword" @keyup.enter="search"></li>
             </div>
             <keep-alive>
-                <component :the-input="searchword" :is="content"></component>
+                <component :the-input="searchword" :the-price="searchprice" :is="content"></component>
             </keep-alive>
         </div>
 
@@ -110,6 +110,7 @@
     <script src="./js/travel_list/travel_af.js"></script>
     <script src="./js/travel_list/travel_oc.js"></script>
     <script src="./js/travel_list/travel_searchtrip.js"></script>
+    <script src="./js/travel_list/travel_pricetrip.js"></script>
 
     <script>
         new Vue({
@@ -117,6 +118,7 @@
             data: {
                 searchword: '',
                 content: 'all',
+                searchprice: 500, // 預設為 $500
             },
             methods: {
                 search() {

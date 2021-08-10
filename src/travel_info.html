@@ -8,6 +8,12 @@
 <!-- 輪播套件 -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"></link>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"></link>
+    <!-- 1. Link Vue Javascript -->
+    <script src='https://unpkg.com/vue/dist/vue.js'></script>
+
+    <!-- 2. Link VCalendar Javascript (Plugin automatically installed) -->
+    <script src='https://unpkg.com/v-calendar'></script>
+
 <title>尼加拉大瀑布</title>
 </head>
 
@@ -51,9 +57,9 @@
                             <p>線上旅遊</p>
                         </div>
                         <div class="icon_2">
-                            <img src="./images/icon/share.svg">
+                            <img src="./images/icon/share.svg" onclick="share()"  style="cursor: pointer;">
                             <div class="fav">
-                                <img src="./images/icon/like.svg">
+                                <img src="./images/icon/like.svg"  style="cursor: pointer;">
                             </div>
                         </div>
                     </div>
@@ -81,10 +87,10 @@
                         <div id="traveler_name">
                             <div class="tra_icon">
                                 <div class="share">
-                                    <img src="./images/icon/share.svg" style="width: 25px; height: 25px;">
+                                    <img src="./images/icon/share.svg" style="width: 25px; height: 25px; cursor: pointer;" onclick="share()">
                                 </div>
                                 <div class="fav">
-                                    <img src="./images/icon/like.svg" style="width: 25px; height: 25px;"/>
+                                    <img src="./images/icon/like.svg" style="width: 25px; height: 25px; cursor: pointer;"/>
                                 </div>
                             </div>
                             <div class="tra_info">
@@ -201,11 +207,32 @@
                     <div class="date selection">
                         <div class="mix">
                             <img src="./images/icon/calender.svg">
-                            <p>日期</p>
+                            <!-- <p>日期</p> -->
                         </div>
-                        <div class="down">
+                        <!-- <div class="down">
                             <img src="./images/icon/arrowDown.svg">
-                        </div>
+                        </div> -->
+                            <template id="app">
+                                <v-date-picker class="inline-block h-full" v-model="date">
+                                  <template v-slot="{ inputValue, togglePopover }">
+                                    <div class="flex items-center">
+                                        <input
+                                        :value="inputValue"
+                                        class="bg-white text-gray-700 w-full py-1 px-2 appearance-none border rounded-r focus:outline-none focus:border-blue-500"
+                                        readonly
+                                        placeholder="日期"
+                                        style="border: 0; width: 100%; height: 25px; font-size: 14px;"
+                                        />
+                                        <button
+                                          class="down"
+                                          @click="togglePopover()"
+                                        >
+                                            <img src="./images/icon/arrowDown.svg" style="text-align: right;">
+                                        </button>
+                                    </div>
+                                </template>
+                                </v-date-picker>
+                            </template>
                     </div>
                     <div class="time selection">
                         <div class="mix">
@@ -372,7 +399,7 @@
                                 </div>
                                 <div class="the_icon_sf">
                                     <div class="share">
-                                        <img src="./images/icon/share.svg" alt="">
+                                        <img src="./images/icon/share.svg" onclick="share()">
                                     </div>
                                     <div class="fav">
                                         <img src="./images/icon/like.svg" alt="">
@@ -402,7 +429,7 @@
                                 </div>
                                 <div class="the_icon_sf">
                                     <div class="share">
-                                        <img src="./images/icon/share.svg" alt="">
+                                        <img src="./images/icon/share.svg" onclick="share()">
                                     </div>
                                     <div class="fav">
                                         <img src="./images/icon/like.svg" alt="">
@@ -432,7 +459,7 @@
                                 </div>
                                 <div class="the_icon_sf">
                                     <div class="share">
-                                        <img src="./images/icon/share.svg" alt="">
+                                        <img src="./images/icon/share.svg" onclick="share()">
                                     </div>
                                     <div class="fav">
                                         <img src="./images/icon/like.svg" />
@@ -462,7 +489,7 @@
                                 </div>
                                 <div class="the_icon_sf">
                                     <div class="share">
-                                        <img src="./images/icon/share.svg" alt="">
+                                        <img src="./images/icon/share.svg" onclick="share()">
                                     </div>
                                     <div class="fav">
                                         <img src="./images/icon/like.svg" />
@@ -484,6 +511,11 @@
             </ul>
         </div>
 
+        <!-- <section id="app">
+            <v-calendar :attributes="attributes" @dayclick="onDayClick" />
+        </section> -->
+
+
         <div class="info_function_go_top">
             <img id="info_go_top" src="./images/icon/toTop_dark.svg" alt="jump to top">
         </div>
@@ -492,11 +524,20 @@
             <the-footer></the-footer>
         </footer>
 
+        
         <script src="./js/travel_info/travel_info.js"></script>
 
         <!-- vue -->
         <script src="./js/vue/vue.js"></script>
         <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+        <script>
+            new Vue({
+              el: '#app',
+              data: {
+                selectedDate: null,
+              }
+            })
+        </script>
 
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="./js/header_footer.js"></script>

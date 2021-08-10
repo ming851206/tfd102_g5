@@ -5,7 +5,7 @@ const Join = {
                             <h2>即將參與旅遊</h2>
                         </div>
                         <div id="loveContent">
-                            <div class="loveContentBorder" v-for="value in values">
+                            <div class="loveContentBorder" v-for="(value,index) in datas">
                                 <div class="cardBorder">
                                     <div class="loveImg">
                                         <img src="https://picsum.photos/150/200">
@@ -16,8 +16,11 @@ const Join = {
                                                 <img src="https://picsum.photos/100/100">
                                             </div>
                                             <div class="StarAndFrom gotravel">
-                                                <div class = "joinComment">
-                                                    {{value.comment}}
+                                                <div class = "joinComment" v-if="times(index)">
+                                                    前往旅遊
+                                                </div>
+                                                <div class = "joinComment" v-else>
+                                                    取消
                                                 </div>
                                                 <div id="joinStarAndFrom">
                                                     <div class="star">
@@ -42,7 +45,7 @@ const Join = {
                                             </div>
                                         </div>
                                         <p class="joinP">
-                                            {{value.content}}
+                                            {{value.title}}
                                         </p>
 
                                     </div>
@@ -78,6 +81,40 @@ const Join = {
                 { star: "3", content: "漫步古羅馬遺址，燦爛一個時代的歷史文化古城。", from: "非洲", time: "2021.07.22 1400~1500", comment: "取消" },
                 { star: "4.2", content: "泰國黃金海岸，欣賞Pattaya的海岸風光。", from: "泰國", time: "2021.07.23 1400~1500", comment: "取消" },
             ],
+            datas: [],
         };
+    }, methods: {
+        times(index) {
+            let now = new Date().getTime();
+            console.log(now);
+            console.log(this.datas[index].started_at.getTime());
+        }
+    },
+    mounted() {
+        let date = new Date().getTime();
+        axios.post('../../php/member_join.php', {
+            now: date,
+        }).then(res => {
+            let data = res.data;
+            for (let i = 0; i < data.length; i++) {
+                let getstartdate = new Date(Number(data[i].started_at)); //時間戳為10位需*1000，時間戳為13位的話不需乘1000
+                Y = getstartdate.getFullYear() + '-';
+                M = (getstartdate.getMonth() + 1 < 10 ? '0' + (getstartdate.getMonth() + 1) : getstartdate.getMonth() + 1) + '-';
+                D = getstartdate.getDate() + ' ';
+                h = getstartdate.getHours() + ':';
+                m = getstartdate.getMinutes() + ':';
+                s = getstartdate.getSeconds();
+                data[i].started_at = Y + M + D + h + m + s;
+                let getdate = new Date(Number(data[i].ended_at)); //時間戳為10位需*1000，時間戳為13位的話不需乘1000
+                Y = getdate.getFullYear() + '-';
+                M = (getdate.getMonth() + 1 < 10 ? '0' + (getdate.getMonth() + 1) : getdate.getMonth() + 1) + '-';
+                D = getdate.getDate() + ' ';
+                h = getdate.getHours() + ':';
+                m = getdate.getMinutes() + ':';
+                s = getdate.getSeconds();
+                data[i].ended_at = Y + M + D + h + m + s;
+            }
+            this.datas = data;
+        })
     },
 };

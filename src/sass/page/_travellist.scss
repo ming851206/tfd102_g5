@@ -10,6 +10,7 @@ body {
     max-height: 530px;
 
     .pic {
+        // border: 2px solid red;
         height: 50%;
         display: flex;
         justify-content: flex-end;
@@ -63,12 +64,18 @@ body {
                 background-size: 14px;
                 background-repeat: no-repeat;
 
+                @include ipad {
+                    // border: 2px solid blue;
+                    width: 14px;
+                    height: 15px;
+                    background-size: 11px;
+                }
+
                 @include mobile {
-                    svg {
-                        // border: 2px solid red;
-                        width: 15px;
-                        height: 15px;
-                    }
+                    // border: 2px solid blue;
+                    width: 14px;
+                    height: 15px;
+                    background-size: 11px;
                 }
             }
 
@@ -82,13 +89,24 @@ body {
                 margin-left: 8px;
                 margin-right: 8px;
 
-                @include mobile {
-                    svg {
-                        // border: 2px solid red;
-                        width: 15px;
-                        height: 15px;
-                    }
+                @include ipad {
+                    // border: 2px solid blue;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 4px;
+                    margin-left: 4px;
+                    background-size: 15px;
                 }
+
+                @include mobile {
+                    // border: 2px solid blue;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 2px;
+                    margin-left: 3px;
+                    background-size: 15px;
+                }
+
 
                 button {
                     border: none;
@@ -102,6 +120,14 @@ body {
                 // border: 2px solid red;
                 background-image: url('../../images/icon/like_full.svg');
                 background-size: 17px;
+                @include ipad {
+                    // border: 2px solid blue;
+                    background-size: 14px;
+                }
+                @include mobile {
+                    background-size: 14px;
+
+                }
             }
         }
 
@@ -145,6 +171,7 @@ body {
 
 .banner {
     width: 100%;
+    // border: 2px solid red;
     height: calc(100vh - 85px - 50px);
     position: relative;
     overflow: hidden;
@@ -367,7 +394,9 @@ body {
     }
 
 }
-
+.main{
+    height: 100%;
+}
 
 // ========= 最新旅遊區塊 =========
 .the_new_trip {
@@ -732,7 +761,6 @@ body {
     @include mobile {
         // border: 2px solid red;
         padding: 5px;
-
     }
 
     h3 {
@@ -757,6 +785,8 @@ body {
     }
 
     .item {
+        // border: 2px solid red;
+        height: 200px;
         width: 100%;
 
         a {
@@ -766,7 +796,9 @@ body {
             overflow: hidden;
 
             .trip_item {
+
                 @include tripcard();
+                // border: 2px solid red;
                 max-height: 350px;
 
                 .content {
@@ -811,7 +843,8 @@ body {
                         }
                     }
 
-                    h4.intro {
+                    h4.trip_intro {
+                        // border: 2px solid red;
                         max-height: 55px;
                         font-size: 14px;
                         margin-bottom: 5px;
@@ -822,7 +855,7 @@ body {
                         font-weight: bold;
 
                         @include mobile {
-                            font-size: 12px;
+                            font-size: 14px;
                         }
                     }
 
@@ -840,7 +873,10 @@ body {
         }
     }
 }
-
+.the_viewed_trip {
+    // border: 2px solid red;
+    margin-bottom: 100px;
+}
 // ========= 分類旅遊 =========
 .the_cat_trip {
     // border: 3px solid red;

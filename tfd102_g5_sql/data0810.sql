@@ -281,7 +281,7 @@ CREATE TABLE `session` (
   PRIMARY KEY (`ID`),
   KEY `FK_PRODUCT_SESSION_PRODUCT_INFO_ID_idx` (`product_info_ID`),
   CONSTRAINT `FK_SESSION_PRODUCT_INFO_ID` FOREIGN KEY (`product_info_ID`) REFERENCES `product_info` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COMMENT='旅程場次';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COMMENT='旅程場次';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -290,7 +290,7 @@ CREATE TABLE `session` (
 
 LOCK TABLES `session` WRITE;
 /*!40000 ALTER TABLE `session` DISABLE KEYS */;
-INSERT INTO `session` VALUES (1,1,0,20,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600'),(2,2,0,15,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600'),(3,3,0,10,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600'),(4,4,0,10,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600'),(5,5,0,10,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600');
+INSERT INTO `session` VALUES (1,1,0,20,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600'),(2,2,0,15,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600'),(3,3,0,10,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600'),(4,4,0,10,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600'),(5,5,0,10,'https://meet.google.com/fxm-isqs-umy','1630375200','1630389600'),(6,1,0,10,'https://meet.google.com/fxm-isqs-umy','1629331200000','1629334800000'),(7,1,0,10,'https://meet.google.com/fxm-isqs-umy','1629421200000','1629424800000');
 /*!40000 ALTER TABLE `session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,7 +373,7 @@ CREATE TABLE `trip_order` (
   KEY `FK_ORDER_SESSION_ID_idx` (`session_ID`),
   CONSTRAINT `FK_ORDER_MEMBER_ID` FOREIGN KEY (`member_ID`) REFERENCES `member` (`ID`),
   CONSTRAINT `FK_ORDER_SESSION_ID` FOREIGN KEY (`session_ID`) REFERENCES `session` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb3 COMMENT='旅程訂單';
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COMMENT='旅程訂單';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -382,7 +382,7 @@ CREATE TABLE `trip_order` (
 
 LOCK TABLES `trip_order` WRITE;
 /*!40000 ALTER TABLE `trip_order` DISABLE KEYS */;
-INSERT INTO `trip_order` VALUES (1,1,1,1,'1627660800',0,499,1,_binary '\0',_binary '\0',_binary '\0'),(2,2,1,1,'1627660800',0,299,1,_binary '\0',_binary '\0',_binary '\0'),(3,3,1,1,'1627660800',0,599,2,_binary '\0',_binary '\0',_binary '\0'),(4,4,1,1,'1627660800',0,600,1,_binary '\0',_binary '\0',_binary '\0'),(5,5,1,1,'1627660800',0,499,1,_binary '\0',_binary '\0',_binary '\0'),(6,6,1,1,'1627660800',0,499,1,_binary '\0',_binary '\0',_binary '\0'),(7,7,1,1,'1627660800',0,499,1,_binary '\0',_binary '\0',_binary '\0');
+INSERT INTO `trip_order` VALUES (1,1,1,1,'1627660800',0,499,1,_binary '\0',_binary '\0',_binary '\0'),(2,2,1,1,'1627660800',0,299,1,_binary '\0',_binary '\0',_binary '\0'),(3,3,1,1,'1627660800',0,599,2,_binary '\0',_binary '\0',_binary '\0'),(4,4,1,1,'1627660800',0,600,1,_binary '\0',_binary '\0',_binary '\0'),(5,5,1,1,'1627660800',0,499,1,_binary '\0',_binary '\0',_binary '\0'),(6,6,1,1,'1627660800',0,499,1,_binary '\0',_binary '\0',_binary '\0'),(7,7,1,1,'1627660800',0,499,1,_binary '\0',_binary '\0',_binary '\0'),(8,1,6,3,'1627660800',0,500,1,_binary '\0',_binary '\0',_binary '\0'),(9,1,7,2,'1627660800',0,500,1,_binary '\0',_binary '\0',_binary '\0');
 /*!40000 ALTER TABLE `trip_order` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -395,4 +395,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-08 19:02:27
+-- Dump completed on 2021-08-10  0:21:35
