@@ -6,21 +6,23 @@ include('./conn.php');
 //================前->後，php接值的寫法==================
 $theID = json_decode(file_get_contents('php://input'), true); 
 
-print_r($theID);
+//print_r($theID);
 $id = $theID['theID'];
-$value =  $theID['theValue'];
+$value = $theID['theValue'];
 
-echo $value;
-echo $id;
-exit();
+// echo $value;
+// echo $id;
+//exit();
 
 //建立SQL 
-$sql = "UPDATE `JUMPER`.`product_info` 
-        SET `reject_reason` = '我是測試我是測試'
-        WHERE (`ID` = $id);";
+$sql = "UPDATE `JUMPER`.`product_info` SET `reject_reason` = ? WHERE (`ID` = ?);";
 
 //執行
 $statement = getPDO()->prepare($sql);
+$statement->bindValue(1, $value);
+$statement->bindValue(2, $id);
 $statement->execute();
+
+echo('退件成功');
 
 ?>

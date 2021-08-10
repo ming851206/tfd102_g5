@@ -107,7 +107,7 @@ const TripCheck = {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                })
+                }).then(res => alertTxt = res.data).then(alert(alertTxt));
             }
             
         },
