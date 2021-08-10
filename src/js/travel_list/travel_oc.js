@@ -1,4 +1,4 @@
-// =====  非洲旅遊 =====
+// =====  大洋洲旅遊 =====
 Vue.component('oc', {
     data() {
         return {  //組件的變數寫在這裡！
@@ -11,7 +11,7 @@ Vue.component('oc', {
                 { cat: '大洋洲', },
             ],
             item_counts: "",
-            items: [
+            items: [ // 所有旅遊
                 // {
                 //     id: 3,
                 //     link: "./travel_info.html",
@@ -23,7 +23,10 @@ Vue.component('oc', {
                 //     trip_intro: "怔怔地望著尼基拉瓜大瀑布那滂薄的氣勢。",
                 //     startprice: "399",
                 // },
-            ],      
+            ],
+            favs: [  // 最愛旅遊
+
+            ],
         };
     },
     template: `
@@ -41,7 +44,7 @@ Vue.component('oc', {
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
-                                <div class="fav" @click="changeiColor"></div>
+                                <div class="fav" :class="is_fav(item.ID)"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -66,7 +69,22 @@ Vue.component('oc', {
             e.preventDefault();
             // console.log(e.target);
             e.target.classList.toggle('clicked');
-
+        },
+        is_fav(item_id) {
+            console.log(this.favs);
+            let favs = this.favs; // 所有最愛的旅遊
+            let click_status = ''; // 預設點擊狀態是 ''
+            favs.forEach(function (fav) { // 比對最愛旅遊的 id 是否等於 旅遊商品 id，如果是，click_status = 'clicked'
+                let fav_id = fav.product_info_ID;
+                if (fav_id == item_id) {
+                    console.log('有一樣');
+                    console.log('這是 item_id' + item_id);
+                    console.log('這是 fav_id' + fav_id);
+                    click_status = 'clicked';
+                }
+            });
+            return click_status;
+            // console.log(click_status);
         },
         share() {
             FB.ui(
@@ -86,15 +104,20 @@ Vue.component('oc', {
         },
     },
     mounted() {
+        //==================== 篩選旅遊 =======================
         axios.get('http://localhost/php/showTrip.php', {
             params: {  // 帶參數
-                cat: 5 //5 代表大洋洲
+                cat: 5 // 5 代表大洋洲
             }
         }).then(res => {
-            // console.log('oc');
+            // console.log('as');
             this.items = res.data; // 旅遊內容
             this.item_counts = res.data.length; // 旅遊筆數
             this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list 的值
         });
+     //==================== 所有的最愛旅遊 =======================          
+    axios.get('http://localhost/php/showFav.php').then(res => {
+        this.favs = res.data; // 旅遊內容
+    });
     },
 });

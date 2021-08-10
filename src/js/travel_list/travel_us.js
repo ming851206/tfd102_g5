@@ -24,6 +24,8 @@ Vue.component('us', {
                 //     startprice: "399",
                 // },
             ],
+            favs: [
+            ],
         };
     },
     template: `
@@ -41,7 +43,7 @@ Vue.component('us', {
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
-                                <div class="fav" @click="changeiColor"></div>
+                                <div class="fav" :class="is_fav(item.ID)"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -68,6 +70,22 @@ Vue.component('us', {
             e.target.classList.toggle('clicked');
 
         },
+        is_fav(item_id) {
+            console.log(this.favs);
+            let favs = this.favs; // 所有最愛的旅遊
+            let click_status = ''; // 預設點擊狀態是 ''
+            favs.forEach(function (fav) { // 比對最愛旅遊的 id 是否等於 旅遊商品 id，如果是，click_status = 'clicked'
+                let fav_id = fav.product_info_ID;
+                if (fav_id == item_id) {
+                    console.log('有一樣');
+                    console.log('這是 item_id' + item_id);
+                    console.log('這是 fav_id' + fav_id);
+                    click_status = 'clicked';
+                }
+            });
+            return click_status;
+            // console.log(click_status);
+        },
         share() {
             FB.ui(
                 {
@@ -86,24 +104,8 @@ Vue.component('us', {
         },
     },
     mounted() {
-        //==========前->後axios傳值的寫法=============
 
-        //    axios.post('http://localhost/g5/php/adm_orderList.php', JSON.stringify({
-        //         name: this.data[0].o_username, 
-        //         price: this.data[0].o_price,
-
-        //     }), {
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         }
-        // 以上，前端丟json到後端
-
-
-        //     }).then(res => console.log(res.data)); //非測試時請把clg改掉 (後端丟回json，前端需再處理)
-        // }).then(res => this.data = res.data)
-
-
-        //===========================================
+        //==================== 篩選旅遊 =======================
         axios.get('http://localhost/php/showTrip.php', {
             params: {  // 帶參數
                 cat: 1 // 1 代表美洲
@@ -114,8 +116,10 @@ Vue.component('us', {
             this.item_counts = res.data.length; // 旅遊筆數
             this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list
         });
-     // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
-        // .then(res => this.data = res.data);
-        //fetch('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => console.log(res)); 
+
+        //==================== 所有的最愛旅遊 =======================          
+        axios.get('http://localhost/php/showFav.php').then(res => {
+            this.favs = res.data; // 旅遊內容
+        });
     },
 });
