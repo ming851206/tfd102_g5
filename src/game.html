@@ -298,7 +298,6 @@
                         this.task_record.forEach(each_point => {
                             total_point += each_point
                         });
-                        // console.log(total_point);
 
                         if(total_point == 5){
                             this.getGift = true;
@@ -356,9 +355,19 @@
                                 for(let i = 0; i < data.length; i++){
                                     this.task_record.splice(data[i].task_ID - 1, 1, 1)
                                 }
+                            }).then(res=>{
+                                // 集滿五個印章，可兌換優惠券
+                                total_point = 0;
+                                this.task_record.forEach(each_point => {
+                                    total_point += each_point
+                                });
+
+                                if(total_point == 5){
+                                    this.getGift = true;
+                                }
                             })
                             this.winning = true;
-                            this.taskIndex = 0;
+                            this.taskIndex = 0;                            
 
                         }else {
                             this.winning = false;
@@ -379,19 +388,14 @@
 
                     this.showCoupon = true;
                     this.task_record = [0,0,0,0,0];
-                    // console.log(this.task_record);
 
-                    // ++++寫回資料庫++++
-                    // delete 紀錄
-                    axios.post('./php/game_clear_record.php').then(res=>{
-                        
-                        let data = res.data;
-                        console.log(data);
-                    })
+                    // delete 紀錄寫回資料庫
+                    axios.post('./php/game_clear_record.php')
                 },
                 closeCoupon() {
                     this.showCoupon = false;
                     this.getGift = false;
+                    axios.post('./php/game_coupon_record.php')
                 }
             },
             mounted() {
@@ -409,7 +413,6 @@
                     this.task_record.forEach(each_point => {
                         total_point += each_point
                     });
-                    // console.log(total_point);
 
                     if(total_point == 5){
                         this.getGift = true;
