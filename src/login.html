@@ -89,15 +89,15 @@
                     <!-- 放登出的東西 -->
                     <!-- 輸入框欄位 -->
 
-                    <input class="login_input" type="text" placeholder="帳號 :">
+                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :" id="account_register">
 
                     <input class="login_input" v-model="email_register" type="email" placeholder="Email :"
-                        autocomplete="off">
+                        autocomplete="off" id="email_register">
                     <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
 
-                    <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :">
+                    <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :" id="password_register">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" type="text" v-model="password_register_again" placeholder="確認密碼 :">
+                    <input class="login_input" type="text" v-model="password_register_again" placeholder="確認密碼 :" id="password_register">
                     <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 登入按鈕 -->
                     <button type="button" class="btnM Sign_BTN" id="showBtn" @click="joinIN">註冊</button>
@@ -216,10 +216,11 @@
             data() {      //變數存放的地方
                 return {
                     // 登入註冊切換
-                    account: '',
                     areaShow: true,
+                    account: '',
                     password: '',
                     password_login: true,
+                    account_register: '',
                     password_register: '',
                     password_register_msg: true,
                     password_register_again: '',
@@ -332,16 +333,28 @@
 
                     })
                 },
-                joinIN(){
+                joinIN() {
                     $.ajax({
                         methods: 'POST',
                         url: './php/Join.php',
                         data:{
-                            account : $('#account').val(),
-                            account : $('#email').val(),
-                            password: $('#password').val(),
+                            account_register : $('#account_register').val(),
+                            email_register : $('#email_register').val(),
+                            password_register : $('#password_register').val(),
 
-                        }
+                        },
+                        dataType: 'json',
+                        success: function(response) {
+                            console.log(response);
+                            if(response == 1){
+                                alert('註冊成功');
+                                window.location.href = './member.html';
+                            } else {
+                                console.log(response);
+                                alert('請完成註冊內容');
+                                // window.location.href = './login.html';
+                            }
+                        },
                     })
                 }
 
