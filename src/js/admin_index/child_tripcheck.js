@@ -22,7 +22,7 @@ const TripCheck = {
             </tr>
             <tr v-for="(trip, index) in filterList">
                 <td v-text="trip.ID"></td>
-                <td v-text="trip.name">Carlos</td>
+                <td v-text="trip.name"></td>
                 <td v-text="trip.title" class="textContent2"></td>
                 <td v-text="trip.content" class="textContent3"></td>
                 <td>{{timestampToTime(trip.started_at)}}</td>
@@ -83,7 +83,7 @@ const TripCheck = {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }).then(res => console.log(res)); //then裡面要怎麼寫res取到的存進一個變數?
+                }).then(res => console.log(res)); //then裡面要怎麼寫res取到的蟄存進一個變數?
                 alert('上架成功!');
                 this.data.splice(index, 1);
             }
@@ -94,7 +94,7 @@ const TripCheck = {
             this.showBox = true;
             this.boxID = this.data[index].ID;
         },
-        doReject(){     //真正的退件:在點擊退件表單的送出後
+        doReject(){      //真正的退件:在點擊退件表單的送出後
             //console.log(this.boxID);
             let textValue = document.getElementById('rejectText').value;
             if(textValue == ""){
