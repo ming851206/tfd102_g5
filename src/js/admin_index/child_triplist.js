@@ -1,5 +1,5 @@
-   // ========== 旅程列表(綺) ========== 
-   const TripList = {
+  // ========== 旅程列表(綺) ========== 
+  const TripList = {
     template: `
         <div class="temp2">
             <h3>旅程列表</h3>
