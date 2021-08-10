@@ -5,7 +5,7 @@ const Historys = {
                             <h2>旅遊紀錄</h2>
                         </div>
                         <div id="loveContent">
-                            <div class="loveContentBorder" v-for="value in values">
+                            <div class="loveContentBorder" v-for="(value,index) in datas" v-if="index < show" :class=" { 'next_off' :  index < close}">
                                 <div class="cardBorder">
                                     <div class="loveImg">
                                         <img src="https://picsum.photos/150/200">
@@ -24,27 +24,27 @@ const Historys = {
                                                             transform="translate(-1.441 0.001)" fill="#996a4d" />
                                                     </svg>
 
-                                                    {{value.star}}
+                                                    {{value.staravg}}
                                                 </div>
                                                 <div class="from">
-                                                    {{value.from}}
+                                                    {{value.place}}
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="historyP">
                                             <p>
-                                                {{value.content}}
+                                                {{value.title}}
                                             </p>
                                         </div>
                                         <div class="timeAndcomment">
                                             <div class = "time">
                                                 {{value.time}}
                                             </div>
-                                            <div class = "comment commented" v-if="value.comment=='已評論'" >
-                                                {{value.comment}}
+                                            <div class = "comment commented" v-if="commit(index)" >
+                                                {{commitTesxt(index)}}
                                             </div>
                                             <div class = "comment" v-else @click="addComment">
-                                                  {{value.comment}}
+                                                  {{commitTesxt(index)}}
                                             </div>
                                             <div id="addDiv" v-show ="addcomment">
                                                     <div id="addDivOutterBord">
@@ -119,7 +119,7 @@ const Historys = {
                                                             </div>
                                                             <div class="memberEditCancel historyPopBtn">
                                                                 <button class="btnL_light" @click="cancel">取消</button>
-                                                                <button class="btnL" @click="confirms">確認</button>
+                                                                <button class="btnL" @click="confirms(index)">確認</button>
                                                             </div>
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994" @click="cancel" class="closed">
                                                                 <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z" transform="translate(-11.285 -11.289)" fill="#996a4d"/>
@@ -137,13 +137,13 @@ const Historys = {
                         </div>
                         <div class="loveNumberNav">
                             <div class="loveNavs">
-                                <div class="loveLeft">
+                                 <div class="loveLeft" @click = "back">
                                     < </div>
                                         <div class="mid">
-                                            1/2
+                                            {{now}}/{{total}}
                                         </div>
 
-                                        <div class="loveRight">
+                                        <div class="loveRight" @click ="next">
                                             >
                                         </div>
                                 </div>
@@ -161,12 +161,46 @@ const Historys = {
                 { star: "3", content: "漫步古羅馬遺址，燦爛一個時代的歷史文化古城。", from: "非洲", time: "2021.06.27", comment: "未評論" },
                 { star: "4.2", content: "泰國黃金海岸，欣賞Pattaya的海岸風光。", from: "泰國", time: "2021.07.10", comment: "未評論" },
             ],
+            datas: [],
             addcomment: false,
             stars: 1,
             text: '',
+            show: 4,
+            now: 0,
+            total: 0,
+            close: 0,
         };
     },
     methods: {
+        next() {
+            if (this.now != this.total) {
+                this.show += 4;
+                this.close += 4;
+                this.now++;
+            }
+        },
+        back() {
+            if (this.now > 1) {
+                this.show -= 4;
+                this.close -= 4;
+                this.now--;
+
+            }
+        },
+        commitTesxt(index) {
+            if (this.datas[index].is_commented != 0) {
+                return '已評論';
+            } else {
+                return '未評論';
+            }
+        },
+        commit(index) {
+            if (this.datas[index].is_commented != 0) {
+                return true;
+            } else {
+                return false;
+            }
+        },
         clickstar(index) {
             this.stars = index;
         },
@@ -179,10 +213,14 @@ const Historys = {
             this.stars = 1;
             this.text = '';
         },
-        confirms() {
+        confirms(index) {
+            console.log(index);
             axios.post('../../php/addcomment.php', {
                 star: this.stars,
-                text: this.text
+                text: this.text,
+                ID: this.datas[index].ID,
+                now: new Date().getTime(),
+                order_ID: this.datas[index].order_ID
             });
 
             this.addcomment = false;
@@ -195,6 +233,16 @@ const Historys = {
         }
     },
     mounted() {
-
+        axios.post('../../php/member_history.php', {
+            now: new Date().getTime(),
+        }).then(res => {
+            let data = res.data;
+            this.datas = data;
+        }).then(res => {
+            this.total = Math.ceil(this.datas.length / 4);
+            if (this.datas.length > 0) {
+                this.now = 1;
+            }
+        })
     },
 };

@@ -130,23 +130,16 @@
                                 <h2>我的遊戲護照</h2>
                                 <div class="game_stamp">
                                     <div class="top_stamp">
-                                        <img class="am unget_stamp" src="./images/index/game/america.svg" v-if="(theTheme == 1 && winning == true) || hasRecord_1 == true">
-                                        <img class="am unget_stamp" src="./images/index/game/unget.png" v-else>
-
-                                        <img class="eu unget_stamp" src="./images/index/game/europe.svg" v-if="(theTheme == 2 && winning == true) || hasRecord_2 == true">
-                                        <img class="eu unget_stamp" src="./images/index/game/unget.png" v-else>
-
-                                        <img class="as unget_stamp" src="./images/index/game/asia.svg" v-if="(theTheme==3  && winning==true) || hasRecord_3 == true">
-                                        <img class="as unget_stamp" src="./images/index/game/unget.png" v-else>
-
+                                        <span v-for="(theme, index) in themes" v-if="index < 3" class="unget_stamp">
+                                            <img class="unget_stamp" :class="theme.continent" :src="theme.svg" v-if="task_record[index]">
+                                            <img class="unget_stamp" :class="theme.continent" :src="theme.png" v-else>
+                                        </span>                                        
                                     </div>
-                                    <div class="bottom_stamp">
-                                        <img class="af unget_stamp" src="./images/index/game/africa_stamp.svg" v-if="(theTheme==4 && winning==true) || hasRecord_4 == true">
-                                        <img class="af unget_stamp" src="./images/index/game/unget.png" v-else>
-
-                                        <img class="oc unget_stamp" src="./images/index/game/oceania.svg" v-if="(theTheme==5 && winning==true) || hasRecord_5 == true">
-                                        <img class="oc unget_stamp" src="./images/index/game/unget.png" v-else>
-
+                                    <div class="bottom_stamp" class="unget_stamp">
+                                        <span v-for="(theme, index) in themes" v-if="index >= 3">
+                                            <img class="unget_stamp" :class="theme.continent" :src="theme.svg" v-if="task_record[index]">
+                                            <img class="unget_stamp" :class="theme.continent" :src="theme.png" v-else>
+                                        </span>  
                                     </div>
                                     <img class="gift_icon gold" src="./images/index/game/gift_gold.svg" v-if="getGift==true" @click="getCoupon">
                                     <img class="gift_icon" src="./images/index/game/gift_gray.svg" v-else>
@@ -174,7 +167,7 @@
                         <div class="game_coupon_info">
                             <div class="first_row">
                                 <p>優惠卷代碼： </p>
-                                <p id="coupon_num"> 9A3826ZH</p>
+                                <p id="coupon_num"> jumper</p>
                             </div>
                             <div class="second_row">
                                 <p>（使用期限：</p>
@@ -238,11 +231,11 @@
             el: "#the_game",
             data: {
                 themes: [
-                    { continent: "am", num: 1 },
-                    { continent: "eu", num: 2 },
-                    { continent: "as", num: 3 },
-                    { continent: "af", num: 4 },
-                    { continent: "oc", num: 5 },
+                    { continent: "am", num: 1, svg: "./images/index/game/america.svg", png: "./images/index/game/unget.png" },
+                    { continent: "eu", num: 2, svg: "./images/index/game/europe.svg" , png: "./images/index/game/unget.png"},
+                    { continent: "as", num: 3, svg: "./images/index/game/asia.svg", png: "./images/index/game/unget.png"},
+                    { continent: "af", num: 4, svg: "./images/index/game/africa_stamp.svg", png: "./images/index/game/unget.png"},
+                    { continent: "oc", num: 5, svg: "./images/index/game/oceania.svg", png: "./images/index/game/unget.png"},
                 ],
                 task_ID: [
                     {
@@ -276,16 +269,10 @@
                 userAnswer: '',
                 winning: false,
                 innerPasswort: false,
-                hasRecord_1: false,
-                hasRecord_2: false,
-                hasRecord_3: false,
-                hasRecord_4: false,
-                hasRecord_5: false,
                 showCoupon: false,
                 result: false,
                 getGift: false,
-                task_record: [],
-                // task_record.slice(1, task_ID,)
+                task_record: [0,0,0,0,0],
             },
             computed: {
 
@@ -299,6 +286,25 @@
                     this.outerPasswort = false;
                     this.innerPasswort = true;
 
+                    axios.post('./php/game_record.php').then(res => {
+                    let data = res.data;
+                    // console.log(data);
+                    for(let i = 0; i < data.length; i++){
+                        this.task_record.splice(data[i].task_ID - 1, 1, 1)
+                        // console.log(this.task_record);
+
+                        // 集滿五個印章，可兌換優惠券
+                        total_point = 0;
+                        this.task_record.forEach(each_point => {
+                            total_point += each_point
+                        });
+
+                        if(total_point == 5){
+                            this.getGift = true;
+                        }
+                    }
+                });
+
                 },
                 chooseTheTheme(index) {
                     this.gameWordShow = false;
@@ -309,7 +315,6 @@
                         num: this.themes[index].num
                     }).then(res => {
                         // console.log(res.data);
-
                         let data = res.data;
 
                         for (let i = 0; i < data.length; i++) {
@@ -343,9 +348,28 @@
                         this.result = true;
                         // console.log(correctAnswer);
                         if (correctAnswer == 3) {
+                            axios.post('./php/game_insert_record.php',{
+                                index: this.theTheme
+                            }).then(res=>{
+                                let data = res.data;
+                                for(let i = 0; i < data.length; i++){
+                                    this.task_record.splice(data[i].task_ID - 1, 1, 1)
+                                }
+                            }).then(res=>{
+                                // 集滿五個印章，可兌換優惠券
+                                total_point = 0;
+                                this.task_record.forEach(each_point => {
+                                    total_point += each_point
+                                });
+
+                                if(total_point == 5){
+                                    this.getGift = true;
+                                }
+                            })
                             this.winning = true;
-                            this.taskIndex = 0;
-                        } else {
+                            this.taskIndex = 0;                            
+
+                        }else {
                             this.winning = false;
                             this.taskIndex = 0;
                         }
@@ -361,78 +385,39 @@
                 },
                 getCoupon() {
                     // 先判斷登入登出
-                    this.showCoupon = true;
-                    this.task_record.splice(0);
-                    this.hasRecord_1 =  false;
-                    this.hasRecord_2 = false;
-                    this.hasRecord_3 = false;
-                    this.hasRecord_4 = false;
-                    this.hasRecord_5 = false;
-                    // console.log(this.task_record);
 
-                    // ++++寫回資料庫++++
+                    this.showCoupon = true;
+                    this.task_record = [0,0,0,0,0];
+
+                    // delete 紀錄寫回資料庫
+                    axios.post('./php/game_clear_record.php')
                 },
                 closeCoupon() {
                     this.showCoupon = false;
                     this.getGift = false;
+                    axios.post('./php/game_coupon_record.php')
                 }
             },
             mounted() {
-                // axios.get('./php/game.php').then(res =>console.log(res.data));
-                    // axios.post('./php/game_record.php').then(res =>console.log(res.data));
-                    axios.post('./php/game_record.php').then(res => {
-                       let data = res.data;
-                        // console.log(data);
-                    
-                        data.forEach((value) => {
-                            //    console.log(value.task_ID);
+                // axios.post('./php/game_record.php').then(res =>console.log(res.data));
+                axios.post('./php/game_record.php').then(res => {
+                    let data = res.data;
+                    // console.log(data);
+                    for(let i = 0; i < data.length; i++){
+                        this.task_record.splice(data[i].task_ID - 1, 1, 1)
+                        // console.log(this.task_record);
+                    }
 
-                                // 印章紀錄資料(化成陣列)
-                            let record = value.task_ID;
-                            if(record == 1){
-                                    this.task_record.push(1);
-                                    // console.log(this.task_record);
-                            }else if(record == 2){
-                                    this.task_record.push(2);
-                                    // console.log(this.task_record);
-                            }else if(record == 3){
-                                    this.task_record.push(3);
-                                    // console.log(this.task_record);
-                            }else if(record == 4){
-                                    this.task_record.push(4);
-                                    // console.log(this.task_record);
-                            }else if(record == 5){
-                                    this.task_record.push(5);
-                            }
-                        });
-
-                        // 有印章紀錄 -> 顯示印章在護照上
-                        if(this.task_record.includes(1)){
-                                this.hasRecord_1 = true;
-                        }
-                        
-                        if(this.task_record.includes(2)){
-                                this.hasRecord_2 = true;
-                        }
-
-                        if(this.task_record.includes(3)){
-                                this.hasRecord_3 = true;
-                        }
-                        
-                        if(this.task_record.includes(4)){
-                                this.hasRecord_4 = true;
-                        }
-
-                        if(this.task_record.includes(5)){
-                                this.hasRecord_5 = true;
-                        }
-
-                        // 集滿五個印章，可兌換優惠券    
-                        if(this.task_record.length == 5){
-                        // console.log(this.task_record.length);
-                        this.getGift = true;
-                        }
+                    // 集滿五個印章，可兌換優惠券
+                    total_point = 0;
+                    this.task_record.forEach(each_point => {
+                        total_point += each_point
                     });
+
+                    if(total_point == 5){
+                        this.getGift = true;
+                    }
+                });
 
                 $(function () {
                     $(".btn_start").click(function () {
@@ -456,6 +441,7 @@
                         $(".game_result_overlay").fadeOut();
                         $(".landmark").css({
                             backgroundImage: "url('./images/index/game/landmark_white.png')",
+                            transformOrigin: "50% 50%",
                             animation: "zoom_out 1.4s linear infinite",
                         }).slideDown();
                         $(".opt").css({
@@ -479,5 +465,4 @@
     <script src="./js/header_footer.js"></script>
     <!-- <script src="./js/game.js"></script> -->
 </body>
-
 </html>
