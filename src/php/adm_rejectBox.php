@@ -1,18 +1,22 @@
 <?php
+//代修正
 
 include('./conn.php');
 
 //================前->後，php接值的寫法==================
 $theID = json_decode(file_get_contents('php://input'), true); 
 
+print_r($theID);
 $id = $theID['theID'];
 $value =  $theID['theValue'];
 
-//exit();
+echo $value;
+echo $id;
+exit();
 
 //建立SQL 
 $sql = "UPDATE `JUMPER`.`product_info` 
-        SET `reject_reason` = $value
+        SET `reject_reason` = '我是測試我是測試'
         WHERE (`ID` = $id);";
 
 //執行
