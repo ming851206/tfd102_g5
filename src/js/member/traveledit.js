@@ -266,7 +266,7 @@ const TravelEdit = {
             }
         }
     }, mounted() {
-        var _this = this
+        var _this = this;
         window.onresize = function () { // 定義視窗大小變更通知事件
             _this.screenwidth = window.innerWidth // 視窗高度
         }
@@ -276,6 +276,11 @@ const TravelEdit = {
         for (let i = 0; i < this.values.length; i++) {
             this.mobileshowinfo.push(false);
         }
+        axios.post('../../php/member_travel.php', {
+
+        }).then(res => {
+
+        })
     }, watch: {
         'screenwidth': function (val) {
             if (window.innerWidth < 996) {

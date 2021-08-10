@@ -23,7 +23,7 @@ $sql = "select p1.ID ,t2.order_ID, p1.place , p1.title , p1.intro_pics ,t2.vedio
                                 (SELECT s1.ID ,t1.ID as order_ID, s1.product_info_ID , s1.vedio_link , s1.started_at , s1.ended_at , t1.status
                                     from session s1
                                         join (
-                                            SELECT ID ,session_ID , status FROM trip_order WHERE member_ID = ?
+                                            SELECT ID ,session_ID , status FROM trip_order WHERE member_ID = ? and status = 1
                                             ) t1
                                                 on t1.session_ID = s1.ID
                                                     where s1.ended_at > ?) t2

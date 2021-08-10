@@ -19,7 +19,7 @@ const Join = {
                                                 <div class = "joinComment" v-if="times(index)" @click="gototravel(index)">
                                                     前往旅遊
                                                 </div>
-                                                <div class = "joinComment" v-else @click="cancel(index)" :class="{'changeColor': datas[index].status==2}" >
+                                                <div class = "joinComment" v-else @click="cancel(index)"  >
                                                     取消
                                                 </div>
                                                 <div id="joinStarAndFrom">
@@ -144,10 +144,8 @@ const Join = {
                             this.now = 1;
                         }
                     })
-                    alert('已取消該項目,等待管理員審核');
+                    alert('該項目已取消');
                 }
-            } else {
-                alert('該項目已取消,正在等待管理員審核中');
             }
         }
     },
