@@ -724,7 +724,7 @@
     // margin-left: 20px;
     // margin-top: 8px;
     margin: 8px;
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 .gotravel {
@@ -738,11 +738,19 @@
 
 .joinComment {
     margin-bottom: 30px;
+    cursor: pointer;
+    color: blue;
+    border-bottom: 1px solid blue;
 
     @include laptop {
         margin-bottom: 10px;
         margin-left: 5px;
     }
+}
+
+.changeColor {
+    color: gray !important;
+    border-bottom: 0px !important;
 }
 
 .joinTime {

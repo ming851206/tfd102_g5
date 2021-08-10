@@ -5,7 +5,7 @@ const Join = {
                             <h2>即將參與旅遊</h2>
                         </div>
                         <div id="loveContent">
-                            <div class="loveContentBorder" v-for="(value,index) in datas">
+                            <div class="loveContentBorder" v-for="(value,index) in datas" v-if="index < show" :class=" { 'next_off' :  index < close}">
                                 <div class="cardBorder">
                                     <div class="loveImg">
                                         <img src="https://picsum.photos/150/200">
@@ -16,10 +16,10 @@ const Join = {
                                                 <img src="https://picsum.photos/100/100">
                                             </div>
                                             <div class="StarAndFrom gotravel">
-                                                <div class = "joinComment" v-if="times(index)">
+                                                <div class = "joinComment" v-if="times(index)" @click="gototravel(index)">
                                                     前往旅遊
                                                 </div>
-                                                <div class = "joinComment" v-else>
+                                                <div class = "joinComment" v-else @click="cancel(index)" :class="{'changeColor': datas[index].status==2}" >
                                                     取消
                                                 </div>
                                                 <div id="joinStarAndFrom">
@@ -31,7 +31,7 @@ const Join = {
                                                                 transform="translate(-1.441 0.001)" fill="#996a4d" />
                                                         </svg>
 
-                                                        {{value.star}}
+                                                        {{value.staravg}}
                                                     </div>
                                                     <div class="from">
                                                         {{value.from}}
@@ -41,7 +41,7 @@ const Join = {
                                         </div>
                                         <div class="timeAndcomment">
                                             <div class = "joinTime">
-                                                {{value.time}}
+                                                {{starttime(index)}}
                                             </div>
                                         </div>
                                         <p class="joinP">
@@ -57,13 +57,13 @@ const Join = {
                         </div>
                         <div class="loveNumberNav">
                             <div class="loveNavs">
-                                <div class="loveLeft">
+                                <div class="loveLeft" @click = "back">
                                     < </div>
                                         <div class="mid">
-                                            1/2
+                                            {{now}}/{{total}}
                                         </div>
 
-                                        <div class="loveRight">
+                                        <div class="loveRight" @click ="next">
                                             >
                                         </div>
                                 </div>
@@ -82,39 +82,87 @@ const Join = {
                 { star: "4.2", content: "泰國黃金海岸，欣賞Pattaya的海岸風光。", from: "泰國", time: "2021.07.23 1400~1500", comment: "取消" },
             ],
             datas: [],
+            show: 4,
+            now: 0,
+            total: 0,
+            close: 0,
         };
     }, methods: {
+        next() {
+            if (this.now != this.total) {
+                this.show += 4;
+                this.close += 4;
+                this.now++;
+            }
+        },
+        back() {
+            if (this.now > 1) {
+                this.show -= 4;
+                this.close -= 4;
+                this.now--;
+
+            }
+        },
         times(index) {
             let now = new Date().getTime();
-            console.log(now);
-            console.log(this.datas[index].started_at.getTime());
+            let startTime = Number(this.datas[index].started_at);
+            let oneDay = 24 * 60 * 60 * 1000;
+            return ((startTime - oneDay) < now);
+        },
+        starttime(index) {
+            let startTime = new Date(Number(this.datas[index].started_at));
+            let endTime = new Date(Number(this.datas[index].ended_at));
+            let text = '';
+            text += startTime.getFullYear() + '-';
+            text += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '-';
+            text += (startTime.getDate() + 1 < 10 ? '0' : '') + startTime.getDate() + ' ';
+            text += (startTime.getHours() + 1 < 10 ? '0' : '') + startTime.getHours() + ':';
+            text += (startTime.getMinutes() + 1 < 10 ? '0' : '') + startTime.getMinutes();
+            text += "~";
+            text += (endTime.getHours() + 1 < 10 ? '0' : '') + endTime.getHours() + ':';
+            text += (endTime.getMinutes() + 1 < 10 ? '0' : '') + endTime.getMinutes();
+            return text;
+        },
+        gototravel(index) {
+            window.open(this.datas[index].vedio_link);
+        },
+        cancel(index) {
+            if (this.datas[index].status == 1) {
+                let yes = confirm('確定要取消此項目?');
+                if (yes) {
+                    axios.post('../../php/member_join_cancel.php', {
+                        now: new Date().getTime(),
+                        ID: this.datas[index].order_ID
+                    }).then(res => {
+                        let data = res.data;
+
+                        this.datas = [];
+                        this.datas = data;
+                    }).then(res => {
+                        this.total = Math.ceil(this.datas.length / 4);
+                        if (this.datas.length > 0) {
+                            this.now = 1;
+                        }
+                    })
+                    alert('已取消該項目,等待管理員審核');
+                }
+            } else {
+                alert('該項目已取消,正在等待管理員審核中');
+            }
         }
     },
     mounted() {
-        let date = new Date().getTime();
         axios.post('../../php/member_join.php', {
-            now: date,
+            now: new Date().getTime(),
         }).then(res => {
             let data = res.data;
-            for (let i = 0; i < data.length; i++) {
-                let getstartdate = new Date(Number(data[i].started_at)); //時間戳為10位需*1000，時間戳為13位的話不需乘1000
-                Y = getstartdate.getFullYear() + '-';
-                M = (getstartdate.getMonth() + 1 < 10 ? '0' + (getstartdate.getMonth() + 1) : getstartdate.getMonth() + 1) + '-';
-                D = getstartdate.getDate() + ' ';
-                h = getstartdate.getHours() + ':';
-                m = getstartdate.getMinutes() + ':';
-                s = getstartdate.getSeconds();
-                data[i].started_at = Y + M + D + h + m + s;
-                let getdate = new Date(Number(data[i].ended_at)); //時間戳為10位需*1000，時間戳為13位的話不需乘1000
-                Y = getdate.getFullYear() + '-';
-                M = (getdate.getMonth() + 1 < 10 ? '0' + (getdate.getMonth() + 1) : getdate.getMonth() + 1) + '-';
-                D = getdate.getDate() + ' ';
-                h = getdate.getHours() + ':';
-                m = getdate.getMinutes() + ':';
-                s = getdate.getSeconds();
-                data[i].ended_at = Y + M + D + h + m + s;
-            }
             this.datas = data;
+
+        }).then(res => {
+            this.total = Math.ceil(this.datas.length / 4);
+            if (this.datas.length > 0) {
+                this.now = 1;
+            }
         })
     },
 };

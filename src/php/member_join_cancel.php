@@ -1,10 +1,18 @@
 <?php
 include("./conn.php");
 
-    $getdata = json_decode(file_get_contents('php://input'), true);
+$getdata = json_decode(file_get_contents('php://input'), true);
+
+$sql = "UPDATE  trip_order SET status=2 where ID = ? ";
+
+//執行
+$statement = getPDO()->prepare($sql);
+$statement->bindValue(1,$getdata["ID"]);
+$statement->execute();
+
 
     //建立SQL
-    $sql = "select p1.ID ,t2.order_ID, p1.place , p1.title , p1.intro_pics ,t2.vedio_link , t2.started_at , t2.ended_at , t1.staravg , t2.status
+$sql = "select p1.ID ,t2.order_ID, p1.place , p1.title , p1.intro_pics ,t2.vedio_link , t2.started_at , t2.ended_at , t1.staravg , t2.status
                     from product_info p1
                         join (
                                 select product_ID , TRUNCATE(avg(star) ,1) as staravg
@@ -20,14 +28,13 @@ include("./conn.php");
                                                 on t1.session_ID = s1.ID
                                                     where s1.ended_at > ?) t2
                                                     on t2.product_info_ID = p1.ID
-                                                    order by started_at asc ";
+                                                    order by started_at asc";
 
     //執行
     $statement = getPDO()->prepare($sql);
     //給值
     $statement->bindValue(1, 1);
     $statement->bindValue(2, $getdata['now']);
-
     $statement->execute();
     $data = $statement->fetchAll();
     echo json_encode($data);
