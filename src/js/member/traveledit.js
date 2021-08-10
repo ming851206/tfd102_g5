@@ -159,19 +159,18 @@ const TravelEdit = {
                         </div>
                         <div id="checkWork" v-if="showWork==true">
                                 <div class="body">
-                                <h2>尼加瓜拉大瀑布一起感受世界三大跨國瀑布。</h2>
+                                    <h2>尼加瓜拉大瀑布一起感受世界三大跨國瀑布。</h2>
                                     <div class="workborder">
                                         <div class="titlesborders">
                                             日期
                                         </div>
                                         <div class="titlesborders">
-                                           時間
+                                            時間
                                         </div>
                                         <div class="titlesborders">
-                                            人數
+                                           人數
                                         </div>
                                         <div class="titlesborders">
-                                           前往
                                         </div>
                                          <div class="titlesborders">
 
@@ -179,33 +178,16 @@ const TravelEdit = {
                                     </div>
                                     <div class="workborder">
                                         <div class="titlesborders">
-                                            日期
+                                            2021.07.13
                                         </div>
                                         <div class="titlesborders">
-                                           時間
+                                         1400~1500
                                         </div>
                                         <div class="titlesborders">
-                                            人數
+                                           11
                                         </div>
                                         <div class="titlesborders">
-                                           前往
-                                        </div>
-                                        <div class="titlesborders">
-                                           取消
-                                        </div>
-                                    </div>
-                                    <div class="workborder">
-                                        <div class="titlesborders">
-                                            日期
-                                        </div>
-                                        <div class="titlesborders">
-                                           時間
-                                        </div>
-                                        <div class="titlesborders">
-                                            人數
-                                        </div>
-                                        <div class="titlesborders">
-                                           前往
+                                           前往旅遊
                                         </div>
                                         <div class="titlesborders">
                                            取消
@@ -222,7 +204,24 @@ const TravelEdit = {
                                             人數
                                         </div>
                                         <div class="titlesborders">
-                                           前往
+                                           前往旅遊
+                                        </div>
+                                        <div class="titlesborders">
+                                           取消
+                                        </div>
+                                    </div>
+                                    <div class="workborder">
+                                        <div class="titlesborders">
+                                            日期
+                                        </div>
+                                        <div class="titlesborders">
+                                           時間
+                                        </div>
+                                        <div class="titlesborders">
+                                            人數
+                                        </div>
+                                        <div class="titlesborders">
+                                           前往旅遊
                                         </div>
                                         <div class="titlesborders">
                                            取消
@@ -232,9 +231,10 @@ const TravelEdit = {
                                         <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z" transform="translate(-11.285 -11.289)" fill="#996A4D"/>
                                     </svg>
                                     <div class="loveNumberNav">
-                                        <div class="loveNavs">
-                                            <div class="loveLeft" @click = "back">
-                                                < </div>
+                                            <div class="loveNavs">
+                                                    <div class="loveLeft" @click = "back">
+                                                        <
+                                                    </div>
                                                     <div class="mid">
                                                         {{now}}/{{total}}
                                                     </div>
@@ -245,8 +245,8 @@ const TravelEdit = {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                        </div>
+                            </div>
+
                         <div class="loveNumberNav">
                             <div class="loveNavs">
                                 <div class="loveLeft">
@@ -288,7 +288,7 @@ const TravelEdit = {
             titles: [
                 "活動名稱",
                 "地點",
-                "人數",
+                "上限人數",
                 "審核狀態",
                 "　　",
                 "　　",
@@ -301,10 +301,28 @@ const TravelEdit = {
             screenwidth: window.innerWidth,
             mobileshowinfo: [],
             showWork: false,
-
+            show: 4,
+            now: 0,
+            total: 0,
+            close: 0,
         };
     },
     methods: {
+        next() {
+            if (this.now != this.total) {
+                this.show += 4;
+                this.close += 4;
+                this.now++;
+            }
+        },
+        back() {
+            if (this.now > 1) {
+                this.show -= 4;
+                this.close -= 4;
+                this.now--;
+
+            }
+        },
         workcancel() {
             this.showWork = !this.showWork;
         },

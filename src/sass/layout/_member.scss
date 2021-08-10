@@ -1133,10 +1133,13 @@
 
     }
 
+    .loveNumberNav {
+        margin-bottom: 30px;
+    }
+
     .body {
         position: relative;
-        width: 60%;
-        height: 500px;
+        width: 900px;
         background-color: $main_ivory;
         display: flex;
         align-items: center;
@@ -1151,12 +1154,13 @@
             border-radius: 20px;
             height: 50px;
             margin-top: 20px;
-            width: 80%;
+            width: 610px;
             display: flex;
             align-items: center;
 
             .titlesborders {
                 margin-left: 60px;
+                width: 70px;
 
                 &:first-child {
                     margin-left: 20px;
