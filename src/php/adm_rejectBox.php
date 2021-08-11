@@ -1,5 +1,4 @@
 <?php
-//代修正
 
 include('./conn.php');
 
