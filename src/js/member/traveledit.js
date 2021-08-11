@@ -22,11 +22,11 @@ const TravelEdit = {
                         <div id="addFrom">
                             <div class="travelInputBorder">
                                     <div class="travelInputEditTitle"><span>主題名稱：</span></div>
-                                    <input>
+                                    <input @keyup="userText(0,$event)">
                             </div>
                             <div class="travelInputBorder">
                                     <div class="travelInputEditTitle"><span>類別：</span></div>
-                                    <select>
+                                    <select v-model="userAdd[1]">
                                         <option value="1" selected>美洲</option>
                                         <option value="2">亞洲</option>
                                         <option value="3">非洲</option>
@@ -36,11 +36,11 @@ const TravelEdit = {
                             </div>
                             <div class="travelInputBorder">
                                     <div class="travelInputEditTitle"><span>地點：</span></div>
-                                    <input >
+                                    <input @keyup="userText(2,$event)">
                             </div>
                             <div class="travelInputBorder">
                                     <div class="travelInputEditTitle"><span>價格：</span></div>
-                                    <input >
+                                    <input @keyup="userText(3,$event)">
                             </div>
                             <!-- <div class="travelInputBorder">
                                     <div class="travelInputEditTitle"><span>影片連結：</span></div>
@@ -67,7 +67,7 @@ const TravelEdit = {
                             </div>
                             <div class="travelInputBorder Content">
                                     <div class="travelInputEditTitle"><span>活動內容：</span></div>
-                                    <textarea placeholder="活動內容" > </textarea>
+                                    <textarea placeholder="活動內容" @keyup="userText(4,$event)"> </textarea>
                             </div>
                             <!--
                             <div class="travelInputBorder">
@@ -276,9 +276,14 @@ const TravelEdit = {
             now: 0,
             total: 0,
             close: 0,
+            userAdd: ['', '1', '', '', ''],
+
         };
     },
     methods: {
+        userText(index, event) {
+            this.userAdd[index] = event.target.value;
+        },
         checkstatus(index) {
             if (this.datas[index].is_checked == '1') {
                 return true;
@@ -368,12 +373,18 @@ const TravelEdit = {
             }
         },
         AddTravel() {
+            this.userAdd = ['', '1', '', '', ''];
+            this.files = [];
             this.add = !this.add;
         },
         cancel() {
+            this.userAdd = ['', '1', '', '', ''];
+            this.files = [];
             this.add = false;
         },
         confirms() {
+            this.userAdd = ['', '1', '', '', ''];
+            this.files = [];
             this.add = false;
             this.pops = true;
         },
@@ -386,12 +397,17 @@ const TravelEdit = {
         },
         fileChange: function (e) {
             let files = this.$refs.update.files;
-            for (let i = 0; i < files.length; i++) {
-                let readFile = new FileReader();
-                readFile.readAsDataURL(files[i]);
-                readFile.addEventListener('load', (event) => {
-                    this.files.unshift(readFile.result);
-                })
+
+            if (files.length <= 6 && this.files.length <= 6 && (this.files.length + files.length) <= 6) {
+                for (let i = 0; i < files.length; i++) {
+                    let readFile = new FileReader();
+                    readFile.readAsDataURL(files[i]);
+                    readFile.addEventListener('load', (event) => {
+                        this.files.unshift(readFile.result);
+                    })
+                }
+            } else {
+                alert('照片只能放入六張');
             }
         }
     }, mounted() {
