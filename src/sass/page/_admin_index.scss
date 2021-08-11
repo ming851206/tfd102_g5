@@ -136,7 +136,6 @@
 
                 button {
                     cursor: pointer;
-                    pointer-events: none; //沒用嗎??
                 }
             }
 
@@ -543,15 +542,16 @@
 
                   
                         .rejectBox {
-                            position: absolute;
+                            position: fixed;
                             width: 60%;
                             left: 50%;
-                            top:10px;
-                            transform: translateX(-50%);
+                            top: 50%;
+                            transform: translateX(-50%, -50%);
                             box-shadow: 0px 0px 20px #333;
                             background-color: $main_ivory;
                             border-radius: $borderRadius_cd;
                             padding: 30px 40px 60px 40px;
+                            z-index: 10;
 
                             img {
                                 position: absolute;
