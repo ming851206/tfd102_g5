@@ -9,7 +9,7 @@
     // 確認並付款
     .payment_mainTitle{
         width: 90%;
-        border: 1px solid red;
+        // border: 1px solid red;
         display: flex;
         justify-content: start;
         align-items: center;
@@ -25,7 +25,7 @@
     .mainTitle_info_confirmation_container{
         width: 90%;
         margin: 0 auto;
-        border: 1px solid blue;
+        // border: 1px solid blue;
         display: flex;
         justify-content: space-between;
         border-bottom: 2px solid $main_br;
@@ -35,7 +35,7 @@
         .mainTitle_info_confirmation_left{
             margin-left: 10%;
             width: 40%;
-            border: 1px solid red;
+            // border: 1px solid red;
             font-size: 20px;
             .mainTitle_info_confirmation_left_h4{
                 font-size: 20px;
@@ -85,7 +85,7 @@
     .payment_info_container{
         margin: 0 auto;
         padding: 50px 0;
-        border: 1px solid gray;
+        // border: 1px solid gray;
         width: 90%;
         display: flex;
 
@@ -99,16 +99,15 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border: 1px solid red;
+            // border: 1px solid red;
             width: 40%;
             display: flex;
             .payment_info_block_left_upblock{
-                border: 1px solid red;
+                // border: 1px solid red;
                 display: inline-flex;
             }
             .payment_info_block_left_img{
-
-                border: 1px solid red;
+                // border: 1px solid red;
                 width: 150px;
                 height: 150px;
                 border-radius: 50%;
@@ -120,7 +119,7 @@
             }
             .payment_info_block_left_title_area{
                 width: 55%;
-                border: 1px solid green;
+                // border: 1px solid green;
                 margin-left: 5%;
                 display: flex;
                 flex-direction: column;
@@ -129,7 +128,7 @@
                 .payment_info_block_left_title_area_star{
                     display: inline-flex;
                     align-items: center;
-                    border: 1px solid red;
+                    // border: 1px solid red;
                 }
                 >p{
                     margin: 10px 0;
@@ -151,9 +150,9 @@
                 // justify-content: center;
                 font-size: 20px;
 
-                border: 1px solid red;
+                // border: 1px solid red;
                 .payment_info_block_left_price,.payment_info_block_left_sum{
-                    border: 1px solid red;
+                    // border: 1px solid red;
                     justify-content: space-between;
                     display: inline-flex;
                     margin-top: 10px;
@@ -163,14 +162,14 @@
                 }
             }
             .payment_info_block_left_remind{
-                border: 1px solid red;
+                // border: 1px solid red;
                 margin-top: 20px;
             }
         }
 
         .payment_info_block_right{
             display: inline-flex;
-            border: 1px solid red;
+            // border: 1px solid red;
             // width: 40%;
             max-width: 510px;
             margin-left: 50px;
@@ -190,7 +189,7 @@
         flex-direction: column;
         // justify-content: center;
         // align-items: center;
-        border: 1px solid pink;
+        // border: 1px solid pink;
         border-bottom: 2px solid $main_br;
 
         .payment_payCard{
@@ -207,14 +206,250 @@
             border-radius: 20px;
             padding: 10px 30px;
             margin-bottom: 35px;
+            >svg{
+                cursor: pointer;
+            }
             .payment_addcard_input{
                 width: 75%;
                 font-size: 20px;
-                // outline: none;
-                // border: none;
+                border: none;
+                outline: none;
             }
         }
     }
 
+    #payment_payCard_outerDiv{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        width: 100%;
+        height: 100%;
+
+        #payCard_outerDiv_bg{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: rgba(0,0,0,0.5);
+            top: 50px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 15;
+            display: flex;
+            margin: 0 auto;
+            align-items: center;
+            .payCard_block{
+                width: 50%;
+                border: 2px solid $main_br;
+                background-color: $main_ivory;
+                margin: 0 auto;
+                border-radius: 20px;
+                .payCard_close_block{
+                    width: 60%;
+                    // border: 1px solid green;
+                    padding: 15px;
+                    display: flex;
+                    justify-content: space-between;
+                    >svg{
+                        cursor: pointer;
+                    }
+                    .payCard_close_block_h4{
+                        font-weight: bold;
+                    }
+                }
+                .payCard_block_area{
+                    width: 70%;
+                    border: 2px solid $main_br;
+                    margin: 0 auto;
+                    // padding: 2% 0;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    border-radius: 20px;
+                    // border-bottom: 2px solid $main_br;
+                    .payCard_num{
+                        width: 93%;
+                        margin: 0 auto;
+                        display: flex;
+                        // border: 1px solid red;
+                        
+                        >.input_credit_card{
+                            margin: 10px auto;
+                            width: 90%;
+                            // font-size: 20px;
+                            padding: 10px;
+                            border: none;
+                            outline: none;
+                            background-color: $main_ivory;
+                        }
+                    }
+                    .payCard_block_area_line{
+                            width: 100%;
+                            border: 1px solid $main_br;
+                    }
+                    .payCard_button_area{
+                        width: 95%;
+                        margin: 0 auto;
+                        display: flex;
+                        justify-content: space-between;
+                        // border: 1px solid red;
+                        .payCard_sur,.payCard_safe{
+                            margin: 0px auto;
+                            >.payCard_sur_input,.payCard_safe_input{
+                                margin: 10px 0;
+                                width: 100%;
+                                // font-size: 20px;
+                                padding: 10px;
+                                border: none;
+                                outline: none;
+                                background-color: $main_ivory;
+
+                            }
+                        }
+                        .payCard_button_area_line{
+                            border: 1px solid $main_br;
+                        }
+                    }
+
+                }
+                .payCard_OK_block{
+                    width: 80%;
+                    // border: 1px solid red;
+                    margin: 15px auto;
+                    display: flex;
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+    .payment_discount_container{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // border: 1px solid pink;
+        border-bottom: 2px solid $main_br;
+
+        .payment_discount{
+            margin-left: 10%;
+            padding: 40px 0;
+        }
+        .payment_add_discount{
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+            border: 2px solid $main_br;
+            border-radius: 20px;
+            padding: 10px 30px;
+            .payment_add_discount_input{
+                width: 75%;
+                font-size: 20px;
+                outline: none;
+                border: none;
+            }
+        }
+        .payment_discount_list_block{
+            width: 50%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+            // border: 2px solid red;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px hsla(0, 0, 0, .2);
+            overflow: hidden;
+
+            // margin-bottom: 15px;
+            .payment_discount_list_block_input{
+                width: 100%;
+                border: 0px solid blue;
+                cursor: pointer;
+                &:hover{
+                    background-color: $main_ivory;
+                }
+                .payment_discount_list_input{
+                    width: 100%;
+                    font-size: 20px;
+                    padding: 10px 30px;
+                    outline: none;
+                    border: none;
+                    cursor: pointer;
+                    &::placeholder{
+                        color: $main_br !important;
+                    }
+                    &:hover{
+                        background-color: $main_ivory;
+                    }
+                }
+            }
+        }
+        .payment_add_btn_block{
+            width: 50%;
+            margin: 0 auto;
+            // border: 1px solid red;
+            margin-bottom: 35px;           
+            margin-top: 15px;
+        }
+    }
+
+    .notice_container{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // border: 1px solid pink;
+        border-bottom: 2px solid $main_br;
+        margin-bottom: 15px;
+
+        .notice_h3{
+            margin-left: 10%;
+            padding: 40px 0;
+        }
+        .notice_p{
+            margin: 0 auto;
+            width: 50%;
+            // margin-left: 10%;
+            margin-bottom: 35px;
+            // border: 1px solid red;
+
+            >p{
+                font-size: 20px;
+                line-height: 1.5em;
+            }
+        }
+    }
+
+    .pay_container{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // border: 1px solid pink;
+        // border-bottom: 2px solid $main_br;
+        margin-bottom: 15px;
+        .pay_container_h4{
+            margin: 30px auto;
+            // border: 1px solid pink;
+            width: 50%;
+        }
+        .payment_add_btn_block{
+            width: 50%;
+            margin: 0 auto;
+            // border: 1px solid red;
+            margin-bottom: 35px;
+
+        }
+    }
+    
 
 }
