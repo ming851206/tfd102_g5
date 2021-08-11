@@ -33,7 +33,7 @@
         <div class="mainTitle_info_confirmation_container">
             <div class="mainTitle_info_confirmation_left">
                 <h4 class="mainTitle_info_confirmation_left_h4">你的旅遊</h4>
-                <p class="mainTitle_info_confirmation_left_p">日期<br>7月7日 週三 下午2:30 - 下午5:30</p>
+                <p class="mainTitle_info_confirmation_left_p">日期<br>7月7日 週三 下午2:30 - 下午3:30</p>
             </div>
 
             <!-- <div class="mainTitle_info_confirmation_right">
@@ -80,8 +80,8 @@
                 <div class="payment_info_block_left_lastcon">
                     <p>價格詳情</p>
                     <div class="payment_info_block_left_price">
-                        <p>$3000 <span>x 1 名</span></p>
-                        <p>$3000</p>
+                        <p>$6000 <span>x 1 名</span></p>
+                        <p>$6000</p>
                     </div>
                     <div class="payment_info_block_left_sum">
                         <p>總價 (TWD)</p>
@@ -110,8 +110,8 @@
                         <path id="Path_14" data-name="Path 14" d="M1.5,15h33" transform="translate(-1.5 -6)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
                     </g>
                 </svg>
-                <input class="payment_addcard_input" type="text" name="" id="addcard" placeholder="輸入信用卡">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20.809" height="20.81" viewBox="0 0 20.809 20.81">
+                <input class="payment_addcard_input" disabled type="text" name="" id="addcard" :value="addcard_value">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20.809" height="20.81" viewBox="0 0 20.809 20.81" @click="cradit_Sbtn">
                     <g id="Group_294" data-name="Group 294" transform="translate(-17900.5 -3663.095)">
                         <line id="Line_13" data-name="Line 13" x2="20.809" transform="translate(17900.5 3673.5)" fill="none" stroke="#996A4D" stroke-width="4"/>
                         <line id="Line_13-2" data-name="Line 13" y1="20.81" transform="translate(17910.904 3663.095)" fill="none" stroke="#996A4D" stroke-width="4"/>
@@ -119,26 +119,138 @@
                 </svg>
             </div>
         </div>
+
+        <!-- 付款方式彈窗 -->
+        <div id="payment_payCard_outerDiv" v-if="craditShow">
+            <!-- 黑背景 -->
+            <div id="payCard_outerDiv_bg">
+                <div class="payCard_block">
+                    <!-- 關掉彈窗 -->
+                    <div class="payCard_close_block">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994" @click="cradit_Sbtn">
+                            <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z" transform="translate(-11.285 -11.289)" fill="#996a4d"/>
+                        </svg>
+                        <h4 class="payCard_close_block_h4">新增信用卡詳情</h4>
+                    </div>
+                    <!-- 輸入信用卡框框 -->
+                    <div class="payCard_block_area">
+                        <!-- 卡號 -->
+                        <div class="payCard_num">
+                            <input type="text" placeholder="卡號" class="input_credit_card">
+                        </div>
+                        <div class="payCard_block_area_line"></div>
+                        <!-- 到期日 安全碼 -->
+                        <div class="payCard_button_area">
+                            <div class="payCard_sur">
+                                <input type="text" placeholder="到期日" class="payCard_sur_input">
+                            </div>
+                            <div class="payCard_button_area_line"></div>
+                            <div class="payCard_safe">
+                                <input type="text" placeholder="安全碼" class="payCard_safe_input">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 確認按鈕區 -->
+                    <div class="payCard_OK_block">
+                        <button type="button" class="btnM" @click="cradit_Sbtn">確認</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 注意事項  -->
+        <div class="notice_container">
+            <div class="notice_h3">
+                <h3>注意事項</h3>
+            </div>
+            <div class="notice_p">
+                <p>參加者預訂要求<br>
+                    最多10人參加，年齡須滿18歲。</p>
+            </div>
+        </div>
+
         <!-- 輸入優惠卷 -->
-        <div class="payment_payCard_container">
-            <div class="payment_payCard">
+        <div class="payment_discount_container">
+            <div class="payment_discount">
                 <h3>輸入優惠卷：</h3>
             </div>
-            <div class="payment_addcard">
+            
+            <div class="payment_add_discount">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40.5" height="27" viewBox="0 0 40.5 27">
                     <path id="Icon_awesome-ticket-alt" data-name="Icon awesome-ticket-alt" d="M9,11.25H31.5v13.5H9ZM37.125,18A3.375,3.375,0,0,0,40.5,21.375v6.75A3.375,3.375,0,0,1,37.125,31.5H3.375A3.375,3.375,0,0,1,0,28.125v-6.75a3.375,3.375,0,0,0,0-6.75V7.875A3.375,3.375,0,0,1,3.375,4.5h33.75A3.375,3.375,0,0,1,40.5,7.875v6.75A3.375,3.375,0,0,0,37.125,18ZM33.75,10.688A1.687,1.687,0,0,0,32.063,9H8.438A1.687,1.687,0,0,0,6.75,10.688V25.313A1.687,1.687,0,0,0,8.438,27H32.063a1.687,1.687,0,0,0,1.688-1.687Z" transform="translate(0 -4.5)" fill="rgba(0,0,0,0.8)"/>
                 </svg>
-                
-                <input class="payment_addcard_input" type="text" name="" id="addcard" placeholder="輸入優惠碼">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20.809" height="20.81" viewBox="0 0 20.809 20.81">
+                <input type="text" name="" class="payment_add_discount_input" id="addDiscount" disabled :value="addDiscount_value">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20.809" height="20.81" viewBox="0 0 20.809 20.81" @click="discount_btn" style="cursor: pointer;">
                     <g id="Group_294" data-name="Group 294" transform="translate(-17900.5 -3663.095)">
                         <line id="Line_13" data-name="Line 13" x2="20.809" transform="translate(17900.5 3673.5)" fill="none" stroke="#996A4D" stroke-width="4"/>
                         <line id="Line_13-2" data-name="Line 13" y1="20.81" transform="translate(17910.904 3663.095)" fill="none" stroke="#996A4D" stroke-width="4"/>
                     </g>
                 </svg>
-
             </div>
-            <button type="button" class="btnM">套用</button>
+            <!-- 優惠卷下拉選單 -->
+            <div class="payment_discount_list_block" v-if="discountShow">
+                <div class="payment_discount_list_block_input" >
+                    <input class="payment_discount_list_input" type="text" @click="choose_discount" :value="choose_discount_value">
+                </div>
+            </div>
+
+            <div class="payment_add_btn_block">
+                <button type="button" class="btnM payment_add_btn">套用</button>
+            </div>
         </div>
+
+        <!-- 確認並付款 -->
+        <div class="pay_container">
+            <div class="pay_container_h4">
+                <h4>選擇以下按鈕即代表您同意參加者免責聲明、退訂政策和參加者退款政策。</h4>
+            </div>
+            <div class="payment_add_btn_block">
+                <button type="button" class="btnL">確認並付款</button>
+            </div>
+        </div>
+
+        <!-- 付款成功彈窗 -->
+        <div class="pay_success_container">
+
+        </div>
+
+
+        <!-- <footer id="the_footer">
+            <the-footer></the-footer>
+        </footer> -->
     </div>
+
+    <!-- <script src="./js/header_footer.js"></script> -->
+    <script>
+        new Vue({
+            el: '#travel_payment_page',
+            data () {
+                return{
+                    craditShow: false,
+                    discountShow: false,
+                    addcard_value:'輸入信用卡',
+                    addDiscount_value: '輸入優惠碼',
+                    choose_discount_value: '跳轉世界玩翻天 75 折優惠',
+                }
+            },
+            methods: {
+                // 信用卡彈窗
+                cradit_Sbtn() {
+                    if(this.craditShow == false){
+                        this.craditShow = true;
+                    } else {
+                        this.craditShow = false;
+                    }
+                },
+                discount_btn() {
+                    this.discountShow =!this.discountShow;
+                },
+                choose_discount(){
+                    this.addDiscount_value = this.choose_discount_value;
+                    this.discountShow =!this.discountShow;
+                },
+            },
+        });
+    </script>
 </body>

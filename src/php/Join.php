@@ -1,8 +1,12 @@
 <?php
-    include("./conn.php");    
+    include("./conn.php");
+    $account_register = $_POST['account_register'];
+    $email_register = $_POST['email_register'];
+    $password_register = $_POST['password_register'];
+    
 
     //建立SQL
-    $sql = "INSERT INTO member(username, email, password,level, account_status, created_at) VALUES (?,?,?,1,1,?)";
+    $sql = "INSERT INTO member(username, email, password,level, account_status, created_at) VALUES (?,?,?,1,1,now())";
     
     // echo $_POST["account_register"];
     // exit();
@@ -11,10 +15,10 @@
     $statement = getPDO()->prepare($sql);
 
     //給值
-    $statement->bindValue(1, $_POST["account_register"]);
-    $statement->bindValue(2, $_POST["email_register"]);
-    $statement->bindValue(3, $_POST["password_register"]);
+    $statement->bindValue(1, $account_register);
+    $statement->bindValue(2, $email_register);
+    $statement->bindValue(3, $password_register);
     $statement->execute();
 
-    echo 1;
+    echo $account_register;
 ?>
