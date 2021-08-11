@@ -2,7 +2,10 @@
     include("./conn.php");    
 
     //建立SQL
-    $sql = "INSERT INTO member(username, email, password, account_status, CreateDate) VALUES (?,?,?,1,NOW())";
+    $sql = "INSERT INTO member(username, email, password,level, account_status, created_at) VALUES (?,?,?,1,1,?)";
+    
+    // echo $_POST["account_register"];
+    // exit();
 
     //執行
     $statement = getPDO()->prepare($sql);
@@ -13,5 +16,5 @@
     $statement->bindValue(3, $_POST["password_register"]);
     $statement->execute();
 
-    echo "<script>alert('加入成功'); location.href = '../member.html;</script>"; 
+    echo 1;
 ?>

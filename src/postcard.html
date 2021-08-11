@@ -29,7 +29,7 @@
                 </div>
                     
                 <div class="main_postcard_block">
-                    <div class="textblock">
+                    <div style="transition: all 1s;" class="textblock" ref="gogoro">
                         <h2>客製化專屬於您的線上明信片</h2>
                     </div>
                     <div class="index_postcard_pointer" @click="changeindex">
@@ -174,10 +174,10 @@
                                     </svg>
                                 </div>
 
-                                <div class="stamp_block" @click="stamp_Sbtn" id="stamp_block1ID">
+                                <div class="stamp_block" @click="stamp_Sbtn" id="stamp_block1ID" ref="stamp">
                                     <img :src="change__stamp_IMG" alt="">
                                 </div>
-                                <div class="seal_block" @click="dispaly_block_Btn">
+                                <div class="seal_block" @click="dispaly_block_Btn" >
                                     <img src="./images/logo/logo-circle.png" alt="">
                                 </div>
                             </div>
@@ -222,7 +222,7 @@
                                     <img @click="change__stamp_IMG = './images/postcard/stamp/stamp5.png'" id="stamp_4.5" src="./images/postcard/stamp/stamp5.png" alt="">
                                 </div>
                                 <div class="stamp_next_btn" @click="stamp_Sbtn">
-                                    <button type="button"  class="btnM" id="next">確定</button>
+                                    <button type="button"  class="btnM" id="next" ref="stamp">確定</button>
                                 </div>
                             </div>
                         </div>
@@ -242,7 +242,7 @@
                 <div class="Img_bg" :style="'background-image:url('+ change_picture+')'">
                 <!-- <div class="Img_bg"> -->
                     <!-- 明信片 -->
-                    <div class="main_writting_block" v-if ="cardShow == true">
+                    <div class="main_writting_block" v-if ="cardShow == true" id="canv">
         
                         <!-- 左邊-->
                         <div class="main_writting_left">
@@ -270,9 +270,11 @@
 
                             <!-- 收件者info -->
                             <div class="sentTO_block">
-
-                                <div class="typeTo_block">
-                                    <textarea class="sentTO_People" v-model="tkinfoTo">TO : </textarea>
+                                <!-- <div class="typeTo_block"> -->
+                                <div class="typeTo_block" style="opacity: 1; transform: translateY(0%);">
+                                    <!-- <div style="opacity: 1;"> -->
+                                        <textarea class="sentTO_People"  v-model="tkinfoTo">TO : </textarea>
+                                    <!-- </div> -->
                                 </div>
                                 
                             </div>
@@ -281,7 +283,7 @@
                     
             
                     <!-- 明信片背面照片 -->
-                    <div class="main_IMG_block" v-else>
+                    <div class="main_IMG_block" id="canv" v-else>
                         <div class="IMG_block">
                             <img :src="change_picture" alt="">
                         </div>
@@ -294,7 +296,7 @@
 
                     <!-- 再試一次 下載按鈕 -->
                     <div class="next_postcard_btn">
-                        <button type="button"  class="btnM" id="tryAgain" @click="tryAgain">再製作一次</button>
+                        <button type="button"  class="btnM" id="tryAgain1" @click="tryAgain">再製作一次</button>
                         <button type="button"  class="btnM" id="downLoad">下載</button>
                     </div>
 
@@ -358,7 +360,7 @@
                 },
             },
             methods: {  //函數（方法）大部分放這裡
-                // 照片正反切換               
+                // 照片正反切換          
                 changebtn(){
                     if(this.cardShow == true){
                     this.cardShow=false;
@@ -372,7 +374,7 @@
                         this.stampShow=true;
                     }else{
                         this.stampShow=false;
-                        this.dispaly_block_Btn();
+                        // this.dispaly_block_Btn();
                     }
                 },
 
@@ -395,6 +397,9 @@
                     if (this.index == 4){
                         this.index = 1;
                     }
+                    this.tkinfotest = '';
+                    this.tkinfoTo='';
+                    window.location.reload(true);
                 },
 
                 remove_dis(){
@@ -404,6 +409,7 @@
                         ease: 'slow',
                         opacity: 0,
                     })
+                    
                 },
 
                 remove_art_h4(){
@@ -420,16 +426,35 @@
                         ease : 'slow'
                     })
                     
+                    this.$refs.stamp.click();
+                    console.log(this.$refs.stamp);
                 }
             },
         });
+
+        function doFirst(){
+
+            let downLoad = document.getElementById('downLoad');
+
+            //建立事件玲聽
+            downLoad.addEventListener('click', function(){
+                let downLoadId = 'canv';
+                downloadPostcardFunc(downloadId);
+            });
+
+            //函式區
+            function downloadPostcardFunc(downloadId){
+                
+            }
+        }
+
+
 
         // 第一頁文字淡出
         $(document).ready(function(){
             $('.textblock h2').animate({opacity: '1'}, 3000);
             $('.text_show ').animate({opacity: '1'}, 4000);
         });
-
     </script>
 </body>
 </html>
