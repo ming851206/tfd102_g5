@@ -52,13 +52,13 @@ const Love = {
                         <div class="loveNumberNav">
                             <div class="loveNavs">
                                 <div class="loveLeft" @click = "back">
-                                    < </div>
+                                    &lt; </div>
                                         <div class="mid">
                                             {{now}}/{{total}}
                                         </div>
 
                                         <div class="loveRight" @click ="next">
-                                            >
+                                            &gt;
                                         </div>
                                 </div>
                             </div>

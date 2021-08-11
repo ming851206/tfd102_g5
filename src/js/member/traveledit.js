@@ -35,17 +35,17 @@ const TravelEdit = {
                                     </select>
                             </div>
                             <div class="travelInputBorder">
-                                    <div class="travelInputEditTitle"><span>時間：</span></div>
+                                    <div class="travelInputEditTitle"><span>地點：</span></div>
                                     <input >
                             </div>
                             <div class="travelInputBorder">
-                                    <div class="travelInputEditTitle"><span>人數：</span></div>
+                                    <div class="travelInputEditTitle"><span>價格：</span></div>
                                     <input >
                             </div>
-                            <div class="travelInputBorder">
+                            <!-- <div class="travelInputBorder">
                                     <div class="travelInputEditTitle"><span>影片連結：</span></div>
                                     <input >
-                            </div>
+                            </div> -->
                             <div class="travelInputBorder Imginput" >
                                     <div class="travelInputEditTitle"><span>圖片上傳：</span></div>
                                     <div>
@@ -69,10 +69,12 @@ const TravelEdit = {
                                     <div class="travelInputEditTitle"><span>活動內容：</span></div>
                                     <textarea placeholder="活動內容" > </textarea>
                             </div>
+                            <!--
                             <div class="travelInputBorder">
                                     <div class="travelInputEditTitle"><span>自備物品：</span></div>
                                     <input >
                             </div>
+                            -->
                         </div>
                         <div class="memberEditCancel">
                             <button class="btnL_light" @click="cancel">取消</button>
@@ -104,27 +106,27 @@ const TravelEdit = {
                                     <p >{{title}}</p>
                                 </div>
                             </div>
-                            <div class="travelValue" v-for="(value,index) in values">
+                            <div class="travelValue" v-for="(value,index) in datas">
                                 <div class="travelP">
                                     <p>{{value.title}}</p>
                                 </div>
                                 <div class="travelP">
-                                    <p>{{value.category}}</p>
+                                    <p>{{value.place}}</p>
                                 </div>
                                 <div class="travelP">
-                                    <p>{{value.people}}</p>
+                                    <p>{{value.total_people}}</p>
+                                </div>
+                                <div class="travelP" >
+                                    <p>{{checkeds(index)}}</p>
                                 </div>
                                 <div class="travelP">
-                                    <p>{{value.status}}</p>
+                                    <p  v-if="checkstatus(index)">新增日期/編輯內容</p>
                                 </div>
-                                <div class="travelP">
-                                    <p>{{value.edit}}</p>
+                                <div class="travelP" >
+                                    <p  v-if="checkstatus(index)">下架</p>
                                 </div>
-                                <div class="travelP">
-                                    <p>{{value.cancel}}</p>
-                                </div>
-                                <div class="travelP" @click="changeWorks(index)">
-                                    <p>{{value.abc}}</p>
+                                <div class="travelP" @click="changeWorks(index)"">
+                                    <p v-if="checkstatus(index)">查看活動</p>
                                 </div>
                             </div>
                         </div>
@@ -159,7 +161,7 @@ const TravelEdit = {
                         </div>
                         <div id="checkWork" v-if="showWork==true">
                                 <div class="body">
-                                    <h2>尼加瓜拉大瀑布一起感受世界三大跨國瀑布。</h2>
+                                    <h2>{{WorksTitle}}</h2>
                                     <div class="workborder">
                                         <div class="titlesborders">
                                             日期
@@ -168,7 +170,7 @@ const TravelEdit = {
                                             時間
                                         </div>
                                         <div class="titlesborders">
-                                           人數
+                                           已參加人數
                                         </div>
                                         <div class="titlesborders">
                                         </div>
@@ -176,51 +178,17 @@ const TravelEdit = {
 
                                         </div>
                                     </div>
-                                    <div class="workborder">
+                                    <div class="workborder" v-for="(work , index) in checkWorks">
                                         <div class="titlesborders">
-                                            2021.07.13
+                                            {{dateMath(index)}}
                                         </div>
                                         <div class="titlesborders">
-                                         1400~1500
+                                                {{timeMath(index)}}
                                         </div>
-                                        <div class="titlesborders">
-                                           11
+                                        <div class="titlesborders" >
+                                          {{work.attendence}}
                                         </div>
-                                        <div class="titlesborders">
-                                           前往旅遊
-                                        </div>
-                                        <div class="titlesborders">
-                                           取消
-                                        </div>
-                                    </div>
-                                    <div class="workborder">
-                                        <div class="titlesborders">
-                                            日期
-                                        </div>
-                                        <div class="titlesborders">
-                                           時間
-                                        </div>
-                                        <div class="titlesborders">
-                                            人數
-                                        </div>
-                                        <div class="titlesborders">
-                                           前往旅遊
-                                        </div>
-                                        <div class="titlesborders">
-                                           取消
-                                        </div>
-                                    </div>
-                                    <div class="workborder">
-                                        <div class="titlesborders">
-                                            日期
-                                        </div>
-                                        <div class="titlesborders">
-                                           時間
-                                        </div>
-                                        <div class="titlesborders">
-                                            人數
-                                        </div>
-                                        <div class="titlesborders">
+                                        <div class="titlesborders" @click="gototravel(index)">
                                            前往旅遊
                                         </div>
                                         <div class="titlesborders">
@@ -240,7 +208,7 @@ const TravelEdit = {
                                                     </div>
 
                                                     <div class="loveRight" @click ="next">
-                                                        >
+                                                        &gt;
                                                     </div>
                                             </div>
                                         </div>
@@ -250,13 +218,13 @@ const TravelEdit = {
                         <div class="loveNumberNav">
                             <div class="loveNavs">
                                 <div class="loveLeft">
-                                    < </div>
+                                    &lt; </div>
                                         <div class="mid">
                                             1/2
                                         </div>
 
                                         <div class="loveRight">
-                                            >
+                                            &gt;
                                         </div>
                                 </div>
                             </div>
@@ -285,6 +253,9 @@ const TravelEdit = {
                 { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", people: "", status: "審核失敗", edit: "新增日期/編輯內容", cancel: "取消", abc: "查看活動" },
 
             ],
+            datas: [],
+            checkWorks: [],
+            WorksTitle: '',
             titles: [
                 "活動名稱",
                 "地點",
@@ -308,6 +279,44 @@ const TravelEdit = {
         };
     },
     methods: {
+        checkstatus(index) {
+            if (this.datas[index].is_checked == '1') {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        timeMath(index) {
+            let startTime = new Date(Number(this.checkWorks[index].started_at));
+            let endTime = new Date(Number(this.checkWorks[index].ended_at));
+            let text = '';
+            text += (startTime.getHours() + 1 < 10 ? '0' : '') + startTime.getHours() + ':';
+            text += (startTime.getMinutes() + 1 < 10 ? '0' : '') + startTime.getMinutes();
+            text += "~";
+            text += (endTime.getHours() + 1 < 10 ? '0' : '') + endTime.getHours() + ':';
+            text += (endTime.getMinutes() + 1 < 10 ? '0' : '') + endTime.getMinutes();
+            return text;
+        },
+        dateMath(index) {
+            let startTime = new Date(Number(this.checkWorks[index].started_at));
+            let text = '';
+            text += startTime.getFullYear() + '-';
+            text += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '-';
+            text += (startTime.getDate() + 1 < 10 ? '0' : '') + startTime.getDate() + ' ';
+            return text;
+        },
+        gototravel(index) {
+            window.open(this.checkWorks[index].vedio_link);
+        },
+        checkeds(index) {
+            if (this.datas[index].is_checked == '1') {
+                return '審核通過';
+            } else if (this.datas[index].is_checked == '0') {
+                return '審核中';
+            } else if (this.datas[index].is_checked == '2') {
+                return '審核失敗';
+            }
+        },
         next() {
             if (this.now != this.total) {
                 this.show += 4;
@@ -324,10 +333,22 @@ const TravelEdit = {
             }
         },
         workcancel() {
+            this.checkWorks = [];
+            this.WorksTitle = '';
             this.showWork = !this.showWork;
         },
         changeWorks(index) {
-            this.showWork = !this.showWork;
+            axios.post('../../php/member_traveledit_checkwork.php', {
+                ID: 1,
+                product: this.datas[index].ID,
+                now: new Date().getTime()
+            }).then(res => {
+                let data = res.data;
+                this.checkWorks = data;
+            }).then(res => {
+                this.WorksTitle = this.datas[index].title;
+                this.showWork = !this.showWork;
+            })
         },
         mobileShowInfo(index) {
             let show = document.getElementsByClassName("travelValue")[index];
@@ -347,7 +368,6 @@ const TravelEdit = {
             }
         },
         AddTravel() {
-            console.log('1');
             this.add = !this.add;
         },
         cancel() {
@@ -385,6 +405,11 @@ const TravelEdit = {
         for (let i = 0; i < this.values.length; i++) {
             this.mobileshowinfo.push(false);
         }
+        axios.post('../../php/member_traveledit.php', {
+        }).then(res => {
+            let data = res.data;
+            this.datas = data;
+        })
     }, watch: {
         'screenwidth': function (val) {
             if (window.innerWidth < 996) {

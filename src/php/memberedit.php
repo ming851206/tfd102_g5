@@ -6,6 +6,7 @@ include('./conn.php');
 //  get 數值
 $getdata = json_decode(file_get_contents('php://input'), true);
 
+
 // print_r($getdata);
 //建立SQL
 $sql = "UPDATE  member SET name=? , password = ? , phone = ? , gender=?  , email=? , birthday = ? where ID = ? ";
