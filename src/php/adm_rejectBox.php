@@ -23,6 +23,6 @@ $statement->bindValue(1, $value);
 $statement->bindValue(2, $id);
 $statement->execute();
 
-echo('退件成功');
+echo('退件成功!');
 
 ?>
