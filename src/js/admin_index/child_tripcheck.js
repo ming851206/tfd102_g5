@@ -57,6 +57,8 @@ const TripCheck = {
             timestamp: '',
             showBox: false,
             boxID:'',
+            resTxt:'',
+            rejTxt:'',
             data: [
                 // {
                 //     num: 1,
@@ -74,7 +76,6 @@ const TripCheck = {
     },
     methods: {
         tripChecked(index) {
-           
             if (confirm('是否上架此旅遊?')) {
                 //把值傳給後端API
                 axios.post('http://localhost/php/adm_updateTrip_checked.php', JSON.stringify({
@@ -83,8 +84,12 @@ const TripCheck = {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }).then(res => console.log(res)); //then裡面要怎麼寫res取到的蟄存進一個變數?
-                alert('上架成功!');
+                }).then(res =>{
+                    this.resTxt = res.data;
+                    //console.log(this.resTxt);
+                    alert(`${this.resTxt}`);
+                }); 
+                
                 this.data.splice(index, 1);
             }
         },
@@ -94,7 +99,7 @@ const TripCheck = {
             this.showBox = true;
             this.boxID = this.data[index].ID;
         },
-        doReject(){      //真正的退件:在點擊退件表單的送出後
+        doReject(index){  //真正的退件:在點擊退件表單的送出後
             //console.log(this.boxID);
             let textValue = document.getElementById('rejectText').value;
             if(textValue == ""){
@@ -107,9 +112,14 @@ const TripCheck = {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }).then(res => alertTxt = res.data).then(alert(alertTxt));
+                }).then(res =>{
+                    this.rejTxt = res.data;
+                    //console.log(this.rejTxt);
+                    alert(`${this.rejTxt}`);
+                }); 
             }
-            
+            this.data.splice(index, 1);
+            this.showBox = false;
         },
         closeBox() {
             this.showBox = false;
