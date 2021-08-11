@@ -1,0 +1,220 @@
+.travel_payment_Body{
+    padding-bottom: 0px;
+    border: 1px solid black;
+    margin: 0 auto;
+    @include mobile{
+        padding-top: 0;
+    }
+
+    // 確認並付款
+    .payment_mainTitle{
+        width: 90%;
+        border: 1px solid red;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        margin: 0px auto;
+        padding: 60px 0;
+    }
+    .payment_mainTitle_h3{
+        padding-left: 30px;
+    }
+
+
+    // 你的旅遊資訊確認
+    .mainTitle_info_confirmation_container{
+        width: 90%;
+        margin: 0 auto;
+        border: 1px solid blue;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 2px solid $main_br;
+        padding-bottom: 30px;
+        
+
+        .mainTitle_info_confirmation_left{
+            margin-left: 10%;
+            width: 40%;
+            border: 1px solid red;
+            font-size: 20px;
+            .mainTitle_info_confirmation_left_h4{
+                font-size: 20px;
+                color: $main_br;
+                font-weight: bold;
+            }
+
+            >.mainTitle_info_confirmation_left_p{
+                padding-top: 20px;
+                font-size: 20px;
+                line-height: 1.5em;
+
+            }
+        }
+        /*
+        .mainTitle_info_confirmation_right{
+            margin: 0 auto;
+            width: 40%;
+            border: 1px solid red;
+            .mainTitle_info_confirmation_right_h4{
+                font-size: 20px;
+                color: $main_br;
+                font-weight: bold;
+            }
+
+            .right_people_box{
+                display: inline-flex;
+                margin-top: 20px;
+                border: 2px solid $main_br;
+                border-radius: 20px;
+                width: 300px;
+                padding: 20px;
+                justify-content: space-between;
+                align-items: center;
+
+                .right_people_box_input{
+                    border: 1px solid blue;
+                    // padding: 30px;
+                    font-size: 20px;
+                }
+            }
+        }
+        */
+    }
+
+    // 購買資訊內容
+    .payment_info_container{
+        margin: 0 auto;
+        padding: 50px 0;
+        border: 1px solid gray;
+        width: 90%;
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+        border-bottom: 2px solid $main_br;
+        .payment_info_block_left{
+            padding: 30px;
+            background-color: $main_ivory;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border: 1px solid red;
+            width: 40%;
+            display: flex;
+            .payment_info_block_left_upblock{
+                border: 1px solid red;
+                display: inline-flex;
+            }
+            .payment_info_block_left_img{
+
+                border: 1px solid red;
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+            .payment_info_block_left_title_area{
+                width: 55%;
+                border: 1px solid green;
+                margin-left: 5%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                // align-items: center;
+                .payment_info_block_left_title_area_star{
+                    display: inline-flex;
+                    align-items: center;
+                    border: 1px solid red;
+                }
+                >p{
+                    margin: 10px 0;
+                }
+            }
+
+            .payment_info_block_left_line{
+                width: 100%;
+                height: 2px;
+                margin: 20px 0;
+                border: 1px solid $main_br;
+            }
+            .payment_info_block_left_lastcon{
+                width: 60%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                // align-items: center;
+                // justify-content: center;
+                font-size: 20px;
+
+                border: 1px solid red;
+                .payment_info_block_left_price,.payment_info_block_left_sum{
+                    border: 1px solid red;
+                    justify-content: space-between;
+                    display: inline-flex;
+                    margin-top: 10px;
+                    // >p{
+                        // font-size: 20px;
+                    // }
+                }
+            }
+            .payment_info_block_left_remind{
+                border: 1px solid red;
+                margin-top: 20px;
+            }
+        }
+
+        .payment_info_block_right{
+            display: inline-flex;
+            border: 1px solid red;
+            // width: 40%;
+            max-width: 510px;
+            margin-left: 50px;
+            overflow: hidden;
+            border-radius: 20px;
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .payment_payCard_container{
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        border: 1px solid pink;
+        border-bottom: 2px solid $main_br;
+
+        .payment_payCard{
+            margin-left: 10%;
+            padding: 40px 0;
+        }
+        .payment_addcard{
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 50%;
+            border: 2px solid $main_br;
+            border-radius: 20px;
+            padding: 10px 30px;
+            margin-bottom: 35px;
+            .payment_addcard_input{
+                width: 75%;
+                font-size: 20px;
+                // outline: none;
+                // border: none;
+            }
+        }
+    }
+
+
+}
