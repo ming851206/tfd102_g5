@@ -71,6 +71,7 @@
             a {
                 position: relative;
                 padding: 15px 20px;
+                cursor: pointer;
 
                 &::after {
                     transition: all .5s;
@@ -90,6 +91,13 @@
                 }
 
             }
+            a.preChk{
+                &::after {
+                    background-color: $main_br;
+                    height: 2px;
+                    width: 100%;
+                }
+            }
         }
 
         .app_r {
@@ -99,7 +107,6 @@
             .qcard {
                 width: 100%;
                 margin-bottom: 20px;
-                
 
                 >p {
                     background-color: $sec_br;
