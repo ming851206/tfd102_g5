@@ -108,7 +108,7 @@ Vue.component('filterTrip', {
                                 <p class="area">{{item.place}}</p>
                             </div>
                             <h4 class="trip_intro">
-                                {{item.content}}
+                                {{item.title}}
                             </h4>
                             <p class="startprice">每人 $ {{item.event_price}} 起</p>
                         </div>
@@ -148,7 +148,7 @@ Vue.component('filterTrip', {
         filterList() { //搜尋功能
             // console.log('測試有進來篩選');
             return this.items.filter((item) => { //把data送下來使用filter功能
-                return item.content.includes(this.theInput);
+                return item.title.includes(this.theInput);
             })
         },
     },
