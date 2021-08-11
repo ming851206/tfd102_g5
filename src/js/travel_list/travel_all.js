@@ -351,7 +351,8 @@ Vue.component('all', {
             e.target.classList.toggle('clicked');
 
         },
-        share() {
+        share(e) {
+            e.preventDefault();
             FB.ui(
                 {
                     method: 'share',

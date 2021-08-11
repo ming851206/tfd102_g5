@@ -86,7 +86,8 @@ Vue.component('eu', {
             return click_status;
             // console.log(click_status);
         },
-        share() {
+        share(e) {
+            e.preventDefault();
             FB.ui(
                 {
                     method: 'share',
