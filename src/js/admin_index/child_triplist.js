@@ -13,22 +13,22 @@
                     <th>舉辦人</th>
                     <th>旅遊名稱</th>
                     <th>旅遊內容</th>
-                    <th>舉辦時間</th>
-                    <th>人數限制</th>
+                    <th>開始時間</th>
+                    <th class="numLimit">人數限制</th>
                     <th>是否額滿</th>
                     <th>價格</th>
                     <th>功能</th>
                 </tr>
-                    <tr v-for="trip in filterList" class="trans">
-                    <td v-text="trip.num"></td>
-                    <td v-text="trip.t_owner">Carlos</td>
-                    <td v-text="trip.t_title" class="textContent2"></td>
-                    <td v-text="trip.t_content" class="textContent3"></td>
-                    <td v-text="trip.t_startedat"></td>
-                    <td v-text="trip.t_numlimit"></td>
-                    <td v-text="trip.t_isgroup"></td>
-                    <td v-text="trip.t_price"></td>
-                    <td><button class="revoke" @click="revoke">下架</button></td>
+                    <tr v-for="(trip, index) in filterList" class="trans">
+                    <td v-text="trip.ID"></td>
+                    <td v-text="trip.name">Carlos</td>
+                    <td v-text="trip.title" class="textContent2"></td>
+                    <td v-text="trip.content" class="textContent3"></td>
+                    <td>{{timestampToTime(trip.started_at)}}</td>
+                    <td v-text="trip.total_people"></td>
+                    <td v-text="attendence == 1 ? '是':'否'"></td>
+                    <td v-text="'$'+trip.event_price"></td>
+                    <td><button class="revoke" @click="revoke(index)">下架</button></td>
                 </tr>
             </table>
 
@@ -50,70 +50,56 @@
             timestamp: '',
             search: '',
             data: [
-                {
-                    num: 1,
-                    t_owner: '錢夫人',
-                    t_title: '自由女神朝聖之旅',
-                    t_content: '紐約最美麗的地標，一起來一睹她美麗的風采',
-                    t_startedat: '2023/12/31',
-                    t_numlimit: '20',
-                    t_isgroup: false,
-                    t_price: '599',
-                    t_ischeck: false,
-                },
-                {
-                    num: 2,
-                    t_owner: '糖糖',
-                    t_title: '紐西蘭自然體驗',
-                    t_content: '該體驗從農場現場直播，並將首先介紹新西蘭',
-                    t_startedat: '2023/12/31',
-                    t_numlimit: '20',
-                    t_isgroup: false,
-                    t_price: '599',
-                    t_ischeck: false,
-                },
-                {
-                    num: 3,
-                    t_owner: '宮本寶藏',
-                    t_title: '京都森林浴',
-                    t_content: '大多數遊客為了千鳥居而造訪伏見稻荷神社，但很少深入了解這座神社的歷史和傳統。',
-                    t_startedat: '2023/12/31',
-                    t_numlimit: '20',
-                    t_isgroup: false,
-                    t_price: '599',
-                    t_ischeck: false,
-                },
-                {
-                    num: 4,
-                    t_owner: '金貝貝',
-                    t_title: '環遊世界180天遊覽',
-                    t_content: '咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀咿咿呀呀',
-                    t_startedat: '2023/12/31',
-                    t_numlimit: '20',
-                    t_isgroup: false,
-                    t_price: '599',
-                    t_ischeck: false,
-                },
+                // {
+                //     num: 1,
+                //     t_owner: '錢夫人',
+                //     t_title: '自由女神朝聖之旅',
+                //     t_content: '紐約最美麗的地標，一起來一睹她美麗的風采紐約最美麗的地標',
+                //     t_startedat: '2023/12/31',
+                //     t_numlimit: '20',
+                //     t_isgroup: false,
+                //     t_price: '599',
+                //     t_ischeck: false,
+                // },  
             ],
         }
     },
     computed: {
         filterList() { //搜尋功能
             return this.data.filter((trip) => { //把data送下來使用filter功能
-                return trip.t_title.includes(this.search);
+                return trip.title.includes(this.search);
             })
         },
+        attendence(){ //如果參加人數>=人數限制就顯示額滿
+            let trip = this.data;
+            for(let i=0; i<trip.length; i++){
+                // console.log(trip[i].attendence);
+                // console.log(trip[i].total_people);
+                if( trip[i].attendence >= trip[i].total_people ){
+                    return 1;
+                }else{
+                    return 0;
+                }
+            }
+        }
     },
     methods: {
-        revoke(e) {
-
+        revoke(index) {
+            //console.log(index);
+            console.log(this.data[0].ID);
             if (confirm('是否下架旅遊?')) {
-                let theTr = e.target.closest('tr');
-                theTr.classList.add('fadeOut'); //加轉場效果
+                
+                axios.get('http://localhost/php/adm_deleteTrip.php', {
+                    params: { 
+                        theID: this.data[0].ID
+                    }
+                 });
+                // let theTr = e.target.closest('tr');
+                // theTr.classList.add('fadeOut'); //加轉場效果
 
-                setTimeout(function () { //移除該項目
-                    theTr.remove();
-                }, 1000);
+                // setTimeout(function () { //移除該項目
+                //     theTr.remove();
+                // }, 1000);
 
             }
         },
@@ -128,6 +114,10 @@
             s = date.getSeconds();
             return this.timestamp = Y + M + D;
 
-        }
+        },
+      
+    },
+    mounted() {
+        axios.get('http://localhost/php/adm_triplist.php').then(res => this.data = res.data);
     },
 }

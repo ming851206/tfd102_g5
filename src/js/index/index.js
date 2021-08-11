@@ -221,10 +221,10 @@ const travel = Vue.component("travel-item", {
     data() {
         return {
             trips: [
-                { photo: "./images/index/content/travel_1.jpg", star: '5', num: "1503", place: "柬埔寨", title: "探索吳哥窟全景", price: "490" },
-                { photo: "./images/index/content/travel_2.jpg", star: '5', num: "583", place: "埃及", title: "揭開古埃及神秘面紗", price: "560" },
+                { photo: "./images/index/content/travel_1.jpg", star: '5', num: "1503", place: "柬埔寨", title: "探索吳哥窟全景", price: "590" },
+                { photo: "./images/index/content/travel_2.jpg", star: '5', num: "583", place: "埃及", title: "揭開古埃及神秘面紗", price: "720" },
                 { photo: "./images/index/content/travel_3.jpg", star: '4.9', num: "888", place: "南非", title: "暢遊非洲野生動物園", price: "830" },
-                { photo: "./images/index/content/travel_4.jpg", star: '4.9', num: "55", place: "義大利", title: "漫步古羅馬遺址", price: "530" },
+                { photo: "./images/index/content/travel_4.jpg", star: '4.9', num: "55", place: "義大利", title: "漫步古羅馬遺址", price: "690" },
             ]
         }
     }

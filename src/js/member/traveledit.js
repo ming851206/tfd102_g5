@@ -5,7 +5,7 @@ const TravelEdit = {
                             <h2>管理旅遊</h2>
                         </div>
                         <div id="travelAdd">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" @click ="AddTravel">
                                     <g id="Group_291" data-name="Group 291" transform="translate(-13431 -1300)">
                                         <g id="Group_290" data-name="Group 290">
                                             <g id="Ellipse_81" data-name="Ellipse 81" transform="translate(13431 1300)" fill="#fff" stroke="#707070" stroke-width="1">
@@ -97,8 +97,6 @@ const TravelEdit = {
                                         <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M14.434,8.357h-5v-5a1.11,1.11,0,0,0-1.11-1.11H7.217a1.11,1.11,0,0,0-1.11,1.11v5h-5A1.11,1.11,0,0,0,0,9.467v1.11a1.11,1.11,0,0,0,1.11,1.11h5v5a1.11,1.11,0,0,0,1.11,1.11h1.11a1.11,1.11,0,0,0,1.11-1.11v-5h5a1.11,1.11,0,0,0,1.11-1.11V9.467A1.11,1.11,0,0,0,14.434,8.357Z" transform="translate(13435.721 1302.485)"/>
                                     </g>
                                 </svg>
-                                <div id="clickAdd">
-                                </div>
                         </div>
                         <div v-if="mobile == false">
                             <div id="travelNavBar">
@@ -106,18 +104,12 @@ const TravelEdit = {
                                     <p >{{title}}</p>
                                 </div>
                             </div>
-                            <div class="travelValue" v-for="value in values">
+                            <div class="travelValue" v-for="(value,index) in values">
                                 <div class="travelP">
                                     <p>{{value.title}}</p>
                                 </div>
                                 <div class="travelP">
                                     <p>{{value.category}}</p>
-                                </div>
-                                <div class="travelP">
-                                    <p>{{value.date}}</p>
-                                </div>
-                                <div class="travelP">
-                                    <p>{{value.time}}</p>
                                 </div>
                                 <div class="travelP">
                                     <p>{{value.people}}</p>
@@ -131,16 +123,19 @@ const TravelEdit = {
                                 <div class="travelP">
                                     <p>{{value.cancel}}</p>
                                 </div>
+                                <div class="travelP" @click="changeWorks(index)">
+                                    <p>{{value.abc}}</p>
+                                </div>
                             </div>
                         </div>
 
                         <div v-else>
                             <div class="travelValue" v-for="(value,index) in values"   >
                                 <div class="travelP" @click="mobileShowInfo(index)">
-                                    <p>主題名稱：{{value.title}}</p>
+                                    <p>活動名稱：{{value.title}}</p>
                                 </div>
                                 <div class="travelP">
-                                    <p>類別：{{value.category}}</p>
+                                    <p>地點：{{value.category}}</p>
                                 </div>
                                 <div class="travelP">
                                     <p>日期：{{value.date}}</p>
@@ -162,6 +157,95 @@ const TravelEdit = {
                                 </div>
                             </div>
                         </div>
+                        <div id="checkWork" v-if="showWork==true">
+                                <div class="body">
+                                    <h2>尼加瓜拉大瀑布一起感受世界三大跨國瀑布。</h2>
+                                    <div class="workborder">
+                                        <div class="titlesborders">
+                                            日期
+                                        </div>
+                                        <div class="titlesborders">
+                                            時間
+                                        </div>
+                                        <div class="titlesborders">
+                                           人數
+                                        </div>
+                                        <div class="titlesborders">
+                                        </div>
+                                         <div class="titlesborders">
+
+                                        </div>
+                                    </div>
+                                    <div class="workborder">
+                                        <div class="titlesborders">
+                                            2021.07.13
+                                        </div>
+                                        <div class="titlesborders">
+                                         1400~1500
+                                        </div>
+                                        <div class="titlesborders">
+                                           11
+                                        </div>
+                                        <div class="titlesborders">
+                                           前往旅遊
+                                        </div>
+                                        <div class="titlesborders">
+                                           取消
+                                        </div>
+                                    </div>
+                                    <div class="workborder">
+                                        <div class="titlesborders">
+                                            日期
+                                        </div>
+                                        <div class="titlesborders">
+                                           時間
+                                        </div>
+                                        <div class="titlesborders">
+                                            人數
+                                        </div>
+                                        <div class="titlesborders">
+                                           前往旅遊
+                                        </div>
+                                        <div class="titlesborders">
+                                           取消
+                                        </div>
+                                    </div>
+                                    <div class="workborder">
+                                        <div class="titlesborders">
+                                            日期
+                                        </div>
+                                        <div class="titlesborders">
+                                           時間
+                                        </div>
+                                        <div class="titlesborders">
+                                            人數
+                                        </div>
+                                        <div class="titlesborders">
+                                           前往旅遊
+                                        </div>
+                                        <div class="titlesborders">
+                                           取消
+                                        </div>
+                                    </div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994" @click="workcancel" class="closed">
+                                        <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z" transform="translate(-11.285 -11.289)" fill="#996A4D"/>
+                                    </svg>
+                                    <div class="loveNumberNav">
+                                            <div class="loveNavs">
+                                                    <div class="loveLeft" @click = "back">
+                                                        <
+                                                    </div>
+                                                    <div class="mid">
+                                                        {{now}}/{{total}}
+                                                    </div>
+
+                                                    <div class="loveRight" @click ="next">
+                                                        >
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
 
                         <div class="loveNumberNav">
                             <div class="loveNavs">
@@ -195,19 +279,18 @@ const TravelEdit = {
     data() {
         return {  //組件的變數寫在這裡！
             values: [
-                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", date: "06月23日 周三", time: "上午5:00 - 上午 6:00", people: "13人", status: "審核通過", edit: "編輯", cancel: "取消" },
-                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", date: "06月23日 周三", time: "上午5:00 - 上午 6:00", people: "0 人", status: "審核通過", edit: "編輯", cancel: "取消" },
-                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", date: "", time: "", people: "", status: "審核中", edit: "編輯", cancel: "取消" },
-                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", date: "", time: "", people: "", status: "審核失敗", edit: "修改", cancel: "取消" },
+                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", people: "13人", status: "審核通過", edit: "新增日期/編輯內容", cancel: "取消", abc: "查看活動" },
+                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", people: "0 人", status: "審核通過", edit: "新增日期/編輯內容", cancel: "取消", abc: "查看活動" },
+                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", people: "", status: "審核中", edit: "新增日期/編輯內容", cancel: "取消", abc: "查看活動" },
+                { title: "尼加瓜拉大瀑布一起感受世界三大跨國瀑布。", category: "美國", people: "", status: "審核失敗", edit: "新增日期/編輯內容", cancel: "取消", abc: "查看活動" },
 
             ],
             titles: [
-                "主題名稱",
-                "類別",
-                "日期",
-                "時間",
-                "人數",
+                "活動名稱",
+                "地點",
+                "上限人數",
                 "審核狀態",
+                "　　",
                 "　　",
                 "　　"
             ],
@@ -217,10 +300,35 @@ const TravelEdit = {
             mobile: false,
             screenwidth: window.innerWidth,
             mobileshowinfo: [],
-
+            showWork: false,
+            show: 4,
+            now: 0,
+            total: 0,
+            close: 0,
         };
     },
     methods: {
+        next() {
+            if (this.now != this.total) {
+                this.show += 4;
+                this.close += 4;
+                this.now++;
+            }
+        },
+        back() {
+            if (this.now > 1) {
+                this.show -= 4;
+                this.close -= 4;
+                this.now--;
+
+            }
+        },
+        workcancel() {
+            this.showWork = !this.showWork;
+        },
+        changeWorks(index) {
+            this.showWork = !this.showWork;
+        },
         mobileShowInfo(index) {
             let show = document.getElementsByClassName("travelValue")[index];
             console.log(show.classList);
@@ -239,7 +347,8 @@ const TravelEdit = {
             }
         },
         AddTravel() {
-            this.add = true;
+            console.log('1');
+            this.add = !this.add;
         },
         cancel() {
             this.add = false;
