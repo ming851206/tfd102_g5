@@ -742,6 +742,7 @@
     cursor: pointer;
     color: blue;
     border-bottom: 1px solid blue;
+    width: 35px;
 
     @include laptop {
         margin-bottom: 10px;
@@ -783,11 +784,10 @@
     border-radius: 20px;
     overflow: hidden;
     height: 50px;
-    align-items: center;
     // justify-content: space-around;
     width: 836px;
     margin-top: 20px;
-    text-align: center;
+    align-items: center;
     flex-wrap: nowrap;
 
     @include laptop {
@@ -899,7 +899,6 @@
     .travelP {
         margin-left: 20px;
         overflow: hidden;
-        text-align: center;
 
         @include laptop {
             margin-left: 4px;
@@ -1093,7 +1092,7 @@
 
 
 
-        &:last-child {
+        &:nth-child(7) {
             margin-right: 30px;
             width: 60px;
             cursor: pointer;
@@ -1116,7 +1115,7 @@
 #checkWork {
     background-color: #80808059;
     z-index: 100;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -1161,6 +1160,7 @@
             .titlesborders {
                 margin-left: 60px;
                 width: 70px;
+                white-space: nowrap;
 
                 &:first-child {
                     margin-left: 20px;

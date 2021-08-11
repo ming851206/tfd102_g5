@@ -1,5 +1,5 @@
-  // ========== 旅程列表(綺) ========== 
-  const TripList = {
+   // ========== 旅程列表(綺) ========== 
+   const TripList = {
     template: `
         <div class="temp2">
             <h3>旅程列表</h3>
@@ -47,8 +47,10 @@
 ` ,
     data() {
         return {
+            now:0,
             timestamp: '',
             search: '',
+            delTxt:'',
             data: [
                 // {
                 //     num: 1,
@@ -84,16 +86,24 @@
         }
     },
     methods: {
+        
         revoke(index) {
-            //console.log(index);
-            console.log(this.data[0].ID);
+            var date = new Date();
+            this.now = date.getTime();
+            
             if (confirm('是否下架旅遊?')) {
                 
                 axios.get('http://localhost/php/adm_deleteTrip.php', {
                     params: { 
-                        theID: this.data[0].ID
+                        theID: this.data[index].ID,
+                        delTime: this.now
                     }
-                 });
+                 }).then(res =>{
+                    this.delTxt = res.data;
+                    alert(`${this.delTxt}`);
+                });
+
+                this.data.splice(index, 1);
                 // let theTr = e.target.closest('tr');
                 // theTr.classList.add('fadeOut'); //加轉場效果
 
@@ -103,6 +113,7 @@
 
             }
         },
+       
         timestampToTime(timestamp) {
 
             var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000

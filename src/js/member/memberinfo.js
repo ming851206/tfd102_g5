@@ -55,7 +55,9 @@ const MemberInfo = {
 
                                     <div class="nameBorder">
                                             <div class="memberInfoName">出生日期</div>
-                                            <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:470px;" type="date" @keyup="inputtype(2,$event)" id="memberHBYdate">
+                                            <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:470px;" type="date" @keyup="inputtype(2,$event)" id="memberHBYdate" v-if="editValue[2]==null">
+
+                                            <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:470px;" type="input" @keyup="inputtype(2,$event)" id="memberHBYdate"  disabled v-else>
                                     </div>
                                     <div class="nameBorder">
                                             <div class="memberInfoName">手機號碼</div>
