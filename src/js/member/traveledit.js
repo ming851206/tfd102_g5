@@ -291,6 +291,20 @@ const TravelEdit = {
                     transform="translate(-11.285 -11.289)" fill="#996A4D" />
             </svg>
             <div class="loveNumberNav">
+            <div class="loveNavs">
+                <div class="loveLeft">
+                    &lt; </div>
+                <div class="mid">
+                    1/2
+                </div>
+
+                <div class="loveRight">
+                    &gt;
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="loveNumberNav">
                 <div class="loveNavs">
                     <div class="loveLeft" @click="back">
                         < </div>
@@ -304,21 +318,7 @@ const TravelEdit = {
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="loveNumberNav">
-            <div class="loveNavs">
-                <div class="loveLeft">
-                    &lt; </div>
-                <div class="mid">
-                    1/2
-                </div>
-
-                <div class="loveRight">
-                    &gt;
-                </div>
-            </div>
-        </div>
         <div class="mobileLoveBtn">
             <button class="btnL_light">顯示更多</button>
         </div>
@@ -520,7 +520,6 @@ const TravelEdit = {
         },
         mobileShowInfo(index) {
             let show = document.getElementsByClassName("travelValue")[index];
-            console.log(show.classList);
             if (!show.classList.contains("mobileshowinfo")) {
                 show.classList.add("mobileshowinfo");
             } else {
@@ -547,22 +546,27 @@ const TravelEdit = {
 
         },
         confirms() {
-            axios.post('../../php/member_edit_addproduct.php', {
-                ID: 1,
-                productTitle: this.userAdd[0],
-                category: this.userAdd[1],
-                place: this.userAdd[2],
-                event_price: this.userAdd[3],
-                content: this.userAdd[4],
-                pic: this.files
-            }).then(res => {
-                let data = res.data;
-                console.log(data);
-            })
-            this.userAdd = ['', '1', '', '', ''];
-            this.files = [];
-            this.add = false;
-            this.pops = true;
+            if (this.userAdd[0] != '' && this.userAdd[1] != '' && this.userAdd[2] != '' && this.userAdd[3] != '' && this.userAdd[4] != '') {
+                axios.post('../../php/member_edit_addproduct.php', {
+                    ID: 1,
+                    productTitle: this.userAdd[0],
+                    category: this.userAdd[1],
+                    place: this.userAdd[2],
+                    event_price: this.userAdd[3],
+                    content: this.userAdd[4],
+                    pic: this.files
+                }).then(res => {
+                    let data = res.data;
+                    this.datas = data;
+                    this.userAdd = ['', '1', '', '', ''];
+                    this.files = [];
+                    this.add = false;
+                    this.pops = true;
+                })
+            } else {
+                alert('欄位不能為空');
+            }
+
         },
         popconfirms() {
             this.pops = false;
@@ -601,6 +605,11 @@ const TravelEdit = {
         }).then(res => {
             let data = res.data;
             this.datas = data;
+        }).then(function () {
+            this.total = Math.ceil(this.datas.length / 4);
+            if (this.datas.length > 0) {
+                this.now = 1;
+            }
         })
     }, watch: {
         'screenwidth': function (val) {
