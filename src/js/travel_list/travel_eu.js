@@ -147,6 +147,11 @@ Vue.component('eu', {
             )
         },
     },
+    // watch:{
+    //     favs(){   // 偵聽 favs 的變動，有變動時就重新抓取最愛旅遊
+    //         this.getAllFavs();
+    //     }
+    // },
     mounted() {
         //==================== 篩選旅遊 =======================
         axios.get('http://localhost/php/showTrip.php', {
@@ -159,9 +164,7 @@ Vue.component('eu', {
             this.item_counts = res.data.length; // 旅遊筆數
             this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list 的值
         });
-     //==================== 所有的最愛旅遊 =======================          
-    axios.get('http://localhost/php/showFav.php').then(res => {
-        this.favs = res.data; // 旅遊內容
-    });
+        //==================== 取得所有最愛旅遊 =======================        
+        this.getAllFavs();
     },
 });

@@ -146,6 +146,11 @@ Vue.component('us', {
             )
         },
     },
+    // watch:{
+    //     favs(){   // 偵聽 favs 的變動，有變動時就重新抓取最愛旅遊
+    //         this.getAllFavs();
+    //     }
+    // },
     mounted() {
         //==================== 篩選旅遊 =======================
         axios.get('http://localhost/php/showTrip.php', {

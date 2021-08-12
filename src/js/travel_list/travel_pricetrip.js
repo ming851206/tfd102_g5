@@ -128,9 +128,10 @@ Vue.component('priceTrip', {
             e.target.classList.toggle('clicked');
         },
         // 取得所有最愛旅遊
-        getAllFavs(){
+        getAllFavs() {
+            // console.log('取得所有最愛旅遊');
             axios.get('http://localhost/php/showFav.php').then(res => {
-                    this.favs = res.data; // 旅遊內容
+                this.favs = res.data; // 旅遊內容
             });
         },
 
@@ -162,10 +163,10 @@ Vue.component('priceTrip', {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次新增後的最愛旅遊
-            ); 
+            );
         },
 
         // removeFav 刪除最愛旅遊
@@ -178,10 +179,10 @@ Vue.component('priceTrip', {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次刪除後的最愛旅遊
-                );
+            );
         },
 
         // fb 分享
@@ -211,12 +212,21 @@ Vue.component('priceTrip', {
             })
         },
     },
+    // watch:{
+    //     favs(){   // 偵聽 favs 的變動，有變動時就重新抓取最愛旅遊
+    //         this.getAllFavs();
+    //     }
+    // },
     mounted() {
+        //==================== 搜尋旅遊 =======================
         axios.get('http://localhost/php/searchTrip.php')
-        .then(res => {
-            // console.log('filter');
-            // console.log(res.data);
-            this.items = res.data; // 旅遊內容
-        });
+            .then(res => {
+                // console.log('filter');
+                // console.log(res.data);
+                this.items = res.data; // 旅遊內容
+            });
+
+        //==================== 取得所有最愛旅遊 =======================        
+        this.getAllFavs();
     },
 });

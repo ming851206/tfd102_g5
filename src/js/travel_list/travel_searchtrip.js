@@ -82,7 +82,10 @@ Vue.component('filterTrip', {
                 //         trip_intro: "穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。",
                 //         startprice: "399",
                 //     },
-            ]
+            ],
+            favs: [  // 最愛旅遊
+
+            ],
         };
     },
     template: `
@@ -100,7 +103,7 @@ Vue.component('filterTrip', {
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
-                                <div class="fav" @click="changeiColor"></div>
+                                <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="is_fav(item.ID) ? deleteFav(item.ID) : addFav(item.ID)"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -125,9 +128,9 @@ Vue.component('filterTrip', {
             e.target.classList.toggle('clicked');
         },
         // 取得所有最愛旅遊
-        getAllFavs(){
+        getAllFavs() {
             axios.get('http://localhost/php/showFav.php').then(res => {
-                    this.favs = res.data; // 旅遊內容
+                this.favs = res.data; // 旅遊內容
             });
         },
 
@@ -159,10 +162,10 @@ Vue.component('filterTrip', {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次新增後的最愛旅遊
-            ); 
+            );
         },
 
         // removeFav 刪除最愛旅遊
@@ -175,10 +178,10 @@ Vue.component('filterTrip', {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次刪除後的最愛旅遊
-                );
+            );
         },
 
         // fb 分享
@@ -208,7 +211,14 @@ Vue.component('filterTrip', {
             })
         },
     },
+    // watch:{
+    //     favs(){   // 偵聽 favs 的變動，有變動時就重新抓取最愛旅遊
+    //         this.getAllFavs();
+    //     }
+    // },
     mounted() {
+        //==================== 搜尋旅遊 =======================
+
         axios.get('http://localhost/php/searchTrip.php', {
             params: {  // 帶參數
                 search_item: this.theInput // 搜尋內容
@@ -218,5 +228,8 @@ Vue.component('filterTrip', {
             // console.log(res.data);
             this.items = res.data; // 旅遊內容
         });
+
+        //==================== 取得所有最愛旅遊 =======================        
+        this.getAllFavs();
     },
 });
