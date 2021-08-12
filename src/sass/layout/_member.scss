@@ -815,7 +815,7 @@
         }
 
         &:nth-child(2) {
-            width: 50px;
+            width: 63px;
 
             @include laptop {
                 width: 65px;
@@ -1027,7 +1027,7 @@
         }
 
         &:nth-child(3) {
-            width: 30px;
+            width: 50px;
 
             @include laptop {
                 width: 143px;
@@ -1217,6 +1217,11 @@
         width: 420px;
         margin-left: 10px;
         background-color: $main_ivory;
+        color: gray;
+
+        &:nth-child(3) {
+            color: black;
+        }
     }
 
     .closed {

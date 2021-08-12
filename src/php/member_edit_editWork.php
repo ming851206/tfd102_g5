@@ -2,7 +2,6 @@
 include("./conn.php");
 
     $getdata = json_decode(file_get_contents('php://input'), true);
-
     //建立SQL
     $sql = "select *
                     from session s1
@@ -16,11 +15,22 @@ include("./conn.php");
     //執行
     $statement = getPDO()->prepare($sql);
     //給值
-    $statement->bindValue(1, $getdata['ID']);
-    $statement->bindValue(2, $getdata['product']);
+    $statement->bindValue(1, 1);
+    $statement->bindValue(2, $getdata['index']);
     $statement->bindValue(3, $getdata['now']);
     $statement->execute();
     $data = $statement->fetchAll();
-    echo json_encode($data);
+    if(count($data) < 1){
+        $sqls = "UPDATE product_info SET event_price = ? , content = ? where ID = ?;";
 
+        $statement = getPDO()->prepare($sqls);
+        //給值
+        $statement->bindValue(1, $getdata['money']);
+        $statement->bindValue(2, $getdata['text']);
+        $statement->bindValue(3, $getdata['index']);
+        $statement->execute();
+        echo 1;
+    }else{
+        echo 0;
+    }
 ?>

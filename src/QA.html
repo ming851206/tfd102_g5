@@ -244,7 +244,7 @@
                             headers: {
                                 'Content-Type': 'application/json'
                             }
-                        }).then(res => {
+                        }).then(res => { //有多行內容用大括號包起來
                             this.resTxt = res.data;
                             //console.log(this.rejTxt);
                             alert(`${this.resTxt}`);
@@ -275,6 +275,10 @@
 
                     }
                 },
+            },
+            mounted() {
+                let preSet = document.getElementsByClassName('preChk')[0];
+                preSet.click();
             },
         });
     </script>

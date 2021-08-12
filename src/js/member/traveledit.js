@@ -122,7 +122,7 @@ const TravelEdit = {
                 <p>{{value.place}}</p>
             </div>
             <div class="travelP">
-                <p>{{value.total_people}}</p>
+                <p>{{value.event_price}}元</p>
             </div>
             <div class="travelP">
                 <p>{{checkeds(index)}}</p>
@@ -208,7 +208,7 @@ const TravelEdit = {
             </div>
             <div class="travelInputBorder">
                 <div class="travelInputEditTitle"><span>價格：</span></div>
-                <input :value="userAdd[3]" disabled>
+                <input :value="userAdd[3]" @keyup="editText(3,$event)">
             </div>
                     <!--
                     <div class="travelInputBorder Imginput">
@@ -233,7 +233,7 @@ const TravelEdit = {
                     -->
             <div class="travelInputBorder Content">
                 <div class="travelInputEditTitle"><span>活動內容：</span></div>
-                <textarea placeholder="活動內容" :value="userAdd[4]"> </textarea>
+                <textarea placeholder="活動內容" :value="userAdd[4]" @keyup="editText(4,$event)"> </textarea>
             </div>
 
             <div class="memberEditCancel">
@@ -356,7 +356,7 @@ const TravelEdit = {
             titles: [
                 "活動名稱",
                 "地點",
-                "上限人數",
+                "價格",
                 "審核狀態",
                 "　　",
                 "　　",
@@ -378,12 +378,29 @@ const TravelEdit = {
         };
     },
     methods: {
+        editText(index, event) {
+            this.userAdd[index] = '';
+            this.userAdd[index] = event.target.value;
+        },
         EditConfirms() {
-            console.log(this.indexs);
-            console.log(this.$refs.addInput);
-            this.index = '';
-            this.WorksTitle = '';
-            this.editWork = false;
+            axios.post('../../php/member_edit_editWork.php', {
+                index: this.datas[this.indexs].ID,
+                money: this.userAdd[3],
+                text: this.userAdd[4],
+                now: new Date().getTime(),
+            }).then(res => {
+                let data = res.data;
+                console.log(data);
+                if (data == 0) {
+                    alert('請等待活動結束後再進行編輯');
+                } else {
+                    alert('修改完成');
+                }
+                this.userAdd = ['', '1', '', '', ''];
+                this.index = '';
+                this.WorksTitle = '';
+                this.editWork = false;
+            })
         },
         EditWorks(index) {
             this.userAdd = [];
@@ -397,11 +414,26 @@ const TravelEdit = {
             this.editWork = !this.editWork;
         },
         addConfirms() {
-            console.log(this.indexs);
-            console.log(this.$refs.addInput);
-            this.index = '';
-            this.WorksTitle = '';
-            this.addD = false;
+            let now = new Date().getTime() + (24 * 60 * 60 * 1000);
+            let set = new Date(this.$refs.addInput.value).getTime();
+            if (this.$refs.addInput.value != '' && set > now) {
+                axios.post('../../php/member_edit_addWork.php', {
+                    index: this.datas[this.indexs].ID,
+                    start: set,
+                    end: set + (60 * 60 * 1000),
+                }).then(res => {
+                    if (res.data == 1) {
+                        alert('新增成功');
+                        this.index = '';
+                        this.WorksTitle = '';
+                        this.addD = false;
+                    } else {
+                        alert('新增失敗');
+                    }
+                })
+            } else {
+                alert('選擇時間不能為空或者時間要一天後')
+            }
         },
         addDate(index) {
             this.WorksTitle = this.datas[index].title;
@@ -515,6 +547,18 @@ const TravelEdit = {
 
         },
         confirms() {
+            axios.post('../../php/member_edit_addproduct.php', {
+                ID: 1,
+                productTitle: this.userAdd[0],
+                category: this.userAdd[1],
+                place: this.userAdd[2],
+                event_price: this.userAdd[3],
+                content: this.userAdd[4],
+                pic: this.files
+            }).then(res => {
+                let data = res.data;
+                console.log(data);
+            })
             this.userAdd = ['', '1', '', '', ''];
             this.files = [];
             this.add = false;
