@@ -82,7 +82,10 @@ Vue.component('priceTrip', {
                 //         trip_intro: "穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。",
                 //         startprice: "399",
                 //     },
-            ]
+            ],
+            favs: [  // 最愛旅遊
+
+            ],
         };
     },
     template: `
@@ -100,7 +103,7 @@ Vue.component('priceTrip', {
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
-                                <div class="fav" @click="changeiColor"></div>
+                                <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="is_fav(item.ID) ? deleteFav(item.ID) : addFav(item.ID)"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -110,7 +113,7 @@ Vue.component('priceTrip', {
                             <h4 class="trip_intro">
                                 {{item.title}}
                             </h4>
-                            <p class="startprice">每人 $ {{item.event_price}} 起</p>
+                            <p class="startprice">每人 $ {{item.event_price}} </p>
                         </div>
                     </div>
                 </a>
@@ -123,15 +126,71 @@ Vue.component('priceTrip', {
             e.preventDefault();
             // console.log(e.target);
             e.target.classList.toggle('clicked');
-
         },
+        // 取得所有最愛旅遊
+        getAllFavs(){
+            axios.get('http://localhost/php/showFav.php').then(res => {
+                    this.favs = res.data; // 旅遊內容
+            });
+        },
+
+        // 判斷該旅遊是否為最愛
+        is_fav(item_id) {
+            // console.log(this.favs);
+            let favs = this.favs; // 所有最愛的旅遊
+            let click_status = false; // 預設點擊狀態是 ''
+            favs.forEach(function (fav) { // 比對最愛旅遊的 id 是否等於 旅遊商品 id，如果是，click_status = true
+                let fav_id = fav.product_info_ID;
+                if (fav_id == item_id) {
+                    // console.log('有一樣');
+                    // console.log('這是 item_id' + item_id);
+                    // console.log('這是 fav_id' + fav_id);
+                    click_status = true;
+                }
+            });
+            return click_status;
+        },
+
+        // addFav 新增最愛旅遊
+        // 參數：itemID, memberID
+        // method: post
+        addFav(itemID) {
+            axios.post('http://localhost/php/addFav.php', JSON.stringify({
+                memberID: 2,
+                itemID: itemID,
+            }), {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => 
+                // console.log(res.data)
+                this.getAllFavs() // 重新取得一次新增後的最愛旅遊
+            ); 
+        },
+
+        // removeFav 刪除最愛旅遊
+        // 參數：itemID, memberID
+        // method: post
+        deleteFav(itemID) {
+            axios.post('http://localhost/php/deleteFav.php', JSON.stringify({
+                itemID: itemID,
+            }), {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => 
+                // console.log(res.data)
+                this.getAllFavs() // 重新取得一次刪除後的最愛旅遊
+                );
+        },
+
+        // fb 分享
         share(e) {
             e.preventDefault();
             FB.ui(
                 {
                     method: 'share',
                     href: 'https://tibamef2e.com/tfd102/project/g5/travel_list.html',
-                    // href: 'https://tibamef2e.com/tfd102/project/g5/postcard.html',
                 },
                 // callback
                 function (response) {

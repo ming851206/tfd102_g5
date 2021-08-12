@@ -191,7 +191,7 @@ Vue.component('all', {
                                     <h4 class="trip_intro">
                                         穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。
                                     </h4>
-                                    <p>每人 $ 800 TWD 起</p>
+                                    <p>每人 $ 800 TWD </p>
                                 </div>
                             </div>
                         </a>
@@ -219,7 +219,7 @@ Vue.component('all', {
                                         <h4 class="trip_intro">
                                             遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
                                         </h4>
-                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                                        <p class="startprice">每人 $ 800 TWD </p>
                                     </div>
                                 </div>
                             </div>
@@ -247,7 +247,7 @@ Vue.component('all', {
                                         <h4 class="trip_intro">
                                             羅浮宮象徵藝術，撼動人心之情久久保留
                                         </h4>
-                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                                        <p class="startprice">每人 $ 800 TWD </p>
                                     </div>
                                 </div>
                             </div>
@@ -281,7 +281,7 @@ Vue.component('all', {
                                 <h4 class="trip_intro">
                                     {{item.trip_intro}}
                                 </h4>
-                                <p class="startprice">每人$ {{item.startprice}} 起</p>
+                                <p class="startprice">每人$ {{item.startprice}} </p>
                             </div>
                         </div>
                     </a>
@@ -335,7 +335,7 @@ Vue.component('all', {
                                         <h4 class="trip_intro">
                                             {{item.trip_intro}}
                                         </h4>
-                                        <p class="startprice">每人$ {{item.startprice}} 起</p>
+                                        <p class="startprice">每人$ {{item.startprice}} </p>
                                     </div>
                                 </div>
                             </a>

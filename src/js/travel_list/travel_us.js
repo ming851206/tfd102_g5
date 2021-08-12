@@ -53,7 +53,7 @@ Vue.component('us', {
                             <h4 class="trip_intro">
                                 {{item.title}}
                             </h4>
-                            <p class="startprice">每人 $ {{item.event_price}} 起</p>
+                            <p class="startprice">每人 $ {{item.event_price}} </p>
                         </div>
                     </div>
                 </a>
