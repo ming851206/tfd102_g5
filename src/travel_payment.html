@@ -206,13 +206,27 @@
                 <h4>選擇以下按鈕即代表您同意參加者免責聲明、退訂政策和參加者退款政策。</h4>
             </div>
             <div class="payment_add_btn_block">
-                <button type="button" class="btnL">確認並付款</button>
+                <button type="button" class="btnL" @click="payment_add_btn">確認並付款</button>
             </div>
         </div>
 
         <!-- 付款成功彈窗 -->
-        <div class="pay_success_container">
-
+        <div id="pay_success_outerDiv_container" v-if="successShow">
+            <!-- 黑背景 -->
+            <div id="pay_success_outerDiv_bg">
+                <!-- 付款成功框框 -->
+                <div class="pay_success_block">
+                    <div class="pay_success_area">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26.846" viewBox="0 0 36 26.846">
+                            <path id="Icon_awesome-check" data-name="Icon awesome-check" d="M12.227,30.9.527,19.2a1.8,1.8,0,0,1,0-2.546L3.073,14.1a1.8,1.8,0,0,1,2.546,0L13.5,21.986,30.382,5.1a1.8,1.8,0,0,1,2.546,0L35.473,7.65a1.8,1.8,0,0,1,0,2.546l-20.7,20.7A1.8,1.8,0,0,1,12.227,30.9Z" transform="translate(0 -4.577)" fill="#996A4D"/>
+                        </svg>
+                        <h3>付款成功</h3>
+                    </div>
+                    <div class="pay_success_btn_block">
+                        <button type="button" class="btnM" @click="payment_add_btn">確認</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -232,6 +246,7 @@
                     addcard_value:'輸入信用卡',
                     addDiscount_value: '輸入優惠碼',
                     choose_discount_value: '跳轉世界玩翻天 75 折優惠',
+                    successShow: false,
                 }
             },
             methods: {
@@ -246,9 +261,18 @@
                 discount_btn() {
                     this.discountShow =!this.discountShow;
                 },
-                choose_discount(){
+                choose_discount() {
                     this.addDiscount_value = this.choose_discount_value;
                     this.discountShow =!this.discountShow;
+                },
+
+                // 付款成功彈窗
+                payment_add_btn() {
+                    if(this.successShow == false){
+                        this.successShow = true;
+                    } else {
+                        this.successShow = false;
+                    }
                 },
             },
         });
