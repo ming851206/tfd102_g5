@@ -1,0 +1,557 @@
+@mixin border-bottom {
+    border-bottom: 3px solid #996A4D;
+    padding: 0 20px 50px ;
+    margin-bottom: 60px;
+}
+@mixin select_icon {
+    background-repeat: no-repeat;
+    background-size: 28px, 25px;
+    background-position: left 15px top 9.3px, top 10px right 12px;
+}
+@mixin tripcard {
+    display: flex;
+    flex-direction: column;
+    height: 70vh;
+    max-height: 530px;
+
+    .pic {
+        // border: 2px solid red;
+        height: 50%;
+        display: flex;
+        justify-content: flex-end;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .content {
+        // border: 2px solid red;
+        height: 50%;
+        padding: 60px 20px 30px 20px;
+        background-color: #FAF9F2;
+        position: relative;
+
+        .avatar img {
+            border: 6px solid white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            position: absolute;
+            top: -25%;
+            left: 50%;
+            transform: translateX(-50%);
+            object-fit: cover;
+        }
+
+        .the_icon {
+            // border: 2px solid red;
+            display: flex;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            margin-left: 5px;
+
+            @include mobile {
+                // border: 2px solid red;
+
+                right: 2px;
+                // margin-left: 1px;
+
+            }
+
+            .share {
+                // border: 2px solid red;
+                background-image: url('../../images/icon/share.svg');
+                width: 20px;
+                height: 22px;
+                background-size: 14px;
+                background-repeat: no-repeat;
+
+                @include ipad {
+                    // border: 2px solid blue;
+                    width: 14px;
+                    height: 15px;
+                    background-size: 11px;
+                }
+
+                @include mobile {
+                    // border: 2px solid blue;
+                    width: 14px;
+                    height: 15px;
+                    background-size: 11px;
+                }
+            }
+
+            .fav {
+                // border: 2px solid blue;
+                background-image: url('../../images/icon/like.svg');
+                width: 18px;
+                height: 18px;
+                background-size: 18px;
+                background-repeat: no-repeat;
+                margin-left: 8px;
+                margin-right: 8px;
+
+                @include ipad {
+                    // border: 2px solid blue;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 4px;
+                    margin-left: 4px;
+                    background-size: 15px;
+                }
+
+                @include mobile {
+                    // border: 2px solid blue;
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 2px;
+                    margin-left: 3px;
+                    background-size: 15px;
+                }
+
+
+                button {
+                    border: none;
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+
+            }
+
+            .fav.clicked {
+                // border: 2px solid red;
+                background-image: url('../../images/icon/like_full.svg');
+                background-size: 17px;
+                @include ipad {
+                    // border: 2px solid blue;
+                    background-size: 14px;
+                }
+                @include mobile {
+                    background-size: 14px;
+
+                }
+            }
+        }
+
+        .the_star_num {
+            display: flex;
+            flex-direction: row;
+            padding: 10px 0;
+
+            p.star_get,
+            p.area {
+                // border: 2px solid brown;
+                margin: 0 0 0 10px;
+            }
+        }
+
+        h4.trip_intro {
+            // border: 2px solid red;
+            max-height: 55px;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+            font-family: 'regular';
+            overflow: hidden;
+            font-weight: bold;
+
+
+            @include mobile {
+                font-size: 14px;
+            }
+        }
+
+        h4.trip_intro:hover {
+            font-weight: bold;
+        }
+
+        p {
+            font-size: 6px;
+        }
+    }
+}
+.top_info{
+    width: 976px;
+    margin: 50px auto;
+    .breadcrumb{
+        display: flex;
+        li{
+            a{
+                color: #996A4D;
+                font-size: 16px;
+                text-decoration: 1px underline;
+                &:hover{
+                    color: #3c70d6;
+                }
+            }
+        }
+        h4{
+            padding: 0;
+            font-size: 10px;
+            vertical-align: middle;
+            margin-left: 12px;
+            margin-right: 5px;
+        }
+    }
+    .top_pic{
+        width: 976px;
+        height: 450px;
+        margin: 10px auto;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.item_title{
+    // border: 1px solid rgb(250, 8, 8);
+    width: 976px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    @include border-bottom;
+    .title_left{
+        // border: 1px solid blue;
+        display: flex;
+        .img_border{
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .title_content{
+            // border: 1px solid green;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 48px;
+            h1{
+                font-size: 36px;
+                font-weight: 500;
+                margin: 16px auto 0;
+                display: block;
+                line-height: 1.05;
+            }
+            h2{
+                padding: 0;
+                font-size: 24px;
+                color: #707070;
+                margin: 26px 0 14px;
+            }
+        }
+    }
+    .icons_group{
+        margin-top: 26px;
+        width: 53px;
+        img{
+            cursor: pointer;
+            &:first-child{
+                margin-right: 6px;
+            }
+        }
+    }
+}
+.item_content{
+    width: 976px;
+    margin: 0 auto;
+    @include border-bottom;
+    .title_star{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 28px;
+        h2{
+            padding: 0;
+        }
+        .star_comment{
+            // border: 1px solid red;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            .starNum{
+                // border: 1px solid blue;
+                display: flex;
+                align-items: center;
+                h4{
+                    margin: auto 6px;
+                }
+            }
+        }
+    }
+}
+.item_photos{
+    width: 976px;
+    margin: 0 auto;
+    @include border-bottom;
+    .photo_row1{
+        // border: 1px solid red;
+        width: 912px;
+        height: 300px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 14px;
+        img{
+            cursor: pointer;
+        }
+    }
+    .photo_row2{
+        // border: 1px solid red;
+        width: 912px;
+        height: 226px;
+        display: flex;
+        justify-content: space-between;
+        img{
+            cursor: pointer;
+        }
+    }
+}
+// 點圖放大
+
+.item_explanation{
+    width: 976px;
+    margin: 0 auto;
+    @include border-bottom;
+    .ex_order{
+        // border: 1px solid red;
+        margin-top: 12px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .list{
+        // border: 1px solid green;
+        display: flex;
+        margin-bottom: 42px;
+        margin-left: 8px;
+        .num{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            background-color: #996A4D;
+            color: whitesmoke;
+            font-size: 30px;
+            text-align: center;
+            margin-right: 30px;
+        }
+        .right_word{
+            margin-top: 8px;
+            h3{
+                font-size: 22px;
+                margin-bottom: 6px;
+            }
+            h4{
+                color: #707070;
+            }
+        }
+    }
+    .order{
+        border: 1px solid #996A4D;
+        border-radius: 30px;
+        background-color: #FAF9F2;
+        width: 340px;
+        h4{
+            font-size: 22px;
+            text-align: center;
+            margin: 36px auto;
+        }
+        .selects{
+            // border: 1px solid red;
+            width: 242px;
+            height: 294px;
+            margin: 0 auto;;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .selectItem{
+                width: 100%;
+                outline: none;
+                appearance: none;
+                height: 48px;
+                line-height: 48px;
+                border-radius: 13px;
+                font-size: 17px;
+                text-align: center;
+                border: 1px solid #996A4D;
+                padding-left: 56px;
+                option{
+                    color: #707070;
+                    font-size: 18px;
+                }
+            }
+            #date{
+                background-image: url("../images/travel_item/date_icon.svg"), url("../images/travel_item/select_icon.svg");
+                @include select_icon;
+            }
+            #time{
+                background-image: url("../images/travel_item/time_icon.svg"), url("../images/travel_item/select_icon.svg");
+                @include select_icon;
+            }
+            #people_num{
+                background-image: url("../images/travel_item/person_icon.svg"), url("../images/travel_item/select_icon.svg");
+                @include select_icon;
+            }
+            #order_now{
+                color: white;
+                font-size: 18px;
+                width: 170px;
+                height: 48px;
+                line-height: 48px;
+                margin-top: 12px;
+            }
+        }
+    }
+}
+.other_comments{
+    width: 976px;
+    margin: 0 auto;
+    @include border-bottom;
+    .comment_container{
+        width: 800px;
+        margin: 0 auto;
+        .each_comment{
+            border: 1px solid #996A4D;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            .comment_left{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin: 16px 42px 16px 46px;
+                .avatar_border{
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin-bottom: 5px;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+            .comment_right{
+                margin-top: 24px;
+                .starNum2{
+                    display: flex;
+                    margin-bottom: 4px;
+                    img{
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+    }
+    #more_comments{
+        display: block;
+        margin: 60px auto 0;
+    }
+}
+#recommend_item{
+    margin-bottom: 240px;
+    h2{
+        width: 976px;
+        margin: 40px auto 50px;
+        padding: 0 20px;
+    }
+    .recommend_container{
+        width: 1120px;
+        margin: 0 auto 100px;
+        display: flex;
+        justify-content: space-between;
+        .item {
+            // border: 2px solid red;
+            height: 200px;
+            width: 272px;
+            a {
+                width: 100%;
+                // border: 2px solid red;
+                border-radius: $borderRadius_cd;
+                overflow: hidden;
+                .trip_item {
+                    @include tripcard();
+                    // border: 2px solid red;
+                    max-height: 350px;
+    
+                    .content {
+                        height: 50%;
+                        padding: 50px 20px 30px 20px;
+                        background-color: #FAF9F2;
+                        position: relative;
+    
+                        .avatar img {
+                            border: 6px solid white;
+                            // border: 2px solid red;
+                            object-fit: cover;
+                            width: 100px;
+                            height: 100px;
+                            border-radius: 50%;
+                            position: absolute;
+                            top: -30%;
+                            left: 50%;
+                            transform: translateX(-50%);
+                        }
+    
+                        .the_star_num {
+                            // border: 20px solid red;
+                            display: flex;
+                            flex-direction: row;
+                            padding: 0;
+    
+                            img {
+                                width: 15px;
+                            }
+    
+                            @include mobile {
+                                img {
+                                    width: 8px;
+                                }
+                            }
+    
+                            p.star_get,
+                            p.area {
+                                // border: 2px solid brown;
+                                margin: 0 0 0 10px;
+                            }
+                        }
+    
+                        h4.trip_intro {
+                            // border: 2px solid red;
+                            max-height: 55px;
+                            font-size: 14px;
+                            margin-bottom: 5px;
+                            margin-top: 5px;
+                            font-family: 'regular';
+                            color: rgba(0, 0, 0, 0.8);
+                            overflow: hidden;
+                            font-weight: bold;
+    
+                            @include mobile {
+                                font-size: 14px;
+                            }
+                        }
+    
+                        p.startprice {
+                            // border: 2px solid red;
+                            font-size: 8px;
+                            color: rgba(0, 0, 0, 0.8);
+    
+                            @include mobile {
+                                font-size: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

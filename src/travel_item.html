@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <title>飛越世界奇景 尼加拉大瀑布</title>
+    @@include('layout_html/plugin.html')
+</head>
+<body>
+    <header id="the_header">
+        <the-header></the-header>
+    </header>
+    <div id="mobile_menu">
+        <menu-item></menu-item>
+    </div>
+
+    <main id="travel-item">
+        <div v-for="(item, index) in product_info_ID">
+            <div class="top_info">
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="travel_list.html">旅遊總覽</a>
+                    </li>
+                    <h4>〉</h4>
+                    <li>
+                        <a href="travel_item.html">{{item.category}}</a>
+                    </li>
+                    <h4>〉</h4>
+                    <li>
+                        <a href="travel_item.html">{{item.title}}</a>
+                    </li>
+                </ul>
+                <div class="top_pic">
+                    <img :src="item.intro_pics">
+                </div>    
+            </div>
+
+            <div class="item_title">
+                <div class="title_left">
+                    <div class="img_border">
+                        <img :src="item.avatar" alt="線上導遊">
+                    </div>
+                    <div class="title_content">
+                        <h1>{{item.title}}</h1>
+                        <h2>{{item.name}} 舉辦的線上旅遊</h2>
+                        <h4>舉辦地點：{{item.place}}</h4>
+                    </div>
+                </div>
+                <div class="icons_group">
+                    <img src="./images/travel_item/share.svg" alt="share" @click="share1">
+                    <img src="./images/travel_item/fav_white.svg" v-if="fav == false" @click="like">
+                    <img src="./images/travel_item/fav_brown.svg" v-else @click="cancleLike">    
+                </div>
+            </div>
+
+            <div class="item_content">
+                <div class="title_star">
+                    <h2>活動內容</h2>
+                    <div class="star_comment">
+                        <div class="starNum">
+                            <img src="./images/index/content/star.svg">
+                            <h4>{{item.avgstar}}</h4>
+                        </div>
+                        <h4>（ {{item.comment_count}} 則評價 ）</h4>
+                    </div>
+                </div>
+                <h4>{{item.content}}</h4>
+            </div>
+            
+            <div class="item_photos">
+                <h2>更多旅遊照片</h2>
+                <div class="photo_row1">
+                    <img :src="item.pic1">
+                    <img :src="item.pic2">
+                </div>
+                <div class="photo_row2">
+                    <img :src="item.pic3">
+                    <img :src="item.pic4">
+                    <img :src="item.pic5">
+                </div>
+
+                <div class="photo_mask" v-show="photo_carousel==true">
+                    <div class="close_photos"></div>
+                    <div class="photo_row1">
+                        <img :src="item.pic1">
+                        <img :src="item.pic2">
+                    </div>
+                    <div class="photo_row2">
+                        <img :src="item.pic3">
+                        <img :src="item.pic4">
+                        <img :src="item.pic5">
+                    </div>
+                    <div class="pre_photo"></div>
+                    <div class="next_photo"></div>    
+                </div>
+            </div>
+
+            <div class="item_explanation">
+                <h2>相關說明</h2>
+                <div class="ex_order">
+                    <ul class="ex_content">
+                        <li class="list" v-for="li in list">
+                            <div class="num">{{li.num}}</div>
+                            <div class="right_word">
+                                <h3>{{li.title}}</h3>
+                                <h4>{{li.description}}</h4>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="order">
+                        <h4>本場活動&nbsp; ${{item.event_price}} TWD / 人</h4>
+                        <div class="selects">
+                            <select name="date" id="date" class="selectItem">
+                                <option selected hidden>可選日期</option>
+                                <option v-for="selectDate in item.date" :value="item.date.selectDate">{{selectDate}}</option>
+                            </select>
+                            <select name="tiem" id="time" class="selectItem">
+                                <option selected hidden>可選時段</option>
+                                <option v-for="selectTime in item.time" :value="item.time.selectTime">{{selectTime}}</option>
+                            </select>
+                            <select name="people_num" id="people_num" class="selectItem">
+                                <option selected hidden>參與人數</option>
+                                <option v-for="people_num in 10" :value="people_num">{{people_num}} 人</option>
+                            </select>
+                            <button class="btnL" id="order_now">立即訂購</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="other_comments">
+                <h2>他人評價</h2>
+                <ul class="comment_container">
+                    <li v-for="each_one in comment" class="each_comment">
+                        <div class="comment_left">
+                            <div class="avatar_border">
+                                <img :src="each_one.avatar">
+                            </div>
+                            <h4>{{each_one.name}}</h4>
+                        </div>
+                        <div class="comment_right">
+                            <div class="starNum2">
+                                <img src="./images/index/content/star.svg">
+                                <h4>{{each_one.star}}</h4>
+                            </div>
+                            <h4>{{each_one.content}}</h4>
+                        </div>
+                    </li>
+                </ul>
+                <button class="btnL_line" id="more_comments">更多評價</button>
+            </div>
+        </div>
+    </main>
+
+    <section id="recommend_item">
+        <h2>相信你喜歡</h2>
+        <ul class="recommend_container">
+            <li v-for="item in besttrip_items" :id="item.id" class="item">
+                <a :href="item.link">
+                    <div class="trip_item">
+                        <img :src="item.cover_img">
+                        <div class="content">
+                            <div class="avatar">
+                                <img :src="item.avatar">
+                            </div>
+                            <div class="the_icon">
+                                <div class="share" @click="share"></div>
+                                <div class="fav" @click="changeiColor"></div>
+                            </div>
+                            <div class="the_star_num">
+                                <img src="./images/index/content/star.svg">
+                                <p class="star_get">{{item.star}}({{item.counts}}) · </p>
+                                <p class="area">{{item.place}}</p>
+                            </div>
+                            <h4 class="trip_intro">
+                                {{item.trip_intro}}
+                            </h4>
+                            <p class="startprice">每人$ {{item.startprice}} 起</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <footer id="the_footer">
+        <the-footer></the-footer>
+    </footer>
+    <script src="./js/fb_share.js"></script>
+    <script>
+        const travelItem = new Vue({
+            el: "#travel-item",
+            data: {
+                product_info_ID:[
+                    { intro_pics: "./images/travel_item/0.jpg",
+                      category: "美洲",
+                      avatar: "./images/avatar/avatar20.jpg",
+                      title: "飛越世界奇景 尼加拉大瀑布",
+                      name: "詹姆士",
+                      place: "美國",
+                      avgstar: 4.9,
+                      comment_count: 112,
+                      content: "此生必須一睹大自然最美產物：尼加拉大瀑布。尼加拉大瀑布以每秒150,000加侖的流水量傾瀉而下，氣勢滂礡，被譽為世界上最美的天然奇景之一。此行程將帶你欣賞阿帕拉契山脈和上紐約州的美麗風景，並且遠觀北美廣闊無邊的平地和東岸沿海平原之間的天然群山屏障。緊接著抵達本行程的目的地──尼加拉大瀑布，我們將帶你搭乘直升機，從空中俯瞰瀑布，水流奔騰而下的臨場震撼感，一生一定要體會一次！旅程最後我們將來到山羊島，換個角度欣賞瀑布宏偉壯觀的全貌，為整趟旅遊畫下完美句點。",
+                      pic1: "./images/travel_item/1.jpg",
+                      pic2: "./images/travel_item/2.jpg",
+                      pic3: "./images/travel_item/3.jpg",
+                      pic4: "./images/travel_item/4.jpg",
+                      pic5: "./images/travel_item/5.jpg",
+                      event_price: 499,
+                      date: ["2021/9/1", "2021/9/10"],
+                      time: ["9:00 - 10:00", "14:30 - 15:30"],
+                    }
+                ],
+                list:[
+                    {num: 1, title: "活動長度：約1小時", description: "旅遊全程以中文導覽"},
+                    {num: 2, title: "人數上限：最多10位參與者", description: "歡迎邀請您的親朋好友，一起參與線上旅遊"},
+                    {num: 3, title: "參與方式：線上加入", description: "透過 Google meenting 跟著線上導遊的腳步，一同暢遊景點"},
+                    {num: 4, title: "取消訂購須知", description: "在旅遊活動開始「前 24 小時」取消，即可拿回全額退款"},
+                ],
+                comment:[
+                    {avatar: "./images/avatar/avatar10.jpg", name: "愛麗絲", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
+                    {avatar: "./images/avatar/avatar8.jpg", name: "史密斯", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
+                    {avatar: "./images/avatar/avatar17.jpg", name: "孫小美", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
+                ],
+                fav: false,
+                photo_carousel: false,
+            },
+            methods: {
+                like(){
+                    this.fav = true;
+                },
+                cancleLike(){
+                    this.fav = false;
+                },
+                share1() {
+                    FB.ui(
+                        {
+                            method: 'share',
+                            href: 'https://tibamef2e.com/tfd102/project/g5/travel_item.html',
+                        },
+                        // callback
+                        function (response) {
+                            if (response && !response.error_message) {
+                                alert('分享至臉書，邀請朋友一起成為jumper!');
+                            } else {
+                                // alert('Error while posting.');
+                            }
+                        }
+                    )
+                },
+            }
+        })
+        const recommend = new Vue({
+            el: "#recommend_item",
+            data: {
+                besttrip_items: [
+                    {
+                        id: 2,
+                        link: "./travel_item.html",
+                        cover_img: "./images/travel_list/250/louvre.jpg",
+                        avatar: "./images/avatar/avatar1.jpg",
+                        counts: "102",
+                        star: "5",
+                        place: "歐洲",
+                        trip_intro: " 羅浮宮象徵藝術，撼動人心之情久久保留",
+                        startprice: "800",
+                    },
+                    {
+                        id: 4,
+                        link: "./travel_item.html",
+                        cover_img: "./images/travel_list/250/glasshouse.jpg",
+                        avatar: "./images/avatar/avatar6.jpg",
+                        counts: "102",
+                        star: "5",
+                        place: "歐洲",
+                        trip_intro: "於芬蘭玻璃屋邂逅屬於北極圈的夢幻自然",
+                        startprice: "999",
+                    },
+                    {
+                        id: 3,
+                        link: "./travel_item.html",
+                        cover_img: "./images/travel_list/400/bigben.jpg",
+                        avatar: "./images/avatar/avatar.jpg",
+                        counts: "102",
+                        star: "5",
+                        place: "歐洲",
+                        trip_intro: "Bib Ben 大笨鐘倫敦，最具指標性的景觀。",
+                        startprice: "399",
+                    },
+                    {
+                        id: 6,
+                        link: "./travel_item.html",
+                        cover_img: "./images/travel_list/250/goldenbay.jpg",
+                        avatar: "./images/avatar/avatar18.jpg",
+                        counts: "102",
+                        star: "5",
+                        place: "大洋洲",
+                        trip_intro: "來探索澳洲黃金海岸，吹吹海風踏踏浪",
+                        startprice: "399",
+                    },
+                ],
+            },
+            methods:{
+                changeiColor(e) {
+                    e.preventDefault();
+                    e.target.classList.toggle('clicked');
+                },
+                share() {
+                    FB.ui(
+                        {
+                            method: 'share',
+                            href: 'https://tibamef2e.com/tfd102/project/g5/travel_item.html',
+                        },
+                        function (response) {
+                            if (response && !response.error_message) {
+                                alert('分享至臉書，邀請朋友一起成為jumper!');
+                            } else {
+                                // alert('Error while posting.');
+                            }
+                        }
+                    )
+                },
+            },
+        })
+    </script>
+    <script src="./js/header_footer.js"></script>
+</body>
+</html>

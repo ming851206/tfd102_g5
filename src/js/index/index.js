@@ -35,8 +35,8 @@ const aboutUsService = Vue.component("the-service", {
                 </div>
                 <div class="about_2" data-aos="fade-down" data-aos-duration="600" data-aos-delay="300" data-aos-once="false">
                     <div class="des_2">
-                        <h3>提供包場</h3>
-                        <h4>在任何您舒適的環境享受這場線上社交活動，沒有陌生人，只有您和您的親朋好友，由專業的當地導遊帶領遊樂世界各處，創造獨一無二的旅遊體驗。</h4>
+                        <h3>高CP值的觀光旅遊</h3>
+                        <h4>相較於實體旅遊的高額花費，線上旅遊讓您能以更輕鬆無負擔的價格，就能享受一場由專業的當地導遊，所帶領的獨一無二異國旅遊體驗。</h4>
                     </div>    
                     <img src="./images/index/content/about_2.jpg" alt="提供包場">
                 </div>
@@ -197,7 +197,7 @@ const travel = Vue.component("travel-item", {
         <div id="the-travel">
             <ul id="travel_container">
                 <li id="travel_li" v-for="trip in trips"  data-aos="zoom-in-up" data-aos-duration="1200" data-aos-once="false">
-                    <img class="place" :src="trip.photo" alt="看吳哥窟全景">
+                    <img class="place" :src="trip.photo">
                     <div class="main_content">
                         <div class="first">
                             <div class="star_num">
@@ -208,7 +208,7 @@ const travel = Vue.component("travel-item", {
                             <p>{{trip.place}}</p>    
                         </div>
                         <h3>{{trip.title}}</h3>
-                        <p class="third">每人 $ {{trip.price}} TWD 起</p>
+                        <p class="third">每人 $ {{trip.price}} TWD </p>
                     </div>
                 </li>    
             </ul>
