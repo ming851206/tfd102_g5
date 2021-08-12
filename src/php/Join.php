@@ -1,17 +1,37 @@
 <?php
-    include("./conn.php");    
+    include("./conn.php");
+    $getdata = json_decode(file_get_contents('php://input'), true);
 
-    //建立SQL
-    $sql = "INSERT INTO member(username, email, password, account_status, CreateDate) VALUES (?,?,?,1,NOW())";
+    $sqls = "SELECT * FROM member where username = ?";
+    
+    $statement = getPDO()->prepare($sqls);
+    $statement->bindValue(1, $getdata['account_register']);
 
-    //執行
-    $statement = getPDO()->prepare($sql);
-
-    //給值
-    $statement->bindValue(1, $_POST["account_register"]);
-    $statement->bindValue(2, $_POST["email_register"]);
-    $statement->bindValue(3, $_POST["password_register"]);
     $statement->execute();
+    $data = $statement->fetchAll();
 
-    echo "<script>alert('加入成功'); location.href = '../member.html;</script>"; 
+    if(count($data) < 1 && $getdata['account_register']!='' && $getdata['email_register']!='' && $getdata['password_register']!='' && $getdata['password_register_again']){
+    //建立SQL
+        $sql = "INSERT INTO member(username, email, password,level, account_status, created_at) VALUES (?,?,?,1,1,now())";
+        
+        // echo $_POST["account_register"];
+        // exit();
+
+        //執行
+        $statement = getPDO()->prepare($sql);
+
+        //給值
+        $statement->bindValue(1, $getdata['account_register']);
+        $statement->bindValue(2, $getdata['email_register']);
+        $statement->bindValue(3, $getdata['password_register']);
+        $statement->execute();
+
+        echo 1;
+    }else{
+        if(count($data)>0){
+            echo 0;
+        }else{
+            echo -1;
+        }
+    }
 ?>

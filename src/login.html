@@ -97,7 +97,7 @@
 
                     <input class="login_input" v-model="password_register" type="text" placeholder="密碼 :" id="password_register">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" type="text" v-model="password_register_again" placeholder="確認密碼 :" id="password_register">
+                    <input class="login_input" type="text" v-model="password_register_again" placeholder="確認密碼 :" id="password_register" ref="passwd_again">
                     <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 登入按鈕 -->
                     <button type="button" class="btnM Sign_BTN" id="showBtn" @click="joinIN">註冊</button>
@@ -181,13 +181,13 @@
 
                     <!-- 輸入框欄位 -->
 
-                    <input class="login_input" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="phone_email_register" type="email" placeholder="Email :">
-                    <p v-if="!phone_email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
-                    <input class="login_input" v-model="phone_password_register" type="password" placeholder="密碼 :">
-                    <p v-if="!phone_password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" v-model="phone_password_register_again" type="text" placeholder="確認密碼 :">
-                    <p v-if="!phone_password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <input class="login_input"  v-model="account_register" type="text" placeholder="帳號 :" id="account_register">
+                    <input class="login_input" v-model="email_register" type="email" placeholder="Email :" id="email_register">
+                    <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
+                    <input class="login_input" v-model="password_register" type="password" placeholder="密碼 :" id="password_register">
+                    <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <input class="login_input" v-model="password_register_again" type="text" placeholder="確認密碼 :" id="password_register" ref="passwd_again">
+                    <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 登入切換按鈕 -->
                     <!-- 登入註冊切換按鈕區 -->
                     <div class="phone_loginSitch">
@@ -227,15 +227,14 @@
                     password_register_again_msg: true,
                     email_register: '',
                     email_register_msg: true,
-                    phone_password: '',
-                    phone_password_login: true,
-                    phone_email_register: '',
-                    phone_email_register_msg: true,
-                    phone_password_register: '',
-                    phone_password_register_msg: true,
-                    phone_password_register_again: '',
-                    phone_password_register_again_msg: true,
-
+                    // phone_password: '',
+                    // phone_password_login: true,
+                    // phone_email_register: '',
+                    // phone_email_register_msg: true,
+                    // phone_password_register: '',
+                    // phone_password_register_msg: true,
+                    // phone_password_register_again: '',
+                    // phone_password_register_again_msg: true,
                 }
 
             },
@@ -269,36 +268,6 @@
                         this.email_register_msg = true;
                     }
                 },
-                phone_password: function () {
-                    if (this.phone_password.length < 6) {
-                        this.phone_password_login = false;
-                    } else {
-                        this.phone_password_login = true;
-                    }
-                },
-                phone_email_register: function () {
-                    let isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
-                    if (!isText.test(this.phone_email_register) && this.phone_email_register.length > 10) {
-                        this.phone_email_register_msg = false;
-                    } else {
-                        this.phone_email_register_msg = true;
-                    }
-                },
-                phone_password_register: function () {
-                    if (this.phone_password_register.length < 6) {
-                        this.phone_password_register_msg = false;
-                    } else {
-                        this.phone_password_register_msg = true;
-                    }
-                },
-                phone_password_register_again: function () {
-                    if (this.phone_password_register_again != this.phone_password_register) {
-                        this.phone_password_register_again_msg = false;
-                    } else {
-                        thisphone_password_register_again_msg = true;
-                    }
-                },
-
             },
             methods: {  //函數（方法）大部分放這裡
                 // 登入註冊切換
@@ -328,64 +297,33 @@
                             sessionStorage.setItem("memberID", res.data);
                             alert("登入成功");
                             window.location.href = './member.html';  
-
                         }
 
                     })
                 },
                 joinIN() {
-                    $.ajax({
-                        methods: 'POST',
-                        url: './php/Join.php',
-                        data:{
-                            account_register : $('#account_register').val(),
-                            email_register : $('#email_register').val(),
-                            password_register : $('#password_register').val(),
+                    axios.post('./php/Join.php',{
+                        account_register : $('#account_register').val(),
+                        email_register : $('#email_register').val(),
+                        password_register : $('#password_register').val(),
+                        password_register_again : this.$refs.passwd_again.value
 
-                        },
-                        dataType: 'json',
-                        success: function(response) {
-                            console.log(response);
-                            if(response == 1){
+                    }).then(res=>{
+                        let data = res.data;
+                        if(data == 1){
                                 alert('註冊成功');
-                                window.location.href = './member.html';
-                            } else {
-                                console.log(response);
-                                alert('請完成註冊內容');
                                 // window.location.href = './login.html';
+                            } else if(data ==0){
+                                alert('此帳號已被註冊過');
+
+                                // window.location.href = './login.html';
+                            }else{
+                                alert('請完成註冊內容');
+
                             }
-                        },
                     })
                 }
-
-
             },
-                //     $.ajax({
-                //         method: 'POST',
-                //         url: './php/Login.php',
-                //         data:{
-                //             password: $('#password').val(),
-                //             account : $('#account').val(),
-                //         },
-                //         dataType: 'json',
-                //         success: function(response) {
-                //             console.log(response);
-                //             if(response == 1){
-                //                 alert('登入成功');
-                //                 window.location.href = './member.html';  
-                //             }else{
-                //                 console.log(response)
-                //                 alert('查無會員');
-                //                 window.location.href = './login.html';  
-
-                //             }
-                //         },
-                //         error: function(exception) {
-                //             alert("發生錯誤: " + exception.status);
-                //         },
-                //         })
-                //     }
-                // },
         });
 
     </script>

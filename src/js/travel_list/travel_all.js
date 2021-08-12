@@ -4,13 +4,13 @@ Vue.component('all', {
         return {  //組件的變數寫在這裡！
             items_counts: {
                 besttrip: "4",
-                maintrip: "4",
+                maintrip: "5",
                 viewedtrip: "7",
             },
 
             besttrip_items: [
                 {
-                    id: 2,
+                    id: 1,
                     link: "./travel_info.html",
                     cover_img: "./images/travel_list/250/louvre.jpg",
                     avatar: "./images/avatar/avatar1.jpg",
@@ -21,7 +21,7 @@ Vue.component('all', {
                     startprice: "800",
                 },
                 {
-                    id: 4,
+                    id: 2,
                     link: "./travel_info.html",
                     cover_img: "./images/travel_list/250/glasshouse.jpg",
                     avatar: "./images/avatar/avatar19.jpg",
@@ -43,50 +43,75 @@ Vue.component('all', {
                     startprice: "399",
                 },
                 {
-                    id: 6,
+                    id: 4,
                     link: "./travel_info.html",
                     cover_img: "./images/travel_list/250/goldenbay.jpg",
                     avatar: "./images/avatar/avatar18.jpg",
                     counts: "102",
                     star: "5",
                     place: "大洋洲",
+                    trip_intro: "來探索大洋洲的美麗海岸，感受壯麗美感",
+                    startprice: "399",
+                },
+                {
+                    id: 5,
+                    link: "./travel_info.html",
+                    cover_img: "./images/travel_list/250/",
+                    avatar: "./images/avatar/avatar18.jpg",
+                    counts: "102",
+                    star: "5",
+                    place: "非洲洲",
                     trip_intro: "來探索澳洲黃金海岸，吹吹海風踏踏浪",
                     startprice: "399",
                 },
             ],
             maintrip_items: [
                 {
+                    id: 1,
+                    cat: 'us',
+                    link: "./travel_info.html",
+                    cover_img: "./images/travel_list/250/niagarafalls.jpg",
+                    subject: "美洲",
+                    trip_intro: "飛越世界奇景 體驗美洲讓人歎為觀止的尼加拉大瀑布",
+                },
+                {
                     id: 2,
+                    cat: 'eu',
                     link: "./travel_info.html",
                     cover_img: "./images/travel_list/250/louvre.jpg",
                     subject: "歐洲",
                     trip_intro: " 羅浮宮象徵藝術，撼動人心之情久久保留",
                 },
                 {
+                    id: 3,
+                    cat: 'as',
+                    link: "./travel_info.html",
+                    cover_img: "./images/travel_list/250/kyoto.jpg",
+                    subject: "亞洲",
+                    trip_intro: "日本的千年古都，歷史的記憶，一同深度挖掘京都魅力",
+                },
+                {
                     id: 4,
+                    cat: 'af',
                     link: "./travel_info.html",
                     cover_img: "./images/travel_list/250/glasshouse.jpg",
                     subject: "歐洲",
                     trip_intro: "於芬蘭玻璃屋邂逅屬於北極圈的夢幻自然",
                 },
+ 
                 {
-                    id: 3,
-                    link: "./travel_info.html",
-                    cover_img: "./images/travel_list/250/niagarafalls.jpg",
-                    subject: "美洲",
-                    trip_intro: "怔怔地望著尼基拉瓜大瀑布那滂薄的氣勢。",
-                },
-                {
-                    id: 6,
+                    id: 5,
+                    cat: 'oc',
                     link: "./travel_info.html",
                     cover_img: "./images/travel_list/250/goldenbay.jpg",
                     subject: "大洋洲",
-                    trip_intro: "來探索澳洲黃金海岸，吹吹海風踏踏浪",
+                    trip_intro: "玩膩了亞洲，把觸角伸到南半球！體驗壯麗美感！",
                 },
             ],
             viewedtrip_items: [
                 {
-                    id: 1, link: "./travel_info.html",
+                    id: 1, 
+                    link: "./travel_info.html",
                     cover_img: "./images/travel_list/400/bigben.jpg",
                     avatar: "./images/avatar/avatar18.jpg",
                     counts: "102",
@@ -191,7 +216,7 @@ Vue.component('all', {
                                     <h4 class="trip_intro">
                                         穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。
                                     </h4>
-                                    <p>每人 $ 800 TWD 起</p>
+                                    <p>每人 $ 800 TWD </p>
                                 </div>
                             </div>
                         </a>
@@ -219,7 +244,7 @@ Vue.component('all', {
                                         <h4 class="trip_intro">
                                             遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
                                         </h4>
-                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                                        <p class="startprice">每人 $ 800 TWD </p>
                                     </div>
                                 </div>
                             </div>
@@ -247,7 +272,7 @@ Vue.component('all', {
                                         <h4 class="trip_intro">
                                             羅浮宮象徵藝術，撼動人心之情久久保留
                                         </h4>
-                                        <p class="startprice">每人 $ 800 TWD 起</p>
+                                        <p class="startprice">每人 $ 800 TWD </p>
                                     </div>
                                 </div>
                             </div>
@@ -281,7 +306,7 @@ Vue.component('all', {
                                 <h4 class="trip_intro">
                                     {{item.trip_intro}}
                                 </h4>
-                                <p class="startprice">每人$ {{item.startprice}} 起</p>
+                                <p class="startprice">每人$ {{item.startprice}} </p>
                             </div>
                         </div>
                     </a>
@@ -295,14 +320,14 @@ Vue.component('all', {
                 </div>
                 <ul class="owl-carousel owl-theme" id="bigcard">
                     <li v-for="item in maintrip_items" :id="item.id" class="item">
-                                <a :href="item.link">
+                            <a href="javascript:void(0)">
                                 <div class="trip_item">
                                     <img :src="item.cover_img">
 
                                     <div class="content">
                                         <p class="subject">主題系列 · {{item.subject}}</p>
                                         <p class="txt">{{item.trip_intro}}</p>
-                                        <button>顯示所有旅遊</button>
+                                        <button @click="showMainTrip(item.cat)">顯示所有{{item.subject}}旅遊</button>
                                     </div>
                                 </div>
                             </a>
@@ -310,7 +335,7 @@ Vue.component('all', {
                 </ul>
             </div>
             <div class="the_viewed_trip">
-                    <h3>近期瀏覽的旅遊</h3>
+                    <h3>最具特色的旅遊</h3>
                     <div class="slider_arrow">
                         <p class="slider_count">顯示 {{items_counts.viewedtrip}} 個</p>
                     </div>
@@ -335,7 +360,7 @@ Vue.component('all', {
                                         <h4 class="trip_intro">
                                             {{item.trip_intro}}
                                         </h4>
-                                        <p class="startprice">每人$ {{item.startprice}} 起</p>
+                                        <p class="startprice">每人$ {{item.startprice}} </p>
                                     </div>
                                 </div>
                             </a>
@@ -351,7 +376,8 @@ Vue.component('all', {
             e.target.classList.toggle('clicked');
 
         },
-        share() {
+        share(e) {
+            e.preventDefault();
             FB.ui(
                 {
                     method: 'share',
@@ -367,6 +393,10 @@ Vue.component('all', {
                     }
                 }
             )
+        },
+        showMainTrip(cat){ // 使用自訂事件: 為了傳遞, 這裡的 showMainTrip  函式由 new Vue 處理
+            console.log(cat);
+            this.$emit('show-maintrips', cat);
         },
     },
 });

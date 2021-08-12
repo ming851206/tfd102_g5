@@ -11,7 +11,7 @@ Vue.component('us', {
                 { cat: '大洋洲', },
             ],
             item_counts: "",
-            items: [
+            items: [    
                 // {
                 //     id: 3,
                 //     link: "./travel_info.html",
@@ -23,6 +23,8 @@ Vue.component('us', {
                 //     trip_intro: "怔怔地望著尼基拉瓜大瀑布那滂薄的氣勢。",
                 //     startprice: "399",
                 // },
+            ],
+            favs: [
             ],
         };
     },
@@ -41,7 +43,7 @@ Vue.component('us', {
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
-                                <div class="fav" @click="changeiColor"></div>
+                                <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="is_fav(item.ID) ? deleteFav(item.ID) : addFav(item.ID)"></div>
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -49,9 +51,9 @@ Vue.component('us', {
                                 <p class="area">{{item.place}}</p>
                             </div>
                             <h4 class="trip_intro">
-                                {{item.content}}
+                                {{item.title}}
                             </h4>
-                            <p class="startprice">每人 $ {{item.event_price}} 起</p>
+                            <p class="startprice">每人 $ {{item.event_price}} </p>
                         </div>
                     </div>
                 </a>
@@ -66,9 +68,68 @@ Vue.component('us', {
             e.preventDefault();
             // console.log(e.target);
             e.target.classList.toggle('clicked');
-
         },
-        share() {
+
+        // 取得所有最愛旅遊
+        getAllFavs(){
+            axios.get('http://localhost/php/showFav.php').then(res => {
+                    this.favs = res.data; // 旅遊內容
+            });
+        },
+
+        // 判斷該旅遊是否為最愛
+        is_fav(item_id) {
+            // console.log(this.favs);
+            let favs = this.favs; // 所有最愛的旅遊
+            let click_status = false; // 預設點擊狀態是 ''
+            favs.forEach(function (fav) { // 比對最愛旅遊的 id 是否等於 旅遊商品 id，如果是，click_status = true
+                let fav_id = fav.product_info_ID;
+                if (fav_id == item_id) {
+                    // console.log('有一樣');
+                    // console.log('這是 item_id' + item_id);
+                    // console.log('這是 fav_id' + fav_id);
+                    click_status = true;
+                }
+            });
+            return click_status;
+        },
+
+        // addFav 新增最愛旅遊
+        // 參數：itemID, memberID
+        // method: post
+        addFav(itemID) {
+            axios.post('http://localhost/php/addFav.php', JSON.stringify({
+                memberID: 2,
+                itemID: itemID,
+            }), {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => 
+                // console.log(res.data)
+                this.getAllFavs() // 重新取得一次新增後的最愛旅遊
+            ); 
+        },
+
+        // removeFav 刪除最愛旅遊
+        // 參數：itemID, memberID
+        // method: post
+        deleteFav(itemID) {
+            axios.post('http://localhost/php/deleteFav.php', JSON.stringify({
+                itemID: itemID,
+            }), {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => 
+                // console.log(res.data)
+                this.getAllFavs() // 重新取得一次刪除後的最愛旅遊
+                );
+        },
+
+        // fb 分享
+        share(e) {
+            e.preventDefault();
             FB.ui(
                 {
                     method: 'share',
@@ -85,25 +146,13 @@ Vue.component('us', {
             )
         },
     },
+    // watch:{
+    //     favs(){   // 偵聽 favs 的變動，有變動時就重新抓取最愛旅遊
+    //         this.getAllFavs();
+    //     }
+    // },
     mounted() {
-        //==========前->後axios傳值的寫法=============
-
-        //    axios.post('http://localhost/g5/php/adm_orderList.php', JSON.stringify({
-        //         name: this.data[0].o_username, 
-        //         price: this.data[0].o_price,
-
-        //     }), {
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         }
-        // 以上，前端丟json到後端
-
-
-        //     }).then(res => console.log(res.data)); //非測試時請把clg改掉 (後端丟回json，前端需再處理)
-        // }).then(res => this.data = res.data)
-
-
-        //===========================================
+        //==================== 篩選旅遊 =======================
         axios.get('http://localhost/php/showTrip.php', {
             params: {  // 帶參數
                 cat: 1 // 1 代表美洲
@@ -114,8 +163,8 @@ Vue.component('us', {
             this.item_counts = res.data.length; // 旅遊筆數
             this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list
         });
-     // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
-        // .then(res => this.data = res.data);
-        //fetch('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => console.log(res)); 
+
+        //==================== 取得所有最愛旅遊 =======================        
+        this.getAllFavs();
     },
 });

@@ -742,6 +742,7 @@
     cursor: pointer;
     color: blue;
     border-bottom: 1px solid blue;
+    width: 35px;
 
     @include laptop {
         margin-bottom: 10px;
@@ -783,11 +784,10 @@
     border-radius: 20px;
     overflow: hidden;
     height: 50px;
-    align-items: center;
     // justify-content: space-around;
     width: 836px;
     margin-top: 20px;
-    text-align: center;
+    align-items: center;
     flex-wrap: nowrap;
 
     @include laptop {
@@ -815,7 +815,7 @@
         }
 
         &:nth-child(2) {
-            width: 50px;
+            width: 63px;
 
             @include laptop {
                 width: 65px;
@@ -899,7 +899,6 @@
     .travelP {
         margin-left: 20px;
         overflow: hidden;
-        text-align: center;
 
         @include laptop {
             margin-left: 4px;
@@ -1028,7 +1027,7 @@
         }
 
         &:nth-child(3) {
-            width: 30px;
+            width: 50px;
 
             @include laptop {
                 width: 143px;
@@ -1060,7 +1059,7 @@
         }
 
         &:nth-child(5) {
-            width: 130px;
+            width: 59px;
             cursor: pointer;
             color: blue;
 
@@ -1093,7 +1092,23 @@
 
 
 
-        &:last-child {
+        &:nth-child(7) {
+            width: 30px;
+            cursor: pointer;
+            color: blue;
+
+            @include tablet {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+
+            @include ipad {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+
+        &:nth-child(8) {
             margin-right: 30px;
             width: 60px;
             cursor: pointer;
@@ -1113,10 +1128,171 @@
 
 }
 
+#editWorksOnMember {
+    background-color: #80808059;
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    textarea {
+        height: 500px;
+        border: 0;
+        padding: 20px;
+        outline: none;
+        border-radius: 20px;
+        resize: none;
+    }
+
+    .travelInputBorder {
+        display: flex;
+        border: 1px solid $main_br;
+        height: 50px;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-top: 20px;
+        width: 560px;
+    }
+
+    .Content {
+        flex-direction: column;
+        height: 180px;
+
+        @include tablet {
+            width: 524px;
+        }
+
+        .travelInputEditTitle {
+            align-items: flex-start;
+            height: unset;
+            margin-top: 12px;
+        }
+
+        div {
+            width: 100%;
+            height: unset;
+        }
+
+        textarea {
+            height: 160px;
+            border: 0;
+            padding: 20px;
+            outline: none;
+            border-radius: 20px;
+            resize: none;
+            background-color: $main_ivory;
+        }
+
+    }
+
+    .travelInputEditTitle {
+        height: 100%;
+        width: 80px;
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+    }
+
+    select {
+        border: 0;
+        height: 45px;
+        padding: 0;
+        margin: 0;
+        width: 424px;
+        margin-left: 10px;
+        outline: none;
+        background-color: $main_ivory;
+    }
+
+    input {
+        border: 0;
+        height: 45px;
+        padding: 0;
+        margin: 0;
+        width: 420px;
+        margin-left: 10px;
+        background-color: $main_ivory;
+        color: gray;
+
+        &:nth-child(3) {
+            color: black;
+        }
+    }
+
+    .closed {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+
+    }
+
+    .memberEditCancel {
+        margin-bottom: 30px;
+    }
+
+    .body {
+        position: relative;
+        width: 900px;
+        background-color: $main_ivory;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+            margin-top: 30px;
+        }
+    }
+}
+
+
+#memberAddDate {
+    background-color: #80808059;
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .closed {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+
+    }
+
+    .memberEditCancel {
+        margin-bottom: 30px;
+    }
+
+    .body {
+        position: relative;
+        width: 900px;
+        background-color: $main_ivory;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        h2 {
+            margin-top: 30px;
+        }
+    }
+}
+
 #checkWork {
     background-color: #80808059;
     z-index: 100;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -1161,6 +1337,7 @@
             .titlesborders {
                 margin-left: 60px;
                 width: 70px;
+                white-space: nowrap;
 
                 &:first-child {
                     margin-left: 20px;

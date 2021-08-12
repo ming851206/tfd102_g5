@@ -136,7 +136,6 @@
 
                 button {
                     cursor: pointer;
-                    pointer-events: none; //沒用嗎??
                 }
             }
 
@@ -387,6 +386,77 @@
 
                 }
 
+                form#mailform {
+                    position: fixed;
+                    padding: 40px 60px 80px 60px;
+                    width: 40%;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    box-shadow: 0px 0px 20px #333;
+                    background-color: $main_ivory;
+                    color: $main_br;
+                    border-radius: $borderRadius_cd;
+                    z-index: 10;
+                    img{
+                        position: absolute;
+                        right: 20px;
+                        top: 20px;
+                        width: 16px;
+                        cursor: pointer;
+                    }
+                    .field {
+                        margin-bottom: 10px;
+                        display: flex;
+                    }
+
+                    .field label {
+                        display: block;
+                        font-size: 12px;
+                        color: #777;
+                        width: 5rem;
+                        top:0px;
+                        left: 0px;
+                    }
+
+                    .field input {
+                        display: block;
+                        padding: 5px;
+                        width: 100%;
+                        line-height: 1.5;
+                        font-size: 14px;
+                        border: none;
+                        outline: none;
+                        border-radius: $borderRadius_m_btn;
+                        &:focus{
+                            border: 1px solid $main_br;
+                        }
+                    }
+
+                    #message{
+                        height: 170px;
+                        width: 100%;
+                        border-radius: $borderRadius_m_btn;
+                        border: none;
+                        overflow: auto;
+                        resize: none;
+                        outline: none;
+                        padding: 10px;
+                        &:focus{
+                            border: 1px solid $main_br;
+                        }
+                    }
+                    input[type="submit"] {
+                        display: block;
+                        position: absolute;
+                        right: 60px;
+                        font-size: 14px;
+                        color: #fff;
+                        border: none;
+                        line-height: 30px;
+                    }
+                }
+
                 .pager>ul {
                     @include pagerSet;
                 }
@@ -541,49 +611,50 @@
                         }
                     }
 
-                  
-                        .rejectBox {
+
+                    .rejectBox {
+                        position: fixed;
+                        width: 60%;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                        box-shadow: 0px 0px 20px #333;
+                        background-color: $main_ivory;
+                        border-radius: $borderRadius_cd;
+                        padding: 30px 40px 60px 40px;
+                        z-index: 10;
+
+                        img {
                             position: absolute;
-                            width: 60%;
-                            left: 50%;
-                            top:10px;
-                            transform: translateX(-50%);
-                            box-shadow: 0px 0px 20px #333;
-                            background-color: $main_ivory;
-                            border-radius: $borderRadius_cd;
-                            padding: 30px 40px 60px 40px;
+                            right: 20px;
+                            top: 20px;
+                            width: 16px;
+                            cursor: pointer;
+                        }
 
-                            img {
-                                position: absolute;
-                                right: 20px;
-                                top: 20px;
-                                width: 16px;
-                                cursor: pointer;
+                        textarea {
+                            @include block_center;
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            padding: 10px;
+                            display: block;
+                            width: 100%;
+                            height: 200px;
+                            resize: unset;
+                            outline: none;
+                            border-radius: $borderRadius_m_btn;
+
+                            &:focus {
+                                border: 2px solid $main_br;
                             }
+                        }
 
-                            textarea {
-                                @include block_center;
-                                margin-top: 10px;
-                                margin-bottom: 10px;
-                                padding: 10px;
-                                display: block;
-                                width: 100%;
-                                height: 200px;
-                                resize: unset;
-                                outline: none;
-                                border-radius: $borderRadius_m_btn;
+                        button {
+                            position: absolute;
+                            right: 40px;
+                            bottom: 20px;
+                        }
 
-                                &:focus {
-                                    border: 2px solid $main_br;
-                                }
-                            }
-
-                            button {
-                                position: absolute;
-                                right: 40px;
-                                bottom: 20px;
-                            }
-                        
                     }
                 }
 

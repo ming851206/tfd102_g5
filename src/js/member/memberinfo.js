@@ -55,7 +55,9 @@ const MemberInfo = {
 
                                     <div class="nameBorder">
                                             <div class="memberInfoName">出生日期</div>
-                                            <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:470px;" type="date" @keyup="inputtype(2,$event)" id="memberHBYdate">
+                                            <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:470px;" type="date" @keyup="inputtype(2,$event)" id="memberHBYdate" v-if="editValue[2]==null">
+
+                                            <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:470px;" type="input" @keyup="inputtype(2,$event)" id="memberHBYdate"  disabled v-else>
                                     </div>
                                     <div class="nameBorder">
                                             <div class="memberInfoName">手機號碼</div>
@@ -107,9 +109,10 @@ const MemberInfo = {
                 { name: "E-mail", val: "jumper@gmail.com" },
                 { name: "會員密碼", val: "0123456789" },
                 { name: "確認密碼", val: "0123456789" },
-                { name: "照片", val: "" },
+                { name: "照片", val: "照片" },
 
             ],
+            checkSend: false,
             passwdwd: '',
             editType: false,
             editValue: [],
@@ -164,40 +167,74 @@ const MemberInfo = {
             this.editType = false;
         },
         confirms() {
-            this.editValue[2] = document.getElementById("memberHBYdate").value;
-            if (this.editValue[1] == "女") {
-                this.editValue[1] = 1;
-            } else {
-                this.editValue[1] = 0;
-
-            }
-            axios.post('../../php/memberedit.php', {
-                name: this.editValue[0],
-                gender: this.editValue[1],
-                birthday: this.editValue[2],
-                phone: this.editValue[3],
-                email: this.editValue[4],
-                passwd: this.editValue[5]
-
-            }).then(res => {
-                let data = res.data[0];
-                this.values[0].val = data.name;
-                if (data.gender == 0) {
-                    this.values[1].val = "男";
-                } else if (data.gender == 1) {
-                    this.values[1].val = "女";
+            let phone = /^09\d{8}$/;
+            let emails = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
+            console.log(phone.test(this.editValue[4]));
+            for (let i = 0; i < this.editValue.length; i++) {
+                if (this.editValue[i] != '') {
+                    if (this.editValue[5] == this.editValue[6]) {
+                        if (phone.test(this.editValue[3])) {
+                            if (emails.test(this.editValue[4])) {
+                                if (i == (this.editValue.length - 1)) {
+                                    this.checkSend = true;
+                                }
+                            } else {
+                                this.checkSend = false;
+                                alert('email格式錯誤');
+                                return 0;
+                            }
+                        } else {
+                            this.checkSend = false;
+                            alert('電話必須09開頭且要10碼');
+                            return 0;
+                        }
+                    } else {
+                        this.checkSend = false;
+                        alert('密碼與確認密碼必須相同');
+                        return 0;
+                    }
                 } else {
-                    this.values[1].val = "";
+                    this.checkSend = false;
+                    break;
                 }
-                this.values[2].val = data.birthday;
-                this.values[3].val = data.phone;
-                this.values[4].val = data.email;
-                this.values[5].val = data.password;
-                this.values[6].val = data.password;
-                this.editValue = [];
-                this.editType = false;
-            });
+            }
+            if (this.checkSend) {
+                this.editValue[2] = document.getElementById("memberHBYdate").value;
+                if (this.editValue[1] == "女") {
+                    this.editValue[1] = 1;
+                } else {
+                    this.editValue[1] = 0;
 
+                }
+                axios.post('../../php/memberedit.php', {
+                    name: this.editValue[0],
+                    gender: this.editValue[1],
+                    birthday: this.editValue[2],
+                    phone: this.editValue[3],
+                    email: this.editValue[4],
+                    passwd: this.editValue[5]
+
+                }).then(res => {
+                    let data = res.data[0];
+                    this.values[0].val = data.name;
+                    if (data.gender == 0) {
+                        this.values[1].val = "男";
+                    } else if (data.gender == 1) {
+                        this.values[1].val = "女";
+                    } else {
+                        this.values[1].val = "";
+                    }
+                    this.values[2].val = data.birthday;
+                    this.values[3].val = data.phone;
+                    this.values[4].val = data.email;
+                    this.values[5].val = data.password;
+                    this.values[6].val = data.password;
+                    this.editValue = [];
+                    this.editType = false;
+                });
+            } else {
+                alert('欄位內容不能為空');
+            }
         },
         inputFocus(index, event) {
             if (event.target.value == this.values[index].val) {

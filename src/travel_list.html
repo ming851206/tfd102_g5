@@ -80,7 +80,7 @@
                 <input class="trip_search" placeholder="搜尋" v-model="searchword" @keyup.enter="search"></li>
             </div>
             <keep-alive>
-                <component :the-input="searchword" :the-price="searchprice" :is="content"></component>
+                <component :the-input="searchword" :the-price="searchprice" :is="content" @show-maintrips="makeSync"></component>
             </keep-alive>
         </div>
 
@@ -138,7 +138,10 @@
                         },
                         inputValue: 400
                     })
-                }
+                },
+                makeSync(cat){
+                    this.content = cat;
+                },
             },
         });
     </script>
