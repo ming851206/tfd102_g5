@@ -34,7 +34,7 @@
                         <h4>Hi!Jumper</h4>
                         <button class="btnM" type="button">登出</button>
                     </div>
-                   
+
                     <router-view></router-view>
                 </div>
             </div>
@@ -45,6 +45,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.6.2/vuex.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_q03YE628F7CYJOygI92dH");
+        })();
+    </script>
+
     <!--各元件引入-->
     <script src="../js/admin_index/coupon.js"></script>
     <script src="../js/admin_index/faq.js"></script>
@@ -158,9 +165,3 @@
             router,
         });
     </script>
-
-
-
-</body>
-
-</html>

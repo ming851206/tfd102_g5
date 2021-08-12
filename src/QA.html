@@ -98,6 +98,7 @@
         new Vue({
             el: '#faq_app',
             data: {
+                now:0,
                 search: '',
                 resTxt: '',
                 classList: {
@@ -221,6 +222,10 @@
 
             methods: {
                 qaSubmit(e) {
+                    //抓取現在時間
+                    var date = new Date();
+                    this.now = date.getTime();
+
                     //物件跑回圈的寫法:
                     let all_check = true;
                     Object.keys(this.formData).map((objectKey, index) => {
@@ -235,11 +240,12 @@
                     });
 
                     if (all_check) {
-                     
+
                         axios.post('http://localhost/php/qa_form.php', JSON.stringify({
                             name: this.formData.name.value,
                             email: this.formData.email.value,
                             content: this.formData.textarea.value,
+                            time: this.now,
                         }), {
                             headers: {
                                 'Content-Type': 'application/json'
@@ -295,6 +301,5 @@
 
     </script>
 </body>
-
 
 </html>
