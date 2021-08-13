@@ -370,12 +370,12 @@ Vue.component('all', {
     </div>
     `,
     methods: {
-        changeiColor(e) {
-            e.preventDefault();
-            // console.log(e.target);
-            e.target.classList.toggle('clicked');
+        // changeiColor(e) {
+        //     e.preventDefault();
+        //     // console.log(e.target);
+        //     e.target.classList.toggle('clicked');
 
-        },
+        // },
         // 取得所有最愛旅遊
         getAllFavs() {
             axios.get('http://localhost/php/showFav.php').then(res => {

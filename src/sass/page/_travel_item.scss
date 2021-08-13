@@ -3,19 +3,23 @@
     padding: 0 20px 50px ;
     margin-bottom: 60px;
 }
+@mixin border-bottom_sm {
+    padding: 0 20px 36px;
+    margin-bottom: 50px;
+}
 @mixin select_icon {
+    cursor: pointer;
     background-repeat: no-repeat;
     background-size: 28px, 25px;
     background-position: left 15px top 9.3px, top 10px right 12px;
 }
-@mixin tripcard {
+@mixin trip_item_card {
     display: flex;
     flex-direction: column;
     height: 70vh;
     max-height: 530px;
 
     .pic {
-        // border: 2px solid red;
         height: 50%;
         display: flex;
         justify-content: flex-end;
@@ -27,7 +31,6 @@
     }
 
     .content {
-        // border: 2px solid red;
         height: 50%;
         padding: 60px 20px 30px 20px;
         background-color: #FAF9F2;
@@ -46,46 +49,24 @@
         }
 
         .the_icon {
-            // border: 2px solid red;
             display: flex;
             position: absolute;
             right: 10px;
             top: 10px;
             margin-left: 5px;
-
-            @include mobile {
-                // border: 2px solid red;
-
-                right: 2px;
-                // margin-left: 1px;
-
-            }
-
+            opacity: 0.8;
             .share {
-                // border: 2px solid red;
                 background-image: url('../../images/icon/share.svg');
                 width: 20px;
                 height: 22px;
                 background-size: 14px;
                 background-repeat: no-repeat;
-
-                @include ipad {
-                    // border: 2px solid blue;
-                    width: 14px;
-                    height: 15px;
-                    background-size: 11px;
-                }
-
-                @include mobile {
-                    // border: 2px solid blue;
-                    width: 14px;
-                    height: 15px;
-                    background-size: 11px;
+                &:hover{
+                   background-image: url('../../images/icon/share_brown.svg');
                 }
             }
 
             .fav {
-                // border: 2px solid blue;
                 background-image: url('../../images/icon/like.svg');
                 width: 18px;
                 height: 18px;
@@ -93,63 +74,32 @@
                 background-repeat: no-repeat;
                 margin-left: 8px;
                 margin-right: 8px;
-
-                @include ipad {
-                    // border: 2px solid blue;
-                    width: 15px;
-                    height: 15px;
-                    margin-right: 4px;
-                    margin-left: 4px;
-                    background-size: 15px;
-                }
-
-                @include mobile {
-                    // border: 2px solid blue;
-                    width: 15px;
-                    height: 15px;
-                    margin-right: 2px;
-                    margin-left: 3px;
-                    background-size: 15px;
-                }
-
-
                 button {
                     border: none;
                     background-color: transparent;
                     cursor: pointer;
                 }
-
             }
-
             .fav.clicked {
-                // border: 2px solid red;
                 background-image: url('../../images/icon/like_full.svg');
                 background-size: 17px;
-                @include ipad {
-                    // border: 2px solid blue;
-                    background-size: 14px;
-                }
-                @include mobile {
-                    background-size: 14px;
-
-                }
             }
         }
 
         .the_star_num {
             display: flex;
-            flex-direction: row;
+            align-items: center;
             padding: 10px 0;
-
-            p.star_get,
+            p.star_get{
+                font-size: 14px;
+            }
             p.area {
-                // border: 2px solid brown;
-                margin: 0 0 0 10px;
+                margin-left: 20px;
+                font-size: 14px;
             }
         }
 
         h4.trip_intro {
-            // border: 2px solid red;
             max-height: 55px;
             font-size: 16px;
             color: rgba(0, 0, 0, 0.8);
@@ -157,11 +107,6 @@
             font-family: 'regular';
             overflow: hidden;
             font-weight: bold;
-
-
-            @include mobile {
-                font-size: 14px;
-            }
         }
 
         h4.trip_intro:hover {
@@ -173,11 +118,43 @@
         }
     }
 }
+@keyframes fade-in_1 {
+    0% {
+        opacity: 0;
+        filter: blur(100px);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+    }
+}
 .top_info{
     width: 976px;
     margin: 50px auto;
+    @include lg{
+        width: 976px * 0.9;
+    }
+    @include md{
+        width: 976px * 0.7;
+    }
+    @include sm{
+        width: 100%;
+        margin: 40px 0 30px;
+    }
+    @include xs{
+        margin: 0 0 30px;
+    }
     .breadcrumb{
         display: flex;
+        @include sm{
+            width: 976px * 0.48;
+            margin: 0 auto;
+            margin-left: 5%;
+        }
+        @include xs{
+           display: none;
+        }
         li{
             a{
                 color: #996A4D;
@@ -200,6 +177,22 @@
         width: 976px;
         height: 450px;
         margin: 10px auto;
+        animation: fade-in_1 .8s linear backwards;
+        @include lg{
+            width: 976px * 0.9;
+        }
+        @include md{
+            width: 976px * 0.7;
+            height: 450px  * 0.85;
+        }
+        @include sm{
+            width: 100%;
+            margin: 10px 0;
+            height: 450px * 0.7;
+        }
+        @include xs{
+            animation: none;
+        }
         img{
             width: 100%;
             height: 100%;
@@ -209,49 +202,116 @@
 }
 
 .item_title{
-    // border: 1px solid rgb(250, 8, 8);
     width: 976px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     @include border-bottom;
+    @include lg{
+        width: 976px * 0.9;
+    }
+    @include md{
+        width: 976px * 0.7;
+    }
+    @include sm{
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        width: 976px * 0.48;
+        @include border-bottom_sm;
+    }
+    @include xs{
+        width: 976px * 0.32;
+        padding: 0 12px 36px;
+    }
     .title_left{
-        // border: 1px solid blue;
         display: flex;
         .img_border{
             width: 160px;
             height: 160px;
             border-radius: 50%;
             overflow: hidden;
+            @include md{
+                width: 160px * 0.7;
+                height: 160px * 0.7;
+            }
+            @include sm{
+                width: 160px * 0.48;
+                height: 160px * 0.48;
+            }
+            @include xs{
+                width: 160px * 0.38;
+                height: 160px * 0.38;
+            }
             img{
                 width: 100%;
                 object-fit: cover;
             }
         }
         .title_content{
-            // border: 1px solid green;
             display: flex;
             flex-direction: column;
             justify-content: center;
             margin-left: 48px;
+            @include sm{
+                margin-left: 24px;
+            }
+            @include xs{
+                margin-left: 20px;
+            }
             h1{
                 font-size: 36px;
                 font-weight: 500;
                 margin: 16px auto 0;
                 display: block;
                 line-height: 1.05;
+                @include md{
+                    width: 400px;
+                    line-height: 1.2;
+                    margin: 10px auto;
+                }
+                @include sm{
+                    width: 320px;
+                    margin: 0 auto;
+                    font-size: 30px;
+                }
+                @include xs{
+                    width: 220px;
+                    margin: 0 auto;
+                    font-size: 24px;
+                }
             }
             h2{
                 padding: 0;
                 font-size: 24px;
                 color: #707070;
                 margin: 26px 0 14px;
+                @include md{
+                    margin: 12px 0 14px;
+                }
+                @include sm{
+                    margin: 18px 0 12px;
+                }
+                @include xs{
+                    font-size: 20px;
+                    margin: 14px 0 6px;
+                }
             }
         }
     }
     .icons_group{
         margin-top: 26px;
         width: 53px;
+        @include md{
+            margin-top: 20px;
+        }
+        @include sm{
+            align-self: flex-end;
+            margin-top: 0;
+            margin-bottom: 18px;
+        }
+        @include xs{
+            margin-right: 8px;
+        }
         img{
             cursor: pointer;
             &:first-child{
@@ -264,20 +324,38 @@
     width: 976px;
     margin: 0 auto;
     @include border-bottom;
+    @include lg{
+        width: 976px * 0.9;
+    }
+    @include md{
+        width: 976px * 0.7;
+    }
+    @include sm{
+        width: 976px * 0.48;
+        @include border-bottom_sm;
+    }
+    @include xs{
+        width: 976px * 0.32;
+        padding: 0 12px 36px;
+    }
     .title_star{
         display: flex;
         justify-content: space-between;
         margin-bottom: 28px;
+        @include sm{
+            margin-bottom: 20px;
+        }
         h2{
             padding: 0;
+            @include sm{
+                font-size: 28px;
+            }
         }
         .star_comment{
-            // border: 1px solid red;
             margin-top: 8px;
             display: flex;
             align-items: center;
             .starNum{
-                // border: 1px solid blue;
                 display: flex;
                 align-items: center;
                 h4{
@@ -291,23 +369,76 @@
     width: 976px;
     margin: 0 auto;
     @include border-bottom;
+    @include lg{
+        width: 976px * 0.9;
+    }
+    @include md{
+        width: 976px * 0.7;
+    }
+    @include sm{
+        width: 976px * 0.48;
+        @include border-bottom_sm;
+    }
+    @include xs{
+        width: 976px * 0.32;
+        padding: 0 12px 36px;
+    }
+    h2{
+        @include sm{
+            font-size: 28px;
+            padding-bottom: 32px;
+        }
+    }
     .photo_row1{
-        // border: 1px solid red;
         width: 912px;
         height: 300px;
         display: flex;
         justify-content: space-between;
         margin-bottom: 14px;
+        @include lg{
+            width: 912px * 0.9;
+            height: 300px * 0.9;
+            margin-bottom: 10px;
+        }
+        @include md{
+            width: 912px * 0.7;
+            height: 300px * 0.7;
+        }
+        @include sm{
+            width: 912px * 0.48;
+            height: 300px * 0.48;
+            margin-bottom: 6px;
+        }
+        @include xs{
+            width: 912px * 0.32;
+            height: 300px * 0.32;
+            margin-bottom: 6px;
+        }
         img{
             cursor: pointer;
         }
     }
     .photo_row2{
-        // border: 1px solid red;
         width: 912px;
         height: 226px;
         display: flex;
         justify-content: space-between;
+        @include lg{
+            width: 912px * 0.9;
+            height: 226px * 0.9;
+        }
+        @include md{
+            width: 912px * 0.7;
+            height: 226px * 0.7;
+        }
+        @include sm{
+            width: 912px * 0.48;
+            height: 226px * 0.48;
+        }
+        @include xs{
+            width: 912px * 0.32;
+            height: 226px * 0.32;
+        }
         img{
             cursor: pointer;
         }
@@ -319,17 +450,45 @@
     width: 976px;
     margin: 0 auto;
     @include border-bottom;
+    @include lg{
+        width: 976px * 0.9;
+    }
+    @include md{
+        width: 976px * 0.7;
+    }
+    @include sm{
+        width: 976px * 0.48;
+        @include border-bottom_sm;
+    }
+    @include xs{
+        width: 976px * 0.32;
+        padding: 0 12px 36px;
+    }
+    h2{
+        @include sm{
+            font-size: 28px;
+            padding-bottom: 32px;
+        }
+    }
     .ex_order{
-        // border: 1px solid red;
         margin-top: 12px;
         display: flex;
         justify-content: space-between;
+        @include md{
+           flex-direction: column;
+           align-items: center;
+        }
+        @include xs{
+            align-items: flex-start;
+         }
     }
     .list{
-        // border: 1px solid green;
-        display: flex;
         margin-bottom: 42px;
         margin-left: 8px;
+        @include xs{
+            margin-left: 0;
+            margin-bottom: 24px;
+        }
         .num{
             width: 50px;
             height: 50px;
@@ -340,12 +499,44 @@
             font-size: 30px;
             text-align: center;
             margin-right: 30px;
+            display: inline-block;
+            vertical-align: top;
+            @include sm{
+                margin-right: 26px;
+            }
+            @include xs{
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 20px;
+                margin-right: 16px;
+                margin-top: 3px;
+            }
         }
         .right_word{
+            display: inline-block;
             margin-top: 8px;
+            @include lg{
+                width: 330px;
+            }
+            @include md{
+                width: 450px;
+            }
+            @include sm{
+                width: 330px;
+            }
+            @include xs{
+                width: 220px;
+            }
             h3{
                 font-size: 22px;
                 margin-bottom: 6px;
+                @include sm{
+                    font-size: 20px;
+                }
+                @include xs{
+                    font-size: 18px;
+                }
             }
             h4{
                 color: #707070;
@@ -357,13 +548,26 @@
         border-radius: 30px;
         background-color: #FAF9F2;
         width: 340px;
+        @include lg{
+            margin-left: 50px;
+            height: 430px;
+        }
+        @include md{
+            margin-top: 40px;
+            margin: 10px auto 15px;
+        }
+        @include sm{
+            margin: 10px auto 15px;
+        }
+        @include xs{
+            width: 300px;
+        }
         h4{
             font-size: 22px;
             text-align: center;
             margin: 36px auto;
         }
         .selects{
-            // border: 1px solid red;
             width: 242px;
             height: 294px;
             margin: 0 auto;;
@@ -406,6 +610,15 @@
                 height: 48px;
                 line-height: 48px;
                 margin-top: 12px;
+                transition: all 0.3s linear;
+                &:hover{
+                    transform: scale(1.05);
+                    transition: all 0.3s linear;
+                }
+                @include xs{
+                    border-radius: 13px;
+                    
+                }
             }
         }
     }
@@ -414,20 +627,61 @@
     width: 976px;
     margin: 0 auto;
     @include border-bottom;
+    @include lg{
+        width: 976px * 0.9;
+    }
+    @include md{
+        width: 976px * 0.7;
+    }
+    @include sm{
+        @include border-bottom_sm;
+        width: 976px * 0.48;
+    }
+    @include xs{
+        width: 976px * 0.32;
+        padding: 0 12px 36px;
+    }
+    h2{
+        @include sm{
+            font-size: 28px;
+            padding-bottom: 32px;
+        }
+    }
     .comment_container{
         width: 800px;
         margin: 0 auto;
+        @include md{
+            width: 800px * 0.7;
+        }
+        @include sm{
+            width: 800px * 0.54;
+        }
+        @include xs{
+            width: 800px * 0.32;
+        }
         .each_comment{
             border: 1px solid #996A4D;
             border-radius: 15px;
             margin-bottom: 30px;
             display: flex;
+            @include sm{
+                margin-bottom: 15px;
+            }
+            @include xs{
+                align-items: flex-start;
+            }
             .comment_left{
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 margin: 16px 42px 16px 46px;
+                @include sm{
+                    margin: 16px 26px 16px 28px;
+                }
+                @include xs{
+                    margin: 24px 20px 16px;
+                }
                 .avatar_border{
                     width: 55px;
                     height: 55px;
@@ -440,7 +694,10 @@
                 }
             }
             .comment_right{
-                margin-top: 24px;
+                margin: 24px 46px 20px 0px;
+                @include sm{
+                    margin-right: 20px;
+                }
                 .starNum2{
                     display: flex;
                     margin-bottom: 4px;
@@ -454,6 +711,17 @@
     #more_comments{
         display: block;
         margin: 60px auto 0;
+        transition: all 0.3s linear;
+        &:hover{
+            color: white;
+            background-color: #996A4D;
+            transform: scale(1.05);
+            font-size: 17px;
+            transition: all 0.3s linear;
+        }
+        @include sm{
+            margin: 40px auto 0;
+        }
     }
 }
 #recommend_item{
@@ -462,32 +730,85 @@
         width: 976px;
         margin: 40px auto 50px;
         padding: 0 20px;
+        @include lg{
+            width: 976px * 0.9;
+        }
+        @include md{
+            width: 976px * 0.7;
+        }
+        @include sm{
+            width: 976px * 0.48;
+        }
+        @include xs{
+            width: 976px * 0.32;
+            margin: 40px auto 30px;
+        }
     }
     .recommend_container{
         width: 1120px;
         margin: 0 auto 100px;
         display: flex;
         justify-content: space-between;
+        @include lg{
+            width: 900px;
+        }
+        @include md{
+            width: 730px;
+        }
+        @include sm{
+            width: 480px;
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+        @include xs{
+            width: 340px;
+        }
         .item {
             // border: 2px solid red;
             height: 200px;
             width: 272px;
+            @include lg{
+                height: 200px * 0.8;
+                width: 272px * 0.8;
+            }
+            @include md{
+                height: 200px * 0.65;
+                width: 272px * 0.65;
+            }
+            @include sm{
+                height: 200px * 0.85;
+                width: 272px * 0.85;
+               &:nth-child(1){
+                    margin-bottom: 180px;
+               }
+               &:nth-child(2){
+                    margin-bottom: 180px;
+           }
+           @include xs{
+                height: 200px * 0.6;
+                width: 272px * 0.6;
+           }
+            }
             a {
                 width: 100%;
                 // border: 2px solid red;
                 border-radius: $borderRadius_cd;
                 overflow: hidden;
                 .trip_item {
-                    @include tripcard();
+                    @include trip_item_card;
                     // border: 2px solid red;
                     max-height: 350px;
-    
+                    @include lg{
+                        height: auto;
+                    }
                     .content {
                         height: 50%;
                         padding: 50px 20px 30px 20px;
                         background-color: #FAF9F2;
                         position: relative;
-    
+                        @include lg{
+                            padding-bottom: 18px;
+                        }
                         .avatar img {
                             border: 6px solid white;
                             // border: 2px solid red;
@@ -500,7 +821,35 @@
                             left: 50%;
                             transform: translateX(-50%);
                         }
-    
+                        .the_icon{
+                            @include md{
+                                top: 15px;
+                                right: 3px;
+                            }
+                            @include sm{
+                                top: 10px;
+                                right: 10px;
+                            }
+                            @include xs{
+                                top: 30px;
+                                right: 5px;
+                            }
+                            .fav{
+                                @include lg{
+                                    margin-left: 4px;
+                                    margin-right: 0;
+                                }
+                                @include md{
+                                    margin-left: 0;
+                                }
+                                @include md{
+                                    margin-left: 4px;
+                                }
+                                @include xs{
+                                    margin-left: 1.5px;
+                                }
+                            }
+                        }
                         .the_star_num {
                             // border: 20px solid red;
                             display: flex;
@@ -534,7 +883,10 @@
                             color: rgba(0, 0, 0, 0.8);
                             overflow: hidden;
                             font-weight: bold;
-    
+                            // @include lg{
+                            //     margin-top: 12px;
+                            //     margin-bottom: 20px;
+                            // }
                             @include mobile {
                                 font-size: 14px;
                             }
@@ -553,5 +905,10 @@
                 }
             }
         }
+    }
+}
+.item_footer{
+    @include xs{
+        margin-top: 280px;
     }
 }
