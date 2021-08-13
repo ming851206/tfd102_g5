@@ -20,7 +20,7 @@ const Faq = {
                             <td v-text="faq.content" class="textContent"></td>
                             <td>{{timestampToTime(faq.faq_at)}}</td>
                             <td v-text="faq.is_replied == null ? '未回覆':'已回覆'">/td>
-                            <td><button @click="openMail(index)">回覆</button></td>   
+                            <td><button @click="openMail(index)" :disabled="faq.is_replied != null">回覆</button></td>   
                         </tr>
                     </table>
                     <form id="mailform" v-if="this.showBox == true">
@@ -30,8 +30,8 @@ const Faq = {
                                 <input type="text" name="to_name" id="to_name" v-model="toName">
                             </div>
                             <div class="field">
-                                <label for="from_name">from_name</label>
-                                <input type="text" name="from_name" id="from_name">
+                                <label for="from_name">寄件者</label>
+                                <input type="text" name="from_name" id="from_name" value="jumper2021.tw@gmail.com">
                             </div>
                             <div class="field">
                                 <label for="message">回覆內容</label>
@@ -41,11 +41,6 @@ const Faq = {
                                 <label for="to_email">收件信箱</label>
                                 <input type="text" name="to_email" id="to_email" v-model="toEmail">
                             </div>
-                            <div class="field">
-                                <label for="reply_to">reply_to</label>
-                                <input type="text" name="reply_to" id="reply_to">
-                            </div>
-
                             <input type="submit" id="mailbutton" value="Send Email" class="btnM" @click="replyMail">
                     </form>
                     <div class="pager2">
@@ -125,12 +120,12 @@ const Faq = {
                         this.toName = "";
                         this.toEmail = "";
                         this.showBox = false;
-                        //畫面reload
+                        //畫面reload或是寫在watch?
                     }, 1000)
                 }
             });
-
         },
+        
         timestampToTime(timestamp) {
 
             var date = new Date(timestamp * 1);//時間戳為10位需*1000，時間戳為13位的話需乘1
@@ -143,6 +138,7 @@ const Faq = {
 
         }
     },
+    computed:{},
     mounted() {
         axios.get('http://localhost/php/adm_faqlist.php').then(res => this.data = res.data);
     },
