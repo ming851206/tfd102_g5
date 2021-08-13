@@ -10,7 +10,7 @@ Vue.component('all', {
             besttrip_items: [
                 {
                     id: 1,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/louvre.jpg",
                     avatar: "./images/avatar/avatar12.jpg",
                     comment_count: "102",
@@ -21,7 +21,7 @@ Vue.component('all', {
                 },
                 {
                     id: 2,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/glasshouse.jpg",
                     avatar: "./images/avatar/avatar13.jpg",
                     comment_count: "102",
@@ -32,7 +32,7 @@ Vue.component('all', {
                 },
                 {
                     id: 3,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/1/2/0.jpg",
                     avatar: "./images/avatar/avatar14.jpg",
                     comment_count: "102",
@@ -43,7 +43,7 @@ Vue.component('all', {
                 },
                 {
                     id: 4,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/goldenbay.jpg",
                     avatar: "./images/avatar/avatar15.jpg",
                     comment_count: "102",
@@ -54,7 +54,7 @@ Vue.component('all', {
                 },
                 {
                     id: 5,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/africa_elephant.jpg",
                     avatar: "./images/avatar/avatar18.jpg",
                     comment_count: "102",
@@ -68,7 +68,7 @@ Vue.component('all', {
                 {
                     id: 1,
                     cat: 'us',
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/1/2/0.jpg",
                     subject: "美洲",
                     title: "飛越世界奇景 體驗美洲讓人歎為觀止的尼加拉大瀑布",
@@ -76,7 +76,7 @@ Vue.component('all', {
                 {
                     id: 2,
                     cat: 'eu',
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/louvre.jpg",
                     subject: "歐洲",
                     title: " 羅浮宮象徵藝術，撼動人心之情久久保留",
@@ -84,7 +84,7 @@ Vue.component('all', {
                 {
                     id: 3,
                     cat: 'as',
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/kyoto.jpg",
                     subject: "亞洲",
                     title: "日本的千年古都，歷史的記憶，一同深度挖掘京都魅力",
@@ -92,7 +92,7 @@ Vue.component('all', {
                 {
                     id: 4,
                     cat: 'af',
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/africa_elephant.jpg",
                     subject: "非洲",
                     title: "探索非洲，感受非洲大草原的野性美！",
@@ -101,7 +101,7 @@ Vue.component('all', {
                 {
                     id: 5,
                     cat: 'oc',
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/goldenbay.jpg",
                     subject: "大洋洲",
                     title: "玩膩了亞洲，把觸角伸到南半球！體驗壯麗美感！",
@@ -110,7 +110,7 @@ Vue.component('all', {
             viewedtrip_items: [
                 {
                     id: 1,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/libertystatue.jpg",
                     avatar: "./images/avatar/avatar2.jpg",
                     comment_count: "15",
@@ -121,7 +121,7 @@ Vue.component('all', {
                 },
                 {
                     id: 6,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/watermarket.jpg",
                     avatar: "./images/avatar/avatar3.jpg",
                     comment_count: "30",
@@ -132,7 +132,7 @@ Vue.component('all', {
                 },
                 {
                     id: 4,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/glasshouse.jpg",
                     avatar: "./images/avatar/avatar5.jpg",
                     comment_count: "102",
@@ -143,7 +143,7 @@ Vue.component('all', {
                 },
                 {
                     id: 5,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/400/sydney.jpg",
                     avatar: "./images/avatar/avatar6.jpg",
                     comment_count: "102",
@@ -154,7 +154,7 @@ Vue.component('all', {
                 },
                 {
                     id: 6,
-                    link: "./travel_info.html",
+                    link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/maltive.jpg",
                     avatar: "./images/avatar/avatar11.jpg",
                     comment_count: "102",
@@ -164,7 +164,7 @@ Vue.component('all', {
                     event_price: "399",
                 },
                 {
-                    id: 7, link: "./travel_info.html",
+                    id: 7, link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/africa_elephant.jpg",
                     avatar: "./images/avatar/avatar8.jpg",
                     comment_count: "102",
@@ -174,7 +174,7 @@ Vue.component('all', {
                     event_price: "399",
                 },
                 {
-                    id: 8, link: "./travel_info.html",
+                    id: 8, link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/wugerku.jpg",
                     avatar: "./images/avatar/avatar.jpg",
                     comment_count: "102",
@@ -194,7 +194,7 @@ Vue.component('all', {
                 <h3>最新旅遊</h3>
                 <div class="container">
                     <div class="left_block">
-                        <a href="">
+                        <a href="./travel_item.html">
                             <div class="trip_item">
                                 <div class="pic">
                                     <img src="./images/travel_list/800/wugerku.jpg">
@@ -223,7 +223,7 @@ Vue.component('all', {
                         </a>
                     </div>
                     <div class="right_block">
-                        <a href="">
+                        <a href="./travel_item.html">
                             <div class="upper_area">
                                 <div class="trip_item">
                                     <div class="pic upper">
@@ -250,7 +250,7 @@ Vue.component('all', {
                                 </div>
                             </div>
                         </a>
-                        <a href="">
+                        <a href="./travel_item.html">
                             <div class="down_area">
                                 <div class="trip_item">
                                     <div class="pic down">

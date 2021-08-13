@@ -14,7 +14,7 @@ Vue.component('eu', {
             items: [ // 所有旅遊
                 // {
                 //     id: 3,
-                //     link: "./travel_info.html",
+                //     link: "./travel_item.html",
                 //     cover_img: "./images/travel_list/250/niagarafalls.jpg",
                 //     avatar: "./images/avatar/avatar2.jpg",
                 //     counts: "102",

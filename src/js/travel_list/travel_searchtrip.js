@@ -8,7 +8,7 @@ Vue.component('filterTrip', {
             items: [
                 //     {
                 //         id: 1,
-                //         link: "./travel_info.html",
+                //         link: "./travel_item.html",
                 //         cover_img: "./images/travel_list/250/louvre.jpg",
                 //         avatar: "./images/avatar/avatar1.jpg",
                 //         counts: "102",
@@ -19,7 +19,7 @@ Vue.component('filterTrip', {
                 //     },
                 //     {
                 //         id: 2,
-                //         link: "./travel_info.html",
+                //         link: "./travel_item.html",
                 //         cover_img: "./images/travel_list/250/glasshouse.jpg",
                 //         avatar: "./images/avatar/avatar19.jpg",
                 //         counts: "102",
@@ -30,7 +30,7 @@ Vue.component('filterTrip', {
                 //     },
                 //     {
                 //         id: 3,
-                //         link: "./travel_info.html",
+                //         link: "./travel_item.html",
                 //         cover_img: "./images/travel_list/250/niagarafalls.jpg",
                 //         avatar: "./images/avatar/avatar2.jpg",
                 //         counts: "102",
@@ -41,7 +41,7 @@ Vue.component('filterTrip', {
                 //     },
                 //     {
                 //         id: 4,
-                //         link: "./travel_info.html",
+                //         link: "./travel_item.html",
                 //         cover_img: "./images/travel_list/250/goldenbay.jpg",
                 //         avatar: "./images/avatar/avatar18.jpg",
                 //         counts: "102",
@@ -52,7 +52,7 @@ Vue.component('filterTrip', {
                 //     },
                 //     {
                 //         id: 5,
-                //         link: "./travel_info.html",
+                //         link: "./travel_item.html",
                 //         cover_img: "./images/travel_list/400/sydney.jpg",
                 //         avatar: "./images/avatar/avatar18.jpg",
                 //         counts: "102",
@@ -63,7 +63,7 @@ Vue.component('filterTrip', {
                 //     },
                 //     {
                 //         id: 6,
-                //         link: "./travel_info.html",
+                //         link: "./travel_item.html",
                 //         cover_img: "./images/travel_list/250/africa_elephant.jpg",
                 //         avatar: "./images/avatar/avatar18.jpg",
                 //         counts: "102",
@@ -73,7 +73,7 @@ Vue.component('filterTrip', {
                 //         startprice: "399",
                 //     },
                 //     {
-                //         id: 7, link: "./travel_info.html",
+                //         id: 7, link: "./travel_item.html",
                 //         cover_img: "./images/travel_list/250/maltive.jpg",
                 //         avatar: "./images/avatar/avatar.jpg",
                 //         counts: "102",   
