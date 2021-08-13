@@ -19,16 +19,16 @@
                     <th>建立時間</th>
                     <th>帳號狀態</th>
                 </tr>
-                <tr v-for="person in filterList">
-                    <td v-text="person.no"></td>
+                <tr v-for="(person, index) in filterList">
+                    <td v-text="person.ID"></td>
+                    <td v-text="person.name"></td>
                     <td v-text="person.username"></td>
-                    <td v-text="person.id"></td>
                     <td v-text="person.level" class="level"></td>
                     <td v-text="person.email"></td>
                     <td v-text="person.phone"></td>
                     <td v-text="person.birthday"></td>
-                    <td>{{timestampToTime(person.create)}}</td>
-                    <td class="toggle" :class="{switchIo:person.isActive}" @click="person.isActive = !person.isActive"></td>
+                    <td>{{timestampToTime(person.created_at)}}</td>
+                    <td class="toggle" id="status" :class="{switchIo:person.account_status == 0}" @click="switchStatus(index)"></td>
                 </tr>
              </table>
              <div class="pager2">
@@ -48,25 +48,49 @@
         return {
             search: '',
             timestamp: '',
+            theStatus:'',
             data: [
-                {
-                    no: 1,
-                    username: '芝加哥哥',
-                    id: 'chicagogo',
-                    level: '1',
-                    email: 'jumpjump@gmail.com',
-                    phone: '0987654321',
-                    birthday: '2021/01/01',
-                    create: '1588694400',
-                    isActive: false
-                },
+                // {
+                //     no: 1,
+                //     username: '芝加哥哥',
+                //     id: 'chicagogo',
+                //     level: '1',
+                //     email: 'jumpjump@gmail.com',
+                //     phone: '0987654321',
+                //     birthday: '2021/01/01',
+                //     create: '1588694400',
+                //     isActive: false
+                // },
             ],
         };
     },
     methods:{
+        switchStatus(index){
+            this.theStatus = this.data[index].account_status;
+            if( this.theStatus == 1 ){
+                axios.get('http://localhost/php/adm_status0.php', {
+                    params: { 
+                        theID: this.data[index].ID,
+                    }
+                 }).then(res => {
+                     this.theStatus = res.data;
+                     document.getElementById('status').classList.add('switchIo');//這行沒用
+                 });
+                 
+            }else{
+                axios.get('http://localhost/php/adm_status1.php', {
+                    params: { 
+                        theID: this.data[index].ID,
+                    }
+                 }).then(res => {
+                    this.theStatus = res.data;
+                    document.getElementById('status').classList.remove('switchIo');//這行沒用
+                 });
+            }
+        },
         timestampToTime(timestamp) {
 
-            var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
+            var date = new Date(timestamp * 1);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
             Y = date.getFullYear() + '/';
             M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
             D = date.getDate() + ' ';
@@ -80,8 +104,11 @@
     computed: {
         filterList() { //搜尋功能
             return this.data.filter((person) => { //把data送下來使用filter功能
-                return person.id.toLowerCase().includes(this.search.toLowerCase());
+                return person.ID.toLowerCase().includes(this.search.toLowerCase());
             })
         },
+    },
+    mounted() {
+        axios.get('http://localhost/php/adm_memberList.php').then(res => this.data = res.data);
     },
 };

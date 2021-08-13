@@ -16,7 +16,7 @@ const TripCheck = {
                 <th>旅程內容</th>
                 <th>開始時間</th>
                 <th class="numLimit">人數限制</th>
-                <th>是否包場</th>
+                <th class="numLimit">是否包場</th>
                 <th>價格</th>
                 <th>功能</th>
             </tr>
@@ -25,7 +25,7 @@ const TripCheck = {
                 <td v-text="trip.name"></td>
                 <td v-text="trip.title" class="textContent2"></td>
                 <td v-text="trip.content" class="textContent3"></td>
-                <td>{{timestampToTime(trip.started_at)}}</td>
+                <td class="timeCnt">{{timestampToTime(trip.started_at)}}</td>
                 <td v-text="trip.total_people"></td>
                 <td v-text="trip.is_group = 1 ? '否':'是' "></td>
                 <td v-text="trip.event_price"></td>
@@ -33,9 +33,32 @@ const TripCheck = {
             </tr>
         </table>
         <div class="rejectBox" v-if="this.showBox == true">
-            編號:{{this.boxID}}，旅程退件原因
+            編號{{this.boxID}}，旅程退件原因：
             <img src="../images/icon/close.svg" alt="" @click="closeBox">
-            <textarea name="" id="rejectText"></textarea>
+            <div class="rejChkbox">                       
+                    <label for="item1">
+                        <input type="radio" id="item1" value="1" name="rejReason" @change="txtOff">內文或格式不合規定
+                    </label>
+                    <label for="item2">
+                        <input type="radio" id="item2" value="2" name="rejReason" @change="txtOff">日期時間錯誤
+                    </label>
+                    <label for="item3">
+                        <input type="radio" id="item3" value="3" name="rejReason" @change="txtOff">定價不符
+                    </label>
+                    <label for="item4">
+                        <input type="radio" id="item4" value="4" name="rejReason" @change="txtOff">行程內容尚有爭議
+                    </label>
+                    <label for="item5">
+                        <input type="radio" id="item5" value="5" name="rejReason" @change="txtOff">線上導遊終止合作
+                    </label>
+                    <label for="item6">
+                        <input type="radio" id="item6" value="6" name="rejReason" @change="txtOff">外部原因問題
+                    </label>
+                    <label for="item7" id="item7">
+                        <input type="radio" id="item7" @change="textOn" name="rejReason">其他，請填寫
+                        <textarea name="" id="rejectText" :disabled="isDisabled == true"></textarea>
+                     </label>
+            </div>
             <button class="btnS" type="button" @click="doReject">送出</button>
         </div>
         <div class="pager2">
@@ -59,6 +82,7 @@ const TripCheck = {
             boxID:'',
             resTxt:'',
             rejTxt:'',
+            isDisabled: true,
             data: [
                 // {
                 //     num: 1,
@@ -93,7 +117,12 @@ const TripCheck = {
                 this.data.splice(index, 1);
             }
         },
-      
+        textOn(){
+            this.isDisabled = false;
+        },
+        txtOff(){
+            this.isDisabled = true;
+        },
         reject(index) {  //該筆index對應的退件box出現
             //console.log(index);
             this.showBox = true;
@@ -126,14 +155,13 @@ const TripCheck = {
         },
         timestampToTime(timestamp) {
 
-            var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
+            var date = new Date(timestamp * 1);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
             Y = date.getFullYear() + '/';
             M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
             D = date.getDate() + ' ';
             h = date.getHours() + ':';
-            m = date.getMinutes() + ':';
-            s = date.getSeconds();
-            return this.timestamp = Y + M + D;
+            m = date.getMinutes()
+            return this.timestamp = Y + M + D + h + m;
 
         }
     },

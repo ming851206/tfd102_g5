@@ -145,14 +145,16 @@ body {
 
         h4.trip_intro {
             // border: 2px solid red;
+            height: 55px;
             max-height: 55px;
+            
             font-size: 16px;
             color: rgba(0, 0, 0, 0.8);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             font-family: 'regular';
-            overflow: hidden;
             font-weight: bold;
-
+            overflow: hidden;
+            text-overflow: ellipsis;
 
             @include mobile {
                 font-size: 14px;
@@ -1008,16 +1010,16 @@ body {
 #go_the_top {
     display: none;
 
-    @include desktop {
-        display: block;
-        // border: 2px solid red;
-        cursor: pointer;
-        position: relative;
-        float: right;
-        right: 5%;
-        bottom: 200px;
-        z-index: 10;
-    }
+    // @include desktop {
+    //     display: block;
+    //     // border: 2px solid red;
+    //     cursor: pointer;
+    //     position: relative;
+    //     float: right;
+    //     right: 5%;
+    //     bottom: 200px;
+    //     z-index: 10;
+    // }
 }
 
 // ========= 輪播 =========
