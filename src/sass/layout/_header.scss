@@ -142,7 +142,8 @@ header#the_header{
     background-color: white;
     .logo_rwd{
         float: left;
-        height: $header_H;
+        height: 70px;
+        margin-left: 3%;
     }
     .menu{
         @include total_center;
@@ -167,7 +168,19 @@ header#the_header{
         }
     }
 } 
-
+.mobile_logo{
+    display: none;
+    @include xs{
+        width: 100%;
+        display: block;
+        height: 70px;
+        background-color: #F7F6F2;
+    }
+    img{
+        height: 100%;
+        margin-left: 3%;
+    }
+}
 
 
 
