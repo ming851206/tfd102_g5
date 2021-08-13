@@ -522,7 +522,7 @@
                             transition: all 1s; //沒用討厭
                         }
 
-                        .textContent2 {
+                        .textContent2, .timeCnt {
                             width: 150px;
                             padding: 10px 0px;
                         }
@@ -530,7 +530,7 @@
                         .textContent3 {
                             width: 230px;
                         }
-
+                    
                         button.revoke,
                         button.rejectBtn {
                             background-color: rgb(255, 204, 204);
@@ -614,7 +614,7 @@
 
                     .rejectBox {
                         position: fixed;
-                        width: 60%;
+                        width: 50%;
                         left: 50%;
                         top: 50%;
                         transform: translate(-50%, -50%);
@@ -631,23 +631,51 @@
                             width: 16px;
                             cursor: pointer;
                         }
+                        .rejChkbox{
+                            display: flex;
+                            flex-wrap: wrap;
+                            position: relative;
+                            label{
+                                position: relative;
+                                width: 45%;
+                                top:0px;
+                                right:0px;
+                                padding-left: 1.5rem;
+                                margin: 5px 8px;
+                                input{
+                                    position: absolute;
+                                    top:2px;
+                                    left: 0px;
+                                    width: 16px;
+                                    height: 16px;
+                                }
 
-                        textarea {
-                            @include block_center;
-                            margin-top: 10px;
-                            margin-bottom: 10px;
-                            padding: 10px;
-                            display: block;
-                            width: 100%;
-                            height: 200px;
-                            resize: unset;
-                            outline: none;
-                            border-radius: $borderRadius_m_btn;
-
-                            &:focus {
-                                border: 2px solid $main_br;
+                               
                             }
+                            label:nth-of-type(7){
+                                width: 100%;
+                                textarea {
+                                    @include block_center;
+                                    margin-top: 10px;
+                                    margin-bottom: 10px;
+                                    transform: translateX(-1.2rem);
+                                    padding: 10px;
+                                    display: block;
+                                    width: 103%;
+                                    height: 170px;
+                                    resize: unset;
+                                    outline: none;
+                                    border-radius: $borderRadius_m_btn;
+        
+                                    &:focus {
+                                        border: 2px solid $main_br;
+                                    }
+                                }
+                            }
+                            
                         }
+                        
+                        
 
                         button {
                             position: absolute;

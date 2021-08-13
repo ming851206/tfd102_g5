@@ -1,5 +1,5 @@
-     // ========== 旅程列表(綺) ========== 
-  const TripList = {
+// ========== 旅程列表(綺) ========== 
+const TripList = {
     template: `
         <div class="temp2">
             <h3>旅程列表</h3>
@@ -116,14 +116,13 @@
        
         timestampToTime(timestamp) {
 
-            var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
+            var date = new Date(timestamp * 1);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
             Y = date.getFullYear() + '/';
             M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
             D = date.getDate() + ' ';
             h = date.getHours() + ':';
-            m = date.getMinutes() + ':';
-            s = date.getSeconds();
-            return this.timestamp = Y + M + D;
+            m = date.getMinutes();
+            return this.timestamp = Y + M + D + h + m;
 
         },
       
