@@ -1,6 +1,6 @@
 <?php
 include("./conn.php"); //資料庫連線
-$addfavs =  json_decode(file_get_contents('php://input'), true); //$name會是Array，下面可以用自己的寫法跑迴圈
+$addfavs =  json_decode(file_get_contents('php://input'), true);
 // $member_ID = $addfavs['memberID'];
 $member_ID = 4;
 $product_info_ID = $addfavs['itemID'];
