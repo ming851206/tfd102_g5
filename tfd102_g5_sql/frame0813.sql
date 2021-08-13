@@ -44,12 +44,12 @@ COMMENT = '會員';
 -- Table `JUMPER`.`product_info`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `JUMPER`.`product_info` (
-  `ID` INT NOT NULL,
-  `category` INT NOT NULL COMMENT '分類\\\\\\\\n',
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `category` INT NOT NULL COMMENT '分類\\\\\\\\\\\\\\\\n',
   `member_ID` INT NOT NULL,
   `place` VARCHAR(45) NOT NULL,
   `title` VARCHAR(45) NOT NULL COMMENT '主題',
-  `content` VARCHAR(256) NOT NULL COMMENT '\\\\\\\\\\\\\\\\n內容 ',
+  `content` VARCHAR(256) NOT NULL COMMENT '\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n內容 ',
   `intro_pics` VARCHAR(256) NOT NULL,
   `pic1` VARCHAR(256) NOT NULL,
   `pic2` VARCHAR(256) NOT NULL,
@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `JUMPER`.`product_info` (
   `link` VARCHAR(45) NOT NULL,
   `total_people` INT NOT NULL,
   `event_price` INT NOT NULL COMMENT '商品單價',
-  `star_num` INT NOT NULL COMMENT '星數\\\\\\\\\\\\\\\\n',
+  `star_num` INT NOT NULL COMMENT '星數\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\n',
   `comment_count` INT NOT NULL COMMENT '評價人數',
   `intro_video` VARCHAR(255) NOT NULL,
   `is_checked` INT NOT NULL,
@@ -67,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `JUMPER`.`product_info` (
   `deleted_at` VARCHAR(45) NOT NULL DEFAULT '',
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 12
 DEFAULT CHARACTER SET = utf8mb3
 COMMENT = '旅程資訊';
 
@@ -121,7 +122,7 @@ COMMENT = '優惠券';
 CREATE TABLE IF NOT EXISTS `JUMPER`.`coupon_record` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `member_ID` INT NOT NULL COMMENT '會員ID',
-  `coupon_record_ID` INT NOT NULL COMMENT '優惠券ID\\\\\\\\n',
+  `coupon_record_ID` INT NOT NULL COMMENT '優惠券ID\\\\\\\\\\\\\\\\n',
   `is_used` INT NOT NULL COMMENT '使用狀態',
   PRIMARY KEY (`ID`),
   INDEX `FK_DISCOUNT_LOG_DISCOUNT_ID_idx` (`coupon_record_ID` ASC) VISIBLE,
@@ -145,8 +146,9 @@ CREATE TABLE IF NOT EXISTS `JUMPER`.`faq` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `content` VARCHAR(45) NOT NULL,
+  `content` VARCHAR(1000) NOT NULL,
   `is_replied` INT NULL DEFAULT NULL,
+  `faq_at` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`ID`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3
@@ -217,7 +219,7 @@ COMMENT = '任務題目';
 CREATE TABLE IF NOT EXISTS `JUMPER`.`session` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `product_info_ID` INT NOT NULL,
-  `is_group` INT NOT NULL COMMENT '包場狀態\\\\\\\\n',
+  `is_group` INT NOT NULL COMMENT '包場狀態\\\\\\\\\\\\\\\\n',
   `attendence` INT NOT NULL COMMENT '參加人數',
   `vedio_link` VARCHAR(256) NOT NULL,
   `started_at` VARCHAR(25) NOT NULL,
@@ -264,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `JUMPER`.`trip_order` (
   `session_ID` INT NOT NULL,
   `status` INT NOT NULL,
   `created_at` VARCHAR(25) NOT NULL,
-  `is_mailed` INT NOT NULL COMMENT '發信狀態\\\\\\\\n',
+  `is_mailed` INT NOT NULL COMMENT '發信狀態\\\\\\\\\\\\\\\\n',
   `price` INT NOT NULL,
   `people` INT NOT NULL,
   `is_alerted` BIT(1) NOT NULL COMMENT '紅點通知',
