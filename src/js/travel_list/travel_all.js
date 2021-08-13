@@ -33,7 +33,7 @@ Vue.component('all', {
                 {
                     id: 3,
                     link: "./travel_info.html",
-                    intro_pics: "./images/travel_list/250/niagarafalls.jpg",
+                    intro_pics: "./images/travel_list/1/2/0.jpg",
                     avatar: "./images/avatar/avatar14.jpg",
                     comment_count: "102",
                     star_num: "5",
@@ -69,7 +69,7 @@ Vue.component('all', {
                     id: 1,
                     cat: 'us',
                     link: "./travel_info.html",
-                    intro_pics: "./images/travel_list/250/niagarafalls.jpg",
+                    intro_pics: "./images/travel_list/1/2/0.jpg",
                     subject: "美洲",
                     title: "飛越世界奇景 體驗美洲讓人歎為觀止的尼加拉大瀑布",
                 },
