@@ -17,7 +17,7 @@ Vue.component('all', {
                     star_num: "5",
                     place: "歐洲",
                     title: " 羅浮宮象徵藝術，撼動人心之情久久保留",
-                    event_price: "800",
+                    event_price: "499",
                 },
                 {
                     id: 2,
@@ -28,7 +28,7 @@ Vue.component('all', {
                     star_num: "5",
                     place: "歐洲",
                     title: "在芬蘭玻璃屋邂逅屬於北極圈的夢幻自然",
-                    event_price: "999",
+                    event_price: "599",
                 },
                 {
                     id: 3,
@@ -217,7 +217,7 @@ Vue.component('all', {
                                     <h4 class="trip_intro">
                                         穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。
                                     </h4>
-                                    <p>每人 $ 800 TWD </p>
+                                    <p>每人 $399</p>
                                 </div>
                             </div>
                         </a>
@@ -245,7 +245,7 @@ Vue.component('all', {
                                         <h4 class="trip_intro">
                                             遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
                                         </h4>
-                                        <p class="startprice">每人 $ 800 TWD </p>
+                                        <p class="startprice">每人 $399</p>
                                     </div>
                                 </div>
                             </div>
@@ -273,7 +273,7 @@ Vue.component('all', {
                                         <h4 class="trip_intro">
                                             羅浮宮象徵藝術，撼動人心之情久久保留
                                         </h4>
-                                        <p class="startprice">每人 $ 800 TWD </p>
+                                        <p class="startprice">每人 $499</p>
                                     </div>
                                 </div>
                             </div>
