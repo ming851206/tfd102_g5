@@ -975,12 +975,18 @@ section#earth {
         }
 
     }
-
     #index_travel_more {
         display: block;
         @include margin0();
         margin-top: 50px;
-
+        transition: all 0.3s linear;
+        &:hover{
+            color: white;
+            background-color: #996A4D;
+            transform: scale(1.05);
+            font-size: 17px;
+            transition: all 0.3s linear;
+        }
         @include md {
             margin-top: 10px;
         }
@@ -1285,7 +1291,15 @@ section#earth {
         #opinion_more {
             position: absolute;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translateX(-50%) scale(1);
+            transition: all 0.3s linear;
+            &:hover{
+                color: white;
+                background-color: #996A4D;
+                transform: translateX(-50%) scale(1.05);
+                font-size: 17px;
+                transition: all 0.3s linear;
+            }
         }
     }
 
