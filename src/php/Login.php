@@ -1,6 +1,7 @@
 <?php
 
     include('conn.php');
+    include('Lib/Member.php');
     //  get 數值
     $data = json_decode(file_get_contents('php://input'), true);
 
@@ -40,6 +41,8 @@
 
         // echo "<script>alert('登入成功!'); location.href = '../../../member.html';</script>";
         echo $memberID;
+        // 將 memberID、memberID 寫進 session
+        setMemberInfo($memberID, $memberName);
     }else{
 
         //跳出提示停留在登入頁
