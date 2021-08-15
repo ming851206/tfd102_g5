@@ -244,6 +244,7 @@
             }
             img{
                 width: 100%;
+                height: 100%;
                 object-fit: cover;
             }
         }
@@ -365,6 +366,15 @@
         }
     }
 }
+@mixin pre_next {
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    cursor: pointer;
+}
+
 .item_photos{
     width: 976px;
     margin: 0 auto;
@@ -443,8 +453,55 @@
             cursor: pointer;
         }
     }
+    .photo_mask{
+        position: fixed;
+        right: 0;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 110;
+        .close_photos{
+            @include pre_next;
+            background-image: url("../images/icon/header/close.svg");
+            position: absolute;
+            top: 6%;
+            right: 6%;
+            cursor: pointer;
+        }
+        .photo_container{            
+            .pre_photo{
+                top: 52%;
+                left: 20%;
+                @include pre_next;
+                background-image: url("../images/travel_item/left.svg");
+            }
+            .pics{
+                width: 50%;
+                position: absolute;
+                top: 48%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                h4{
+                    color: whitesmoke;
+                    font-size: 20px;
+                    margin: 32px auto;
+                    text-align: center;
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .next_photo{
+                @include pre_next;
+                top: 52%;
+                right: 20%;
+                background-image: url("../images/travel_item/right.svg");
+            }
+        }
+    }
 }
-// 點圖放大
 
 .item_explanation{
     width: 976px;
@@ -690,6 +747,8 @@
                     margin-bottom: 5px;
                     img{
                         width: 100%;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
             }
@@ -722,6 +781,9 @@
         @include sm{
             margin: 40px auto 0;
         }
+    }
+    .onblock{
+        display: none !important;
     }
 }
 #recommend_item{
