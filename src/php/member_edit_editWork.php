@@ -1,6 +1,9 @@
 <?php
 include("./conn.php");
+include('./Lib/Member.php');
+$memberID = getMemberID();
 
+if($memberID!="" ){
     $getdata = json_decode(file_get_contents('php://input'), true);
     //建立SQL
     $sql = "select *
@@ -15,7 +18,7 @@ include("./conn.php");
     //執行
     $statement = getPDO()->prepare($sql);
     //給值
-    $statement->bindValue(1, 1);
+    $statement->bindValue(1, $memberID);
     $statement->bindValue(2, $getdata['index']);
     $statement->bindValue(3, $getdata['now']);
     $statement->execute();
@@ -33,4 +36,7 @@ include("./conn.php");
     }else{
         echo 0;
     }
+}else{
+      echo 0;
+}
 ?>

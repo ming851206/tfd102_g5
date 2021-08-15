@@ -9,7 +9,7 @@ Vue.component('all', {
             },
             besttrip_items: [
                 {
-                    id: 1,
+                    ID: 1,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/louvre.jpg",
                     avatar: "./images/avatar/avatar12.jpg",
@@ -20,7 +20,7 @@ Vue.component('all', {
                     event_price: "499",
                 },
                 {
-                    id: 2,
+                    ID: 2,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/glasshouse.jpg",
                     avatar: "./images/avatar/avatar13.jpg",
@@ -31,7 +31,7 @@ Vue.component('all', {
                     event_price: "599",
                 },
                 {
-                    id: 3,
+                    ID: 3,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/1/2/0.jpg",
                     avatar: "./images/avatar/avatar14.jpg",
@@ -42,7 +42,7 @@ Vue.component('all', {
                     event_price: "399",
                 },
                 {
-                    id: 4,
+                    ID: 4,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/goldenbay.jpg",
                     avatar: "./images/avatar/avatar15.jpg",
@@ -53,7 +53,7 @@ Vue.component('all', {
                     event_price: "399",
                 },
                 {
-                    id: 5,
+                    ID: 5,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/africa_elephant.jpg",
                     avatar: "./images/avatar/avatar18.jpg",
@@ -66,7 +66,7 @@ Vue.component('all', {
             ],
             maintrip_items: [
                 {
-                    id: 1,
+                    ID: 1,
                     cat: 'us',
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/1/2/0.jpg",
@@ -74,7 +74,7 @@ Vue.component('all', {
                     title: "飛越世界奇景 體驗美洲讓人歎為觀止的尼加拉大瀑布",
                 },
                 {
-                    id: 2,
+                    ID: 2,
                     cat: 'eu',
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/louvre.jpg",
@@ -82,7 +82,7 @@ Vue.component('all', {
                     title: " 羅浮宮象徵藝術，撼動人心之情久久保留",
                 },
                 {
-                    id: 3,
+                    ID: 3,
                     cat: 'as',
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/kyoto.jpg",
@@ -90,7 +90,7 @@ Vue.component('all', {
                     title: "日本的千年古都，歷史的記憶，一同深度挖掘京都魅力",
                 },
                 {
-                    id: 4,
+                    ID: 4,
                     cat: 'af',
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/africa_elephant.jpg",
@@ -99,7 +99,7 @@ Vue.component('all', {
                 },
 
                 {
-                    id: 5,
+                    ID: 5,
                     cat: 'oc',
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/goldenbay.jpg",
@@ -109,7 +109,7 @@ Vue.component('all', {
             ],
             viewedtrip_items: [
                 {
-                    id: 1,
+                    ID: 1,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/libertystatue.jpg",
                     avatar: "./images/avatar/avatar2.jpg",
@@ -120,7 +120,7 @@ Vue.component('all', {
                     event_price: "399",
                 },
                 {
-                    id: 6,
+                    ID: 6,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/watermarket.jpg",
                     avatar: "./images/avatar/avatar3.jpg",
@@ -131,7 +131,7 @@ Vue.component('all', {
                     event_price: "399",
                 },
                 {
-                    id: 4,
+                    ID: 4,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/glasshouse.jpg",
                     avatar: "./images/avatar/avatar5.jpg",
@@ -142,7 +142,7 @@ Vue.component('all', {
                     event_price: "999",
                 },
                 {
-                    id: 5,
+                    ID: 5,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/400/sydney.jpg",
                     avatar: "./images/avatar/avatar6.jpg",
@@ -153,7 +153,7 @@ Vue.component('all', {
                     event_price: "399",
                 },
                 {
-                    id: 6,
+                    ID: 6,
                     link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/maltive.jpg",
                     avatar: "./images/avatar/avatar11.jpg",
@@ -164,7 +164,7 @@ Vue.component('all', {
                     event_price: "399",
                 },
                 {
-                    id: 7, link: "./travel_item.html",
+                    ID: 7, link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/africa_elephant.jpg",
                     avatar: "./images/avatar/avatar8.jpg",
                     comment_count: "102",
@@ -174,7 +174,7 @@ Vue.component('all', {
                     event_price: "399",
                 },
                 {
-                    id: 8, link: "./travel_item.html",
+                    ID: 8, link: "./travel_item.html",
                     intro_pics: "./images/travel_list/250/wugerku.jpg",
                     avatar: "./images/avatar/avatar.jpg",
                     comment_count: "102",
@@ -287,7 +287,7 @@ Vue.component('all', {
                     <p class="slider_count">顯示 {{besttrip_items.length}} 個</p>
                 </div>
                 <ul class="owl-carousel owl-theme">
-                    <li v-for="item in besttrip_items" :id="item.id" class="item">
+                    <li v-for="item in besttrip_items" :id="item.ID" class="item">
                         <a :href="item.link">
                             <div class="trip_item">
                             <img :src="item.intro_pics">
@@ -297,7 +297,7 @@ Vue.component('all', {
                                     </div>
                                     <div class="the_icon">
                                         <div class="share" @click="share"></div>
-                                        <div class="fav" :class="{'clicked':is_fav(item.id)}" @click.prevent="is_fav(item.id) ? deleteFav(item.id) : addFav(item.id)"></div>
+                                        <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="loginCheck(item.ID)"></div>                                                                       
                                     </div>
                                     <div class="the_star_num">
                                         <img src="./images/index/content/star.svg">
@@ -320,7 +320,7 @@ Vue.component('all', {
                     <p class="slider_count">顯示 {{items_counts.maintrip}} 個</p>
                 </div>
                 <ul class="owl-carousel owl-theme" id="bigcard">
-                    <li v-for="item in maintrip_items" :id="item.id" class="item">
+                    <li v-for="item in maintrip_items" :id="item.ID" class="item">
                             <a href="javascript:void(0)">
                                 <div class="trip_item">
                                     <img :src="item.intro_pics">
@@ -340,7 +340,7 @@ Vue.component('all', {
                         <p class="slider_count">顯示 {{viewedtrip_items.length}} 個</p>
                     </div>
                     <ul class="owl-carousel owl-theme">
-                        <li v-for="item in viewedtrip_items" :id="item.id" class="item">
+                        <li v-for="item in viewedtrip_items" :id="item.ID" class="item">
                         <a :href="item.link">
                             <div class="trip_item">
                             <img :src="item.intro_pics">
@@ -350,7 +350,7 @@ Vue.component('all', {
                                     </div>
                                     <div class="the_icon">
                                         <div class="share" @click="share"></div>
-                                        <div class="fav" :class="{'clicked':is_fav(item.id)}" @click.prevent="is_fav(item.id) ? deleteFav(item.id) : addFav(item.id)"></div>
+                                        <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="loginCheck(item.ID)"></div>                                                                       
                                     </div>
                                     <div class="the_star_num">
                                         <img src="./images/index/content/star.svg">
@@ -374,18 +374,47 @@ Vue.component('all', {
             e.preventDefault();
             // console.log(e.target);
             e.target.classList.toggle('clicked');
-
         },
+
+        loginCheck(itemid){ 
+            // console.log(this);   
+            let that = this;
+            $.ajax({            
+                method: "POST",
+                url: "php/LoginCheck.php",
+                data:{},            
+                dataType: "text",
+                success: function (response) {
+                    // console.log('這是登入成功回傳的 memberID：' + response);
+                    let memberID = response;
+                    
+                    if(response == ""){
+                        //尚未登入->前往Login.php
+                        alert('請先登入，將前往登入頁'); 
+                        location.href = 'login.html';
+                    }else{
+                        console.log('登入成功');
+                        // console.log('會員ID:' . memberID);
+                        // getData();
+                        // console.log(that);
+                        that.is_fav(itemid) ? that.deleteFav(itemid, memberID) : that.addFav(itemid, memberID);
+                    }              
+                },
+                error: function(exception) {
+                    alert("數據載入失敗: " + exception.status);
+                }
+            });
+        },
+
         // 取得所有最愛旅遊
-        getAllFavs() {
+        getAllFavs(){
             axios.get('http://localhost/php/showFav.php').then(res => {
-                this.favs = res.data; // 旅遊內容
+                    this.favs = res.data; // 旅遊內容
             });
         },
 
         // 判斷該旅遊是否為最愛
         is_fav(item_id) {
-            // console.log(this.favs);
             let favs = this.favs; // 所有最愛的旅遊
             let click_status = false; // 預設點擊狀態是 ''
             favs.forEach(function (fav) { // 比對最愛旅遊的 id 是否等於 旅遊商品 id，如果是，click_status = true
@@ -403,36 +432,35 @@ Vue.component('all', {
         // addFav 新增最愛旅遊
         // 參數：itemID, memberID
         // method: post
-        addFav(itemID) {
-            // console.log(itemID);
+        addFav(itemID, memberID) {
             axios.post('http://localhost/php/addFav.php', JSON.stringify({
-                memberID: 4,
+                memberID: memberID,
                 itemID: itemID,
             }), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res =>
+            }).then(res => 
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次新增後的最愛旅遊
-            );
+            ); 
         },
 
         // removeFav 刪除最愛旅遊
         // 參數：itemID, memberID
         // method: post
-        deleteFav(itemID) {
+        deleteFav(itemID, memberID) {
             axios.post('http://localhost/php/deleteFav.php', JSON.stringify({
-                memberID: 4,
+                memberID: memberID,
                 itemID: itemID,
             }), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res =>
+            }).then(res => 
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次刪除後的最愛旅遊
-            );
+                );
         },
 
         // fb 分享

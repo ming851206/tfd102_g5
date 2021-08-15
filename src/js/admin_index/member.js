@@ -1,5 +1,5 @@
-  // ========== 會員管理(綺) ========== 
-  const Member = {
+// ========== 會員管理(綺) ========== 
+const Member = {
     template: `
     <div class="temp">
          <h3>會員管理</h3>
@@ -68,24 +68,24 @@
         switchStatus(index){
             this.theStatus = this.data[index].account_status;
             if( this.theStatus == 1 ){
-                axios.get('http://localhost/php/adm_status0.php', {
+                axios.get('../../php/adm_status0.php', {
                     params: { 
                         theID: this.data[index].ID,
                     }
                  }).then(res => {
                      this.theStatus = res.data;
                      document.getElementById('status').classList.add('switchIo');//這行沒用
-                 });
+                 }).catch( (error) => alert('數據加載失敗'+ error));
                  
             }else{
-                axios.get('http://localhost/php/adm_status1.php', {
+                axios.get('../../php/adm_status1.php', {
                     params: { 
                         theID: this.data[index].ID,
                     }
                  }).then(res => {
                     this.theStatus = res.data;
                     document.getElementById('status').classList.remove('switchIo');//這行沒用
-                 });
+                 }).catch( (error) => alert('數據加載失敗'+ error));
             }
         },
         timestampToTime(timestamp) {
@@ -109,6 +109,8 @@
         },
     },
     mounted() {
-        axios.get('http://localhost/php/adm_memberList.php').then(res => this.data = res.data);
+        axios.get('../../php/adm_memberList.php')
+        .then(res => this.data = res.data)
+        .catch( (error) => alert('數據加載失敗'+ error));
     },
 };

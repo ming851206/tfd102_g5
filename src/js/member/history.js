@@ -55,11 +55,11 @@ const Historys = {
                                             <div class="Img">
                                                 <img src="https://picsum.photos/100/100">
                                             </div>
-                                            <p>Andy Lu</p>
+                                            <p style = "margin:10px 0;">{{productName}}</p>
                                         </div>
                                         <div class="addDivTopText">
-                                            <p>旅遊日期：2021.06.23</p>
-                                            <p>來看看北極世界的奧妙，一起跟著馴鹿群度一天。</p>
+                                            <p>旅遊日期：{{changeTime(productDate)}}</p>
+                                            <p>{{productContent}}</p>
                                         </div>
                                     </div>
                                     <div class="Star">
@@ -205,9 +205,21 @@ const Historys = {
             now: 0,
             total: 0,
             close: 0,
+            productName: '',
+            productDate: '',
+            productContent: '',
+
         };
     },
     methods: {
+        changeTime(Time) {
+            let startTime = new Date(Number(Time));
+            let text = '';
+            text += startTime.getFullYear() + '-';
+            text += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '-';
+            text += (startTime.getDate() < 10 ? '0' : '') + startTime.getDate() + ' ';
+            return text;
+        },
         next() {
             if (this.now != this.total) {
                 this.show += 4;
@@ -241,6 +253,9 @@ const Historys = {
             this.stars = index;
         },
         addComment(index) {
+            this.productName = this.datas[index].name;
+            this.productDate = this.datas[index].started_at;
+            this.productContent = this.datas[index].title;
             this.commentIndex = index;
             this.addcomment = true;
 
@@ -248,7 +263,7 @@ const Historys = {
         cancel() {
             this.commentIndex = '';
             this.addcomment = false;
-            this.stars = 1;
+            this.stars = 5;
             this.text = '';
         },
         confirms() {
@@ -264,7 +279,7 @@ const Historys = {
                 this.datas = data;
                 this.commentIndex = '';
                 this.addcomment = false;
-                this.stars = 1;
+                this.stars = 5;
                 this.text = '';
 
             });

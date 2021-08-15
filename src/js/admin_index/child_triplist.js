@@ -93,7 +93,7 @@ const TripList = {
             
             if (confirm('是否下架旅遊?')) {
                 
-                axios.get('http://localhost/php/adm_deleteTrip.php', {
+                axios.get('../../php/adm_deleteTrip.php', {
                     params: { 
                         theID: this.data[index].ID,
                         delTime: this.now
@@ -101,7 +101,7 @@ const TripList = {
                  }).then(res =>{
                     this.delTxt = res.data;
                     alert(`${this.delTxt}`);
-                });
+                }).catch( (error) => alert('數據加載失敗'+ error));
 
                 this.data.splice(index, 1);
                 // let theTr = e.target.closest('tr');
@@ -128,6 +128,8 @@ const TripList = {
       
     },
     mounted() {
-        axios.get('http://localhost/php/adm_triplist.php').then(res => this.data = res.data);
+        axios.get('../../php/adm_triplist.php')
+        .then(res => this.data = res.data)
+        .catch( (error) => alert('數據加載失敗'+ error));
     },
 }

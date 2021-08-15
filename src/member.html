@@ -102,7 +102,7 @@
 
             </div>
             <div class="memberborder mobileMemberLoginout">
-                <a href="./index.html">登出</a>
+                <a @click="loginout">登出</a>
 
                 <div class="mobileMemberSvg" @click="changes">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24">
@@ -202,7 +202,6 @@
                             this.showLeft = false;
                             let title = document.getElementById("mobileMemberTitle");
                             title.innerText = event.target.innerText;
-                            console.log(location.href.indexOf("member.html"));
                             let span = document.getElementsByTagName("span")[0];
                             span.style.display = "block";
                         } else {
@@ -214,6 +213,14 @@
                 }
             },
             methods: {
+                loginout() {
+                    axios.get('./php/loginout.php').then(res => {
+                        if (res.data == 1) {
+                            location.href = "./login.html";
+                            alert("登出成功。");
+                        }
+                    })
+                },
                 changes(event) {
                     let go;
                     if (event.target.getAttribute("id") == "Icon_ionic-ios-heart") {

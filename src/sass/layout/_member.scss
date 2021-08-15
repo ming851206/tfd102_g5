@@ -254,6 +254,7 @@
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    align-items: center;
 
     svg {
         position: absolute;
@@ -624,6 +625,12 @@
 
             .addDivTopImg {
                 text-align: center;
+
+                .Img {
+                    p {
+                        margin: 5px 0px;
+                    }
+                }
             }
 
             Img {
@@ -815,7 +822,7 @@
         }
 
         &:nth-child(2) {
-            width: 63px;
+            width: 72px;
 
             @include laptop {
                 width: 65px;
@@ -1096,6 +1103,7 @@
             width: 30px;
             cursor: pointer;
             color: blue;
+            margin-left: 0;
 
             @include tablet {
                 width: 100%;
@@ -1220,7 +1228,7 @@
         color: gray;
 
         &:nth-child(3) {
-            color: black;
+            color: black !important;
         }
     }
 
@@ -1812,6 +1820,7 @@
 
     .joinComment {
         margin-bottom: 0;
+        margin-left: 10px;
     }
 
     .joinTime {

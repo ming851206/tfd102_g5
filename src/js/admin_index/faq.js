@@ -1,4 +1,4 @@
- // ========== 問題意見管理(綺) ========== 
+// ========== 問題意見管理(綺) ========== 
 const Faq = {
     template: `
             <div class="temp">
@@ -109,7 +109,7 @@ const Faq = {
                 });
                 
             //並呼叫axios寫入faq_at的時間
-            axios.get('http://localhost/php/adm_faqupdate.php', {
+            axios.get('../../php/adm_faqupdate.php', {
                 params: {
                     theID: this.data[this.theIndex].ID,
                 }
@@ -123,7 +123,7 @@ const Faq = {
                         //畫面reload或是寫在watch?
                     }, 1000)
                 }
-            });
+            }).catch( (error) => alert('數據加載失敗'+ error));
         },
         
         timestampToTime(timestamp) {
@@ -140,6 +140,8 @@ const Faq = {
     },
     computed:{},
     mounted() {
-        axios.get('http://localhost/php/adm_faqlist.php').then(res => this.data = res.data);
+        axios.get('../../php/adm_faqlist.php')
+        .then(res => this.data = res.data)
+        .catch( (error) => alert('數據加載失敗'+ error));
     },
 };

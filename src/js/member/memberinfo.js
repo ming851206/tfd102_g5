@@ -251,20 +251,26 @@ const MemberInfo = {
     },
     mounted() {
         axios.get('../../php/memberinfo.php').then(res => {
-            let data = res.data[0];
-            this.values[0].val = data.name;
-            if (data.gender == 0) {
-                this.values[1].val = "男";
-            } else if (data.gender == 1) {
-                this.values[1].val = "女";
+            if (res.data != 0) {
+                let data = res.data[0];
+                this.values[0].val = data.name;
+                if (data.gender == 0) {
+                    this.values[1].val = "男";
+                } else if (data.gender == 1) {
+                    this.values[1].val = "女";
+                } else {
+                    this.values[1].val = "";
+                }
+                this.values[2].val = data.birthday;
+                this.values[3].val = data.phone;
+                this.values[4].val = data.email;
+                this.values[5].val = data.password;
+                this.values[6].val = data.password;
             } else {
-                this.values[1].val = "";
+                alert("請登入後再進行。");
+                location.href = "./login.html";
+
             }
-            this.values[2].val = data.birthday;
-            this.values[3].val = data.phone;
-            this.values[4].val = data.email;
-            this.values[5].val = data.password;
-            this.values[6].val = data.password;
         });
         let passwdlength = this.values[5].val.length;
         for (let i = 0; i < passwdlength; i++) {

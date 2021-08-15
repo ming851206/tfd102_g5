@@ -16,10 +16,10 @@ const Join = {
                                                 <img src="https://picsum.photos/100/100">
                                             </div>
                                             <div class="StarAndFrom gotravel">
-                                                <div class = "joinComment" v-if="times(index)" @click="gototravel(index)">
+                                                <div class = "joinComment" v-if="times(index)" @click="gototravel(index)" style="margin-left:15px;">
                                                     前往旅遊
                                                 </div>
-                                                <div class = "joinComment" v-else @click="cancel(index)"  >
+                                                <div class = "joinComment" v-else @click="cancel(index)" style="margin-left:15px;" >
                                                     取消
                                                 </div>
                                                 <div id="joinStarAndFrom">
@@ -115,12 +115,12 @@ const Join = {
             let text = '';
             text += startTime.getFullYear() + '-';
             text += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '-';
-            text += (startTime.getDate() + 1 < 10 ? '0' : '') + startTime.getDate() + ' ';
-            text += (startTime.getHours() + 1 < 10 ? '0' : '') + startTime.getHours() + ':';
-            text += (startTime.getMinutes() + 1 < 10 ? '0' : '') + startTime.getMinutes();
+            text += (startTime.getDate() < 10 ? '0' : '') + startTime.getDate() + ' ';
+            text += (startTime.getHours() < 10 ? '0' : '') + startTime.getHours() + ':';
+            text += (startTime.getMinutes() < 10 ? '0' : '') + startTime.getMinutes();
             text += "~";
-            text += (endTime.getHours() + 1 < 10 ? '0' : '') + endTime.getHours() + ':';
-            text += (endTime.getMinutes() + 1 < 10 ? '0' : '') + endTime.getMinutes();
+            text += (endTime.getHours() < 10 ? '0' : '') + endTime.getHours() + ':';
+            text += (endTime.getMinutes() < 10 ? '0' : '') + endTime.getMinutes();
             return text;
         },
         gototravel(index) {

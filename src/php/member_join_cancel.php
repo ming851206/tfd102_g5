@@ -1,6 +1,8 @@
 <?php
 include("./conn.php");
-
+include('./Lib/Member.php');
+$memberID = getMemberID();
+if($memberID!="" ){
 $getdata = json_decode(file_get_contents('php://input'), true);
 
 $sql = "UPDATE  trip_order SET status=2 where ID = ? ";
@@ -33,10 +35,12 @@ $sql = "select p1.ID ,t2.order_ID, p1.place , p1.title , p1.intro_pics ,t2.vedio
     //執行
     $statement = getPDO()->prepare($sql);
     //給值
-    $statement->bindValue(1, 1);
+    $statement->bindValue(1, $memberID);
     $statement->bindValue(2, $getdata['now']);
     $statement->execute();
     $data = $statement->fetchAll();
     echo json_encode($data);
-
+}else{
+    echo 0;
+}
 ?>

@@ -1,6 +1,9 @@
 <?php
 include("./conn.php");
+include('./Lib/Member.php');
+$memberID = getMemberID();
 
+if($memberID!="" ){
     $getdata = json_decode(file_get_contents('php://input'), true);
 
     //建立SQL
@@ -14,4 +17,7 @@ include("./conn.php");
     $statement->bindValue(3, $getdata['end']);
     $statement->execute();
     echo 1;
+}else{
+    echo 0 ;
+}
 ?>
