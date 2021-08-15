@@ -26,6 +26,7 @@
     </style>
 </head>
 
+
 <body>
 
     <header id="the_header">
@@ -245,7 +246,7 @@
 
                     if (all_check) {
 
-                        axios.post('http://localhost/php/qa_form.php', JSON.stringify({
+                        axios.post('./php/qa_form.php', JSON.stringify({
                             name: this.formData.name.value,
                             email: this.formData.email.value,
                             content: this.formData.textarea.value,
@@ -261,7 +262,7 @@
                             this.formData.name.value = "";
                             this.formData.email.value = "";
                             this.formData.textarea.value = "";
-                        });
+                        }).catch( (error) => alert('數據加載失敗'+ error));
 
                     }
                 },
@@ -305,5 +306,4 @@
 
     </script>
 </body>
-
 </html>
