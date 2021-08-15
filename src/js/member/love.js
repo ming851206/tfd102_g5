@@ -99,7 +99,7 @@ const Love = {
             }
         },
         removeItem(index) {
-            let yes = confirm("你確定要移除此項目至您的最愛嗎?");
+            let yes = confirm("確定要移除此項目嗎?");
             if (yes) {
                 if (this.returndatas.length % 4 == 1) {
                     this.show -= 4;

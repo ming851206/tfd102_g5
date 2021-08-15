@@ -2,7 +2,9 @@
 // echo 'test';
 // exit();
 include('./conn.php');
-
+include('./Lib/Member.php');
+$memberID = getMemberID();
+if($memberID!="" ){
 $getdata = json_decode(file_get_contents('php://input'), true);
 
 //建立SQL
@@ -40,9 +42,12 @@ $sqls = "select p1.ID , t2.order_ID, t2.is_commented, p1.place , p1.title , p1.i
     //執行
     $statement = getPDO()->prepare($sqls);
     //給值
-    $statement->bindValue(1, 1);
+    $statement->bindValue(1, $memberID);
     $statement->bindValue(2, $getdata['now']);
     $statement->execute();
     $data = $statement->fetchAll();
     echo json_encode($data);
+}else{
+   echo 0;
+}
 ?>

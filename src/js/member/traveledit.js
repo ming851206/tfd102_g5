@@ -43,7 +43,7 @@ const TravelEdit = {
         </div>
         <div class="travelInputBorder">
             <div class="travelInputEditTitle"><span>價格：</span></div>
-            <input @keyup="userText(3,$event)">
+            <input @keyup="userText(3,$event)" placeholder="499~1000">
         </div>
         <!-- <div class="travelInputBorder">
                                     <div class="travelInputEditTitle"><span>影片連結：</span></div>
@@ -148,7 +148,7 @@ const TravelEdit = {
                 <p>活動名稱：{{value.title}}</p>
             </div>
             <div class="travelP">
-                <p>地點：{{value.category}}</p>
+                <p>國家：{{value.category}}</p>
             </div>
             <div class="travelP">
                 <p>日期：{{value.date}}</p>
@@ -203,12 +203,12 @@ const TravelEdit = {
                 </select>
             </div>
             <div class="travelInputBorder">
-                <div class="travelInputEditTitle"><span>地點：</span></div>
+                <div class="travelInputEditTitle"><span>國家：</span></div>
                 <input :value="userAdd[2]" disabled>
             </div>
             <div class="travelInputBorder">
                 <div class="travelInputEditTitle"><span>價格：</span></div>
-                <input :value="userAdd[3]" @keyup="editText(3,$event)">
+                <input :value="userAdd[3]" @keyup="editText(3,$event)" style="color:black" placeholder="499~1000">
             </div>
                     <!--
                     <div class="travelInputBorder Imginput">
@@ -277,10 +277,10 @@ const TravelEdit = {
                 <div class="titlesborders">
                     {{work.attendence}}
                 </div>
-                <div class="titlesborders" @click="gototravel(index)">
+                <div class="titlesborders" @click="gototravel(index)" style="color:blue ; cursor:pointer;">
                     前往旅遊
                 </div>
-                <div class="titlesborders">
+                <div class="titlesborders" style="color:blue ; cursor:pointer;">
                     取消
                 </div>
             </div>
@@ -355,7 +355,7 @@ const TravelEdit = {
             editWork: false,
             titles: [
                 "活動名稱",
-                "地點",
+                "國家",
                 "價格",
                 "審核狀態",
                 "　　",
@@ -383,24 +383,28 @@ const TravelEdit = {
             this.userAdd[index] = event.target.value;
         },
         EditConfirms() {
-            axios.post('../../php/member_edit_editWork.php', {
-                index: this.datas[this.indexs].ID,
-                money: this.userAdd[3],
-                text: this.userAdd[4],
-                now: new Date().getTime(),
-            }).then(res => {
-                let data = res.data;
-                console.log(data);
-                if (data == 0) {
-                    alert('請等待活動結束後再進行編輯');
-                } else {
-                    alert('修改完成');
-                }
-                this.userAdd = ['', '1', '', '', ''];
-                this.index = '';
-                this.WorksTitle = '';
-                this.editWork = false;
-            })
+            if (this.userAdd[3] < 1001 && this.userAdd[3] > 498) {
+                axios.post('../../php/member_edit_editWork.php', {
+                    index: this.datas[this.indexs].ID,
+                    money: this.userAdd[3],
+                    text: this.userAdd[4],
+                    now: new Date().getTime(),
+                }).then(res => {
+                    let data = res.data;
+                    console.log(data);
+                    if (data == 0) {
+                        alert('請等待活動結束後再進行編輯');
+                    } else {
+                        alert('修改完成');
+                    }
+                    this.userAdd = ['', '1', '', '', ''];
+                    this.index = '';
+                    this.WorksTitle = '';
+                    this.editWork = false;
+                })
+            } else {
+                alert('價格範圍請在499~1000內');
+            }
         },
         EditWorks(index) {
             this.userAdd = [];
@@ -455,19 +459,19 @@ const TravelEdit = {
             let startTime = new Date(Number(this.checkWorks[index].started_at));
             let endTime = new Date(Number(this.checkWorks[index].ended_at));
             let text = '';
-            text += (startTime.getHours() + 1 < 10 ? '0' : '') + startTime.getHours() + ':';
-            text += (startTime.getMinutes() + 1 < 10 ? '0' : '') + startTime.getMinutes();
+            text += (startTime.getHours() < 10 ? '0' : '') + startTime.getHours() + ':';
+            text += (startTime.getMinutes() < 10 ? '0' : '') + startTime.getMinutes();
             text += "~";
-            text += (endTime.getHours() + 1 < 10 ? '0' : '') + endTime.getHours() + ':';
-            text += (endTime.getMinutes() + 1 < 10 ? '0' : '') + endTime.getMinutes();
+            text += (endTime.getHours() < 10 ? '0' : '') + endTime.getHours() + ':';
+            text += (endTime.getMinutes() < 10 ? '0' : '') + endTime.getMinutes();
             return text;
         },
         dateMath(index) {
             let startTime = new Date(Number(this.checkWorks[index].started_at));
             let text = '';
             text += startTime.getFullYear() + '-';
-            text += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '-';
-            text += (startTime.getDate() + 1 < 10 ? '0' : '') + startTime.getDate() + ' ';
+            text += (startTime.getMonth() < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '-';
+            text += (startTime.getDate() < 10 ? '0' : '') + startTime.getDate() + ' ';
             return text;
         },
         gototravel(index) {
@@ -547,22 +551,26 @@ const TravelEdit = {
         },
         confirms() {
             if (this.userAdd[0] != '' && this.userAdd[1] != '' && this.userAdd[2] != '' && this.userAdd[3] != '' && this.userAdd[4] != '') {
-                axios.post('../../php/member_edit_addproduct.php', {
-                    ID: 1,
-                    productTitle: this.userAdd[0],
-                    category: this.userAdd[1],
-                    place: this.userAdd[2],
-                    event_price: this.userAdd[3],
-                    content: this.userAdd[4],
-                    pic: this.files
-                }).then(res => {
-                    let data = res.data;
-                    this.datas = data;
-                    this.userAdd = ['', '1', '', '', ''];
-                    this.files = [];
-                    this.add = false;
-                    this.pops = true;
-                })
+                if (this.userAdd[3] < 1001 && this.userAdd[3] > 498) {
+                    axios.post('../../php/member_edit_addproduct.php', {
+                        ID: 1,
+                        productTitle: this.userAdd[0],
+                        category: this.userAdd[1],
+                        place: this.userAdd[2],
+                        event_price: this.userAdd[3],
+                        content: this.userAdd[4],
+                        pic: this.files
+                    }).then(res => {
+                        let data = res.data;
+                        this.datas = data;
+                        this.userAdd = ['', '1', '', '', ''];
+                        this.files = [];
+                        this.add = false;
+                        this.pops = true;
+                    })
+                } else {
+                    alert('價格範圍請在499~1000內');
+                }
             } else {
                 alert('欄位不能為空');
             }

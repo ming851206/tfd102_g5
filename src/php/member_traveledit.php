@@ -11,7 +11,7 @@ if($memberID!="" ){
     //執行
     $statement = getPDO()->prepare($sql);
     //給值
-    $statement->bindValue(1, 1);
+    $statement->bindValue(1, $memberID);
     $statement->execute();
     $data = $statement->fetchAll();
     echo json_encode($data);
