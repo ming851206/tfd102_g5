@@ -1,14 +1,15 @@
 <?php
 include("./conn.php");
-
+include('Lib/Member.php');
+if($memberID!="" && $memberName!=""){
     $getdata = json_decode(file_get_contents('php://input'), true);
     //建立SQL
-    $sqls = "insert into product_info values(12,?,?,?,?,?,'img1','img2','img3','img4','img5','img6','link',10,?,0,80,'',0,'','');";
+    $sqls = "insert into product_info values(null,?,?,?,?,?,'img1','img2','img3','img4','img5','img6','link',10,?,0,0,'',0,'','');";
 
     $statement = getPDO()->prepare($sqls);
         //給值
     $statement->bindValue(1, $getdata['category']);
-    $statement->bindValue(2, $getdata['ID']);
+    $statement->bindValue(2, $memberID);
     $statement->bindValue(3, $getdata['place']);
     $statement->bindValue(4, $getdata['productTitle']);
     $statement->bindValue(5, $getdata['content']);
@@ -26,5 +27,7 @@ include("./conn.php");
     $statement->execute();
     $data = $statement->fetchAll();
     echo json_encode($data);
-
+ }else{
+    echo 0;
+ }
 ?>

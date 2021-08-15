@@ -455,11 +455,11 @@ const TravelEdit = {
             let startTime = new Date(Number(this.checkWorks[index].started_at));
             let endTime = new Date(Number(this.checkWorks[index].ended_at));
             let text = '';
-            text += (startTime.getHours() + 1 < 10 ? '0' : '') + startTime.getHours() + ':';
-            text += (startTime.getMinutes() + 1 < 10 ? '0' : '') + startTime.getMinutes();
+            text += (startTime.getHours() < 10 ? '0' : '') + startTime.getHours() + ':';
+            text += (startTime.getMinutes() < 10 ? '0' : '') + startTime.getMinutes();
             text += "~";
-            text += (endTime.getHours() + 1 < 10 ? '0' : '') + endTime.getHours() + ':';
-            text += (endTime.getMinutes() + 1 < 10 ? '0' : '') + endTime.getMinutes();
+            text += (endTime.getHours() < 10 ? '0' : '') + endTime.getHours() + ':';
+            text += (endTime.getMinutes() < 10 ? '0' : '') + endTime.getMinutes();
             return text;
         },
         dateMath(index) {
@@ -467,7 +467,7 @@ const TravelEdit = {
             let text = '';
             text += startTime.getFullYear() + '-';
             text += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '-';
-            text += (startTime.getDate() + 1 < 10 ? '0' : '') + startTime.getDate() + ' ';
+            text += (startTime.getDate() < 10 ? '0' : '') + startTime.getDate() + ' ';
             return text;
         },
         gototravel(index) {
