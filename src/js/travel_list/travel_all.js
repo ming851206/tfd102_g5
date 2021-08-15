@@ -370,12 +370,12 @@ Vue.component('all', {
     </div>
     `,
     methods: {
-        // changeiColor(e) {
-        //     e.preventDefault();
-        //     // console.log(e.target);
-        //     e.target.classList.toggle('clicked');
+        changeiColor(e) {
+            e.preventDefault();
+            // console.log(e.target);
+            e.target.classList.toggle('clicked');
 
-        // },
+        },
         // 取得所有最愛旅遊
         getAllFavs() {
             axios.get('http://localhost/php/showFav.php').then(res => {
@@ -406,7 +406,7 @@ Vue.component('all', {
         addFav(itemID) {
             // console.log(itemID);
             axios.post('http://localhost/php/addFav.php', JSON.stringify({
-                memberID: 2,
+                memberID: 4,
                 itemID: itemID,
             }), {
                 headers: {
@@ -423,6 +423,7 @@ Vue.component('all', {
         // method: post
         deleteFav(itemID) {
             axios.post('http://localhost/php/deleteFav.php', JSON.stringify({
+                memberID: 4,
                 itemID: itemID,
             }), {
                 headers: {

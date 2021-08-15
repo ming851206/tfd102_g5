@@ -229,7 +229,7 @@
                 <div class="Img_bg" :style="'background-image:url('+ change_picture+')'">
 
                     <!-- 明信片 -->
-                    <div id="character" class="main_writting_block" v-if ="cardShow == true" ref="down1" >
+                    <div id="J_postcard" class="main_writting_block" v-if ="cardShow == true" ref="downLoad_area" >
         
                         <!-- 左邊-->
                         <div class="main_writting_left">
@@ -270,8 +270,8 @@
                     
             
                     <!-- 明信片背面照片 -->
-                    <div  class="main_IMG_block" v-else >
-                        <div class="IMG_block">
+                    <div id="J_postcard" class="main_IMG_block" v-else ref="downLoad_area">
+                        <div class="IMG_block" >
                             <img :src="change_picture" alt="">
                         </div>
                     </div>
@@ -284,7 +284,7 @@
                     <!-- 再試一次 下載按鈕 -->
                     <div class="next_postcard_btn">
                         <button type="button"  class="btnM" id="tryAgain1" @click="tryAgain">再製作一次</button>
-                        <button type="button"  class="btnM" id="downLoad" @click="getpic">下載</button>
+                        <button type="button"  class="btnM" id="downLoad" @click="downLoadPic">下載</button>
                     </div>
 
                     
@@ -379,17 +379,15 @@
                 changeindex(a) {
                     if(this.index ==2){
                         this.change_picture = this.imgs[a].src;
-
                     }
                     
-                        
-                        if (this.index == 1) {
-                            this.index = 2;
-                        } else if (this.index == 2) {
-                            this.index = 3;
-                        } else if (this.index == 3) {
-                            this.index = 4;
-                        } 
+                    if (this.index == 1) {
+                        this.index = 2;
+                    } else if (this.index == 2) {
+                        this.index = 3;
+                    } else if (this.index == 3) {
+                        this.index = 4;
+                    } 
                     
                 },
                 changeprevious() {
@@ -433,20 +431,24 @@
                     console.log(this.$refs.stamp);
                 },
 
-                getpic: function (){
+                downLoadPic: function (){
                     //給圖片命名
                     let today = new Date();
                     let time = today.getTime();
                     let uid = 22222;
                     let img_name = `${uid}-${time}`;
-
+                    // let downLoadContent = document.getElementById(J_postcard);
+                    // let width = downLoadContent.offsetWidth;
+                    // let height = downLoadContent.offsetHeight;
+                    
                     // 下載
-                    html2canvas(this.$refs.down1).then(function (canvas) {
+                    
+                    html2canvas(document.querySelector("#J_postcard")).then(function (canvas) {
+                    // html2canvas(this.$refs.downLoad_area).then(function (canvas) {
                         const link = document.createElement("a");
-                        link.href = canvas
-                            .toDataURL("image/jpeg", 0.92)
-                            .replace("image/jpeg", "image/octet-stream");
-                        link.download = `image_character_${img_name}.png`;
+                        link.href = canvas.toDataURL("image/jpeg", 0.92).replace("image/jpeg", "image/octet-stream");
+                        link.download = `image_Jumper_${img_name}.png`;
+                        // link.style.display = 'none';
                         link.click();
                         
                     });
