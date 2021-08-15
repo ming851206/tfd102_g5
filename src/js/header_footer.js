@@ -38,58 +38,16 @@ const header = Vue.component("the-header", {
         </nav>
     </div>
 `, mounted() {
-            let locationName = location.pathname;
-            if(locationName == "/about.html"){
-                $(".web_bar li:nth-child(1) a").addClass("bold");
-            }else if(locationName == "/travel_list.html"){
-                $(".web_bar li:nth-child(2) a").addClass("bold");
-            }else if(locationName == "/postcard.html"){
-                $(".web_bar li:nth-child(3) a").addClass("bold_3");
-            }else if(locationName == "/q_acc" || locationName == "/QA.html"){
-                $(".web_bar li:nth-child(4) a").addClass("bold");
-            }
-        // document.addEventListener('click', function (e) {
-        //     // console.log(location.href);
-        //     if (e.target.nodeName == "IMG") {
-        //         let click = e.target.parentNode.getAttribute("href");
-        //         // console.log(click);
-        //         if (click != null) {
-        //             if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/q_acc" || click == "/index.html" || click == "/login.html") {
-        //                 if (location.href.indexOf("ming851206") > 0) {
-        //                     // console.log(location.href);
-        //                     // let newClick = "/tfd102_g5" + click;
-        //                     // location.href = newClick;
-        //                     // console.log('1');
-        //                     location.href = click;
-
-        //                 } else {
-        //                     // console.log(location.href);
-        //                     location.href = click;
-        //                     // console.log('2');
-        //                 }
-        //             }
-        //         }
-        //     } else {
-        //         let click = e.target.getAttribute("href");
-        //         if (click != null) {
-        //             if (click == "/about.html" || click == "/travel_list.html" || click == "/postcard.html" || click == "/QA.html" || click == "/index.html" || click == "/login.html") {
-        //                 if (location.href.indexOf("ming851206") > 0) {
-        //                     // console.log(location.href);
-        //                     // let newClick = "/tfd102_g5" + click;
-        //                     // // location.href = newClick;
-        //                     // console.log('3');
-        //                     location.href = click;
-
-        //                 } else {
-        //                     // console.log(location.href);
-        //                     location.href = click;
-        //                     // console.log('4');
-        //                 }
-        //             }
-        //         }
-        //     }
-
-        // });
+        let locationName = location.pathname;
+        if(locationName == "/about.html"){
+            $(".web_bar li:nth-child(1) a").addClass("bold");
+        }else if(locationName == "/travel_list.html"){
+            $(".web_bar li:nth-child(2) a").addClass("bold");
+        }else if(locationName == "/postcard.html"){
+            $(".web_bar li:nth-child(3) a").addClass("bold_3");
+        }else if(locationName == "/q_acc" || locationName == "/QA.html"){
+            $(".web_bar li:nth-child(4) a").addClass("bold");
+        }
     }
 })
 const menu_item = Vue.component("menu-item", {

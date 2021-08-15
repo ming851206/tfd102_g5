@@ -16,35 +16,35 @@
     </div>
 
     <main id="travel-item">
-        <div v-for="(item, index) in product_info_ID">
+        <div>
             <div class="top_info">
                 <ul class="breadcrumb">
                     <li>
-                        <a href="travel_list.html">旅遊總覽</a>
+                        <a :href="info.link">旅遊總覽</a>
                     </li>
                     <h4>〉</h4>
                     <li>
-                        <a href="travel_item.html">{{item.category}}</a>
+                        <a href="travel_list.html">{{info.category}}</a>
                     </li>
                     <h4>〉</h4>
                     <li>
-                        <a href="travel_item.html">{{item.title}}</a>
+                        <a :href="info.link">{{info.title}}</a>
                     </li>
                 </ul>
                 <div class="top_pic">
-                    <img :src="item.intro_pics">
+                    <img :src="info.intro_pics">
                 </div>    
             </div>
 
             <div class="item_title">
                 <div class="title_left">
                     <div class="img_border">
-                        <img :src="item.avatar" alt="線上導遊">
+                        <img :src="info.avatar" alt="線上導遊">
                     </div>
                     <div class="title_content">
-                        <h1>{{item.title}}</h1>
-                        <h2>{{item.name}} 舉辦的線上旅遊</h2>
-                        <h4>舉辦地點：{{item.place}}</h4>
+                        <h1>{{info.title}}</h1>
+                        <h2>{{info.name}} 舉辦的線上旅遊</h2>
+                        <h4>舉辦地點：{{info.place}}</h4>
                     </div>
                 </div>
                 <div class="icons_group">
@@ -60,40 +60,50 @@
                     <div class="star_comment">
                         <div class="starNum">
                             <img src="./images/index/content/star.svg">
-                            <h4>{{item.avgstar}}</h4>
+                            <h4>{{info.star_num}}</h4>
                         </div>
-                        <h4>（ {{item.comment_count}} 則評價 ）</h4>
+                        <h4>（ {{info.comment_count}} 則評價 ）</h4>
                     </div>
                 </div>
-                <h4>{{item.content}}</h4>
+                <h4>{{info.content}}</h4>
             </div>
             
             <div class="item_photos">
                 <h2>更多旅遊照片</h2>
                 <div class="photo_row1">
-                    <img :src="item.pic1">
-                    <img :src="item.pic2">
+                    <!-- <img :src="info.pic1" @click="showPhotos"> -->
+                    <img src="./images/travel_item/1.jpg" @click="showPhotos" class="images">
+                    <img :src="info.pic2">
                 </div>
                 <div class="photo_row2">
-                    <img :src="item.pic3">
-                    <img :src="item.pic4">
-                    <img :src="item.pic5">
+                    <img :src="info.pic3">
+                    <img :src="info.pic4">
+                    <img :src="info.pic5">
                 </div>
 
-                <div class="photo_mask" v-show="photo_carousel==true">
-                    <div class="close_photos"></div>
-                    <div class="photo_row1">
-                        <img :src="item.pic1">
-                        <img :src="item.pic2">
-                    </div>
-                    <div class="photo_row2">
-                        <img :src="item.pic3">
-                        <img :src="item.pic4">
-                        <img :src="item.pic5">
-                    </div>
-                    <div class="pre_photo"></div>
-                    <div class="next_photo"></div>    
-                </div>
+                <transition>
+                    <div class="photo_mask" v-show="photo_carousel==true">
+                    <div class="close_photos" @click="closePhotos"></div>
+                        <div class="photo_container">
+                            <div class="pre_photo" @click="prePhoto"></div>
+                            <div class="pics">
+                                <h4>{{picIndex}} / 5</h4>
+                                <img src="./images/travel_item/1.jpg" v-show="picIndex==1">
+                                <img src="./images/travel_item/2.jpg" v-show="picIndex==2">
+                                <img src="./images/travel_item/3.jpg" v-show="picIndex==3">
+                                <img src="./images/travel_item/4.jpg" v-show="picIndex==4">
+                                <img src="./images/travel_item/5.jpg" v-show="picIndex==5">
+                                <!-- <img :src="info.pic1" v-show="picIndex==1">
+                                <img :src="info.pic2" v-show="picIndex==2">
+                                <img :src="info.pic3" v-show="picIndex==3">
+                                <img :src="info.pic4" v-show="picIndex==4">
+                                <img :src="info.pic5" v-show="picIndex==5">         -->
+                            </div>
+                            <div class="next_photo"  @click="nextPhoto"></div>     
+                        </div>
+                    </div> 
+                </transition>
+  
             </div>
 
             <div class="item_explanation">
@@ -110,15 +120,15 @@
                     </ul>
                     
                     <div class="order">
-                        <h4>本場活動&nbsp; ${{item.event_price}} TWD / 人</h4>
-                        <div class="selects">
+                        <h4>本場活動&nbsp; ${{info.event_price}} TWD / 人</h4>
+                        <!-- <div class="selects">
                             <select name="date" id="date" class="selectItem">
                                 <option selected hidden>可選日期</option>
-                                <option v-for="selectDate in item.date" :value="item.date.selectDate">{{selectDate}}</option>
+                                <option v-for="(selectDate, index) in eventTime.date" :value="eventTime.date.selectDate">{{selectDate(index)}}</option>
                             </select>
                             <select name="tiem" id="time" class="selectItem">
                                 <option selected hidden>可選時段</option>
-                                <option v-for="selectTime in item.time" :value="item.time.selectTime">{{selectTime}}</option>
+                                <option v-for="(selectTime, index) in eventTime.time" :value="eventTime.time.selectTime">{{selectTime(index)}}</option>
                             </select>
                             <select name="people_num" id="people_num" class="selectItem">
                                 <option selected hidden>參與人數</option>
@@ -127,7 +137,7 @@
                             <a href="travel_payment.html">
                                 <button class="btnL" id="order_now">立即訂購</button>
                             </a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -135,7 +145,7 @@
             <div class="other_comments">
                 <h2>他人評價</h2>
                 <ul class="comment_container">
-                    <li v-for="each_one in comment" class="each_comment">
+                    <li v-for="(each_one, index) in comment" class="each_comment" v-if="index < showIndex">
                         <div class="comment_left">
                             <div class="avatar_border">
                                 <img :src="each_one.avatar">
@@ -151,7 +161,7 @@
                         </div>
                     </li>
                 </ul>
-                <button class="btnL_line" id="more_comments">更多評價</button>
+                <button class="btnL_line" id="more_comments" @click="showMore" :class="{'onblock':change}">更多評價</button>
             </div>
         </div>
     </main>
@@ -168,24 +178,27 @@
         const travelItem = new Vue({
             el: "#travel-item",
             data: {
-                product_info_ID:[
-                    { intro_pics: "./images/travel_item/0.jpg",
-                      category: "美洲",
-                      avatar: "./images/avatar/avatar20.jpg",
-                      title: "飛越世界奇景 尼加拉大瀑布",
-                      name: "詹姆士",
-                      place: "美國",
-                      avgstar: 4.9,
-                      comment_count: 112,
-                      content: "此生必須一睹大自然最美產物：尼加拉大瀑布。尼加拉大瀑布以每秒150,000加侖的流水量傾瀉而下，氣勢滂礡，被譽為世界上最美的天然奇景之一。此行程將帶你欣賞阿帕拉契山脈和上紐約州的美麗風景，並且遠觀北美廣闊無邊的平地和東岸沿海平原之間的天然群山屏障。緊接著抵達本行程的目的地──尼加拉大瀑布，我們將帶你搭乘直升機，從空中俯瞰瀑布，水流奔騰而下的臨場震撼感，一生一定要體會一次！旅程最後我們將來到山羊島，換個角度欣賞瀑布宏偉壯觀的全貌，為整趟旅遊畫下完美句點。",
-                      pic1: "./images/travel_item/1.jpg",
-                      pic2: "./images/travel_item/2.jpg",
-                      pic3: "./images/travel_item/3.jpg",
-                      pic4: "./images/travel_item/4.jpg",
-                      pic5: "./images/travel_item/5.jpg",
-                      event_price: 499,
-                      date: ["2021/9/1", "2021/9/10"],
-                      time: ["9:00 - 10:00", "14:30 - 15:30"],
+                info:[
+                    { 
+                    //   ID: 3,
+                    //   intro_pics: "./images/travel_item/0.jpg",
+                    //   category: "美洲",
+                    // link: "./travel_item.html",
+                    //   avatar: "./images/avatar/avatar20.jpg",
+                    //   title: "飛越世界奇景 尼加拉大瀑布",
+                    //   name: "詹姆士",
+                    //   place: "美國",
+                    //   avgstar: 4.9,
+                    //   comment_count: 112,
+                    //   content: "此生必須一睹大自然最美產物：尼加拉大瀑布。尼加拉大瀑布以每秒150,000加侖的流水量傾瀉而下，氣勢滂礡，被譽為世界上最美的天然奇景之一。此行程將帶你欣賞阿帕拉契山脈和上紐約州的美麗風景，並且遠觀北美廣闊無邊的平地和東岸沿海平原之間的天然群山屏障。緊接著抵達本行程的目的地──尼加拉大瀑布，我們將帶你搭乘直升機，從空中俯瞰瀑布，水流奔騰而下的臨場震撼感，一生一定要體會一次！旅程最後我們將來到山羊島，換個角度欣賞瀑布宏偉壯觀的全貌，為整趟旅遊畫下完美句點。",
+                    //   pic1: "./images/travel_item/1.jpg",
+                    //   pic2: "./images/travel_item/2.jpg",
+                    //   pic3: "./images/travel_item/3.jpg",
+                    //   pic4: "./images/travel_item/4.jpg",
+                    //   pic5: "./images/travel_item/5.jpg",
+                    //   event_price: 499,
+                    //   date: ["2021/9/1", "2021/9/10"],
+                    //   time: ["9:00 - 10:00", "14:30 - 15:30"],
                     }
                 ],
                 list:[
@@ -195,12 +208,15 @@
                     {num: 4, title: "取消訂購須知", description: "在旅遊活動開始「前 24 小時」取消，即可拿回全額退款"},
                 ],
                 comment:[
-                    {avatar: "./images/avatar/avatar10.jpg", name: "愛麗絲", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
-                    {avatar: "./images/avatar/avatar8.jpg", name: "史密斯", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
-                    {avatar: "./images/avatar/avatar17.jpg", name: "孫小美", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
+                    // {avatar: "./images/avatar/avatar10.jpg", name: "愛麗絲", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
+                    // {avatar: "./images/avatar/avatar8.jpg", name: "史密斯", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
+                    // {avatar: "./images/avatar/avatar17.jpg", name: "孫小美", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
                 ],
                 fav: false,
                 photo_carousel: false,
+                showIndex: 3,
+                change: false,
+                picIndex: 1,
             },
             methods: {
                 like(){
@@ -208,6 +224,20 @@
                 },
                 cancleLike(){
                     this.fav = false;
+                },
+                showPhotos(){
+                    this.photo_carousel = true;
+        
+                },
+                prePhoto(){
+
+                },
+                nextPhoto(){
+
+                },
+                closePhotos(){
+                    this.photo_carousel = false;
+                    
                 },
                 share1() {
                     FB.ui(
@@ -225,18 +255,89 @@
                         }
                     )
                 },
+                selectDate(index){
+                    let startTime = new Date(Number(this.info[index].started_at));
+                    let endTime = new Date(Number(this.info[index].started_at));
+
+                    let date = '';
+                    date += startTime.getFullYear() + '/';
+                    date += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '-';
+                    date += (startTime.getDate()< 10 ? '0' : '') + startTime.getDate() + ' ';
+                    
+                    return date;
+                },
+                selectTime(index){
+                    let startTime = new Date(Number(this.info[index].started_at));
+                    let endTime = new Date(Number(this.info[index].started_at));
+
+                    let time = "";
+                    time += (startTime.getHours() < 10 ? '0' : '') + startTime.getHours() + ':';
+                    time += (startTime.getMinutes() < 10 ? '0' : '') + startTime.getMinutes();
+                    time += " - ";
+                    time += (endTime.getHours()< 10 ? '0' : '') + endTime.getHours() + ':';
+                    time += (endTime.getMinutes() < 10 ? '0' : '') + endTime.getMinutes();
+
+                    return time;
+                },
+                showMore(){
+                    this.showIndex += 3;
+                    if(this.showIndex > this.comment.length){
+                        this.change = true;
+                    }
+                },
             },
             mounted() {
-                axios.post('./php/item_comment.php').then(res =>{
-                    let data = res.data
-                    console.log(data);
-                    for(let i = 0; i < data.length; i++){
-                        // this.comment[i].avatar = data[i].avatar;
-                        // this.comment[i].name = data[i].name;
-                        // this.comment[i].star = data[i].star;
-                        // this.comment[i].content = data[i].content;
+                // 旅遊內容
+                axios.post('./php/item_content.php').then(res =>{
+                    let data = res.data[0];
+                    // console.log(data);
+                    this.info = data;
+                    
+                    let continent = this.info.category;
+                    if(continent == 1){
+                        this.info.category = "美洲";
+                    }else if(continent == 2){
+                        this.info.category = "歐洲";
+                    }else if(continent == 3){
+                        this.info.category = "亞洲";
+                    }else if(continent == 4){
+                        this.info.category = "非洲";
+                    }else if(continent == 5){
+                        this.info.category = "大洋洲";
                     }
                 })
+
+                // 選擇日期時間
+                axios.post('./php/item_selectDate.php', {
+                    now: new Date().getTime(),
+                }).then(res =>{
+                    let eventTime = res.data;
+                    // console.log(eventTime);
+                })
+
+                // 評論
+                axios.post('./php/item_comment.php').then(res =>{
+                    let data = res.data
+                    // console.log(data);
+                    this.comment = data;
+                })
+
+                // 點選圖片放大瀏覽
+                $(function () {
+                        $(".images").on("click", function () {
+                            $("html").css({
+                                position: "fixed",
+                                width: "100%",
+                            })
+                        });
+                        $(".close_photos").on("click", function (e) {
+                            e.stopPropagation();
+                            $("html").css({
+                                position: "static",
+                                width: "100%",
+                            })
+                        });
+                    })
             },
         })
     </script>
