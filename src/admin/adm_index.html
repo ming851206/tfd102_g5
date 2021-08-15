@@ -23,11 +23,11 @@
         <div id="app">
             <div class="adm_flexbox">
                 <div class="adm_appl">
-                    <router-link to="/trip">旅程管理</router-link>
-                    <router-link to="/order">旅程訂單管理</router-link>
-                    <router-link to="/coupon">優惠券管理</router-link>
-                    <router-link to="/faq">問題意見管理</router-link>
-                    <router-link to="/member">會員管理</router-link>
+                    <router-link to="/trip" @click.native="init">旅程管理</router-link>
+                    <router-link to="/order" @click.native="init">旅程訂單管理</router-link>
+                    <router-link to="/coupon" @click.native="init">優惠券管理</router-link>
+                    <router-link to="/faq" @click.native="init">問題意見管理</router-link>
+                    <router-link to="/member" @click.native="init">會員管理</router-link>
                 </div>
                 <div class="adm_appr">
                     <div class="adm_above">
@@ -163,5 +163,19 @@
         new Vue({
             el: '#app',
             router,
+            methods: {
+                init(){
+                    axios.post('../php/adm_loginCheck.php')
+                    .then(res => {
+                        if(res==""){
+                            alert('請先登入!');
+                            location.href = '../admin/login.html'; 
+                        }else{
+                            console.log('登入過了');
+                        }
+                    })
+                    .catch( (error) => alert('數據加載失敗'+ error));
+                },
+            },
         });
     </script>
