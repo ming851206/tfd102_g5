@@ -1,7 +1,8 @@
 <?php
 include("./conn.php");
-include('Lib/Member.php');
-if($memberID!="" && $memberName!=""){
+include('./Lib/Member.php');
+$memberID = getMemberID();
+if($memberID!="" ){
     $getdata = json_decode(file_get_contents('php://input'), true);
     //建立SQL
     $sqls = "insert into product_info values(null,?,?,?,?,?,'img1','img2','img3','img4','img5','img6','link',10,?,0,0,'',0,'','');";
@@ -23,7 +24,7 @@ if($memberID!="" && $memberName!=""){
     //執行
     $statement = getPDO()->prepare($sql);
     //給值
-    $statement->bindValue(1, $getdata['ID']);
+    $statement->bindValue(1, $memberID);
     $statement->execute();
     $data = $statement->fetchAll();
     echo json_encode($data);
