@@ -1128,14 +1128,11 @@ section#earth {
     aside.fence_col {
         display: inline-block;
         width: 45px;
-        // height: 100vh;
         background-image: url("../../images/index/content/fence_col.png");
         margin-right: 10px;
-
         @include lg {
             width: 28px;
         }
-
         @include lg_md {
             display: none;
         }
@@ -1147,27 +1144,21 @@ section#earth {
         vertical-align: top;
         padding-bottom: 110px;
         width: 1060px;
-
         @include xl {
             width: 1000px;
         }
-
         @include lg {
             margin: 0 auto;
         }
-
         @include lg_md {
             margin-left: 50px;
         }
-
         @include md_sm {
             width: 740px;
         }
-
         @include xs {
             padding-bottom: 200px;
         }
-
         h2 {
             @include h2_margin(100px, 60px, 0px);
 
@@ -1180,20 +1171,16 @@ section#earth {
             column-count: 3;
             column-gap: 50px;
             margin-bottom: 90px;
-
             @include xl {
                 column-gap: 40px;
             }
-
             @include lg {
                 column-gap: 20px;
             }
-
             @include md_sm {
                 column-count: 2;
                 column-gap: 30px;
             }
-
             @include sm {
                 column-count: 1;
                 column-gap: 0;
@@ -1205,22 +1192,18 @@ section#earth {
                 border-radius: 0 25px 0 25px;
                 margin-bottom: 50px;
                 padding: 36px 40px;
-
                 @include xl {
                     margin-bottom: 50px;
                     padding: 32px 34px;
                 }
-
                 @include lg {
                     margin-bottom: 32px;
                     padding: 26px;
                 }
-
                 @include md_sm {
                     padding: 20px;
                     margin-bottom: 30px;
                 }
-
                 &:nth-child(4),
                 &:nth-child(5),
                 &:nth-child(6) {
@@ -1289,6 +1272,7 @@ section#earth {
         }
 
         #opinion_more {
+            display: none;
             position: absolute;
             left: 50%;
             transform: translateX(-50%) scale(1);
@@ -1300,6 +1284,9 @@ section#earth {
                 font-size: 17px;
                 transition: all 0.3s linear;
             }
+            @include xs{
+                display: block;
+            }
         }
     }
 
@@ -1307,7 +1294,7 @@ section#earth {
         cursor: pointer;
         align-self: flex-end;
         margin-right: 35px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
 
         @include lg {
             margin-right: 22px;

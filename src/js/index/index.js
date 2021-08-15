@@ -309,6 +309,7 @@ const opinion = Vue.component("the-opinion", {
     mounted() {
         $("#opinion_more").click(function () {
             $(".person").show();
+            $(this).hide();
         });
 
         $("#going_top").click(function () {
