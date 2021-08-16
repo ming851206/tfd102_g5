@@ -100,11 +100,11 @@
 
         //===========================================
 
-        axios.get('http://localhost/php/adm_orderList.php').then(res => this.data = res.data);
+        axios.get('http://localhost/php/adm_orderList.php')
+        .then(res => this.data = res.data)
+        .catch( (error) => alert('數據加載失敗'+ error));
         // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
         // .then(res => this.data = res.data);
         //fetch('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => console.log(res)); 
     },
 };
-
-        

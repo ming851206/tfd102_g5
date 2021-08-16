@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>後台主頁</title>
+    <link rel="icon" href="../images/logo/favicon.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <style>
         .switchIo {
@@ -164,7 +165,7 @@
             el: '#app',
             router,
             methods: {
-                init(){    //app_l各分頁點擊時判斷有沒有登入
+                init(){
                     axios.post('../php/adm_loginCheck.php')
                     .then(res => {
                         if(res.data==""){
@@ -175,7 +176,7 @@
                     })
                     .catch( (error) => alert('數據加載失敗'+ error));
                 },
-                chkBtn(){  //app_r登入登出按鈕切換
+                chkBtn(){
                     axios.post('../php/adm_loginCheck.php')
                     .then(res => {
                         if(res.data==""){
@@ -189,7 +190,7 @@
                     .catch( (error) => alert('數據加載失敗'+ error));
                 },
             },
-            mounted() {  //頁面載入時對於登入狀態的判斷顯示在右上角按鈕上
+            mounted() {
                 axios.post('../php/adm_loginCheck.php')
                     .then(res => {
                         if(res.data==""){
