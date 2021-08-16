@@ -113,37 +113,214 @@ const TravelEdit = {
                 <p>{{title}}</p>
             </div>
         </div>
-
-        <div class="travelValue" v-for="(value,index) in datas">
-            <div class="travelP">
-                <p>{{value.title}}</p>
-            </div>
-            <div class="travelP">
-                <p>{{value.place}}</p>
-            </div>
-            <div class="travelP">
-                <p>{{value.event_price}}元</p>
-            </div>
-            <div class="travelP">
-                <p>{{checkeds(index)}}</p>
-            </div>
-            <div class="travelP">
-                <p v-if="checkstatus(index)" @click="addDate(index)">新增日期</p>
-            </div>
-            <div class="travelP">
-                <p v-if="checkstatus(index)" @click="EditWorks(index)">編輯活動</p>
-            </div>
-            <div class="travelP">
-                <p v-if="checkstatus(index)">下架</p>
-            </div>
-            <div class="travelP" @click="changeWorks(index)"">
+        <div style = "height : 280px;">
+            <div class="travelValue" v-for="(value,index) in datas" v-if="index < show"
+                :class=" { 'next_off' :  index < close}">
+                <div class="travelP">
+                    <p>{{value.title}}</p>
+                </div>
+                <div class="travelP">
+                    <p>{{value.place}}</p>
+                </div>
+                <div class="travelP">
+                    <p>{{value.event_price}}元</p>
+                </div>
+                <div class="travelP">
+                    <p>{{checkeds(index)}}</p>
+                </div>
+                <div class="travelP">
+                    <p v-if="checkstatus(index)" @click="addDate(index)">新增日期</p>
+                </div>
+                <div class="travelP">
+                    <p v-if="checkstatus(index)" @click="EditWorks(index)">編輯活動</p>
+                </div>
+                <div class="travelP"  >
+                    <p v-if="checkstatus(index) && checkDelete(index)" @click="workdown(index)">下架</p>
+                    <p v-else-if="!checkDelete(index) ">上架</p>
+                    <p v-else-if="checkstatus(index)"></p>
+                </div>
+                <div class="travelP" @click="changeWorks(index)"">
                     <p v-if=" checkstatus(index)">查看活動</p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div id="memberAddDate" v-if="addD">
+                <div class="body">
+                    <h2>{{WorksTitle}}</h2>
+                    <input type="datetime-local" ref="addInput">
+                    <div class="memberEditCancel">
+                        <button class="btnL_light" @click="workcancel">取消</button>
+                        <button class="btnL" @click="addConfirms">確認</button>
+                    </div>
+                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994"
+                        @click="workcancel" class="closed">
+                        <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
+                            d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
+                            transform="translate(-11.285 -11.289)" fill="#996A4D" />
+                    </svg>
+                </div>
+            </div>
+            <div id="editWorksOnMember" v-else-if="editWork">
+                <div class="body">
+                    <div class="travelInputBorder">
+                        <div class="travelInputEditTitle"><span>主題名稱：</span></div>
+                        <input :value="userAdd[0]" disabled>
+                    </div>
+                    <div class="travelInputBorder">
+                        <div class="travelInputEditTitle"><span>類別：</span></div>
+                        <select v-model="userAdd[1]" disabled>
+                            <option value="1" selected>美洲</option>
+                            <option value="2">亞洲</option>
+                            <option value="3">非洲</option>
+                            <option value="4">歐洲</option>
+                            <option value="5">大洋洲</option>
+                        </select>
+                    </div>
+                    <div class="travelInputBorder">
+                        <div class="travelInputEditTitle"><span>國家：</span></div>
+                        <input :value="userAdd[2]" disabled>
+                    </div>
+                    <div class="travelInputBorder">
+                        <div class="travelInputEditTitle"><span>價格：</span></div>
+                        <input :value="userAdd[3]" @keyup="editText(3,$event)" style="color:black"
+                            placeholder="499~1000">
+                    </div>
+                    <!--
+                            <div class="travelInputBorder Imginput">
+                                <div class="travelInputEditTitle"><span>圖片上傳：</span></div>
+                                <div>
+                                    <div class="showImg" v-if="files==0">
+
+                                    </div>
+                                    <div class="showImg" v-else>
+                                        <div class="addimgborders" v-for="(file,index) in files">
+                                            <img :src="file">
+                                            <div class="addimgdelete" @click="checkDeleteAddImg(index)">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="file" multiple @change="fileChange" id="ImginputFiles" ref="update">
+                                    <div class="clickInput" @click="InputImg">
+                                        上傳照片
+                                    </div>
+                                </div>
+                            </div>
+                            -->
+                    <div class="travelInputBorder Content">
+                        <div class="travelInputEditTitle"><span>活動內容：</span></div>
+                        <textarea placeholder="活動內容" :value="userAdd[4]" @keyup="editText(4,$event)"> </textarea>
+                    </div>
+
+                    <div class="memberEditCancel">
+                        <button class="btnL_light" @click="workcancel">取消</button>
+                        <button class="btnL" @click="EditConfirms">確認</button>
+                    </div>
+                    <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994"
+                        @click="workcancel" class="closed">
+                        <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
+                            d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
+                            transform="translate(-11.285 -11.289)" fill="#996A4D" />
+                    </svg>
+                </div>
+            </div>
+            <div id="checkWork" v-else-if="showWork">
+                <div class="body">
+                    <h2>{{WorksTitle}}</h2>
+                    <div class="workborder">
+                        <div class="titlesborders">
+                            日期
+                        </div>
+                        <div class="titlesborders">
+                            時間
+                        </div>
+                        <div class="titlesborders">
+                            已參加人數
+                        </div>
+                        <div class="titlesborders">
+                        </div>
+                        <div class="titlesborders">
+
+                        </div>
+                    </div>
+                    <div style=" height: 280px;">
+                        <div class="workborder" v-for="(work , index) in checkWorks" v-if="index < workshow"
+                            :class=" { 'next_off' :  index < workclose}">
+                            <div class="titlesborders">
+                                {{dateMath(index)}}
+                            </div>
+                            <div class="titlesborders">
+                                {{timeMath(index)}}
+                            </div>
+                            <div class="titlesborders">
+                                {{work.attendence}}
+                            </div>
+                            <div class="titlesborders" @click="gototravel(index)" style="color:blue ; cursor:pointer;">
+                                前往旅遊
+                            </div>
+                            <div class="titlesborders" style="color:blue ; cursor:pointer;" @click ="cancelwork(index)">
+                                取消
+                            </div>
+                        </div>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994"
+                        @click="workcancel" class="closed">
+                        <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
+                            d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
+                            transform="translate(-11.285 -11.289)" fill="#996A4D" />
+                    </svg>
+                    <div class="loveNumberNav">
+                        <div class="loveNavs">
+                            <div class="loveLeft" @click="workback">
+                                &lt; </div>
+                            <div class="mid">
+                                {{worknow}}/{{worktotal}}
+                            </div>
+
+                            <div class="loveRight" @click="worknext">
+                                &gt;
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loveNumberNav">
+            <div class="loveNavs">
+                <div class="loveLeft" @click="back">
+                    < </div>
+                        <div class="mid">
+                            {{now}}/{{total}}
+                        </div>
+
+                        <div class="loveRight" @click="next">
+                            &gt;
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobileLoveBtn">
+            <button class="btnL_light">顯示更多</button>
+        </div>
+        <div id="travelEditPop" v-show="pops">
+            <div>
+                <p>已傳送至管理員後台，請等待審核。</p>
+                <button class="btnL" @click="popconfirms">確認</button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994"
+                    @click="popconfirms">
+                    <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
+                        d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
+                        transform="translate(-11.285 -11.289)" fill="#996a4d" />
+                </svg>
+
             </div>
         </div>
     </div>
 
     <div v-else>
-        <div class="travelValue" v-for="(value,index) in values">
+        <div class="travelValue" v-for="(value,index) in values" v-if="index < show"
+            :class=" { 'next_off' :  index < close}">
             <div class="travelP" @click="mobileShowInfo(index)">
                 <p>活動名稱：{{value.title}}</p>
             </div>
@@ -170,172 +347,7 @@ const TravelEdit = {
             </div>
         </div>
     </div>
-    <div id="memberAddDate" v-if="addD">
-        <div class="body">
-            <h2>{{WorksTitle}}</h2>
-            <input type="datetime-local" ref="addInput">
-            <div class="memberEditCancel">
-                <button class="btnL_light" @click="workcancel">取消</button>
-                <button class="btnL" @click="addConfirms">確認</button>
-            </div>
-            <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994"
-                @click="workcancel" class="closed">
-                <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
-                    d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
-                    transform="translate(-11.285 -11.289)" fill="#996A4D" />
-            </svg>
-        </div>
-    </div>
-    <div id="editWorksOnMember" v-else-if="editWork">
-        <div class="body">
-            <div class="travelInputBorder">
-                <div class="travelInputEditTitle" ><span>主題名稱：</span></div>
-                <input :value="userAdd[0]" disabled>
-            </div>
-            <div class="travelInputBorder">
-                <div class="travelInputEditTitle" ><span>類別：</span></div>
-                <select v-model="userAdd[1]"  disabled>
-                    <option value="1" selected>美洲</option>
-                    <option value="2">亞洲</option>
-                    <option value="3">非洲</option>
-                    <option value="4">歐洲</option>
-                    <option value="5">大洋洲</option>
-                </select>
-            </div>
-            <div class="travelInputBorder">
-                <div class="travelInputEditTitle"><span>國家：</span></div>
-                <input :value="userAdd[2]" disabled>
-            </div>
-            <div class="travelInputBorder">
-                <div class="travelInputEditTitle"><span>價格：</span></div>
-                <input :value="userAdd[3]" @keyup="editText(3,$event)" style="color:black" placeholder="499~1000">
-            </div>
-                    <!--
-                    <div class="travelInputBorder Imginput">
-                        <div class="travelInputEditTitle"><span>圖片上傳：</span></div>
-                        <div>
-                            <div class="showImg" v-if="files==0">
-
-                            </div>
-                            <div class="showImg" v-else>
-                                <div class="addimgborders" v-for="(file,index) in files">
-                                    <img :src="file">
-                                    <div class="addimgdelete" @click="checkDeleteAddImg(index)">
-                                    </div>
-                                </div>
-                            </div>
-                            <input type="file" multiple @change="fileChange" id="ImginputFiles" ref="update">
-                            <div class="clickInput" @click="InputImg">
-                                上傳照片
-                            </div>
-                        </div>
-                    </div>
-                    -->
-            <div class="travelInputBorder Content">
-                <div class="travelInputEditTitle"><span>活動內容：</span></div>
-                <textarea placeholder="活動內容" :value="userAdd[4]" @keyup="editText(4,$event)"> </textarea>
-            </div>
-
-            <div class="memberEditCancel">
-                <button class="btnL_light" @click="workcancel">取消</button>
-                <button class="btnL" @click="EditConfirms">確認</button>
-            </div>
-            <svg xmlns=" http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994"
-                @click="workcancel" class="closed">
-                <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
-                    d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
-                    transform="translate(-11.285 -11.289)" fill="#996A4D" />
-            </svg>
-        </div>
-    </div>
-    <div id="checkWork" v-else-if="showWork">
-        <div class="body">
-            <h2>{{WorksTitle}}</h2>
-            <div class="workborder">
-                <div class="titlesborders">
-                    日期
-                </div>
-                <div class="titlesborders">
-                    時間
-                </div>
-                <div class="titlesborders">
-                    已參加人數
-                </div>
-                <div class="titlesborders">
-                </div>
-                <div class="titlesborders">
-
-                </div>
-            </div>
-            <div class="workborder" v-for="(work , index) in checkWorks">
-                <div class="titlesborders">
-                    {{dateMath(index)}}
-                </div>
-                <div class="titlesborders">
-                    {{timeMath(index)}}
-                </div>
-                <div class="titlesborders">
-                    {{work.attendence}}
-                </div>
-                <div class="titlesborders" @click="gototravel(index)" style="color:blue ; cursor:pointer;">
-                    前往旅遊
-                </div>
-                <div class="titlesborders" style="color:blue ; cursor:pointer;">
-                    取消
-                </div>
-            </div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994"
-                @click="workcancel" class="closed">
-                <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
-                    d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
-                    transform="translate(-11.285 -11.289)" fill="#996A4D" />
-            </svg>
-            <div class="loveNumberNav">
-            <div class="loveNavs">
-                <div class="loveLeft">
-                    &lt; </div>
-                <div class="mid">
-                    1/2
-                </div>
-
-                <div class="loveRight">
-                    &gt;
-                </div>
-            </div>
-        </div>
-        </div>
-        <div class="loveNumberNav">
-                <div class="loveNavs">
-                    <div class="loveLeft" @click="back">
-                        < </div>
-                            <div class="mid">
-                                {{now}}/{{total}}
-                            </div>
-
-                            <div class="loveRight" @click="next">
-                                &gt;
-                            </div>
-                    </div>
-                </div>
-            </div>
-
-        <div class="mobileLoveBtn">
-            <button class="btnL_light">顯示更多</button>
-        </div>
-        <div id="travelEditPop" v-show="pops">
-            <div>
-                <p>已傳送至管理員後台，請等待審核。</p>
-                <button class="btnL" @click="popconfirms">確認</button>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994"
-                    @click="popconfirms">
-                    <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
-                        d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
-                        transform="translate(-11.285 -11.289)" fill="#996a4d" />
-                </svg>
-
-            </div>
-        </div>
-    </div>
+</div>
             `,
     data() {
         return {  //組件的變數寫在這裡！
@@ -374,10 +386,47 @@ const TravelEdit = {
             total: 0,
             close: 0,
             userAdd: ['', '1', '', '', ''],
-
+            workshow: 4,
+            worknow: 0,
+            worktotal: 0,
+            workclose: 0,
         };
     },
     methods: {
+        checkDelete(index) {
+            if (this.datas[index].deleted_at == '') {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        workdown(index) {
+            axios.post('../../php/member_edit_down.php', {
+                product: this.datas[index].ID,
+                now: new Date().getTime()
+            }).then(res => {
+                let data = res.data;
+                if (data == 1) {
+                    alert('下架成功');
+                } else {
+                    alert('請等待活動內容結束後在進行下架');
+                }
+            })
+        },
+        cancelwork(index) {
+            let yes = confirm("確定要移除此活動嗎?");
+            if (yes) {
+                if (this.checkWorks[index].attendence == '0') {
+                    axios.post('../../php/member_edit_work_cancel.php', {
+                        ID: this.checkWorks[index].ID
+                    }).then(res => {
+                        this.checkWorks.splice(index, 1);
+                    })
+                } else {
+                    alert('已有參加人數無法取消');
+                }
+            }
+        },
         editText(index, event) {
             this.userAdd[index] = '';
             this.userAdd[index] = event.target.value;
@@ -486,6 +535,21 @@ const TravelEdit = {
                 return '審核失敗';
             }
         },
+        worknext() {
+            if (this.worknow != this.worktotal) {
+                this.workshow += 4;
+                this.workclose += 4;
+                this.worknow++;
+            }
+        },
+        workback() {
+            if (this.worknow > 1) {
+                this.workshow -= 4;
+                this.workclose -= 4;
+                this.worknow--;
+
+            }
+        },
         next() {
             if (this.now != this.total) {
                 this.show += 4;
@@ -511,14 +575,18 @@ const TravelEdit = {
         },
         changeWorks(index) {
             axios.post('../../php/member_traveledit_checkwork.php', {
-                ID: 1,
                 product: this.datas[index].ID,
                 now: new Date().getTime()
             }).then(res => {
                 let data = res.data;
                 this.checkWorks = data;
+                this.worktotal = Math.ceil(this.checkWorks.length / 4);
+                if (this.checkWorks.length > 0) {
+                    this.worknow = 1;
+                }
             }).then(res => {
                 this.WorksTitle = this.datas[index].title;
+
                 this.showWork = !this.showWork;
             })
         },
@@ -613,7 +681,6 @@ const TravelEdit = {
         }).then(res => {
             let data = res.data;
             this.datas = data;
-        }).then(function () {
             this.total = Math.ceil(this.datas.length / 4);
             if (this.datas.length > 0) {
                 this.now = 1;
