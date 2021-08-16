@@ -1,6 +1,6 @@
 .travel_payment_Body{
     padding-bottom: 0px;
-    border: 1px solid black;
+    // border: 1px solid black;
     margin: 0 auto;
     @include mobile{
         padding-top: 0;
@@ -29,7 +29,7 @@
     .mainTitle_info_confirmation_container{
         width: 90%;
         margin: 0 auto;
-        border: 1px solid blue;
+        // border: 1px solid blue;
         display: flex;
         justify-content: space-between;
         border-bottom: 2px solid $main_br;
@@ -41,7 +41,7 @@
         .mainTitle_info_confirmation_left{
             margin-left: 10%;
             width: 40%;
-            border: 1px solid red;
+            // border: 1px solid red;
             font-size: 20px;
             @include mobile{
                 width: 90%;
@@ -95,7 +95,7 @@
     .payment_info_container{
         margin: 0 auto;
         padding: 50px 0;
-        border: 1px solid gray;
+        // border: 1px solid gray;
         width: 90%;
         display: flex;
         justify-content: center;
@@ -115,18 +115,18 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border: 1px solid red;
+            // border: 1px solid red;
             width: 40%;
             display: flex;
             @include ipad{
-                width: 50%;
+                width: 55%;
                 padding: 20px;
             }
             @include mobile{
                 width: 100%;
             }
             .payment_info_block_left_upblock{
-                border: 1px solid red;
+                // border: 1px solid red;
                 display: inline-flex;
             }
             .payment_info_block_left_img{
@@ -150,7 +150,7 @@
             }
             .payment_info_block_left_title_area{
                 width: 55%;
-                border: 1px solid green;
+                // border: 1px solid green;
                 margin-left: 5%;
                 display: flex;
                 flex-direction: column;
@@ -186,7 +186,7 @@
                 // justify-content: center;
                 font-size: 20px;
 
-                border: 1px solid red;
+                // border: 1px solid red;
                 @include ipad{
                     width: 80%;
                 }
@@ -195,7 +195,7 @@
                 }
 
                 .payment_info_block_left_price,.payment_info_block_left_sum{
-                    border: 1px solid red;
+                    // border: 1px solid red;
                     justify-content: space-between;
                     display: inline-flex;
                     margin-top: 10px;
@@ -205,7 +205,7 @@
                 }
             }
             .payment_info_block_left_remind{
-                border: 1px solid red;
+                // border: 1px solid red;
                 margin-top: 20px;
                 @include ipad{
                     margin-top: 10px;
@@ -217,9 +217,9 @@
         // right
         .payment_info_block_right{
             display: inline-flex;
-            border: 1px solid red;
-            // width: 40%;
-            max-width: 510px;
+            // border: 1px solid red;
+            width: 40%;
+            // max-width: 510px;
             margin-left: 50px;
             overflow: hidden;
             border-radius: 15px;
@@ -247,7 +247,7 @@
         flex-direction: column;
         // justify-content: center;
         // align-items: center;
-        border: 1px solid pink;
+        // border: 1px solid pink;
         border-bottom: 2px solid $main_br;
         @include mobile{
             margin-left: 0px;
@@ -403,7 +403,7 @@
         flex-direction: column;
         // justify-content: center;
         // align-items: center;
-        border: 1px solid pink;
+        // border: 1px solid pink;
         border-bottom: 2px solid $main_br;
 
         .payment_discount{
@@ -440,7 +440,7 @@
             align-items: center;
             width: 50%;
             // border: 1px solid $main_br;
-            background-color: rosybrown;
+            // background-color: rosybrown;
             border-radius: 15px;
             // box-shadow: 2px 2px 4px hsla(0, 0, 0, .2);
             overflow: hidden;
@@ -492,7 +492,7 @@
         flex-direction: column;
         // justify-content: center;
         // align-items: center;
-        border: 1px solid pink;
+        // border: 1px solid pink;
         border-bottom: 2px solid $main_br;
         margin-bottom: 15px;
 
@@ -505,7 +505,7 @@
             width: 50%;
             // margin-left: 10%;
             margin-bottom: 35px;
-            border: 1px solid red;
+            // border: 1px solid red;
             @include mobile{
                 width: 90%;
             }
@@ -525,12 +525,12 @@
         flex-direction: column;
         // justify-content: center;
         // align-items: center;
-        border: 1px solid pink;
+        // border: 1px solid pink;
         // border-bottom: 2px solid $main_br;
         margin-bottom: 15px;
         .pay_container_h4{
             margin: 30px auto;
-            border: 1px solid pink;
+            // border: 1px solid pink;
             width: 50%;
             @include mobile{
                 width: 90%;
@@ -539,7 +539,7 @@
         .payment_add_btn_block{
             width: 50%;
             margin: 0 auto;
-            border: 1px solid red;
+            // border: 1px solid red;
             margin-bottom: 35px;
             @include mobile{
                 width: 60%;
