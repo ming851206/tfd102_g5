@@ -125,6 +125,9 @@ header#the_header{
                     img{
                         width: 80%;
                         vertical-align: middle;
+                        &:hover{
+                            cursor: pointer;
+                        }
                         @include xs{
                             width: 100% ;
                         }

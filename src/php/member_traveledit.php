@@ -6,7 +6,7 @@ if($memberID!="" ){
     $getdata = json_decode(file_get_contents('php://input'), true);
 
     //建立SQL
-    $sql = "select ID , place , title , is_checked ,total_people , event_price ,content ,category from product_info where member_ID = ?";
+    $sql = "select ID , place , title , is_checked ,total_people , event_price ,content ,category,deleted_at from product_info where member_ID = ?";
 
     //執行
     $statement = getPDO()->prepare($sql);
