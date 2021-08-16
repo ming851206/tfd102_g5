@@ -367,11 +367,10 @@
     }
 }
 @mixin pre_next {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     background-repeat: no-repeat;
     background-size: contain;
-    position: absolute;
     cursor: pointer;
 }
 
@@ -459,45 +458,95 @@
         top: 0;
         left: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.8);
+        background-color: rgba(0, 0, 0, 0.9);
         z-index: 110;
         .close_photos{
             @include pre_next;
-            background-image: url("../images/icon/header/close.svg");
+            width: 20x;
+            height: 20px;
+            background-image: url("../../images/travel_item/close.svg");
             position: absolute;
-            top: 6%;
-            right: 6%;
+            top: 5%;
+            right: 100px;
             cursor: pointer;
+            &:hover{
+                background-image: url("../../images/travel_item/close_2.svg");
+            }
+            @include lg{
+                right: 35px;
+            }
+            @include md{
+                right: 25px;
+            }
+            @include xs{
+                right: 10px;
+            }
         }
-        .photo_container{            
+        .picIndex{
+            display: block;
+            color: whitesmoke;
+            font-size: 20px;
+            margin: 80px auto 30px;
+            text-align: center;
+            @include md{
+                margin: 120px auto 30px; 
+            }
+        }
+        .photo_container{      
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;     
             .pre_photo{
-                top: 52%;
-                left: 20%;
                 @include pre_next;
-                background-image: url("../images/travel_item/left.svg");
+                transform: rotate(180deg);
+                background-image: url("../../images/travel_item/right.svg");
+                &:hover{
+                    background-image: url("../../images/travel_item/right_2.svg");
+                }
+                @include sm{
+                    width: 40px * 0.7;
+                    height: 40px * 0.7;
+                } 
+                @include xs{
+                    width: 40px * 0.65;
+                    height: 40px * 0.65;
+                } 
             }
             .pics{
-                width: 50%;
-                position: absolute;
-                top: 48%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                h4{
-                    color: whitesmoke;
-                    font-size: 20px;
-                    margin: 32px auto;
-                    text-align: center;
+                width: 845px;
+                height: 563px;
+                @include md{
+                    width: 845px * 0.75;
+                    height: 563px * 0.75;
                 }
+                @include sm{
+                    width: 845px * 0.55;
+                    height: 563px * 0.55;
+                }
+                @include xs{
+                    width: 845px * 0.45;
+                    height: 563px * 0.45;
+                }               
                 img{
                     width: 100%;
                     height: 100%;
+                    object-fit: cover;
                 }
             }
             .next_photo{
                 @include pre_next;
-                top: 52%;
-                right: 20%;
-                background-image: url("../images/travel_item/right.svg");
+                background-image: url("../../images/travel_item/right.svg");
+                &:hover{
+                    background-image: url("../../images/travel_item/right_2.svg");
+                }
+                @include sm{
+                    width: 40px * 0.7;
+                    height: 40px * 0.7;
+                } 
+                @include xs{
+                    width: 40px * 0.65;
+                    height: 40px * 0.65;
+                } 
             }
         }
     }
@@ -826,7 +875,6 @@
             width: 340px;
         }
         .item {
-            // border: 2px solid red;
             height: 200px;
             width: 272px;
             @include lg{

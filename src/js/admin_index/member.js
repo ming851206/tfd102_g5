@@ -1,5 +1,5 @@
-// ========== 會員管理(綺) ========== 
-const Member = {
+  // ========== 會員管理(綺) ========== 
+  const Member = {
     template: `
     <div class="temp">
          <h3>會員管理</h3>

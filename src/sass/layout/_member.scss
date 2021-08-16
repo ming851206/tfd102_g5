@@ -372,9 +372,7 @@
         }
     }
 
-    .next_off {
-        display: none !important;
-    }
+
 
     .loveContentBorder {
         width: 394px;
@@ -435,7 +433,9 @@
     }
 }
 
-
+.next_off {
+    display: none !important;
+}
 
 .loveImg {
     height: 200px;
@@ -1352,9 +1352,7 @@
                 }
             }
 
-            &:first-child {
-                margin-top: 0;
-            }
+
         }
     }
 }
