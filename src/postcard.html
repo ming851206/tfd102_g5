@@ -143,7 +143,7 @@
                                 </div>
                             </div>
                             <div class="writting_bg" @click="remove_art_h4">
-                                <textarea class="writting_area" dis rows="5" cols="25" maxlength="120" v-model="tkinfotest"></textarea>
+                                <textarea class="writting_area" maxlength="120" v-model="tkinfotest"></textarea>
                                 <p>{{tkinfotest.length}}/120</p>
                             </div>
 
@@ -180,7 +180,8 @@
                                 </div>
                                 <!-- @click="typeTo_area" -->
                                 <div class="typeTo_block">
-                                    <textarea class="sentTO_People" @click="remove_dis" rows="5" cols="25" maxlength="15" v-model="tkinfoTo"> TO : </textarea>
+                                    <p></p>
+                                    <textarea class="sentTO_People" @click="remove_dis"maxlength="15" v-model="tkinfoTo"> TO : </textarea>
                                 </div>
                                 <p>{{tkinfoTo.length}}/15</p>
                             </div>

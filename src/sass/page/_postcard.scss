@@ -41,6 +41,7 @@
         transform: translate(0, 0);
     }
 }
+
 @keyframes float_col {
     0% {
         transform: translate(0, 0);
@@ -86,6 +87,7 @@
     // display: flex;
     // flex-direction: column;
 }
+
 .index_postcard_block{
     // border: 1px solid red;
     width: 100%;
@@ -146,6 +148,7 @@
         }
     }
 }
+
 .phone_text_block{
     display: none;
     background-color: $sec_ivory;
@@ -165,57 +168,6 @@
             font-family: 'blod';
             margin-bottom: 20px;
             // border: 1px solid green;
-        }
-    }
-}
-
-// 進度區
-.progress_block{
-    width: 100%;
-    background-color: $sec_ivory;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include mobile{
-        width: 100%;
-    }
-    >.frist_block{
-        width: 10%;
-        margin: 30px;
-        // border: 1px solid red;
-        text-align: center;
-        padding: 20px;
-        background-color:  $sec_ivory;
-        border-radius: 15px;
-        @include mobile{
-            width: 100%;
-            margin: 0px;
-        }
-        >h4{
-            padding-bottom: 30px;
-            @include mobile{
-                padding-bottom: 10px;
-                display: none;
-            }
-        }
-        
-        >span{
-            // border: 1px solid blue;
-            margin-top: 30px;
-            font-size: 26px;
-            @include mobile{
-                margin-top: 10px;
-            }
-        }
-
-    }
-    .textblock_Show{
-        background-color: $main_br;
-        color: $sec_ivory;
-        >h4, span{
-            font-family: 'bold';
-
         }
     }
 }
@@ -316,15 +268,15 @@
 .postcardStart_block{
     width: 100%;
     // border: 1px solid blue;
-    margin: 0 auto;
+    // margin: 0 auto;
 
     .Img_bg{
         width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        // height: 100vh;
+        // display: flex;
+        // flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
         background-image: url(../../images/postcard/1280/africa01_1280-715.jpg);
         background-repeat: no-repeat;
         background-size: cover;
@@ -339,21 +291,22 @@
 // 明信片
 .main_writting_block{
     width: 50%;
+    // height: 500px;
     border: 3px solid blue;
     display: flex;
     // height: 100vh;
     background-color: white;
     // height: 500px;
     // padding: 30px;
-    @include tablet{
-        width: 80%;
-    }
-    @include ipad{
-        width: 80%;
-    }
-    @include mobile{
-        width: 100%;
-    }
+    // @include tablet{
+    //     width: 80%;
+    // }
+    // @include ipad{
+    //     width: 80%;
+    // }
+    // @include mobile{
+    //     width: 100%;
+    // }
     >.main_writting_left{
         width: 60%;
         border: 1px solid red;
@@ -394,45 +347,32 @@
         }
         >.writting_bg{
             width: 100%;
-            height: 370px;
+            // height: 370px;
             @include mobile{
                 // height: 300px;
             }
             
             >.writting_area{
-            width: 100%;
+            width: 300px;
             border: 1px solid red;
             height: 370px;
             background-image: linear-gradient(white, white 34px, #ccc 30px, $main_grey 36px, white 34px);
             background-size: 100% 40px;
-            outline: none;
-            box-shadow: none;
             line-height: 40px;
             font-size: 25px;
             font-family: 'mikadomedium';
             color: $main_br;
             resize: none;
+            
+            border: none;
+            overflow: auto;
+            outline: none;
+            box-shadow: none;
+
+            background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
             @include mobile{
                 // height: 300px;
             }
-                // -webkit-writing-mode: horizontal-tb !important;
-                text-rendering: auto;
-                letter-spacing: normal;
-                word-spacing: normal;
-                text-transform: none;
-                text-indent: 0px;
-                text-shadow: none;
-                display: inline-flex;
-                text-align: start;
-                appearance: auto;
-                flex-direction: column;
-                white-space: pre-wrap;
-                overflow-wrap: break-word;
-                overflow-wrap: break-word;
-                background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
-                outline: none;
-                border: none;
-
             }
         }
     }
@@ -485,7 +425,7 @@
                 padding: 5px 15px;
                 border-radius: 15px;
                 // padding-bottom: 0;
-                // border: 1px solid red;
+                border: 1px solid red;
                 >.remind_stamp_h4{
                     @include mobile{
                         display: none;
@@ -493,7 +433,7 @@
                 }
             }
             .stamp_block{
-                // border: 1px solid red;
+                border: 1px solid red;
                 position: relative;
                 cursor: pointer;
                 z-index: 10;
@@ -600,8 +540,8 @@
 .main_IMG_block{
     width: 50%;
     // max-width: 700px;
-    // border: 3px solid blue;
-    display: flex;
+    border: 3px solid blue;
+    // display: flex;
     // height: 100vh;
     background-color: $main_ivory;
     // height: 500px;
