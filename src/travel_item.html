@@ -113,7 +113,7 @@
                         </li>
                     </ul>
                     
-                    <div class="order" id="info.id">
+                    <div class="order" id="info.ID">
                         <h4>本場活動&nbsp; ${{info.event_price}} TWD / 人</h4>
                         <div class="selects">
                             <select name="date" id="date" class="selectItem" v-model="userSelect" >
@@ -276,6 +276,12 @@
                                 if(chooseDate == "可選日期" || chooseTime == "可選時段" || choosePeople == "參與人數"){
                                   alert("請選擇欲參加的日期、時間、人數")  
                                 }else{
+                                    product_ID = travelItem.info.ID;
+                                    sessionStorage["product_ID"] = product_ID;
+                                    sessionStorage["date"] = chooseDate;
+                                    sessionStorage["time"] = chooseTime;
+                                    sessionStorage["people_num"] = choosePeople;
+
                                     location.href = 'travel_payment.html';
                                     // console.log(chooseDate);
                                     // console.log(chooseTime);
@@ -298,8 +304,9 @@
             },
             watch:{
                 userSelect:function (newval , oldval){
-                    let startday =new Date(newval).getTime();
-                    let endday =new Date(newval).getTime() +24 * 60 * 60 *1000;
+                    let newvalue = newval.substr(0,10);
+                    let startday =new Date(newvalue).getTime();
+                    let endday =new Date(newvalue).getTime() +24 * 60 * 60 *1000;
                     this.selectTime =[];
                     for(let i = 0 ; i< this.eventTime.length; i++){
                         if(this.eventTime[i].started_at > startday && this.eventTime[i].started_at < endday){
@@ -348,17 +355,25 @@
                         if(this.selectDates.length !=0){
                             let startTime = new Date(Number(this.eventTime[i-1].started_at));
                             let endTime = new Date(Number(this.eventTime[i-1].ended_at));
+                            let days = startTime.getDay();
+                            let day_list = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
                             var dates = '';
                             dates += startTime.getFullYear() + '/';
                             dates += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '/';
                             dates += (startTime.getDate()< 10 ? '0' : '') + startTime.getDate() + ' ';
+                            dates += day_list[days];
+
                         }
                         let startTime = new Date(Number(this.eventTime[i].started_at));
                         let endTime = new Date(Number(this.eventTime[i].ended_at));
+                        let days = startTime.getDay();
+                        let day_list = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
                         let date = '';
                         date += startTime.getFullYear() + '/';
                         date += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '/';
                         date += (startTime.getDate()< 10 ? '0' : '') + startTime.getDate() + ' ';
+                        date += day_list[days];
+                        
                         if(dates != date){
                             this.selectDates.push(date);
                         }

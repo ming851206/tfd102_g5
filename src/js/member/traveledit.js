@@ -129,10 +129,10 @@ const TravelEdit = {
                     <p>{{checkeds(index)}}</p>
                 </div>
                 <div class="travelP">
-                    <p v-if="checkstatus(index)" @click="addDate(index)">新增日期</p>
+                    <p v-if="checkstatus(index) && checkDelete(index)" @click="addDate(index)">新增日期</p>
                 </div>
                 <div class="travelP">
-                    <p v-if="checkstatus(index)" @click="EditWorks(index)">編輯活動</p>
+                    <p v-if="checkstatus(index)  && checkDelete(index)" @click="EditWorks(index)">編輯活動</p>
                 </div>
                 <div class="travelP"  >
                     <p v-if="checkstatus(index) && checkDelete(index)" @click="workdown(index)">下架</p>
@@ -140,7 +140,7 @@ const TravelEdit = {
                     <p v-else-if="checkstatus(index)"></p>
                 </div>
                 <div class="travelP" @click="changeWorks(index)"">
-                    <p v-if=" checkstatus(index)">查看活動</p>
+                    <p v-if=" checkstatus(index) && checkDelete(index)">查看活動</p>
                 </div>
             </div>
         </div>
