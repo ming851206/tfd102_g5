@@ -25,10 +25,8 @@ const header = Vue.component("the-header", {
                             <img src="./images/icon/header/favorite_icon.svg" alt="favorite">
                         </a>
                     </li>
-                    <li class="member">
-                        <a href="login.html">
-                            <img src="./images/icon/header/member_icon.svg" alt="member">
-                        </a>
+                    <li class="member" @click="loginCheck">
+                        <img src="./images/icon/header/member_icon.svg" alt="member">
                     </li>
                     <li class="menu">
                         <img src="./images/icon/header/menu_icon.svg" alt="menu">
@@ -37,7 +35,29 @@ const header = Vue.component("the-header", {
             </ul>
         </nav>
     </div>
-`, mounted() {
+`, 
+methods: {
+    loginCheck(){ 
+        $.ajax({            
+            method: "POST",
+            url: "php/LoginCheck.php",
+            data:{},            
+            dataType: "text",
+            success: function (response) {
+                if(response == ""){
+                    alert('請先登入，將前往登入頁'); 
+                    location.href = 'login.html';
+                }else{
+                    location.href = 'member.html';
+                }              
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    },
+},
+mounted() {
         let locationName = location.pathname;
         if(locationName == "/about.html"){
             $(".web_bar li:nth-child(1) a").addClass("bold");
@@ -48,7 +68,7 @@ const header = Vue.component("the-header", {
         }else if(locationName == "/q_acc" || locationName == "/QA.html"){
             $(".web_bar li:nth-child(4) a").addClass("bold");
         }
-    }
+    },
 })
 const menu_item = Vue.component("menu-item", {
     template: `

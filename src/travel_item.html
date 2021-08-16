@@ -71,33 +71,27 @@
             <div class="item_photos">
                 <h2>更多旅遊照片</h2>
                 <div class="photo_row1">
-                    <!-- <img :src="info.pic1" @click="showPhotos"> -->
-                    <img src="./images/travel_item/1.jpg" @click="showPhotos" class="images">
-                    <img :src="info.pic2">
+                    <img :src="info.pic1" @click="showPhotos(picIndex=1)" class="images">
+                    <img :src="info.pic2" @click="showPhotos(picIndex=2)" class="images">
                 </div>
                 <div class="photo_row2">
-                    <img :src="info.pic3">
-                    <img :src="info.pic4">
-                    <img :src="info.pic5">
+                    <img :src="info.pic3" @click="showPhotos(picIndex=3)" class="images">
+                    <img :src="info.pic4" @click="showPhotos(picIndex=4)" class="images">
+                    <img :src="info.pic5" @click="showPhotos(picIndex=5)" class="images">
                 </div>
 
                 <transition>
                     <div class="photo_mask" v-show="photo_carousel==true">
                     <div class="close_photos" @click="closePhotos"></div>
+                        <h4 class="picIndex">{{picIndex}} / 5</h4>
                         <div class="photo_container">
                             <div class="pre_photo" @click="prePhoto"></div>
                             <div class="pics">
-                                <h4>{{picIndex}} / 5</h4>
-                                <img src="./images/travel_item/1.jpg" v-show="picIndex==1">
-                                <img src="./images/travel_item/2.jpg" v-show="picIndex==2">
-                                <img src="./images/travel_item/3.jpg" v-show="picIndex==3">
-                                <img src="./images/travel_item/4.jpg" v-show="picIndex==4">
-                                <img src="./images/travel_item/5.jpg" v-show="picIndex==5">
-                                <!-- <img :src="info.pic1" v-show="picIndex==1">
+                                <img :src="info.pic1" v-show="picIndex==1">
                                 <img :src="info.pic2" v-show="picIndex==2">
                                 <img :src="info.pic3" v-show="picIndex==3">
                                 <img :src="info.pic4" v-show="picIndex==4">
-                                <img :src="info.pic5" v-show="picIndex==5">         -->
+                                <img :src="info.pic5" v-show="picIndex==5">        
                             </div>
                             <div class="next_photo"  @click="nextPhoto"></div>     
                         </div>
@@ -119,25 +113,23 @@
                         </li>
                     </ul>
                     
-                    <div class="order">
+                    <div class="order" id="info.id">
                         <h4>本場活動&nbsp; ${{info.event_price}} TWD / 人</h4>
-                        <!-- <div class="selects">
-                            <select name="date" id="date" class="selectItem">
+                        <div class="selects">
+                            <select name="date" id="date" class="selectItem" v-model="userSelect" >
                                 <option selected hidden>可選日期</option>
-                                <option v-for="(selectDate, index) in eventTime.date" :value="eventTime.date.selectDate">{{selectDate(index)}}</option>
+                                <option v-for="(date, index) in selectDates" >{{date}}</option>
                             </select>
-                            <select name="tiem" id="time" class="selectItem">
+                            <select name="tiem" id="time" class="selectItem" v-model="userSelect2">
                                 <option selected hidden>可選時段</option>
-                                <option v-for="(selectTime, index) in eventTime.time" :value="eventTime.time.selectTime">{{selectTime(index)}}</option>
+                                <option v-for="(time, index) in selectTime">{{time}}</option>
                             </select>
-                            <select name="people_num" id="people_num" class="selectItem">
+                            <select name="people_num" id="people_num" class="selectItem" v-model="userSelect3">
                                 <option selected hidden>參與人數</option>
                                 <option v-for="people_num in 10" :value="people_num">{{people_num}} 人</option>
                             </select>
-                            <a href="travel_payment.html">
-                                <button class="btnL" id="order_now">立即訂購</button>
-                            </a>
-                        </div> -->
+                            <button class="btnL" id="order_now" @click.prevent="loginCheck()">立即訂購</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -217,6 +209,12 @@
                 showIndex: 3,
                 change: false,
                 picIndex: 1,
+                eventTime: [],
+                selectDates:[],
+                userSelect:'可選日期',
+                userSelect2: "可選時段",
+                userSelect3: "參與人數",
+                selectTime:[],
             },
             methods: {
                 like(){
@@ -225,15 +223,22 @@
                 cancleLike(){
                     this.fav = false;
                 },
-                showPhotos(){
+                showPhotos(picIndex){
                     this.photo_carousel = true;
-        
                 },
                 prePhoto(){
-
+                    if(this.picIndex == 1){
+                        this.picIndex == 1
+                    }else{
+                        this.picIndex -= 1;
+                    }
                 },
                 nextPhoto(){
-
+                    if(this.picIndex == 5){
+                        this.picIndex == 5
+                    }else{
+                        this.picIndex += 1;
+                    }
                 },
                 closePhotos(){
                     this.photo_carousel = false;
@@ -245,39 +250,43 @@
                             method: 'share',
                             href: 'https://tibamef2e.com/tfd102/project/g5/travel_item.html',
                         },
-                        // callback
                         function (response) {
                             if (response && !response.error_message) {
                                 alert('分享至臉書，邀請朋友一起成為jumper!');
-                            } else {
-                                // alert('Error while posting.');
                             }
                         }
                     )
                 },
-                selectDate(index){
-                    let startTime = new Date(Number(this.info[index].started_at));
-                    let endTime = new Date(Number(this.info[index].started_at));
-
-                    let date = '';
-                    date += startTime.getFullYear() + '/';
-                    date += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '-';
-                    date += (startTime.getDate()< 10 ? '0' : '') + startTime.getDate() + ' ';
-                    
-                    return date;
-                },
-                selectTime(index){
-                    let startTime = new Date(Number(this.info[index].started_at));
-                    let endTime = new Date(Number(this.info[index].started_at));
-
-                    let time = "";
-                    time += (startTime.getHours() < 10 ? '0' : '') + startTime.getHours() + ':';
-                    time += (startTime.getMinutes() < 10 ? '0' : '') + startTime.getMinutes();
-                    time += " - ";
-                    time += (endTime.getHours()< 10 ? '0' : '') + endTime.getHours() + ':';
-                    time += (endTime.getMinutes() < 10 ? '0' : '') + endTime.getMinutes();
-
-                    return time;
+                loginCheck(){ 
+                    $.ajax({            
+                        method: "POST",
+                        url: "php/LoginCheck.php",
+                        data:{},            
+                        dataType: "text",
+                        success: function (response) {
+                            let memberID = response;
+                            
+                            if(response == ""){
+                                alert('請先登入，將前往登入頁'); 
+                                location.href = 'login.html';
+                            }else{
+                                chooseDate = travelItem.userSelect;
+                                chooseTime = travelItem.userSelect2;
+                                choosePeople = travelItem.userSelect3;
+                                if(chooseDate == "可選日期" || chooseTime == "可選時段" || choosePeople == "參與人數"){
+                                  alert("請選擇欲參加的日期、時間、人數")  
+                                }else{
+                                    location.href = 'travel_payment.html';
+                                    // console.log(chooseDate);
+                                    // console.log(chooseTime);
+                                    // console.log(choosePeople);
+                                }
+                            }              
+                        },
+                        error: function(exception) {
+                            alert("數據載入失敗: " + exception.status);
+                        }
+                    });
                 },
                 showMore(){
                     this.showIndex += 3;
@@ -285,6 +294,28 @@
                         this.change = true;
                     }
                 },
+                
+            },
+            watch:{
+                userSelect:function (newval , oldval){
+                    let startday =new Date(newval).getTime();
+                    let endday =new Date(newval).getTime() +24 * 60 * 60 *1000;
+                    this.selectTime =[];
+                    for(let i = 0 ; i< this.eventTime.length; i++){
+                        if(this.eventTime[i].started_at > startday && this.eventTime[i].started_at < endday){
+                            let startTime = new Date(Number(this.eventTime[i].started_at));
+                            let endTime = new Date(Number(this.eventTime[i].ended_at));
+                            let time = "";
+                            time += (startTime.getHours() < 10 ? '0' : '') + startTime.getHours() + ':';
+                            time += (startTime.getMinutes() < 10 ? '0' : '') + startTime.getMinutes();
+                            time += " - ";
+                            time += (endTime.getHours()< 10 ? '0' : '') + endTime.getHours() + ':';
+                            time += (endTime.getMinutes() < 10 ? '0' : '') + endTime.getMinutes();
+
+                            this.selectTime.push(time);
+                         }
+                    }
+                }
             },
             mounted() {
                 // 旅遊內容
@@ -312,7 +343,26 @@
                     now: new Date().getTime(),
                 }).then(res =>{
                     let eventTime = res.data;
-                    // console.log(eventTime);
+                    this.eventTime = eventTime;
+                    for(let i = 0 ; i < this.eventTime.length; i++){
+                        if(this.selectDates.length !=0){
+                            let startTime = new Date(Number(this.eventTime[i-1].started_at));
+                            let endTime = new Date(Number(this.eventTime[i-1].ended_at));
+                            var dates = '';
+                            dates += startTime.getFullYear() + '/';
+                            dates += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '/';
+                            dates += (startTime.getDate()< 10 ? '0' : '') + startTime.getDate() + ' ';
+                        }
+                        let startTime = new Date(Number(this.eventTime[i].started_at));
+                        let endTime = new Date(Number(this.eventTime[i].ended_at));
+                        let date = '';
+                        date += startTime.getFullYear() + '/';
+                        date += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '/';
+                        date += (startTime.getDate()< 10 ? '0' : '') + startTime.getDate() + ' ';
+                        if(dates != date){
+                            this.selectDates.push(date);
+                        }
+                    }
                 })
 
                 // 評論
