@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +21,7 @@
                     <input type="text" name="username" id="username">
                 </label>
                 <label for="">
-                    <input type="text" name="pwd" id="pwd">
+                    <input type="password" name="pwd" id="pwd">
                 </label>
                 <button class="btnL" type="submit" onclick="return doSubmit();">登入</button>
             </form>
@@ -29,7 +30,7 @@
     <script>
         function doSubmit() {
             if (document.getElementById('username').value == '' || document.getElementById('pwd').value == '') {
-                alert("請填寫[帳號]");
+                alert("請填寫[帳號]或[密碼]");
                 return false;
             }
         }
