@@ -113,7 +113,7 @@
                         </li>
                     </ul>
                     
-                    <div class="order" id="info.id">
+                    <div class="order" id="info.ID">
                         <h4>本場活動&nbsp; ${{info.event_price}} TWD / 人</h4>
                         <div class="selects">
                             <select name="date" id="date" class="selectItem" v-model="userSelect" >
@@ -276,6 +276,12 @@
                                 if(chooseDate == "可選日期" || chooseTime == "可選時段" || choosePeople == "參與人數"){
                                   alert("請選擇欲參加的日期、時間、人數")  
                                 }else{
+                                    product_ID = travelItem.info.ID;
+                                    sessionStorage["product_ID"] = product_ID;
+                                    sessionStorage["date"] = chooseDate;
+                                    sessionStorage["time"] = chooseTime;
+                                    sessionStorage["people_num"] = choosePeople;
+
                                     location.href = 'travel_payment.html';
                                     // console.log(chooseDate);
                                     // console.log(chooseTime);
@@ -321,7 +327,7 @@
                 // 旅遊內容
                 axios.post('./php/item_content.php').then(res =>{
                     let data = res.data[0];
-                    // console.log(data);
+                    console.log(data);
                     this.info = data;
                     
                     let continent = this.info.category;
