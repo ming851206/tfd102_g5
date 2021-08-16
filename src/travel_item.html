@@ -304,8 +304,9 @@
             },
             watch:{
                 userSelect:function (newval , oldval){
-                    let startday =new Date(newval).getTime();
-                    let endday =new Date(newval).getTime() +24 * 60 * 60 *1000;
+                    let newvalue = newval.substr(0,10);
+                    let startday =new Date(newvalue).getTime();
+                    let endday =new Date(newvalue).getTime() +24 * 60 * 60 *1000;
                     this.selectTime =[];
                     for(let i = 0 ; i< this.eventTime.length; i++){
                         if(this.eventTime[i].started_at > startday && this.eventTime[i].started_at < endday){
@@ -327,7 +328,7 @@
                 // 旅遊內容
                 axios.post('./php/item_content.php').then(res =>{
                     let data = res.data[0];
-                    console.log(data);
+                    // console.log(data);
                     this.info = data;
                     
                     let continent = this.info.category;
@@ -354,17 +355,25 @@
                         if(this.selectDates.length !=0){
                             let startTime = new Date(Number(this.eventTime[i-1].started_at));
                             let endTime = new Date(Number(this.eventTime[i-1].ended_at));
+                            let days = startTime.getDay();
+                            let day_list = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
                             var dates = '';
                             dates += startTime.getFullYear() + '/';
                             dates += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '/';
                             dates += (startTime.getDate()< 10 ? '0' : '') + startTime.getDate() + ' ';
+                            dates += day_list[days];
+
                         }
                         let startTime = new Date(Number(this.eventTime[i].started_at));
                         let endTime = new Date(Number(this.eventTime[i].ended_at));
+                        let days = startTime.getDay();
+                        let day_list = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
                         let date = '';
                         date += startTime.getFullYear() + '/';
                         date += (startTime.getMonth() + 1 < 10 ? '0' + (startTime.getMonth() + 1) : startTime.getMonth() + 1) + '/';
                         date += (startTime.getDate()< 10 ? '0' : '') + startTime.getDate() + ' ';
+                        date += day_list[days];
+                        
                         if(dates != date){
                             this.selectDates.push(date);
                         }
