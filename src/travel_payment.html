@@ -250,6 +250,7 @@
                     addDiscount_value: '輸入優惠碼',
                     choose_discount_value: '跳轉世界玩翻天 75 折優惠',
                     successShow: false,
+                    getdiscount:[],
                 }
             },
             methods: {
@@ -268,7 +269,6 @@
                     this.addDiscount_value = this.choose_discount_value;
                     this.discountShow =!this.discountShow;
                 },
-
                 // 付款成功彈窗
                 payment_add_btn() {
                     if(this.successShow == false){
@@ -277,6 +277,12 @@
                         this.successShow = false;
                     }
                 },
+            },
+            mounted() {
+                axios.get('./php/payment_discount.php').then(res=>{
+                    let data = res.data;
+                    this.getdiscount = data;
+                })
             },
         });
     </script>
