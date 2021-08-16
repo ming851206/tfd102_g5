@@ -14,6 +14,7 @@
     <script src="./js/vue/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
     <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -56,11 +57,7 @@
                     </div>
                     <!-- 登入切換按鈕 -->
                     <button type="button" class="btnM areaShow" id="btn_login" value="登入" @click="signIN">登入</button>
-
-
-
                 </div>
-
                 <!-- 登入註冊切換按鈕區 -->
                 <div class="loginSitch">
                     <button type="button" class="btnM_light" id="btn_Signup" @click="showBtn">註冊</button>
@@ -201,6 +198,33 @@
 
         </div>
 
+
+        <!-- 忘記密碼彈窗 -->
+        <div class="verification" v-show="forgetPassword_verification">
+            <form action="" method="POST" class="forgtPassword_container">
+                <!-- close button -->
+                <div type="button" class="close_btn_block" @click="close_forgetPassword_verification">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994">
+                        <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z" transform="translate(-11.285 -11.289)" fill="#996a4d"/>
+                    </svg>
+                </div>
+
+                <!-- logo Img -->
+                <div class="forgetpsd_logo_pic">
+                    <img src="./images/logo/logo-circle.png" alt="">
+                </div>
+
+                <!-- email -->
+                <div class="forgetpsd_email_block">
+                    <h4 class="forgetpsd_h4">我們需要驗證您的身份</h4>
+                    <input class="login_input forget_input" v-model="email_register" type="email" placeholder="輸入註冊的Email :" ref="forgetemail">
+                    <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
+                    <!-- submit email -->
+                    <button type="button" class="btnM forgetpsd_sub" id="" @click="forget">寄送認證</button>
+                </div>
+            </form>
+
+        </div>
     </div>
 
 
@@ -227,6 +251,8 @@
                     password_register_again_msg: true,
                     email_register: '',
                     email_register_msg: true,
+                    forgetPassword_verification: false,
+                    email:'',
                 }
 
             },
@@ -265,12 +291,42 @@
                 },
             },
             methods: {  //函數（方法）大部分放這裡
+                // 忘記密碼
+                forget(){
+                    emailjs.init("user_ZrOPJCjUfxsx5AJ7kJXkk");
+                    var template_params = {
+                        "user_email": this.$refs.forgetemail.value,
+                        
+                    }
+                    var service_id = "gmail";
+                    var template_id = "<YOUR TEMPLATE ID>";
+                    var user_id = '<YOUR USER ID>';
+                    console.log(template_params);
+                    emailjs.send(
+                        service_id, 
+                        template_id,
+                        {user_email: this.email, user_name: this.name, start: this.start, time: this.time},
+                        user_id
+                    )
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                    });
+			    
+			
+
+                },
                 // 登入註冊切換
                 showBtn() {
                     this.areaShow = !this.areaShow
                 },
                 password_forget() {
-                    alert("請輸入正確帳號")
+                    this.forgetPassword_verification = !this.forgetPassword_verification;
+                    // alert("請輸入正確帳號")
+                },
+                close_forgetPassword_verification(){
+                    this.forgetPassword_verification = !this.close_forgetPassword_verification;
                 },
                 phone_password_forget() {
                     alert("請輸入正確帳號")
