@@ -32,7 +32,7 @@
                 <div class="adm_appr">
                     <div class="adm_above">
                         <h4>Hi!Jumper</h4>
-                        <button class="btnM" type="button"><a href="../php/adm_logout.php">登出</a></button>
+                        <button class="btnM" type="button" @click="chkBtn" id="loginChk">登出</button>
                     </div>
                 
                     <router-view></router-view>
@@ -164,18 +164,41 @@
             el: '#app',
             router,
             methods: {
-                init(){
+                init(){    //app_l各分頁點擊時判斷有沒有登入
                     axios.post('../php/adm_loginCheck.php')
                     .then(res => {
-                        if(res==""){
+                        if(res.data==""){
                             alert('請先登入!');
                             location.href = '../admin/login.html'; 
-                        }else{
-                            console.log('登入過了');
+                            
                         }
                     })
                     .catch( (error) => alert('數據加載失敗'+ error));
                 },
+                chkBtn(){  //app_r登入登出按鈕切換
+                    axios.post('../php/adm_loginCheck.php')
+                    .then(res => {
+                        if(res.data==""){
+                            document.getElementById('loginChk').innerText = '登入'; 
+                            location.href = '../admin/login.html';
+                        }else{
+                            document.getElementById('loginChk').innerText = '登出'; 
+                            location.href = '../php/adm_logout.php';
+                        }
+                    })
+                    .catch( (error) => alert('數據加載失敗'+ error));
+                },
+            },
+            mounted() {  //頁面載入時對於登入狀態的判斷顯示在右上角按鈕上
+                axios.post('../php/adm_loginCheck.php')
+                    .then(res => {
+                        if(res.data==""){
+                            document.getElementById('loginChk').innerText = '登入'; 
+                        }else{
+                            document.getElementById('loginChk').innerText = '登出'; 
+                        }
+                    })
+                    .catch( (error) => alert('數據加載失敗'+ error));
             },
         });
     </script>

@@ -45,7 +45,7 @@
                 <img src="./images/logo/logo.png" alt="">
             </h1> -->
             <h2>您好，需要什麼協助嗎?</h2>
-            <input type="text" v-model="search">
+            <input type="text" v-model="search" placeholder="請輸入關鍵字">
             <div class="deco"></div>
         </section>
 
@@ -106,6 +106,7 @@
                 now:0,
                 search: '',
                 resTxt: '',
+                message:'',
                 classList: {
                     iserror: false,
                 },
@@ -200,7 +201,7 @@
                     },
                     {
                         title: '如何獲得優惠碼',
-                        content: '您可以透過以下兩種方式獲得優惠碼：</br><p><span>‧</span>完成jumper旅遊護照，集滿五個的jumper印章，即可獲得一組優惠碼。</p><p><span>‧</span>每次參與完您的旅程後，給予該旅程評價與意見，即可獲得一組優惠碼。</p>',
+                        content: '您可以藉由完成jumper旅遊護照遊戲(請至首頁點選連結)，集滿五大洲印章，即可獲得一組優惠碼',
                         isActive: false,
                         path: '/q_coupon'
                     },
@@ -266,7 +267,9 @@
 
                     }
                 },
-
+                // noResult(){
+                //   console.log(filterList);
+                // }
             },
             computed: {
                 filterList() { //搜尋功能
