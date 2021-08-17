@@ -26,27 +26,27 @@ const Coupon = {
                             <td v-text="coupon.num"></td>
                             <td class="cName">
                                 <div v-if="coupon.is_edit === false" v-text="coupon.c_name"></div>
-                                <input v-else :value="coupon.c_name" v-model="coupon.c_name">   
+                                <input v-else v-model="coupon.c_name">   
                             </td>
                             <td class="cContent">
                                 <div v-if="coupon.is_edit === false" v-text="coupon.c_content"></div>
-                                <input v-else :value="coupon.c_content" v-model="coupon.c_content">   
+                                <input v-else v-model="coupon.c_content">   
                             </td>
                             <td class="cCode">
                                 <div v-if="coupon.is_edit === false" v-text="coupon.c_code"></div>
-                                <input v-else :value="coupon.c_code" v-model="coupon.c_code">   
+                                <input v-else v-model="coupon.c_code">   
                             </td>
                             <td class="cDiscount">
                                 <div v-if="coupon.is_edit === false" v-text="coupon.c_discount"></div>
-                                <input v-else :value="coupon.c_discount" v-model="coupon.c_discount">   
+                                <input v-else v-model="coupon.c_discount">   
                             </td>
                             <td class="cExpire">
                                 <div v-if="coupon.is_edit === false" v-text="coupon.c_expire"></div>
-                                <input v-else :value="coupon.c_expire" v-model="coupon.c_expire">   
+                                <input v-else v-model="coupon.c_expire">   
                             </td>
                             <td class="cCome">
                                 <div v-if="coupon.is_edit === false" v-text="coupon.c_come"></div>
-                                <input v-else :value="coupon.c_come" v-model="coupon.c_come">   
+                                <input v-else v-model="coupon.c_come">   
                             </td>
                             <td v-if="coupon.is_edit === false">
                                 <button @click="edit(index)">編輯</button>

@@ -1,6 +1,6 @@
 
-  // ========== 訂單管理(竹)) ========== 
-  const OrderList = {
+// ========== 訂單管理(竹)) ========== 
+const OrderList = {
     template: `
     <div class="temp2">
         <h3>訂單管理</h3>
@@ -21,9 +21,9 @@
                 <td v-text="order.ID"></td>
                 <td v-text="order.name"></td>
                 <td v-text="'$'+ order.price"></td>
-                <td v-text="order.is_alerted = 1 ? '未發送':'已發送' "></td>
+                <td id="sendStatus" v-text="order.is_alerted == 1 ? '已發送':'未發送' "></td>
                 <td id="ts">{{timestampToTime(order.created_at)}}</td>
-                <td><button class="sendLink">發送連結</button></td>
+                <td><button id="sendlinkbtn" v-if="order.is_alerted == 0" class="sendLink" @click="updateIsAlert(order.ID)">發送連結</button></td>
             </tr>
         </table>
         <div class="pager2">
@@ -41,7 +41,7 @@
 
     `,
     data() {
-      
+
         return {
             search: '',
             timestamp: '',
@@ -71,9 +71,27 @@
             s = date.getSeconds();
             return this.timestamp = Y + M + D;
 
+        },
+
+        // 發送連結
+        updateIsAlert(itemId) {
+            // console.log('test');
+            axios.post('http://localhost/php/update_orderalert.php', JSON.stringify({
+                itemId: itemId,
+            }))
+                .then(res => {
+                    console.log(res.data);
+                    document.getElementById('sendlinkbtn').remove();    
+                    $sendStatus = document.getElementById('sendStatus');
+                    console.log($sendStatus);
+                    $sendStatus.innerText = "已發送";
+                }
+
+                )
+                .catch((error) => alert('數據加載失敗' + error));
         }
     },
-    computed:{
+    computed: {
         filterList() { //實驗中 
             return this.data.filter((order) => { //把data送下來使用filter功能
                 return order.ID.includes(this.search);
@@ -101,8 +119,8 @@
         //===========================================
 
         axios.get('http://localhost/php/adm_orderList.php')
-        .then(res => this.data = res.data)
-        .catch( (error) => alert('數據加載失敗'+ error));
+            .then(res => this.data = res.data)
+            .catch((error) => alert('數據加載失敗' + error));
         // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
         // .then(res => this.data = res.data);
         //fetch('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => console.log(res)); 
