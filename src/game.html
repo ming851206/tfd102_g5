@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>旅遊護照遊戲</title>
     @@include('layout_html/plugin.html')
@@ -10,14 +11,15 @@
         <div id="the_game">
             <div class="game_bg">
                 <div class="game_world_map">
-                    <div class="landmark" :class="theme.continent" @click="chooseTheTheme(index)" v-for="(theme,index) in themes">
+                    <div class="landmark" :class="theme.continent" @click="chooseTheTheme(index)"
+                        v-for="(theme,index) in themes">
                         <input type="radio" :value="theme.num" name="theme" v-model="theTheme">
                     </div>
                     <transition>
                         <div id="game_word" v-show="gameWordShow==true">
                             <h3>點選地標圖示參加問答遊戲<br>集滿各大洲印章領取優惠券!</h3>
                             <img src="./images/index/game/gift_white.svg">
-                        </div>    
+                        </div>
                     </transition>
                 </div>
 
@@ -29,7 +31,7 @@
                         <div class="click_word">
                             <button class="btnL_line btn_start" @click="startGame">START</button>
                             <div class="passport_item">
-                                <h4 id="task_process" @click="showPasswort">查看遊戲進度</h4>
+                                <h4 id="task_process" @click="showPassport">查看遊戲進度</h4>
                                 <a href="index.html">回首頁</a>
                             </div>
                         </div>
@@ -79,7 +81,8 @@
                                 <img class="get_stamp" src="./images/index/game/america.svg" v-if="theTheme == 1">
                                 <img class="get_stamp" src="./images/index/game/europe.svg" v-else-if="theTheme == 2">
                                 <img class="get_stamp" src="./images/index/game/asia.svg" v-else-if="theTheme == 3">
-                                <img class="get_stamp" src="./images/index/game/africa_stamp.svg" v-else-if="theTheme == 4">
+                                <img class="get_stamp" src="./images/index/game/africa_stamp.svg"
+                                    v-else-if="theTheme == 4">
                                 <img class="get_stamp" src="./images/index/game/oceania.svg" v-else-if="theTheme == 5">
 
                                 <div class="game_words" id="win_word">
@@ -131,17 +134,20 @@
                                 <div class="game_stamp">
                                     <div class="top_stamp">
                                         <span v-for="(theme, index) in themes" v-if="index < 3" class="unget_stamp">
-                                            <img class="unget_stamp" :class="theme.continent" :src="theme.svg" v-if="task_record[index]">
+                                            <img class="unget_stamp" :class="theme.continent" :src="theme.svg"
+                                                v-if="task_record[index]">
                                             <img class="unget_stamp" :class="theme.continent" :src="theme.png" v-else>
-                                        </span>                                        
+                                        </span>
                                     </div>
                                     <div class="bottom_stamp" class="unget_stamp">
                                         <span v-for="(theme, index) in themes" v-if="index >= 3">
-                                            <img class="unget_stamp" :class="theme.continent" :src="theme.svg" v-if="task_record[index]">
+                                            <img class="unget_stamp" :class="theme.continent" :src="theme.svg"
+                                                v-if="task_record[index]">
                                             <img class="unget_stamp" :class="theme.continent" :src="theme.png" v-else>
-                                        </span>  
+                                        </span>
                                     </div>
-                                    <img class="gift_icon gold" src="./images/index/game/gift_gold.svg" v-if="getGift==true" @click="getCoupon">
+                                    <img class="gift_icon gold" src="./images/index/game/gift_gold.svg"
+                                        v-if="getGift==true" @click="getCoupon">
                                     <img class="gift_icon" src="./images/index/game/gift_gray.svg" v-else>
                                 </div>
                             </div>
@@ -208,7 +214,7 @@
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-        
+
         function share() {
             FB.ui(
                 {
@@ -231,10 +237,10 @@
             data: {
                 themes: [
                     { continent: "am", num: 1, svg: "./images/index/game/america.svg", png: "./images/index/game/unget.png" },
-                    { continent: "eu", num: 2, svg: "./images/index/game/europe.svg" , png: "./images/index/game/unget.png"},
-                    { continent: "as", num: 3, svg: "./images/index/game/asia.svg", png: "./images/index/game/unget.png"},
-                    { continent: "af", num: 4, svg: "./images/index/game/africa_stamp.svg", png: "./images/index/game/unget.png"},
-                    { continent: "oc", num: 5, svg: "./images/index/game/oceania.svg", png: "./images/index/game/unget.png"},
+                    { continent: "eu", num: 2, svg: "./images/index/game/europe.svg", png: "./images/index/game/unget.png" },
+                    { continent: "as", num: 3, svg: "./images/index/game/asia.svg", png: "./images/index/game/unget.png" },
+                    { continent: "af", num: 4, svg: "./images/index/game/africa_stamp.svg", png: "./images/index/game/unget.png" },
+                    { continent: "oc", num: 5, svg: "./images/index/game/oceania.svg", png: "./images/index/game/unget.png" },
                 ],
                 task_ID: [
                     {
@@ -271,7 +277,7 @@
                 showCoupon: false,
                 result: false,
                 getGift: false,
-                task_record: [0,0,0,0,0],
+                task_record: [0, 0, 0, 0, 0],
             },
             computed: {
 
@@ -281,36 +287,37 @@
                     this.outerPasswort = false;
                     this.gameWordShow = true;
                 },
-                showPasswort() {
-                    this.outerPasswort = false;
-                    this.innerPasswort = true;
-
+                showPassport() {
                     axios.post('./php/game_record.php').then(res => {
-                    let data = res.data;
-                    // console.log(data);
-                    for(let i = 0; i < data.length; i++){
-                        this.task_record.splice(data[i].task_ID - 1, 1, 1)
-                        // console.log(this.task_record);
+                        let data = res.data;
+                        if (data != -1) {
+                            for (let i = 0; i < data.length; i++) {
+                                this.task_record.splice(data[i].task_ID - 1, 1, 1)
+                                // console.log(this.task_record);
 
-                        // 集滿五個印章，可兌換優惠券
-                        total_point = 0;
-                        this.task_record.forEach(each_point => {
-                            total_point += each_point
-                        });
+                                // 集滿五個印章，可兌換優惠券
+                                total_point = 0;
+                                this.task_record.forEach(each_point => {
+                                    total_point += each_point
+                                });
 
-                        if(total_point == 5){
-                            this.getGift = true;
+                                if (total_point == 5) {
+                                    this.getGift = true;
+                                }
+                            }
+                            this.outerPasswort = false;
+                            this.innerPasswort = true;
+                        } else {
+                            alert('請先登入，將前往登入頁');
+                            location.href = './login.html';
                         }
-                    }
-                });
-
+                    });
                 },
                 chooseTheTheme(index) {
                     this.gameWordShow = false;
                     this.theTheme = index + 1;
-                    
+
                     axios.post('./php/game_qa.php', {
-                        // console.log(this.themes[index].num);
                         num: this.themes[index].num
                     }).then(res => {
                         // console.log(res.data);
@@ -347,28 +354,35 @@
                         this.result = true;
                         // console.log(correctAnswer);
                         if (correctAnswer == 3) {
-                            axios.post('./php/game_insert_record.php',{
+                            axios.post('./php/game_insert_record.php', {
                                 index: this.theTheme
-                            }).then(res=>{
+                            }).then(res => {
                                 let data = res.data;
-                                for(let i = 0; i < data.length; i++){
-                                    this.task_record.splice(data[i].task_ID - 1, 1, 1)
+                                if (data != -1) {
+                                    for (let i = 0; i < data.length; i++) {
+                                        this.task_record.splice(data[i].task_ID - 1, 1, 1)
+                                    }
+                                } else {
+                                    alert('請先登入，將前往登入頁');
+                                    location.href = './login.html';
                                 }
-                            }).then(res=>{
+                            }).then(res => {
+
                                 // 集滿五個印章，可兌換優惠券
                                 total_point = 0;
                                 this.task_record.forEach(each_point => {
                                     total_point += each_point
                                 });
 
-                                if(total_point == 5){
+                                if (total_point == 5) {
                                     this.getGift = true;
                                 }
                             })
                             this.winning = true;
-                            this.taskIndex = 0;                            
+                            this.taskIndex = 0;
 
-                        }else {
+
+                        } else {
                             this.winning = false;
                             this.taskIndex = 0;
                         }
@@ -383,10 +397,8 @@
                     this.innerPasswort = true;
                 },
                 getCoupon() {
-                    // 先判斷登入登出
-
                     this.showCoupon = true;
-                    this.task_record = [0,0,0,0,0];
+                    this.task_record = [0, 0, 0, 0, 0];
 
                     // delete 紀錄寫回資料庫
                     axios.post('./php/game_clear_record.php')
@@ -398,26 +410,6 @@
                 }
             },
             mounted() {
-                // axios.post('./php/game_record.php').then(res =>console.log(res.data));
-                axios.post('./php/game_record.php').then(res => {
-                    let data = res.data;
-                    // console.log(data);
-                    for(let i = 0; i < data.length; i++){
-                        this.task_record.splice(data[i].task_ID - 1, 1, 1)
-                        // console.log(this.task_record);
-                    }
-
-                    // 集滿五個印章，可兌換優惠券
-                    total_point = 0;
-                    this.task_record.forEach(each_point => {
-                        total_point += each_point
-                    });
-
-                    if(total_point == 5){
-                        this.getGift = true;
-                    }
-                });
-
                 $(function () {
                     $(".btn_start").click(function () {
                         $(".landmark").delay(5000).css({
@@ -459,9 +451,8 @@
                 })
             },
         });
-
     </script>
     <script src="./js/header_footer.js"></script>
-    <!-- <script src="./js/game.js"></script> -->
 </body>
+
 </html>

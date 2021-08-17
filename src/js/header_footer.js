@@ -20,10 +20,8 @@ const header = Vue.component("the-header", {
                             <img src="./images/icon/header/home_icon.svg" alt="home">
                         </a>
                     </li>
-                    <li class="favorite"  @click="loginCheck">
-                        <a href="member.html">
-                            <img src="./images/icon/header/favorite_icon.svg" alt="favorite">
-                        </a>
+                    <li class="favorite"  @click="loginCheck1">
+                        <img src="./images/icon/header/favorite_icon.svg" alt="favorite">
                     </li>
                     <li class="member" @click="loginCheck">
                         <img src="./images/icon/header/member_icon.svg" alt="member">
@@ -45,6 +43,25 @@ methods: {
             dataType: "text",
             success: function (response) {
                 if(response == ""){
+                    location.href = 'login.html';
+                }else{
+                    location.href = 'member.html';
+                }              
+            },
+            error: function(exception) {
+                alert("數據載入失敗: " + exception.status);
+            }
+        });
+    },
+    loginCheck1(){ 
+        $.ajax({            
+            method: "POST",
+            url: "php/LoginCheck.php",
+            data:{},            
+            dataType: "text",
+            success: function (response) {
+                if(response == ""){
+                    alert('請先登入，將前往登入頁'); 
                     location.href = 'login.html';
                 }else{
                     location.href = 'member.html';
