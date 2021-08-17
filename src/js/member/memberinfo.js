@@ -12,18 +12,18 @@ const MemberInfo = {
                                 </div>
 
                             <div id="memberInfoImg"  v-if="editType==false">
-                                <img src="../../images/memberCenter/avatar.png" alt="">
+                                <img :src="values[7].val" alt="">
                             </div>
 
 
                             <div id="memberInfoImg"  v-else @click="changeImg" class="editImgCursor">
-                                <img src="../../images/memberCenter/avatar.png" alt="">
+                                <img :src="editValue[7]" alt="" id="editImg">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22.037" height="19.282" viewBox="0 0 22.037 19.282">
                                         <path id="Icon_awesome-camera" data-name="Icon awesome-camera" d="M22.037,7.071v12.4a2.067,2.067,0,0,1-2.066,2.066H2.066A2.067,2.067,0,0,1,0,19.466V7.071A2.067,2.067,0,0,1,2.066,5H5.854l.529-1.416A2.063,2.063,0,0,1,8.316,2.25h5.4A2.063,2.063,0,0,1,15.65,3.589L16.184,5h3.788A2.067,2.067,0,0,1,22.037,7.071Zm-5.854,6.2a5.165,5.165,0,1,0-5.165,5.165A5.169,5.169,0,0,0,16.184,13.269Zm-1.377,0a3.788,3.788,0,1,1-3.788-3.788A3.793,3.793,0,0,1,14.806,13.269Z" transform="translate(0 -2.25)" fill="#fff"/>
                                     </svg>
                                 </div>
-                                <input type="file" @change="fileChange" id="editImgInput">
+                                <input type="file" @change="fileChange" id="editImgInput" ref="bigImg">
                             </div>
 
 
@@ -134,7 +134,7 @@ const MemberInfo = {
             readFile.readAsDataURL(files);
 
             readFile.addEventListener('load', function () {
-                let image = document.getElementsByClassName("editImgCursor")[0].querySelector("img");
+                let image = document.getElementById('editImg');
                 image.src = readFile.result;
             });
         },
@@ -158,15 +158,19 @@ const MemberInfo = {
         },
 
         edit() {
+            this.editValue = [];
             for (let i = 0; i < this.values.length; i++) {
                 this.editValue.push(this.values[i].val);
             }
             this.editType = true;
         },
         cancel() {
+            let image = document.getElementById('editImg');
+            image.src = this.values[7].val;
             this.editType = false;
         },
         confirms() {
+
             let phone = /^09\d{8}$/;
             let emails = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
             let hby = document.getElementById("memberHBYdate").value;
@@ -179,8 +183,9 @@ const MemberInfo = {
                 alert('生日不能在未來時間');
                 return 0;
             }
+            this.editValue[2] = document.getElementById("memberHBYdate").value;
             for (let i = 0; i < this.editValue.length; i++) {
-                if (this.editValue[i] != '') {
+                if (this.editValue[i] != '' && this.editValue[i] != null && this.editValue[i] != undefined) {
                     if (this.editValue[5] == this.editValue[6]) {
                         if (this.editValue[5].length > 5) {
                             if (phone.test(this.editValue[3])) {
@@ -214,7 +219,6 @@ const MemberInfo = {
                 }
             }
             if (this.checkSend) {
-                this.editValue[2] = document.getElementById("memberHBYdate").value;
                 if (this.editValue[1] == "女") {
                     this.editValue[1] = 1;
                 } else {
@@ -281,6 +285,8 @@ const MemberInfo = {
                 this.values[4].val = data.email;
                 this.values[5].val = data.password;
                 this.values[6].val = data.password;
+                this.values[7].val = data.avatar;
+
             } else {
                 alert("請登入後再進行。");
                 location.href = "./login.html";
