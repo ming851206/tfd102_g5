@@ -1,6 +1,6 @@
 .travel_payment_Body {
     padding-bottom: 0px;
-    border: 1px solid black;
+    // border: 1px solid black;
     margin: 0 auto;
 
     @include mobile {
@@ -32,7 +32,7 @@
     .mainTitle_info_confirmation_container {
         width: 90%;
         margin: 0 auto;
-        border: 1px solid blue;
+        // border: 1px solid blue;
         display: flex;
         justify-content: space-between;
         border-bottom: 2px solid $main_br;
@@ -45,7 +45,7 @@
         .mainTitle_info_confirmation_left {
             margin-left: 10%;
             width: 40%;
-            border: 1px solid red;
+            // border: 1px solid red;
             font-size: 20px;
 
             @include mobile {
@@ -102,7 +102,7 @@
     .payment_info_container {
         margin: 0 auto;
         padding: 50px 0;
-        border: 1px solid gray;
+        // border: 1px solid gray;
         width: 90%;
         display: flex;
         justify-content: center;
@@ -123,21 +123,19 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            border: 1px solid red;
+            // border: 1px solid red;
             width: 40%;
             display: flex;
-
-            @include ipad {
-                width: 50%;
+            @include ipad{
+                width: 55%;
                 padding: 20px;
             }
 
             @include mobile {
                 width: 100%;
             }
-
-            .payment_info_block_left_upblock {
-                border: 1px solid red;
+            .payment_info_block_left_upblock{
+                // border: 1px solid red;
                 display: inline-flex;
             }
 
@@ -174,6 +172,7 @@
 
             .payment_info_block_left_title_area {
                 width: 55%;
+                // border: 1px solid green;
                 margin-left: 5%;
                 display: flex;
                 flex-direction: column;
@@ -390,6 +389,10 @@
         margin: 0 auto;
         padding: 50px 0px;
         display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // border: 1px solid pink;
         border-bottom: 2px solid $main_br;
 
         h3 {
@@ -435,6 +438,8 @@
             justify-content: space-between;
             align-items: center;
             width: 50%;
+            // border: 1px solid $main_br;
+            // background-color: rosybrown;
             border-radius: 15px;
             overflow: hidden;
 
@@ -488,6 +493,10 @@
         width: 90%;
         margin: 0 auto;
         display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // border: 1px solid pink;
         border-bottom: 2px solid $main_br;
         margin-bottom: 15px;
 
@@ -495,12 +504,13 @@
             margin-left: 10%;
             padding: 40px 0;
         }
-
-        .notice_p {
-            margin-left: 7%;
-            align-self: center;
-
-            @include mobile {
+        .notice_p{
+            margin: 0 auto;
+            width: 50%;
+            // margin-left: 10%;
+            margin-bottom: 35px;
+            // border: 1px solid red;
+            @include mobile{
                 width: 90%;
             }
 
@@ -517,11 +527,15 @@
         margin: 0 auto;
         display: flex;
         flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // border: 1px solid pink;
+        // border-bottom: 2px solid $main_br;
         margin-bottom: 15px;
 
         .pay_container_h4 {
             margin: 30px auto;
-            border: 1px solid pink;
+            // border: 1px solid pink;
             width: 50%;
 
             @include mobile {
@@ -532,7 +546,7 @@
         .payment_add_btn_block {
             width: 50%;
             margin: 0 auto;
-            border: 1px solid red;
+            // border: 1px solid red;
             margin-bottom: 35px;
 
             @include mobile {
