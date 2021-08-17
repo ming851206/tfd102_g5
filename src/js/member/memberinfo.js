@@ -57,7 +57,7 @@ const MemberInfo = {
                                             <div class="memberInfoName">出生日期</div>
                                             <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:470px;" type="date" @keyup="inputtype(2,$event)" id="memberHBYdate" v-if="editValue[2]==null">
 
-                                            <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:470px;" type="input" @keyup="inputtype(2,$event)" id="memberHBYdate"  disabled v-else>
+                                            <input :value="editValue[2]"  style="background-color: rgba(255, 255, 255, 0) ; color:gray; width:180px;" type="input" @keyup="inputtype(2,$event)" id="memberHBYdate"  disabled v-else >
                                     </div>
                                     <div class="nameBorder">
                                             <div class="memberInfoName">手機號碼</div>
@@ -169,23 +169,38 @@ const MemberInfo = {
         confirms() {
             let phone = /^09\d{8}$/;
             let emails = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
-            console.log(phone.test(this.editValue[4]));
+            let hby = document.getElementById("memberHBYdate").value;
+            let text = ''
+
+            text += new Date().getFullYear() + '-';
+            text += (new Date().getMonth() < 10 ? '0' : '') + (new Date().getMonth() + 1) + '-';
+            text += new Date().getDate();
+            if (hby > text) {
+                alert('生日不能在未來時間');
+                return 0;
+            }
             for (let i = 0; i < this.editValue.length; i++) {
                 if (this.editValue[i] != '') {
                     if (this.editValue[5] == this.editValue[6]) {
-                        if (phone.test(this.editValue[3])) {
-                            if (emails.test(this.editValue[4])) {
-                                if (i == (this.editValue.length - 1)) {
-                                    this.checkSend = true;
+                        if (this.editValue[5].length > 5) {
+                            if (phone.test(this.editValue[3])) {
+                                if (emails.test(this.editValue[4])) {
+                                    if (i == (this.editValue.length - 1)) {
+                                        this.checkSend = true;
+                                    }
+                                } else {
+                                    this.checkSend = false;
+                                    alert('email格式錯誤');
+                                    return 0;
                                 }
                             } else {
                                 this.checkSend = false;
-                                alert('email格式錯誤');
+                                alert('電話必須09開頭且要10碼');
                                 return 0;
                             }
                         } else {
                             this.checkSend = false;
-                            alert('電話必須09開頭且要10碼');
+                            alert('密碼必須要六個字以上');
                             return 0;
                         }
                     } else {

@@ -136,7 +136,7 @@ const TravelEdit = {
                 </div>
                 <div class="travelP"  >
                     <p v-if="checkstatus(index) && checkDelete(index)" @click="workdown(index)">下架</p>
-                    <p v-else-if="!checkDelete(index) ">上架</p>
+                    <p v-else-if="!checkDelete(index) " style="color:black;">下架中</p>
                     <p v-else-if="checkstatus(index)"></p>
                 </div>
                 <div class="travelP" @click="changeWorks(index)"">
@@ -401,17 +401,25 @@ const TravelEdit = {
             }
         },
         workdown(index) {
-            axios.post('../../php/member_edit_down.php', {
-                product: this.datas[index].ID,
-                now: new Date().getTime()
-            }).then(res => {
-                let data = res.data;
-                if (data == 1) {
-                    alert('下架成功');
-                } else {
-                    alert('請等待活動內容結束後在進行下架');
-                }
-            })
+            let yes = confirm("確定要下架此活動嗎?");
+            if (yes) {
+                axios.post('../../php/member_edit_down.php', {
+                    product: this.datas[index].ID,
+                    now: new Date().getTime()
+                }).then(res => {
+                    let data = res.data;
+                    if (data == 1) {
+                        axios.get('../../php/member_traveledit.php', {
+                        }).then(res => {
+                            let data = res.data;
+                            this.datas = data;
+                        })
+                        alert('下架成功');
+                    } else {
+                        alert('請等待活動內容結束後在進行下架');
+                    }
+                })
+            }
         },
         cancelwork(index) {
             let yes = confirm("確定要移除此活動嗎?");

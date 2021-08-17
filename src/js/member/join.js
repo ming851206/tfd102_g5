@@ -5,7 +5,7 @@ const Join = {
                             <h2>即將參與旅遊</h2>
                         </div>
                         <div id="loveContent">
-                            <div class="loveContentBorder" v-for="(value,index) in datas" v-if="index < show" :class=" { 'next_off' :  index < close}">
+                            <div class="loveContentBorder" v-for="(value,index) in datas" v-if="index < show" :class=" { 'next_off' : mobile!= true && index < close}">
                                 <div class="cardBorder">
                                     <div class="loveImg">
                                         <img src="https://picsum.photos/150/200">
@@ -63,13 +63,13 @@ const Join = {
                                             {{now}}/{{total}}
                                         </div>
 
-                                        <div class="loveRight" @click ="next">
+                                        <div class="loveRight" @click ="next(0)">
                                             &gt;
                                         </div>
                                 </div>
                             </div>
                             <div class="mobileLoveBtn">
-                                    <button class="btnL_light">顯示更多</button>
+                                    <button class="btnL_light" @click ="next(1)" :class=" { 'next_off' : this.show >= this.datas.length}">顯示更多</button>
                             </div>
                         </div>
             `,
@@ -86,13 +86,23 @@ const Join = {
             now: 0,
             total: 0,
             close: 0,
+            mobile: false,
         };
     }, methods: {
-        next() {
-            if (this.now != this.total) {
-                this.show += 4;
-                this.close += 4;
-                this.now++;
+        next(mobile) {
+            if (mobile == 0) {
+                if (this.now != this.total) {
+                    this.show += 4;
+                    this.close += 4;
+                    this.now++;
+                }
+            } else {
+                if (this.now != this.total) {
+                    this.show += 4;
+                    this.close += 4;
+                    this.now++;
+                }
+                this.mobile = true;
             }
         },
         back() {
