@@ -13,7 +13,7 @@
 
     if(count($data) < 1 && $getdata['account_register']!='' && $getdata['email_register']!='' && $getdata['password_register']!='' && $getdata['password_register_again']){
     //建立SQL
-        $sql = "INSERT INTO member(username, email, password,level, account_status, created_at) VALUES (?,?,?,1,1,now())";
+        $sql = "INSERT INTO member(username, email, password,level, account_status, created_at , avatar) VALUES (?,?,?,1,1,now() ,'../../images/memberCenter/avatar.png')";
 
         // echo $_POST["account_register"];
         // exit();
