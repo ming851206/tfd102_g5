@@ -158,6 +158,7 @@ const MemberInfo = {
         },
 
         edit() {
+            this.editValue = [];
             for (let i = 0; i < this.values.length; i++) {
                 this.editValue.push(this.values[i].val);
             }

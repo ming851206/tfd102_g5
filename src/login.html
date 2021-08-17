@@ -101,7 +101,7 @@
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <input class="login_input" type="password" v-model="password_register_again" placeholder="確認密碼 :"
                         id="password_register" ref="passwd_again">
-                    <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <p v-if="!password_register_again_msg" class="sigin_tiny">確認密碼必須與密碼相同</p>
                     <!-- 登入按鈕 -->
                     <button type="button" class="btnM Sign_BTN" id="showBtn" @click="joinIN">註冊</button>
 
@@ -194,7 +194,7 @@
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <input class="login_input" v-model="password_register_again" type="password" placeholder="確認密碼 :"
                         id="password_register" ref="passwd_again">
-                    <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <p v-if="!password_register_again_msg" class="sigin_tiny">確認密碼必須與密碼相同</p>
                     <!-- 登入切換按鈕 -->
                     <!-- 登入註冊切換按鈕區 -->
                     <div class="phone_loginSitch">
@@ -365,8 +365,6 @@
                             // window.location.href = './login.html';
 
                         } else {
-                            sessionStorage.setItem("memberID", res.data);
-                            alert("登入成功");
                             window.location.href = './member.html';
                         }
 
@@ -376,29 +374,36 @@
                 joinIN() {
                     // let isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
 
-                    if (this.account_register && this.email_register_msg && this.password_register && this.password_register_again) {
-                        console.log(1);
-                        axios.post('./php/Join.php', {
-                            account_register: $('#account_register').val(),
-                            email_register: $('#email_register').val(),
-                            password_register: $('#password_register').val(),
-                            password_register_again: this.$refs.passwd_again.value
+                    if (this.account_register && this.email_register_msg && this.password_register && this.password_register_again && this.password_register_msg) {
+                        if ($('#password_register').val() == this.$refs.passwd_again.value) {
+                            axios.post('./php/Join.php', {
+                                account_register: $('#account_register').val(),
+                                email_register: $('#email_register').val(),
+                                password_register: $('#password_register').val(),
+                                password_register_again: this.$refs.passwd_again.value
 
-                        }).then(res => {
-                            let data = res.data;
-                            if (data == 1) {
-                                alert('註冊成功');
-                                // window.location.href = './login.html';
-                            } else if (data == 0) {
-                                alert('此帳號已被註冊過');
-                                // window.location.href = './login.html';
-                            } else {
-                                alert('請完成註冊內容');
-                            }
-                        })
+                            }).then(res => {
+                                let data = res.data;
+                                if (data == 1) {
+                                    alert('註冊成功');
+                                    // window.location.href = './login.html';
+                                    this.account_register = '';
+                                    this.email_register = '';
+                                    this.password_register = '';
+                                    this.password_register_again = '';
+                                    this.areaShow = true;
+                                } else if (data == 0) {
+                                    alert('此帳號或信箱已被註冊過');
+                                    // window.location.href = './login.html';
+                                } else {
+                                    alert('請完成註冊內容');
+                                }
+                            })
+                        } else {
+                            alert('密碼與確認密碼必須相同');
+                        }
                     } else {
                         alert('請完成註冊內容');
-                        console.log(2);
                     }
                 }
             },

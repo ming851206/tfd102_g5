@@ -2,10 +2,11 @@
     include("./conn.php");
     $getdata = json_decode(file_get_contents('php://input'), true);
 
-    $sqls = "SELECT * FROM member where username = ?";
-    
+    $sqls = "SELECT * FROM member where username = ? or email = ?";
+
     $statement = getPDO()->prepare($sqls);
     $statement->bindValue(1, $getdata['account_register']);
+    $statement->bindValue(2, $getdata['email_register']);
 
     $statement->execute();
     $data = $statement->fetchAll();
@@ -13,7 +14,7 @@
     if(count($data) < 1 && $getdata['account_register']!='' && $getdata['email_register']!='' && $getdata['password_register']!='' && $getdata['password_register_again']){
     //建立SQL
         $sql = "INSERT INTO member(username, email, password,level, account_status, created_at) VALUES (?,?,?,1,1,now())";
-        
+
         // echo $_POST["account_register"];
         // exit();
 
