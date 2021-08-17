@@ -183,8 +183,9 @@ const MemberInfo = {
                 alert('生日不能在未來時間');
                 return 0;
             }
+            this.editValue[2] = document.getElementById("memberHBYdate").value;
             for (let i = 0; i < this.editValue.length; i++) {
-                if (this.editValue[i] != '') {
+                if (this.editValue[i] != '' && this.editValue[i] != null && this.editValue[i] != undefined) {
                     if (this.editValue[5] == this.editValue[6]) {
                         if (this.editValue[5].length > 5) {
                             if (phone.test(this.editValue[3])) {
@@ -218,7 +219,6 @@ const MemberInfo = {
                 }
             }
             if (this.checkSend) {
-                this.editValue[2] = document.getElementById("memberHBYdate").value;
                 if (this.editValue[1] == "女") {
                     this.editValue[1] = 1;
                 } else {
@@ -231,7 +231,7 @@ const MemberInfo = {
                     birthday: this.editValue[2],
                     phone: this.editValue[3],
                     email: this.editValue[4],
-                    passwd: this.editValue[5],
+                    passwd: this.editValue[5]
 
                 }).then(res => {
                     let data = res.data[0];
