@@ -12,12 +12,12 @@ const MemberInfo = {
                                 </div>
 
                             <div id="memberInfoImg"  v-if="editType==false">
-                                <img src="https://picsum.photos/200/200" alt="">
+                                <img src="../../images/memberCenter/avatar.png" alt="">
                             </div>
 
 
                             <div id="memberInfoImg"  v-else @click="changeImg" class="editImgCursor">
-                                <img src="https://picsum.photos/200/200" alt="">
+                                <img src="../../images/memberCenter/avatar.png" alt="">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="22.037" height="19.282" viewBox="0 0 22.037 19.282">
                                         <path id="Icon_awesome-camera" data-name="Icon awesome-camera" d="M22.037,7.071v12.4a2.067,2.067,0,0,1-2.066,2.066H2.066A2.067,2.067,0,0,1,0,19.466V7.071A2.067,2.067,0,0,1,2.066,5H5.854l.529-1.416A2.063,2.063,0,0,1,8.316,2.25h5.4A2.063,2.063,0,0,1,15.65,3.589L16.184,5h3.788A2.067,2.067,0,0,1,22.037,7.071Zm-5.854,6.2a5.165,5.165,0,1,0-5.165,5.165A5.169,5.169,0,0,0,16.184,13.269Zm-1.377,0a3.788,3.788,0,1,1-3.788-3.788A3.793,3.793,0,0,1,14.806,13.269Z" transform="translate(0 -2.25)" fill="#fff"/>
