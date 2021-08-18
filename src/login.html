@@ -48,10 +48,20 @@
                     <h2>登入</h2>
                     <!-- 放登入的東西 -->
                     <!-- 輸入框欄位 -->
-
-                    <input class="login_input" v-model="account" type="account" placeholder="帳號 :" autocomplete="off"
-                        name="member_account_input" id="account">
-                    <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off"
+                    <input class="login_input" 
+                        v-model="account" 
+                        type="account" 
+                        placeholder="帳號 :" 
+                        autocomplete="off"
+                        name="member_account_input" 
+                        id="account" 
+                        onkeyup="value=value.replace(/[\W]/g,'') "
+                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                    <input class="login_input" 
+                        v-model="password" 
+                        type="password" 
+                        placeholder="密碼 :" 
+                        autocomplete="off"
                         name="member_password_input">
                     <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
@@ -86,21 +96,39 @@
                 <!-- 內容區域 -->
                 <div class="SigiInner_block" id="signUp_block">
                     <h2>註冊</h2>
-                    <!-- 放登出的東西 -->
+
                     <!-- 輸入框欄位 -->
 
-                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :"
-                        id="account_register">
+                    <input class="login_input" 
+                        v-model="account_register" 
+                        type="account" 
+                        placeholder="帳號 :"
+                        id="account_register" 
+                        onkeyup="value=value.replace(/[\W]/g,'') "
+                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
 
-                    <input class="login_input" v-model="email_register" type="email" placeholder="Email :"
-                        autocomplete="off" id="email_register">
+                    <input class="login_input" 
+                        v-model="email_register" 
+                        type="email" 
+                        placeholder="Email :"
+                        autocomplete="off" 
+                        id="email_register" 
+                        onkeyup="value=value.replace(/[\W]/g,'') "
+                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
                     <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
 
-                    <input class="login_input" v-model="password_register" type="password" placeholder="密碼 :"
+                    <input class="login_input" 
+                        v-model="password_register" 
+                        type="password" 
+                        placeholder="密碼 :"
                         id="password_register">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" type="password" v-model="password_register_again" placeholder="確認密碼 :"
-                        id="password_register" ref="passwd_again">
+                    <input class="login_input" 
+                        type="password" 
+                        v-model="password_register_again" 
+                        placeholder="確認密碼 :"
+                        id="password_register" 
+                        ref="passwd_again">
                     <p v-if="!password_register_again_msg" class="sigin_tiny">確認密碼必須與密碼相同</p>
                     <!-- 登入按鈕 -->
                     <button type="button" class="btnM Sign_BTN" id="showBtn" @click="joinIN">註冊</button>
@@ -139,12 +167,19 @@
                     <h2>登入</h2>
 
                     <!-- 輸入框欄位 -->
-
-                    <input class="login_input" v-model="account" type="text" placeholder="帳號 :">
-                    <input class="login_input" v-model="password" type="text" placeholder="密碼 :">
+                    <input class="login_input"
+                        v-model="account" 
+                        type="account" 
+                        placeholder="帳號 :" 
+                        autocomplete="off" 
+                        name="member_account_input" 
+                        id="account" 
+                        onkeyup="value=value.replace(/[\W]/g,'') "
+                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                    <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off" name="member_password_input">
                     <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
-                    <div class="forgetPassword" @click="phone_password_forget">
+                    <div class="forgetPassword forgetPassword_phone" @click="password_forget">
                         <p>忘記密碼?</p>
                     </div>
                     <!-- 登入切換按鈕 -->
@@ -180,26 +215,45 @@
                 </div>
                 <!-- 內容區域 -->
                 <div class="phone_loginInner_block ">
-                    <h2>登入</h2>
+                    <h2>註冊</h2>
 
                     <!-- 輸入框欄位 -->
 
-                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :"
-                        id="account_register">
-                    <input class="login_input" v-model="email_register" type="email" placeholder="Email :"
-                        id="email_register">
+                    <input class="login_input" 
+                        v-model="account_register" 
+                        type="text" 
+                        placeholder="帳號 :"
+                        id="account_register" 
+                        onkeyup="value=value.replace(/[\W]/g,'') "
+                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                    <input class="login_input" 
+                        v-model="email_register" 
+                        type="email" 
+                        placeholder="Email :" 
+                        autocomplete="off"
+                        id="email_register"
+                        onkeyup="value=value.replace(/[\W]/g,'') "
+                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
                     <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
-                    <input class="login_input" v-model="password_register" type="password" placeholder="密碼 :"
+                    <input class="login_input" 
+                        v-model="password_register" 
+                        type="password" 
+                        placeholder="密碼 :"
                         id="password_register">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" v-model="password_register_again" type="password" placeholder="確認密碼 :"
-                        id="password_register" ref="passwd_again">
+                    <input class="login_input" 
+                        type="password" 
+                        v-model="password_register_again" 
+                        type="password" 
+                        placeholder="確認密碼 :"
+                        id="password_register" 
+                        ref="passwd_again">
                     <p v-if="!password_register_again_msg" class="sigin_tiny">確認密碼必須與密碼相同</p>
                     <!-- 登入切換按鈕 -->
                     <!-- 登入註冊切換按鈕區 -->
                     <div class="phone_loginSitch">
-                        <button type="button" class="btnM " id="btn_login" @click="showBtn">登入</button>
-                        <button type="button" class="btnM_light" id="btn_Signup">註冊</button>
+                        <button type="button" class="btnM_light" id="btn_login" @click="showBtn">登入</button>
+                        <button type="button" class="btnM" id="btn_Signup" @click="joinIN">註冊</button>
                     </div>
                 </div>
 
@@ -229,9 +283,14 @@
                 <!-- email -->
                 <div class="forgetpsd_email_block">
                     <h4 class="forgetpsd_h4">我們需要驗證您的身份</h4>
-                    <input class="login_input forget_input" v-model="email_register" type="email"
-                        placeholder="輸入註冊的Email :" ref="forgetemail">
-                    <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
+                    <input class="login_input forget_input" 
+                        v-model="email_register" 
+                        type="email"
+                        placeholder="輸入註冊的Email :" 
+                        ref="forgetemail" 
+                        onkeyup="value=value.replace(/[\W]/g,'') "
+                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                    <p v-if="!email_register_msg" class="sigin_tiny forgetPassword_phone">信箱格式錯誤</p>
                     <!-- submit email -->
                     <button type="button" class="btnM forgetpsd_sub" id="" @click="forget">寄送認證</button>
                 </div>
@@ -361,7 +420,7 @@
                     }).then(res => {
                         console.log(res.data);
                         if (res.data == 0) {
-                            alert("登入失敗");
+                            alert("此帳號已停權，若有問題請聯絡我們，Jumper 團隊會立刻為您服務，謝謝您！");
                             // window.location.href = './login.html';
 
                         } else {
