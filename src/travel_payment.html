@@ -101,7 +101,7 @@
 
             <!-- right -->
             <div class="payment_info_block_right">
-                <img src="https://picsum.photos/520/410" alt="" >
+                <img src="https://picsum.photos/520/410" alt="">
             </div>
         </div>
         <!-- 輸入優惠卷 -->
@@ -176,26 +176,28 @@
 
 
         <!-- 付款方式 -->
-        <div class="payment_payCard_container">
-            <div class="payment_payCard">
-                <h3>付款方式：</h3>
-            </div>
-            <div class="payment_addcard">
-                <div class="item1">
-                    <label for="">
-                        <input type="text" placeholder="0000 0000 0000 0000" inputmode="decimal">
-                        <span class="plsholder">卡號</span>
-                    </label>
+        <div id="app_credit">
+            <div class="payment_payCard_container">
+                <div class="payment_payCard">
+                    <h3>付款方式：</h3>
                 </div>
-                <div class="item2">
-                    <label for="">
-                        <input type="text" placeholder="月月/年年年年" inputmode="decimal">
-                        <span class="plsholder">到期日</span>
-                    </label>
-                    <label for="">
-                        <input type="text" maxlength="3" placeholder="123" inputmode="decimal"> 
-                        <span class="plsholder">安全碼</span>
-                    </label>
+                <div class="payment_addcard">
+                    <div class="item1">
+                        <label for="">
+                            <input type="text" placeholder="0000 0000 0000 0000" inputmode="decimal">
+                            <span class="plsholder">卡號</span>
+                        </label>
+                    </div>
+                    <div class="item2">
+                        <label for="">
+                            <input type="text" placeholder="月月/年年年年" inputmode="decimal">
+                            <span class="plsholder">到期日</span>
+                        </label>
+                        <label for="">
+                            <input type="text" maxlength="3" placeholder="123" inputmode="decimal">
+                            <span class="plsholder">安全碼</span>
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
@@ -236,7 +238,7 @@
         </footer>
     </div>
 
-    
+
     <script>
         new Vue({
             el: '#travel_payment_page',
@@ -268,7 +270,7 @@
                         this.successShow = false;
                     }
                 },
-                hrefback(){
+                hrefback() {
                     location.href = 'travel_item.html';
                 }
             },
@@ -279,6 +281,16 @@
                 })
             },
         });
+
     </script>
+   <script>
+         new Vue({
+            el: '#app_credit',
+            data() {
+            },
+            methods: {}
+        });
+
+   </script>
     <script src="./js/header_footer.js"></script>
 </body>
