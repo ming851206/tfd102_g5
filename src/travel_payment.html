@@ -5,22 +5,33 @@
     <title>旅遊結帳</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- 共用 -->
-    @@include('layout_html/plugin.html')
+    <meta charset="UTF-8">
+<meta name="keywords" content="travel, tour, trip, online travel">
+<meta name="description" content="online travel website">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="./js/jq/jquery-3.6.0.js"></script>
+<script src="./js/vue/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+<link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
+<link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body class="travel_payment_Body">
-
+    <header id="the_header">
+        <the-header></the-header>
+    </header>
+    <div id="mobile_menu">
+        <menu-item></menu-item>
+    </div>
+    <div class="mobile_logo">
+        <img src="./images/logo/logo.svg" alt="logo">
+    </div>
     <div id="travel_payment_page">
         <!--  include header   -->
-        <header id="the_header">
-            <the-header></the-header>
-        </header>
-        <div id="mobile_menu">
-            <menu-item></menu-item>
-        </div>
-        <div class="mobile_logo">
-            <img src="./images/logo/logo.svg" alt="logo">
-        </div>
+
 
         <!-- 確認並付款 -->
         <div class="payment_mainTitle">
@@ -35,7 +46,7 @@
         <div class="mainTitle_info_confirmation_container">
             <div class="mainTitle_info_confirmation_left">
                 <h4 class="mainTitle_info_confirmation_left_h4">你的旅遊</h4>
-                <p class="mainTitle_info_confirmation_left_p">日期<br>7月7日 週三 下午2:30 - 下午3:30</p>
+                <p class="mainTitle_info_confirmation_left_p">日期<br><span>{{showDate}}</span><span>{{showTime}}</span></p>
             </div>
 
             <!-- <div class="mainTitle_info_confirmation_right">
@@ -137,7 +148,7 @@
             </div>
         </div>
 
-
+        <credit-card></credit-card>
         <!-- 付款方式彈窗 -->
         <div id="payment_payCard_outerDiv" v-if="craditShow">
             <!-- 黑背景 -->
@@ -175,32 +186,8 @@
         </div>
 
 
-        <!-- 付款方式 -->
-        <div id="app_credit">
-            <div class="payment_payCard_container">
-                <div class="payment_payCard">
-                    <h3>付款方式：</h3>
-                </div>
-                <div class="payment_addcard">
-                    <div class="item1">
-                        <label for="">
-                            <input type="text" placeholder="0000 0000 0000 0000" inputmode="decimal">
-                            <span class="plsholder">卡號</span>
-                        </label>
-                    </div>
-                    <div class="item2">
-                        <label for="">
-                            <input type="text" placeholder="月月/年年年年" inputmode="decimal">
-                            <span class="plsholder">到期日</span>
-                        </label>
-                        <label for="">
-                            <input type="text" maxlength="3" placeholder="123" inputmode="decimal">
-                            <span class="plsholder">安全碼</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+
         <!-- 確認並付款 -->
         <div class="pay_container">
             <div class="pay_container_h4">
@@ -233,13 +220,42 @@
         </div>
 
 
-        <footer id="the_footer">
-            <the-footer></the-footer>
-        </footer>
+
     </div>
-
-
+    <footer id="the_footer">
+        <the-footer></the-footer>
+    </footer>
+  
     <script>
+        Vue.component('CreditCard',{
+            template:`
+            <div class="payment_payCard_container">
+                <div class="payment_payCard">
+                    <h3>付款方式：</h3>
+                </div>
+                <div class="payment_addcard">
+                    <div class="item1">
+                        <label for="">
+                            <input type="text" placeholder="0000 0000 0000 0000" inputmode="decimal">
+                            <span class="plsholder">卡號</span>
+                        </label>
+                    </div>
+                    <div class="item2">
+                        <label for="">
+                            <input type="text" placeholder="月月/年年年年" inputmode="decimal">
+                            <span class="plsholder">到期日</span>
+                        </label>
+                        <label for="">
+                            <input type="text" maxlength="3" placeholder="123" inputmode="decimal">
+                            <span class="plsholder">安全碼</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            `,
+            // data(){},
+            // methods: {},
+        });
         new Vue({
             el: '#travel_payment_page',
             data() {
@@ -274,6 +290,14 @@
                     location.href = 'travel_item.html';
                 }
             },
+            computed:{
+                showDate(){
+                    return sessionStorage.getItem('date');
+                },
+                showTime(){
+                    return sessionStorage.getItem('time');
+                },
+            },
             mounted() {
                 axios.get('./php/payment_discount.php').then(res => {
                     let data = res.data;
@@ -283,14 +307,6 @@
         });
 
     </script>
-   <script>
-         new Vue({
-            el: '#app_credit',
-            data() {
-            },
-            methods: {}
-        });
-
-   </script>
+    
     <script src="./js/header_footer.js"></script>
 </body>
