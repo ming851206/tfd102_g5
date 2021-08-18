@@ -15,6 +15,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script>
+        emailjs.init("user_XniFiMi6ILeNtlKm4SSZA");
+    </script>
     <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -86,16 +89,19 @@
                     <!-- 放登出的東西 -->
                     <!-- 輸入框欄位 -->
 
-                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :" id="account_register">
+                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :"
+                        id="account_register">
 
                     <input class="login_input" v-model="email_register" type="email" placeholder="Email :"
                         autocomplete="off" id="email_register">
                     <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
 
-                    <input class="login_input" v-model="password_register" type="password" placeholder="密碼 :" id="password_register">
+                    <input class="login_input" v-model="password_register" type="password" placeholder="密碼 :"
+                        id="password_register">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" type="password" v-model="password_register_again" placeholder="確認密碼 :" id="password_register" ref="passwd_again">
-                    <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <input class="login_input" type="password" v-model="password_register_again" placeholder="確認密碼 :"
+                        id="password_register" ref="passwd_again">
+                    <p v-if="!password_register_again_msg" class="sigin_tiny">確認密碼必須與密碼相同</p>
                     <!-- 登入按鈕 -->
                     <button type="button" class="btnM Sign_BTN" id="showBtn" @click="joinIN">註冊</button>
 
@@ -136,7 +142,7 @@
 
                     <input class="login_input" v-model="account" type="text" placeholder="帳號 :">
                     <input class="login_input" v-model="password" type="text" placeholder="密碼 :">
-                    <p v-if="!password_login"class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
                     <div class="forgetPassword" @click="phone_password_forget">
                         <p>忘記密碼?</p>
@@ -178,13 +184,17 @@
 
                     <!-- 輸入框欄位 -->
 
-                    <input class="login_input"  v-model="account_register" type="text" placeholder="帳號 :" id="account_register">
-                    <input class="login_input" v-model="email_register" type="email" placeholder="Email :" id="email_register">
+                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :"
+                        id="account_register">
+                    <input class="login_input" v-model="email_register" type="email" placeholder="Email :"
+                        id="email_register">
                     <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
-                    <input class="login_input" v-model="password_register" type="password" placeholder="密碼 :" id="password_register">
+                    <input class="login_input" v-model="password_register" type="password" placeholder="密碼 :"
+                        id="password_register">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" v-model="password_register_again" type="password" placeholder="確認密碼 :" id="password_register" ref="passwd_again">
-                    <p v-if="!password_register_again_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
+                    <input class="login_input" v-model="password_register_again" type="password" placeholder="確認密碼 :"
+                        id="password_register" ref="passwd_again">
+                    <p v-if="!password_register_again_msg" class="sigin_tiny">確認密碼必須與密碼相同</p>
                     <!-- 登入切換按鈕 -->
                     <!-- 登入註冊切換按鈕區 -->
                     <div class="phone_loginSitch">
@@ -205,7 +215,9 @@
                 <!-- close button -->
                 <div type="button" class="close_btn_block" @click="close_forgetPassword_verification">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994">
-                        <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close" d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z" transform="translate(-11.285 -11.289)" fill="#996a4d"/>
+                        <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
+                            d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
+                            transform="translate(-11.285 -11.289)" fill="#996a4d" />
                     </svg>
                 </div>
 
@@ -217,7 +229,8 @@
                 <!-- email -->
                 <div class="forgetpsd_email_block">
                     <h4 class="forgetpsd_h4">我們需要驗證您的身份</h4>
-                    <input class="login_input forget_input" v-model="email_register" type="email" placeholder="輸入註冊的Email :" ref="forgetemail">
+                    <input class="login_input forget_input" v-model="email_register" type="email"
+                        placeholder="輸入註冊的Email :" ref="forgetemail">
                     <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
                     <!-- submit email -->
                     <button type="button" class="btnM forgetpsd_sub" id="" @click="forget">寄送認證</button>
@@ -252,7 +265,7 @@
                     email_register: '',
                     email_register_msg: true,
                     forgetPassword_verification: false,
-                    email:'',
+                    email: '',
                 }
 
             },
@@ -292,30 +305,36 @@
             },
             methods: {  //函數（方法）大部分放這裡
                 // 忘記密碼
-                forget(){
-                    emailjs.init("user_ZrOPJCjUfxsx5AJ7kJXkk");
-                    var template_params = {
-                        "user_email": this.$refs.forgetemail.value,
-                        
-                    }
-                    var service_id = "gmail";
-                    var template_id = "<YOUR TEMPLATE ID>";
-                    var user_id = '<YOUR USER ID>';
-                    console.log(template_params);
-                    emailjs.send(
-                        service_id, 
-                        template_id,
-                        {user_email: this.email, user_name: this.name, start: this.start, time: this.time},
-                        user_id
-                    )
-                    .then(function(response) {
-                        console.log('SUCCESS!', response.status, response.text);
-                    }, function(error) {
-                        console.log('FAILED...', error);
-                    });
-			    
-			
-
+                forget() {
+                    axios.post('./php/forgetemail.php', {
+                        email: this.email_register
+                    }).then(res => {
+                        let data = res.data;
+                        if (data != 0) {
+                            const serviceID = 'service_ryrozc8';
+                            const templateID = 'template_6lqp9eu';
+                            const user_id = 'user_XniFiMi6ILeNtlKm4SSZA';
+                            // console.log(data);
+                            // console.log(this.email_register);
+                            emailjs.send(
+                                serviceID,
+                                templateID,
+                                {
+                                    password: data,
+                                    reply_to: this.email_register
+                                },
+                                user_id
+                            )
+                                .then(() => {
+                                    alert('請至信箱收取信件');
+                                }, (err) => {
+                                    alert(JSON.stringify(err));
+                                });
+                            this.email_register = '';
+                        } else {
+                            alert('查無此email資料');
+                        }
+                    })
                 },
                 // 登入註冊切換
                 showBtn() {
@@ -325,7 +344,7 @@
                     this.forgetPassword_verification = !this.forgetPassword_verification;
                     // alert("請輸入正確帳號")
                 },
-                close_forgetPassword_verification(){
+                close_forgetPassword_verification() {
                     this.forgetPassword_verification = !this.close_forgetPassword_verification;
                 },
                 phone_password_forget() {
@@ -335,7 +354,7 @@
                     // console.log(p)
                     // console.log(this.password)
                     // console.log(this.account)
-          
+
                     axios.post("./php/Login.php", {
                         password: this.password,
                         account: this.account
@@ -343,11 +362,9 @@
                         console.log(res.data);
                         if (res.data == 0) {
                             alert("登入失敗");
-                            // window.location.href = './login.html';  
-                            
+                            // window.location.href = './login.html';
+
                         } else {
-                            sessionStorage.setItem("memberID", res.data);
-                            alert("登入成功");
                             window.location.href = './member.html';
                         }
 
@@ -356,30 +373,37 @@
                 },
                 joinIN() {
                     // let isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
-                    
-                    if(this.account_register && this.email_register_msg && this.password_register && this.password_register_again){
-                        console.log(1);
-                        axios.post('./php/Join.php',{
-                            account_register : $('#account_register').val(),
-                            email_register : $('#email_register').val(),
-                            password_register : $('#password_register').val(),
-                            password_register_again : this.$refs.passwd_again.value
-    
-                        }).then(res=>{
-                            let data = res.data;
-                            if(data == 1){
+
+                    if (this.account_register && this.email_register_msg && this.password_register && this.password_register_again && this.password_register_msg) {
+                        if ($('#password_register').val() == this.$refs.passwd_again.value) {
+                            axios.post('./php/Join.php', {
+                                account_register: $('#account_register').val(),
+                                email_register: $('#email_register').val(),
+                                password_register: $('#password_register').val(),
+                                password_register_again: this.$refs.passwd_again.value
+
+                            }).then(res => {
+                                let data = res.data;
+                                if (data == 1) {
                                     alert('註冊成功');
                                     // window.location.href = './login.html';
-                                } else if(data ==0){
-                                    alert('此帳號已被註冊過');
+                                    this.account_register = '';
+                                    this.email_register = '';
+                                    this.password_register = '';
+                                    this.password_register_again = '';
+                                    this.areaShow = true;
+                                } else if (data == 0) {
+                                    alert('此帳號或信箱已被註冊過');
                                     // window.location.href = './login.html';
-                                }else{
+                                } else {
                                     alert('請完成註冊內容');
                                 }
-                        })
+                            })
+                        } else {
+                            alert('密碼與確認密碼必須相同');
+                        }
                     } else {
                         alert('請完成註冊內容');
-                        console.log(2);
                     }
                 }
             },

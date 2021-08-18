@@ -97,7 +97,7 @@
 
             </div>
             <div class="memberborder mobileMemberEditTrival">
-                <router-link to="/traveledit">管理旅遊</router-link>
+                <router-link to="/traveledit" v-if="open">管理旅遊</router-link>
 
 
             </div>
@@ -139,6 +139,7 @@
             el: '#member',
             data: {
                 showLeft: true,
+                open: false,
             },
             router: new VueRouter({
                 mode: 'history',
@@ -188,6 +189,13 @@
                         span.style.display = "none";
                     }
                 }
+                axios.get('./php/member_login_level.php')
+                    .then(res => {
+                        let data = res.data[0];
+                        if (data.level == 3) {
+                            this.open = true;
+                        }
+                    })
             },
             updated() {
                 let height = $(window).innerHeight() - parseInt($("#the_header").css('height')) - parseInt($("#member").css('height')) - parseInt($("#the_footer").css('height')) - 200;  //200 margin-top & bottom
@@ -217,7 +225,6 @@
                     axios.get('./php/loginout.php').then(res => {
                         if (res.data == 1) {
                             location.href = "./login.html";
-                            alert("登出成功。");
                         }
                     })
                 },

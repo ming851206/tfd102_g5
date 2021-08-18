@@ -6,7 +6,7 @@ const Historys = {
     </div>
     <div id="loveContent">
         <div class="loveContentBorder" v-for="(value,index) in datas" v-if="index < show"
-            :class=" { 'next_off' :  index < close}">
+            :class=" { 'next_off' :  mobile!= true && index < close}">
             <div class="cardBorder">
                 <div class="loveImg">
                     <img src="https://picsum.photos/150/200">
@@ -178,13 +178,13 @@ const Historys = {
                 {{now}}/{{total}}
             </div>
 
-            <div class="loveRight" @click="next">
+            <div class="loveRight" @click="next(0)">
                 &gt;
             </div>
         </div>
     </div>
     <div class="mobileLoveBtn ">
-        <button class="btnL_light">顯示更多</button>
+        <button class="btnL_light" @click ="next(1)" :class=" { 'next_off' : this.show >= this.datas.length}">顯示更多</button>
     </div>
 </div>
             `,
@@ -208,7 +208,7 @@ const Historys = {
             productName: '',
             productDate: '',
             productContent: '',
-
+            mobile: false,
         };
     },
     methods: {
@@ -220,11 +220,20 @@ const Historys = {
             text += (startTime.getDate() < 10 ? '0' : '') + startTime.getDate() + ' ';
             return text;
         },
-        next() {
-            if (this.now != this.total) {
-                this.show += 4;
-                this.close += 4;
-                this.now++;
+        next(mobile) {
+            if (mobile == 0) {
+                if (this.now != this.total) {
+                    this.show += 4;
+                    this.close += 4;
+                    this.now++;
+                }
+            } else {
+                if (this.now != this.total) {
+                    this.show += 4;
+                    this.close += 4;
+                    this.now++;
+                }
+                this.mobile = true;
             }
         },
         back() {

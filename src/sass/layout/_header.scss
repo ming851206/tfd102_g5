@@ -108,6 +108,7 @@ header#the_header{
                     align-items: center;
                 }
                 li{
+                    cursor: pointer;
                     display: none;
                     @include xs{
                         display: inline-block;
