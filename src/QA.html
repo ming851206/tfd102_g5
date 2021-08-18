@@ -63,7 +63,7 @@
                         :class="{'preChk':current_category === '/q_coupon'}">使用優惠碼</a>
                 </div>
                 <div class="app_r">
-                    <div>
+                    <div v-if="filterList.length > 0">
                         <div class="qcard" v-for="card in filterList">
 
                             <p @click="card.isActive = !card.isActive;" :class="{turnBg: card.isActive}"
@@ -72,6 +72,7 @@
 
                         </div>
                     </div>
+                    <div v-else>查無此關鍵字，歡迎使用「更多幫助」表單聯絡我們。</div>
                 </div>
             </div>
         </section>
@@ -81,14 +82,14 @@
             <form action="#">
                 <label for="">
                     <span>您的稱呼：</span><input :class="{'error':formData.name.checked == false}"
-                        v-model="formData.name.value" type="text" placeholder="陳先生／小姐">
+                        v-model="formData.name.value" type="text" placeholder="陳先生／小姐" @keyup="removeErr">
                 </label>
                 <label for="">
                     <span>您的信箱：</span><input :class="{'error':formData.email.checked == false}"
-                        v-model="formData.email.value" type="email" placeholder="jumper@gmail.com">
+                        v-model="formData.email.value" type="email" placeholder="jumper@gmail.com" @keyup="removeErr">
                 </label>
                 <textarea cols="30" rows="10" :class="{'error':formData.textarea.checked == false}"
-                    v-model="formData.textarea.value">想問的問題：</textarea>
+                    v-model="formData.textarea.value" @keyup="removeErr">想問的問題：</textarea>
                 <button class="btnM" id="qa_submit" type="button" @click="qaSubmit">送出</button>
             </form>
             <img src="./images/icon/toTop_dark.svg" alt="" id="goTop">
@@ -267,9 +268,9 @@
 
                     }
                 },
-                // noResult(){
-                //   console.log(filterList);
-                // }
+                removeErr(e){
+                    e.target.classList.remove('error');
+                },
             },
             computed: {
                 filterList() { //搜尋功能
@@ -283,7 +284,7 @@
                             return card.title.includes(this.search);
                         })
                     } else {
-                        return this.data.filter((card) => { //把data送下來使用filter功能
+                        return this.data.filter((card) => { 
                             return card.path === this.current_category;
                         })
 
