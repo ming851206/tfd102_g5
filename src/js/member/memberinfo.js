@@ -225,14 +225,31 @@ const MemberInfo = {
                     this.editValue[1] = 0;
 
                 }
+                let getFiles = this.$refs.bigImg.files[0];
+                let form_data = new FormData();
+                form_data.append('file', getFiles);
+                $.ajax({
+                    method: 'POST',
+                    url: '../../php/member_edit_updateimg.php',
+                    data: form_data,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response)
+                    },
+                    error: function (exception) {
+                        console.log(exception)
+                    },
+                })
                 axios.post('../../php/memberedit.php', {
                     name: this.editValue[0],
                     gender: this.editValue[1],
                     birthday: this.editValue[2],
                     phone: this.editValue[3],
                     email: this.editValue[4],
-                    passwd: this.editValue[5]
-
+                    passwd: this.editValue[5],
                 }).then(res => {
                     let data = res.data[0];
                     this.values[0].val = data.name;
@@ -243,6 +260,7 @@ const MemberInfo = {
                     } else {
                         this.values[1].val = "";
                     }
+                    this.values[7].val = '../.' + data.avatar;
                     this.values[2].val = data.birthday;
                     this.values[3].val = data.phone;
                     this.values[4].val = data.email;
@@ -285,8 +303,7 @@ const MemberInfo = {
                 this.values[4].val = data.email;
                 this.values[5].val = data.password;
                 this.values[6].val = data.password;
-                this.values[7].val = data.avatar;
-
+                this.values[7].val = '../.' + data.avatar;
             } else {
                 alert("請登入後再進行。");
                 location.href = "./login.html";

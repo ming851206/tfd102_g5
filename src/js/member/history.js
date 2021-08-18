@@ -9,12 +9,12 @@ const Historys = {
             :class=" { 'next_off' :  mobile!= true && index < close}">
             <div class="cardBorder">
                 <div class="loveImg">
-                    <img src="https://picsum.photos/150/200">
+                    <img :src="value.intro_pics">
                 </div>
                 <div class="historyContents">
                     <div class="loveContentsTop">
                         <div class="headImg">
-                            <img src="https://picsum.photos/100/100">
+                            <img :src="value.avatar">
                         </div>
                         <div class="StarAndFrom">
                             <div class="star">
@@ -53,7 +53,7 @@ const Historys = {
                                     <div class="addDivTop">
                                         <div class="addDivTopImg">
                                             <div class="Img">
-                                                <img src="https://picsum.photos/100/100">
+                                                <img :src="value.intro_pics">
                                             </div>
                                             <p style = "margin:10px 0;">{{productName}}</p>
                                         </div>
@@ -305,6 +305,11 @@ const Historys = {
             let data = res.data;
             this.datas = data;
         }).then(res => {
+            for (let i = 0; i < this.datas.length; i++) {
+                this.datas[i].avatar = '../.' + this.datas[i].avatar;
+                this.datas[i].intro_pics = '../.' + this.datas[i].intro_pics;
+
+            }
             this.total = Math.ceil(this.datas.length / 4);
             if (this.datas.length > 0) {
                 this.now = 1;

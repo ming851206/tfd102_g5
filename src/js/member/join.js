@@ -8,12 +8,12 @@ const Join = {
                             <div class="loveContentBorder" v-for="(value,index) in datas" v-if="index < show" :class=" { 'next_off' : mobile!= true && index < close}">
                                 <div class="cardBorder">
                                     <div class="loveImg">
-                                        <img src="https://picsum.photos/150/200">
+                                        <img :src="value.intro_pics">
                                     </div>
                                     <div class="joinContents">
                                         <div class="loveContentsTop">
                                             <div class="headImg">
-                                                <img src="https://picsum.photos/100/100">
+                                                <img :src="value.avatar">
                                             </div>
                                             <div class="StarAndFrom gotravel">
                                                 <div class = "joinComment" v-if="times(index)" @click="gototravel(index)" style="margin-left:15px;">
@@ -165,8 +165,13 @@ const Join = {
         }).then(res => {
             let data = res.data;
             this.datas = data;
-
         }).then(res => {
+            for (let i = 0; i < this.datas.length; i++) {
+
+                this.datas[i].avatar = '../.' + this.datas[i].avatar;
+                this.datas[i].intro_pics = '../.' + this.datas[i].intro_pics;
+
+            }
             this.total = Math.ceil(this.datas.length / 4);
             if (this.datas.length > 0) {
                 this.now = 1;
