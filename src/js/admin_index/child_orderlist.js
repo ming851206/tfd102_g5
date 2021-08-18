@@ -76,7 +76,7 @@ const OrderList = {
         // 發送連結
         updateIsAlert(itemId) {
             // console.log('test');
-            axios.post('http://localhost/php/update_orderalert.php', JSON.stringify({
+            axios.post('../../php/update_orderalert.php', JSON.stringify({
                 itemId: itemId,
             }))
                 .then(res => {
@@ -101,7 +101,7 @@ const OrderList = {
     mounted() {
         //==========前->後axios傳值的寫法=============
 
-        //    axios.post('http://localhost/g5/php/adm_orderList.php', JSON.stringify({
+        //    axios.post('../../g5/php/adm_orderList.php', JSON.stringify({
         //         name: this.data[0].o_username, 
         //         price: this.data[0].o_price,
 
@@ -118,11 +118,8 @@ const OrderList = {
 
         //===========================================
 
-        axios.get('http://localhost/php/adm_orderList.php')
+        axios.get('../../php/adm_orderList.php')
             .then(res => this.data = res.data)
             .catch((error) => alert('數據加載失敗' + error));
-        // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
-        // .then(res => this.data = res.data);
-        //fetch('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => console.log(res)); 
     },
 };

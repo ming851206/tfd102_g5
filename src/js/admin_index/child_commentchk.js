@@ -77,7 +77,7 @@
         }
     },
     mounted() {
-        axios.get('http://localhost/php/adm_commentchk.php').then(res => this.data = res.data);
+        axios.get('../../php/adm_commentchk.php').then(res => this.data = res.data);
     },
 
 }
