@@ -25,19 +25,9 @@
         <!-- 確認並付款 -->
         <div class="payment_mainTitle">
 
-<<<<<<< HEAD
             <div class="payment_mainTitle_icon">
                 <img src="./images/icon/arrowLeft.svg" alt="" @click="hrefback" style="cursor: pointer;">
             </div>
-=======
-            <a href="./travel_item.html">
-                <div class="payment_mainTitle_icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="17.492" viewBox="0 0 10 17.492">
-                        <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M14.265,14.937l6.618-6.613a1.25,1.25,0,0,0-1.77-1.765l-7.5,7.493a1.248,1.248,0,0,0-.036,1.724l7.53,7.545a1.25,1.25,0,0,0,1.77-1.765Z" transform="translate(-11.251 -6.194)" fill="#996a4d"/>
-                    </svg>
-                </div>
-            </a>
->>>>>>> NEW_PING
             <h3 class="payment_mainTitle_h3">確認並付款</h2>
         </div>
 
@@ -106,11 +96,7 @@
                         <p>${{899}}</p>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <p class="payment_info_block_left_remind">在旅遊活動開始「前24小時」取消，即可拿回全額退款。</p>
-=======
                 <p class="payment_info_block_left_remind">退訂政策 在旅遊活動開始「前 24 小時」取消，即可拿回全額退款。 </p>
->>>>>>> NEW_PING
             </div>
 
             <!-- right -->
@@ -120,7 +106,7 @@
         </div>
         <!-- 輸入優惠卷 -->
         <div class="payment_discount_container">
-            <h3>輸入優惠券：</h3>
+            <h3>選擇優惠券：</h3>
             <div class="payment_discount">
                 <div class="payment_add_discount">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40.5" height="27" viewBox="0 0 40.5 27">
@@ -250,7 +236,7 @@
         </footer>
     </div>
 
-    <script src="./js/header_footer.js"></script>
+    
     <script>
         new Vue({
             el: '#travel_payment_page',
@@ -259,7 +245,7 @@
                     craditShow: false,
                     discountShow: false,
                     addcard_value: '輸入信用卡',
-                    addDiscount_value: '輸入優惠碼',
+                    addDiscount_value: '選擇優惠券',
                     choose_discount_value: '跳轉世界玩翻天 75 折優惠',
                     successShow: false,
                     getdiscount: [],
@@ -294,4 +280,5 @@
             },
         });
     </script>
+    <script src="./js/header_footer.js"></script>
 </body>

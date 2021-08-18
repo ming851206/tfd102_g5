@@ -111,7 +111,6 @@
 
         @include mobile {
             flex-direction: column;
-            // width: 100%;
             padding: 40px 0;
         }
 
@@ -298,12 +297,17 @@
         @include mobile {
             margin-left: 0px;
             margin: 20px;
+            flex-direction: column;
         }
 
         .payment_payCard {
             margin-left: 10%;
             padding: 40px 0;
+            @include mobile{
+                padding: 0px;
+            }
         }
+       
 
         .payment_addcard {
             border: 2px solid $main_br;
@@ -311,6 +315,9 @@
             width: 50%;
             border-radius: 15px;
             font-size: 0px;
+            @include mobile{
+                margin:10px 0px 0px 10%;
+            }
 
             label {
                 display: block;
@@ -328,20 +335,26 @@
                 }
 
                 input {
-                    padding: 13px 10px 13px 4rem;
+                    padding: 13px 10px 13px 1rem;
                     outline: unset;
                     background-color: transparent;
                     border: unset;
+                    &::placeholder{
+                        visibility: hidden;
 
+                    }
                     &:focus {
                         border: 2px solid $main_br;
-
+                        &::placeholder{
+                            visibility: initial;
+                        }
                         +span.plsholder {
                             font-size: 10px;
                             top: 10px;
                             left: 1rem;
                         }
                     }
+                 
                 }
 
             }
@@ -389,20 +402,27 @@
         margin: 0 auto;
         padding: 50px 0px;
         display: flex;
-        flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
-        // border: 1px solid pink;
         border-bottom: 2px solid $main_br;
+        @include mobile{
+            flex-direction: column;
+        }
 
         h3 {
             margin-left: 10%;
+            align-self: center;
+            @include mobile{
+               align-self: flex-start;
+               
+            }
         }
 
         .payment_discount {
             margin-left: 3%;
             width: 50%;
-
+            @include mobile{
+                margin:10px 0px 0px 10%;
+                width: 80%;
+            }
             .payment_add_discount {
                 margin: 0 auto;
                 display: flex;
@@ -414,7 +434,7 @@
                 padding: 10px 30px;
 
                 @include mobile {
-                    width: 90%;
+                    width: 100%;
                 }
 
                 .payment_add_discount_input {
@@ -422,7 +442,9 @@
                     font-size: 20px;
                     outline: none;
                     border: none;
-
+                    @include mobile{
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -463,7 +485,9 @@
                     border: none;
                     cursor: pointer;
                     background-color: $main_ivory;
-
+                    @include mobile{
+                        width: 89%;
+                    }
 
                     &::placeholder {
                         color: $main_br !important;
@@ -490,27 +514,33 @@
     // 注意事項
     .notice_container {
         width: 90%;
+        padding: 10px 0px;
         margin: 0 auto;
         display: flex;
-        flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
-        // border: 1px solid pink;
         border-bottom: 2px solid $main_br;
         margin-bottom: 15px;
 
+        @include mobile{
+            flex-direction: column;
+            padding: 40px 0px;
+        }
         .notice_h3 {
             margin-left: 10%;
             padding: 40px 0;
+            @include mobile{
+                padding: 0px;
+                margin-left: 10%;
+            }
         }
         .notice_p{
-            margin: 0 auto;
             width: 50%;
-            // margin-left: 10%;
-            margin-bottom: 35px;
-            // border: 1px solid red;
+            margin-left: 7%;
+            align-self: center;
+    
             @include mobile{
                 width: 90%;
+                margin-left: 10%;
+                margin-top: 10px;
             }
 
             >p {
@@ -526,11 +556,10 @@
         margin: 0 auto;
         display: flex;
         flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
-        // border: 1px solid pink;
-        // border-bottom: 2px solid $main_br;
         margin-bottom: 15px;
+        @include mobile{
+            padding-bottom: 60px;
+        }
 
         .pay_container_h4 {
             margin: 30px auto;
@@ -539,6 +568,7 @@
 
             @include mobile {
                 width: 90%;
+                margin: 0px 0px 0px 10%;
             }
         }
 
@@ -549,7 +579,7 @@
             margin-bottom: 35px;
 
             @include mobile {
-                width: 60%;
+                margin: 10px 0px 0px 10%;
             }
         }
     }
