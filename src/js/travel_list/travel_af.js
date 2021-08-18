@@ -104,7 +104,7 @@ methods: {
 
     // 取得所有最愛旅遊
     getAllFavs(){
-        axios.get('http://localhost/php/showFav.php').then(res => {
+        axios.get('../../php/showFav.php').then(res => {
                 this.favs = res.data; // 旅遊內容
         });
     },
@@ -129,7 +129,7 @@ methods: {
     // 參數：itemID, memberID
     // method: post
     addFav(itemID, memberID) {
-        axios.post('http://localhost/php/addFav.php', JSON.stringify({
+        axios.post('../../php/addFav.php', JSON.stringify({
             memberID: memberID,
             itemID: itemID,
         }), {
@@ -146,7 +146,7 @@ methods: {
     // 參數：itemID, memberID
     // method: post
     deleteFav(itemID, memberID) {
-        axios.post('http://localhost/php/deleteFav.php', JSON.stringify({
+        axios.post('../../php/deleteFav.php', JSON.stringify({
             memberID: memberID,
             itemID: itemID,
         }), {
@@ -185,7 +185,7 @@ methods: {
     // },
     mounted() {
         //==================== 篩選旅遊 =======================
-        axios.get('http://localhost/php/showTrip.php', {
+        axios.get('../../php/showTrip.php', {
             params: {  // 帶參數
                 cat: 4 // 4 代表非洲
             }

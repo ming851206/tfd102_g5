@@ -94,8 +94,8 @@ const Coupon = {
         delete_coupon(index) {
             console.log('刪除測試');
             the_delete_coupon = this.coupons[index];
-            console.log(the_delete_coupon);
-            axios.get('http://localhost/php/adm_coupon_delete.php', {
+            // console.log(the_delete_coupon);
+            axios.get('../../php/adm_coupon_delete.php', {
                 params: {  // 帶參數
                     theID:  the_delete_coupon.ID //
                 }

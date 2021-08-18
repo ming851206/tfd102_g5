@@ -161,7 +161,7 @@ Vue.component('filterTrip', {
 
         // 取得所有最愛旅遊
         getAllFavs(){
-            axios.get('http://localhost/php/showFav.php').then(res => {
+            axios.get('../../php/showFav.php').then(res => {
                     this.favs = res.data; // 旅遊內容
             });
         },
@@ -186,7 +186,7 @@ Vue.component('filterTrip', {
         // 參數：itemID, memberID
         // method: post
         addFav(itemID, memberID) {
-            axios.post('http://localhost/php/addFav.php', JSON.stringify({
+            axios.post('../../php/addFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
@@ -203,7 +203,7 @@ Vue.component('filterTrip', {
         // 參數：itemID, memberID
         // method: post
         deleteFav(itemID, memberID) {
-            axios.post('http://localhost/php/deleteFav.php', JSON.stringify({
+            axios.post('../../php/deleteFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
@@ -251,7 +251,7 @@ Vue.component('filterTrip', {
     mounted() {
         //==================== 搜尋旅遊 =======================
 
-        axios.get('http://localhost/php/searchTrip.php', {
+        axios.get('../../php/searchTrip.php', {
             params: {  // 帶參數
                 search_item: this.theInput // 搜尋內容
             }
