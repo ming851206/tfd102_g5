@@ -611,6 +611,16 @@
                         }
                     }
 
+                    button.delbtn {
+                        @include btnSetbl;
+                        background-color: rgb(255, 204, 204);
+                        cursor: pointer;
+
+                        &:active,
+                        &:visited {
+                            background-color: darken(rgb(255, 204, 204), 10%);
+                        }
+                    }
 
                     .rejectBox {
                         position: fixed;
