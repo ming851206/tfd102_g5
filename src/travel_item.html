@@ -162,8 +162,8 @@
         <div id="recommend_item">
             <h2>推薦給你</h2>
             <ul class="recommend_container">
-                <li v-for="item in recommend_items" :id="item.id" class="item">
-                    <a :href="item.link">
+                <li v-for="(item,index) in recommend_items" :id="item.id" class="item">
+                    <a :href="item.link" @click='changeLink(index ,$event)'>
                         <div class="trip_item">
                             <img :src="item.intro_pics">
                             <div class="content">
@@ -257,6 +257,7 @@
                 userSelect2: "可選時段",
                 userSelect3: "參與人數",
                 selectTime: [],
+                getID: '',
             },
             methods: {
                 like() {
@@ -338,7 +339,7 @@
                 },
                 showMore() {
                     this.showIndex += 3;
-                    if (this.showIndex > this.comment.length) {
+                    if (this.showIndex >= this.comment.length) {
                         this.change = true;
                     }
                 },
@@ -352,11 +353,27 @@
                         function (response) {
                             if (response && !response.error_message) {
                                 alert('分享至臉書，邀請朋友一起成為jumper!');
-                            } else {
-                                // alert('Error while posting.');
                             }
                         }
                     )
+                },
+                changeLink(index, event) {
+                    // e.preventDefault();
+                    // console.log(this.recommend_items);
+                    // for (let i = 0; i < this.recommend_items.length; i++) {
+                    //     // console.log(this.recommend_items[i].ID);
+                    //     let itemID = this.recommend_items[i].ID;
+
+                    //     let locationHref = location.href;
+                    //     let searchID = `?ID=${itemID}`;
+
+                    //     locationHref += searchID;
+
+                    //     console.log(locationHref);
+                    // }
+                    event.preventDefault();
+                    location.href = '?ID=' + this.recommend_items[index].ID;
+
                 },
                 // 取得所有最愛旅遊
                 getAllFavs() {
@@ -442,10 +459,11 @@
                 }
             },
             mounted() {
+                this.getID = location.search.split("=")[1];
+
                 // 旅遊內容
                 axios.post('./php/item_content.php', {
-                    // 抓前一頁回傳的 session資料 
-                    product_ID: 2
+                    product_ID: this.getID
                 }).then(res => {
                     let data = res.data[0];
                     // console.log(data);
@@ -468,7 +486,7 @@
 
                     // 選擇日期時間
                     axios.post('./php/item_selectDate.php', {
-                        product_ID: this.info.ID,
+                        product_ID: this.getID,
                         now: new Date().getTime(),
                     }).then(res => {
                         let eventTime = res.data;
@@ -504,7 +522,7 @@
 
                     // 評論
                     axios.post('./php/item_comment.php', {
-                        product_ID: this.info.ID
+                        product_ID: this.getID
                     }).then(res => {
                         let data = res.data;
                         // console.log(data);
@@ -513,16 +531,17 @@
 
                     // 推薦旅遊
                     axios.post('./php/item_recommend_trip.php', {
-                        product_ID: this.info.ID
+                        product_ID: this.getID
                     }).then(res => {
                         let data = res.data;
                         this.recommend_items = data;
-                        console.log(this.recommend_items);
                     });
+
+                    // 收藏
                     axios.get('./php/LoginCheck.php')
                         .then(res => {
                             let data = res.data;
-                            console.log(data);
+                            // console.log(data);
                             that.is_fav(itemid) ? that.deleteFav(itemid, memberID) : that.addFav(itemid, memberID);
                         })
                     // 取得最愛旅遊    

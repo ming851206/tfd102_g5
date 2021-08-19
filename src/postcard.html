@@ -6,24 +6,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script>
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.0/html2canvas.js" integrity="sha512-ZBZ6HQNwiE0upmoypikCaNXHYZ6HBuNs1WqTng+1phQa/4mCgNWkd7N54lb4DPk4WTo3pFjfc/V3fpKaoMwacw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.1/html2canvas.min.js"></script>
     <!-- <script type="text/javascript"></script> -->
     <!-- 共用 -->
     @@include('layout_html/plugin.html')
 </head>
 <body class="postcard_Body">
 
+    <header id="the_header">
+        <the-header></the-header>
+    </header>
+    <div id="mobile_menu">
+        <menu-item></menu-item>
+    </div>
     <div id="postcard">
         <!--  include header   -->
-        <header id="the_header">
-            <the-header></the-header>
-        </header>
-        <div id="mobile_menu">
-            <menu-item></menu-item>
-        </div>
 
         <div class="mobile_logo">
             <img src="./images/logo/logo.svg" alt="logo">
@@ -146,9 +144,9 @@
                                 </div>
                             </div>
                             <div class="writting_bg" @click="remove_art_h4">
-                                <textarea class="writting_area" rows="9" maxlength="120" v-model="tkinfotest"></textarea>
+                                <textarea class="writting_area" rows="9" cols="30" maxlength="125" v-model="writearea_con"></textarea>
                                 <!-- <div contenteditable="plaintext-only" class="writting_area" v-model="tkinfotest"></div> -->
-                                <p>{{tkinfotest.length}}/120</p>
+                                <p>{{writearea_con.length}}/125</p>
                             </div>
 
                         </div>
@@ -184,9 +182,9 @@
                                 </div>
                                 <!-- @click="typeTo_area" -->
                                 <div class="typeTo_block">
-                                    <textarea class="sentTO_People" @click="remove_dis" maxlength="15" v-model="tkinfoTo"> TO : </textarea>
+                                    <textarea class="sentTO_People"  @click="remove_dis" maxlength="25" v-model="sentTo_con"> TO : </textarea>
                                 </div>
-                                <p>{{tkinfoTo.length}}/15</p>
+                                <p>{{sentTo_con.length}}/25</p>
                             </div>
 
                             
@@ -239,18 +237,12 @@
                         <div class="main_writting_left">
                             <div class="writting_title">
                                 <h3>POSTCARD</h3>
-                                <div class="writting_art">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 19.743 22.563">
-                                        <path id="Icon_awesome-hand-pointer" data-name="Icon awesome-hand-pointer" d="M19.743,10.576v4.231a1.762,1.762,0,0,1-.047.4L18.286,21.2a1.763,1.763,0,0,1-1.716,1.359H7.4a1.763,1.763,0,0,1-1.426-.726L.337,14.081a1.763,1.763,0,1,1,2.851-2.074l1.395,1.918V1.763a1.763,1.763,0,0,1,3.525,0v8.814h.353V8.814a1.763,1.763,0,1,1,3.525,0v1.763h.353V9.519a1.763,1.763,0,0,1,3.525,0v1.058h.353a1.763,1.763,0,1,1,3.525,0ZM8.461,14.1H8.109v4.231h.353Zm3.878,0h-.353v4.231h.353Zm3.878,0h-.353v4.231h.353Z" transform="translate(19.743 22.563) rotate(180)" fill="#F7F9F2"/>
-                                    </svg>
-                                    <h4 class="writting_art_h4">寫下你的訊息</h4>
-                                </div>
                             </div>
                             <div class="writting_bg">
                                 <!-- <p class="writting_area" disabled v-model="tkinfotest"></p> -->
                                 <!-- <textarea class="writting_area" rows="9" disabled maxlength="120" v-model="tkinfotest"></textarea> -->
-                                <div contenteditable="plaintext-only" class="writting_area" disabled maxlength="120" >{{tkinfotest}}</div>
-
+                                <div contenteditable="false" class="writting_area writting_area_false " disabled maxlength="120"> {{writearea_con}} </div>
+                                <!-- <div contenteditable="plaintext-only" class="writting_area" disabled maxlength="120"> {{writearea_con}} </div> -->
                                 <!-- <textarea class="writting_area" disabled  v-model="tkinfotest"></textarea> -->
                             </div>
                         </div>
@@ -272,9 +264,10 @@
                             <div class="sentTO_block">
                                 <!-- <div class="typeTo_block"> -->
                                 <div class="typeTo_block" style="opacity: 1; transform: translateY(0%);">
-                                    <!-- <div style="opacity: 1;"> -->
-                                        <textarea class="sentTO_People"  disabled  v-model="tkinfoTo">TO : </textarea>
-                                    <!-- </div> -->
+                                    <!-- <div style="opacity: 1;"> -->        
+                                <div contenteditable="false" class="sentTO_People writting_area_false" disabled maxlength="15"> {{sentTo_con}} </div>
+                                <!-- <textarea class="sentTO_People"  disabled  v-model="tkinfoTo">TO : </textarea> -->
+                                <!-- </div> -->
                                 </div>
                                 
                             </div>
@@ -283,7 +276,7 @@
                     
             
                     <!-- 明信片背面照片 -->
-                    <div id="J_postcard" class="main_IMG_block" v-else ref="downLoad_area">
+                    <div id="J_postcard_IMG" class="main_IMG_block abcdefg" v-else ref="downLoad_area">
                         <div class="IMG_block" >
                             <img :src="change_picture" alt="">
                         </div>
@@ -310,15 +303,12 @@
 
         <!-- </div> -->
 
-
-
-
         
-        <footer id="the_footer">
-            <the-footer></the-footer>
-        </footer>
     </div>
-
+    
+    <footer id="the_footer">
+        <the-footer></the-footer>
+    </footer>
     
 
 
@@ -341,10 +331,8 @@
                 change__stamp_IMG: './images/postcard/stamp/stamp1.png',
                 change_picture: './images/postcard/1280/china01_1280-715.jpg',
 
-                tkinfotest: '',
-                texsum: 0,
-                tkinfoTo:'',
-                texsumTo: 0,
+                writearea_con: '',
+                sentTo_con:'',
                 imgs:[
                     {title:'北極 - 看看北極熊',src:'./images/postcard/1280/arcit01_1280-715.jpg'},
                     {title:'澳洲 - 雪梨歌劇院',src:'./images/postcard/1280/australia01_1280-715.jpg'},
@@ -360,12 +348,7 @@
 
             },
             watch: {
-                tkinfotest(){
-                    this.texsum = this.tkinfotest.length;
-                },
-                tkinfoTo(){
-                    this.texsumTo = this.tkinfoTo.length;
-                },
+                
             },
             
             methods: {  //函數（方法）大部分放這裡
@@ -393,9 +376,9 @@
                 },
 
                 // 同頁面切換
-                changeindex(a) {
+                changeindex(change2) {
                     if(this.index ==2){
-                        this.change_picture = this.imgs[a].src;
+                        this.change_picture = this.imgs[change2].src;
                     }
                     
                     if (this.index == 1) {
@@ -437,6 +420,7 @@
                         ease : 'slow'
                     })
                 },
+
                 dispaly_block_Btn(){
                     // console.log(this.$refs.stamp);
                     console.log(document.getElementById('stamp_block1ID'));
@@ -460,16 +444,31 @@
                     // let height = downLoadContent.offsetHeight;
                     
                     // 下載
-                    
-                    html2canvas(document.querySelector("#J_postcard")).then(function (canvas) {
-                    // html2canvas(this.$refs.downLoad_area).then(function (canvas) {
-                        const link = document.createElement("a");
-                        link.href = canvas.toDataURL("image/jpeg", 0.92).replace("image/jpeg", "image/octet-stream");
-                        link.download = `image_Jumper_${img_name}.png`;
-                        // link.style.display = 'none';
-                        link.click();
+                    setTimeout(function() {
                         
-                    });
+                        html2canvas(document.querySelector("#J_postcard")).then(function (canvas) {
+                            // html2canvas(this.$refs.downLoad_area).then(function (canvas) {
+                            const link = document.createElement("a");
+                            link.href = canvas.toDataURL("image/jpeg", 0.92).replace("image/jpeg", "image/octet-stream");
+                            link.download = `image_Jumper_${img_name}.png`;
+                            // link.style.display = 'none';
+                            link.click();
+                        });
+                        
+                    }, 900);
+                    
+                    // setTimeout(function() {
+                        
+                    //     html2canvas(document.querySelector("#J_postcard_IMG")).then(function (canvas) {
+                    //         // html2canvas(this.$refs.downLoad_area).then(function (canvas) {
+                    //         const link = document.createElement("a");
+                    //         link.href = canvas.toDataURL("image/jpeg", 0.92).replace("image/jpeg", "image/octet-stream");
+                    //         link.download = `image_Jumper_${img_name}.png`;
+                    //         // link.style.display = 'none';
+                    //         link.click();
+                    //     });
+                        
+                    // }, 1000);
                 },
 
             },
