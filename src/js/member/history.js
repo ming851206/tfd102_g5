@@ -277,7 +277,7 @@ const Historys = {
         },
         confirms() {
             let index = this.commentIndex;
-            axios.post('../../php/addcomment.php', {
+            axios.post('./php/addcomment.php', {
                 star: this.stars,
                 text: this.text,
                 ID: this.datas[index].ID,
@@ -299,15 +299,15 @@ const Historys = {
         }
     },
     mounted() {
-        axios.post('../../php/member_history.php', {
+        axios.post('./php/member_history.php', {
             now: new Date().getTime(),
         }).then(res => {
             let data = res.data;
             this.datas = data;
         }).then(res => {
             for (let i = 0; i < this.datas.length; i++) {
-                this.datas[i].avatar = '../.' + this.datas[i].avatar;
-                this.datas[i].intro_pics = '../.' + this.datas[i].intro_pics;
+                this.datas[i].avatar = this.datas[i].avatar;
+                this.datas[i].intro_pics = this.datas[i].intro_pics;
 
             }
             this.total = Math.ceil(this.datas.length / 4);

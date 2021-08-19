@@ -140,7 +140,7 @@ const Join = {
             if (this.datas[index].status == 1) {
                 let yes = confirm('確定要取消此項目?');
                 if (yes) {
-                    axios.post('../../php/member_join_cancel.php', {
+                    axios.post('./php/member_join_cancel.php', {
                         now: new Date().getTime(),
                         ID: this.datas[index].order_ID
                     }).then(res => {
@@ -160,7 +160,7 @@ const Join = {
         }
     },
     mounted() {
-        axios.post('../../php/member_join.php', {
+        axios.post('./php/member_join.php', {
             now: new Date().getTime(),
         }).then(res => {
             let data = res.data;
@@ -168,8 +168,8 @@ const Join = {
         }).then(res => {
             for (let i = 0; i < this.datas.length; i++) {
 
-                this.datas[i].avatar = '../.' + this.datas[i].avatar;
-                this.datas[i].intro_pics = '../.' + this.datas[i].intro_pics;
+                this.datas[i].avatar = this.datas[i].avatar;
+                this.datas[i].intro_pics = this.datas[i].intro_pics;
 
             }
             this.total = Math.ceil(this.datas.length / 4);

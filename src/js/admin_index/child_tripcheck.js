@@ -14,9 +14,7 @@ const TripCheck = {
                 <th>舉辦人</th>
                 <th>旅程名稱</th>
                 <th>旅程內容</th>
-                <th>開始時間</th>
                 <th class="numLimit">人數限制</th>
-                <th class="numLimit">是否包場</th>
                 <th>價格</th>
                 <th>功能</th>
             </tr>
@@ -25,9 +23,7 @@ const TripCheck = {
                 <td v-text="trip.name"></td>
                 <td v-text="trip.title" class="textContent2"></td>
                 <td v-text="trip.content" class="textContent3"></td>
-                <td class="timeCnt">{{timestampToTime(trip.started_at)}}</td>
                 <td v-text="trip.total_people"></td>
-                <td v-text="trip.is_group = 1 ? '否':'是' "></td>
                 <td v-text="trip.event_price"></td>
                 <td><button type="button" class="submitBtn" @click="tripChecked(index)">通過</button><button type="button" class="rejectBtn" @click="reject(index)">退件</button></td>
             </tr>
@@ -84,6 +80,7 @@ const TripCheck = {
             rejTxt:'',
             rejReason: '',
             isDisabled: true,
+            theIndex: '',
             data: [
                 // {
                 //     num: 1,
@@ -130,9 +127,9 @@ const TripCheck = {
         reject(index) {  //該筆index對應的退件box出現
             this.showBox = true;
             this.boxID = this.data[index].ID;
+            this.theIndex = index;
         },
-        doReject(index){  
-         
+        doReject(){  
             if( this.rejReason == ''){
                 alert('請填寫退件原因!');
             }else{
@@ -146,27 +143,20 @@ const TripCheck = {
                 }).then(res =>{
                     this.rejTxt = res.data;
                     //console.log(this.rejTxt);
+                    //在這裡this.data[this.theIndex]會抓不到，會變undefined(why?)
                     alert(`${this.rejTxt}`);
+                    
                 }).catch( (error) => alert('數據加載失敗'+ error)); 
             }
+            this.data.splice(this.theIndex, 1);
+            this.theIndex = '',
             this.rejReason = '',
-            this.data.splice(index, 1);
             this.showBox = false;
         },
         closeBox() {
             this.showBox = false;
         },
-        timestampToTime(timestamp) {
-
-            var date = new Date(timestamp * 1);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
-            Y = date.getFullYear() + '/';
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
-            D = date.getDate() + ' ';
-            h = date.getHours() + ':';
-            m = date.getMinutes()
-            return this.timestamp = Y + M + D + h + m;
-
-        }
+        
     },
     computed: {
         filterList() { //搜尋功能
