@@ -113,6 +113,22 @@
 
             a {
                 padding: 10px 20px;
+                position: relative;
+            }
+
+            a.is_active{
+                font-weight: bold;
+                color: $main_br;
+                &::after{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: 60%;
+                    background-color: $main_br;
+                    height: 1px;
+                    bottom:7px;
+                    left: 40px;
+                }
             }
         }
 
