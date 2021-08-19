@@ -239,7 +239,7 @@ Vue.component('priceTrip', {
         filterList() { //搜尋功能
             // console.log('測試有進來篩選');
             return this.items.filter((item) => { //把data送下來使用filter功能
-                return item.event_price < parseInt(this.thePrice); // 低於搜尋價格的旅遊
+                return item.event_price <= parseInt(this.thePrice); // 低於搜尋價格的旅遊
             })
         },
     },
