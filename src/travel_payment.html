@@ -199,7 +199,9 @@
                 <h4>選擇以下按鈕即代表您同意參加者免責聲明、退訂政策和參加者退款政策。</h4>
             </div>
             <div class="payment_add_btn_block">
-                <button type="button" class="btnL" @click="payment_add_btn">確認並付款</button>
+                <form method="POST" action="/php/createOrder.php">
+                    <button type="submit" class="btnL">確認並付款</button>
+                </form>
             </div>
         </div>
 

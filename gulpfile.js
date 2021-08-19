@@ -48,6 +48,13 @@ function phpLib() {
             basepath: '@file'
         })).pipe(dest('dist/php/Lib'))
 }
+function phpVendor() {
+    return src(['./src/php/vendor/**/*'])
+        .pipe(fileinclude({
+            prefix: '@@',
+            basepath: '@file'
+        })).pipe(dest('dist/php/vendor'))
+}
 //image 打包
 const imagemin = require('gulp-imagemin');
 
@@ -101,10 +108,10 @@ function browser(done) {
 }
 
 
-exports.default = series(parallel(img_orig, sassmap, html_front, html_back, php, phpLib, babel5), browser)
+exports.default = series(parallel(img_orig, sassmap, html_front, html_back, php, phpLib, phpVendor, babel5), browser)
 
 
-exports.package = parallel(img_compress, sassmap, html_front, html_back, php, phpLib, babel5)
+exports.package = parallel(img_compress, sassmap, html_front, html_back, php, phpLib, phpVendor, babel5)
 
 
 
