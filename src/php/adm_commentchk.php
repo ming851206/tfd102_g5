@@ -20,7 +20,9 @@ $sql = "SELECT c.id, pi.title, m.name, c.star, c.content, c.create_at
         JOIN member m
 		on c.member_ID = m.ID
 		JOIN product_info pi
-		on c.product_ID = pi.ID;";
+		on c.product_ID = pi.ID
+		WHERE c.deleted_at = ''"
+		;
 
 //執行
 $statement = getPDO()->prepare($sql);
