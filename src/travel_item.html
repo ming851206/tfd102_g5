@@ -358,19 +358,6 @@
                     )
                 },
                 changeLink(index, event) {
-                    // e.preventDefault();
-                    // console.log(this.recommend_items);
-                    // for (let i = 0; i < this.recommend_items.length; i++) {
-                    //     // console.log(this.recommend_items[i].ID);
-                    //     let itemID = this.recommend_items[i].ID;
-
-                    //     let locationHref = location.href;
-                    //     let searchID = `?ID=${itemID}`;
-
-                    //     locationHref += searchID;
-
-                    //     console.log(locationHref);
-                    // }
                     event.preventDefault();
                     location.href = '?ID=' + this.recommend_items[index].ID;
 

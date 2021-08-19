@@ -18,17 +18,21 @@
     display: block;
     margin: 0 auto;
 }
+
 @keyframes zoom_out {
-    0%{
+    0% {
         transform: scale(1);
     }
-    50%{
+
+    50% {
         transform: scale(1.2);
     }
-    90%{
+
+    90% {
         transform: scale(1);
     }
 }
+
 @keyframes fade-in_1 {
     0% {
         opacity: 0;
@@ -40,58 +44,69 @@
         filter: blur(0);
     }
 }
+
 @keyframes zoom_in {
-    0%{
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
+
 @keyframes scale_in {
-    0%{
+    0% {
         opacity: 0;
         transform: translateY(-50%) scale(10);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateY(-50%) scale(1);
     }
 }
+
 @keyframes appear1 {
-    0%{
-      opacity: 0;
-      transform: translate(-50%, -50%) scaleY(0);
-      filter: blur(20px);
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scaleY(0);
+        filter: blur(20px);
     }
-    100%{
-      opacity: 1;
-      transform: translate(-50%, -50%) scaleY(1);
-      filter: blur(0);
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scaleY(1);
+        filter: blur(0);
     }
 }
+
 @keyframes appear2 {
-    0%{
-      opacity: 0;
-      transform: translate(-50%, 80%) scaleY(0);
-      filter: blur(20px);
+    0% {
+        opacity: 0;
+        transform: translate(-50%, 80%) scaleY(0);
+        filter: blur(20px);
     }
-    100%{
-      opacity: 1;
-      transform: translate(-50%, 80%) scaleY(1);
-      filter: blur(0);
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, 80%) scaleY(1);
+        filter: blur(0);
     }
 }
+
 @keyframes slideUp {
-    0%{
+    0% {
         opacity: 0;
         transform: scaleY(0);
-      }
-      100%{
+    }
+
+    100% {
         opacity: 1;
         transform: scaleY(1);
-      }
+    }
 }
+
 @keyframes slide-down {
     0% {
         bottom: 100%;
@@ -103,27 +118,33 @@
         opacity: 1;
     }
 }
+
 @keyframes text_shadow {
-    0%{
+    0% {
         text-shadow: 0px 0px 0px #996A4D;
     }
-    50%{
+
+    50% {
         text-shadow: 0px 0px 2px #996A4D;
     }
-    90%{
+
+    90% {
         text-shadow: 0px 0px 0px #996A4D;
     }
 }
+
 @keyframes shine {
-    0%{
+    0% {
         box-shadow: 0px 0px 6px 4px whitesmoke;
 
     }
-    50%{
+
+    50% {
         box-shadow: 0px 0px 12px 8px whitesmoke;
 
     }
-    90%{
+
+    90% {
         box-shadow: 0px 0px 6px 4px whitesmoke;
     }
 }
@@ -131,7 +152,7 @@
 $passportW: 402;
 
 .game_bg {
-    background-image: url("../../images/index/game/game_bg.jpg");
+    background-image: url("../images/index/game/game_bg.jpg");
     position: relative;
     opacity: 0;
     // opacity: 1;
@@ -150,8 +171,9 @@ $passportW: 402;
             bottom: 53px;
         }
     }
+
     .game_world_map {
-        background-image: url("../../images/index/game/world_map.svg");
+        background-image: url("../images/index/game/world_map.svg");
         width: 1180px;
         height: 657px;
         position: relative;
@@ -160,10 +182,12 @@ $passportW: 402;
         top: 50%;
         transform: translateY(-50%);
         animation: scale_in 1.4s linear 0.4s backwards;
+
         @include lg {
             width: 975px;
             height: 543px;
         }
+
         @include md {
             width: 747px;
             height: 543px;
@@ -181,6 +205,7 @@ $passportW: 402;
             animation: none;
 
         }
+
         .landmark {
             background-image: url('../../images/index/game/landmark_white.png');
             background-size: contain;
@@ -192,16 +217,19 @@ $passportW: 402;
             @include img_setting(contain);
             cursor: pointer;
             position: absolute;
+
             @include md {
                 width: 40px;
                 height: 72px;
             }
-            input{
+
+            input {
                 &[type="radio"] {
                     display: none;
                 }
             }
         }
+
         .am {
             left: 12.5%;
             top: 35%;
@@ -256,6 +284,7 @@ $passportW: 402;
                 top: 51.5%;
             }
         }
+
         #game_word {
             display: block;
             position: absolute;
@@ -263,13 +292,16 @@ $passportW: 402;
             bottom: 0;
             transform: translate(-50%, -50%);
             animation: appear1 1s ease backwards;
-            @include sm{
+
+            @include sm {
                 transform: translate(-50%, 80%);
                 animation: appear2 1s ease backwards;
             }
-            @include xs{
+
+            @include xs {
                 top: 380px;
             }
+
             h3 {
                 width: 350px;
                 color: #202B36;
@@ -278,32 +310,38 @@ $passportW: 402;
                 padding: 6px;
                 line-height: 1.6;
                 text-align: center;
-                @include lg_md{
+
+                @include lg_md {
                     width: 280px;
                     font-size: 20px;
                 }
-                @include sm{
+
+                @include sm {
                     width: 240px;
                     font-size: 18px;
                 }
-                @include xs{
+
+                @include xs {
                     width: 300px;
                     margin-bottom: 60px;
                 }
             }
+
             img {
                 width: 40px;
                 height: 36px;
                 margin: 0 auto;
                 display: none;
-                @include xs{
+
+                @include xs {
                     display: block;
                     width: 40px;
                     height: 36px;
                 }
             }
-        }    
+        }
     }
+
     .passport_page {
         @include all_zero(absolute);
         // opacity: 1;
@@ -375,6 +413,7 @@ $passportW: 402;
                     margin-bottom: 30px;
                     border-radius: 15px;
                     animation: shine 2s linear infinite, text_shadow 2s linear infinite;
+
                     @include md {
                         width: 142px * 0.9;
                         margin-bottom: 25px;
@@ -404,6 +443,7 @@ $passportW: 402;
                     display: flex;
                     justify-content: space-evenly;
                     align-items: center;
+
                     @include md {
                         width: 90%;
                     }
@@ -416,13 +456,16 @@ $passportW: 402;
                         vertical-align: middle;
                         font-family: "regular";
                         margin-left: 10px;
+
                         @include md_sm {
                             font-size: 15px;
                         }
+
                         @include sm {
                             font-size: 14px;
                         }
                     }
+
                     a {
                         margin-right: 25px;
                     }
@@ -439,18 +482,22 @@ $passportW: 402;
         background-color: whitesmoke;
         width: 550px;
         height: 468px;
+
         @include lg {
             width: 550px * 0.92;
             height: 468px * 0.96;
         }
+
         @include md {
             width: 550px * 0.85;
             height: 468px * 0.93;
         }
+
         @include sm {
             width: 550px * 0.66;
             height: 468px * 0.85;
         }
+
         @include xs {
             width: 550px * 0.58;
             height: 468px * 0.8;
@@ -475,6 +522,7 @@ $passportW: 402;
                 display: flex;
                 justify-content: space-evenly;
                 align-items: cneter;
+
                 h2 {
                     font-size: 46px;
                     margin: 0;
@@ -482,14 +530,17 @@ $passportW: 402;
                     padding: 0;
                     display: inline-block;
                     font-family: "en";
-                    @include lg{
+
+                    @include lg {
                         margin-top: 12px;
                         font-size: 42px;
                     }
+
                     @include md {
                         margin-top: 8px;
                         font-size: 36px;
                     }
+
                     @include sm {
                         margin-top: 5px;
                         font-size: 28px;
@@ -501,14 +552,17 @@ $passportW: 402;
                     width: 350px;
                     line-height: 1.5;
                     height: 115.2px;
+
                     @include md {
                         font-size: 22px;
                     }
+
                     @include sm {
                         font-size: 18px;
                         width: 350px * 0.75;
                         height: 79.2px;
                     }
+
                     @include xs {
                         font-size: 17px;
                         width: 350px * 0.65;
@@ -524,22 +578,27 @@ $passportW: 402;
                     align-items: flex-start;
                     width: 385px;
                     margin: 28px auto 8px;
+
                     @include lg {
                         width: 385px * 0.965;
                         margin-bottom: 3px;
                     }
+
                     @include md {
                         margin-top: 20px;
                     }
+
                     @include sm {
                         width: 385px * 0.72;
                         margin-top: 25px;
                     }
+
                     @include xs {
                         width: 385px * 0.64;
                         margin-top: 24px;
                     }
-                    .opt{
+
+                    .opt {
                         @include word_center(100px, 42px);
                         margin: 0 auto;
                         font-family: "regular";
@@ -554,17 +613,21 @@ $passportW: 402;
                         font-weight: 600;
                         text-align: center;
                         color: $main_br;
+
                         input {
                             &[type="radio"] {
                                 display: none;
                             }
                         }
-                        &:nth-child(2){
+
+                        &:nth-child(2) {
                             margin: 25px auto;
-                            @include sm{
+
+                            @include sm {
                                 margin: 20px auto;
                             }
                         }
+
                         @include sm {
                             width: 160px;
                             font-size: 16px;
@@ -577,9 +640,11 @@ $passportW: 402;
                     display: block;
                     margin: 30px auto 0;
                     border-radius: $borderRadius_cd;
-                    @include sm{
+
+                    @include sm {
                         margin-top: 24px;
                     }
+
                     @include xs {
                         width: 100px;
                         margin-top: 22px;
@@ -594,6 +659,7 @@ $passportW: 402;
             height: calc(100vh - 85px);
             z-index: 14;
         }
+
         @include xs {
             @include all_zero(fixed) {
                 height: calc(100vh - 53px);
@@ -604,6 +670,7 @@ $passportW: 402;
             height: calc(100vh - 85px);
             z-index: 15;
             background-color: rgba(0, 0, 0, .4);
+
             @include all_zero(fixed) {
                 height: calc(100vh - 53px);
             }
@@ -630,7 +697,7 @@ $passportW: 402;
             }
 
             .game_close_btn {
-                background-image: url("../../images/icon/header/close.svg");
+                background-image: url("../images/icon/header/close.svg");
                 background-repeat: no-repeat;
                 background-size: contain;
                 width: 14px;
@@ -663,9 +730,11 @@ $passportW: 402;
                     display: flex;
                     justify-content: center;
                     margin-top: 20px;
+
                     @include xs {
                         margin-top: 12px;
                     }
+
                     .game_word {
                         font-size: 20px;
                         line-height: 1.5;
@@ -681,15 +750,18 @@ $passportW: 402;
 
     .game_result_overlay {
         z-index: 10;
+
         @include all_zero(fixed) {
             height: calc(100vh - 85px);
             z-index: 12;
         }
+
         @include xs {
             @include all_zero(fixed) {
                 height: calc(100vh - 53px);
             }
         }
+
         .game_result {
             @include total_center;
             z-index: 13;
@@ -698,13 +770,16 @@ $passportW: 402;
             height: 450px;
             border-radius: 25px;
             box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.3);
+
             @include md {
                 width: 650px * 0.75;
             }
+
             @include sm {
                 width: 650px * 0.56;
                 height: 450px * 0.9;
             }
+
             @include xs {
                 width: 650px * 0.48;
                 position: absolute;
@@ -721,8 +796,10 @@ $passportW: 402;
                     color: rgba(0, 0, 0, 0.22);
                     letter-spacing: 1px;
                     font-size: 15px;
+
                     .visa_h5 {
                         margin: 0 !important;
+
                         &:nth-child(2) {
                             @include sm {
                                 display: none;
@@ -737,9 +814,11 @@ $passportW: 402;
                     justify-content: space-between;
                     margin: auto 35px;
                     color: rgba(0, 0, 0, 0.22);
+
                     @include sm {
                         margin: auto 20px;
                     }
+
                     h2 {
                         padding: 0;
                         margin-bottom: 10px;
@@ -769,6 +848,7 @@ $passportW: 402;
                         font-size: 26px;
                         padding-bottom: 18px;
                     }
+
                     @include xs {
                         font-size: 22px;
                         padding-bottom: 18px;
@@ -779,9 +859,11 @@ $passportW: 402;
                     @include md {
                         margin: 5px auto 8px;
                     }
+
                     @include sm() {
                         margin-bottom: 15px;
                     }
+
                     @include xs() {
                         margin-bottom: 8px;
                     }
@@ -799,12 +881,9 @@ $passportW: 402;
                         }
 
                         .unget_stamp {
-                            // background-image: url("../../images/index/game/america.svg");
-                            // background-image: url("../../images/index/game/unget.png");
-                            // background-repeat: no-repeat;
-                            // background-size: contain;
                             width: 130px;
                             height: 100px;
+
                             @include md {
                                 width: 130px * 0.9;
                                 height: 100px * 0.9;
@@ -814,9 +893,9 @@ $passportW: 402;
                                 width: 130px * 0.68;
                                 height: 100px * 0.68;
                             }
+
                             &:nth-child(2) {
                                 margin: auto 40px;
-                                // background-image: url("../../images/index/game/europe.svg");
 
                                 @include md {
                                     margin: auto 12px;
@@ -826,30 +905,26 @@ $passportW: 402;
                                     margin: auto 8px;
                                 }
                             }
-                            // &:nth-child(3) {
-                            //     // background-image: url("../../images/index/game/oceania.svg");
-                            // }
                         }
                     }
 
                     .bottom_stamp {
                         display: flex;
                         justify-content: center;
+
                         @include md {
                             margin-bottom: 10px;
                         }
+
                         @include xs {
                             margin-bottom: 16px;
                         }
 
                         .unget_stamp {
-                            // background-image: url("../../images/index/game/unget.png");
-                            // background-image: url("../../images/index/game/asia.svg");
-                            // background-repeat: no-repeat;
-                            // background-size: contain;
                             width: 130px;
                             height: 100px;
                             margin: 0 20px;
+
                             @include md {
                                 width: 130px * 0.9;
                                 height: 100px * 0.9;
@@ -866,10 +941,6 @@ $passportW: 402;
                                 width: 130px * 0.7;
                                 height: 100px * 0.7;
                             }
-                            // &:nth-child(1) {
-                                // background-image: url("../../images/index/game/unget.png");
-                                // background-image: url("../../images/index/game/africa.svg");
-                            // }
                         }
                     }
 
@@ -878,11 +949,13 @@ $passportW: 402;
                         height: 29px;
                         cursor: pointer;
                         @include margin0();
+
                         @include md {
                             margin-top: 0;
                         }
                     }
-                    .gift_icon.gold{
+
+                    .gift_icon.gold {
                         animation: zoom_out 1.2s linear infinite;
                     }
                 }
@@ -921,7 +994,7 @@ $passportW: 402;
                         width: 10px;
                         height: 14px;
                         background-size: contain;
-                        background-image: url("../../images/index/game/share_fb.svg");
+                        background-image: url("../images/index/game/share_fb.svg");
                         background-repeat: no-repeat;
                         margin-right: 4px;
 
@@ -938,6 +1011,7 @@ $passportW: 402;
         @include all_zero(fixed);
         height: calc(100vh - 85px);
         z-index: 15;
+
         .game_mask {
             background-color: rgba(0, 0, 0, .4);
             @include all_zero(fixed);
@@ -947,7 +1021,7 @@ $passportW: 402;
         }
 
         .coupon_detail {
-            background-image: url("../../images/index/game/coupon_bg1.png"), url("../../images/index/game/coupon_bg2.png");
+            background-image: url("../images/index/game/coupon_bg1.png"), url("../images/index/game/coupon_bg2.png");
             background-repeat: no-repeat;
             background-position: bottom 0 left -3px, bottom -5px right 0px;
             background-color: white;
@@ -971,7 +1045,7 @@ $passportW: 402;
             }
 
             .coupon_close_btn {
-                background-image: url("../../images/icon/header/close.svg");
+                background-image: url("../images/icon/header/close.svg");
                 background-repeat: no-repeat;
                 background-size: contain;
                 width: 14px;
@@ -1002,6 +1076,7 @@ $passportW: 402;
                     display: flex;
                     justify-content: center;
                     margin-bottom: 10px;
+
                     p {
                         font-size: 16px;
                     }
@@ -1027,21 +1102,27 @@ $passportW: 402;
         display: none;
     }
 }
+
 .v-leave {
     opacity: 1;
 }
+
 .v-leave-active {
     transition: opacity 1.2s;
 }
+
 .v-leave-to {
     opacity: 0;
 }
+
 .v-enter {
     opacity: 0;
 }
+
 .v-enter-active {
-transition: opacity 1.2s;
+    transition: opacity 1.2s;
 }
+
 .v-enter-to {
     opacity: 1;
 }
