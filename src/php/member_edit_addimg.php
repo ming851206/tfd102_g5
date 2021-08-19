@@ -12,9 +12,10 @@ if($memberID!="" ){
         $fileSize_arr = $_FILES["file"]["size"];    //檔案尺寸
         $error_arr = $_FILES["file"]["error"];  //錯誤代碼
         $getid = $_POST['ID'];
+        $sql = "UPDATE  product_info SET intro_pics = ? , pic1 =? , pic2 = ? , pic3 = ? ,pic4 = ? , pic5 = ? where ID = ? ";
+        $statement = getPDO()->prepare($sql);
         for ($i=0; $i < count($fileName_arr); $i++) {
             $fileArr = explode(".", $fileName_arr[$i]);
-
             $subName = $fileArr[1];  //先判斷是不是圖檔再進行搬家，不會造成新家太多檔案
             if($subName == 'jpg' or $subName =='jpeg' or $subName == 'png' or $subName == 'bmp'){
                 //Web根目錄真實路徑
@@ -25,24 +26,15 @@ if($memberID!="" ){
                 //將暫存檔搬移到正確位置
                 $filePath_Temp = $fileTmpName_arr[$i];
                 move_uploaded_file($filePath_Temp, $filePath);
-                $sql = "UPDATE  product_info SET intro_pics = ? , pic1 =? , pic2 = ? , pic3 = ? ,pic4 = ? , pic5 = ? where ID = ? ";
-               // //執行
-                $statement = getPDO()->prepare($sql);
-                $statement->bindValue(1,$sqlfilepath);
-                $statement->bindValue(2,$sqlfilepath);
-                $statement->bindValue(3,$sqlfilepath);
-                $statement->bindValue(4,$sqlfilepath);
-                $statement->bindValue(5,$sqlfilepath);
-                $statement->bindValue(6,$sqlfilepath);
-                $statement->bindValue(7,$getid);
-                $statement->execute();
+                $statement->bindValue($i + 1,$sqlfilepath);
             }
-
         }
+        $statement->bindValue($i+1,$getid);
+        $statement->execute();
         echo 1 ;
 
 }else{
-    // echo 0;
+        echo 0;
 }
 
 function getExtensionName($filePath){

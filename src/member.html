@@ -192,7 +192,7 @@
                 axios.get('./php/member_login_level.php')
                     .then(res => {
                         let data = res.data[0];
-                        if (data.level == 3) {
+                        if (data.level == 2) {
                             this.open = true;
                         }
                     })
