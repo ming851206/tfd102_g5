@@ -35,7 +35,6 @@
 
         <!-- 確認並付款 -->
         <div class="payment_mainTitle">
-
             <div class="payment_mainTitle_icon">
                 <img src="./images/icon/arrowLeft.svg" alt="" @click="hrefback" style="cursor: pointer;">
             </div>
@@ -196,7 +195,7 @@
                 <h4>選擇以下按鈕即代表您同意參加者免責聲明、退訂政策和參加者退款政策。</h4>
             </div>
             <div class="payment_add_btn_block">
-                <button type="button" class="btnL" @click="payment_add_btn">確認並付款</button>
+                <button type="button" class="btnL" @click="payChk">確認並付款</button>
             </div>
         </div>
 
@@ -215,7 +214,7 @@
                         <h3>付款成功</h3>
                     </div>
                     <div class="pay_success_btn_block">
-                        <button type="button" class="btnM" @click="payment_add_btn">確認</button>
+                        <button type="button" class="btnM" @click="finalChk">確認</button>
                     </div>
                 </div>
             </div>
@@ -274,6 +273,7 @@
                     couponMinus: 0,
                     totalmoney: 0,
                     isChk: '',
+                    resTxt:'',
                 }
             },
             methods: {
@@ -286,18 +286,32 @@
                     this.addDiscount_value = this.choose_discount_value;
                     this.discountShow = !this.discountShow;
                 },
-                // 付款成功彈窗
-                payment_add_btn() {
-                    if (this.successShow == false) {
-                        this.successShow = true;
-                    } else {
-                        this.successShow = false;
-                    }
-                },
                 hrefback() {
                     location.href = 'travel_item.html';
-                }
+                },
+                payChk() {
+                    //信用卡判斷if
 
+                    //insert訂單
+                    axios.post('../../php/payment_insert.php', JSON.stringify({
+                        session: sessionStorage.getItem('time'),
+                        price: this.totalmoney,
+                        people: sessionStorage.getItem('people_num'),
+                    }), {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(res => {
+                        if(res.data == '成功!'){
+                            this.successShow = true;
+                        }
+                    }).catch((error) => alert('數據加載失敗' + error));
+                },
+                finalChk(){
+                    this.successShow = false;
+                    sessionStorage.clear();
+                    location.href = 'travel_list.html';
+                },
             },
             computed: {
                 showDate() {
