@@ -78,3 +78,42 @@ new Vue({
       selectedDate: null,
     }
   })
+
+// 計算人數
+var vm = new Vue({
+    el: '#num',
+    data: {
+      number: 1,
+      min: 1,
+      max: 10,
+    },
+    methods: {
+      add() {
+        this.number = this.number + 1;
+        if (this.number > this.max) {
+          this.number = this.max;
+        }
+      },
+      minus() {
+        this.number = this.number - 1;
+        if (this.number < this.min) {
+          this.number = this.min;
+        }
+      }
+    }
+  });
+
+//mb彈窗
+$(function(){
+  
+    // 開啟 Modal 彈跳視窗
+    $("button.btn_modal").on("click", function(){
+      $("div.overlay").fadeIn();
+    });
+    
+    // 關閉 Modal
+    $("button.btn_modal_close").on("click", function(){
+      $("div.overlay").fadeOut();
+    });
+    
+  });

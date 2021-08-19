@@ -69,14 +69,77 @@
                         <p>4.9(112)　</p>
                         <a href="">奧斯丁　美國</a>
                     </div>
+
                     <div class="choose_date_mobile">
                         <div class="text_mobile">
                             <p>最低$800/每人</p>
                             <a class="price">顯示所有價格</a>
                         </div>
                         <div class="btn_mobile">
-                            <button class="btnS">選擇日期</button>
+                            <button class="btnS btn_modal">選擇日期</button>
                         </div>
+                        <div class="overlay" >
+                            <article>
+                                <button type="button" class="btn_modal_close"></button>
+                                
+                                <h1>選擇日期</h1>
+                                <p>Zachary可謂團體舉辦包場的線上旅遊</p>
+                                <div class="btns">
+
+                                </div>
+                                
+                                <div class="owl-carousel owl-theme">
+                                    <div class="item">
+                                        <h5>8月23日 週一</h5>
+                                        <p>上午5:00 - 上午8:00 (TST)</p>
+                                        <p>$800</p>
+                                        <a href="./cart.html">
+                                            <button class="btnS_line" >未額滿</button>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <h5>8月24日 週二</h5>
+                                        <p>上午5:00 - 上午8:00 (TST)</p>
+                                        <p>$800</p>
+                                        <a href="./cart.html">
+                                            <button class="btnS_line" >未額滿</button>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <h5>8月25日 週三</h5>
+                                        <p>上午5:00 - 上午8:00 (TST)</p>
+                                        <p>$800</p>
+                                        <a href="./cart.html">
+                                            <button class="btnS_line" >未額滿</button>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <h5>8月26日 週四</h5>
+                                        <p>上午5:00 - 上午8:00 (TST)</p>
+                                        <p>$800</p>
+                                        <a href="./cart.html">
+                                            <button class="btnS_line" >未額滿</button>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <h5>8月27日 週五</h5>
+                                        <p>上午5:00 - 上午8:00 (TST)</p>
+                                        <p>$800</p>
+                                        <a href="./cart.html">
+                                            <button class="btnS_line" >未額滿</button>
+                                        </a>
+                                    </div>
+                                    <div class="item">
+                                        <h5>8月28日 週六</h5>
+                                        <p>上午5:00 - 上午8:00 (TST)</p>
+                                        <p>$800</p>
+                                        <a href="./cart.html">
+                                            <button class="btnS_line" >未額滿</button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </article>
+                          </div>
                     </div>
                 </div>
                 <div class="traveler_info">
@@ -95,7 +158,7 @@
                             </div>
                             <div class="tra_info">
                                 <h2>Zachary DeBottis 舉辦的線上體驗</h2>
-                                <h2>6 小時 · 使用的語言：英語</h2>
+                                <h2>3 小時 · 使用的語言：中文</h2>
                             </div>
                         </div>
                     </div>
@@ -213,7 +276,8 @@
                             <img src="./images/icon/arrowDown.svg">
                         </div> -->
                             <template id="app">
-                                <v-date-picker class="inline-block h-full" v-model="date">
+                                <v-date-picker
+                                :available-dates='{ start: new Date(2021, 07, 23), end: new Date(2021, 07, 28) }'  v-model="date" class="inline-block h-full">
                                   <template v-slot="{ inputValue, togglePopover }">
                                     <div class="flex items-center">
                                         <input
@@ -227,7 +291,7 @@
                                           class="down"
                                           @click="togglePopover()"
                                         >
-                                            <img src="./images/icon/arrowDown.svg" style="text-align: right;">
+                                            <img src="./images/icon/arrowDown.svg" style="cursor: pointer;">
                                         </button>
                                     </div>
                                 </template>
@@ -247,10 +311,18 @@
                     <div class="people selection">
                         <div class="mix">
                             <img src="./images/icon/user.svg">
-                            <p>人數</p>
+                            <!-- <p>人數</p> -->
                         </div>
-                        <div class="down">
+                        <!-- <div class="down">
                             <img src="./images/icon/arrowDown.svg">
+                        </div> -->
+                        <div id="num">
+                            <button class="minus" @click="minus"></button>
+                            <div class="count_num">
+                                <span class="showtext">成人 {{number}} 位</span>
+                                <span class="notext">{{number}}</span>
+                            </div>
+                            <button class="plus" @click="add"></button>
                         </div>
                     </div>
                     <a href="./cart.html">
@@ -281,40 +353,52 @@
                 </div>
                 <div class="owl-carousel owl-theme">
                     <div class="item">
-                        <h5>6月23日 週三</h5>
-                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <h5>8月23日 週一</h5>
+                        <p>上午5:00 - 上午8:00 (TST)</p>
                         <p>$800</p>
-                        <button class="btnS_line">額滿</button>
+                        <a href="./cart.html">
+                            <button class="btnS_line" >未額滿</button>
+                        </a>
                     </div>
                     <div class="item">
-                        <h5>6月24日 週四</h5>
-                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <h5>8月24日 週二</h5>
+                        <p>上午5:00 - 上午8:00 (TST)</p>
                         <p>$800</p>
-                        <button class="btnS_line">額滿</button>
+                        <a href="./cart.html">
+                            <button class="btnS_line" >未額滿</button>
+                        </a>
                     </div>
                     <div class="item">
-                        <h5>6月25日 週五</h5>
-                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <h5>8月25日 週三</h5>
+                        <p>上午5:00 - 上午8:00 (TST)</p>
                         <p>$800</p>
-                        <button class="btnS_line">額滿</button>
+                        <a href="./cart.html">
+                            <button class="btnS_line" >未額滿</button>
+                        </a>
                     </div>
                     <div class="item">
-                        <h5>6月26日 週六</h5>
-                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <h5>8月26日 週四</h5>
+                        <p>上午5:00 - 上午8:00 (TST)</p>
                         <p>$800</p>
-                        <button class="btnS_line">額滿</button>
+                        <a href="./cart.html">
+                            <button class="btnS_line" >未額滿</button>
+                        </a>
                     </div>
                     <div class="item">
-                        <h5>6月27日 週日</h5>
-                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <h5>8月27日 週五</h5>
+                        <p>上午5:00 - 上午8:00 (TST)</p>
                         <p>$800</p>
-                        <button class="btnS_line">額滿</button>
+                        <a href="./cart.html">
+                            <button class="btnS_line" >未額滿</button>
+                        </a>
                     </div>
                     <div class="item">
-                        <h5>6月28日 週一</h5>
-                        <p>上午5:00 - 上午6:45 (TST)</p>
+                        <h5>8月28日 週六</h5>
+                        <p>上午5:00 - 上午8:00 (TST)</p>
                         <p>$800</p>
-                        <button class="btnS_line">額滿</button>
+                        <a href="./cart.html">
+                            <button class="btnS_line" >未額滿</button>
+                        </a>
                     </div>
                 </div>
             </div>

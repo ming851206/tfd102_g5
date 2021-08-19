@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "52c76c6d43deb71dedda5085c5630c81",
+    "packages": [
+        {
+            "name": "ecpay/sdk",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ECPay/SDK_PHP.git",
+                "reference": "5cbb10182652195c6f402a26c4f7749a5920658c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ECPay/SDK_PHP/zipball/5cbb10182652195c6f402a26c4f7749a5920658c",
+                "reference": "5cbb10182652195c6f402a26c4f7749a5920658c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Ecpay\\Sdk\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "ECPay SDK",
+            "support": {
+                "issues": "https://github.com/ECPay/SDK_PHP/issues",
+                "source": "https://github.com/ECPay/SDK_PHP/tree/1.1.0"
+            },
+            "time": "2021-08-12T11:43:55+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
+}
