@@ -24,11 +24,11 @@
         <div id="app">
             <div class="adm_flexbox">
                 <div class="adm_appl">
-                    <router-link to="/trip" @click.native="init">旅程管理</router-link>
-                    <router-link to="/order" @click.native="init">旅程訂單管理</router-link>
-                    <router-link to="/coupon" @click.native="init">優惠券管理</router-link>
-                    <router-link to="/faq" @click.native="init">問題意見管理</router-link>
-                    <router-link to="/member" @click.native="init">會員管理</router-link>
+                    <router-link to="/trip" @click.native="init" :class="{'is_active':current_category === '/trip'}">旅程管理</router-link>
+                    <router-link to="/order" @click.native="init" :class="{'is_active':current_category === '/order'}">旅程訂單管理</router-link>
+                    <router-link to="/coupon" @click.native="init" :class="{'is_active':current_category === '/coupon'}">優惠券管理</router-link>
+                    <router-link to="/faq" @click.native="init" :class="{'is_active':current_category === '/faq'}">問題意見管理</router-link>
+                    <router-link to="/member" @click.native="init" :class="{'is_active':current_category === '/member'}">會員管理</router-link>
                 </div>
                 <div class="adm_appr">
                     <div class="adm_above">
@@ -64,33 +64,6 @@
     <script src="../js/admin_index/child_commentchk.js"></script>
     <script src="../js/admin_index/child_newcoupon.js"></script>
     <script>
-        // var timestampMixin = {
-        //     data() {
-        //         return {
-        //             timestamp: ''
-        //         }
-        //     },
-        //     methods: {
-        //         timestampToTime(timestamp) {
-
-        //             var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
-        //             Y = date.getFullYear() + '/';
-        //             M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
-        //             D = date.getDate() + ' ';
-        //             h = date.getHours() + ':';
-        //             m = date.getMinutes() + ':';
-        //             s = date.getSeconds();
-        //             return this.timestamp = Y + M + D;
-
-        //         }
-        //         // filterList(data) { //實驗中 
-        //         //     // return this.data.filter((dataTr) => { //把data送下來使用filter功能
-        //         //     //     return dataTr.dataTd.includes(this.search);
-        //         //     // })
-        //         //         console.log(this.data[0].ID);
-        //         // },
-        //     }
-        // }
         Vue.use(VueRouter);
 
         // ========== 旅程管理(綺) ============= 
@@ -165,8 +138,14 @@
         new Vue({
             el: '#app',
             router,
+            data:{
+                current_category:'/trip',
+            },
             methods: {
-                init(){
+                init(e){
+                    //console.log(e.target.getAttribute('href'));
+                    this.current_category = e.target.getAttribute('href'); //加class,current_cate = href
+
                     axios.post('../php/adm_loginCheck.php')
                     .then(res => {
                         if(res.data==""){
@@ -176,6 +155,7 @@
                         }
                     })
                     .catch( (error) => alert('數據加載失敗'+ error));
+                    
                 },
                 chkBtn(){
                     axios.post('../php/adm_loginCheck.php')
