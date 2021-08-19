@@ -9,9 +9,7 @@ if($memberID!="" ){
 //  get 數值
 $getdata = json_decode(file_get_contents('php://input'), true);
 
-
-// print_r($getdata);
-//建立SQL
+// 建立SQL
 $sql = "UPDATE  member SET name=? , password = ? , phone = ? , gender=?  , email=? , birthday = ? where ID = ? ";
 
 //執行
@@ -35,7 +33,7 @@ $statement->execute();
 $data = $statement->fetchAll();
 
 echo json_encode($data);
-//回傳json
+// 回傳json
 }else{
     echo 0;
 }

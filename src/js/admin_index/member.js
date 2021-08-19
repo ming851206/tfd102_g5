@@ -1,5 +1,6 @@
-  // ========== 會員管理(綺) ========== 
-  const Member = {
+   // ========== 會員管理(綺) ========== 
+   const Member = {
+    mixins:[timestampMixin],
     template: `
     <div class="temp">
          <h3>會員管理</h3>
@@ -28,7 +29,7 @@
                     <td v-text="person.phone"></td>
                     <td v-text="person.birthday"></td>
                     <td>{{timestampToTime(person.created_at)}}</td>
-                    <td class="toggle" id="status" :class="{switchIo:person.account_status == 0}" @click="switchStatus(index)"></td>
+                    <td class="toggle" id="status" :class="{'switchIo':person.account_status == 0}" @click="switchStatus(index)"></td>
                 </tr>
              </table>
              <div class="pager2">
@@ -74,7 +75,10 @@
                     }
                  }).then(res => {
                      this.theStatus = res.data;
-                     document.getElementById('status').classList.add('switchIo');//這行沒用
+                     axios.get('../../php/adm_memberList.php')
+                    .then(res => this.data = res.data)
+                    .catch( (error) => alert('數據加載失敗'+ error));
+                    
                  }).catch( (error) => alert('數據加載失敗'+ error));
                  
             }else{
@@ -84,22 +88,13 @@
                     }
                  }).then(res => {
                     this.theStatus = res.data;
-                    document.getElementById('status').classList.remove('switchIo');//這行沒用
+                    
+                    axios.get('../../php/adm_memberList.php')
+                    .then(res => this.data = res.data)
+                    .catch( (error) => alert('數據加載失敗'+ error));
                  }).catch( (error) => alert('數據加載失敗'+ error));
             }
         },
-        timestampToTime(timestamp) {
-
-            var date = new Date(timestamp * 1);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
-            Y = date.getFullYear() + '/';
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
-            D = date.getDate() + ' ';
-            h = date.getHours() + ':';
-            m = date.getMinutes() + ':';
-            s = date.getSeconds();
-            return this.timestamp = Y + M + D;
-
-        }
     },
     computed: {
         filterList() { //搜尋功能

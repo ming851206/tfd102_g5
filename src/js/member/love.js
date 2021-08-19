@@ -8,12 +8,12 @@ const Love = {
                             <div class="loveContentBorder" v-for="(returndata,index) in returndatas"  v-if="index < show" :class=" { 'next_off' :  mobile!= true && index < close}">
                                 <div class="cardBorder">
                                     <div class="loveImg">
-                                        <img src="https://picsum.photos/150/200">
+                                        <img :src="returndata.intro_pics">
                                     </div>
                                     <div class="loveContents">
                                         <div class="loveContentsTop">
                                             <div class="headImg">
-                                                <img src="https://picsum.photos/100/100">
+                                                <img :src="returndata.avatar">
                                             </div>
                                             <div class="StarAndFrom">
                                                 <div class="star">
@@ -117,7 +117,7 @@ const Love = {
                     this.now--;
                 }
                 let sql_id = this.returndatas[index].ID;
-                axios.post('../../php/removelove.php', {
+                axios.post('./php/removelove.php', {
                     ID: sql_id
                 }).then(res => {
                     let data = res.data;
@@ -127,11 +127,18 @@ const Love = {
         }
     },
     mounted() {
-        axios.get('../../php/love.php').then(res => {
+        axios.get('./php/love.php').then(res => {
             let data = res.data;
             this.returndatas = data;
 
+
         }).then(res => {
+            for (let i = 0; i < this.returndatas.length; i++) {
+
+                this.returndatas[i].avatar = this.returndatas[i].avatar;
+                this.returndatas[i].intro_pics = this.returndatas[i].intro_pics;
+
+            }
             this.total = Math.ceil(this.returndatas.length / 4);
             if (this.returndatas.length > 0) {
                 this.now = 1;

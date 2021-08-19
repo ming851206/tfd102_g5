@@ -13,20 +13,16 @@ const TripList = {
                     <th>舉辦人</th>
                     <th>旅遊名稱</th>
                     <th>旅遊內容</th>
-                    <th>開始時間</th>
                     <th class="numLimit">人數限制</th>
-                    <th>是否額滿</th>
                     <th>價格</th>
                     <th>功能</th>
                 </tr>
                     <tr v-for="(trip, index) in filterList" class="trans">
                     <td v-text="trip.ID"></td>
-                    <td v-text="trip.name">Carlos</td>
+                    <td v-text="trip.name"></td>
                     <td v-text="trip.title" class="textContent2"></td>
                     <td v-text="trip.content" class="textContent3"></td>
-                    <td>{{timestampToTime(trip.started_at)}}</td>
                     <td v-text="trip.total_people"></td>
-                    <td v-text="attendence == 1 ? '是':'否'"></td>
                     <td v-text="'$'+trip.event_price"></td>
                     <td><button class="revoke" @click="revoke(index)">下架</button></td>
                 </tr>
@@ -72,18 +68,18 @@ const TripList = {
                 return trip.title.includes(this.search);
             })
         },
-        attendence(){ //如果參加人數>=人數限制就顯示額滿
-            let trip = this.data;
-            for(let i=0; i<trip.length; i++){
-                // console.log(trip[i].attendence);
-                // console.log(trip[i].total_people);
-                if( trip[i].attendence >= trip[i].total_people ){
-                    return 1;
-                }else{
-                    return 0;
-                }
-            }
-        }
+        // attendence(){ //如果參加人數>=人數限制就顯示額滿
+        //     let trip = this.data;
+        //     for(let i=0; i<trip.length; i++){
+        //         // console.log(trip[i].attendence);
+        //         // console.log(trip[i].total_people);
+        //         if( trip[i].attendence >= trip[i].total_people ){
+        //             return 1;
+        //         }else{
+        //             return 0;
+        //         }
+        //     }
+        // }
     },
     methods: {
         
@@ -113,19 +109,6 @@ const TripList = {
 
             }
         },
-       
-        timestampToTime(timestamp) {
-
-            var date = new Date(timestamp * 1);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
-            Y = date.getFullYear() + '/';
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
-            D = date.getDate() + ' ';
-            h = date.getHours() + ':';
-            m = date.getMinutes();
-            return this.timestamp = Y + M + D + h + m;
-
-        },
-      
     },
     mounted() {
         axios.get('../../php/adm_triplist.php')

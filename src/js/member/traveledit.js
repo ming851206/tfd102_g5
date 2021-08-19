@@ -403,13 +403,13 @@ const TravelEdit = {
         workdown(index) {
             let yes = confirm("確定要下架此活動嗎?");
             if (yes) {
-                axios.post('../../php/member_edit_down.php', {
+                axios.post('./php/member_edit_down.php', {
                     product: this.datas[index].ID,
                     now: new Date().getTime()
                 }).then(res => {
                     let data = res.data;
                     if (data == 1) {
-                        axios.get('../../php/member_traveledit.php', {
+                        axios.get('./php/member_traveledit.php', {
                         }).then(res => {
                             let data = res.data;
                             this.datas = data;
@@ -425,7 +425,7 @@ const TravelEdit = {
             let yes = confirm("確定要移除此活動嗎?");
             if (yes) {
                 if (this.checkWorks[index].attendence == '0') {
-                    axios.post('../../php/member_edit_work_cancel.php', {
+                    axios.post('./php/member_edit_work_cancel.php', {
                         ID: this.checkWorks[index].ID
                     }).then(res => {
                         this.checkWorks.splice(index, 1);
@@ -441,7 +441,7 @@ const TravelEdit = {
         },
         EditConfirms() {
             if (this.userAdd[3] < 1001 && this.userAdd[3] > 498) {
-                axios.post('../../php/member_edit_editWork.php', {
+                axios.post('./php/member_edit_editWork.php', {
                     index: this.datas[this.indexs].ID,
                     money: this.userAdd[3],
                     text: this.userAdd[4],
@@ -478,7 +478,7 @@ const TravelEdit = {
             let now = new Date().getTime() + (24 * 60 * 60 * 1000);
             let set = new Date(this.$refs.addInput.value).getTime();
             if (this.$refs.addInput.value != '' && set > now) {
-                axios.post('../../php/member_edit_addWork.php', {
+                axios.post('./php/member_edit_addWork.php', {
                     index: this.datas[this.indexs].ID,
                     start: set,
                     end: set + (60 * 60 * 1000),
@@ -582,7 +582,7 @@ const TravelEdit = {
             this.indexs = '';
         },
         changeWorks(index) {
-            axios.post('../../php/member_traveledit_checkwork.php', {
+            axios.post('./php/member_traveledit_checkwork.php', {
                 product: this.datas[index].ID,
                 now: new Date().getTime()
             }).then(res => {
@@ -628,22 +628,43 @@ const TravelEdit = {
         confirms() {
             if (this.userAdd[0] != '' && this.userAdd[1] != '' && this.userAdd[2] != '' && this.userAdd[3] != '' && this.userAdd[4] != '') {
                 if (this.userAdd[3] < 1001 && this.userAdd[3] > 498) {
-                    axios.post('../../php/member_edit_addproduct.php', {
+                    axios.post('./php/member_edit_addproduct.php', {
                         ID: 1,
                         productTitle: this.userAdd[0],
                         category: this.userAdd[1],
                         place: this.userAdd[2],
                         event_price: this.userAdd[3],
                         content: this.userAdd[4],
-                        pic: this.files
                     }).then(res => {
                         let data = res.data;
                         this.datas = data;
+                        let getFiles = this.$refs.update.files;
+                        let form_data = new FormData();
+                        for (let i = 0; i < getFiles.length; i++) {
+                            form_data.append('file[]', getFiles[i]);
+                        }
+                        form_data.append('ID', this.datas[this.datas.length - 1].ID);
+                        $.ajax({
+                            method: 'POST',
+                            url: './php/member_edit_addimg.php',
+                            data: form_data,
+                            cache: false,
+                            processData: false,
+                            contentType: false,
+                            dataType: 'json',
+                            success: function (response) {
+                                console.log(response)
+                            },
+                            error: function (exception) {
+                                console.log(exception)
+                            },
+                        })
                         this.userAdd = ['', '1', '', '', ''];
                         this.files = [];
                         this.add = false;
                         this.pops = true;
                     })
+
                 } else {
                     alert('價格範圍請在499~1000內');
                 }
@@ -685,7 +706,7 @@ const TravelEdit = {
         for (let i = 0; i < this.values.length; i++) {
             this.mobileshowinfo.push(false);
         }
-        axios.post('../../php/member_traveledit.php', {
+        axios.post('./php/member_traveledit.php', {
         }).then(res => {
             let data = res.data;
             this.datas = data;

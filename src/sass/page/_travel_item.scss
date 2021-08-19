@@ -1,18 +1,21 @@
 @mixin border-bottom {
     border-bottom: 3px solid #996A4D;
-    padding: 0 20px 50px ;
+    padding: 0 20px 50px;
     margin-bottom: 60px;
 }
+
 @mixin border-bottom_sm {
     padding: 0 20px 36px;
     margin-bottom: 50px;
 }
+
 @mixin select_icon {
     cursor: pointer;
     background-repeat: no-repeat;
     background-size: 28px, 25px;
     background-position: left 15px top 9.3px, top 10px right 12px;
 }
+
 @mixin trip_item_card {
     display: flex;
     flex-direction: column;
@@ -55,6 +58,7 @@
             top: 10px;
             margin-left: 5px;
             opacity: 0.8;
+
             .share {
                 cursor: pointer;
                 background-image: url('../../images/icon/share.svg');
@@ -62,8 +66,9 @@
                 height: 22px;
                 background-size: 14px;
                 background-repeat: no-repeat;
-                &:hover{
-                   background-image: url('../../images/icon/share_brown.svg');
+
+                &:hover {
+                    background-image: url('../../images/icon/share_brown.svg');
                 }
             }
 
@@ -76,12 +81,14 @@
                 background-repeat: no-repeat;
                 margin-left: 8px;
                 margin-right: 8px;
+
                 button {
                     border: none;
                     background-color: transparent;
                     cursor: pointer;
                 }
             }
+
             .fav.clicked {
                 background-image: url('../../images/icon/like_full.svg');
                 background-size: 17px;
@@ -92,9 +99,11 @@
             display: flex;
             align-items: center;
             padding: 10px 0;
-            p.star_get{
+
+            p.star_get {
                 font-size: 14px;
             }
+
             p.area {
                 margin-left: 20px;
                 font-size: 14px;
@@ -120,6 +129,7 @@
         }
     }
 }
+
 @keyframes fade-in_1 {
     0% {
         opacity: 0;
@@ -131,43 +141,54 @@
         filter: blur(0);
     }
 }
-.top_info{
+
+.top_info {
     width: 976px;
     margin: 50px auto;
-    @include lg{
+
+    @include lg {
         width: 976px * 0.9;
     }
-    @include md{
+
+    @include md {
         width: 976px * 0.7;
     }
-    @include sm{
+
+    @include sm {
         width: 100%;
         margin: 40px 0 30px;
     }
-    @include xs{
+
+    @include xs {
         margin: 0 0 30px;
     }
-    .breadcrumb{
+
+    .breadcrumb {
         display: flex;
-        @include sm{
+
+        @include sm {
             width: 976px * 0.48;
             margin: 0 auto;
             margin-left: 5%;
         }
-        @include xs{
-           display: none;
+
+        @include xs {
+            display: none;
         }
-        li{
-            a{
+
+        li {
+            a {
                 color: #996A4D;
                 font-size: 16px;
                 text-decoration: 1px underline;
-                &:hover{
+
+                &:hover {
                     color: #3c70d6;
                 }
             }
         }
-        h4{
+
+        h4 {
             padding: 0;
             font-size: 10px;
             vertical-align: middle;
@@ -175,27 +196,33 @@
             margin-right: 5px;
         }
     }
-    .top_pic{
+
+    .top_pic {
         width: 976px;
         height: 450px;
         margin: 10px auto;
         animation: fade-in_1 .8s linear backwards;
-        @include lg{
+
+        @include lg {
             width: 976px * 0.9;
         }
-        @include md{
+
+        @include md {
             width: 976px * 0.7;
-            height: 450px  * 0.85;
+            height: 450px * 0.85;
         }
-        @include sm{
+
+        @include sm {
             width: 100%;
             margin: 10px 0;
             height: 450px * 0.7;
         }
-        @include xs{
+
+        @include xs {
             animation: none;
         }
-        img{
+
+        img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -203,171 +230,216 @@
     }
 }
 
-.item_title{
+.item_title {
     width: 976px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     @include border-bottom;
-    @include lg{
+
+    @include lg {
         width: 976px * 0.9;
     }
-    @include md{
+
+    @include md {
         width: 976px * 0.7;
     }
-    @include sm{
+
+    @include sm {
         flex-direction: column-reverse;
         align-items: flex-start;
         width: 976px * 0.48;
         @include border-bottom_sm;
     }
-    @include xs{
+
+    @include xs {
         width: 976px * 0.32;
         padding: 0 12px 36px;
     }
-    .title_left{
+
+    .title_left {
         display: flex;
-        .img_border{
+
+        .img_border {
             width: 160px;
             height: 160px;
             border-radius: 50%;
             overflow: hidden;
-            @include md{
+
+            @include md {
                 width: 160px * 0.7;
                 height: 160px * 0.7;
             }
-            @include sm{
+
+            @include sm {
                 width: 160px * 0.48;
                 height: 160px * 0.48;
             }
-            @include xs{
+
+            @include xs {
                 width: 160px * 0.38;
                 height: 160px * 0.38;
             }
-            img{
+
+            img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
             }
         }
-        .title_content{
+
+        .title_content {
             display: flex;
             flex-direction: column;
             justify-content: center;
             margin-left: 48px;
-            @include sm{
+
+            @include sm {
                 margin-left: 24px;
             }
-            @include xs{
+
+            @include xs {
                 margin-left: 20px;
             }
-            h1{
+
+            h1 {
+                width: 660px;
                 font-size: 36px;
                 font-weight: 500;
                 margin: 16px auto 0;
                 display: block;
                 line-height: 1.05;
-                @include md{
+
+                @include lg {
+                    width: 560px;
+                }
+
+                @include md {
                     width: 400px;
                     line-height: 1.2;
                     margin: 10px auto;
                 }
-                @include sm{
+
+                @include sm {
                     width: 320px;
                     margin: 0 auto;
                     font-size: 30px;
                 }
-                @include xs{
+
+                @include xs {
                     width: 220px;
                     margin: 0 auto;
                     font-size: 24px;
                 }
             }
-            h2{
+
+            h2 {
                 padding: 0;
                 font-size: 24px;
                 color: #707070;
                 margin: 26px 0 14px;
-                @include md{
+
+                @include md {
                     margin: 12px 0 14px;
                 }
-                @include sm{
+
+                @include sm {
                     margin: 18px 0 12px;
                 }
-                @include xs{
+
+                @include xs {
                     font-size: 20px;
                     margin: 14px 0 6px;
                 }
             }
         }
     }
-    .icons_group{
+
+    .icons_group {
         margin-top: 26px;
         width: 53px;
-        @include md{
+
+        @include md {
             margin-top: 20px;
         }
-        @include sm{
+
+        @include sm {
             align-self: flex-end;
             margin-top: 0;
             margin-bottom: 18px;
         }
-        @include xs{
+
+        @include xs {
             margin-right: 8px;
         }
-        img{
+
+        img {
             cursor: pointer;
-            &:first-child{
+
+            &:first-child {
                 margin-right: 6px;
             }
         }
     }
 }
-.item_content{
+
+.item_content {
     width: 976px;
     margin: 0 auto;
     @include border-bottom;
-    @include lg{
+
+    @include lg {
         width: 976px * 0.9;
     }
-    @include md{
+
+    @include md {
         width: 976px * 0.7;
     }
-    @include sm{
+
+    @include sm {
         width: 976px * 0.48;
         @include border-bottom_sm;
     }
-    @include xs{
+
+    @include xs {
         width: 976px * 0.32;
         padding: 0 12px 36px;
     }
-    .title_star{
+
+    .title_star {
         display: flex;
         justify-content: space-between;
         margin-bottom: 28px;
-        @include sm{
+
+        @include sm {
             margin-bottom: 20px;
         }
-        h2{
+
+        h2 {
             padding: 0;
-            @include sm{
+
+            @include sm {
                 font-size: 28px;
             }
         }
-        .star_comment{
+
+        .star_comment {
             margin-top: 8px;
             display: flex;
             align-items: center;
-            .starNum{
+
+            .starNum {
                 display: flex;
                 align-items: center;
-                h4{
+
+                h4 {
                     margin: auto 6px;
                 }
             }
         }
     }
 }
+
 @mixin pre_next {
     width: 40px;
     height: 40px;
@@ -376,85 +448,103 @@
     cursor: pointer;
 }
 
-.item_photos{
+.item_photos {
     width: 976px;
     margin: 0 auto;
     @include border-bottom;
-    @include lg{
+
+    @include lg {
         width: 976px * 0.9;
     }
-    @include md{
+
+    @include md {
         width: 976px * 0.7;
     }
-    @include sm{
+
+    @include sm {
         width: 976px * 0.48;
         @include border-bottom_sm;
     }
-    @include xs{
+
+    @include xs {
         width: 976px * 0.32;
         padding: 0 12px 36px;
     }
-    h2{
-        @include sm{
+
+    h2 {
+        @include sm {
             font-size: 28px;
             padding-bottom: 32px;
         }
     }
-    .photo_row1{
+
+    .photo_row1 {
         width: 912px;
         height: 300px;
         display: flex;
         justify-content: space-between;
         margin-bottom: 14px;
-        @include lg{
+
+        @include lg {
             width: 912px * 0.9;
             height: 300px * 0.9;
             margin-bottom: 10px;
         }
-        @include md{
+
+        @include md {
             width: 912px * 0.7;
             height: 300px * 0.7;
         }
-        @include sm{
+
+        @include sm {
             width: 912px * 0.48;
             height: 300px * 0.48;
             margin-bottom: 6px;
         }
-        @include xs{
+
+        @include xs {
             width: 912px * 0.32;
             height: 300px * 0.32;
             margin-bottom: 6px;
         }
-        img{
+
+        img {
             cursor: pointer;
         }
     }
-    .photo_row2{
+
+    .photo_row2 {
         width: 912px;
         height: 226px;
         display: flex;
         justify-content: space-between;
-        @include lg{
+
+        @include lg {
             width: 912px * 0.9;
             height: 226px * 0.9;
         }
-        @include md{
+
+        @include md {
             width: 912px * 0.7;
             height: 226px * 0.7;
         }
-        @include sm{
+
+        @include sm {
             width: 912px * 0.48;
             height: 226px * 0.48;
         }
-        @include xs{
+
+        @include xs {
             width: 912px * 0.32;
             height: 226px * 0.32;
         }
-        img{
+
+        img {
             cursor: pointer;
         }
     }
-    .photo_mask{
+
+    .photo_mask {
         position: fixed;
         right: 0;
         top: 0;
@@ -462,7 +552,8 @@
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.9);
         z-index: 110;
-        .close_photos{
+
+        .close_photos {
             @include pre_next;
             width: 20x;
             height: 20px;
@@ -471,133 +562,164 @@
             top: 5%;
             right: 100px;
             cursor: pointer;
-            &:hover{
+
+            &:hover {
                 background-image: url("../../images/travel_item/close_2.svg");
             }
-            @include lg{
+
+            @include lg {
                 right: 35px;
             }
-            @include md{
+
+            @include md {
                 right: 25px;
             }
-            @include xs{
+
+            @include xs {
                 right: 10px;
             }
         }
-        .picIndex{
+
+        .picIndex {
             display: block;
             color: whitesmoke;
             font-size: 20px;
             margin: 80px auto 30px;
             text-align: center;
-            @include md{
-                margin: 120px auto 30px; 
+
+            @include md {
+                margin: 120px auto 30px;
             }
         }
-        .photo_container{      
+
+        .photo_container {
             display: flex;
             justify-content: space-evenly;
-            align-items: center;     
-            .pre_photo{
+            align-items: center;
+
+            .pre_photo {
                 @include pre_next;
                 transform: rotate(180deg);
                 background-image: url("../../images/travel_item/right.svg");
-                &:hover{
+
+                &:hover {
                     background-image: url("../../images/travel_item/right_2.svg");
                 }
-                @include sm{
+
+                @include sm {
                     width: 40px * 0.7;
                     height: 40px * 0.7;
-                } 
-                @include xs{
+                }
+
+                @include xs {
                     width: 40px * 0.65;
                     height: 40px * 0.65;
-                } 
+                }
             }
-            .pics{
+
+            .pics {
                 width: 845px;
                 height: 563px;
-                @include md{
+
+                @include md {
                     width: 845px * 0.75;
                     height: 563px * 0.75;
                 }
-                @include sm{
+
+                @include sm {
                     width: 845px * 0.55;
                     height: 563px * 0.55;
                 }
-                @include xs{
+
+                @include xs {
                     width: 845px * 0.45;
                     height: 563px * 0.45;
-                }               
-                img{
+                }
+
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
             }
-            .next_photo{
+
+            .next_photo {
                 @include pre_next;
                 background-image: url("../../images/travel_item/right.svg");
-                &:hover{
+
+                &:hover {
                     background-image: url("../../images/travel_item/right_2.svg");
                 }
-                @include sm{
+
+                @include sm {
                     width: 40px * 0.7;
                     height: 40px * 0.7;
-                } 
-                @include xs{
+                }
+
+                @include xs {
                     width: 40px * 0.65;
                     height: 40px * 0.65;
-                } 
+                }
             }
         }
     }
 }
 
-.item_explanation{
+.item_explanation {
     width: 976px;
     margin: 0 auto;
     @include border-bottom;
-    @include lg{
+
+    @include lg {
         width: 976px * 0.9;
     }
-    @include md{
+
+    @include md {
         width: 976px * 0.7;
     }
-    @include sm{
+
+    @include sm {
         width: 976px * 0.48;
         @include border-bottom_sm;
     }
-    @include xs{
+
+    @include xs {
         width: 976px * 0.32;
         padding: 0 12px 36px;
     }
-    h2{
-        @include sm{
+
+    h2 {
+        @include sm {
             font-size: 28px;
             padding-bottom: 32px;
         }
     }
-    .ex_order{
+
+    .ex_order {
         margin-top: 12px;
         display: flex;
         justify-content: space-between;
-        @include md{
-           flex-direction: column;
-           align-items: center;
+
+        @include md {
+            flex-direction: column;
+            align-items: center;
         }
-        @include xs{
+
+        @include xs {
             align-items: flex-start;
-         }
+        }
     }
-    .list{
+
+    .list {
         margin-bottom: 42px;
         margin-left: 8px;
-        @include xs{
+
+        @include xs {
             margin-left: 0;
             margin-bottom: 24px;
         }
-        .num{
+
+        .num {
             width: 50px;
             height: 50px;
             line-height: 50px;
@@ -609,10 +731,12 @@
             margin-right: 30px;
             display: inline-block;
             vertical-align: top;
-            @include sm{
+
+            @include sm {
                 margin-right: 26px;
             }
-            @include xs{
+
+            @include xs {
                 width: 40px;
                 height: 40px;
                 line-height: 40px;
@@ -621,69 +745,87 @@
                 margin-top: 3px;
             }
         }
-        .right_word{
+
+        .right_word {
             display: inline-block;
             margin-top: 8px;
-            @include lg{
+
+            @include lg {
                 width: 330px;
             }
-            @include md{
+
+            @include md {
                 width: 450px;
             }
-            @include sm{
+
+            @include sm {
                 width: 330px;
             }
-            @include xs{
+
+            @include xs {
                 width: 220px;
             }
-            h3{
+
+            h3 {
                 font-size: 22px;
                 margin-bottom: 6px;
-                @include sm{
+
+                @include sm {
                     font-size: 20px;
                 }
-                @include xs{
+
+                @include xs {
                     font-size: 18px;
                 }
             }
-            h4{
+
+            h4 {
                 color: #707070;
             }
         }
     }
-    .order{
+
+    .order {
         border: 1px solid #996A4D;
         border-radius: 30px;
         background-color: #FAF9F2;
         width: 340px;
-        @include lg{
+
+        @include lg {
             margin-left: 50px;
             height: 430px;
         }
-        @include md{
+
+        @include md {
             margin-top: 40px;
             margin: 10px auto 15px;
         }
-        @include sm{
+
+        @include sm {
             margin: 10px auto 15px;
         }
-        @include xs{
+
+        @include xs {
             width: 300px;
         }
-        h4{
+
+        h4 {
             font-size: 22px;
             text-align: center;
             margin: 36px auto;
         }
-        .selects{
+
+        .selects {
             width: 242px;
             height: 294px;
-            margin: 0 auto;;
+            margin: 0 auto;
+            ;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
-            .selectItem{
+
+            .selectItem {
                 width: 100%;
                 outline: none;
                 appearance: none;
@@ -694,24 +836,29 @@
                 text-align: center;
                 border: 1px solid #996A4D;
                 padding-left: 56px;
-                option{
+
+                option {
                     color: #707070;
                     font-size: 18px;
                 }
             }
-            #date{
+
+            #date {
                 background-image: url("../images/travel_item/date_icon.svg"), url("../images/travel_item/select_icon.svg");
                 @include select_icon;
             }
-            #time{
+
+            #time {
                 background-image: url("../images/travel_item/time_icon.svg"), url("../images/travel_item/select_icon.svg");
                 @include select_icon;
             }
-            #people_num{
+
+            #people_num {
                 background-image: url("../images/travel_item/person_icon.svg"), url("../images/travel_item/select_icon.svg");
                 @include select_icon;
             }
-            #order_now{
+
+            #order_now {
                 color: white;
                 font-size: 18px;
                 width: 170px;
@@ -719,208 +866,260 @@
                 line-height: 48px;
                 margin-top: 12px;
                 transition: all 0.3s linear;
-                &:hover{
+
+                &:hover {
                     transform: scale(1.05);
                     transition: all 0.3s linear;
                 }
-                @include xs{
+
+                @include xs {
                     border-radius: 13px;
-                    
+
                 }
             }
         }
     }
 }
-.other_comments{
+
+.other_comments {
     width: 976px;
     margin: 0 auto;
     @include border-bottom;
-    @include lg{
+
+    @include lg {
         width: 976px * 0.9;
     }
-    @include md{
+
+    @include md {
         width: 976px * 0.7;
     }
-    @include sm{
+
+    @include sm {
         @include border-bottom_sm;
         width: 976px * 0.48;
     }
-    @include xs{
+
+    @include xs {
         width: 976px * 0.32;
         padding: 0 12px 36px;
     }
-    h2{
-        @include sm{
+
+    h2 {
+        @include sm {
             font-size: 28px;
             padding-bottom: 32px;
         }
     }
-    .comment_container{
+
+    .comment_container {
         width: 800px;
         margin: 0 auto;
-        @include md{
+
+        @include md {
             width: 800px * 0.7;
         }
-        @include sm{
+
+        @include sm {
             width: 800px * 0.54;
         }
-        @include xs{
+
+        @include xs {
             width: 800px * 0.32;
         }
-        .each_comment{
+
+        .each_comment {
             border: 1px solid #996A4D;
             border-radius: 15px;
             margin-bottom: 30px;
             display: flex;
-            @include sm{
+
+            @include sm {
                 margin-bottom: 15px;
             }
-            @include xs{
+
+            @include xs {
                 align-items: flex-start;
             }
-            .comment_left{
+
+            .comment_left {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 margin: 16px 42px 16px 46px;
-                @include sm{
+
+                @include sm {
                     margin: 16px 26px 16px 28px;
                 }
-                @include xs{
+
+                @include xs {
                     margin: 24px 20px 16px;
                 }
-                .avatar_border{
+
+                .avatar_border {
                     width: 55px;
                     height: 55px;
                     border-radius: 50%;
                     overflow: hidden;
                     margin-bottom: 5px;
-                    img{
+
+                    img {
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
                     }
                 }
             }
-            .comment_right{
+
+            .comment_right {
                 margin: 24px 46px 20px 0px;
-                @include sm{
+
+                @include sm {
                     margin-right: 20px;
                 }
-                .starNum2{
+
+                .starNum2 {
                     display: flex;
                     margin-bottom: 4px;
-                    img{
+
+                    img {
                         margin-right: 8px;
                     }
                 }
             }
         }
     }
-    #more_comments{
+
+    #more_comments {
         display: block;
         margin: 60px auto 0;
         transition: all 0.3s linear;
-        &:hover{
+
+        &:hover {
             color: white;
             background-color: #996A4D;
             transform: scale(1.05);
             font-size: 17px;
             transition: all 0.3s linear;
         }
-        @include sm{
+
+        @include sm {
             margin: 40px auto 0;
         }
     }
-    .onblock{
+
+    .onblock {
         display: none !important;
     }
 }
-#recommend_item{
+
+#recommend_item {
     margin-bottom: 240px;
-    h2{
+
+    h2 {
         width: 976px;
         margin: 40px auto 50px;
         padding: 0 20px;
-        @include lg{
+
+        @include lg {
             width: 976px * 0.9;
         }
-        @include md{
+
+        @include md {
             width: 976px * 0.7;
         }
-        @include sm{
+
+        @include sm {
             width: 976px * 0.48;
         }
-        @include xs{
+
+        @include xs {
             width: 976px * 0.32;
             margin: 40px auto 30px;
         }
     }
-    .recommend_container{
+
+    .recommend_container {
         width: 1120px;
         margin: 0 auto 100px;
         display: flex;
         justify-content: space-between;
-        @include lg{
+
+        @include lg {
             width: 900px;
         }
-        @include md{
+
+        @include md {
             width: 730px;
         }
-        @include sm{
+
+        @include sm {
             width: 480px;
             display: grid;
             grid-template-columns: auto auto;
         }
-        @include xs{
+
+        @include xs {
             width: 340px;
         }
+
         .item {
             height: 200px;
             width: 272px;
-            @include lg{
+
+            @include lg {
                 height: 200px * 0.8;
                 width: 272px * 0.8;
             }
-            @include md{
+
+            @include md {
                 height: 200px * 0.65;
                 width: 272px * 0.65;
             }
-            @include sm{
+
+            @include sm {
                 height: 200px * 0.85;
                 width: 272px * 0.85;
-               &:nth-child(1){
+
+                &:nth-child(1) {
                     margin-bottom: 180px;
-               }
-               &:nth-child(2){
+                }
+
+                &:nth-child(2) {
                     margin-bottom: 180px;
-           }
-           @include xs{
-                height: 200px * 0.6;
-                width: 272px * 0.6;
-           }
+                }
+
+                @include xs {
+                    height: 200px * 0.6;
+                    width: 272px * 0.6;
+                }
             }
+
             a {
                 width: 100%;
                 // border: 2px solid red;
                 border-radius: $borderRadius_cd;
                 overflow: hidden;
+
                 .trip_item {
                     @include trip_item_card;
                     // border: 2px solid red;
                     max-height: 350px;
-                    @include lg{
+
+                    @include lg {
                         height: auto;
                     }
+
                     .content {
                         height: 50%;
                         padding: 50px 20px 30px 20px;
                         background-color: #FAF9F2;
                         position: relative;
-                        @include lg{
+
+                        @include lg {
                             padding-bottom: 18px;
                         }
+
                         .avatar img {
                             border: 6px solid white;
                             // border: 2px solid red;
@@ -933,59 +1132,68 @@
                             left: 50%;
                             transform: translateX(-50%);
                         }
-                        .the_icon{
-                            @include md{
+
+                        .the_icon {
+                            @include md {
                                 top: 15px;
                                 right: 3px;
                             }
-                            @include sm{
+
+                            @include sm {
                                 top: 10px;
                                 right: 10px;
                             }
-                            @include xs{
+
+                            @include xs {
                                 top: 30px;
                                 right: 5px;
                             }
-                            .fav{
+
+                            .fav {
                                 cursor: pointer;
-                                @include lg{
+
+                                @include lg {
                                     margin-left: 4px;
                                     margin-right: 0;
                                 }
-                                @include md{
+
+                                @include md {
                                     margin-left: 0;
                                 }
-                                @include md{
+
+                                @include md {
                                     margin-left: 4px;
                                 }
-                                @include xs{
+
+                                @include xs {
                                     margin-left: 1.5px;
                                 }
                             }
                         }
+
                         .the_star_num {
                             // border: 20px solid red;
                             display: flex;
                             flex-direction: row;
                             padding: 0;
-    
+
                             img {
                                 width: 15px;
                             }
-    
+
                             @include mobile {
                                 img {
                                     width: 8px;
                                 }
                             }
-    
+
                             p.star_get,
                             p.area {
                                 // border: 2px solid brown;
                                 margin: 0 0 0 10px;
                             }
                         }
-    
+
                         h4.trip_intro {
                             height: 51.2px;
                             max-height: 55px;
@@ -996,6 +1204,7 @@
                             color: rgba(0, 0, 0, 0.8);
                             overflow: hidden;
                             font-weight: bold;
+
                             // @include lg{
                             //     margin-top: 12px;
                             //     margin-bottom: 20px;
@@ -1004,12 +1213,12 @@
                                 font-size: 14px;
                             }
                         }
-    
+
                         p.startprice {
                             // border: 2px solid red;
                             font-size: 8px;
                             color: rgba(0, 0, 0, 0.8);
-    
+
                             @include mobile {
                                 font-size: 8px;
                             }
@@ -1020,8 +1229,9 @@
         }
     }
 }
-.item_footer{
-    @include xs{
+
+.item_footer {
+    @include xs {
         margin-top: 280px;
     }
 }
