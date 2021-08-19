@@ -38,7 +38,8 @@ const Coupon = {
                             </td>
                             <td class="cExpire">
                                 <div v-if="coupon.is_edit == false" v-text="timestampToTime(coupon.expired_at)"></div>
-                                <input v-else v-model="coupon.expired_at">   
+                                <input type="datetime-local" v-else v-model="coupon.datetime_local" :id="timerId" @change="DatetimeToTimestamp(index)">
+                                
                             </td>
                             <td class="cCome">
                                 <div v-if="coupon.is_edit == false" v-text="coupon.source"></div>
@@ -70,6 +71,7 @@ const Coupon = {
 `,
     data() {
         return {
+            timerId: '',
             search: '',
             editNum: null,
             coupons: [
@@ -90,6 +92,7 @@ const Coupon = {
         edit(index) {
             // console.log(index);
             this.coupons[index].is_edit = true;
+            this.timerId = "timer";
         },
         delete_coupon(index) {
             console.log('刪除測試');
@@ -97,11 +100,11 @@ const Coupon = {
             // console.log(the_delete_coupon);
             axios.get('../../php/adm_coupon_delete.php', {
                 params: {  // 帶參數
-                    theID:  the_delete_coupon.ID //
+                    theID: the_delete_coupon.ID //
                 }
-            }).then(res =>{
+            }).then(res => {
                 this.coupons.splice(index, 1);
-            }).catch( (error) => alert('數據加載失敗'+ error)); 
+            }).catch((error) => alert('數據加載失敗' + error));
         },
         cancel(index) {
             // console.log(index);
@@ -109,7 +112,7 @@ const Coupon = {
         },
         confirm(index) {
             the_edit_coupon = this.coupons[index];
-            
+
             //把值傳給後端API
             axios.post('../../php/adm_coupon_edit.php', JSON.stringify({
                 theID: the_edit_coupon.ID, // 編號
@@ -131,15 +134,36 @@ const Coupon = {
             // this.coupons[index].is_edit = false;
 
         },
+        //將 Datetime 轉換為時間戳記
+        DatetimeToTimestamp(index) {
+            the_edit_coupon = this.coupons[index];
+            var oTimer = document.getElementById('timer');
+            var timestamp = new Date(oTimer.value).getTime()/1000;
+            the_edit_coupon.expired_at = timestamp;
+        },
+
         timestampToTime(timestamp) {
             var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話需乘1
             Y = date.getFullYear() + '/';
             M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
             D = date.getDate() + ' ';
             h = date.getHours() + ':';
-            m = date.getMinutes()
-            return this.timestamp = Y + M + D + h + m;
+            m = date.getMinutes() + ':';
+            s = date.getSeconds();
+            return this.timestamp = Y + M + D + h + m + '59';
         },
+        // 將時間戳記轉換為 datetime-local 格式，"yyyy-MM-ddThh:mm:ss"，ex: 2021-07-31T23:44:00"
+        timestampToDatetimelocal(timestamp) {
+            var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
+            Y = date.getFullYear() + '-';
+            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            D = date.getDate() + 'T';
+            h = date.getHours() + ':';
+            m = date.getMinutes() + ':';
+            s = date.getSeconds();
+            return this.timestamp = Y + M + D + h + m + '59'; // 2021-07-31T23:44:59
+
+        }
     },
     computed: {
         filterList() { //搜尋功能
@@ -153,10 +177,23 @@ const Coupon = {
         },
     },
     mounted() {
-        console.log('mounted');
-        //==================== 取得優惠券資料 =======================        
+        // console.log('mounted');
+        //==================== 取得優惠券資料 ======================= 
+        // axios.get('../../php/Lib/strtotime.php') // 抓取時間戳記
+        // .then(res => {
+        //     alert(res.data);
+        // })
+
+
         axios.get('../../php/adm_couponlist.php')
-            .then(res => this.coupons = res.data)
+            .then(res => {
+                const final_data = res.data;
+                for (let index = 0; index < final_data.length; index++) {
+                    final_data[index].datetime_local = this.timestampToDatetimelocal(final_data[index].expired_at); // 新增一個 date_time_local 的欄位，並將 expired_at 轉成 datetime 格式賦值給他
+                }
+                this.coupons = final_data;
+                console.log(this.coupons);
+            })
             .catch((error) => alert('數據加載失敗' + error));
     },
 
