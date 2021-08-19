@@ -230,7 +230,7 @@ const MemberInfo = {
                 form_data.append('file', getFiles);
                 $.ajax({
                     method: 'POST',
-                    url: '../../php/member_edit_updateimg.php',
+                    url: './php/member_edit_updateimg.php',
                     data: form_data,
                     cache: false,
                     processData: false,
@@ -243,7 +243,7 @@ const MemberInfo = {
                         console.log(exception)
                     },
                 })
-                axios.post('../../php/memberedit.php', {
+                axios.post('./php/memberedit.php', {
                     name: this.editValue[0],
                     gender: this.editValue[1],
                     birthday: this.editValue[2],
@@ -260,7 +260,7 @@ const MemberInfo = {
                     } else {
                         this.values[1].val = "";
                     }
-                    this.values[7].val = '../.' + data.avatar;
+                    this.values[7].val = data.avatar;
                     this.values[2].val = data.birthday;
                     this.values[3].val = data.phone;
                     this.values[4].val = data.email;
@@ -287,7 +287,7 @@ const MemberInfo = {
         }
     },
     mounted() {
-        axios.get('../../php/memberinfo.php').then(res => {
+        axios.get('./php/memberinfo.php').then(res => {
             if (res.data != 0) {
                 let data = res.data[0];
                 this.values[0].val = data.name;
@@ -303,7 +303,7 @@ const MemberInfo = {
                 this.values[4].val = data.email;
                 this.values[5].val = data.password;
                 this.values[6].val = data.password;
-                this.values[7].val = '../.' + data.avatar;
+                this.values[7].val = data.avatar;
             } else {
                 alert("請登入後再進行。");
                 location.href = "./login.html";

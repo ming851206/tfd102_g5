@@ -198,7 +198,7 @@
             align-items: center;
 
             // input[type="radio"]:checked+label::before {
-            //     background-image: url("../../images/icon/radio-empty.svg");
+            //     background-image: url("../images/icon/radio-empty.svg");
             // }
             #membermanlabel {
                 margin-left: 10px;
@@ -227,7 +227,7 @@
                     height: 14px;
                     /*   border: 1px solid blue; */
 
-                    background-image: url("../../images/icon/radio-empty.svg");
+                    background-image: url("../images/icon/radio-empty.svg");
                     background-size: contain;
 
                     margin-right: 5px;
@@ -236,7 +236,7 @@
                 }
 
                 &[type="radio"]:checked+label::before {
-                    background-image: url("../../images/icon/radio-chk.svg");
+                    background-image: url("../images/icon/radio-chk.svg");
 
                 }
             }
@@ -962,7 +962,7 @@
 
                 &::after {
                     content: '';
-                    background-image: url("../../images/icon/down.svg");
+                    background-image: url("../images/icon/down.svg");
                     background-repeat: no-repeat;
                     width: 20px;
                     height: 20px;
@@ -973,7 +973,7 @@
 
                 &::before {
                     content: '';
-                    background-image: url("../../images/icon/up.svg");
+                    background-image: url("../images/icon/up.svg");
                     background-repeat: no-repeat;
                     width: 20px;
                     height: 20px;
@@ -994,7 +994,7 @@
 
                 &::after {
                     content: '';
-                    background-image: url("../../images/icon/down.svg");
+                    background-image: url("../images/icon/down.svg");
                     background-repeat: no-repeat;
                     width: 20px;
                     height: 20px;
@@ -1005,7 +1005,7 @@
 
                 &::before {
                     content: '';
-                    background-image: url("../../images/icon/up.svg");
+                    background-image: url("../images/icon/up.svg");
                     background-repeat: no-repeat;
                     width: 20px;
                     height: 20px;
@@ -1504,7 +1504,7 @@
                 &::before {
                     position: absolute;
                     content: '';
-                    background-image: url("../../images/icon/close.svg");
+                    background-image: url("../images/icon/close.svg");
                     background-position: center center;
                     background-size: contain;
                     background-repeat: no-repeat;

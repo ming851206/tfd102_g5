@@ -117,7 +117,7 @@ const Love = {
                     this.now--;
                 }
                 let sql_id = this.returndatas[index].ID;
-                axios.post('../../php/removelove.php', {
+                axios.post('./php/removelove.php', {
                     ID: sql_id
                 }).then(res => {
                     let data = res.data;
@@ -127,7 +127,7 @@ const Love = {
         }
     },
     mounted() {
-        axios.get('../../php/love.php').then(res => {
+        axios.get('./php/love.php').then(res => {
             let data = res.data;
             this.returndatas = data;
 
@@ -135,8 +135,8 @@ const Love = {
         }).then(res => {
             for (let i = 0; i < this.returndatas.length; i++) {
 
-                this.returndatas[i].avatar = '../.' + this.returndatas[i].avatar;
-                this.returndatas[i].intro_pics = '../.' + this.returndatas[i].intro_pics;
+                this.returndatas[i].avatar = this.returndatas[i].avatar;
+                this.returndatas[i].intro_pics = this.returndatas[i].intro_pics;
 
             }
             this.total = Math.ceil(this.returndatas.length / 4);
