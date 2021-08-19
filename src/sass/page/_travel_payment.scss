@@ -125,7 +125,8 @@
             // border: 1px solid red;
             width: 40%;
             display: flex;
-            @include ipad{
+
+            @include ipad {
                 width: 55%;
                 padding: 20px;
             }
@@ -133,7 +134,8 @@
             @include mobile {
                 width: 100%;
             }
-            .payment_info_block_left_upblock{
+
+            .payment_info_block_left_upblock {
                 // border: 1px solid red;
                 display: inline-flex;
             }
@@ -144,11 +146,17 @@
                 height: 150px;
 
                 img {
-                    max-width: 85%;
+                    width: 150px;
+                    height: 150px;
                     border-radius: 100%;
                     object-fit: cover;
                     display: block;
                     @include block_center;
+
+                    @include mobile {
+                        width: 90px;
+                        height: 90px;
+                    }
                 }
 
                 p {
@@ -210,7 +218,6 @@
             .payment_info_priceBox {
                 width: 75%;
                 margin: 0 auto;
-                border: 1px solid red;
 
                 h4 {
                     font-size: 20px;
@@ -261,7 +268,6 @@
         // right
         .payment_info_block_right {
             display: inline-flex;
-            border: 1px solid red;
             align-self: stretch;
             // width: 40%;
             max-width: 510px;
@@ -303,11 +309,12 @@
         .payment_payCard {
             margin-left: 10%;
             padding: 40px 0;
-            @include mobile{
+
+            @include mobile {
                 padding: 0px;
             }
         }
-       
+
 
         .payment_addcard {
             border: 2px solid $main_br;
@@ -315,8 +322,9 @@
             width: 50%;
             border-radius: 15px;
             font-size: 0px;
-            @include mobile{
-                margin:10px 0px 0px 10%;
+
+            @include mobile {
+                margin: 10px 0px 0px 10%;
             }
 
             label {
@@ -339,21 +347,24 @@
                     outline: unset;
                     background-color: transparent;
                     border: unset;
-                    &::placeholder{
+
+                    &::placeholder {
                         visibility: hidden;
 
                     }
+
                     &:focus {
-                        &::placeholder{
+                        &::placeholder {
                             visibility: initial;
                         }
+
                         +span.plsholder {
                             font-size: 10px;
                             top: 10px;
                             left: 1rem;
                         }
                     }
-                 
+
                 }
 
             }
@@ -402,26 +413,30 @@
         padding: 50px 0px;
         display: flex;
         border-bottom: 2px solid $main_br;
-        @include mobile{
+
+        @include mobile {
             flex-direction: column;
         }
 
         h3 {
             margin-left: 10%;
             align-self: center;
-            @include mobile{
-               align-self: flex-start;
-               
+
+            @include mobile {
+                align-self: flex-start;
+
             }
         }
 
         .payment_discount {
             margin-left: 3%;
             width: 50%;
-            @include mobile{
-                margin:10px 0px 0px 10%;
+
+            @include mobile {
+                margin: 10px 0px 0px 10%;
                 width: 80%;
             }
+
             .payment_add_discount {
                 margin: 0 auto;
                 display: flex;
@@ -441,7 +456,8 @@
                     font-size: 20px;
                     outline: none;
                     border: none;
-                    @include mobile{
+
+                    @include mobile {
                         width: 100%;
                     }
                 }
@@ -484,7 +500,8 @@
                     border: none;
                     cursor: pointer;
                     background-color: $main_ivory;
-                    @include mobile{
+
+                    @include mobile {
                         width: 89%;
                     }
 
@@ -519,24 +536,27 @@
         border-bottom: 2px solid $main_br;
         margin-bottom: 15px;
 
-        @include mobile{
+        @include mobile {
             flex-direction: column;
             padding: 40px 0px;
         }
+
         .notice_h3 {
             margin-left: 10%;
             padding: 40px 0;
-            @include mobile{
+
+            @include mobile {
                 padding: 0px;
                 margin-left: 10%;
             }
         }
-        .notice_p{
+
+        .notice_p {
             width: 50%;
             margin-left: 7%;
             align-self: center;
-    
-            @include mobile{
+
+            @include mobile {
                 width: 90%;
                 margin-left: 10%;
                 margin-top: 10px;
@@ -556,7 +576,8 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 15px;
-        @include mobile{
+
+        @include mobile {
             padding-bottom: 60px;
         }
 

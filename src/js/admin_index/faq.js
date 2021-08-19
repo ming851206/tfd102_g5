@@ -1,5 +1,6 @@
 // ========== 問題意見管理(綺) ========== 
 const Faq = {
+    mixins:[timestampMixin],
     template: `
             <div class="temp">
                     <h3>問題意見管理</h3>
@@ -87,23 +88,24 @@ const Faq = {
             this.showBox = false;
         },
         replyMail() {
+           
             const btn = document.getElementById('mailbutton');
 
             document.getElementById('mailform')
                 .addEventListener('submit', function (event) {
                     event.preventDefault();
 
-                    btn.value = 'Sending...';
+                    btn.value = '傳送中...';
 
                     const serviceID = 'default_service';
                     const templateID = 'template_j1pz4di';
 
                     emailjs.sendForm(serviceID, templateID, this)
                         .then(() => {
-                            btn.value = 'Send Email';
-                            alert('Sent!');
+                            btn.value = '發送郵件';
+                            alert('已傳送!');
                         }, (err) => {
-                            btn.value = 'Send Email';
+                            btn.value = '發送郵件';
                             alert(JSON.stringify(err));
                         });
                 });
@@ -115,8 +117,10 @@ const Faq = {
                 }
             }).then(res => {
                 if(res.data == '更新狀態成功!'){
+                    
                     setTimeout(() => {
                         //要自動關閉視窗並清空內容
+                        this.data[this.theIndex].is_replied = 1;
                         this.toName = "";
                         this.toEmail = "";
                         this.showBox = false;
@@ -125,18 +129,6 @@ const Faq = {
                 }
             }).catch( (error) => alert('數據加載失敗'+ error));
         },
-        
-        timestampToTime(timestamp) {
-
-            var date = new Date(timestamp * 1);//時間戳為10位需*1000，時間戳為13位的話需乘1
-            Y = date.getFullYear() + '/';
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
-            D = date.getDate() + ' ';
-            h = date.getHours() + ':';
-            m = date.getMinutes()
-            return this.timestamp = Y + M + D + h + m;
-
-        }
     },
     computed:{},
     mounted() {

@@ -635,15 +635,36 @@ const TravelEdit = {
                         place: this.userAdd[2],
                         event_price: this.userAdd[3],
                         content: this.userAdd[4],
-                        pic: this.files
                     }).then(res => {
                         let data = res.data;
                         this.datas = data;
+                        let getFiles = this.$refs.update.files;
+                        let form_data = new FormData();
+                        for (let i = 0; i < getFiles.length; i++) {
+                            form_data.append('file[]', getFiles[i]);
+                        }
+                        form_data.append('ID', this.datas[this.datas.length - 1].ID);
+                        $.ajax({
+                            method: 'POST',
+                            url: '../../php/member_edit_addimg.php',
+                            data: form_data,
+                            cache: false,
+                            processData: false,
+                            contentType: false,
+                            dataType: 'json',
+                            success: function (response) {
+                                console.log(response)
+                            },
+                            error: function (exception) {
+                                console.log(exception)
+                            },
+                        })
                         this.userAdd = ['', '1', '', '', ''];
                         this.files = [];
                         this.add = false;
                         this.pops = true;
                     })
+
                 } else {
                     alert('價格範圍請在499~1000內');
                 }
