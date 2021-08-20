@@ -2,6 +2,6 @@
 
 $ecPayQueryString = http_build_query($_POST);
 
-$redirectURL = $_SERVER["HTTP_ORIGIN"] . "/travel_payment.html?" . $ecPayQueryString;
+echo "<script>alert('付款成功'); location.href = '../travel_list.html'; </script>";
 
-header("Location: " . $redirectURL);
+?>
