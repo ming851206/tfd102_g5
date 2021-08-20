@@ -1,9 +1,9 @@
 
 <?php
-// 抓取特婈時間的時間戳記
-$date = "2021-07-31 23:59";
+// 抓取特定時間的時間戳記
+$date = "2021-07-31 23:59:59";
 $timestamp = strtotime($date);
-echo '這是時間戳記: ' . $timestamp . ' ,這是時間格式：' . date('yy-m-d h:m', $timestamp);
+echo '這是時間戳記: ' . $timestamp . ' ,這是時間格式：' . date('Y-m-d h:m', $timestamp);
 
 
 // 參考用法
