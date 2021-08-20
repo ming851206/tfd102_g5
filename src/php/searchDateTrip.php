@@ -5,7 +5,7 @@ include("./conn.php"); //資料庫連線
 // echo 'test';
 // exit();
 
-// 作法二：回傳全部旅遊，再由頁面去篩選
+// 作法：回傳全部旅遊，再由頁面去篩選
 $sql = "SELECT m.avatar, p.ID, p.link, p.intro_pics, p.star_num, p.comment_count, p.place, p.title, p.event_price, s.started_at, s.ended_at
     From product_info p
         join session s
