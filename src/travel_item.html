@@ -350,10 +350,6 @@
                     axios.get('./php/showFav.php').then(res => {
                         this.favs = res.data; // 旅遊內容
                         for (let i = 0; i < this.favs.length; i++) {
-                            console.log(i);
-                            console.log(this.favs[i].product_info_ID);
-                            console.log(this.getID);
-                            console.log("\r\n");
                             if (this.favs[i].product_info_ID == this.getID) {
                                 this.fav = true;
                                 break;

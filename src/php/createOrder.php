@@ -1,7 +1,5 @@
 <?php
 
-<?php
-
 use Ecpay\Sdk\Factories\Factory;
 use Ecpay\Sdk\Services\UrlService;
 use Ecpay\Sdk\Exceptions\RtnException;
@@ -40,3 +38,5 @@ try {
 } catch (RtnException $e) {
     echo '(' . $e->getCode() . ')' . $e->getMessage() . PHP_EOL;
 }
+
+?>
