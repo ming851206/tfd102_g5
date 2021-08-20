@@ -172,6 +172,7 @@
                     <input type="hidden" :value="this.product.title" name="title">
                     <button type="submit" class="btnL" @click="payChk">確認並付款</button>
                 </form>
+                
             </div>
         </div>
 
@@ -216,10 +217,10 @@
                     location.href = 'travel_item.html';
                 },
                 payChk() {
-              
+                    
                     //insert訂單
                     axios.post('../../php/payment_insert.php', JSON.stringify({
-                        session: sessionStorage.getItem('time'),
+                        session: sessionStorage.getItem('session_ID'),
                         people: sessionStorage.getItem('people_num'),
                         price: this.totalmoney,
                     }), {
