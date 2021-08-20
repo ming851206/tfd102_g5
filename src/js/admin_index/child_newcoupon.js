@@ -39,6 +39,7 @@ const NewCoupon = {
         methods: {
             createCoupon() {
                 this.DatetimeToTimestamp();
+                // console.log(this.form.expired_at);
                 //把值傳給後端API
                 axios.post('../../php/adm_coupon_create.php', {
                     content: this.form.content, // 優惠券名稱
@@ -50,35 +51,35 @@ const NewCoupon = {
                     alert(res.data);
                 }).catch((error) => alert('數據加載失敗' + error));
             },
-            //將 Datetime 轉換為時間戳記
+            // Datetime -> 時間戳記
             DatetimeToTimestamp() {
                 var oTimer = document.getElementById('timer');
-                var timestamp = new Date(oTimer.value).getTime()/1000;
-                return this.form.expired_at = timestamp;
+                var newtimestamp = Math.floor(new Date(oTimer.value).getTime()); // 1625155140000
+                return this.form.expired_at = newtimestamp;
             },
+
+            // 時間戳記 -> Datetime
+            timestampToDatetime(timestamp, dateformtype) { // dateformtype = fasle 表示一般的時間格式，true 的話表時為 datetime-local 格式，"yyyy-MM-ddThh:mm:ss"，ex: 2021-07-31T23:44:00"
+                var theTimestamp = toString(timestamp).length = 13 ? timestamp * 1 : timestamp * 1000; //時間戳為 10 位需 * 1000，時間戳為13位的話需 * 1
+                // console.log(theTimestamp);
+                var date = new Date(theTimestamp);
     
-            timestampToTime(timestamp) {
-                var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話需乘1
-                Y = date.getFullYear() + '/';
-                M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
-                D = date.getDate() + ' ';
-                h = date.getHours() + ':';
-                m = date.getMinutes() + ':';
-                s = date.getSeconds();
-                return this.timestamp = Y + M + D + h + m + s;
-            },
-            // 將時間戳記轉換為 datetime-local 格式，"yyyy-MM-ddThh:mm:ss"，ex: 2021-07-31T23:44:00"
-            timestampToDatetimelocal(timestamp) {
-                var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
+                // console.log(date);
+                
+                // console.log(date);
                 Y = date.getFullYear() + '-';
                 M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-                D = date.getDate() + 'T';
-                h = date.getHours() + ':';
-                m = date.getMinutes() + ':';
-                s = date.getSeconds();
-                return this.timestamp = Y + M + D + h + m + s; // 2021-07-31T23:44:00
-    
-            }
+                D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
+                h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+                m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+                s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+                // s = 59;
+                
+                if (dateformtype){
+                    return this.datetime_local = Y + M + D + 'T' + h + m + s // 2021-07-31T23:44,
+                }
+                return this.datetime = Y + M + D +  ' ' + h + m + s
+            },
         },
     }
         
