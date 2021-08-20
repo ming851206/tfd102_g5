@@ -111,7 +111,7 @@ const Faq = {
                 });
                 
             //並呼叫axios寫入faq_at的時間
-            axios.get('../../php/adm_faqupdate.php', {
+            axios.get('../php/adm_faqupdate.php', {
                 params: {
                     theID: this.data[this.theIndex].ID,
                 }
@@ -132,7 +132,7 @@ const Faq = {
     },
     computed:{},
     mounted() {
-        axios.get('../../php/adm_faqlist.php')
+        axios.get('../php/adm_faqlist.php')
         .then(res => this.data = res.data)
         .catch( (error) => alert('數據加載失敗'+ error));
     },

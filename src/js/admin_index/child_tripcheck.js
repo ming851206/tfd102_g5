@@ -100,7 +100,7 @@ const TripCheck = {
         tripChecked(index) {
             if (confirm('是否上架此旅遊?')) {
                 //把值傳給後端API
-                axios.post('../../php/adm_updateTrip_checked.php', JSON.stringify({
+                axios.post('../php/adm_updateTrip_checked.php', JSON.stringify({
                     theID: this.data[index].ID
                 }), {
                     headers: {
@@ -133,7 +133,7 @@ const TripCheck = {
             if( this.rejReason == ''){
                 alert('請填寫退件原因!');
             }else{
-                axios.post('../../php/adm_rejectBox.php', JSON.stringify({
+                axios.post('../php/adm_rejectBox.php', JSON.stringify({
                     theID: this.boxID,
                     theValue : this.rejReason
                 }), {
@@ -166,7 +166,7 @@ const TripCheck = {
         },
     },
     mounted() {
-        axios.get('../../php/adm_tripcheck.php')
+        axios.get('../php/adm_tripcheck.php')
         .then(res => this.data = res.data)
         .catch( (error) => alert('數據加載失敗'+ error));
     },

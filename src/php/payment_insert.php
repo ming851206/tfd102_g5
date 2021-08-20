@@ -10,8 +10,8 @@ $price = $thePayment['price'];
 $people = $thePayment['people'];
 $session = $thePayment['session'];
 //建立SQL 
-$sql = "INSERT INTO `JUMPER`.`trip_order` 
-        (`ID`, `member_ID`, `session_ID`, `status`, `created_at`, `is_mailed`, `price`, `people`, `is_alerted`, `is_clicked`, `is_commented`) 
+$sql = "INSERT INTO trip_order 
+        (ID, member_ID, session_ID, status, created_at, is_mailed, price, people, is_alerted, is_clicked, is_commented) 
         VALUES (null ,? ,? , '1', UNIX_TIMESTAMP(), '0', ?, ?, '0', '0', '0');";
 
 //執行
