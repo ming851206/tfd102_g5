@@ -297,8 +297,8 @@
                     //insert訂單
                     axios.post('../../php/payment_insert.php', JSON.stringify({
                         session: sessionStorage.getItem('time'),
-                        price: this.totalmoney,
                         people: sessionStorage.getItem('people_num'),
+                        price: this.totalmoney,
                     }), {
                         headers: {
                             'Content-Type': 'application/json'

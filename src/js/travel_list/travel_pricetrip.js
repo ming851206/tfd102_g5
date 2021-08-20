@@ -161,7 +161,7 @@ Vue.component('priceTrip', {
 
         // 取得所有最愛旅遊
         getAllFavs(){
-            axios.get('http://localhost/php/showFav.php').then(res => {
+            axios.get('../../php/showFav.php').then(res => {
                     this.favs = res.data; // 旅遊內容
             });
         },
@@ -186,7 +186,7 @@ Vue.component('priceTrip', {
         // 參數：itemID, memberID
         // method: post
         addFav(itemID, memberID) {
-            axios.post('http://localhost/php/addFav.php', JSON.stringify({
+            axios.post('../../php/addFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
@@ -203,7 +203,7 @@ Vue.component('priceTrip', {
         // 參數：itemID, memberID
         // method: post
         deleteFav(itemID, memberID) {
-            axios.post('http://localhost/php/deleteFav.php', JSON.stringify({
+            axios.post('../../php/deleteFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
@@ -239,7 +239,7 @@ Vue.component('priceTrip', {
         filterList() { //搜尋功能
             // console.log('測試有進來篩選');
             return this.items.filter((item) => { //把data送下來使用filter功能
-                return item.event_price < parseInt(this.thePrice); // 低於搜尋價格的旅遊
+                return item.event_price <= parseInt(this.thePrice); // 低於搜尋價格的旅遊
             })
         },
     },
@@ -250,7 +250,7 @@ Vue.component('priceTrip', {
     // },
     mounted() {
         //==================== 搜尋旅遊 =======================
-        axios.get('http://localhost/php/searchTrip.php')
+        axios.get('../../php/searchTrip.php')
             .then(res => {
                 // console.log('filter');
                 // console.log(res.data);

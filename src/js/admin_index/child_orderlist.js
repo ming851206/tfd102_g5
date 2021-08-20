@@ -17,13 +17,13 @@ const OrderList = {
                 <th>訂單時間</th>
                 <th>功能</th>
             </tr>
-            <tr v-for="order in filterList">
+            <tr v-for="(order, index) in filterList">
                 <td v-text="order.ID"></td>
                 <td v-text="order.name"></td>
                 <td v-text="'$'+ order.price"></td>
-                <td id="sendStatus" v-text="order.is_alerted == 1 ? '已發送':'未發送' "></td>
+                <td v-text="order.is_alerted == 1 ? '已發送':'未發送' "></td>
                 <td id="ts">{{timestampToTime(order.created_at)}}</td>
-                <td><button id="sendlinkbtn" v-if="order.is_alerted == 0" class="sendLink" @click="updateIsAlert(order.ID)">發送連結</button></td>
+                <td><button class="sendLink" @click="updateIsAlert(index)" :disabled="order.is_alerted == 1" >發送連結</button></td>
             </tr>
         </table>
         <div class="pager2">
@@ -63,8 +63,8 @@ const OrderList = {
         timestampToTime(timestamp) {
 
             var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話不需乘1000
-            Y = date.getFullYear() + '/';
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
+            Y = date.getFullYear() + '-';
+            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
             D = date.getDate() + ' ';
             h = date.getHours() + ':';
             m = date.getMinutes() + ':';
@@ -74,21 +74,17 @@ const OrderList = {
         },
 
         // 發送連結
-        updateIsAlert(itemId) {
-            // console.log('test');
-            axios.post('http://localhost/php/update_orderalert.php', JSON.stringify({
-                itemId: itemId,
+        updateIsAlert(index) {
+            theOrder = this.data[index];
+            // console.log(theOrder);
+            axios.post('../../php/update_orderalert.php', JSON.stringify({
+                itemId: theOrder.ID,
             }))
-                .then(res => {
-                    console.log(res.data);
-                    document.getElementById('sendlinkbtn').remove();    
-                    $sendStatus = document.getElementById('sendStatus');
-                    console.log($sendStatus);
-                    $sendStatus.innerText = "已發送";
-                }
-
-                )
-                .catch((error) => alert('數據加載失敗' + error));
+            .then(res => {
+                // console.log(res.data);
+                theOrder.is_alerted = 1;
+            })
+            .catch((error) => alert('數據加載失敗' + error));
         }
     },
     computed: {
@@ -101,7 +97,7 @@ const OrderList = {
     mounted() {
         //==========前->後axios傳值的寫法=============
 
-        //    axios.post('http://localhost/g5/php/adm_orderList.php', JSON.stringify({
+        //    axios.post('../../g5/php/adm_orderList.php', JSON.stringify({
         //         name: this.data[0].o_username, 
         //         price: this.data[0].o_price,
 
@@ -118,11 +114,8 @@ const OrderList = {
 
         //===========================================
 
-        axios.get('http://localhost/php/adm_orderList.php')
+        axios.get('../../php/adm_orderList.php')
             .then(res => this.data = res.data)
             .catch((error) => alert('數據加載失敗' + error));
-        // axios.get('http://localhost/tfd102_g5/src/admin/php/orderList.php')
-        // .then(res => this.data = res.data);
-        //fetch('http://localhost/tfd102_g5/src/admin/php/orderList.php').then(res => console.log(res)); 
     },
 };

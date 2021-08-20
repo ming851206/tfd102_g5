@@ -37,8 +37,9 @@ const Coupon = {
                                 <input v-else v-model="coupon.off_percent">   
                             </td>
                             <td class="cExpire">
-                                <div v-if="coupon.is_edit == false" v-text="timestampToTime(coupon.expired_at)"></div>
-                                <input v-else v-model="coupon.expired_at">   
+                                <div v-if="coupon.is_edit == false" v-text="coupon.datetime"></div>
+                                <input type="datetime-local" v-else v-model="coupon.datetime_local" :id="timerId" @change="DatetimeToTimestamp(index)">
+                                
                             </td>
                             <td class="cCome">
                                 <div v-if="coupon.is_edit == false" v-text="coupon.source"></div>
@@ -70,6 +71,7 @@ const Coupon = {
 `,
     data() {
         return {
+            timerId: '',
             search: '',
             editNum: null,
             coupons: [
@@ -90,6 +92,7 @@ const Coupon = {
         edit(index) {
             // console.log(index);
             this.coupons[index].is_edit = true;
+            this.timerId = "timer";
         },
         delete_coupon(index) {
             console.log('刪除測試');
@@ -97,11 +100,11 @@ const Coupon = {
             // console.log(the_delete_coupon);
             axios.get('../../php/adm_coupon_delete.php', {
                 params: {  // 帶參數
-                    theID:  the_delete_coupon.ID //
+                    theID: the_delete_coupon.ID //
                 }
-            }).then(res =>{
+            }).then(res => {
                 this.coupons.splice(index, 1);
-            }).catch( (error) => alert('數據加載失敗'+ error)); 
+            }).catch((error) => alert('數據加載失敗' + error));
         },
         cancel(index) {
             // console.log(index);
@@ -109,7 +112,7 @@ const Coupon = {
         },
         confirm(index) {
             the_edit_coupon = this.coupons[index];
-            
+
             //把值傳給後端API
             axios.post('../../php/adm_coupon_edit.php', JSON.stringify({
                 theID: the_edit_coupon.ID, // 編號
@@ -131,14 +134,41 @@ const Coupon = {
             // this.coupons[index].is_edit = false;
 
         },
-        timestampToTime(timestamp) {
-            var date = new Date(timestamp * 1000);//時間戳為10位需*1000，時間戳為13位的話需乘1
-            Y = date.getFullYear() + '/';
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '/';
-            D = date.getDate() + ' ';
-            h = date.getHours() + ':';
-            m = date.getMinutes()
-            return this.timestamp = Y + M + D + h + m;
+  
+        // Datetime -> 時間戳記
+        
+        DatetimeToTimestamp(index) {
+            the_edit_coupon = this.coupons[index];
+            var oTimer = document.getElementById('timer');
+            var timeStamp = new Date(oTimer.value).getTime();
+            // console.log(oTimer.value); // 2021-07-17T23:59
+            var newtimestamp = Math.floor(new Date(oTimer.value).getTime()); // 1625155140000
+            // console.log(timestamp);
+            the_edit_coupon.expired_at = newtimestamp; // 將選取的時間戳記傳回去 data
+            the_edit_coupon.datetime = this.timestampToDatetime(newtimestamp); // 將一般 datetime 傳回去 data
+            the_edit_coupon.datetime_local = this.timestampToDatetime(newtimestamp, 1); // 將一般 datetime-local 傳回去 data
+        },
+        // 時間戳記 -> Datetime
+        timestampToDatetime(timestamp, dateformtype) { // dateformtype = fasle 表示一般的時間格式，true 的話表時為 datetime-local 格式，"yyyy-MM-ddThh:mm:ss"，ex: 2021-07-31T23:44:00"
+            var theTimestamp = toString(timestamp).length = 13 ? timestamp * 1 : timestamp * 1000; //時間戳為 10 位需 * 1000，時間戳為13位的話需 * 1
+            // console.log(theTimestamp);
+            var date = new Date(theTimestamp);
+
+            // console.log(date);
+            
+            // console.log(date);
+            Y = date.getFullYear() + '-';
+            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+            D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate());
+            h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+            m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+            s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+            // s = 59;
+            
+            if (dateformtype){
+                return this.datetime_local = Y + M + D + 'T' + h + m + s // 2021-07-31T23:44,
+            }
+            return this.datetime = Y + M + D +  ' ' + h + m + s
         },
     },
     computed: {
@@ -153,10 +183,28 @@ const Coupon = {
         },
     },
     mounted() {
-        console.log('mounted');
-        //==================== 取得優惠券資料 =======================        
+        // console.log('mounted');
+        //==================== 取得優惠券資料 ======================= 
+        // axios.get('../../php/Lib/strtotime.php') // 抓取時間戳記
+        // .then(res => {
+        //     // console(res.data);
+        // })
+
+
         axios.get('../../php/adm_couponlist.php')
-            .then(res => this.coupons = res.data)
+            .then(res => {
+                const final_data = res.data;
+                // console.log(final_data[0].expired_at);
+                console.log('測試是否有進來');
+                for (let index = 0; index < final_data.length; index++) {
+                    // this.$set(final_data[index], 'datetime', this.timestampToDatetime(parseInt(final_data[index].expired_at), false));
+                    final_data[index].datetime = this.timestampToDatetime(final_data[index].expired_at); // 新增一個 date_time_local 的欄位，並將 expired_at 轉成 datetime 格式賦值給他
+                    // alert();
+                    final_data[index].datetime_local = this.timestampToDatetime(final_data[index].expired_at, 1); // 新增一個 date_time_local 的欄位，並將 expired_at 轉成 datetime 格式賦值給他
+                }
+                this.coupons = final_data;
+                
+            })
             .catch((error) => alert('數據加載失敗' + error));
     },
 

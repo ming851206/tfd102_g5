@@ -254,7 +254,7 @@
                         }
                     }
 
-                    button:nth-of-type(2) {
+                    button:nth-of-type(1) {
                         background-color: rgb(190, 255, 255);
                         cursor: pointer;
 
@@ -379,7 +379,7 @@
 
                         td.cName {
                             // border: 2px solid red;
-                            width: 140px,
+                            width: 250px,
                         }
 
                         td.cCode {
@@ -396,7 +396,7 @@
                         td.cExpire,
                         td.cCreate {
                             // border: 2px solid red;
-                            width: 160px,
+                            width: 300px,
                         }
 
                         td.chk_btns {
@@ -639,6 +639,16 @@
                         }
                     }
 
+                    button.delbtn {
+                        @include btnSetbl;
+                        background-color: rgb(255, 204, 204);
+                        cursor: pointer;
+
+                        &:active,
+                        &:visited {
+                            background-color: darken(rgb(255, 204, 204), 10%);
+                        }
+                    }
 
                     .rejectBox {
                         position: fixed;
