@@ -3,7 +3,18 @@
 
 <head>
     <title>飛越世界奇景 尼加拉大瀑布</title>
-    @@include('layout_html/plugin.html')
+    <meta charset="UTF-8">
+    <meta name="keywords" content="travel, tour, trip, online travel">
+    <meta name="description" content="online travel website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="./js/vue/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -52,7 +63,7 @@
                 <div class="icons_group">
                     <img src="./images/travel_item/share.svg" alt="share" @click="share1">
                     <img src="./images/travel_item/fav_white.svg" v-if="fav == false" @click="like">
-                    <img src="./images/travel_item/fav_brown.svg" v-else @click="cancleLike">
+                    <img src="./images/travel_item/fav_brown.svg" v-else @click="like">
                 </div>
             </div>
 
@@ -124,9 +135,11 @@
                             </select>
                             <select name="tiem" id="time" class="selectItem" v-model="userSelect2">
                                 <option selected hidden>可選時段</option>
-                                <option v-for="(time, index) in selectTime">{{time}}</option>
+                                <option v-for="(time, index) in selectTime">
+                                    {{time.time}}
+                                </option>
                             </select>
-                            <select name="people_num" id="people_num" class="selectItem" v-model="userSelect3">
+                            <select name=" people_num" id="people_num" class="selectItem" v-model="userSelect3">
                                 <option selected hidden>參與人數</option>
                                 <option v-for="people_num in 10" :value="people_num">{{people_num}} 人</option>
                             </select>
@@ -171,9 +184,10 @@
                                     <img :src="item.avatar">
                                 </div>
                                 <div class="the_icon">
-                                    <div class="share" @click="share"></div>
+                                    <div class="share" @click.prevent.stop="share(index)"></div>
                                     <div class="fav" :class="{'clicked':is_fav(item.ID)}"
-                                        @click.prevent="is_fav(item.ID) ? deleteFav(item.ID) : addFav(item.ID)"></div>
+                                        @click.prevent.stop="is_fav(item.ID) ? deleteFav(item.ID) : addFav(item.ID)">
+                                    </div>
                                 </div>
                                 <div class="the_star_num">
                                     <img src="./images/index/content/star.svg">&nbsp;{{item.star_num}}
@@ -200,51 +214,15 @@
         const travelItem = new Vue({
             el: "#travel-item",
             data: {
-                info: [
-                    {
-                        //   ID: 3,
-                        //   intro_pics: "./images/travel_item/0.jpg",
-                        //   category: "美洲",
-                        // link: "./travel_item.html",
-                        //   avatar: "./images/avatar/avatar20.jpg",
-                        //   title: "飛越世界奇景 尼加拉大瀑布",
-                        //   name: "詹姆士",
-                        //   place: "美國",
-                        //   avgstar: 4.9,
-                        //   comment_count: 112,
-                        //   content: "此生必須一睹大自然最美產物：尼加拉大瀑布。尼加拉大瀑布以每秒150,000加侖的流水量傾瀉而下，氣勢滂礡，被譽為世界上最美的天然奇景之一。此行程將帶你欣賞阿帕拉契山脈和上紐約州的美麗風景，並且遠觀北美廣闊無邊的平地和東岸沿海平原之間的天然群山屏障。緊接著抵達本行程的目的地──尼加拉大瀑布，我們將帶你搭乘直升機，從空中俯瞰瀑布，水流奔騰而下的臨場震撼感，一生一定要體會一次！旅程最後我們將來到山羊島，換個角度欣賞瀑布宏偉壯觀的全貌，為整趟旅遊畫下完美句點。",
-                        //   pic1: "./images/travel_item/1.jpg",
-                        //   pic2: "./images/travel_item/2.jpg",
-                        //   pic3: "./images/travel_item/3.jpg",
-                        //   pic4: "./images/travel_item/4.jpg",
-                        //   pic5: "./images/travel_item/5.jpg",
-                        //   event_price: 499,
-                        //   date: ["2021/9/1", "2021/9/10"],
-                        //   time: ["9:00 - 10:00", "14:30 - 15:30"],
-                    }
-                ],
+                info: [],
                 list: [
                     { num: 1, title: "活動長度：約1小時", description: "旅遊全程以中文導覽" },
                     { num: 2, title: "人數上限：最多10位參與者", description: "歡迎邀請您的親朋好友，一起參與線上旅遊" },
                     { num: 3, title: "參與方式：線上加入", description: "透過 Google meenting 跟著線上導遊的腳步，一同暢遊景點" },
                     { num: 4, title: "取消訂購須知", description: "在旅遊活動開始「前 24 小時」取消，即可拿回全額退款" },
                 ],
-                comment: [
-                    // {avatar: "./images/avatar/avatar10.jpg", name: "愛麗絲", star: 5, content: "這是一次令人難以置信的體驗,100% 推薦!!如此有意義且服務周到!"},
-                ],
-                recommend_items: [
-                    // {
-                    //     id: 2,
-                    //     link: "./travel_item.html",
-                    //     cover_img: "./images/travel_list/250/louvre.jpg",
-                    //     avatar: "./images/avatar/avatar1.jpg",
-                    //     counts: "102",
-                    //     star: "5",
-                    //     place: "歐洲",
-                    //     trip_intro: " 羅浮宮象徵藝術，撼動人心之情久久保留",
-                    //     startprice: "800",
-                    // },
-                ],
+                comment: [],
+                recommend_items: [],
                 favs: [],
                 fav: false,
                 photo_carousel: false,
@@ -258,13 +236,19 @@
                 userSelect3: "參與人數",
                 selectTime: [],
                 getID: '',
+                sessionIDs: '',
             },
             methods: {
-                like() {
-                    this.fav = true;
+                getsessionID(index) {
+                    this.sessionIDs = this.selectTime[index].ID;
                 },
-                cancleLike() {
-                    this.fav = false;
+                like() {
+                    if (this.is_fav(this.getID)) {
+                        this.deleteFav(this.getID);
+                    } else {
+                        this.addFav(this.getID);
+                    }
+                    this.fav = !this.fav;
                 },
                 showPhotos(picIndex) {
                     this.photo_carousel = true;
@@ -288,10 +272,11 @@
 
                 },
                 share1() {
+                    console.log(this.info.ID);
                     FB.ui(
                         {
                             method: 'share',
-                            href: 'https://tibamef2e.com/tfd102/project/g5/travel_item.html',
+                            href: `https://tibamef2e.com/tfd102/project/g5/travel_item.html?ID=${this.info.ID}`,
                         },
                         function (response) {
                             if (response && !response.error_message) {
@@ -316,6 +301,7 @@
                                 chooseDate = travelItem.userSelect;
                                 chooseTime = travelItem.userSelect2;
                                 choosePeople = travelItem.userSelect3;
+                                session_ID = travelItem.sessionIDs;
                                 if (chooseDate == "可選日期" || chooseTime == "可選時段" || choosePeople == "參與人數") {
                                     alert("請選擇欲參加的日期、時間、人數")
                                 } else {
@@ -324,11 +310,9 @@
                                     sessionStorage["date"] = chooseDate;
                                     sessionStorage["time"] = chooseTime;
                                     sessionStorage["people_num"] = choosePeople;
+                                    sessionStorage["session_ID"] = session_ID;
 
                                     location.href = 'travel_payment.html';
-                                    // console.log(chooseDate);
-                                    // console.log(chooseTime);
-                                    // console.log(choosePeople);
                                 }
                             }
                         },
@@ -343,12 +327,16 @@
                         this.change = true;
                     }
                 },
-                share(e) {
-                    e.preventDefault();
+                changeLink(index, event) {
+                    event.preventDefault();
+                    location.href = '?ID=' + this.recommend_items[index].ID;
+
+                },
+                share(index) {
                     FB.ui(
                         {
                             method: 'share',
-                            href: 'https://tibamef2e.com/tfd102/project/g5/travel_item.html',
+                            href: `https://tibamef2e.com/tfd102/project/g5/travel_item.html?ID=${this.recommend_items[index].ID}`,
                         },
                         function (response) {
                             if (response && !response.error_message) {
@@ -357,15 +345,20 @@
                         }
                     )
                 },
-                changeLink(index, event) {
-                    event.preventDefault();
-                    location.href = '?ID=' + this.recommend_items[index].ID;
-
-                },
                 // 取得所有最愛旅遊
                 getAllFavs() {
                     axios.get('./php/showFav.php').then(res => {
                         this.favs = res.data; // 旅遊內容
+                        for (let i = 0; i < this.favs.length; i++) {
+                            console.log(i);
+                            console.log(this.favs[i].product_info_ID);
+                            console.log(this.getID);
+                            console.log("\r\n");
+                            if (this.favs[i].product_info_ID == this.getID) {
+                                this.fav = true;
+                                break;
+                            }
+                        }
                     });
                 },
 
@@ -433,6 +426,7 @@
                         if (this.eventTime[i].started_at > startday && this.eventTime[i].started_at < endday) {
                             let startTime = new Date(Number(this.eventTime[i].started_at));
                             let endTime = new Date(Number(this.eventTime[i].ended_at));
+                            let ID = this.eventTime[i].ID;
                             let time = "";
                             time += (startTime.getHours() < 10 ? '0' : '') + startTime.getHours() + ':';
                             time += (startTime.getMinutes() < 10 ? '0' : '') + startTime.getMinutes();
@@ -440,7 +434,15 @@
                             time += (endTime.getHours() < 10 ? '0' : '') + endTime.getHours() + ':';
                             time += (endTime.getMinutes() < 10 ? '0' : '') + endTime.getMinutes();
 
-                            this.selectTime.push(time);
+                            this.selectTime.push({ ID: ID, time: time });
+                        }
+                    }
+                },
+                userSelect2: function (newval, oldval) {
+                    for (let i = 0; i < this.selectTime.length; i++) {
+                        if (newval == this.selectTime[i].time) {
+                            this.sessionIDs = this.selectTime[i].ID;
+                            break;
                         }
                     }
                 }
@@ -529,11 +531,11 @@
                         .then(res => {
                             let data = res.data;
                             // console.log(data);
-                            that.is_fav(itemid) ? that.deleteFav(itemid, memberID) : that.addFav(itemid, memberID);
+
+                            // this.is_fav(itemid) ? this.deleteFav(itemid) : this.addFav(itemid);
                         })
                     // 取得最愛旅遊    
                     this.getAllFavs();
-
 
                 })
 
