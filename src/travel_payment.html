@@ -32,7 +32,6 @@
     <div id="travel_payment_page">
         <!--  include header   -->
 
-
         <!-- 確認並付款 -->
         <div class="payment_mainTitle">
             <div class="payment_mainTitle_icon">
@@ -85,7 +84,7 @@
                             </svg>
                             <p><span>112</span> 則評價</p>
                         </div>
-                        <h4>飛越世界奇景 尼加拉大瀑布</h4>
+                        <h4>{{product.title}}</h4>
                     </div>
 
                 </div>
@@ -149,45 +148,16 @@
             </div>
         </div>
 
-        <credit-card></credit-card>
-        <!-- 付款方式彈窗 -->
-        <div id="payment_payCard_outerDiv" v-if="craditShow">
-            <!-- 黑背景 -->
-            <div id="payCard_outerDiv_bg">
-                <div class="payCard_block">
-                    <!-- 關掉彈窗 -->
-                    <div class="payCard_close_block">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="23.994" viewBox="0 0 24 23.994"
-                            @click="cradit_Sbtn">
-                            <path id="Icon_ionic-ios-close" data-name="Icon ionic-ios-close"
-                                d="M26.129,23.286,34.7,14.714a2.009,2.009,0,1,0-2.841-2.841l-8.572,8.572-8.572-8.572a2.009,2.009,0,1,0-2.841,2.841l8.572,8.572-8.572,8.572A2.009,2.009,0,0,0,14.716,34.7l8.572-8.572L31.86,34.7A2.009,2.009,0,0,0,34.7,31.857Z"
-                                transform="translate(-11.285 -11.289)" fill="#996a4d" />
-                        </svg>
-                        <h4 class="payCard_close_block_h4">新增信用卡詳情</h4>
-                    </div>
-
-                    <!-- 確認按鈕區 -->
-                    <div class="payCard_OK_block">
-                        <button type="button" class="btnM" @click="cradit_Sbtn">確認</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
         <!-- 注意事項  -->
         <div class="notice_container">
             <div class="notice_h3">
-                <h3>注意事項</h3>
+                <h3>注意事項：</h3>
             </div>
             <div class="notice_p">
-                <p>參加者預訂要求<br>
-                    最多10人參加，年齡須滿18歲。</p>
+                <p>僅接受線上信用卡付款。<br>
+                    參加者預訂要求，最多10人參加，年齡須滿18歲。</p>
             </div>
         </div>
-
-
-
 
         <!-- 確認並付款 -->
         <div class="pay_container">
@@ -196,32 +166,14 @@
             </div>
             <div class="payment_add_btn_block">
                 <form method="POST" action="/php/createOrder.php">
-                    <button type="submit" class="btnL">確認並付款</button>
+                    <input type="hidden" :value="totalmoney" name="amt">
+                    <input type="hidden" :value="this.product.event_price" name="evt_price">
+                    <input type="hidden" :value="peopleNum" name="peopleNum">
+                    <input type="hidden" :value="this.product.title" name="title">
+                    <button type="submit" class="btnL" @click="payChk">確認並付款</button>
                 </form>
             </div>
         </div>
-
-        <!-- 付款成功彈窗 -->
-        <div id="pay_success_outerDiv_container" v-if="successShow">
-            <!-- 黑背景 -->
-            <div id="pay_success_outerDiv_bg">
-                <!-- 付款成功框框 -->
-                <div class="pay_success_block">
-                    <div class="pay_success_area">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="26.846" viewBox="0 0 36 26.846">
-                            <path id="Icon_awesome-check" data-name="Icon awesome-check"
-                                d="M12.227,30.9.527,19.2a1.8,1.8,0,0,1,0-2.546L3.073,14.1a1.8,1.8,0,0,1,2.546,0L13.5,21.986,30.382,5.1a1.8,1.8,0,0,1,2.546,0L35.473,7.65a1.8,1.8,0,0,1,0,2.546l-20.7,20.7A1.8,1.8,0,0,1,12.227,30.9Z"
-                                transform="translate(0 -4.577)" fill="#996A4D" />
-                        </svg>
-                        <h3>付款成功</h3>
-                    </div>
-                    <div class="pay_success_btn_block">
-                        <button type="button" class="btnM" @click="finalChk">確認</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
 
 
     </div>
@@ -230,40 +182,11 @@
     </footer>
 
     <script>
-        Vue.component('CreditCard', {
-            template: `
-            <div class="payment_payCard_container">
-                <div class="payment_payCard">
-                    <h3>付款方式：</h3>
-                </div>
-                <div class="payment_addcard">
-                    <div class="item1">
-                        <label for="">
-                            <input type="text" placeholder="0000 0000 0000 0000" inputmode="decimal">
-                            <span class="plsholder">卡號</span>
-                        </label>
-                    </div>
-                    <div class="item2">
-                        <label for="">
-                            <input type="text" placeholder="月月/年年年年" inputmode="decimal">
-                            <span class="plsholder">到期日</span>
-                        </label>
-                        <label for="">
-                            <input type="text" maxlength="3" placeholder="123" inputmode="decimal">
-                            <span class="plsholder">安全碼</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-            `,
-            // data(){},
-            // methods: {},
-        });
+        
         new Vue({
             el: '#travel_payment_page',
             data() {
                 return {
-                    craditShow: false,
                     discountShow: false,
                     addcard_value: '輸入信用卡',
                     addDiscount_value: '選擇優惠券',
@@ -274,8 +197,9 @@
                     initPrice: 0,
                     couponMinus: 0,
                     totalmoney: 0,
+                    peopleNum: sessionStorage.getItem('people_num'),
                     isChk: '',
-                    resTxt:'',
+                    resTxt: '',
                 }
             },
             methods: {
@@ -292,8 +216,7 @@
                     location.href = 'travel_item.html';
                 },
                 payChk() {
-                    //信用卡判斷if
-
+              
                     //insert訂單
                     axios.post('../../php/payment_insert.php', JSON.stringify({
                         session: sessionStorage.getItem('time'),
@@ -303,16 +226,10 @@
                         headers: {
                             'Content-Type': 'application/json'
                         }
-                    }).then(res => {
-                        if(res.data == '成功!'){
-                            this.successShow = true;
-                        }
+                    }).then(res => { 
+                        console.log(res);
+                        sessionStorage.clear();
                     }).catch((error) => alert('數據加載失敗' + error));
-                },
-                finalChk(){
-                    this.successShow = false;
-                    sessionStorage.clear();
-                    location.href = 'travel_list.html';
                 },
             },
             computed: {
