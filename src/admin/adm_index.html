@@ -24,18 +24,23 @@
         <div id="app">
             <div class="adm_flexbox">
                 <div class="adm_appl">
-                    <router-link to="/trip" @click.native="init" :class="{'is_active':current_category === '/trip'}">旅程管理</router-link>
-                    <router-link to="/order" @click.native="init" :class="{'is_active':current_category === '/order'}">旅程訂單管理</router-link>
-                    <router-link to="/coupon" @click.native="init" :class="{'is_active':current_category === '/coupon'}">優惠券管理</router-link>
-                    <router-link to="/faq" @click.native="init" :class="{'is_active':current_category === '/faq'}">問題意見管理</router-link>
-                    <router-link to="/member" @click.native="init" :class="{'is_active':current_category === '/member'}">會員管理</router-link>
+                    <router-link to="/trip" @click.native="init" :class="{'is_active':current_category === '/trip'}">
+                        旅程管理</router-link>
+                    <router-link to="/order" @click.native="init" :class="{'is_active':current_category === '/order'}">
+                        旅程訂單管理</router-link>
+                    <router-link to="/coupon" @click.native="init"
+                        :class="{'is_active':current_category === '/coupon'}">優惠券管理</router-link>
+                    <router-link to="/faq" @click.native="init" :class="{'is_active':current_category === '/faq'}">
+                        問題意見管理</router-link>
+                    <router-link to="/member" @click.native="init"
+                        :class="{'is_active':current_category === '/member'}">會員管理</router-link>
                 </div>
                 <div class="adm_appr">
                     <div class="adm_above">
                         <h4>Hi!Jumper</h4>
                         <button class="btnM" type="button" @click="chkBtn" id="loginChk">登出</button>
                     </div>
-                
+
                     <router-view></router-view>
                 </div>
             </div>
@@ -71,23 +76,35 @@
             template: `
                 <div>
                     <div class="linkGroup">
-                        <router-link to="/trip" class="topA">旅程列表</router-link>
-                        <router-link to="/trip/tripCheck" class="topA">旅程申請審核</router-link>
+                        <router-link to="/trip" class="topA" :class="{'isActive': work == 'list'}" @click.native=" work = 'list'">旅程列表</router-link>
+                        <router-link to="/trip/tripCheck" class="topA" :class="{'isActive': work == 'check'}" @click.native=" work = 'check' ">旅程申請審核</router-link>
                     </div>
                     <router-view></router-view>
                 </div>
-        ` };
+        ` ,
+        data(){
+            return{
+                work:'list',
+            }
+        },
+    };
         // ========== 旅程訂單管理(竹) ========== 
         const Order = {
             template: `
                 <div>
                     <div class="linkGroup">
-                        <router-link to="/order" class="topA">訂單管理</router-link>
-                        <router-link to="/order/commentCheck" class="topA">旅程評論審查</router-link>
+                        <router-link to="/order" class="topA" :class="{'isActive': work == 'orderlist'}" @click.native=" work = 'orderlist'">訂單管理</router-link>
+                        <router-link to="/order/commentCheck" class="topA" :class="{'isActive': work == 'cmtCheck'}" @click.native=" work = 'cmtCheck'">旅程評論審查</router-link>
                     </div>
                     <router-view></router-view>
                 </div>
-        ` };
+        ` ,
+        data(){
+            return{
+                work:'orderlist',
+            }
+        },
+    };
         //======================================
         const router = new VueRouter({
             mode: 'history',
@@ -138,49 +155,52 @@
         new Vue({
             el: '#app',
             router,
-            data:{
-                current_category:'/trip',
+            data: {
+                current_category: '/trip',
             },
             methods: {
-                init(e){
+                init(e) {
                     //console.log(e.target.getAttribute('href'));
                     this.current_category = e.target.getAttribute('href'); //加class,current_cate = href
 
                     axios.post('../php/adm_loginCheck.php')
-                    .then(res => {
-                        if(res.data==""){
-                            alert('請先登入!');
-                            location.href = '../admin/login.html'; 
-                            
-                        }
-                    })
-                    .catch( (error) => alert('數據加載失敗'+ error));
-                    
+                        .then(res => {
+                            if (res.data == "") {
+                                alert('請先登入!');
+                                location.href = '../admin/login.html';
+
+                            }
+                        })
+                        .catch((error) => alert('數據加載失敗' + error));
+
                 },
-                chkBtn(){
+                chkBtn() {
                     axios.post('../php/adm_loginCheck.php')
-                    .then(res => {
-                        if(res.data==""){
-                            document.getElementById('loginChk').innerText = '登入'; 
-                            location.href = '../admin/login.html';
-                        }else{
-                            document.getElementById('loginChk').innerText = '登出'; 
-                            location.href = '../php/adm_logout.php';
-                        }
-                    })
-                    .catch( (error) => alert('數據加載失敗'+ error));
+                        .then(res => {
+                            if (res.data == "") {
+                                document.getElementById('loginChk').innerText = '登入';
+                                location.href = '../admin/login.html';
+                            } else {
+                                document.getElementById('loginChk').innerText = '登出';
+                                location.href = '../php/adm_logout.php';
+                            }
+                        })
+                        .catch((error) => alert('數據加載失敗' + error));
                 },
             },
             mounted() {
                 axios.post('../php/adm_loginCheck.php')
                     .then(res => {
-                        if(res.data==""){
-                            document.getElementById('loginChk').innerText = '登入'; 
-                        }else{
-                            document.getElementById('loginChk').innerText = '登出'; 
+                        if (res.data == "") {
+                            document.getElementById('loginChk').innerText = '登入';
+                        } else {
+                            document.getElementById('loginChk').innerText = '登出';
                         }
                     })
-                    .catch( (error) => alert('數據加載失敗'+ error));
+                    .catch((error) => alert('數據加載失敗' + error));
+
+                let preSet = document.getElementsByTagName('a')[0];
+                preSet.click();//預選第一個項目第一頁
             },
         });
     </script>

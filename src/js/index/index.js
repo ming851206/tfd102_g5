@@ -193,41 +193,54 @@ const vue_theme = new Vue({
 const travel = Vue.component("travel-item", {
     template: `
     <div class="travel">
-        <h2>熱門旅遊</h2>
-        <div id="the-travel">
-            <ul id="travel_container">
-                <li id="travel_li" v-for="trip in trips"  data-aos="zoom-in-up" data-aos-duration="1200" data-aos-once="false">
-                    <img class="place" :src="trip.photo">
+    <h2>熱門旅遊</h2>
+    <div id="the-travel">
+        <ul id="travel_container">
+            <li class="travel_li" v-for="(trip,index) in trips" :id="trip.ID" data-aos="zoom-in-up"
+                data-aos-duration="1200" data-aos-once="false">
+                <a :href="trip.link" @click="changeLink(index ,$event)">
+                    <div class="imgBorder">
+                        <img class="place" :src="trip.intro_pics">
+                    </div>
                     <div class="main_content">
                         <div class="first">
                             <div class="star_num">
                                 <img src="./images/index/content/star.svg">
-                                <p>{{trip.star}}</p>
-                            </div> 
-                            <p class="middle">({{trip.num}}).</p>
-                            <p>{{trip.place}}</p>    
+                                <p>{{trip.star_num}}</p>
+                            </div>
+                            <p class="middle">({{trip.comment_count}}).</p>
+                            <p>{{trip.place}}</p>
                         </div>
                         <h3>{{trip.title}}</h3>
-                        <p class="third">每人 $ {{trip.price}} TWD </p>
+                        <p class="third">每人 $ {{trip.event_price}} TWD </p>
                     </div>
-                </li>    
-            </ul>
-        </div>
-        <a href="travel_list.html">
-            <button id="index_travel_more" class="btnL_line">更多旅遊</button>
-        </a>
+                </a>
+            </li>
+        </ul>
     </div>
+    <a href="travel_list.html">
+        <button id="index_travel_more" class="btnL_line">更多旅遊</button>
+    </a>
+</div>
     `,
     data() {
         return {
-            trips: [
-                { photo: "./images/index/content/travel_1.jpg", star: '5', num: "1503", place: "柬埔寨", title: "探索吳哥窟全景", price: "590" },
-                { photo: "./images/index/content/travel_2.jpg", star: '5', num: "583", place: "埃及", title: "揭開古埃及神秘面紗", price: "720" },
-                { photo: "./images/index/content/travel_3.jpg", star: '4.9', num: "888", place: "南非", title: "暢遊非洲野生動物園", price: "830" },
-                { photo: "./images/index/content/travel_4.jpg", star: '4.9', num: "55", place: "義大利", title: "漫步古羅馬遺址", price: "690" },
-            ]
+            trips: [],
         }
-    }
+    },
+    methods: {
+        changeLink(index, event) {
+            event.preventDefault();
+            location = 'travel_item.html?ID=' + this.trips[index].ID;
+        },
+    },
+    mounted() {
+        this.getID = location.search.split("=")[1];
+
+        axios.post('./php/index_recommend.php').then(res => {
+            this.trips = res.data;
+        });
+    },
 })
 const vue_travel = new Vue({
     el: "#popular_travel",

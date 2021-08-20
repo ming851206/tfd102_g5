@@ -358,13 +358,16 @@
                                 index: this.theTheme
                             }).then(res => {
                                 let data = res.data;
+
                                 if (data != -1) {
                                     for (let i = 0; i < data.length; i++) {
                                         this.task_record.splice(data[i].task_ID - 1, 1, 1)
                                     }
                                 } else {
-                                    alert('請先登入，將前往登入頁');
-                                    location.href = './login.html';
+                                    setTimeout(() => {
+                                        alert('請先登入，將前往登入頁');
+                                        location.href = './login.html';
+                                    }, 500);
                                 }
                             }).then(res => {
 

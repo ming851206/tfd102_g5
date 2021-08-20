@@ -136,7 +136,7 @@ const TravelEdit = {
                 </div>
                 <div class="travelP"  >
                     <p v-if="checkstatus(index) && checkDelete(index)" @click="workdown(index)">下架</p>
-                    <p v-else-if="!checkDelete(index) " style="color:black;">下架中</p>
+                    <p v-else-if="!checkDelete(index) " style="color:black;">已下架</p>
                     <p v-else-if="checkstatus(index)"></p>
                 </div>
                 <div class="travelP" @click="changeWorks(index)"">
@@ -416,7 +416,7 @@ const TravelEdit = {
                         })
                         alert('下架成功');
                     } else {
-                        alert('請等待活動內容結束後在進行下架');
+                        alert('請等待活動內容結束後，再進行下架');
                     }
                 })
             }
@@ -450,7 +450,7 @@ const TravelEdit = {
                     let data = res.data;
                     console.log(data);
                     if (data == 0) {
-                        alert('請等待活動結束後再進行編輯');
+                        alert('請等待活動結束後，再進行編輯');
                     } else {
                         alert('修改完成');
                     }
@@ -609,7 +609,7 @@ const TravelEdit = {
 
         },
         checkDeleteAddImg: function name(index) {
-            let yes = confirm("確定要移除這張此照片嗎?");
+            let yes = confirm("確定要移除這張照片嗎?");
             if (yes) {
                 this.files.splice(index, 1);
             }

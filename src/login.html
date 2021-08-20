@@ -55,8 +55,8 @@
                         autocomplete="off"
                         name="member_account_input" 
                         id="account" 
-                        onkeyup="value=value.replace(/[\W]/g,'') "
-                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                        onkeyup="ban_chinese(this)"/>
+                    
                     <input class="login_input" 
                         v-model="password" 
                         type="password" 
@@ -104,17 +104,15 @@
                         type="account" 
                         placeholder="帳號 :"
                         id="account_register" 
-                        onkeyup="value=value.replace(/[\W]/g,'') "
-                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                        onkeyup="ban_chinese(this)">
 
                     <input class="login_input" 
                         v-model="email_register" 
                         type="email" 
                         placeholder="Email :"
                         autocomplete="off" 
-                        id="email_register" 
-                        onkeyup="value=value.replace(/[\W]/g,'') "
-                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                        id="email_register"
+                        onkeyup="ban_chinese(this)">
                     <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
 
                     <input class="login_input" 
@@ -132,7 +130,6 @@
                     <p v-if="!password_register_again_msg" class="sigin_tiny">確認密碼必須與密碼相同</p>
                     <!-- 登入按鈕 -->
                     <button type="button" class="btnM Sign_BTN" id="showBtn" @click="joinIN">註冊</button>
-
 
                 </div>
 
@@ -174,8 +171,7 @@
                         autocomplete="off" 
                         name="member_account_input" 
                         id="account" 
-                        onkeyup="value=value.replace(/[\W]/g,'') "
-                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
+                        onkeyup="ban_chinese(this)">
                     <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off" name="member_password_input">
                     <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
@@ -284,13 +280,12 @@
                 <div class="forgetpsd_email_block">
                     <h4 class="forgetpsd_h4">我們需要驗證您的身份</h4>
                     <input class="login_input forget_input" 
-                        v-model="email_register" 
+                        v-model="forget_email_register" 
                         type="email"
                         placeholder="輸入註冊的Email :" 
                         ref="forgetemail" 
-                        onkeyup="value=value.replace(/[\W]/g,'') "
-                        onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
-                    <p v-if="!email_register_msg" class="sigin_tiny forgetPassword_phone">信箱格式錯誤</p>
+                        onkeyup="ban_chinese(this)">
+                    <p v-if="!forget_email_register_msg" class="sigin_tiny forgetPassword_phone">信箱格式錯誤</p>
                     <!-- submit email -->
                     <button type="button" class="btnM forgetpsd_sub" id="" @click="forget">寄送認證</button>
                 </div>
@@ -306,6 +301,7 @@
     <script src="./js/header_footer.js"></script>
 
     <script>
+
 
         new Vue({
             el: '#login',
@@ -323,6 +319,8 @@
                     password_register_again_msg: true,
                     email_register: '',
                     email_register_msg: true,
+                    forget_email_register: '',
+                    forget_email_register_msg: true,
                     forgetPassword_verification: false,
                     email: '',
                 }
@@ -352,7 +350,6 @@
                     }
                 },
                 email_register: function () {
-
                     // let emails = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
                     let isText = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
                     if (!isText.test(this.email_register)) {
@@ -361,6 +358,14 @@
                         this.email_register_msg = true;
                     }
                 },
+                forget_email_register: function () {
+                    let isText = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
+                    if(!isText.test(this.forget_email_register)) {
+                        this.forget_email_register_msg = false;
+                    } else {
+                        this.forget_email_register_msg = true;
+                    }
+                }
             },
             methods: {  //函數（方法）大部分放這裡
                 // 忘記密碼
@@ -432,7 +437,6 @@
                 },
                 joinIN() {
                     // let isText = /^(([.](?=[^.]|^))|[\w_%{|}#$~`+!?-])+@(?:[\w-]+\.)+[a-zA-Z.]{2,63}$/;
-
                     if (this.account_register && this.email_register_msg && this.password_register && this.password_register_again && this.password_register_msg) {
                         if ($('#password_register').val() == this.$refs.passwd_again.value) {
                             axios.post('./php/Join.php', {
@@ -464,10 +468,20 @@
                     } else {
                         alert('請完成註冊內容');
                     }
-                }
+                },
+                // ban_chinese(e){
+                //     e.value=e.value.replace(/[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/g,'')
+                // },
             },
-        });
+        });ll
 
+    </script>
+
+    <script>
+        function ban_chinese(obj){
+            obj.value=obj.value.replace(/[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/g,'');
+        //  alert("請輸入英文");
+        }
     </script>
 </body>
 

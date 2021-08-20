@@ -226,23 +226,25 @@ const MemberInfo = {
 
                 }
                 let getFiles = this.$refs.bigImg.files[0];
-                let form_data = new FormData();
-                form_data.append('file', getFiles);
-                $.ajax({
-                    method: 'POST',
-                    url: './php/member_edit_updateimg.php',
-                    data: form_data,
-                    cache: false,
-                    processData: false,
-                    contentType: false,
-                    dataType: 'json',
-                    success: function (response) {
-                        console.log(response)
-                    },
-                    error: function (exception) {
-                        console.log(exception)
-                    },
-                })
+                if (getFiles != undefined) {
+                    let form_data = new FormData();
+                    form_data.append('file', getFiles);
+                    $.ajax({
+                        method: 'POST',
+                        url: './php/member_edit_updateimg.php',
+                        data: form_data,
+                        cache: false,
+                        processData: false,
+                        contentType: false,
+                        dataType: 'json',
+                        success: function (response) {
+                            // console.log(response)
+                        },
+                        error: function (exception) {
+                            // console.log(exception)
+                        },
+                    })
+                }
                 axios.post('./php/memberedit.php', {
                     name: this.editValue[0],
                     gender: this.editValue[1],

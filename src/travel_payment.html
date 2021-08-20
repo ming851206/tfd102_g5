@@ -6,17 +6,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- 共用 -->
     <meta charset="UTF-8">
-<meta name="keywords" content="travel, tour, trip, online travel">
-<meta name="description" content="online travel website">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="./js/jq/jquery-3.6.0.js"></script>
-<script src="./js/vue/vue.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
-<link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-<link rel="stylesheet" href="./css/style.css">
+    <meta name="keywords" content="travel, tour, trip, online travel">
+    <meta name="description" content="online travel website">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/jq/jquery-3.6.0.js"></script>
+    <script src="./js/vue/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
+    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body class="travel_payment_Body">
@@ -35,7 +35,6 @@
 
         <!-- 確認並付款 -->
         <div class="payment_mainTitle">
-
             <div class="payment_mainTitle_icon">
                 <img src="./images/icon/arrowLeft.svg" alt="" @click="hrefback" style="cursor: pointer;">
             </div>
@@ -46,7 +45,8 @@
         <div class="mainTitle_info_confirmation_container">
             <div class="mainTitle_info_confirmation_left">
                 <h4 class="mainTitle_info_confirmation_left_h4">你的旅遊</h4>
-                <p class="mainTitle_info_confirmation_left_p">日期<br><span>{{showDate}}</span><span>{{showTime}}</span></p>
+                <p class="mainTitle_info_confirmation_left_p">日期<br><span>{{showDate}}</span><span>{{showTime}}</span>
+                </p>
             </div>
 
             <!-- <div class="mainTitle_info_confirmation_right">
@@ -94,7 +94,8 @@
                     <h4>價格詳情</h4>
                     <div class="item1_evt_price">
                         <p>場次單價
-                            <span id="event_price">$ {{product.event_price}}</span><span id="people">&nbsp x &nbsp{{showPeople}}人</span>
+                            <span id="event_price">$ {{product.event_price}}</span><span id="people">&nbsp x
+                                &nbsp{{showPeople}}人</span>
                         </p>
                         <p>${{personPrice}}</p>
                     </div>
@@ -107,11 +108,7 @@
                         <p>${{totalPrice}}</p>
                     </div>
                 </div>
-<<<<<<< HEAD
                 <p class="payment_info_block_left_remind">退訂政策 在旅遊活動開始「前 24 小時」取消，即可拿回全額退款。 </p>
-=======
-                <p class="payment_info_block_left_remind">在旅遊活動開始「前24小時」取消，即可拿回全額退款。</p>
->>>>>>> NEW_PING
             </div>
 
             <!-- right -->
@@ -145,8 +142,7 @@
                 <!-- 優惠卷下拉選單 -->
                 <div class="payment_discount_list_block" v-if="discountShow">
                     <div class="payment_discount_list_block_input" @click="choose_discount">
-                        <input class="payment_discount_list_input" type="text" 
-                            :value="choose_discount_value" @input="alert('1111');
+                        <input class="payment_discount_list_input" type="text" :value="choose_discount_value" @input="alert('1111');
                             ">
                     </div>
                 </div>
@@ -191,7 +187,7 @@
         </div>
 
 
-        
+
 
         <!-- 確認並付款 -->
         <div class="pay_container">
@@ -199,7 +195,9 @@
                 <h4>選擇以下按鈕即代表您同意參加者免責聲明、退訂政策和參加者退款政策。</h4>
             </div>
             <div class="payment_add_btn_block">
-                <button type="button" class="btnL" @click="payment_add_btn">確認並付款</button>
+                <form method="POST" action="/php/createOrder.php">
+                    <button type="submit" class="btnL">確認並付款</button>
+                </form>
             </div>
         </div>
 
@@ -218,7 +216,7 @@
                         <h3>付款成功</h3>
                     </div>
                     <div class="pay_success_btn_block">
-                        <button type="button" class="btnM" @click="payment_add_btn">確認</button>
+                        <button type="button" class="btnM" @click="finalChk">確認</button>
                     </div>
                 </div>
             </div>
@@ -230,10 +228,10 @@
     <footer id="the_footer">
         <the-footer></the-footer>
     </footer>
-  
+
     <script>
-        Vue.component('CreditCard',{
-            template:`
+        Vue.component('CreditCard', {
+            template: `
             <div class="payment_payCard_container">
                 <div class="payment_payCard">
                     <h3>付款方式：</h3>
@@ -272,11 +270,12 @@
                     choose_discount_value: '跳轉世界玩翻天 75 折優惠',
                     successShow: false,
                     getdiscount: [],
-                    product:[],
-                    initPrice:0,
-                    couponMinus:0,
-                    totalmoney:0,
-                    isChk:'',
+                    product: [],
+                    initPrice: 0,
+                    couponMinus: 0,
+                    totalmoney: 0,
+                    isChk: '',
+                    resTxt:'',
                 }
             },
             methods: {
@@ -289,42 +288,56 @@
                     this.addDiscount_value = this.choose_discount_value;
                     this.discountShow = !this.discountShow;
                 },
-                // 付款成功彈窗
-                payment_add_btn() {
-                    if (this.successShow == false) {
-                        this.successShow = true;
-                    } else {
-                        this.successShow = false;
-                    }
-                },
                 hrefback() {
                     location.href = 'travel_item.html';
-                }
-              
+                },
+                payChk() {
+                    //信用卡判斷if
+
+                    //insert訂單
+                    axios.post('../../php/payment_insert.php', JSON.stringify({
+                        session: sessionStorage.getItem('time'),
+                        people: sessionStorage.getItem('people_num'),
+                        price: this.totalmoney,
+                    }), {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(res => {
+                        if(res.data == '成功!'){
+                            this.successShow = true;
+                        }
+                    }).catch((error) => alert('數據加載失敗' + error));
+                },
+                finalChk(){
+                    this.successShow = false;
+                    sessionStorage.clear();
+                    location.href = 'travel_list.html';
+                },
             },
-            computed:{
-                showDate(){
+            computed: {
+                showDate() {
                     return sessionStorage.getItem('date');
                 },
-                showTime(){
+                showTime() {
                     return sessionStorage.getItem('time');
                 },
-                showPeople(){
+                showPeople() {
                     return sessionStorage.getItem('people_num');
                 },
-                personPrice(){
-                   let people = sessionStorage.getItem('people_num');
-                   let price = this.product.event_price;
-                   this.initPrice = people * price;
-                   return this.initPrice
+                personPrice() {
+                    let people = sessionStorage.getItem('people_num');
+                    let price = this.product.event_price;
+                    this.initPrice = people * price;
+                    return this.initPrice
                 },
-                coupon(){
+                coupon() {
                     this.couponMinus = Math.floor(this.initPrice * 0.25);
                     return this.couponMinus;
                 },
-                totalPrice(){
+                totalPrice() {
                     this.totalmoney = this.initPrice - this.couponMinus;
-                    return this.totalmoney;                
+                    return this.totalmoney;
                 },
             },
             mounted() {
@@ -333,18 +346,18 @@
                     this.getdiscount = data;
                 })
                 axios.get('./php/showTripitm.php', {
-                    params: { 
+                    params: {
                         theID: sessionStorage.getItem('product_ID'),
                         //delTime: this.now
                     }
-                 }).then(res =>{
+                }).then(res => {
                     this.product = res.data[0];
                     //console.log(this.product);
-                }).catch( (error) => alert('數據加載失敗'+ error));
+                }).catch((error) => alert('數據加載失敗' + error));
             },
         });
 
     </script>
-    
+
     <script src="./js/header_footer.js"></script>
 </body>

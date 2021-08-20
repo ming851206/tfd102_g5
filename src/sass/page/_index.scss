@@ -46,19 +46,23 @@ $w1200: 1180px;
         top: 138%;
     }
 }
+
 @keyframes shine {
-    0%{
+    0% {
         box-shadow: 0px 0px 5px 3px whitesmoke;
 
     }
-    50%{
+
+    50% {
         box-shadow: 0px 0px 10px 6px whitesmoke;
 
     }
-    90%{
+
+    90% {
         box-shadow: 0px 0px 5px 3px whitesmoke;
     }
 }
+
 @keyframes fade-in_1 {
     0% {
         opacity: 0;
@@ -70,66 +74,79 @@ $w1200: 1180px;
         filter: blur(0);
     }
 }
+
 @keyframes zoom_in {
-    0%{
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
-@keyframes slide_down{
-    0%{
+
+@keyframes slide_down {
+    0% {
         opacity: 0;
         top: 15%;
         filter: blur(100px);
     }
-    100%{
+
+    100% {
         top: 40%;
         opacity: 1;
         filter: blur(0);
     }
 }
-@keyframes slide_down2{
-    0%{
+
+@keyframes slide_down2 {
+    0% {
         opacity: 0;
         top: 56%;
         filter: blur(100px);
     }
-    100%{
+
+    100% {
         top: 71%;
         opacity: 1;
         filter: blur(0);
     }
 }
+
 @keyframes show {
-    0%{
+    0% {
         transform: scale(0);
     }
-    100%{
+
+    100% {
         transform: scale(1);
     }
 }
-.animation_header{
+
+.animation_header {
     animation: zoom_in 2.3s ease 1.6s both;
-    @include xs{
+
+    @include xs {
         animation: none;
     }
 }
+
 // 首頻地球
 section#earth {
     position: relative;
     width: 100%;
     height: calc(100vh - 85px);
-    background-image: url("../../images/index/content/index_bg1.jpg");
+    background-image: url("../images/index/content/index_bg1.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     animation: fade-in_1 .8s ease-in backwards;
+
     @media (max-width: 768px) {
-        background-image: url("../../images/index/content/index_bg2.jpg");
+        background-image: url("../images/index/content/index_bg2.jpg");
         background-position: center top;
     }
+
     @include xs {
         height: calc(100vh - 53px);
         animation: none;
@@ -141,15 +158,18 @@ section#earth {
         top: 40%;
         left: 11%;
         animation: slide_down 1.2s linear .5s both;
+
         @include lg_md {
             left: 5%;
         }
+
         @media (max-width: 768px) {
             top: 71%;
             left: 50%;
             transform: translateX(-50%);
             animation: slide_down2 1.2s linear .5s both;
         }
+
         @include xs {
             top: 63%;
             left: 50%;
@@ -159,9 +179,11 @@ section#earth {
 
         div.slogan {
             display: inline-block;
+
             @media (max-width: 768px) {
                 text-align: center;
             }
+
             @include xs {
                 width: 350px;
                 @include margin0();
@@ -175,6 +197,7 @@ section#earth {
                 font-family: 'en';
                 margin-bottom: 20px;
                 text-shadow: 1px 1px 1px black;
+
                 @include md {
                     text-shadow: 2px 2px 1px black;
                 }
@@ -219,6 +242,7 @@ section#earth {
                 top: 165%;
                 left: 45%;
                 animation: zoom_in 1s ease 2.7s both, scroll 2s linear 2.3s infinite;
+
                 @media (max-width: 768px) {
                     top: 145%;
                     left: 48%;
@@ -281,7 +305,7 @@ section#earth {
                 width: 35px;
                 height: 28px;
                 display: inline-block;
-                background-image: url("../../images/index/content/dice.svg");
+                background-image: url("../images/index/content/dice.svg");
                 background-size: contain;
                 background-repeat: no-repeat;
                 margin-right: 5px;
@@ -441,12 +465,15 @@ section#earth {
                 display: flex;
                 width: 990px;
             }
+
             @include lg {
                 width: 900px;
             }
+
             @include md {
                 width: 700px;
             }
+
             @include sm {
                 display: flex;
                 flex-direction: column-reverse;
@@ -455,6 +482,7 @@ section#earth {
                 width: 500px;
                 margin: 90px auto 80px;
             }
+
             @include xs {
                 justify-content: initial;
                 align-items: initial;
@@ -535,7 +563,7 @@ section#earth {
         width: 90%;
         height: 700px;
         display: inline-block;
-        background-image: url("../../images/index/content/color_bg1.png");
+        background-image: url("../images/index/content/color_bg1.png");
         position: absolute;
         bottom: 0;
         z-index: -1;
@@ -556,7 +584,7 @@ section#earth {
     .fence {
         width: 100%;
         height: 45px;
-        background-image: url("../../images/index/content/fence_hor.png");
+        background-image: url("../images/index/content/fence_hor.png");
         z-index: 1;
     }
 }
@@ -858,7 +886,6 @@ section#earth {
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
             }
 
-            // transition: all 0.5s;
             @include xl {
                 width: 255px;
                 margin-right: 16px;
@@ -881,9 +908,23 @@ section#earth {
                 max-width: 100%;
             }
 
-            img.place {
-                width: 100%;
-                display: block;
+            .imgBorder {
+                // width: 280px;
+                height: 224px;
+
+                @include lg {
+                    height: 200px;
+                }
+
+                @include xs {
+                    height: 140px;
+                }
+
+                .place {
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                }
             }
 
             .main_content {
@@ -901,15 +942,15 @@ section#earth {
 
                 @include xs {
                     padding: 6px 0 10px 8px;
-                    height: 140px;
+                    height: 148px;
                 }
 
                 .first {
-                    margin-bottom: 16px;
+                    margin-bottom: 6px;
                     display: flex;
 
                     @include xs {
-                        margin-bottom: 8px;
+                        margin-bottom: 0;
                     }
 
                     .star_num {
@@ -953,20 +994,44 @@ section#earth {
 
                 h3 {
                     font-size: 22px;
+                    line-height: 1.4;
+                    height: 56px;
+                    width: 246px;
+
+                    @include xl {
+                        width: 230px;
+                    }
+
+                    @include lg {
+                        font-size: 20px;
+                        width: 200px;
+                    }
+
+                    @include md {
+                        font-size: 22px;
+                        width: 220px;
+                    }
+
+                    @include sm {
+                        font-size: 20px;
+                        width: 200px;
+                    }
 
                     @include xs {
-                        font-size: 20px;
+                        font-size: 18px;
                         line-height: 1.2;
-                        height: 48px;
+                        width: 140px;
+                        height: 64px;
                     }
                 }
 
                 p.third {
                     font-size: 16px;
-                    margin-top: 10px;
+                    margin-top: 20px;
                     padding-bottom: 5px;
 
                     @include xs {
+                        margin-top: 12px;
                         font-size: 14px;
                     }
                 }
@@ -975,18 +1040,21 @@ section#earth {
         }
 
     }
+
     #index_travel_more {
         display: block;
         @include margin0();
         margin-top: 50px;
         transition: all 0.3s linear;
-        &:hover{
+
+        &:hover {
             color: white;
             background-color: #996A4D;
             transform: scale(1.05);
             font-size: 17px;
             transition: all 0.3s linear;
         }
+
         @include md {
             margin-top: 10px;
         }
@@ -997,7 +1065,7 @@ section#earth {
 // 選擇我們
 #choose_us {
     padding: 200px 0 250px;
-    background-image: url("../../images/index/content/color_bg1.png");
+    background-image: url("../images/index/content/color_bg1.png");
     background-size: contain;
 
     @include lg {
@@ -1128,11 +1196,13 @@ section#earth {
     aside.fence_col {
         display: inline-block;
         width: 45px;
-        background-image: url("../../images/index/content/fence_col.png");
+        background-image: url("../images/index/content/fence_col.png");
         margin-right: 10px;
+
         @include lg {
             width: 28px;
         }
+
         @include lg_md {
             display: none;
         }
@@ -1144,21 +1214,27 @@ section#earth {
         vertical-align: top;
         padding-bottom: 110px;
         width: 1060px;
+
         @include xl {
             width: 1000px;
         }
+
         @include lg {
             margin: 0 auto;
         }
+
         @include lg_md {
             margin-left: 50px;
         }
+
         @include md_sm {
             width: 740px;
         }
+
         @include xs {
             padding-bottom: 200px;
         }
+
         h2 {
             @include h2_margin(100px, 60px, 0px);
 
@@ -1171,16 +1247,20 @@ section#earth {
             column-count: 3;
             column-gap: 50px;
             margin-bottom: 90px;
+
             @include xl {
                 column-gap: 40px;
             }
+
             @include lg {
                 column-gap: 20px;
             }
+
             @include md_sm {
                 column-count: 2;
                 column-gap: 30px;
             }
+
             @include sm {
                 column-count: 1;
                 column-gap: 0;
@@ -1192,18 +1272,22 @@ section#earth {
                 border-radius: 0 25px 0 25px;
                 margin-bottom: 50px;
                 padding: 36px 40px;
+
                 @include xl {
                     margin-bottom: 50px;
                     padding: 32px 34px;
                 }
+
                 @include lg {
                     margin-bottom: 32px;
                     padding: 26px;
                 }
+
                 @include md_sm {
                     padding: 20px;
                     margin-bottom: 30px;
                 }
+
                 &:nth-child(4),
                 &:nth-child(5),
                 &:nth-child(6) {
@@ -1277,14 +1361,16 @@ section#earth {
             left: 50%;
             transform: translateX(-50%) scale(1);
             transition: all 0.3s linear;
-            &:hover{
+
+            &:hover {
                 color: white;
                 background-color: #996A4D;
                 transform: translateX(-50%) scale(1.05);
                 font-size: 17px;
                 transition: all 0.3s linear;
             }
-            @include xs{
+
+            @include xs {
                 display: block;
             }
         }

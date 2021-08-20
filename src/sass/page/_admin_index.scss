@@ -116,17 +116,18 @@
                 position: relative;
             }
 
-            a.is_active{
+            a.is_active {
                 font-weight: bold;
                 color: $main_br;
-                &::after{
+
+                &::after {
                     content: '';
                     display: block;
                     position: absolute;
                     width: 60%;
                     background-color: $main_br;
                     height: 1px;
-                    bottom:7px;
+                    bottom: 7px;
                     left: 40px;
                 }
             }
@@ -171,11 +172,16 @@
                     padding: 10px 0;
                     z-index: 1;
 
-                    &:active,
-                    &:focus {
-                        background-color: white;
-                        padding-bottom: 20px;
-                    }
+                    // &:active,
+                    // &:focus {
+                    //     background-color: white;
+                    //     padding-bottom: 20px;
+                    // }
+                }
+
+                a.isActive {
+                    background-color: white;
+                    padding-bottom: 20px;
                 }
             }
 
@@ -414,13 +420,15 @@
                     color: $main_br;
                     border-radius: $borderRadius_cd;
                     z-index: 10;
-                    img{
+
+                    img {
                         position: absolute;
                         right: 20px;
                         top: 20px;
                         width: 16px;
                         cursor: pointer;
                     }
+
                     .field {
                         margin-bottom: 10px;
                         display: flex;
@@ -431,7 +439,7 @@
                         font-size: 12px;
                         color: #777;
                         width: 5rem;
-                        top:0px;
+                        top: 0px;
                         left: 0px;
                     }
 
@@ -444,12 +452,13 @@
                         border: none;
                         outline: none;
                         border-radius: $borderRadius_m_btn;
-                        &:focus{
+
+                        &:focus {
                             border: 1px solid $main_br;
                         }
                     }
 
-                    #message{
+                    #message {
                         height: 170px;
                         width: 100%;
                         border-radius: $borderRadius_m_btn;
@@ -458,10 +467,12 @@
                         resize: none;
                         outline: none;
                         padding: 10px;
-                        &:focus{
+
+                        &:focus {
                             border: 1px solid $main_br;
                         }
                     }
+
                     input[type="submit"] {
                         display: block;
                         position: absolute;
@@ -538,7 +549,8 @@
                             transition: all 1s; //沒用討厭
                         }
 
-                        .textContent2, .timeCnt {
+                        .textContent2,
+                        .timeCnt {
                             width: 150px;
                             padding: 10px 0px;
                         }
@@ -546,7 +558,7 @@
                         .textContent3 {
                             width: 230px;
                         }
-                    
+
                         button.revoke,
                         button.rejectBtn {
                             background-color: rgb(255, 204, 204);
@@ -657,29 +669,34 @@
                             width: 16px;
                             cursor: pointer;
                         }
-                        .rejChkbox{
+
+                        .rejChkbox {
                             display: flex;
                             flex-wrap: wrap;
                             position: relative;
-                            label{
+
+                            label {
                                 position: relative;
                                 width: 45%;
-                                top:0px;
-                                right:0px;
+                                top: 0px;
+                                right: 0px;
                                 padding-left: 1.5rem;
                                 margin: 5px 8px;
-                                input{
+
+                                input {
                                     position: absolute;
-                                    top:2px;
+                                    top: 2px;
                                     left: 0px;
                                     width: 16px;
                                     height: 16px;
                                 }
 
-                               
+
                             }
-                            label:nth-of-type(7){
+
+                            label:nth-of-type(7) {
                                 width: 100%;
+
                                 textarea {
                                     @include block_center;
                                     margin-top: 10px;
@@ -692,16 +709,16 @@
                                     resize: unset;
                                     outline: none;
                                     border-radius: $borderRadius_m_btn;
-        
+
                                     &:focus {
                                         border: 2px solid $main_br;
                                     }
                                 }
                             }
-                            
+
                         }
-                        
-                        
+
+
 
                         button {
                             position: absolute;

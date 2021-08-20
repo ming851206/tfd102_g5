@@ -557,14 +557,14 @@
             @include pre_next;
             width: 20x;
             height: 20px;
-            background-image: url("../../images/travel_item/close.svg");
+            background-image: url("../images/travel_item/close.svg");
             position: absolute;
             top: 5%;
             right: 100px;
             cursor: pointer;
 
             &:hover {
-                background-image: url("../../images/travel_item/close_2.svg");
+                background-image: url("../images/travel_item/close_2.svg");
             }
 
             @include lg {
@@ -600,10 +600,10 @@
             .pre_photo {
                 @include pre_next;
                 transform: rotate(180deg);
-                background-image: url("../../images/travel_item/right.svg");
+                background-image: url("../images/travel_item/right.svg");
 
                 &:hover {
-                    background-image: url("../../images/travel_item/right_2.svg");
+                    background-image: url("../images/travel_item/right_2.svg");
                 }
 
                 @include sm {
@@ -645,10 +645,10 @@
 
             .next_photo {
                 @include pre_next;
-                background-image: url("../../images/travel_item/right.svg");
+                background-image: url("../images/travel_item/right.svg");
 
                 &:hover {
-                    background-image: url("../../images/travel_item/right_2.svg");
+                    background-image: url("../images/travel_item/right_2.svg");
                 }
 
                 @include sm {
