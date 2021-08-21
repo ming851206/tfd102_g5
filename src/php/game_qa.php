@@ -5,7 +5,7 @@ $nums = json_decode(file_get_contents('php://input'), true);
 
 //建立SQL
 $sql = "SELECT task_ID, question, option1, option2, option3, answer
-        FROM JUMPER.qa_list
+        FROM qa_list
         Where task_ID = ?
         order by ceiling(rand()*100) limit 3;";
 
