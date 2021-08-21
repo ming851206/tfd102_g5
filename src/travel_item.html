@@ -188,7 +188,9 @@
                 <li v-for="(item,index) in recommend_items" :id="item.id" class="item">
                     <a :href="item.link" @click='changeLink(index ,$event)'>
                         <div class="trip_item">
-                            <img :src="item.intro_pics">
+                            <div class='imgWidth'>
+                                <img :src="item.intro_pics">
+                            </div>
                             <div class="content">
                                 <div class="avatar">
                                     <img :src="item.avatar">

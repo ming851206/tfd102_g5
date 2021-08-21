@@ -1152,7 +1152,7 @@
                 }
 
                 @include xs {
-                    height: 200px * 0.6;
+
                     width: 272px * 0.6;
                 }
             }
@@ -1165,8 +1165,21 @@
 
                 .trip_item {
                     @include trip_item_card;
-                    // border: 2px solid red;
-                    max-height: 350px;
+                    height: 350px;
+
+                    .imgWidth {
+                        min-height: 181.29px;
+
+                        @include xl {
+                            height: 164px;
+                        }
+
+                        img {
+                            height: 100%;
+                            width: 100%;
+                            object-fit: cover;
+                        }
+                    }
 
                     @include lg {
                         height: auto;
