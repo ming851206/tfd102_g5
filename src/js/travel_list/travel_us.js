@@ -33,8 +33,8 @@ Vue.component('us', {
         <h3>{{category_list[nowCat].cat}}旅遊</h3>
         <p class="slider_count">根據你的篩選條件搜尋到 {{item_counts}} 筆結果</p>
         <ul class="item_list">
-            <li v-for="(item, index) in items" :id="item.ID" class="item">
-                <a :href="item.link" @click="changeLink(index ,$event)">
+            <li v-for="item in items" :id="item.ID" class="item">
+                <a :href="changeLink(item.ID)">
                     <div class="trip_item">
                         <img :src="item.intro_pics">
                         <div class="content">
@@ -65,18 +65,15 @@ Vue.component('us', {
 
     `,
     methods: {
-        changeLink(index, event) {
-            event.preventDefault();
-            console.log(index);
-            console.log(this.item);
-            location = 'travel_item.html?ID=' + this.items[index].ID;
-        },
         changeiColor(e) {
             e.preventDefault();
             // console.log(e.target);
             e.target.classList.toggle('clicked');
         },
-
+        changeLink(id) {
+            // console.log('測試變換連結' + id);
+            return './travel_item.html?ID=' + id;
+        },
         loginCheck(itemid){ 
             // console.log(this);   
             let that = this;
@@ -197,8 +194,8 @@ Vue.component('us', {
         }).then(res => {
             console.log("us");
             this.items = res.data; // 旅遊內容
-            console.log(res.data[0].category);
             this.item_counts = res.data.length; // 旅遊筆數
+            this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list
         });
 
         //==================== 取得所有最愛旅遊 =======================     

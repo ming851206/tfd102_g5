@@ -21,8 +21,6 @@
         .error {
             border: 2px solid red !important;
         }
-
-
     </style>
 </head>
 
@@ -38,7 +36,7 @@
     <div class="mobile_logo">
         <img src="./images/logo/logo.svg" alt="logo">
     </div>
-    
+
     <div id="faq_app">
         <section class="faq_sec1">
             <!-- <h1>
@@ -78,16 +76,19 @@
         </section>
         <section class="faq_sec3">
             <h3>更多幫助</h3>
-            <p>Jumper客服團隊很樂意為您服務</p>
+            
             <form action="#">
+                <p>Jumper客服團隊很樂意為您服務</p>
                 <label for="">
                     <span>您的稱呼：</span><input :class="{'error':formData.name.checked == false}"
                         v-model="formData.name.value" type="text" placeholder="陳先生／小姐" @keyup="removeErr">
                 </label>
                 <label for="">
                     <span>您的信箱：</span><input :class="{'error':formData.email.checked == false}"
-                        v-model="formData.email.value" type="email" placeholder="jumper@gmail.com" @keyup="removeErr">
+                        v-model="formData.email.value" type="email" placeholder="jumper@gmail.com" @keyup="chkMail">
+                    <p v-if="emailOk == false" class="emailErr">格式錯誤，請輸入正確的e-mail</p>
                 </label>
+
                 <textarea cols="30" rows="10" :class="{'error':formData.textarea.checked == false}"
                     v-model="formData.textarea.value" @keyup="removeErr">想問的問題：</textarea>
                 <button class="btnM" id="qa_submit" type="button" @click="qaSubmit">送出</button>
@@ -104,10 +105,12 @@
         new Vue({
             el: '#faq_app',
             data: {
-                now:0,
+                now: 0,
                 search: '',
                 resTxt: '',
-                message:'',
+                message: '',
+                emailOk: true,
+                all_check : false,
                 classList: {
                     iserror: false,
                 },
@@ -232,22 +235,23 @@
                     //抓取現在時間
                     var date = new Date();
                     this.now = date.getTime();
-
+                    this.all_check = true;
                     //物件跑回圈的寫法:
-                    let all_check = true;
                     Object.keys(this.formData).map((objectKey, index) => {
                         var current = this.formData[objectKey];
                         if (current.value === '') {
                             this.formData[objectKey].checked = false;
-                            all_check = false;
+                            this.all_check = false;
                         }
                         else {
                             this.formData[objectKey].checked = true
                         }
                     });
+                    
+                   
 
-                    if (all_check) {
-
+                    if ( this.all_check==true && this.emailOk == true) {
+                        console.log('有要送出');
                         axios.post('./php/qa_form.php', JSON.stringify({
                             name: this.formData.name.value,
                             email: this.formData.email.value,
@@ -264,12 +268,26 @@
                             this.formData.name.value = "";
                             this.formData.email.value = "";
                             this.formData.textarea.value = "";
-                        }).catch( (error) => alert('數據加載失敗'+ error));
+                        }).catch((error) => alert('數據加載失敗' + error));
 
                     }
                 },
-                removeErr(e){
+                removeErr(e) {
                     e.target.classList.remove('error');
+                },
+                chkMail(e){
+                    e.target.classList.remove('error');
+                    let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+                    if (!isMail.test(this.formData.email.value)) {
+                        //格式不對
+                        this.formData.email.checked = true;
+                        this.emailOk = false;
+                        this.all_check = false;
+                    } else {
+                        //格式對
+                        this.formData.email.checked = false;
+                        this.emailOk = true;
+                    }
                 },
             },
             computed: {
@@ -284,7 +302,7 @@
                             return card.title.includes(this.search);
                         })
                     } else {
-                        return this.data.filter((card) => { 
+                        return this.data.filter((card) => {
                             return card.path === this.current_category;
                         })
 
@@ -310,4 +328,5 @@
 
     </script>
 </body>
+
 </html>
