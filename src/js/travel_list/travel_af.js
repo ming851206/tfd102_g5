@@ -34,8 +34,8 @@ Vue.component('af', {
     <h3>{{category_list[nowCat].cat}}旅遊</h3>
     <p class="slider_count">根據你的篩選條件搜尋到 {{item_counts}} 筆結果</p>
     <ul class="item_list">
-        <li v-for="item in items" :id="item.ID" class="item">
-            <a :href="item.link">
+        <li v-for="(item, index) in items" :id="item.ID" class="item">
+            <a :href="item.link" @click="changeLink(index ,$event)">
                 <div class="trip_item">
                     <img :src="item.intro_pics">
                     <div class="content">
@@ -66,6 +66,12 @@ Vue.component('af', {
 
 `,
 methods: {
+    changeLink(index, event) {
+        event.preventDefault();
+        console.log(index);
+        console.log(this.item);
+        location = 'travel_item.html?ID=' + this.items[index].ID;
+    },
     changeiColor(e) {
         e.preventDefault();
         // console.log(e.target);
