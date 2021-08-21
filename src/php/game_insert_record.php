@@ -7,7 +7,7 @@ $memberID = getMemberID();
 if($memberID != "" ){
 $getNewRecord = json_decode(file_get_contents('php://input'), true);
 
-$sql = "INSERT into JUMPER.task_record values (null, ?, ?)";
+$sql = "INSERT into task_record values (null, ?, ?)";
 
 $statement = getPDO()->prepare($sql);
 $statement->bindValue(1, $memberID);
@@ -15,7 +15,7 @@ $statement->bindValue(2, $getNewRecord["index"]);
 $statement->execute();
 
 $sql = "SELECT member_ID, task_ID
-        FROM JUMPER.task_record
+        FROM task_record
         where member_ID = ?
         Order by task_ID";
 $statement = getPDO()->prepare($sql);

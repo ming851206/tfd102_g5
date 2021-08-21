@@ -77,7 +77,7 @@ const OrderList = {
         updateIsAlert(index) {
             theOrder = this.data[index];
             // console.log(theOrder);
-            axios.post('../../php/update_orderalert.php', JSON.stringify({
+            axios.post('../php/update_orderalert.php', JSON.stringify({
                 itemId: theOrder.ID,
             }))
             .then(res => {
@@ -114,7 +114,7 @@ const OrderList = {
 
         //===========================================
 
-        axios.get('../../php/adm_orderList.php')
+        axios.get('../php/adm_orderList.php')
             .then(res => this.data = res.data)
             .catch((error) => alert('數據加載失敗' + error));
     },

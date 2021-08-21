@@ -4,7 +4,7 @@ include("./conn.php");
 $product_ID = json_decode(file_get_contents('php://input'), true);
 $getnow = json_decode(file_get_contents('php://input'), true);
 
-$sql = "SELECT s.started_at, s.ended_at
+$sql = "SELECT s.started_at, s.ended_at, s.ID
         From product_info p
             join session s
                 on p.ID = s.product_info_ID

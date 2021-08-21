@@ -14,7 +14,9 @@ $value = $theID['theValue'];
 //exit();
 
 //建立SQL 
-$sql = "UPDATE `JUMPER`.`product_info` SET `is_checked` = '2', `reject_reason` = ? WHERE (`ID` = ?);";
+$sql = "UPDATE product_info 
+        SET is_checked = '2', reject_reason = ? 
+        WHERE ID = ?;";
 
 //執行
 $statement = getPDO()->prepare($sql);

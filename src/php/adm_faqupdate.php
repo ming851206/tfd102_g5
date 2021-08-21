@@ -5,7 +5,7 @@ include('./conn.php');
 $theID = $_GET['theID'];
 
 //建立SQL 
-$sql = "UPDATE `JUMPER`.`faq` SET `is_replied` = '1' WHERE (`ID` = ?);";
+$sql = "UPDATE faq SET is_replied = '1' WHERE ID = ?";
 
 //執行
 $statement = getPDO()->prepare($sql);

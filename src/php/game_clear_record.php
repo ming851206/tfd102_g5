@@ -4,7 +4,7 @@ include('./Lib/Member.php');
 
 $memberID = getMemberID();
 
-$sql = "DELETE from JUMPER.task_record Where member_ID = ?";
+$sql = "DELETE from task_record Where member_ID = ?";
 
 $statement = getPDO()->prepare($sql);
 $statement->bindValue(1, $memberID);
