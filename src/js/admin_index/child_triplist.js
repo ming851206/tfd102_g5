@@ -89,7 +89,7 @@ const TripList = {
             
             if (confirm('是否下架旅遊?')) {
                 
-                axios.get('../../php/adm_deleteTrip.php', {
+                axios.get('../php/adm_deleteTrip.php', {
                     params: { 
                         theID: this.data[index].ID,
                         delTime: this.now
@@ -111,7 +111,7 @@ const TripList = {
         },
     },
     mounted() {
-        axios.get('../../php/adm_triplist.php')
+        axios.get('../php/adm_triplist.php')
         .then(res => this.data = res.data)
         .catch( (error) => alert('數據加載失敗'+ error));
     },

@@ -14,7 +14,7 @@ $time = $theForm['time'];
 //exit();
 
 //建立SQL 
-$sql = "INSERT INTO `JUMPER`.`faq` (`name`, `email`, `content`, `faq_at`) VALUES (?, ?, ?, ?);";
+$sql = "INSERT INTO faq (name, email, content, faq_at) VALUES (?, ?, ?, ?);";
 
 //執行
 $statement = getPDO()->prepare($sql);

@@ -3,7 +3,7 @@
 include('./conn.php');
 
 //建立SQL 
-$sql = "SELECT * FROM JUMPER.faq;";
+$sql = "SELECT * FROM faq;";
 
 //執行
 $statement = getPDO()->prepare($sql);
