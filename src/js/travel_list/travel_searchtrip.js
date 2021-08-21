@@ -27,7 +27,7 @@ Vue.component('filterTrip', {
     <h3>{{category}}: {{theInput}}</h3>
     <p class="slider_count">根據你的篩選條件搜尋到 {{filterList.length}} 筆結果</p>
         <ul class="item_list">
-            <li v-for="item in items" :id="item.ID" class="item">
+            <li v-for="item in filterList" :id="item.ID" class="item">
                 <a :href="changeLink(item.ID)">
                     <div class="trip_item">
                         <img :src="item.intro_pics">
@@ -175,8 +175,10 @@ Vue.component('filterTrip', {
     },
     computed: {
         filterList() { //搜尋功能
-            // console.log('測試有進來篩選');
+            console.log('測試有進來篩選');
             return this.items.filter((item) => { //把data送下來使用filter功能
+                console.log(this.theInput);
+                console.log(item.title);
                 return item.title.includes(this.theInput);
             })
         },
@@ -195,7 +197,7 @@ Vue.component('filterTrip', {
             }
         }).then(res => {
             // console.log('filter');
-            // console.log(res.data);
+            console.log(res.data);
             this.items = res.data; // 旅遊內容
         });
 
