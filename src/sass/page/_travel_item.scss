@@ -225,7 +225,7 @@
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: fill;
         }
     }
 }
@@ -508,8 +508,40 @@
             margin-bottom: 6px;
         }
 
-        img {
+        .images {
             cursor: pointer;
+            width: 450px;
+            height: 300px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 14px;
+
+            @include lg {
+                width: 450px * 0.9;
+                height: 100%;
+            }
+
+            @include md {
+                width: 450px * 0.7;
+                height: 100%;
+            }
+
+            @include sm {
+                width: 450px * 0.48;
+                height: 100%;
+            }
+
+            @include xs {
+                width: 450px * 0.32;
+                height: 100%;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
         }
     }
 
@@ -539,8 +571,38 @@
             height: 226px * 0.32;
         }
 
-        img {
+        .images {
             cursor: pointer;
+            width: 296px;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            @include lg {
+                width: 296px * 0.9;
+                height: 100%;
+            }
+
+            @include md {
+                width: 296px * 0.7;
+                height: 100%;
+            }
+
+            @include sm {
+                width: 296px * 0.48;
+                height: 100%;
+            }
+
+            @include xs {
+                width: 296px * 0.32;
+                height: 100%;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
     }
 
@@ -639,7 +701,7 @@
                 img {
                     width: 100%;
                     height: 100%;
-                    object-fit: cover;
+                    object-fit: fill;
                 }
             }
 

@@ -84,13 +84,23 @@
             <div class="item_photos">
                 <h2>更多旅遊照片</h2>
                 <div class="photo_row1">
-                    <img :src="info.pic1" @click="showPhotos(picIndex=1)" class="images">
-                    <img :src="info.pic2" @click="showPhotos(picIndex=2)" class="images">
+                    <div class="images">
+                        <img :src="info.pic1" @click="showPhotos(picIndex=1)">
+                    </div>
+                    <div class="images">
+                        <img :src="info.pic2" @click="showPhotos(picIndex=2)" class="images">
+                    </div>
                 </div>
                 <div class="photo_row2">
-                    <img :src="info.pic3" @click="showPhotos(picIndex=3)" class="images">
-                    <img :src="info.pic4" @click="showPhotos(picIndex=4)" class="images">
-                    <img :src="info.pic5" @click="showPhotos(picIndex=5)" class="images">
+                    <div class="images">
+                        <img :src="info.pic3" @click="showPhotos(picIndex=3)" class="images">
+                    </div>
+                    <div class="images">
+                        <img :src="info.pic4" @click="showPhotos(picIndex=4)" class="images">
+                    </div>
+                    <div class="images">
+                        <img :src="info.pic5" @click="showPhotos(picIndex=5)" class="images">
+                    </div>
                 </div>
 
                 <transition>
@@ -143,7 +153,7 @@
                                 <option selected hidden>參與人數</option>
                                 <option v-for="people_num in 10" :value="people_num">{{people_num}} 人</option>
                             </select>
-                            <button class="btnL" id="order_now" @click.prevent="loginCheck()">立即訂購</button>
+                            <button class="btnL" id="order_now" @click.prevent="loginCheck">立即訂購</button>
                         </div>
                     </div>
                 </div>
