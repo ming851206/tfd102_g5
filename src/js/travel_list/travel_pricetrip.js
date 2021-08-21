@@ -28,7 +28,7 @@ Vue.component('priceTrip', {
     <h3>{{category}}低於 $ {{thePrice}} 的旅遊</h3>
     <p class="slider_count">根據你的篩選條件搜尋到 {{filterList.length}} 筆結果</p>
         <ul class="item_list">
-            <li v-for="item in items" :id="item.ID" class="item">
+            <li v-for="item in filterList" :id="item.ID" class="item">
                 <a :href="changeLink(item.ID)">
                     <div class="trip_item">
                         <img :src="item.intro_pics">
@@ -178,7 +178,9 @@ Vue.component('priceTrip', {
         filterList() { //搜尋功能
             // console.log('測試有進來篩選');
             return this.items.filter((item) => { //把data送下來使用filter功能
-                return item.event_price <= parseInt(this.thePrice); // 低於搜尋價格的旅遊
+                // console.log(this.thePrice);
+                // console.log(item.event_price);
+                return parseInt(item.event_price) <= parseInt(this.thePrice); // 低於搜尋價格的旅遊
             })
         },
     },
