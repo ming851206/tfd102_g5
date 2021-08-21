@@ -3,9 +3,9 @@ Vue.component('all', {
     data() {
         return {  //組件的變數寫在這裡！
             items_counts: {
-                besttrip: "5",
+                besttrip: "",
                 maintrip: "5",
-                viewedtrip: "7",
+                viewedtrip: "",
             },
             besttrip_items: [
                 {
@@ -20,49 +20,104 @@ Vue.component('all', {
                     event_price: "499",
                 },
                 {
-                    ID: 3,
-                    link: "./travel_item.html?ID=3",
-                    intro_pics: "./images/travel_list/1/3/0.jpg",
-                    avatar: "./images/avatar/avatar6.jpg",
-                    comment_count: "102",
-                    star_num: "5",
-                    place: "美國",
-                    title: "飛越世界奇景 尼加拉大瀑布",
+                    ID: 38,
+                    link: "./travel_item.html?ID=38",
+                    intro_pics: "./images/travel_list/5/38/0.jpg",
+                    avatar: "./images/avatar/avatar12.jpg",
+                    comment_count: "30",
+                    star_num: "4.8",
+                    place: "澳大利亞",
+                    title: "澳洲必遊行程  雪梨歌劇院",
+                    event_price: "899",
+                },
+                {
+                    ID: 22,
+                    link: "./travel_item.html?ID=22",
+                    intro_pics: "./images/travel_list/3/22/0.jpeg",
+                    avatar: "./images/avatar/avatar3.jpg",
+                    comment_count: "24",
+                    star_num: "4.5",
+                    place: "印度",
+                    title: "印度最美的淚珠 泰姬瑪哈陵",
+                    event_price: "599",
+                },
+                {
+                    ID: 23,
+                    link: "./travel_item.html?ID=23",
+                    intro_pics: "./images/travel_list/3/23/0.jpg",
+                    avatar: "./images/avatar/avatar16.jpg",
+                    comment_count: "30",
+                    star_num: "5.0",
+                    place: "韓國",
+                    title: "向世人展示朝鮮歷史的風采  景福宮",
+                    event_price: "999",
+                },
+                {
+                    ID: 15,
+                    link: "./travel_item.html?ID=15",
+                    intro_pics: "./images/travel_list/2/15/0.jpg",
+                    avatar: "./images/avatar/avatar5.jpg",
+                    comment_count: "30",
+                    star_num: "4.6",
+                    place: "德國",
+                    title: "童話世界的城堡  探索新天鵝堡",
+                    event_price: "999",
+                },
+                {
+                    ID: 14,
+                    link: "./travel_item.html?ID=14",
+                    intro_pics: "./images/travel_list/2/14/0.jpg",
+                    avatar: "./images/avatar/avatar14.jpg",
+                    comment_count: "24",
+                    star_num: "4.3",
+                    place: "西班牙",
+                    title: "深度品味伊比利魅力  愛上西班牙的美",
                     event_price: "499",
                 },
                 {
-                    ID: 9,
-                    link: "./travel_item.html?ID=9",
-                    intro_pics: "./images/travel_list/2/9/0.jpg",
+                    ID: 13,
+                    link: "./travel_item.html?ID=13",
+                    intro_pics: "./images/travel_list/2/13/0.jpg",
+                    avatar: "./images/avatar/avatar4.jpg",
+                    comment_count: "30",
+                    star_num: "5",
+                    place: "希臘",
+                    title: "來趟浪漫的地中海之旅  欣賞如童話般美景",
+                    event_price: "899",
+                },
+                {
+                    ID: 18,
+                    link: "./travel_item.html?ID=18",
+                    intro_pics: "./images/travel_list/3/18/0.jpg",
+                    avatar: "./images/avatar/avatar18.jpg",
+                    comment_count: "24",
+                    star_num: "5",
+                    place: "泰國",
+                    title: "泰國黃金海岸  欣賞Pattaya的海岸風光",
+                    event_price: "499",
+                },
+                {
+                    ID: 27,
+                    link: "./travel_item.html?ID=27",
+                    intro_pics: "./images/travel_list/4/27/0.jpg",
+                    avatar: "./images/avatar/avatar9.jpg",
+                    comment_count: "30",
+                    star_num: "4.6",
+                    place: "埃及",
+                    title: "走訪世界最大沙漠  撒哈拉沙漠",
+                    event_price: "599",
+                },
+                {
+                    ID: 40,
+                    link: "./travel_item.html?ID=40",
+                    intro_pics: "./images/travel_list/5/40/0.jpg",
                     avatar: "./images/avatar/avatar6.jpg",
-                    comment_count: "102",
-                    star_num: "5",
-                    place: "英國",
-                    title: "造訪Big Ben 大笨鐘  倫敦最具指標性的景觀",
-                    event_price: "799",
-                },
-                {
-                    ID: 4,
-                    link: "./travel_item.html?ID=3",
-                    intro_pics: "./images/travel_list/1/4/0.jpg",
-                    avatar: "./images/avatar/avatar13.jpg",
-                    comment_count: "102",
-                    star_num: "5",
-                    place: "大洋洲",
-                    title: "來探索大洋洲的美麗海岸，感受壯麗美感",
-                    event_price: "399",
-                },
-                {
-                    ID: 5,
-                    link: "./travel_item.html?ID=3",
-                    intro_pics: "./images/travel_list/1/5/0.jpg",
-                    avatar: "./images/avatar/avatar13.jpg",
-                    comment_count: "102",
-                    star_num: "5",
-                    place: "非洲",
-                    title: "非洲神奇夢幻的野性美",
-                    event_price: "399",
-                },
+                    comment_count: "36",
+                    star_num: "4.7",
+                    place: "紐西蘭",
+                    title: "來去紐西蘭農場體驗",
+                    event_price: "999",
+                }
             ],
             maintrip_items: [
                 {
@@ -109,79 +164,114 @@ Vue.component('all', {
             ],
             viewedtrip_items: [
                 {
-                    ID: 1,
-                    link: "./travel_item.html",
-                    intro_pics: "./images/travel_list/250/libertystatue.jpg",
-                    avatar: "./images/avatar/avatar2.jpg",
-                    comment_count: "15",
-                    star_num: "4.6",
-                    place: "美洲",
-                    title: "自由女神朝聖之旅",
-                    event_price: "399",
+                    ID: 5,
+                    link: "./travel_item.html?ID=5",
+                    intro_pics: "./images/travel_list/1/5/0.jpg",
+                    avatar: "./images/avatar/avatar12.jpg",
+                    comment_count: "28",
+                    star_num: "5.0",
+                    place: "墨西哥",
+                    title: "墨西哥亡靈節  溫柔看待死亡、優雅慶祝生命",
+                    event_price: "499",
                 },
                 {
-                    ID: 6,
-                    link: "./travel_item.html",
-                    intro_pics: "./images/travel_list/250/watermarket.jpg",
-                    avatar: "./images/avatar/avatar3.jpg",
+                    ID: 7,
+                    link: "./travel_item.html?ID=7",
+                    intro_pics: "./images/travel_list/1/7/0.jpg",
+                    avatar: "./images/avatar/avatar19.jpg",
                     comment_count: "30",
-                    star_num: "5",
-                    place: "亞洲",
-                    title: "馬辰水上市場藝術節，體驗當地水上文化之旅",
-                    event_price: "399",
+                    star_num: "4.6",
+                    place: "加拿大",
+                    title: "心醉加拿大東岸  楓葉大道璀璨黃金行",
+                    event_price: "599",
                 },
                 {
-                    ID: 4,
-                    link: "./travel_item.html",
-                    intro_pics: "./images/travel_list/250/glasshouse.jpg",
-                    avatar: "./images/avatar/avatar5.jpg",
-                    comment_count: "102",
-                    star_num: "5",
-                    place: "歐洲",
-                    title: "於芬蘭玻璃屋邂逅屬於北極圈的夢幻自然",
+                    ID: 11,
+                    link: "./travel_item.html?ID=11",
+                    intro_pics: "./images/travel_list/2/11/0.jpg",
+                    avatar: "./images/avatar/avatar6.jpg",
+                    comment_count: "18",
+                    star_num: "4.7",
+                    place: "芬蘭",
+                    title: "來去芬蘭追極光",
                     event_price: "999",
                 },
                 {
-                    ID: 5,
-                    link: "./travel_item.html",
-                    intro_pics: "./images/travel_list/400/sydney.jpg",
-                    avatar: "./images/avatar/avatar6.jpg",
-                    comment_count: "102",
+                    ID: 26,
+                    link: "./travel_item.html?ID=26",
+                    intro_pics: "./images/travel_list/4/26/0.jpg",
+                    avatar: "./images/avatar/avatar17.jpg",
+                    comment_count: "18",
                     star_num: "5",
-                    place: "大洋洲",
-                    title: "雪梨絕不可錯過的地標等級景點",
-                    event_price: "399",
+                    place: "馬達加斯加",
+                    title: "來一場馬達加斯加奇妙的生態之旅",
+                    event_price: "699",
+                },
+                {
+                    ID: 9,
+                    link: "./travel_item.html?ID=9",
+                    intro_pics: "./images/travel_list/2/9/0.jpg",
+                    avatar: "./images/avatar/avatar17.jpg",
+                    comment_count: "36",
+                    star_num: "4.7",
+                    place: "英國",
+                    title: "造訪Big Ben 大笨鐘  倫敦最具指標性的景觀",
+                    event_price: "799",
                 },
                 {
                     ID: 6,
-                    link: "./travel_item.html",
-                    intro_pics: "./images/travel_list/250/maltive.jpg",
-                    avatar: "./images/avatar/avatar11.jpg",
-                    comment_count: "102",
-                    star_num: "5",
-                    place: "大洋洲",
-                    title: "來探索澳洲黃金海岸，吹吹海風踏踏浪",
-                    event_price: "399",
+                    link: "./travel_item.html?ID=6",
+                    intro_pics: "./images/travel_list/1/6/0.jpg",
+                    avatar: "./images/avatar/avatar15.jpg",
+                    comment_count: "24",
+                    star_num: "4.3",
+                    place: "阿根廷",
+                    title: "南美巴黎  走訪布宜諾斯艾利斯",
+                    event_price: "599",
                 },
                 {
-                    ID: 7, link: "./travel_item.html",
-                    intro_pics: "./images/travel_list/250/africa_elephant.jpg",
-                    avatar: "./images/avatar/avatar8.jpg",
-                    comment_count: "102",
-                    star_num: "5",
-                    place: "非洲",
-                    title: "遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望",
-                    event_price: "399",
+                    ID: 10,
+                    link: "./travel_item.html?ID=10",
+                    intro_pics: "./images/travel_list/2/10/0.jpg",
+                    avatar: "./images/avatar/avatar2.jpg",
+                    comment_count: "36",
+                    star_num: "4.7",
+                    place: "法國",
+                    title: "走訪巴黎  充滿浪漫文化的迷人城市",
+                    event_price: "699",
                 },
                 {
-                    ID: 8, link: "./travel_item.html",
-                    intro_pics: "./images/travel_list/250/wugerku.jpg",
-                    avatar: "./images/avatar/avatar.jpg",
-                    comment_count: "102",
-                    star_num: "5",
-                    place: "亞洲",
-                    title: "穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。",
-                    event_price: "399",
+                    ID: 17,
+                    link: "./travel_item.html?ID=17",
+                    intro_pics: "./images/travel_list/3/17/0.jpg",
+                    avatar: "./images/avatar/avatar3.jpg",
+                    comment_count: "30",
+                    star_num: "4.8",
+                    place: "日本",
+                    title: "京都森林浴  一訪伏見稻荷神社",
+                    event_price: "888",
+                },
+                {
+                    ID: 24,
+                    link: "./travel_item.html?ID=24",
+                    intro_pics: "./images/travel_list/2/24/0.jpg",
+                    avatar: "./images/avatar/avatar15.jpg",
+                    comment_count: "36",
+                    star_num: "4.8",
+                    place: "俄羅斯",
+                    title: "世界第八奇景  俄羅斯克里姆林宮",
+                    event_price: "599",
+                },
+                {
+                    ID: 28,
+                    link: "./travel_item.html?ID=28",
+                    intro_pics: "./images/travel_list/4/28/0.jpg",
+                    avatar: "./images/avatar/avatar10.jpg",
+                    comment_count: "24",
+                    star_num: "4.8",
+                    place: "摩洛哥",
+                    title: "摩洛哥卡薩布蘭卡 北非的迷情風光和文化遺產",
+                    event_price: "888",
                 },
             ],
             favs: [
@@ -194,14 +284,14 @@ Vue.component('all', {
                 <h3>最新旅遊</h3>
                 <div class="container">
                     <div class="left_block">
-                        <a href="./travel_item.html">
+                        <a href="./travel_item.html?ID=2">
                             <div class="trip_item">
                                 <div class="pic">
-                                    <img src="./images/travel_list/800/wugerku.jpg">
+                                    <img src="./images/travel_list/1/2/0.jpg">
                                 </div>
                                 <div class="content">
                                     <div class="avatar">
-                                        <img src="./images/avatar/avatar.jpg">
+                                        <img src="./images/avatar/avatar7.jpg">
                                     </div>
                                     <div class="the_icon">
                                         <div class="share" @click="share"></div>
@@ -211,27 +301,27 @@ Vue.component('all', {
                                         <div>
                                             <img src="./images/index/content/star.svg">
                                         </div>
-                                        <p class="star_get">5(102) · </p>
-                                        <p class="area">亞洲</p>
+                                        <p class="star_get">4.6(40) · </p>
+                                        <p class="area">美國</p>
                                     </div>
                                     <h4 class="trip_intro">
-                                        穿梭於千年的神話國度，走過了金邊和暹羅，一起看餘韻藏著悠久歷史的文明古國吳哥窟全景。
+                                        飛越世界奇景 尼加拉大瀑布
                                     </h4>
-                                    <p>每人 $399</p>
+                                    <p>每人 $599</p>
                                 </div>
                             </div>
                         </a>
                     </div>
                     <div class="right_block">
-                        <a href="./travel_item.html">
+                        <a href="./travel_item.html?ID=3">
                             <div class="upper_area">
                                 <div class="trip_item">
                                     <div class="pic upper">
-                                        <img src="./images/travel_list/250/africa_elephant.jpg">
+                                        <img src="./images/travel_list/1/3/0.jpg">
                                     </div>
                                     <div class="content">
                                         <div class="avatar">
-                                            <img src="./images/avatar/avatar1.jpg">
+                                            <img src="./images/avatar/avatar9.jpg">
                                         </div>
                                         <div class="the_icon">
                                         <div class="share" @click="share"></div>
@@ -239,27 +329,27 @@ Vue.component('all', {
                                         </div>
                                         <div class="the_star_num">
                                             <img src="./images/index/content/star.svg">
-                                            <p class="star_get">5(102) · </p>
-                                            <p class="area">非洲</p>
+                                            <p class="star_get">4.6(35) · </p>
+                                            <p class="area">祕魯</p>
                                         </div>
                                         <h4 class="trip_intro">
-                                            遊走非洲野生動物園，見證動物大遷徙實現對冒險的渴望
+                                            登上「馬丘比丘」  一探印加帝國的奇幻美景
                                         </h4>
-                                        <p class="startprice">每人 $399</p>
+                                        <p class="startprice">每人 $499</p>
                                     </div>
                                 </div>
                             </div>
                         </a>
-                        <a href="./travel_item.html">
+                        <a href="./travel_item.html?ID=37">
                             <div class="down_area">
                                 <div class="trip_item">
                                     <div class="pic down">
-                                        <img src="./images/travel_list/250/louvre.jpg">
+                                        <img src="./images/travel_list/5/37/0.jpg">
                                     </div>
                                     <div class="content">
 
                                         <div class="avatar">
-                                            <img src="./images/avatar/avatar21.jpg">
+                                            <img src="./images/avatar/avatar6.jpg">
                                         </div>
                                         <div class="the_icon">
                                             <div class="share" @click="share"></div>
@@ -267,13 +357,13 @@ Vue.component('all', {
                                         </div>
                                         <div class="the_star_num">
                                             <img src="./images/index/content/star.svg">
-                                            <p class="star_get">5(12) · </p>
-                                            <p class="area">歐洲</p>
+                                            <p class="star_get">4.8(24) · </p>
+                                            <p class="area">紐西蘭</p>
                                         </div>
                                         <h4 class="trip_intro">
-                                            羅浮宮象徵藝術，撼動人心之情久久保留
+                                            大自然的冰與火之歌  紐西蘭南島風光
                                         </h4>
-                                        <p class="startprice">每人 $499</p>
+                                        <p class="startprice">每人 $699</p>
                                     </div>
                                 </div>
                             </div>
