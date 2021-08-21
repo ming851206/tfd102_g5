@@ -35,7 +35,7 @@ Vue.component('filterDateTrip', {
                         <img :src="item.intro_pics">
                         <div class="content">
                             <div class="avatar">
-                                <img :src="item.intro_pics">
+                                <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
@@ -203,7 +203,7 @@ Vue.component('filterDateTrip', {
         axios.get('../../php/searchDateTrip.php', {
         }).then(res => {
             console.log('123');
-            // console.log(res.data);
+            console.log(res.data);
             this.items = res.data; // 旅遊內容
         });
 

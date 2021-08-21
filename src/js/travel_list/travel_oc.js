@@ -2,7 +2,7 @@
 Vue.component('oc', {
     data() {
         return {  //組件的變數寫在這裡！
-            nowCat: 0,
+            nowCat: 4,
             category_list: [
                 { cat: '美洲', },
                 { cat: '歐洲', },
@@ -40,7 +40,7 @@ Vue.component('oc', {
                         <img :src="item.intro_pics">
                         <div class="content">
                             <div class="avatar">
-                                <img :src="item.intro_pics">
+                                <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
@@ -193,7 +193,6 @@ Vue.component('oc', {
             // console.log('as');
             this.items = res.data; // 旅遊內容
             this.item_counts = res.data.length; // 旅遊筆數
-            this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list 的值
         });
         //==================== 取得所有最愛旅遊 =======================        
         this.getAllFavs();
