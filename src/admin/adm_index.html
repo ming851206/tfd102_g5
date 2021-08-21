@@ -24,6 +24,9 @@
         <div id="app">
             <div class="adm_flexbox">
                 <div class="adm_appl">
+                    <a class="logo">
+                        <img src="../images/logo/logo-circle.png" alt="">
+                    </a>
                     <router-link to="/trip" @click.native="init" :class="{'is_active':current_category === '/trip'}">
                         旅程管理</router-link>
                     <router-link to="/order" @click.native="init" :class="{'is_active':current_category === '/order'}">
