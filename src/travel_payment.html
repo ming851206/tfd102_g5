@@ -35,7 +35,7 @@
         <!-- 確認並付款 -->
         <div class="payment_mainTitle">
             <div class="payment_mainTitle_icon">
-                <img src="./images/icon/arrowLeft.svg" alt="" @click="hrefback" style="cursor: pointer;">
+                <img src="./images/icon/arrowLeft.svg" alt="" @click="hrefback" style="cursor: pointer; padding:15px;">
             </div>
             <h3 class="payment_mainTitle_h3">確認並付款</h2>
         </div>
@@ -61,7 +61,7 @@
                         </svg>
                     </div>
                 </div>
-                
+
             </div> -->
         </div>
 
@@ -172,7 +172,7 @@
                     <input type="hidden" :value="this.product.title" name="title">
                     <button type="submit" class="btnL" @click="payChk">確認並付款</button>
                 </form>
-                
+
             </div>
         </div>
 
@@ -183,7 +183,7 @@
     </footer>
 
     <script>
-        
+
         new Vue({
             el: '#travel_payment_page',
             data() {
@@ -214,10 +214,10 @@
                     this.discountShow = !this.discountShow;
                 },
                 hrefback() {
-                    location.href = 'travel_item.html';
+                    location.href = 'travel_item.html?ID=' + sessionStorage.getItem('product_ID');
                 },
                 payChk() {
-                    
+
                     //insert訂單
                     axios.post('../../php/payment_insert.php', JSON.stringify({
                         session: sessionStorage.getItem('session_ID'),
@@ -227,7 +227,7 @@
                         headers: {
                             'Content-Type': 'application/json'
                         }
-                    }).then(res => { 
+                    }).then(res => {
                         //console.log(res);
                         sessionStorage.clear();
                     }).catch((error) => alert('數據加載失敗' + error));

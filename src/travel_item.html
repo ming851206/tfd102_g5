@@ -253,12 +253,19 @@
                     this.sessionIDs = this.selectTime[index].ID;
                 },
                 like() {
-                    if (this.is_fav(this.getID)) {
-                        this.deleteFav(this.getID);
-                    } else {
-                        this.addFav(this.getID);
-                    }
-                    this.fav = !this.fav;
+                    axios.get('./php/LoginCheck.php')
+                        .then(res => {
+                            if (res.data != '') {
+                                if (this.is_fav(this.getID)) {
+                                    this.deleteFav(this.getID);
+                                } else {
+                                    this.addFav(this.getID);
+                                }
+                                this.fav = !this.fav;
+                            } else {
+                                alert('請登入後再進行');
+                            }
+                        })
                 },
                 showPhotos(picIndex) {
                     this.photo_carousel = true;
@@ -394,16 +401,16 @@
                 // 參數：itemID, memberID
                 addFav(itemID) {
                     // console.log(itemID);
-                    axios.post('./php/addLove.php', JSON.stringify({
+                    axios.post('./php/addLove.php', {
                         itemID: itemID,
-                    }), {
-                        headers: {
-                            'Content-Type': 'application/json'
-                        }
-                    }).then(res =>
+                    }).then(res => {
                         // console.log(res.data)
-                        this.getAllFavs() // 重新取得一次新增後的最愛旅遊
-                    );
+                        if (res.data != 0) {
+                            this.getAllFavs(); // 重新取得一次新增後的最愛旅遊
+                        } else {
+                            alert('請登入後再進行');
+                        }
+                    });
                 },
 
                 // removeFav
@@ -540,7 +547,7 @@
 
                             // this.is_fav(itemid) ? this.deleteFav(itemid) : this.addFav(itemid);
                         })
-                    // 取得最愛旅遊    
+                    // 取得最愛旅遊
                     this.getAllFavs();
 
                 })

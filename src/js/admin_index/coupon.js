@@ -195,7 +195,7 @@ const Coupon = {
             .then(res => {
                 const final_data = res.data;
                 // console.log(final_data[0].expired_at);
-                console.log('測試是否有進來');
+                // console.log('測試是否有進來');
                 for (let index = 0; index < final_data.length; index++) {
                     // this.$set(final_data[index], 'datetime', this.timestampToDatetime(parseInt(final_data[index].expired_at), false));
                     final_data[index].datetime = this.timestampToDatetime(final_data[index].expired_at); // 新增一個 date_time_local 的欄位，並將 expired_at 轉成 datetime 格式賦值給他

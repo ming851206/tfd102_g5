@@ -1,9 +1,9 @@
-// ===== 篩選價格旅遊 =====
-Vue.component('priceTrip', {
-    props: ['the-price'],
+// ===== 搜尋旅遊 =====
+Vue.component('filterDateTrip', {
+    props: ['the-date'],
     data() {
         return {  //組件的變數寫在這裡！
-            category: "價格",
+            category: "符合該條件的旅遊",
             item_counts: "",
             items: [
                 //     {
@@ -18,6 +18,7 @@ Vue.component('priceTrip', {
                 //         startprice: "800",
                 //     },
             ],
+            tempArray:[],
             favs: [  // 最愛旅遊
 
             ],
@@ -25,8 +26,8 @@ Vue.component('priceTrip', {
     },
     template: `
     <div class="the_cat_trip">
-    <h3>{{category}}低於 $ {{thePrice}} 的旅遊</h3>
-    <p class="slider_count">根據你的篩選條件搜尋到 {{filterList.length}} 筆結果</p>
+    <h3>{{category}}: {{theDate}}</h3>
+    <p class="slider_count">根據你所選擇的日期搜尋到 {{filterList.length}} 筆結果</p>
         <ul class="item_list">
             <li v-for="item in filterList" :id="item.ID" class="item">
                 <a :href="item.link">
@@ -64,40 +65,40 @@ Vue.component('priceTrip', {
             e.target.classList.toggle('clicked');
         },
 
-        loginCheck(itemid){ 
+        loginCheck(itemid) {
             // console.log(this);   
             let that = this;
-            $.ajax({            
+            $.ajax({
                 method: "POST",
                 url: "php/LoginCheck.php",
-                data:{},            
+                data: {},
                 dataType: "text",
                 success: function (response) {
                     // console.log('這是登入成功回傳的 memberID：' + response);
                     let memberID = response;
-                    
-                    if(response == ""){
+
+                    if (response == "") {
                         //尚未登入->前往Login.php
-                        alert('請先登入，將前往登入頁'); 
+                        alert('請先登入，將前往登入頁');
                         location.href = 'login.html';
-                    }else{
+                    } else {
                         console.log('登入成功');
                         // console.log('會員ID:' . memberID);
                         // getData();
                         // console.log(that);
                         that.is_fav(itemid) ? that.deleteFav(itemid, memberID) : that.addFav(itemid, memberID);
-                    }              
+                    }
                 },
-                error: function(exception) {
+                error: function (exception) {
                     alert("數據載入失敗: " + exception.status);
                 }
             });
         },
 
         // 取得所有最愛旅遊
-        getAllFavs(){
+        getAllFavs() {
             axios.get('../../php/showFav.php').then(res => {
-                    this.favs = res.data; // 旅遊內容
+                this.favs = res.data; // 旅遊內容
             });
         },
 
@@ -128,10 +129,10 @@ Vue.component('priceTrip', {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次新增後的最愛旅遊
-            ); 
+            );
         },
 
         // removeFav 刪除最愛旅遊
@@ -145,10 +146,10 @@ Vue.component('priceTrip', {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次刪除後的最愛旅遊
-                );
+            );
         },
 
         // fb 分享
@@ -169,13 +170,27 @@ Vue.component('priceTrip', {
                 }
             )
         },
+
     },
     computed: {
         filterList() { //搜尋功能
-            // console.log('測試有進來篩選');
-            return this.items.filter((item) => { //把data送下來使用filter功能
-                return item.event_price <= parseInt(this.thePrice); // 低於搜尋價格的旅遊
+            
+            SearchMonth = new Date(this.theDate).getMonth() + 1; // 取得搜尋月份
+            SearchDate = new Date(this.theDate).getDate(); // 取得搜尋日
+
+            this.tempArray =  this.items.filter((item) => { //把data送下來使用filter功能
+                EventMonth = new Date(parseInt(item.started_at)).getMonth() + 1; // 取得旅程月份
+                EventDate = new Date(parseInt(item.started_at)).getDate(); // 取得旅程日
+
+                if (SearchMonth == EventMonth && SearchDate == EventDate){
+                    console.log('yes');
+                    return item;
+                } else {
+                    console.log('no');
+                }
+
             })
+            return this.tempArray;
         },
     },
     // watch:{
@@ -185,12 +200,12 @@ Vue.component('priceTrip', {
     // },
     mounted() {
         //==================== 搜尋旅遊 =======================
-        axios.get('../../php/searchTrip.php')
-            .then(res => {
-                // console.log('filter');
-                // console.log(res.data);
-                this.items = res.data; // 旅遊內容
-            });
+        axios.get('../../php/searchDateTrip.php', {
+        }).then(res => {
+            console.log('123');
+            console.log(res.data);
+            this.items = res.data; // 旅遊內容
+        });
 
         //==================== 取得所有最愛旅遊 =======================        
         this.getAllFavs();

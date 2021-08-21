@@ -3,13 +3,23 @@ include("./conn.php"); //資料庫連線
 
 //建立SQL
 
-// 作法一：搜尋特定旅遊關鍵字(但沒成功)
-// $search_item = $_GET['search_item']; // 取得分類
-// echo $search_item; // 非洲
-// $sql = "SELECT * FROM product_info  WHERE title LIKE '%" . $search_item . "%'"; // 作法一：搜尋特定旅遊關鍵字(但沒成功)
+// 作法：回傳全部旅遊，再由頁面去篩選
+$sql = "SELECT t2.ID, t2.place, t2.title, t2.intro_pics, t2.link, t2.event_price, t2.avatar, round(avg(c1.star), 1) as star_num, count(product_ID) as comment_count
+from comment c1
+                right join(    
+                    SELECT  p.ID, m.avatar, p.place, p.link, p.title, p.intro_pics, p.event_price, s.started_at, s.ended_at
+                    From product_info p
+                        join session s
+                        on p.ID = s.product_info_ID
+                        join member m
+                        on p.member_ID = m.ID
+                    where s.started_at != ''
+                    order by s.started_at asc 
+                ) t2
+                on c1.product_ID = t2.ID
+                group by t2.ID;  
+"; 
 
-// 作法二：回傳全部旅遊，再由頁面去篩選
-$sql = "SELECT * FROM product_info"; 
 
 //執行
 $statement = getPDO()->prepare($sql);

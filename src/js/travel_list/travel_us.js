@@ -39,7 +39,7 @@ Vue.component('us', {
                         <img :src="item.intro_pics">
                         <div class="content">
                             <div class="avatar">
-                                <img :src="item.intro_pics">
+                                <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
@@ -191,8 +191,8 @@ Vue.component('us', {
         }).then(res => {
             console.log("us");
             this.items = res.data; // 旅遊內容
+            console.log(res.data[0].category);
             this.item_counts = res.data.length; // 旅遊筆數
-            this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list
         });
 
         //==================== 取得所有最愛旅遊 =======================     

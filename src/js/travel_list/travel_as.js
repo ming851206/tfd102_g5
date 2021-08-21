@@ -40,7 +40,7 @@ Vue.component('as', {
                         <img :src="item.intro_pics">
                         <div class="content">
                             <div class="avatar">
-                                <img :src="item.intro_pics">
+                                <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>

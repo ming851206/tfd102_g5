@@ -371,7 +371,7 @@
                 // 忘記密碼
                 forget() {
                     axios.post('./php/forgetemail.php', {
-                        email: this.email_register
+                        email: this.forget_email_register
                     }).then(res => {
                         let data = res.data;
                         if (data != 0) {
@@ -385,7 +385,7 @@
                                 templateID,
                                 {
                                     password: data,
-                                    reply_to: this.email_register
+                                    reply_to: this.forget_email_register
                                 },
                                 user_id
                             )
@@ -394,7 +394,7 @@
                                 }, (err) => {
                                     alert(JSON.stringify(err));
                                 });
-                            this.email_register = '';
+                            this.forget_email_register = '';
                         } else {
                             alert('查無此email資料');
                         }
