@@ -307,8 +307,9 @@ const MemberInfo = {
                 this.values[6].val = data.password;
                 this.values[7].val = data.avatar;
             } else {
+                console.log(res.data);
                 alert("請登入後再進行。");
-                location.href = "./login.html";
+                // location.href = "./login.html";
 
             }
         });
