@@ -28,8 +28,8 @@ Vue.component('priceTrip', {
     <h3>{{category}}低於 $ {{thePrice}} 的旅遊</h3>
     <p class="slider_count">根據你的篩選條件搜尋到 {{filterList.length}} 筆結果</p>
         <ul class="item_list">
-            <li v-for="(item,index) in filterList" :id="item.ID" class="item">
-                <a :href="item.link" @click="changeLink(index ,$event)">
+            <li v-for="item in items" :id="item.ID" class="item">
+                <a :href="changeLink(item.ID)">
                     <div class="trip_item">
                         <img :src="item.intro_pics">
                         <div class="content">
@@ -58,11 +58,9 @@ Vue.component('priceTrip', {
     </div>
     `,
     methods: {
-        changeLink(index, event) {
-            event.preventDefault();
-            console.log(index);
-            console.log(this.item);
-            location = 'travel_item.html?ID=' + this.items[index].ID;
+        changeLink(id) {
+            // console.log('測試變換連結' + id);
+            return './travel_item.html?ID=' + id;
         },
         changeiColor(e) {
             e.preventDefault();
