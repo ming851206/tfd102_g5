@@ -39,10 +39,10 @@
         //導回產品頁
         // echo json_encode(0);
 
+        setMemberInfo($memberID, $memberName);
         // echo "<script>alert('登入成功!'); location.href = '../../../member.html';</script>";
         echo $memberID;
         // 將 memberID、memberID 寫進 session
-        setMemberInfo($memberID, $memberName);
     }else{
 
         //跳出提示停留在登入頁
