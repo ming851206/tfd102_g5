@@ -110,7 +110,7 @@
                 left: 0px;
                 
                 img{
-                    width: 140px;
+                    width: 120px;
                     cursor: pointer;
                 }
             }
@@ -179,11 +179,6 @@
                     padding: 10px 0;
                     z-index: 1;
 
-                    // &:active,
-                    // &:focus {
-                    //     background-color: white;
-                    //     padding-bottom: 20px;
-                    // }
                 }
 
                 a.isActive {
@@ -563,7 +558,7 @@
                         }
 
                         .textContent3 {
-                            width: 290px;
+                            width: 340px;
                         }
 
                         button.revoke,
