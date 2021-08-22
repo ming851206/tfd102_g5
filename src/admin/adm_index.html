@@ -27,16 +27,20 @@
                     <a href="../home.html" class="logo">
                         <img src="../images/logo/logo-circle.png" alt="">
                     </a>
-                    <router-link to="/trip" @click.native="init" :class="{'is_active':current_category === '/trip'}">
+                    <router-link to="/tfd102/project/g5/admin/trip" @click.native="init"
+                        :class="{'is_active':current_category === '/tfd102/project/g5/admin/trip'}">
                         旅程管理</router-link>
-                    <router-link to="/order" @click.native="init" :class="{'is_active':current_category === '/order'}">
+                    <router-link to="/tfd102/project/g5/admin/order" @click.native="init"
+                        :class="{'is_active':current_category === '/tfd102/project/g5/admin/order'}">
                         旅程訂單管理</router-link>
-                    <router-link to="/coupon" @click.native="init"
-                        :class="{'is_active':current_category === '/coupon'}">優惠券管理</router-link>
-                    <router-link to="/faq" @click.native="init" :class="{'is_active':current_category === '/faq'}">
+                    <router-link to="/tfd102/project/g5/admin/coupon" @click.native="init"
+                        :class="{'is_active':current_category === '/tfd102/project/g5/admin/coupon'}">優惠券管理
+                    </router-link>
+                    <router-link to="/tfd102/project/g5/admin/faq" @click.native="init"
+                        :class="{'is_active':current_category === '/tfd102/project/g5/admin/faq'}">
                         問題意見管理</router-link>
-                    <router-link to="/member" @click.native="init"
-                        :class="{'is_active':current_category === '/member'}">會員管理</router-link>
+                    <router-link to="/tfd102/project/g5/admin/member" @click.native="init"
+                        :class="{'is_active':current_category === '/tfd102/project/g5/admin/member'}">會員管理</router-link>
                 </div>
                 <div class="adm_appr">
                     <div class="adm_above">
@@ -47,7 +51,7 @@
                     <router-view></router-view>
                 </div>
             </div>
-        </div>
+    </div>
     </div>
     </section>
     <script src="../js/jq/jquery-3.6.0.js"></script>
@@ -75,13 +79,13 @@
     <script>
         Vue.use(VueRouter);
 
-        // ========== 旅程管理(綺) ============= 
+        // ========== 旅程管理(綺) =============
         const Trip = {
             template: `
                 <div>
                     <div class="linkGroup">
-                        <router-link to="/trip" class="topA" :class="{'isActive': work == 'list'}" @click.native=" work = 'list'">旅程列表</router-link>
-                        <router-link to="/trip/tripCheck" class="topA" :class="{'isActive': work == 'check'}" @click.native=" work = 'check' ">旅程申請審核</router-link>
+                        <router-link to="/tfd102/project/g5/admin/trip" class="topA" :class="{'isActive': work == 'list'}" @click.native=" work = 'list'">旅程列表</router-link>
+                        <router-link to="/tfd102/project/g5/admin/trip/tripCheck" class="topA" :class="{'isActive': work == 'check'}" @click.native=" work = 'check' ">旅程申請審核</router-link>
                     </div>
                     <router-view></router-view>
                 </div>
@@ -92,13 +96,13 @@
                 }
             },
         };
-        // ========== 旅程訂單管理(竹) ========== 
+        // ========== 旅程訂單管理(竹) ==========
         const Order = {
             template: `
                 <div>
                     <div class="linkGroup">
-                        <router-link to="/order" class="topA" :class="{'isActive': work == 'orderlist'}" @click.native=" work = 'orderlist'">訂單管理</router-link>
-                        <router-link to="/order/commentCheck" class="topA" :class="{'isActive': work == 'cmtCheck'}" @click.native=" work = 'cmtCheck'">旅程評論審查</router-link>
+                        <router-link to="/tfd102/project/g5/admin/order" class="topA" :class="{'isActive': work == 'orderlist'}" @click.native=" work = 'orderlist'">訂單管理</router-link>
+                        <router-link to="/tfd102/project/g5/admin/order/commentCheck" class="topA" :class="{'isActive': work == 'cmtCheck'}" @click.native=" work = 'cmtCheck'">旅程評論審查</router-link>
                     </div>
                     <router-view></router-view>
                 </div>
@@ -109,12 +113,11 @@
                 }
             },
         };
-        //======================================
         const router = new VueRouter({
             mode: 'history',
             routes: [
                 {
-                    path: '/trip',
+                    path: '/tfd102/project/g5/admin/trip',
                     component: Trip,
                     children: [ //設定子路徑
                         { path: '', component: TripList }, //子路徑前面不要再寫/
@@ -122,7 +125,7 @@
                     ],
                 },
                 {
-                    path: '/order',
+                    path: '/tfd102/project/g5/admin/order',
                     component: Order,
                     children: [ //設定子路徑
                         { path: '', component: OrderList }, //子路徑前面不要再寫/
@@ -130,14 +133,14 @@
                     ],
                 },
                 {
-                    path: '/coupon',
+                    path: '/tfd102/project/g5/admin/coupon',
                     component: Coupon,
                     // children: [
                     //     { path: 'newCoupon', component: NewCoupon },
                     // ]
                 },
                 {
-                    path: '/coupon/newCoupon',
+                    path: '/tfd102/project/g5/admin/coupon/newCoupon',
                     component: NewCoupon,
                     // children: [
                     //     { path: 'newCoupon', component: NewCoupon },
@@ -145,11 +148,11 @@
                 },
 
                 {
-                    path: '/faq',
+                    path: '/tfd102/project/g5/admin/faq',
                     component: Faq,
                 },
                 {
-                    path: '/member',
+                    path: '/tfd102/project/g5/admin/member',
                     component: Member,
                 },
 
@@ -160,7 +163,7 @@
             el: '#app',
             router,
             data: {
-                current_category: '/trip',
+                current_category: '/tfd102/project/g5/admin/trip',
             },
             methods: {
                 init(e) {
@@ -202,6 +205,7 @@
                         }
                     })
                     .catch((error) => alert('數據加載失敗' + error));
+                document.getElementsByClassName('is_active')[0].click();
 
                 // let preSet = document.getElementsByTagName('a')[0];
                 // preSet.click();//預選第一個項目第一頁

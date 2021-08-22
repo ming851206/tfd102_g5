@@ -165,7 +165,7 @@
                 <h4>選擇以下按鈕即代表您同意參加者免責聲明、退訂政策和參加者退款政策。</h4>
             </div>
             <div class="payment_add_btn_block">
-                <form method="POST" action="/php/createOrder.php">
+                <form method="POST" action="./php/createOrder.php">
                     <input type="hidden" :value="totalmoney" name="amt">
                     <input type="hidden" :value="this.product.event_price" name="evt_price">
                     <input type="hidden" :value="peopleNum" name="peopleNum">
@@ -219,7 +219,7 @@
                 payChk() {
 
                     //insert訂單
-                    axios.post('../../php/payment_insert.php', JSON.stringify({
+                    axios.post('./php/payment_insert.php', JSON.stringify({
                         session: sessionStorage.getItem('session_ID'),
                         people: sessionStorage.getItem('people_num'),
                         price: this.totalmoney,
