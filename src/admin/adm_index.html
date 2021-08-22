@@ -24,7 +24,7 @@
         <div id="app">
             <div class="adm_flexbox">
                 <div class="adm_appl">
-                    <a class="logo">
+                    <a href="index.html" class="logo">
                         <img src="../images/logo/logo-circle.png" alt="">
                     </a>
                     <router-link to="/trip" @click.native="init" :class="{'is_active':current_category === '/trip'}">
@@ -202,8 +202,8 @@
                     })
                     .catch((error) => alert('數據加載失敗' + error));
 
-                let preSet = document.getElementsByTagName('a')[0];
-                preSet.click();//預選第一個項目第一頁
+                // let preSet = document.getElementsByTagName('a')[0];
+                // preSet.click();//預選第一個項目第一頁
             },
         });
     </script>
