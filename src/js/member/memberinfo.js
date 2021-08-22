@@ -309,7 +309,7 @@ const MemberInfo = {
             } else {
                 console.log(res.data);
                 alert("請登入後再進行。");
-                // location.href = "./login.html";
+                location.href = "./login.html";
 
             }
         });
