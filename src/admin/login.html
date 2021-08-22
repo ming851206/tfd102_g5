@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,23 +8,28 @@
     <title>後台登入</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
+    
 </head>
 
 <body>
-    <section class="adm_sec">
-        <div class="loginBox">
-            <h3>管理員登入</h3>
-            <form method="POST" action="../php/adm_login.php">
-                <label for="">
-                    <input type="text" name="username" id="username">
-                </label>
-                <label for="">
-                    <input type="password" name="pwd" id="pwd">
-                </label>
-                <button class="btnL" type="submit" onclick="return doSubmit();">登入</button>
-            </form>
-        </div>
-    </section>
+    <div id="app">
+        <section class="adm_sec">
+            <div class="loginBox">
+                <h3>管理員登入</h3>
+                <form method="POST" action="../php/adm_login.php">
+                    <label for="">
+                        <input type="text" name="username" id="username" :value="name">
+                    </label>
+                    <label for="">
+                        <input type="password" name="pwd" id="pwd" :value="pwd">
+                    </label>
+                    <button class="btnL" type="submit" onclick="return doSubmit();">登入</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="../js/vue/vue.js"></script>
     <script>
         function doSubmit() {
             if (document.getElementById('username').value == '' || document.getElementById('pwd').value == '') {
@@ -35,6 +37,14 @@
                 return false;
             }
         }
+
+        new Vue({
+            el: '#app',
+            data: {
+                name:'joi',
+                pwd:111111,
+            },
+        })
     </script>
 </body>
 

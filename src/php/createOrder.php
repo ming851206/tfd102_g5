@@ -18,7 +18,7 @@ try {
     ]);
     $autoSubmitFormService = $factory->create('AutoSubmitFormWithCmvService');
 
-    $OrderResultURL = $_SERVER["HTTP_ORIGIN"] . "/php/orderResult.php";
+    $OrderResultURL = $_SERVER["HTTP_ORIGIN"] . "/tfd102/project/g5/php/orderResult.php";
     $input = [
         'MerchantID' => '2000132',
         'MerchantTradeNo' => 'Test' . time(),
@@ -33,7 +33,7 @@ try {
         'EncryptType' => 1,
     ];
     $action = 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5';
-    
+
     echo $autoSubmitFormService->generate($input, $action);
 } catch (RtnException $e) {
     echo '(' . $e->getCode() . ')' . $e->getMessage() . PHP_EOL;

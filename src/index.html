@@ -59,6 +59,9 @@
             rightbox.addEventListener('dragenter', function (e) { e.preventDefault() });
             rightbox.addEventListener('dragover', function (e) { e.preventDefault() });
             rightbox.addEventListener('drop', dropped);
+            if (document.body.clientWidth < 560) {
+                location.href = './home.html';
+            }
         }
 
         function startDrag(e) {
