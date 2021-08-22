@@ -25,7 +25,7 @@ if($memberID!="" ){
             $sqlfilepath = "./images/FileUpload/".$fileName;
 
             //檔案最終存放位置
-            $filePath = $ServerRoot."/images/FileUpload/".$fileName;
+            $filePath = $ServerRoot."/tfd102/project/g5/images/FileUpload/".$fileName;
             //將暫存檔搬移到正確位置
             move_uploaded_file($filePath_Temp, $filePath);
             $sql = "UPDATE  member SET avatar = ? where ID = ? ";

@@ -22,7 +22,7 @@ if($memberID!="" ){
                 $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
                 $sqlfilepath = "./images/FileUpload/".$fileName_arr[$i];
                 //檔案最終存放位置
-                $filePath = $ServerRoot."/images/FileUpload/".$fileName_arr[$i];
+                $filePath = $ServerRoot."/tfd102/project/g5/images/FileUpload/".$fileName_arr[$i];
                 //將暫存檔搬移到正確位置
                 $filePath_Temp = $fileTmpName_arr[$i];
                 move_uploaded_file($filePath_Temp, $filePath);

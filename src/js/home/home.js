@@ -28,7 +28,7 @@ const aboutUsService = Vue.component("the-service", {
             <div class="all_about">
                 <div class="about_1" data-aos="fade-down" data-aos-duration="600" data-aos-once="false">
                     <img src="./images/index/content/about_1.jpg" alt="專業的線上導遊">
-                    <div class="des_1"> 
+                    <div class="des_1">
                         <h3>專業的線上導遊</h3>
                         <h4>我們提供具有專業知識背景的線上導遊，零時差導覽您的線上旅程，透過直播即時互動，他們將帶領您身歷其境，讓您隨時隨地，開機就能遊覽世界。</h4>
                     </div>
@@ -37,13 +37,13 @@ const aboutUsService = Vue.component("the-service", {
                     <div class="des_2">
                         <h3>高CP值的觀光旅遊</h3>
                         <h4>相較於實體旅遊的高額花費，線上旅遊讓您能以更輕鬆無負擔的價格，就能享受一場由專業的當地導遊，所帶領的獨一無二異國旅遊體驗。</h4>
-                    </div>    
+                    </div>
                     <img src="./images/index/content/about_2.jpg" alt="提供包場">
                 </div>
             </div>
         </div>
     <div class="light_bg"></div>
-    <div class="fence"></div>    
+    <div class="fence"></div>
     </div>
     `,
 })
@@ -84,9 +84,9 @@ const blade = Vue.component("the-carosul", {
             <div v-for="mentor in mentors" :class ="mentor.num">
                 <h3>{{mentor.title}}</h3>
                 <p>{{mentor.content}}</p>
-            </div> 
+            </div>
         </div>
-        
+
         <div id="circle-carousel" class="circle-carousel">
             <div v-for="item in items" :class="item.name" :data-num="item.num" :data-mentorid="item.mentorid" :data-background="item.background">
                 <div :style="item.circle"></div>
@@ -296,7 +296,7 @@ const opinion = Vue.component("the-opinion", {
                                 <p>{{person.star}}</p>
                             </div>
                             <p>{{person.name}}</p>
-                        </div>    
+                        </div>
                     </div>
                     <p class="content">{{person.content}}</p>
                 </li>
