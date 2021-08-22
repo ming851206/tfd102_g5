@@ -20,11 +20,11 @@
 </head>
 
 <body>
-    <section class="adm_sec">
-        <div id="app">
+    <div id="app">
+        <section class="adm_sec">
             <div class="adm_flexbox">
                 <div class="adm_appl">
-                    <a href="index.html" class="logo">
+                    <a href="../home.html" class="logo">
                         <img src="../images/logo/logo-circle.png" alt="">
                     </a>
                     <router-link to="/trip" @click.native="init" :class="{'is_active':current_category === '/trip'}">
@@ -48,6 +48,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </section>
     <script src="../js/jq/jquery-3.6.0.js"></script>
     <script src="../js/vue/vue.js"></script>
@@ -85,12 +86,12 @@
                     <router-view></router-view>
                 </div>
         ` ,
-        data(){
-            return{
-                work:'list',
-            }
-        },
-    };
+            data() {
+                return {
+                    work: 'list',
+                }
+            },
+        };
         // ========== 旅程訂單管理(竹) ========== 
         const Order = {
             template: `
@@ -102,12 +103,12 @@
                     <router-view></router-view>
                 </div>
         ` ,
-        data(){
-            return{
-                work:'orderlist',
-            }
-        },
-    };
+            data() {
+                return {
+                    work: 'orderlist',
+                }
+            },
+        };
         //======================================
         const router = new VueRouter({
             mode: 'history',
