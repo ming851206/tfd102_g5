@@ -20,11 +20,11 @@
 </head>
 
 <body>
-    <section class="adm_sec">
-        <div id="app">
+    <div id="app">
+        <section class="adm_sec">
             <div class="adm_flexbox">
                 <div class="adm_appl">
-                    <a href="../index.html" class="logo">
+                    <a href="../home.html" class="logo">
                         <img src="../images/logo/logo-circle.png" alt="">
                     </a>
                     <router-link to="/tfd102/project/g5/admin/trip" @click.native="init"
@@ -51,7 +51,8 @@
                     <router-view></router-view>
                 </div>
             </div>
-        </div>
+    </div>
+    </div>
     </section>
     <script src="../js/jq/jquery-3.6.0.js"></script>
     <script src="../js/vue/vue.js"></script>
@@ -112,7 +113,6 @@
                 }
             },
         };
-        //======================================
         const router = new VueRouter({
             mode: 'history',
             routes: [
