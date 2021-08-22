@@ -224,20 +224,17 @@
     position: relative;
     padding-bottom: 100px;
 
-    %marginLeft {
-        margin-left: 400px;
-    }
-
     h3 {
         margin: 100px 0px 60px 100px;
     }
 
-    p {
-        @extend %marginLeft;
+    p:nth-of-type(1) {
+        font-weight: bold;
     }
 
     form {
-        @extend %marginLeft;
+        margin: 0 auto;
+        width: 37%;
         font-size: 16px;
 
         label {
@@ -247,27 +244,36 @@
             span {
                 position: absolute;
                 display: block;
-                top: 38%;
+                top: 44%;
                 margin-left: 2rem;
             }
 
             input {
                 @include form;
-                width: 50%;
+                width: 100%;
                 padding-left: 7.5rem;
                 font-size: 16px;
                 border-color: $sec_br;
-                margin-top: 10px
+                margin-top: 16px
+            }
+
+            p.emailErr{
+                color: red;
+                font-size: 5px;
+                position: absolute;
+                bottom: -17px;
+                left: 0px;
+                margin-left: 0px;
             }
         }
 
         textarea {
             @include border($sec_br);
-            width: 50%;
+            width: 100%;
             resize: none;
             border-radius: $borderRadius_cd;
             outline: none;
-            margin-top: 10px;
+            margin-top: 16px;
             padding-left: 2rem;
             padding-top: 1rem;
             font-size: 16px;

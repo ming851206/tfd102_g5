@@ -48,20 +48,10 @@
                     <h2>登入</h2>
                     <!-- 放登入的東西 -->
                     <!-- 輸入框欄位 -->
-                    <input class="login_input" 
-                        v-model="account" 
-                        type="account" 
-                        placeholder="帳號 :" 
-                        autocomplete="off"
-                        name="member_account_input" 
-                        id="account" 
-                        onkeyup="ban_chinese(this)"/>
-                    
-                    <input class="login_input" 
-                        v-model="password" 
-                        type="password" 
-                        placeholder="密碼 :" 
-                        autocomplete="off"
+                    <input class="login_input" v-model="account" type="account" placeholder="帳號 :" autocomplete="off"
+                        name="member_account_input" id="account" onkeyup="ban_chinese(this)" />
+
+                    <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off"
                         name="member_password_input">
                     <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
@@ -99,34 +89,18 @@
 
                     <!-- 輸入框欄位 -->
 
-                    <input class="login_input" 
-                        v-model="account_register" 
-                        type="account" 
-                        placeholder="帳號 :"
-                        id="account_register" 
-                        onkeyup="ban_chinese(this)">
+                    <input class="login_input" v-model="account_register" type="account" placeholder="帳號 :"
+                        id="account_register" onkeyup="ban_chinese(this)">
 
-                    <input class="login_input" 
-                        v-model="email_register" 
-                        type="email" 
-                        placeholder="Email :"
-                        autocomplete="off" 
-                        id="email_register"
-                        onkeyup="ban_chinese(this)">
+                    <input class="login_input" v-model="email_register" type="email" placeholder="Email :"
+                        autocomplete="off" id="email_register" onkeyup="ban_chinese(this)">
                     <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
 
-                    <input class="login_input" 
-                        v-model="password_register" 
-                        type="password" 
-                        placeholder="密碼 :"
+                    <input class="login_input" v-model="password_register" type="password" placeholder="密碼 :"
                         id="password_register">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" 
-                        type="password" 
-                        v-model="password_register_again" 
-                        placeholder="確認密碼 :"
-                        id="password_register" 
-                        ref="passwd_again">
+                    <input class="login_input" type="password" v-model="password_register_again" placeholder="確認密碼 :"
+                        id="password_register" ref="passwd_again">
                     <p v-if="!password_register_again_msg" class="sigin_tiny">確認密碼必須與密碼相同</p>
                     <!-- 登入按鈕 -->
                     <button type="button" class="btnM Sign_BTN" id="showBtn" @click="joinIN">註冊</button>
@@ -164,15 +138,10 @@
                     <h2>登入</h2>
 
                     <!-- 輸入框欄位 -->
-                    <input class="login_input"
-                        v-model="account" 
-                        type="account" 
-                        placeholder="帳號 :" 
-                        autocomplete="off" 
-                        name="member_account_input" 
-                        id="account" 
-                        onkeyup="ban_chinese(this)">
-                    <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off" name="member_password_input">
+                    <input class="login_input" v-model="account" type="account" placeholder="帳號 :" autocomplete="off"
+                        name="member_account_input" id="account" onkeyup="ban_chinese(this)">
+                    <input class="login_input" v-model="password" type="password" placeholder="密碼 :" autocomplete="off"
+                        name="member_password_input">
                     <p v-if="!password_login" class="sigin_tiny">密碼長度需高於6個字元</p>
                     <!-- 無法登入 -->
                     <div class="forgetPassword forgetPassword_phone" @click="password_forget">
@@ -215,35 +184,18 @@
 
                     <!-- 輸入框欄位 -->
 
-                    <input class="login_input" 
-                        v-model="account_register" 
-                        type="text" 
-                        placeholder="帳號 :"
-                        id="account_register" 
-                        onkeyup="value=value.replace(/[\W]/g,'') "
+                    <input class="login_input" v-model="account_register" type="text" placeholder="帳號 :"
+                        id="account_register" onkeyup="value=value.replace(/[\W]/g,'') "
                         onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
-                    <input class="login_input" 
-                        v-model="email_register" 
-                        type="email" 
-                        placeholder="Email :" 
-                        autocomplete="off"
-                        id="email_register"
-                        onkeyup="value=value.replace(/[\W]/g,'') "
+                    <input class="login_input" v-model="email_register" type="email" placeholder="Email :"
+                        autocomplete="off" id="email_register" onkeyup="value=value.replace(/[\W]/g,'') "
                         onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))">
                     <p v-if="!email_register_msg" class="sigin_tiny">信箱格式錯誤</p>
-                    <input class="login_input" 
-                        v-model="password_register" 
-                        type="password" 
-                        placeholder="密碼 :"
+                    <input class="login_input" v-model="password_register" type="password" placeholder="密碼 :"
                         id="password_register">
                     <p v-if="!password_register_msg" class="sigin_tiny">密碼長度需高於6個字元</p>
-                    <input class="login_input" 
-                        type="password" 
-                        v-model="password_register_again" 
-                        type="password" 
-                        placeholder="確認密碼 :"
-                        id="password_register" 
-                        ref="passwd_again">
+                    <input class="login_input" type="password" v-model="password_register_again" type="password"
+                        placeholder="確認密碼 :" id="password_register" ref="passwd_again">
                     <p v-if="!password_register_again_msg" class="sigin_tiny">確認密碼必須與密碼相同</p>
                     <!-- 登入切換按鈕 -->
                     <!-- 登入註冊切換按鈕區 -->
@@ -279,12 +231,8 @@
                 <!-- email -->
                 <div class="forgetpsd_email_block">
                     <h4 class="forgetpsd_h4">我們需要驗證您的身份</h4>
-                    <input class="login_input forget_input" 
-                        v-model="forget_email_register" 
-                        type="email"
-                        placeholder="輸入註冊的Email :" 
-                        ref="forgetemail" 
-                        onkeyup="ban_chinese(this)">
+                    <input class="login_input forget_input" v-model="forget_email_register" type="email"
+                        placeholder="輸入註冊的Email :" ref="forgetemail" onkeyup="ban_chinese(this)">
                     <p v-if="!forget_email_register_msg" class="sigin_tiny forgetPassword_phone">信箱格式錯誤</p>
                     <!-- submit email -->
                     <button type="button" class="btnM forgetpsd_sub" id="" @click="forget">寄送認證</button>
@@ -360,7 +308,7 @@
                 },
                 forget_email_register: function () {
                     let isText = /^([\w]+)(.[\w]+)*@([\w]+)(.[\w]{2,3}){1,2}$/;
-                    if(!isText.test(this.forget_email_register)) {
+                    if (!isText.test(this.forget_email_register)) {
                         this.forget_email_register_msg = false;
                     } else {
                         this.forget_email_register_msg = true;
@@ -473,14 +421,18 @@
                 //     e.value=e.value.replace(/[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/g,'')
                 // },
             },
+<<<<<<< HEAD
         });
+=======
+        }); ll
+>>>>>>> b2896f94a2c94ceb6828dd54c1e4e69dd1bf2b8e
 
     </script>
 
     <script>
-        function ban_chinese(obj){
-            obj.value=obj.value.replace(/[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/g,'');
-        //  alert("請輸入英文");
+        function ban_chinese(obj) {
+            obj.value = obj.value.replace(/[\u4E00-\u9FA5]|[\uFE30-\uFFA0]/g, '');
+            //  alert("請輸入英文");
         }
     </script>
 </body>
