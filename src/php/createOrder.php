@@ -29,7 +29,7 @@ try {
         'ItemName' => $title.' TWD$'.$perprice.'x'.$people.'人',
         'ReturnURL' => $OrderResultURL,
         'OrderResultURL' => $OrderResultURL,
-        'ChoosePayment' => 'ALL',
+        'ChoosePayment' => 'Credit',
         'EncryptType' => 1,
     ];
     $action = 'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5';
