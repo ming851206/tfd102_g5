@@ -3,18 +3,7 @@
 
 <head>
     <title>飛越世界奇景 尼加拉大瀑布</title>
-    <meta charset="UTF-8">
-    <meta name="keywords" content="travel, tour, trip, online travel">
-    <meta name="description" content="online travel website">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./js/jq/jquery-3.6.0.js"></script>
-    <script src="./js/vue/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.5.2/vue-router.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"></script>
-    <link rel="icon" href="./images/logo/favicon.ico.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/style.css">
+    @@include('layout_html/plugin.html')
 </head>
 
 <body>
@@ -103,24 +92,21 @@
                     </div>
                 </div>
 
-                <transition>
-                    <div class="photo_mask" v-show="photo_carousel==true">
-                        <div class="close_photos" @click="closePhotos"></div>
-                        <h4 class="picIndex">{{picIndex}} / 5</h4>
-                        <div class="photo_container">
-                            <div class="pre_photo" @click="prePhoto"></div>
-                            <div class="pics">
-                                <img :src="info.pic1" v-show="picIndex==1">
-                                <img :src="info.pic2" v-show="picIndex==2">
-                                <img :src="info.pic3" v-show="picIndex==3">
-                                <img :src="info.pic4" v-show="picIndex==4">
-                                <img :src="info.pic5" v-show="picIndex==5">
-                            </div>
-                            <div class="next_photo" @click="nextPhoto"></div>
+                <div class="photo_mask" v-if="photo_carousel==true">
+                    <div class="close_photos" @click="closePhotos"></div>
+                    <h4 class="picIndex">{{picIndex}} / 5</h4>
+                    <div class="photo_container">
+                        <div class="pre_photo" @click="prePhoto"></div>
+                        <div class="pics">
+                            <img :src="info.pic1" v-show="picIndex==1">
+                            <img :src="info.pic2" v-show="picIndex==2">
+                            <img :src="info.pic3" v-show="picIndex==3">
+                            <img :src="info.pic4" v-show="picIndex==4">
+                            <img :src="info.pic5" v-show="picIndex==5">
                         </div>
+                        <div class="next_photo" @click="nextPhoto"></div>
                     </div>
-                </transition>
-
+                </div>
             </div>
 
             <div class="item_explanation">
@@ -265,7 +251,7 @@
                                 }
                                 this.fav = !this.fav;
                             } else {
-                                alert('請登入後再進行');
+                                alert('請登入後再收藏');
                             }
                         })
                 },
@@ -552,23 +538,6 @@
                     // 取得最愛旅遊
                     this.getAllFavs();
 
-                })
-
-                // 點選圖片放大瀏覽
-                $(function () {
-                    $(".images").on("click", function () {
-                        $("html").css({
-                            position: "fixed",
-                            width: "100%",
-                        })
-                    });
-                    $(".close_photos").on("click", function (e) {
-                        e.stopPropagation();
-                        $("html").css({
-                            position: "static",
-                            width: "100%",
-                        })
-                    });
                 })
             },
         })

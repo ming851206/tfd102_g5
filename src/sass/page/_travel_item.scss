@@ -61,20 +61,20 @@
 
             .share {
                 cursor: pointer;
-                background-image: url('../../images/icon/share.svg');
+                background-image: url('../images/icon/share.svg');
                 width: 20px;
                 height: 22px;
                 background-size: 14px;
                 background-repeat: no-repeat;
 
                 &:hover {
-                    background-image: url('../../images/icon/share_brown.svg');
+                    background-image: url('../images/icon/share_brown.svg');
                 }
             }
 
             .fav {
                 cursor: pointer;
-                background-image: url('../../images/icon/like.svg');
+                background-image: url('../images/icon/like.svg');
                 width: 18px;
                 height: 18px;
                 background-size: 18px;
@@ -90,7 +90,7 @@
             }
 
             .fav.clicked {
-                background-image: url('../../images/icon/like_full.svg');
+                background-image: url('../images/icon/like_full.svg');
                 background-size: 17px;
             }
         }
@@ -1159,7 +1159,6 @@
 
             a {
                 width: 100%;
-                // border: 2px solid red;
                 border-radius: $borderRadius_cd;
                 overflow: hidden;
 
