@@ -1,6 +1,6 @@
-   // ========== 會員管理(綺) ========== 
-   const Member = {
-    mixins:[timestampMixin],
+// ========== 會員管理(綺) ==========
+const Member = {
+    mixins: [timestampMixin],
     template: `
     <div class="temp">
          <h3>會員管理</h3>
@@ -49,7 +49,7 @@
         return {
             search: '',
             timestamp: '',
-            theStatus:'',
+            theStatus: '',
             data: [
                 // {
                 //     no: 1,
@@ -65,34 +65,34 @@
             ],
         };
     },
-    methods:{
-        switchStatus(index){
+    methods: {
+        switchStatus(index) {
             this.theStatus = this.data[index].account_status;
-            if( this.theStatus == 1 ){
+            if (this.theStatus == 1) {
                 axios.get('../php/adm_status0.php', {
-                    params: { 
+                    params: {
                         theID: this.data[index].ID,
                     }
-                 }).then(res => {
-                     this.theStatus = res.data;
-                     axios.get('../../php/adm_memberList.php')
-                    .then(res => this.data = res.data)
-                    .catch( (error) => alert('數據加載失敗'+ error));
-                    
-                 }).catch( (error) => alert('數據加載失敗'+ error));
-                 
-            }else{
-                axios.get('../php/adm_status1.php', {
-                    params: { 
-                        theID: this.data[index].ID,
-                    }
-                 }).then(res => {
+                }).then(res => {
                     this.theStatus = res.data;
-                    
                     axios.get('../php/adm_memberList.php')
-                    .then(res => this.data = res.data)
-                    .catch( (error) => alert('數據加載失敗'+ error));
-                 }).catch( (error) => alert('數據加載失敗'+ error));
+                        .then(res => this.data = res.data)
+                        .catch((error) => alert('數據加載失敗' + error));
+
+                }).catch((error) => alert('數據加載失敗' + error));
+
+            } else {
+                axios.get('../php/adm_status1.php', {
+                    params: {
+                        theID: this.data[index].ID,
+                    }
+                }).then(res => {
+                    this.theStatus = res.data;
+
+                    axios.get('../php/adm_memberList.php')
+                        .then(res => this.data = res.data)
+                        .catch((error) => alert('數據加載失敗' + error));
+                }).catch((error) => alert('數據加載失敗' + error));
             }
         },
     },
@@ -105,7 +105,7 @@
     },
     mounted() {
         axios.get('../php/adm_memberList.php')
-        .then(res => this.data = res.data)
-        .catch( (error) => alert('數據加載失敗'+ error));
+            .then(res => this.data = res.data)
+            .catch((error) => alert('數據加載失敗' + error));
     },
 };

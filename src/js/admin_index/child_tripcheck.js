@@ -1,4 +1,4 @@
-// ========== 旅程申請審核(綺) ========== 
+// ========== 旅程申請審核(綺) ==========
 const TripCheck = {
     template: `
     <div class="temp2">
@@ -7,7 +7,7 @@ const TripCheck = {
             <input type="text" name="adm_query" placeholder="輸入旅程名稱" v-model="search">
             <img src="../images/icon/search.svg" alt="">
         </label>
-    
+
         <table>
             <tr>
                 <th>編號</th>
@@ -31,7 +31,7 @@ const TripCheck = {
         <div class="rejectBox" v-if="this.showBox == true">
             編號{{this.boxID}}，旅程退件原因：
             <img src="../images/icon/close.svg" alt="" @click="closeBox">
-            <div class="rejChkbox">                       
+            <div class="rejChkbox">
                     <label for="item1">
                         <input type="radio" id="item1" value="1" v-model="rejReason" @change="txtOff">內文或格式不合規定
                     </label>
@@ -75,9 +75,9 @@ const TripCheck = {
             search: '',
             timestamp: '',
             showBox: false,
-            boxID:'',
-            resTxt:'',
-            rejTxt:'',
+            boxID: '',
+            resTxt: '',
+            rejTxt: '',
             rejReason: '',
             isDisabled: true,
             theIndex: '',
@@ -100,63 +100,63 @@ const TripCheck = {
         tripChecked(index) {
             if (confirm('是否上架此旅遊?')) {
                 //把值傳給後端API
-                axios.post('../php/adm_updateTrip_checked.php', JSON.stringify({
+                axios.post('../../php/adm_updateTrip_checked.php', JSON.stringify({
                     theID: this.data[index].ID
                 }), {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }).then(res =>{
+                }).then(res => {
                     this.resTxt = res.data;
                     //console.log(this.resTxt);
                     alert(`${this.resTxt}`);
-                }).catch( (error) => alert('數據加載失敗'+ error));; 
-                
+                }).catch((error) => alert('數據加載失敗' + error));;
+
                 this.data.splice(index, 1);
             }
         },
-        textOn(){
+        textOn() {
             this.isDisabled = false;
         },
-        txtOff(){
+        txtOff() {
             this.isDisabled = true;
         },
         setMessage(e) { //物件本身就是e.target
-            this.rejReason = e.target.value; 
-         },
+            this.rejReason = e.target.value;
+        },
         reject(index) {  //該筆index對應的退件box出現
             this.showBox = true;
             this.boxID = this.data[index].ID;
             this.theIndex = index;
         },
-        doReject(){  
-            if( this.rejReason == ''){
+        doReject() {
+            if (this.rejReason == '') {
                 alert('請填寫退件原因!');
-            }else{
-                axios.post('../php/adm_rejectBox.php', JSON.stringify({
+            } else {
+                axios.post('../../php/adm_rejectBox.php', JSON.stringify({
                     theID: this.boxID,
-                    theValue : this.rejReason
+                    theValue: this.rejReason
                 }), {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }).then(res =>{
+                }).then(res => {
                     this.rejTxt = res.data;
                     //console.log(this.rejTxt);
                     //在這裡this.data[this.theIndex]會抓不到，會變undefined(why?)
                     alert(`${this.rejTxt}`);
-                    
-                }).catch( (error) => alert('數據加載失敗'+ error)); 
+
+                }).catch((error) => alert('數據加載失敗' + error));
             }
             this.data.splice(this.theIndex, 1);
             this.theIndex = '',
-            this.rejReason = '',
-            this.showBox = false;
+                this.rejReason = '',
+                this.showBox = false;
         },
         closeBox() {
             this.showBox = false;
         },
-        
+
     },
     computed: {
         filterList() { //搜尋功能
@@ -166,8 +166,8 @@ const TripCheck = {
         },
     },
     mounted() {
-        axios.get('../php/adm_tripcheck.php')
-        .then(res => this.data = res.data)
-        .catch( (error) => alert('數據加載失敗'+ error));
+        axios.get('../../php/adm_tripcheck.php')
+            .then(res => this.data = res.data)
+            .catch((error) => alert('數據加載失敗' + error));
     },
 }

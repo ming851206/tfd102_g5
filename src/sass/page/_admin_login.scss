@@ -1,18 +1,22 @@
-.adm_sec{
+.adm_sec {
     min-height: 100vh;
     background-color: $main_bl;
-    .loginBox{
+
+    .loginBox {
         @include total_center;
-        background-color: rgb(233, 233, 233); 
+        background-color: rgb(233, 233, 233);
         border-radius: $borderRadius_d;
         padding: 30px 50px;
-        h3{
+
+        h3 {
             text-align: center;
         }
-        %bdR{
+
+        %bdR {
             border-radius: $borderRadius_m_btn
         }
-        label{
+
+        label {
             @include block_center;
             @include border($sec_br);
             @extend %bdR;
@@ -24,22 +28,26 @@
             background-repeat: no-repeat;
             background-size: 15px;
             background-position: left 15px top 8px;
-            input{
+
+            input {
                 @extend %bdR;
                 width: 100%;
                 display: block;
                 height: 25px;
-                border:none;
+                border: none;
                 padding: 8px 10px;
             }
         }
-        label:nth-of-type(1){
-            background-image: url(../../images/icon/admin_member.svg);
+
+        label:nth-of-type(1) {
+            background-image: url('../images/icon/admin_member.svg');
         }
-        label:nth-of-type(2){
-            background-image: url(../../images/icon/admin_pwd.svg);
+
+        label:nth-of-type(2) {
+            background-image: url('../images/icon/admin_pwd.svg');
         }
-        button{
+
+        button {
             @extend %bdR;
             margin-top: 30px;
         }
