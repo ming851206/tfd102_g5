@@ -53,7 +53,7 @@ const Historys = {
                                     <div class="addDivTop">
                                         <div class="addDivTopImg">
                                             <div class="Img">
-                                                <img :src="value.intro_pics">
+                                                <img :src="the_avatar">
                                             </div>
                                             <p style = "margin:10px 0;">{{productName}}</p>
                                         </div>
@@ -209,6 +209,7 @@ const Historys = {
             productDate: '',
             productContent: '',
             mobile: false,
+            the_avatar: '',
         };
     },
     methods: {
@@ -265,6 +266,7 @@ const Historys = {
             this.productName = this.datas[index].name;
             this.productDate = this.datas[index].started_at;
             this.productContent = this.datas[index].title;
+            this.the_avatar = this.datas[index].avatar;
             this.commentIndex = index;
             this.addcomment = true;
 
