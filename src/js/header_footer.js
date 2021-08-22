@@ -2,7 +2,7 @@ const header = Vue.component("the-header", {
     template: `
     <div class="navigation">
         <div class="nav_logo">
-            <a href="index.html">
+            <a href="home.html">
                 <img class="logo" src="./images/logo/logo.svg" alt="logo">
             </a>
         </div>
@@ -16,7 +16,7 @@ const header = Vue.component("the-header", {
                 </div>
                 <div class="mobile_bar">
                     <li class="home">
-                        <a href="index.html">
+                        <a href="home.html">
                             <img src="./images/icon/header/home_icon.svg" alt="home">
                         </a>
                     </li>
@@ -33,55 +33,55 @@ const header = Vue.component("the-header", {
             </ul>
         </nav>
     </div>
-`, 
-methods: {
-    loginCheck(){ 
-        $.ajax({            
-            method: "POST",
-            url: "php/LoginCheck.php",
-            data:{},            
-            dataType: "text",
-            success: function (response) {
-                if(response == ""){
-                    location.href = 'login.html';
-                }else{
-                    location.href = 'member.html';
-                }              
-            },
-            error: function(exception) {
-                alert("數據載入失敗: " + exception.status);
-            }
-        });
+`,
+    methods: {
+        loginCheck() {
+            $.ajax({
+                method: "POST",
+                url: "php/LoginCheck.php",
+                data: {},
+                dataType: "text",
+                success: function (response) {
+                    if (response == "") {
+                        location.href = 'login.html';
+                    } else {
+                        location.href = 'member.html';
+                    }
+                },
+                error: function (exception) {
+                    alert("數據載入失敗: " + exception.status);
+                }
+            });
+        },
+        loginCheck1() {
+            $.ajax({
+                method: "POST",
+                url: "php/LoginCheck.php",
+                data: {},
+                dataType: "text",
+                success: function (response) {
+                    if (response == "") {
+                        alert('請先登入，將前往登入頁');
+                        location.href = 'login.html';
+                    } else {
+                        location.href = 'member.html';
+                    }
+                },
+                error: function (exception) {
+                    alert("數據載入失敗: " + exception.status);
+                }
+            });
+        },
     },
-    loginCheck1(){ 
-        $.ajax({            
-            method: "POST",
-            url: "php/LoginCheck.php",
-            data:{},            
-            dataType: "text",
-            success: function (response) {
-                if(response == ""){
-                    alert('請先登入，將前往登入頁'); 
-                    location.href = 'login.html';
-                }else{
-                    location.href = 'member.html';
-                }              
-            },
-            error: function(exception) {
-                alert("數據載入失敗: " + exception.status);
-            }
-        });
-    },
-},
-mounted() {
+    mounted() {
         let locationName = location.pathname;
-        if(locationName == "/about.html"){
+        if (locationName == "/about.html") {
             $(".web_bar li:nth-child(1) a").addClass("bold");
-        }else if(locationName == "/travel_list.html"){
+        } else if (locationName == "/travel_list.html") {
             $(".web_bar li:nth-child(2) a").addClass("bold");
-        }else if(locationName == "/postcard.html"){
+        } else if (locationName == "/postcard.html") {
             $(".web_bar li:nth-child(3) a").addClass("bold_3");
-        }else if(locationName == "/q_acc" || locationName == "/QA.html"){
+        } else if (locationName == "/q_acc" || locationName == "/QA.html") {
             $(".web_bar li:nth-child(4) a").addClass("bold");
         }
     },

@@ -2,7 +2,7 @@
 Vue.component('eu', {
     data() {
         return {  //組件的變數寫在這裡！
-            nowCat: 0,
+            nowCat: 1,
             category_list: [
                 { cat: '美洲', },
                 { cat: '歐洲', },
@@ -35,12 +35,12 @@ Vue.component('eu', {
         <p class="slider_count">根據你的篩選條件搜尋到 {{item_counts}} 筆結果</p>
         <ul class="item_list">
             <li v-for="item in items" :id="item.ID" class="item">
-                <a :href="item.link">
+                <a :href="changeLink(item.ID)">
                     <div class="trip_item">
                         <img :src="item.intro_pics">
                         <div class="content">
                             <div class="avatar">
-                                <img :src="item.intro_pics">
+                                <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
@@ -66,6 +66,10 @@ Vue.component('eu', {
 
     `,
     methods: {
+        changeLink(id) {
+            // console.log('測試變換連結' + id);
+            return './travel_item.html?ID=' + id;
+        },
         changeiColor(e) {
             e.preventDefault();
             // console.log(e.target);
@@ -190,10 +194,10 @@ Vue.component('eu', {
                 cat: 2 // 2 代表歐洲
             }
         }).then(res => {
-            // console.log('as');
+            // console.log('eu');
+            console.log(res.data[0].category);
             this.items = res.data; // 旅遊內容
             this.item_counts = res.data.length; // 旅遊筆數
-            this.nowCat = parseInt(res.data[0].category) - 1; // 此旅遊的分類 ：抓取旅遊內容的 category 當作 key 去 mapping category_list 的值
         });
         //==================== 取得所有最愛旅遊 =======================        
         this.getAllFavs();

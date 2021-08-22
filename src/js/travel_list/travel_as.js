@@ -35,12 +35,12 @@ Vue.component('as', {
         <p class="slider_count">根據你的篩選條件搜尋到 {{item_counts}} 筆結果</p>
         <ul class="item_list">
             <li v-for="item in items" :id="item.ID" class="item">
-                <a :href="item.link">
+                <a :href="changeLink(item.ID)">
                     <div class="trip_item">
                         <img :src="item.intro_pics">
                         <div class="content">
                             <div class="avatar">
-                                <img :src="item.intro_pics">
+                                <img :src="item.avatar">
                             </div>
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
@@ -66,6 +66,10 @@ Vue.component('as', {
 
     `,
     methods: {
+        changeLink(id) {
+            // console.log('測試變換連結' + id);
+            return './travel_item.html?ID=' + id;
+        },
         changeiColor(e) {
             e.preventDefault();
             // console.log(e.target);
