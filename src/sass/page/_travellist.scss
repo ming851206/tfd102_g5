@@ -350,7 +350,16 @@ body {
         }
 
         ul.filter1 {
-            li:nth-child(3) {
+            #timer{
+                border: 1px solid #996A4D;
+    outline: none;
+    appearance: none;
+    border-radius: 13px;
+    font-size: 14px;
+    padding: 3.5px 2px;
+            }
+
+            li:nth-child(2) {
                 border-right: 2px solid grey;
                 padding-right: 20px;
             }
@@ -361,13 +370,13 @@ body {
             //     }
             // }
             @include ipad {
-                li:nth-child(3) {
+                li:nth-child(2) {
                     border: 0;
                 }
             }
 
             @include mobile {
-                li:nth-child(3) {
+                li:nth-child(2) {
                     border: 0;
                 }
             }
