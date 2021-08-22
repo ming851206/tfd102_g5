@@ -301,7 +301,7 @@ body {
             // }
             @include tablet {
                 // border: 2px solid pink;
-                width: 265px;
+                width: 300px;
             }
 
             @include ipad {
@@ -328,7 +328,7 @@ body {
 
             @include laptop {
                 // border: 2px solid pink;
-                width: 500px;
+                width: 400px;
             }
 
             @include tablet {
@@ -352,11 +352,11 @@ body {
         ul.filter1 {
             #timer{
                 border: 1px solid #996A4D;
-    outline: none;
-    appearance: none;
-    border-radius: 13px;
-    font-size: 14px;
-    padding: 3.5px 2px;
+                outline: none;
+                appearance: none;
+                border-radius: 13px;
+                font-size: 14px;
+                padding: 3.5px 2px;
             }
 
             li:nth-child(2) {
