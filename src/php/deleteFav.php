@@ -7,7 +7,7 @@ $member_ID = $addfavs['memberID'];
 $product_info_ID = $addfavs['itemID'];
 
 //建立SQL
-$sql = "DELETE FROM JUMPER.fav WHERE member_ID = ? AND product_info_ID = ?";
+$sql = "DELETE FROM fav WHERE member_ID = ? AND product_info_ID = ?";
 // print_r($sql);exit();
 
 //執行

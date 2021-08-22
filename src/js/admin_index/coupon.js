@@ -1,9 +1,9 @@
-// ========== 優惠券管理(竹) ========== 
+// ========== 優惠券管理(竹) ==========
 const Coupon = {
     template: `
         <div class="temp">
             <h3>優惠券管理</h3>
-                <router-link to="/coupon/newCoupon">
+                <router-link to="/tfd102/project/g5/admin/coupon/newCoupon">
                     <button class="add">新增優惠券</button>
                 </router-link>
                 <label>
@@ -21,29 +21,29 @@ const Coupon = {
                             <th>來源</th>
                             <th>功能</th>
                         </tr>
-                        
+
                         <tr v-for="(coupon,index) in filterList">
                             <td v-text="coupon.ID" ></td>
                             <td class="cName">
                                 <div v-if="coupon.is_edit == false" v-text="coupon.content"></div>
-                                <input v-else v-model="coupon.content">   
+                                <input v-else v-model="coupon.content">
                             </td>
                             <td class="cContent">
                                 <div v-if="coupon.is_edit == false" v-text="coupon.code"></div>
-                                <input v-else v-model="coupon.code">   
+                                <input v-else v-model="coupon.code">
                             </td>
                             <td class="cDiscount">
                                 <div v-if="coupon.is_edit == false" v-text="coupon.off_percent"></div>
-                                <input v-else v-model="coupon.off_percent">   
+                                <input v-else v-model="coupon.off_percent">
                             </td>
                             <td class="cExpire">
                                 <div v-if="coupon.is_edit == false" v-text="coupon.datetime"></div>
                                 <input type="datetime-local" v-else v-model="coupon.datetime_local" :id="timerId" @change="DatetimeToTimestamp(index)">
-                                
+
                             </td>
                             <td class="cCome">
                                 <div v-if="coupon.is_edit == false" v-text="coupon.source"></div>
-                                <input v-else v-model="coupon.source">   
+                                <input v-else v-model="coupon.source">
                             </td>
                             <td v-if="coupon.is_edit == false">
                                 <button @click="edit(index)">編輯</button>
@@ -54,7 +54,7 @@ const Coupon = {
                                 <button class="confirm" @click="confirm(index)">確認</button>
                             </td>
                         </tr>
-    
+
                     </table>
                     <div class="pager2">
                         <ul>
@@ -98,7 +98,7 @@ const Coupon = {
             console.log('刪除測試');
             the_delete_coupon = this.coupons[index];
             // console.log(the_delete_coupon);
-            axios.get('../../php/adm_coupon_delete.php', {
+            axios.get('../php/adm_coupon_delete.php', {
                 params: {  // 帶參數
                     theID: the_delete_coupon.ID //
                 }
@@ -114,7 +114,7 @@ const Coupon = {
             the_edit_coupon = this.coupons[index];
 
             //把值傳給後端API
-            axios.post('../../php/adm_coupon_edit.php', JSON.stringify({
+            axios.post('../php/adm_coupon_edit.php', JSON.stringify({
                 theID: the_edit_coupon.ID, // 編號
                 content: the_edit_coupon.content, // 優惠券名稱
                 code: the_edit_coupon.code, // 優惠碼
@@ -134,9 +134,9 @@ const Coupon = {
             // this.coupons[index].is_edit = false;
 
         },
-  
+
         // Datetime -> 時間戳記
-        
+
         DatetimeToTimestamp(index) {
             the_edit_coupon = this.coupons[index];
             var oTimer = document.getElementById('timer');
@@ -155,7 +155,7 @@ const Coupon = {
             var date = new Date(theTimestamp);
 
             // console.log(date);
-            
+
             // console.log(date);
             Y = date.getFullYear() + '-';
             M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
@@ -164,11 +164,11 @@ const Coupon = {
             m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
             s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
             // s = 59;
-            
-            if (dateformtype){
+
+            if (dateformtype) {
                 return this.datetime_local = Y + M + D + 'T' + h + m + s // 2021-07-31T23:44,
             }
-            return this.datetime = Y + M + D +  ' ' + h + m + s
+            return this.datetime = Y + M + D + ' ' + h + m + s
         },
     },
     computed: {
@@ -184,14 +184,14 @@ const Coupon = {
     },
     mounted() {
         // console.log('mounted');
-        //==================== 取得優惠券資料 ======================= 
-        // axios.get('../../php/Lib/strtotime.php') // 抓取時間戳記
+        //==================== 取得優惠券資料 =======================
+        // axios.get('../php/Lib/strtotime.php') // 抓取時間戳記
         // .then(res => {
         //     // console(res.data);
         // })
 
 
-        axios.get('../../php/adm_couponlist.php')
+        axios.get('../php/adm_couponlist.php')
             .then(res => {
                 const final_data = res.data;
                 // console.log(final_data[0].expired_at);
@@ -203,7 +203,7 @@ const Coupon = {
                     final_data[index].datetime_local = this.timestampToDatetime(final_data[index].expired_at, 1); // 新增一個 date_time_local 的欄位，並將 expired_at 轉成 datetime 格式賦值給他
                 }
                 this.coupons = final_data;
-                
+
             })
             .catch((error) => alert('數據加載失敗' + error));
     },
