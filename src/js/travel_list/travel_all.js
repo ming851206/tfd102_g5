@@ -16,7 +16,7 @@ Vue.component('all', {
                     comment_count: "102",
                     star_num: "5",
                     place: "美國",
-                    title: " 遠走紐約  自由女神朝聖之旅",
+                    title: " 飛越世界奇景 尼加拉大瀑布",
                     event_price: "499",
                 },
                 {
