@@ -75,13 +75,13 @@ const header = Vue.component("the-header", {
     },
     mounted() {
         let locationName = location.pathname;
-        if (locationName == "/about.html") {
+        if (locationName == "/tfd102/project/g5/about.html") {
             $(".web_bar li:nth-child(1) a").addClass("bold");
-        } else if (locationName == "/travel_list.html") {
+        } else if (locationName == "/tfd102/project/g5/travel_list.html") {
             $(".web_bar li:nth-child(2) a").addClass("bold");
-        } else if (locationName == "/postcard.html") {
+        } else if (locationName == "/tfd102/project/g5/postcard.html") {
             $(".web_bar li:nth-child(3) a").addClass("bold_3");
-        } else if (locationName == "/q_acc" || locationName == "/QA.html") {
+        } else if (locationName == "/tfd102/project/g5/q_acc" || locationName == "/tfd102/project/g5/QA.html") {
             $(".web_bar li:nth-child(4) a").addClass("bold");
         }
     },

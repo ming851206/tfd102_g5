@@ -2,7 +2,7 @@
 <html lang="zh-tw">
 
 <head>
-    <title>飛越世界奇景 尼加拉大瀑布</title>
+    <title>來趟浪漫的地中海之旅 欣賞如童話般美景</title>
     @@include('layout_html/plugin.html')
 </head>
 
@@ -353,11 +353,13 @@
                 // 取得所有最愛旅遊
                 getAllFavs() {
                     axios.get('./php/showLove.php').then(res => {
-                        this.favs = res.data; // 旅遊內容
-                        for (let i = 0; i < this.favs.length; i++) {
-                            if (this.favs[i].product_info_ID == this.getID) {
-                                this.fav = true;
-                                break;
+                        if (res.data != 0) {
+                            this.favs = res.data; // 旅遊內容
+                            for (let i = 0; i < this.favs.length; i++) {
+                                if (this.favs[i].product_info_ID == this.getID) {
+                                    this.fav = true;
+                                    break;
+                                }
                             }
                         }
                     });
