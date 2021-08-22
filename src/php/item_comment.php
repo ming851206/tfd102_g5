@@ -4,8 +4,8 @@ include("./conn.php");
 $product_ID = json_decode(file_get_contents('php://input'), true);
 
 $sql = "SELECT c.product_ID, c.star, c.content, m.avatar, m.name
-        From JUMPER.comment c
-        join JUMPER.member m 
+        From comment c
+        join member m 
             on c.member_ID = m.ID
         where product_ID = ?;";
 
