@@ -5,7 +5,7 @@ $product_ID = json_decode(file_get_contents('php://input'), true);
 
 $sql = "SELECT c.product_ID, c.star, c.content, m.avatar, m.name, c.deleted_at
         From comment c
-        join member m 
+        join member m
             on c.member_ID = m.ID
         where product_ID = ? and c.deleted_at = '';";
 
@@ -16,4 +16,3 @@ $data = $statement->fetchAll();
 
 echo json_encode($data);
 ?>
-

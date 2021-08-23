@@ -475,6 +475,11 @@
     // margin-top: 8px;
     margin: 8px;
     margin-left: 20px;
+
+    @include mobile {
+        margin-left: 10px;
+
+    }
 }
 
 .loveContentsTop {
@@ -1777,6 +1782,7 @@
 
         .memberLoveConcent {
             height: 70px;
+            width: 155px;
         }
 
         .loveContentBorder {
@@ -1787,7 +1793,8 @@
 
             .loveImg {
                 height: 150px;
-                min-width: 120px;
+                min-width: 150px;
+                width: 150px;
             }
 
             .headImg {
@@ -1831,6 +1838,7 @@
 
     .historyContents {
         width: 100%;
+        margin-left: 10px;
     }
 
     .memberEditCancel {

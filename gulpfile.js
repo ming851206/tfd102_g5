@@ -66,7 +66,7 @@ function img_orig() {
 function img_compress() {
     return src(['./src/images/*.*', './src/images/**/*.*', './src/images/**/**/*.*'])
         .pipe(imagemin([
-            imagemin.mozjpeg({ quality: 80, progressive: true }), // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差
+            imagemin.mozjpeg({ quality: 50, progressive: true }), // 壓縮品質      quality越低 -> 壓縮越大 -> 品質越差
             imagemin.optipng({ optimizationLevel: 3 }) // png
         ]))
         .pipe(dest('dist/images'))

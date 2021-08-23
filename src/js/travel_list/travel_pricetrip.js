@@ -39,7 +39,7 @@ Vue.component('priceTrip', {
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
                                 <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="loginCheck(item.ID)"></div>
-                                
+
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -68,40 +68,40 @@ Vue.component('priceTrip', {
             e.target.classList.toggle('clicked');
         },
 
-        loginCheck(itemid){ 
-            // console.log(this);   
+        loginCheck(itemid) {
+            // console.log(this);
             let that = this;
-            $.ajax({            
+            $.ajax({
                 method: "POST",
                 url: "php/LoginCheck.php",
-                data:{},            
+                data: {},
                 dataType: "text",
                 success: function (response) {
                     // console.log('這是登入成功回傳的 memberID：' + response);
                     let memberID = response;
-                    
-                    if(response == ""){
+
+                    if (response == "") {
                         //尚未登入->前往Login.php
-                        alert('請先登入，將前往登入頁'); 
+                        alert('請先登入，將前往登入頁');
                         location.href = 'login.html';
-                    }else{
+                    } else {
                         console.log('登入成功');
                         // console.log('會員ID:' . memberID);
                         // getData();
                         // console.log(that);
                         that.is_fav(itemid) ? that.deleteFav(itemid, memberID) : that.addFav(itemid, memberID);
-                    }              
+                    }
                 },
-                error: function(exception) {
+                error: function (exception) {
                     alert("數據載入失敗: " + exception.status);
                 }
             });
         },
 
         // 取得所有最愛旅遊
-        getAllFavs(){
-            axios.get('../../php/showFav.php').then(res => {
-                    this.favs = res.data; // 旅遊內容
+        getAllFavs() {
+            axios.get('./php/showFav.php').then(res => {
+                this.favs = res.data; // 旅遊內容
             });
         },
 
@@ -125,34 +125,34 @@ Vue.component('priceTrip', {
         // 參數：itemID, memberID
         // method: post
         addFav(itemID, memberID) {
-            axios.post('../../php/addFav.php', JSON.stringify({
+            axios.post('./php/addFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次新增後的最愛旅遊
-            ); 
+            );
         },
 
         // removeFav 刪除最愛旅遊
         // 參數：itemID, memberID
         // method: post
         deleteFav(itemID, memberID) {
-            axios.post('../../php/deleteFav.php', JSON.stringify({
+            axios.post('./php/deleteFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次刪除後的最愛旅遊
-                );
+            );
         },
 
         // fb 分享
@@ -191,14 +191,14 @@ Vue.component('priceTrip', {
     // },
     mounted() {
         //==================== 搜尋旅遊 =======================
-        axios.get('../../php/searchTrip.php')
+        axios.get('./php/searchTrip.php')
             .then(res => {
                 // console.log('filter');
                 // console.log(res.data);
                 this.items = res.data; // 旅遊內容
             });
 
-        //==================== 取得所有最愛旅遊 =======================        
+        //==================== 取得所有最愛旅遊 =======================
         this.getAllFavs();
     },
 });
