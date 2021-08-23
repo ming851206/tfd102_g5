@@ -104,16 +104,17 @@
             background-color: $sec_ivory;
             text-align: center;
 
-            .logo{
+            .logo {
                 position: relative;
-                top:30px;
+                top: 30px;
                 left: 0px;
-                
-                img{
+
+                img {
                     width: 120px;
                     cursor: pointer;
                 }
             }
+
             a:nth-of-type(2) {
                 margin-top: 20px;
             }
@@ -381,7 +382,8 @@
 
                         td.cName {
                             // border: 2px solid red;
-                            width: 250px,
+                            width: 250px;
+                            text-align: center
                         }
 
                         td.cCode {
@@ -398,7 +400,8 @@
                         td.cExpire,
                         td.cCreate {
                             // border: 2px solid red;
-                            width: 300px,
+                            width: 300px;
+                            text-align: center
                         }
 
                         td.chk_btns {
