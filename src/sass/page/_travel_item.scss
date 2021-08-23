@@ -1144,7 +1144,8 @@
                 width: 272px * 0.85;
 
                 &:nth-child(1) {
-                    margin-bottom: 180px;
+                    margin-bottom: 20px;
+                    height: unset;
                 }
 
                 &:nth-child(2) {
@@ -1265,6 +1266,7 @@
                             p.area {
                                 // border: 2px solid brown;
                                 margin: 0 0 0 10px;
+                                white-space: nowrap;
                             }
                         }
 
