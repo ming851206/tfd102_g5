@@ -114,7 +114,7 @@ const Coupon = {
             the_edit_coupon = this.coupons[index];
 
             //把值傳給後端API
-            axios.post('../../php/adm_coupon_edit.php', JSON.stringify({
+            axios.post('../php/adm_coupon_edit.php', JSON.stringify({
                 theID: the_edit_coupon.ID, // 編號
                 content: the_edit_coupon.content, // 優惠券名稱
                 code: the_edit_coupon.code, // 優惠碼
@@ -191,7 +191,7 @@ const Coupon = {
         // })
 
 
-        axios.get('../../php/adm_couponlist.php')
+        axios.get('../php/adm_couponlist.php')
             .then(res => {
                 const final_data = res.data;
                 // console.log(final_data[0].expired_at);
