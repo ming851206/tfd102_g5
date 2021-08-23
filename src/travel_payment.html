@@ -270,6 +270,9 @@
                     }
                 }).then(res => {
                     this.product = res.data[0];
+                    axios.get('./php/insertCoupon.php')
+                    .then(res => {console.log(res);
+                    }).catch((error) => alert('數據加載失敗' + error));
                     //console.log(this.product);
                 }).catch((error) => alert('數據加載失敗' + error));
             },
