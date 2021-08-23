@@ -26,7 +26,7 @@ const OrderList = {
                 <td><button class="sendLink" @click="updateIsAlert(index)" :disabled="order.is_alerted == 1" >發送連結</button></td>
             </tr>
         </table>
-        <div class="pager2">
+        <!--<div class="pager2">
             <ul>
                 <li><a href="">&lt;</a></li>
                 <li><a href="" class="-on">1</a></li>
@@ -36,7 +36,7 @@ const OrderList = {
                 <li><a href="">5</a></li>
                 <li><a href="">&gt;</a></li>
                 </ul>
-        </div>
+        </div>-->
     </div>
 
     `,
@@ -80,11 +80,11 @@ const OrderList = {
             axios.post('../php/update_orderalert.php', JSON.stringify({
                 itemId: theOrder.ID,
             }))
-            .then(res => {
-                // console.log(res.data);
-                theOrder.is_alerted = 1;
-            })
-            .catch((error) => alert('數據加載失敗' + error));
+                .then(res => {
+                    // console.log(res.data);
+                    theOrder.is_alerted = 1;
+                })
+                .catch((error) => alert('數據加載失敗' + error));
         }
     },
     computed: {

@@ -56,7 +56,7 @@ const Coupon = {
                         </tr>
 
                     </table>
-                    <div class="pager2">
+                    <!--<div class="pager2">
                         <ul>
                             <li><a href="">&lt;</a></li>
                             <li><a href="" class="-on">1</a></li>
@@ -67,6 +67,7 @@ const Coupon = {
                             <li><a href="">&gt;</a></li>
                         </ul>
                     </div>
+                    -->
         </div>
 `,
     data() {

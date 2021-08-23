@@ -28,7 +28,7 @@ const TripList = {
                 </tr>
             </table>
 
-            <div class="pager2">
+            <!--<div class="pager2">
                     <ul>
                         <li><a href="">&lt;</a></li>
                         <li><a href="" class="-on">1</a></li>
@@ -39,14 +39,15 @@ const TripList = {
                         <li><a href="">&gt;</a></li>
                     </ul>
                 </div>
+                -->
         </div>
 ` ,
     data() {
         return {
-            now:0,
+            now: 0,
             timestamp: '',
             search: '',
-            delTxt:'',
+            delTxt: '',
             data: [
                 // {
                 //     num: 1,
@@ -82,22 +83,22 @@ const TripList = {
         // }
     },
     methods: {
-        
+
         revoke(index) {
             var date = new Date();
             this.now = date.getTime();
-            
+
             if (confirm('是否下架旅遊?')) {
-                
+
                 axios.get('../php/adm_deleteTrip.php', {
-                    params: { 
+                    params: {
                         theID: this.data[index].ID,
                         delTime: this.now
                     }
-                 }).then(res =>{
+                }).then(res => {
                     this.delTxt = res.data;
                     alert(`${this.delTxt}`);
-                }).catch( (error) => alert('數據加載失敗'+ error));
+                }).catch((error) => alert('數據加載失敗' + error));
 
                 this.data.splice(index, 1);
                 // let theTr = e.target.closest('tr');
@@ -112,7 +113,7 @@ const TripList = {
     },
     mounted() {
         axios.get('../php/adm_triplist.php')
-        .then(res => this.data = res.data)
-        .catch( (error) => alert('數據加載失敗'+ error));
+            .then(res => this.data = res.data)
+            .catch((error) => alert('數據加載失敗' + error));
     },
 }
