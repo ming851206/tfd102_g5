@@ -15,10 +15,10 @@ $font_m_map:( //手機版字體大小
     '.p_tiny':10px
 );
 
-@font-face{
-    font-family:'en';
-    src: url(../../font/DejaVuSansCondensed.ttf);
-}
+// @font-face {
+    //     font-family:'en';
+    //     src: url(../../font/DejaVuSansCondensed.ttf);
+    // }
 
 //桌機h2~p大小
 @mixin font_size($font-map) {
