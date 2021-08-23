@@ -6,7 +6,7 @@ if($memberID!="" ){
     $getdata = json_decode(file_get_contents('php://input'), true);
 
     //建立SQL
-    $sql = "select p1.ID ,t2.order_ID ,t3.avatar, p1.place , p1.title , p1.intro_pics ,t2.vedio_link , t2.started_at , t2.ended_at , t1.staravg , t2.status
+    $sql = "select p1.ID ,p1.member_ID ,t2.order_ID ,t3.avatar, p1.place , p1.title , p1.intro_pics ,t2.vedio_link , t2.started_at , t2.ended_at , t1.staravg , t2.status
                     from product_info p1
                         join (
                                 select product_ID , TRUNCATE(avg(star) ,1) as staravg
@@ -25,7 +25,7 @@ if($memberID!="" ){
 						join (select ID , avatar
 								from member
                                 ) t3
-                                on t3.ID = p1.ID
+                                on t3.ID = p1.member_ID
                                                     order by started_at asc ";
 
     //執行

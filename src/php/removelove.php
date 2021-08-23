@@ -15,9 +15,9 @@ $statement = getPDO()->prepare($sql);
 $statement->bindValue(1,$getdata["ID"]);
 $statement->execute();
 
-$sql = "select  t1.ID , t1.title ,t2.avatar, t1.content , t1.intro_pics , t1.place , TRUNCATE(avg(c1.star) ,1) as staravg
+$sql = "SELECT  t1.ID , t1.title ,t2.avatar, t1.content , t1.intro_pics , t1.place , TRUNCATE(avg(c1.star) ,1) as staravg
                         from comment c1
-                                right JOIN (SELECT f.ID ,f.product_info_ID, p.title , p.content , p.intro_pics , p.place
+                                JOIN (SELECT f.ID ,f.product_info_ID,p.member_ID as product__ID ,p.title , p.content , p.intro_pics , p.place
                                             FROM fav f
                                                         JOIN product_info p
                                                             on f.product_info_ID = p.ID
@@ -26,8 +26,8 @@ $sql = "select  t1.ID , t1.title ,t2.avatar, t1.content , t1.intro_pics , t1.pla
 										join (select ID,avatar
 												from member
 												) t2
-                                           on  t1.ID = t2.ID
-                                            group by t1.ID";
+                                           on  t1.product__ID = t2.ID
+                                            group by t1.ID;";
 
 
 //執行
