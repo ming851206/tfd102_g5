@@ -2,8 +2,8 @@
 
 include('./conn.php');
 
-//建立SQL 
-$sql = "SELECT * FROM JUMPER.coupon WHERE deleted_at = ''";
+//建立SQL
+$sql = "SELECT * FROM coupon WHERE deleted_at = '';";
 
 //執行
 $statement = getPDO()->prepare($sql);

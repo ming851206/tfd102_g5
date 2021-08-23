@@ -18,7 +18,7 @@ Vue.component('filterDateTrip', {
                 //         startprice: "800",
                 //     },
             ],
-            tempArray:[],
+            tempArray: [],
             favs: [  // 最愛旅遊
 
             ],
@@ -40,7 +40,7 @@ Vue.component('filterDateTrip', {
                             <div class="the_icon">
                                 <div class="share" @click="share"></div>
                                 <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="loginCheck(item.ID)"></div>
-                                
+
                             </div>
                             <div class="the_star_num">
                                 <img src="./images/index/content/star.svg">
@@ -69,7 +69,7 @@ Vue.component('filterDateTrip', {
             e.target.classList.toggle('clicked');
         },
         loginCheck(itemid) {
-            // console.log(this);   
+            // console.log(this);
             let that = this;
             $.ajax({
                 method: "POST",
@@ -100,7 +100,7 @@ Vue.component('filterDateTrip', {
 
         // 取得所有最愛旅遊
         getAllFavs() {
-            axios.get('../../php/showFav.php').then(res => {
+            axios.get('./php/showFav.php').then(res => {
                 this.favs = res.data; // 旅遊內容
             });
         },
@@ -125,7 +125,7 @@ Vue.component('filterDateTrip', {
         // 參數：itemID, memberID
         // method: post
         addFav(itemID, memberID) {
-            axios.post('../../php/addFav.php', JSON.stringify({
+            axios.post('./php/addFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
@@ -142,7 +142,7 @@ Vue.component('filterDateTrip', {
         // 參數：itemID, memberID
         // method: post
         deleteFav(itemID, memberID) {
-            axios.post('../../php/deleteFav.php', JSON.stringify({
+            axios.post('./php/deleteFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
@@ -177,15 +177,15 @@ Vue.component('filterDateTrip', {
     },
     computed: {
         filterList() { //搜尋功能
-            
+
             SearchMonth = new Date(this.theDate).getMonth() + 1; // 取得搜尋月份
             SearchDate = new Date(this.theDate).getDate(); // 取得搜尋日
 
-            this.tempArray =  this.items.filter((item) => { //把data送下來使用filter功能
+            this.tempArray = this.items.filter((item) => { //把data送下來使用filter功能
                 EventMonth = new Date(parseInt(item.started_at)).getMonth() + 1; // 取得旅程月份
                 EventDate = new Date(parseInt(item.started_at)).getDate(); // 取得旅程日
 
-                if (SearchMonth == EventMonth && SearchDate == EventDate){
+                if (SearchMonth == EventMonth && SearchDate == EventDate) {
                     console.log('yes');
                     return item;
                 } else {
@@ -203,14 +203,14 @@ Vue.component('filterDateTrip', {
     // },
     mounted() {
         //==================== 搜尋旅遊 =======================
-        axios.get('../../php/searchDateTrip.php', {
+        axios.get('./php/searchDateTrip.php', {
         }).then(res => {
             console.log('123');
             // console.log(res.data);
             this.items = res.data; // 旅遊內容
         });
 
-        //==================== 取得所有最愛旅遊 =======================        
+        //==================== 取得所有最愛旅遊 =======================
         this.getAllFavs();
     },
 });

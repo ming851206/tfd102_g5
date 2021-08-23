@@ -8,7 +8,7 @@ $addfavs =  json_decode(file_get_contents('php://input'), true);
 
 //建立SQL
 if($memberID!=''){
-    $sql = "INSERT INTO JUMPER.fav (member_ID, product_info_ID) VALUES (?, ?)";
+    $sql = "INSERT INTO fav (member_ID, product_info_ID) VALUES (?, ?)";
 
     //執行
     $statement = getPDO()->prepare($sql);

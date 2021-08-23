@@ -57,7 +57,7 @@ const TripCheck = {
             </div>
             <button class="btnS" type="button" @click="doReject">送出</button>
         </div>
-        <div class="pager2">
+       <!-- <div class="pager2">
                 <ul>
                     <li><a href="">&lt;</a></li>
                     <li><a href="" class="-on">1</a></li>
@@ -67,7 +67,7 @@ const TripCheck = {
                     <li><a href="">5</a></li>
                     <li><a href="">&gt;</a></li>
                 </ul>
-        </div>
+        </div>-->
     </div>
     `,
     data() {

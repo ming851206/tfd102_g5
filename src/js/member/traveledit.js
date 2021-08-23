@@ -484,6 +484,8 @@ const TravelEdit = {
                     end: set + (60 * 60 * 1000),
                 }).then(res => {
                     if (res.data == 1) {
+                        this.datas = res.data;
+                        console.log(res.data);
                         alert('新增成功');
                         this.index = '';
                         this.WorksTitle = '';
@@ -638,6 +640,7 @@ const TravelEdit = {
                     }).then(res => {
                         let data = res.data;
                         this.datas = data;
+                        console.log(data);
                         let getFiles = this.$refs.update.files;
                         let form_data = new FormData();
                         for (let i = 0; i < getFiles.length; i++) {
@@ -659,6 +662,8 @@ const TravelEdit = {
                                 console.log(exception)
                             },
                         })
+
+                    }).then(res => {
                         this.userAdd = ['', '1', '', '', ''];
                         this.files = [];
                         this.add = false;

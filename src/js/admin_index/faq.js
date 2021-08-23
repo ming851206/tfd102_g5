@@ -1,6 +1,6 @@
 // ========== 問題意見管理(綺) ========== 
 const Faq = {
-    mixins:[timestampMixin],
+    mixins: [timestampMixin],
     template: `
             <div class="temp">
                     <h3>問題意見管理</h3>
@@ -44,7 +44,7 @@ const Faq = {
                             </div>
                             <input type="submit" id="mailbutton" value="Send Email" class="btnM" @click="replyMail">
                     </form>
-                    <div class="pager2">
+                    <!--<div class="pager2">
                         <ul>
                             <li><a href="">&lt;</a></li>
                             <li><a href="" class="-on">1</a></li>
@@ -54,7 +54,7 @@ const Faq = {
                             <li><a href="">5</a></li>
                             <li><a href="">&gt;</a></li>
                         </ul>
-                    </div>
+                    </div>-->
             </div>
         `,
     data() {
@@ -88,7 +88,7 @@ const Faq = {
             this.showBox = false;
         },
         replyMail() {
-           
+
             const btn = document.getElementById('mailbutton');
 
             document.getElementById('mailform')
@@ -109,15 +109,15 @@ const Faq = {
                             alert(JSON.stringify(err));
                         });
                 });
-                
+
             //並呼叫axios寫入faq_at的時間
             axios.get('../php/adm_faqupdate.php', {
                 params: {
                     theID: this.data[this.theIndex].ID,
                 }
             }).then(res => {
-                if(res.data == '更新狀態成功!'){
-                    
+                if (res.data == '更新狀態成功!') {
+
                     setTimeout(() => {
                         //要自動關閉視窗並清空內容
                         this.data[this.theIndex].is_replied = 1;
@@ -127,13 +127,13 @@ const Faq = {
                         //畫面reload或是寫在watch?
                     }, 1000)
                 }
-            }).catch( (error) => alert('數據加載失敗'+ error));
+            }).catch((error) => alert('數據加載失敗' + error));
         },
     },
-    computed:{},
+    computed: {},
     mounted() {
         axios.get('../php/adm_faqlist.php')
-        .then(res => this.data = res.data)
-        .catch( (error) => alert('數據加載失敗'+ error));
+            .then(res => this.data = res.data)
+            .catch((error) => alert('數據加載失敗' + error));
     },
 };

@@ -6,7 +6,7 @@ $member_ID = $addfavs['memberID'];
 $product_info_ID = $addfavs['itemID'];
 
 //建立SQL
-$sql = "INSERT INTO JUMPER.fav (member_ID, product_info_ID) VALUES (?, ?)";
+$sql = "INSERT INTO fav (member_ID, product_info_ID) VALUES (?, ?)";
 
 //執行
 $statement = getPDO()->prepare($sql);

@@ -2,7 +2,7 @@
 <html lang="zh-tw">
 
 <head>
-    <title>飛越世界奇景 尼加拉大瀑布</title>
+    <title>來趟浪漫的地中海之旅 欣賞如童話般美景</title>
     @@include('layout_html/plugin.html')
 </head>
 
@@ -92,7 +92,7 @@
                     </div>
                 </div>
 
-                <div class="photo_mask" v-if="photo_carousel==true">
+                <div class="photo_mask" v-show="photo_carousel==true" style="display: none;">
                     <div class="close_photos" @click="closePhotos"></div>
                     <h4 class="picIndex">{{picIndex}} / 5</h4>
                     <div class="photo_container">
@@ -212,6 +212,7 @@
         const travelItem = new Vue({
             el: "#travel-item",
             data: {
+                photo_carousel: false,
                 info: [],
                 list: [
                     { num: 1, title: "活動長度：約1小時", description: "旅遊全程以中文導覽" },
@@ -219,7 +220,6 @@
                     { num: 3, title: "參與方式：線上加入", description: "透過 Google meenting 跟著線上導遊的腳步，一同暢遊景點" },
                     { num: 4, title: "取消訂購須知", description: "在旅遊活動開始「前 24 小時」取消，即可拿回全額退款" },
                 ],
-                photo_carousel: false,
                 comment: [],
                 recommend_items: [],
                 favs: [],
@@ -352,12 +352,14 @@
                 },
                 // 取得所有最愛旅遊
                 getAllFavs() {
-                    axios.get('./php/showFav.php').then(res => {
-                        this.favs = res.data; // 旅遊內容
-                        for (let i = 0; i < this.favs.length; i++) {
-                            if (this.favs[i].product_info_ID == this.getID) {
-                                this.fav = true;
-                                break;
+                    axios.get('./php/showLove.php').then(res => {
+                        if (res.data != 0) {
+                            this.favs = res.data; // 旅遊內容
+                            for (let i = 0; i < this.favs.length; i++) {
+                                if (this.favs[i].product_info_ID == this.getID) {
+                                    this.fav = true;
+                                    break;
+                                }
                             }
                         }
                     });

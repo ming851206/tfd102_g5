@@ -59,17 +59,17 @@
                         <!-- 篩選器彈窗 -->
                         <div class="overlay">
                             <article>
-                                <h3>價格範圍</h3>
-                                <p>(體驗的平均價格為 $500)</p>
+                                <h3>價格篩選 </h3>
+                                <p>(將列出低於所搜尋價格的旅遊)</p>
                                 <form action="#" method="#" id="the_form">
                                     <div class="price_filter">
-                                        <label>體驗價格：</label>
-                                        <input type="range" min="499" max="1000" value="500" class="product_price"
+                                        <label>搜尋價格：</label>
+                                        <input type="range" min="499" max="1000" value="600" class="product_price"
                                             v-model="searchprice">
-                                        <span class="num" data-default="600">{{searchprice}}</span>
+                                        <span class="num" data-default="600">${{searchprice}}</span>
                                     </div>
                                     <button type="button" class="btn_modal_close"
-                                        @click="content='priceTrip'">OK</button>
+                                        @click="content='priceTrip'">送出</button>
                                 </form>
                             </article>
                         </div>
