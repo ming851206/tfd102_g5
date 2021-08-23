@@ -1,5 +1,5 @@
- // ========== 旅程評論審查(竹) ========== 
- const CommentCheck = {
+// ========== 旅程評論審查(竹) ========== 
+const CommentCheck = {
     template: `
     <div class="temp2">
         <h3>旅程評論審查</h3>
@@ -23,7 +23,7 @@
                     <td><button class="delbtn" @click="delete_comment(index)">刪除</button></td>
                 </tr>
             </table>
-            <div class="pager2">
+            <!--<div class="pager2">
                     <ul>
                         <li><a href="">&lt;</a></li>
                         <li><a href="" class="-on">1</a></li>
@@ -33,7 +33,7 @@
                         <li><a href="">5</a></li>
                         <li><a href="">&gt;</a></li>
                     </ul>
-            </div>
+            </div>-->
         </div>
     `,
     data() {
@@ -52,12 +52,12 @@
                     theID: the_delete_comment.id,
                 }
             }).then(res => {
-                if(confirm("確定刪除?")) {
+                if (confirm("確定刪除?")) {
                     this.comments.splice(index, 1);
                     alert(res.data)
-                }else{
+                } else {
                     return false;
-                } 
+                }
             }).catch((error) => alert('數據加載失敗' + error));
         },
         // allchk(e) {
