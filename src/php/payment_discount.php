@@ -6,12 +6,12 @@ $memberID = getMemberID();
 
     //建立SQL
     $sql = "select c.ID, c.content
-                    from JUMPER.coupon c
+                    from coupon c
                         join
-                            JUMPER.coupon_record r 
-                            on c.ID=r.coupon_record_ID 
-                            where r.member_ID= ? 
-                            and r.is_used=0 
+                            coupon_record r
+                            on c.ID=r.coupon_record_ID
+                            where r.member_ID= ?
+                            and r.is_used=0
                             and c.expired_at >= UNIX_TIMESTAMP();";
 
     //執行

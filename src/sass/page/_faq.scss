@@ -11,7 +11,7 @@
         @include form;
         width: 48%;
         height: 60px;
-        background-image: url(./images/icon/search.svg);
+        background-image: url('../images/icon/search.svg');
         background-repeat: no-repeat;
         background-position: 15px 50%;
         background-size: 20px;
@@ -21,7 +21,7 @@
 
     .deco {
         height: 100px;
-        background-image: url(./images/index/content/fence_hor.png);
+        background-image: url('../images/index/content/fence_hor.png');
         background-position: bottom;
         background-repeat: repeat-x;
         background-size: 28px;
@@ -82,7 +82,9 @@
                     left: -8px;
                 }
 
-                &:hover,&:focus,&:active{
+                &:hover,
+                &:focus,
+                &:active {
                     &::after {
                         background-color: $main_br;
                         height: 2px;
@@ -91,7 +93,8 @@
                 }
 
             }
-            a.preChk{
+
+            a.preChk {
                 &::after {
                     background-color: $main_br;
                     height: 2px;
@@ -112,7 +115,7 @@
                     background-color: $sec_br;
                     border-radius: $borderRadius_cd;
                     padding: 20px 40px;
-                    background-image: url(./images/icon/add.svg);
+                    background-image: url('../images/icon/add.svg');
                     background-repeat: no-repeat;
                     background-position: top 22px right 30px;
                     font-size: 16px;
@@ -207,9 +210,11 @@
             .app_r {
                 width: 78%;
                 margin: 20px auto 0px auto;
-                .qcard>p{
+
+                .qcard>p {
                     padding: 20px 55px;
                 }
+
                 .word {
                     @include border($sec_br);
                 }
@@ -257,7 +262,7 @@
                 margin-top: 16px
             }
 
-            p.emailErr{
+            p.emailErr {
                 color: red;
                 font-size: 5px;
                 position: absolute;

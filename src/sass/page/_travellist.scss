@@ -58,14 +58,14 @@ body {
 
             .share {
                 // border: 2px solid red;
-                background-image: url('../../images/icon/share.svg');
+                background-image: url('../images/icon/share.svg');
                 width: 20px;
                 height: 22px;
                 background-size: 14px;
                 background-repeat: no-repeat;
 
                 &:hover {
-                    background-image: url('../../images/icon/share_brown.svg');
+                    background-image: url('../images/icon/share_brown.svg');
                 }
 
                 @include ipad {
@@ -85,7 +85,7 @@ body {
 
             .fav {
                 // border: 2px solid blue;
-                background-image: url('../../images/icon/like.svg');
+                background-image: url('../images/icon/like.svg');
                 width: 18px;
                 height: 18px;
                 background-size: 18px;
@@ -122,12 +122,14 @@ body {
 
             .fav.clicked {
                 // border: 2px solid red;
-                background-image: url('../../images/icon/like_full.svg');
+                background-image: url('../images/icon/like_full.svg');
                 background-size: 17px;
+
                 @include ipad {
                     // border: 2px solid blue;
                     background-size: 14px;
                 }
+
                 @include mobile {
                     background-size: 14px;
 
@@ -151,10 +153,10 @@ body {
             // border: 2px solid red;
             height: 55px;
             max-height: 55px;
-            
+
             font-size: 16px;
             color: rgba(0, 0, 0, 0.8);
-            margin-bottom: 10px;
+            // margin-bottom: 10px;
             font-family: 'regular';
             font-weight: bold;
             overflow: hidden;
@@ -211,7 +213,7 @@ body {
         width: 100%;
         height: 800%;
         /* 寬度可以拉大測試，看要多大 */
-        background-image: url(../../images/travel_list/banner_bg.jpg);
+        background-image: url(../images/travel_list/banner_bg.jpg);
         background-size: auto 90%;
         background-repeat: repeat-y;
         animation: bgscrolldown 50s linear infinite;
@@ -301,7 +303,7 @@ body {
             // }
             @include tablet {
                 // border: 2px solid pink;
-                width: 265px;
+                width: 300px;
             }
 
             @include ipad {
@@ -328,7 +330,7 @@ body {
 
             @include laptop {
                 // border: 2px solid pink;
-                width: 500px;
+                width: 400px;
             }
 
             @include tablet {
@@ -350,7 +352,16 @@ body {
         }
 
         ul.filter1 {
-            li:nth-child(3) {
+            #timer {
+                border: 1px solid #996A4D;
+                outline: none;
+                appearance: none;
+                border-radius: 13px;
+                font-size: 14px;
+                padding: 3.5px 2px;
+            }
+
+            li:nth-child(2) {
                 border-right: 2px solid grey;
                 padding-right: 20px;
             }
@@ -361,13 +372,13 @@ body {
             //     }
             // }
             @include ipad {
-                li:nth-child(3) {
+                li:nth-child(2) {
                     border: 0;
                 }
             }
 
             @include mobile {
-                li:nth-child(3) {
+                li:nth-child(2) {
                     border: 0;
                 }
             }
@@ -381,7 +392,7 @@ body {
         width: 200px;
         height: 30px;
         right: 5px;
-        background-image: url(../../images/icon/search.svg);
+        background-image: url(../images/icon/search.svg);
         background-repeat: no-repeat;
         background-position: 10px center;
 
@@ -400,7 +411,8 @@ body {
     }
 
 }
-.main{
+
+.main {
     height: 100%;
 }
 
@@ -504,15 +516,6 @@ body {
     .pic {
         width: 50%;
         height: 100%;
-    }
-
-    .pic.upper {
-        background-image: url(../../images/travel_list/500/africa_elephant.jpg);
-        background-position: center;
-    }
-
-    .pic.down {
-        background-image: url(../../images/travel_list/500/louvre.jpg);
     }
 
     .content {
@@ -696,11 +699,11 @@ body {
                     // border: 2px solid red;
 
                     .share {
-                        background-image: url(../../images/icon/share.svg);
+                        background-image: url(../images/icon/share.svg);
                     }
 
                     .fav {
-                        background-image: url(../../images/icon/like.svg);
+                        background-image: url(../images/icon/like.svg);
                     }
                 }
 
@@ -729,7 +732,7 @@ body {
                         // border: 2px solid red;
                         margin-bottom: 20px;
                         font-weight: bold;
-           
+
                     }
 
                     p.txt {
@@ -884,10 +887,12 @@ body {
         }
     }
 }
+
 .the_viewed_trip {
     // border: 2px solid red;
     margin-bottom: 100px;
 }
+
 // ========= 分類旅遊 =========
 .the_cat_trip {
     // border: 3px solid red;
@@ -944,10 +949,11 @@ body {
                     @include tripcard();
                     max-height: 350px;
 
-                    img{
-                        // border: 2px solid red; 
+                    img {
+                        // border: 2px solid red;
                         height: 50%;
                     }
+
                     .content {
 
                         height: 50%;
@@ -1056,9 +1062,11 @@ body {
     width: 100%;
     height: 350px;
 }
+
 .owl-carousel .owl-item img {
     height: 50%;
 }
+
 .owl-item .item:hover {
     // border: 2px solid brown;
     transform: scale(1.02);
@@ -1098,7 +1106,7 @@ body {
     .owl-carousel {
         .owl-nav {
             .owl-prev {
-                background-image: url(../../images/icon/page-prev.svg);
+                background-image: url(../images/icon/page-prev.svg);
                 background-size: cover;
                 position: absolute;
                 width: 30px;
@@ -1128,7 +1136,7 @@ body {
             }
 
             .owl-prev:hover {
-                background-image: url(../../images/icon/page-prev.svg);
+                background-image: url(../images/icon/page-prev.svg);
                 background-size: cover;
                 width: 33px;
                 height: 33px;
@@ -1146,7 +1154,7 @@ body {
     .owl-carousel {
         .owl-nav {
             .owl-next {
-                background-image: url(../../images/icon/page-next.svg);
+                background-image: url(../images/icon/page-next.svg);
                 background-size: cover;
                 position: absolute;
                 width: 30px;
@@ -1157,7 +1165,7 @@ body {
             }
 
             .owl-next:hover {
-                background-image: url(../../images/icon/page-next.svg);
+                background-image: url(../images/icon/page-next.svg);
                 background-size: cover;
                 width: 33px;
                 height: 33px;

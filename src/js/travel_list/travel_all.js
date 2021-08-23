@@ -9,15 +9,15 @@ Vue.component('all', {
             },
             besttrip_items: [
                 {
-                    ID: 2,
-                    link: "./travel_item.html?ID=2",
-                    intro_pics: "./images/travel_list/1/2/0.jpg",
-                    avatar: "./images/avatar/avatar6.jpg",
-                    comment_count: "102",
-                    star_num: "5",
-                    place: "美國",
-                    title: " 遠走紐約  自由女神朝聖之旅",
-                    event_price: "499",
+                    ID: 28,
+                    link: "./travel_item.html?ID=28",
+                    intro_pics: "./images/travel_list/4/28/0.jpg",
+                    avatar: "./images/avatar/avatar10.jpg",
+                    comment_count: "24",
+                    star_num: "4.8",
+                    place: "摩洛哥",
+                    title: "摩洛哥卡薩布蘭卡 北非的迷情風光和文化遺產",
+                    event_price: "888",
                 },
                 {
                     ID: 38,
@@ -305,7 +305,7 @@ Vue.component('all', {
                                         <p class="area">美國</p>
                                     </div>
                                     <h4 class="trip_intro">
-                                        飛越世界奇景 尼加拉大瀑布
+                                        飛越世界奇景 尼加拉大瀑布，此生必須一睹大自然最美產物之一：尼加拉大瀑布以每秒 150,000 加侖的流水量傾瀉而下，氣勢滂礡，被譽為...
                                     </h4>
                                     <p>每人 $599</p>
                                 </div>
@@ -387,7 +387,7 @@ Vue.component('all', {
                                     </div>
                                     <div class="the_icon">
                                         <div class="share" @click="share"></div>
-                                        <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="loginCheck(item.ID)"></div>                                                                       
+                                        <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="loginCheck(item.ID)"></div>
                                     </div>
                                     <div class="the_star_num">
                                         <img src="./images/index/content/star.svg">
@@ -440,7 +440,7 @@ Vue.component('all', {
                                     </div>
                                     <div class="the_icon">
                                         <div class="share" @click="share"></div>
-                                        <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="loginCheck(item.ID)"></div>                                                                       
+                                        <div class="fav" :class="{'clicked':is_fav(item.ID)}" @click.prevent="loginCheck(item.ID)"></div>
                                     </div>
                                     <div class="the_star_num">
                                         <img src="./images/index/content/star.svg">
@@ -466,40 +466,40 @@ Vue.component('all', {
             e.target.classList.toggle('clicked');
         },
 
-        loginCheck(itemid){ 
-            // console.log(this);   
+        loginCheck(itemid) {
+            // console.log(this);
             let that = this;
-            $.ajax({            
+            $.ajax({
                 method: "POST",
                 url: "php/LoginCheck.php",
-                data:{},            
+                data: {},
                 dataType: "text",
                 success: function (response) {
                     // console.log('這是登入成功回傳的 memberID：' + response);
                     let memberID = response;
-                    
-                    if(response == ""){
+
+                    if (response == "") {
                         //尚未登入->前往Login.php
-                        alert('請先登入，將前往登入頁'); 
+                        alert('請先登入，將前往登入頁');
                         location.href = 'login.html';
-                    }else{
+                    } else {
                         console.log('登入成功');
                         // console.log('會員ID:' . memberID);
                         // getData();
                         // console.log(that);
                         that.is_fav(itemid) ? that.deleteFav(itemid, memberID) : that.addFav(itemid, memberID);
-                    }              
+                    }
                 },
-                error: function(exception) {
+                error: function (exception) {
                     alert("數據載入失敗: " + exception.status);
                 }
             });
         },
 
         // 取得所有最愛旅遊
-        getAllFavs(){
-            axios.get('../../php/showFav.php').then(res => {
-                    this.favs = res.data; // 旅遊內容
+        getAllFavs() {
+            axios.get('./php/showFav.php').then(res => {
+                this.favs = res.data; // 旅遊內容
             });
         },
 
@@ -523,34 +523,34 @@ Vue.component('all', {
         // 參數：itemID, memberID
         // method: post
         addFav(itemID, memberID) {
-            axios.post('../../php/addFav.php', JSON.stringify({
+            axios.post('./php/addFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次新增後的最愛旅遊
-            ); 
+            );
         },
 
         // removeFav 刪除最愛旅遊
         // 參數：itemID, memberID
         // method: post
         deleteFav(itemID, memberID) {
-            axios.post('../../php/deleteFav.php', JSON.stringify({
+            axios.post('./php/deleteFav.php', JSON.stringify({
                 memberID: memberID,
                 itemID: itemID,
             }), {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }).then(res => 
+            }).then(res =>
                 // console.log(res.data)
                 this.getAllFavs() // 重新取得一次刪除後的最愛旅遊
-                );
+            );
         },
 
         // fb 分享
@@ -590,7 +590,7 @@ Vue.component('all', {
         //     this.besttrip_items = res.data; // 旅遊內容
         //     //this.items_counts.besttrip = res.data.length; // 旅遊筆數
         // });
-        //==================== 取得所有最愛旅遊 =======================        
+        //==================== 取得所有最愛旅遊 =======================
         this.getAllFavs();
     },
 });

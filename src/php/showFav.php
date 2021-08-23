@@ -5,7 +5,7 @@ include('Lib/Member.php');
 $member_ID = getMemberID(); // 透過 session 取得 member_id
 
 //建立SQL
-$sql = "SELECT * FROM JUMPER.fav WHERE member_ID = ?;";
+$sql = "SELECT * FROM fav WHERE member_ID = ?;";
 
 //執行
 $statement = getPDO()->prepare($sql);
